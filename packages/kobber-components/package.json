@@ -1,0 +1,37 @@
+{
+  "name": "@gyldendal/kobber-components",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "chunks/**/*",
+    "css/**/*",
+    "react/**/*",
+    "web-components/**/*"
+  ],
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "yarn lint:js & yarn lint:css",
+    "lint:js": "eslint ./src/**/*.{ts,tsx}",
+    "lint:css": "stylelint ./src/**/*.css",
+    "build": "tsup",
+    "prepare": "npm run build",
+    "dev": "npm run build -- --watch"
+  },
+  "dependencies": {
+    "@r2wc/react-to-web-component": "^2.0.3",
+    "@gyldendal/kobber-base": "*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@gyldendal/kobber-eslint": "*",
+    "@gyldendal/kobber-stylelint": "*",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GyldendalDigital/gu-ds"
+  }
+}

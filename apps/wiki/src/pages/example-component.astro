@@ -1,0 +1,68 @@
+---
+import "@gyldendal/kobber-components/css/components.css";
+import { Example } from "@gyldendal/kobber-components/react";
+import tokens from "@gyldendal/kobber-base/themes/default/tokens.json";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Test">
+  <!-- Server side rendered react component -->
+
+  <Example
+    message="Server side rendered react component"
+    backgroundColor={tokens.primitives.color.pink[100]}
+  />
+
+  <br />
+
+  <!-- Client side rendered react component -->
+
+  <div id="react-root"></div>
+
+  <br />
+
+  <script>
+    import { Example } from "@gyldendal/kobber-components/react";
+    import tokens from "@gyldendal/kobber-base/themes/default/tokens.json";
+    import { createElement } from "react";
+    import { createRoot } from "react-dom/client";
+    const element = document.getElementById("react-root");
+    if (element) {
+      const root = createRoot(element);
+      const componentWithoutJsx = createElement(
+        Example,
+        {
+          message: "Client side rendered react component",
+          backgroundColor: tokens.primitives.color.orange[100],
+        },
+        null
+      );
+      root.render(componentWithoutJsx);
+    }
+  </script>
+
+  <!-- Web component using custom element -->
+
+  <script>
+    import "@gyldendal/kobber-components/web-components";
+  </script>
+
+  <kobber-example
+    message="Web component using custom element"
+    background-color={tokens.primitives.color.purple[100]}></kobber-example>
+
+  <br />
+
+  <!-- Scripted Web component -->
+
+  <div id="web-component-container"></div>
+
+  <script>
+    import { Example } from "@gyldendal/kobber-components/web-components";
+    import tokens from "@gyldendal/kobber-base/themes/default/tokens.json";
+    const example = new Example();
+    example.backgroundColor = tokens.primitives.color.turquoise[100];
+    example.message = "Scripted Web component";
+    document.querySelector("#web-component-container")?.appendChild(example);
+  </script>
+</Layout>

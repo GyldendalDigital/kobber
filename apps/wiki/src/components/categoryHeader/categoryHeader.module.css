@@ -1,0 +1,33 @@
+.categoryHeader {
+    padding: calc(var(--primitives-size-32) * 1px);
+    color: var(--primitives-color-white);
+    background-color: var(--primitives-color-violet-1000);
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.categoryHeader h2 {
+    margin: 0
+}
+
+
+.code {
+    display: none;
+    background-color: var(--primitives-color-violet-1000);
+    color: var(--primitives-color-white);
+}
+
+.codeOpen {
+    display: block;
+}
+
+.codeToggleButton {
+    all: initial;
+    padding: calc(var(--primitives-size-16) * 1px);
+    background-color: var(--primitives-color-violet-1000);
+    color: var(--primitives-color-white);
+    cursor: pointer;
+}

@@ -1,0 +1,26 @@
+---
+import Navigation from "../navigation/Navigation.astro";
+---
+
+<header>
+  <img
+    class="ds-gyldendal-logo"
+    src="/gyldendal_frontpage_logo.svg"
+    alt="Gyldendal logo"
+  />
+  <Navigation />
+  <slot />
+</header>
+
+<style>
+  header {
+    background-color: var(--primitives-color-gray-100);
+  }
+
+  .ds-gyldendal-logo {
+    position: absolute;
+    top: calc(var(--primitives-size-18) * 1px);
+    left: calc(var(--primitives-size-18) * 1px);
+    height: calc(var(--primitives-size-24) * 1px);
+  }
+</style>

@@ -1,0 +1,77 @@
+---
+import { getTheme } from "../../theme.ts";
+import { Page } from "../page/Page";
+import RichText from "../richText/RichTextAstro.astro";
+import * as richTextStyles from "../richText/richText.css.ts";
+import Color from "./Color.astro";
+import classNames from "./colors.module.css";
+
+const { tokens } = getTheme();
+
+const colorCategories = Object.entries(tokens.primitives.color).reduce(
+  (colors, [key, value]) => {
+    if (typeof value === "string") {
+      colors.base = colors.base ?? ({} as Record<string, string>);
+      colors.base[key] = value;
+    } else {
+      colors[key] = value;
+    }
+    return colors;
+  },
+  {
+    base: {},
+  } as Record<string, Record<string, string>>
+);
+---
+
+<Page
+  heading="Colors"
+  code={JSON.stringify(
+    {
+      primitives: {
+        color: tokens.primitives.color,
+      },
+    },
+    null,
+    "  "
+  )}
+>
+  <RichText>
+    <h2>Generelt om farger</h2>
+    <p>
+      Oversikt over hvilke farger som kan brukes sammen i henhold til kravene i
+      WCAG finner du nederst.
+    </p>
+  </RichText>
+  <div class={classNames.grid}>
+    {
+      Object.entries(colorCategories).map(([categoryName, colors]) => {
+        return (
+          <div class={classNames.category}>
+            <h3 class={richTextStyles.h3}>
+              {categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}
+            </h3>
+            {Object.entries(colors).map(([tokenKey, hex]) => (
+              <Color
+                categoryName={categoryName}
+                tokenKey={tokenKey}
+                hex={hex}
+              />
+            ))}
+          </div>
+        );
+      })
+    }
+  </div>
+  <RichText>
+    <h3>Fargekontraster</h3>
+    <p>
+      Godkjente kombinasjoner i henhold til kravene i WCAG.
+      <br />
+       100–400 kan alltid brukes med sort.
+      <br />
+       1000 burde alltid kunne brukes med hvit, men gjelder ikke den gule
+      akkurat nå!
+    </p>
+  </RichText>
+</Page>

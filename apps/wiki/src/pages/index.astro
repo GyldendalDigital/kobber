@@ -1,0 +1,43 @@
+---
+import * as typographyStyles from "@gyldendal/kobber-base/themes/default/typography.module.css";
+import { Borders } from "../components/borders/Borders";
+import Colors from "../components/colors/Colors.astro";
+import { Elevation } from "../components/elevation/Elevation";
+import PageHeader from "../components/pageHeader/PageHeader.astro";
+import { Sizes } from "../components/sizes/Sizes";
+import { Typography } from "../components/typography/Typography";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Kobber">
+  <PageHeader>
+    <h1 class:list={[typographyStyles.headingXxxl, "ds-heading"]}>Kobber</h1>
+  </PageHeader>
+  <Colors />
+  <Typography client:idle />
+  <Sizes client:idle />
+  <Borders client:idle />
+  <Elevation client:idle />
+</Layout>
+
+<style>
+  .ds-heading {
+    text-align: center;
+    margin: 0;
+    padding: calc(var(--primitives-size-8) * 1px) 0;
+  }
+
+  .submit-button {
+    background-color: var(--component-button-color-background);
+    border-radius: calc(var(--semantic-action-border-radius-pill) * 1px);
+    padding: calc(var(--component-button-padding-block) * 1px)
+      calc(var(--component-button-padding-inline) * 1px);
+    vertical-align: 5px;
+    margin-left: 5px;
+  }
+
+  .status {
+    text-align: center;
+    margin-top: calc(var(--primitives-size-18) * 1px);
+  }
+</style>

@@ -1,0 +1,22 @@
+{
+  "name": "@gyldendal/kobber-base",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "build": "yarn tokens && yarn css",
+    "tokens": "ts-node ./build-tokens.ts",
+    "css": "ts-node build-css.ts"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GyldendalDigital/gu-ds"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
+    "style-dictionary": "^3.9.0"
+  }
+}

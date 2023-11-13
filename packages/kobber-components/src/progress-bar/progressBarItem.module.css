@@ -1,0 +1,18 @@
+@layer guds {
+    .item {
+        border-radius: inherit;
+        height: inherit;
+        width: calc(var(--progress-bar-item-width) * 1%);
+    }
+
+    .fill {
+        border-radius: inherit;
+        height: inherit;
+        width: 100%;
+        max-width: 100%;
+
+        /* Necessary for iPad */
+        background-color: var(--progress-bar-fill-color);
+        transition: width 0.2s ease-in;
+    }
+}

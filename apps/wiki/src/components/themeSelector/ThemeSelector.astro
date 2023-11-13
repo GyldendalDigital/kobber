@@ -1,0 +1,28 @@
+---
+import { getTheme, themes } from "../../theme";
+
+const themeArray = Object.keys(themes);
+
+const currentTheme = getTheme(Astro);
+---
+
+<select>
+  {
+    themeArray.map((theme, index) => (
+      <option value={theme} selected={theme === currentTheme.name}>
+        {theme}
+      </option>
+    ))
+  }
+</select>
+
+<script>
+  import { setTheme, type Theme } from "../../theme";
+
+  window.document
+    ?.querySelector("select")
+    ?.addEventListener("change", (event) => {
+      const element = event.currentTarget as HTMLSelectElement;
+      setTheme(element?.value as Theme);
+    });
+</script>

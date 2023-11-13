@@ -1,0 +1,38 @@
+{
+  "name": "wiki",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf .turbo dist node_modules",
+    "lint": "yarn lint:js & yarn lint:css",
+    "lint:js": "eslint ./src/**/*.{ts,tsx}",
+    "lint:css": "stylelint ./src/**/*.css",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/node": "^6.0.3",
+    "@astrojs/react": "^3.0.4",
+    "@fontsource/fira-code": "^5.0.15",
+    "@gyldendal/kobber-base": "*",
+    "@gyldendal/kobber-components": "*",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vanilla-extract/css": "^1.14.0",
+    "astro": "^3.5.3",
+    "highlight.js": "^11.8.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0"
+  },
+  "devDependencies": {
+    "@gyldendal/kobber-eslint": "*",
+    "@gyldendal/kobber-stylelint": "*",
+    "@vanilla-extract/vite-plugin": "^3.9.0",
+    "chromatic": "^7.4.0"
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "actionButton": {
+    "fontSize": "16px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 500,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.5
+  },
+  "actionInputLabel": {
+    "fontSize": "16px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 500,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "actionInputPlaceholder": {
+    "fontSize": "16px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 400,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.5
+  },
+  "actionInputDisabled": {
+    "fontSize": "16px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 500,
+    "fontStyle": "italic",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "actionDisabledPlaceholder": {
+    "fontSize": "16px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 400,
+    "fontStyle": "italic",
+    "fontStretch": "normal",
+    "lineHeight": 1.5
+  },
+  "actionDisabledButton": {
+    "fontSize": "16px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 500,
+    "fontStyle": "italic",
+    "fontStretch": "normal",
+    "lineHeight": 1.5
+  },
+  "contentBody": {
+    "fontSize": "16px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 400,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.5
+  },
+  "contentLead": {
+    "fontSize": "24px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 400,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.5
+  },
+  "contentCaption": {
+    "fontSize": "14px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 400,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.5
+  },
+  "contentBadge": {
+    "fontSize": "12px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 400,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.5
+  },
+  "headingXxxl": {
+    "fontSize": "64px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 600,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "headingXxl": {
+    "fontSize": "48px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 600,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "headingXl": {
+    "fontSize": "40px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 600,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "headingL": {
+    "fontSize": "32px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 600,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "headingM": {
+    "fontSize": "24px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 600,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "headingS": {
+    "fontSize": "20px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 600,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "headingXs": {
+    "fontSize": "16px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 600,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "letterSpacing": 0.16,
+    "lineHeight": 1.2
+  },
+  "headingXxs": {
+    "fontSize": "14px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 600,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "headingSubheading": {
+    "fontSize": "14px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 400,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "letterSpacing": 0.28,
+    "lineHeight": 1.2
+  },
+  "tileHeading": {
+    "fontSize": "24px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 500,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "tileBody": {
+    "fontSize": "20px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 400,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "tileSubheader": {
+    "fontSize": "16px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 500,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "listListitemHeaderDefault": {
+    "fontSize": "16px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 400,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "listListitemHeaderSelected": {
+    "fontSize": "16px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 500,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "listListitemHeaderSmall": {
+    "fontSize": "14px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 400,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 8.571428571428571
+  },
+  "listitemBigHeaderDefault": {
+    "fontSize": "16px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 400,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "listitemBigHeaderSelected": {
+    "fontSize": "16px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 500,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1.2
+  },
+  "sectionInput": {
+    "fontSize": "32px",
+    "textDecoration": "none",
+    "fontFamily": "Inter",
+    "fontWeight": 400,
+    "fontStyle": "normal",
+    "fontStretch": "normal",
+    "lineHeight": 1
+  }
+}

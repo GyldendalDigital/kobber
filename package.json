@@ -1,0 +1,27 @@
+{
+  "name": "kobber",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "clean": "turbo clean && rm -rf .turbo node_modules",
+    "lint": "turbo lint",
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "tokens": "turbo tokens",
+    "storybook": "turbo storybook",
+    "css": "turbo css"
+  },
+  "dependencies": {
+    "@changesets/cli": "latest",
+    "prettier": "latest",
+    "turbo": "latest"
+  },
+  "packageManager": "yarn@1.22.19",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

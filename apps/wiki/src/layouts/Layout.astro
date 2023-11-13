@@ -1,0 +1,61 @@
+---
+import "@fontsource/fira-code";
+import { getTheme } from "../theme";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const theme = getTheme(Astro);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Gyldendal Undervisning designsystem" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script type="module">
+      import RefreshRuntime from "/@react-refresh";
+      RefreshRuntime.injectIntoGlobalHook(window);
+      window.$RefreshReg$ = () => {};
+      window.$RefreshSig$ = () => (type) => type;
+      window.__vite_plugin_react_preamble_installed__ = true;
+    </script>
+  </head>
+  <body class:list={theme.className}>
+    <main>
+      <slot />
+    </main>
+  </body>
+
+  <style is:global>
+    @import "@gyldendal/kobber-base/themes/default/tokens.css";
+    @import "@gyldendal/kobber-base/themes/dark/tokens.css";
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+    }
+
+    :root {
+    }
+
+    html {
+    }
+
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      margin: 0;
+    }
+
+    main {
+    }
+  </style>
+</html>

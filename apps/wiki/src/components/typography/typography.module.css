@@ -1,0 +1,22 @@
+.fontExampleRow {
+  display: flex;
+  gap: calc(var(--primitives-size-32) * 1px);
+  margin-bottom: calc(var(--primitives-size-32) * 1px);
+}
+
+.box {
+  padding: calc(var(--primitives-size-32) * 1px);
+  border-radius: calc(var(--primitives-size-16) * 1px);
+  background-color: var(--primitives-color-white);
+  color: var(--primitives-color-black);
+
+  & > *:last-child,
+  & p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.tdWithFormatting {
+  padding-block: calc(var(--primitives-size-32) * 1px);
+  text-transform: capitalize;
+}

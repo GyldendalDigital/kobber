@@ -1,0 +1,18 @@
+---
+import { fetchCmsData } from "../api/cms.api";
+const data = await fetchCmsData();
+---
+
+<h1>Heia bloggen!</h1>
+
+<ul>
+  {
+    data.data.documents.map((d: any) => (
+      <li>
+        {d.title} - {d.author}
+      </li>
+    ))
+  }
+</ul>
+
+<pre>{JSON.stringify(data, null, 2)}</pre>

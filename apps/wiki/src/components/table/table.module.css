@@ -1,0 +1,94 @@
+.tableContainer {
+    container-type: inline-size;
+    container-name: tableContainer;
+}
+
+.table {
+    width: 100%;
+    max-width: calc(var(--primitives-size-1024) * 1px);
+    border-spacing: 0 calc(var(--primitives-size-16) * 1px);
+}
+
+.table th {
+    vertical-align: top;
+    text-align: left;
+
+    &:first-child {
+        padding-left: calc(var(--primitives-size-32) * 1px);
+    }
+}
+
+.table th,
+.table td {
+    padding-inline: calc(var(--primitives-size-16) * 1px);
+    color: var(--primitives-color-black);
+}
+
+.table td {
+    padding-block: calc(var(--primitives-size-32) * 1px);
+    background-color: var(--primitives-color-white);
+}
+
+.table td:first-child {
+    padding-left: calc(var(--primitives-size-32) * 1px);
+    border-radius: calc(var(--primitives-border-radius-16) * 1px) 0 0 calc(var(--primitives-border-radius-16) * 1px);
+}
+
+.table td:last-child {
+    padding-right: calc(var(--primitives-size-32) * 1px);
+    border-radius: 0 calc(var(--primitives-border-radius-16) * 1px) calc(var(--primitives-border-radius-16) * 1px) 0;
+}
+
+.responsiveLabel {
+    composes: headingXs from "@gyldendal/kobber-base/themes/default/typography.module.css";
+    display: none;
+}
+
+@container tableContainer (max-width: 960px) {
+.table {
+    display: block;
+
+    & thead, & th {
+        display: none;
+    }
+
+    & tbody, & tr, & td {
+        display: block;
+    }
+
+    & tr {
+        margin-bottom: calc(var(--primitives-size-16) * 1px);
+    }
+
+    & td {
+        padding-block: calc(var(--primitives-size-8) * 1px);
+    }
+
+    & td:first-child {
+        padding-top: calc(var(--primitives-size-32) * 1px);
+        padding-left: calc(var(--primitives-size-16) * 1px);
+        border-radius: calc(var(--primitives-border-radius-16) * 1px) calc(var(--primitives-border-radius-16) * 1px) 0 0;
+    }
+
+    & td:last-child {
+        padding-bottom: calc(var(--primitives-size-32) * 1px);
+        border-radius: 0 0 calc(var(--primitives-border-radius-16) * 1px) calc(var(--primitives-border-radius-16) * 1px);
+    }
+
+    .responsiveLabel {
+        display: inline-block;
+        padding-right: .25em;
+    }
+
+}
+}
+  
+
+.tdWide {
+    width: 100%
+}
+
+.tdNoWrap {
+    white-space: nowrap;
+}
+

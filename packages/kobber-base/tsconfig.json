@@ -1,0 +1,13 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+      "strict": true,
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "noEmit": false
+    },
+    "files": [
+      "build-css.ts"
+    ]
+  }
+  
