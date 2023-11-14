@@ -1,5 +1,5 @@
 import react from "@astrojs/react";
-import node from "@astrojs/node";
+import cloudflare from "@astrojs/cloudflare";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import { defineConfig } from "astro/config";
 
@@ -18,7 +18,5 @@ export default defineConfig({
     plugins: [vanillaExtractPlugin()],
   },
   output: "server",
-  adapter: node({
-    mode: "standalone",
-  }),
+  adapter: cloudflare(),
 });
