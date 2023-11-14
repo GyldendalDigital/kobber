@@ -8,7 +8,13 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     ssr: {
-      noExternal: ["solid-use", "react-icons", "@gyldendal/kobber-base"],
+      noExternal: [
+        "solid-use",
+        "react-icons",
+        "@gyldendal/kobber-base",
+        "path-to-regexp",
+        "toidentifier",
+      ],
     },
     plugins: [vanillaExtractPlugin()],
   },
