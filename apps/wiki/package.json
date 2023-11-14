@@ -34,5 +34,8 @@
     "@gyldendal/kobber-stylelint": "*",
     "@vanilla-extract/vite-plugin": "^3.9.0",
     "chromatic": "^7.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
