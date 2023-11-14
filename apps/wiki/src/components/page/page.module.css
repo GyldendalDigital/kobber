@@ -2,6 +2,6 @@
 
 .content {
     padding: calc((var(--primitives-size-40) + var(--primitives-size-32)) * 1px) calc(var(--primitives-size-32) * 1px);
-    color: var(--semantic-color-surface-container-foreground);
-    background-color: var(--semantic-color-surface-container-background);
+    color: var(--semantic-color-surface-page-foreground);
+    background-color: var(--semantic-color-surface-page-background);
 }
