@@ -13,7 +13,6 @@ export default defineConfig({
         "react-icons",
         "@gyldendal/kobber-base",
         "path-to-regexp",
-        "toidentifier",
       ],
     },
     plugins: [vanillaExtractPlugin()],
