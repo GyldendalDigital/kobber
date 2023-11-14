@@ -1,8 +1,11 @@
 ---
 import { fetchCmsData } from "../api/cms.api";
+import Layout from "../layouts/Layout.astro";
 const data = await fetchCmsData();
 ---
 
+<Layout title="Bloggen">
+  
 <h1>Heia bloggen!</h1>
 
 <ul>
@@ -16,3 +19,5 @@ const data = await fetchCmsData();
 </ul>
 
 <pre>{JSON.stringify(data, null, 2)}</pre>
+
+</Layout>
