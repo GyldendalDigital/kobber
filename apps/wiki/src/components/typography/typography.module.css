@@ -1,14 +1,14 @@
 .fontExampleRow {
   display: flex;
-  gap: calc(var(--primitives-size-32) * 1px);
-  margin-bottom: calc(var(--primitives-size-32) * 1px);
+  gap: calc(var(--kobber-primitives-size-32) * 1px);
+  margin-bottom: calc(var(--kobber-primitives-size-32) * 1px);
 }
 
 .box {
-  padding: calc(var(--primitives-size-32) * 1px);
-  border-radius: calc(var(--primitives-size-16) * 1px);
-  background-color: var(--primitives-color-white);
-  color: var(--primitives-color-black);
+  padding: calc(var(--kobber-primitives-size-32) * 1px);
+  border-radius: calc(var(--kobber-primitives-size-16) * 1px);
+  background-color: var(--kobber-primitives-color-white);
+  color: var(--kobber-primitives-color-black);
 
   & > *:last-child,
   & p:last-child {
@@ -17,6 +17,6 @@
 }
 
 .tdWithFormatting {
-  padding-block: calc(var(--primitives-size-32) * 1px);
+  padding-block: calc(var(--kobber-primitives-size-32) * 1px);
   text-transform: capitalize;
 }

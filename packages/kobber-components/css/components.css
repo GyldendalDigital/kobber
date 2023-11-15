@@ -2,14 +2,14 @@
 
 /* src/example/example.module.css */
 .example_module_example {
-  color: var(--primitives-color-gray-800);
+  color: var(--kobber-primitives-color-gray-800);
 }
 
 /* src/progress-bar/ProgressBar.module.css */
 @layer guds {
   .ProgressBar_module_list {
-    --progress-bar-height: calc((var(--component-progressbar-size-default) * 1px) + (1em - 16px));
-    --progress-bar-border-radius: calc(1px * var(--component-progressbar-border-radius));
+    --progress-bar-height: calc((var(--kobber-component-progressbar-size-default) * 1px) + (1em - 16px));
+    --progress-bar-border-radius: calc(1px * var(--kobber-component-progressbar-border-radius));
     position: relative;
     display: flex;
     border-radius: var(--progress-bar-border-radius);
@@ -17,10 +17,10 @@
     height: var(--progress-bar-height);
     width: var(--progress-bar-width, 100%);
     list-style: none;
-    background-color: var(--progress-bar-background-color, var(--component-progressbar-color-background-default));
+    background-color: var(--progress-bar-background-color, var(--kobber-component-progressbar-color-background-default));
   }
   .ProgressBar_module_low {
-    --progress-bar-height: calc((var(--component-progressbar-size-small) * 1px) + (1em - 16px));
+    --progress-bar-height: calc((var(--kobber-component-progressbar-size-small) * 1px) + (1em - 16px));
   }
   .ProgressBar_module_show-full-length {
     justify-content: space-between;

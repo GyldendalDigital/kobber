@@ -8,7 +8,7 @@ const { tokens  } = getTheme();
 
 export const richText = style({
   marginBottom: tokens.primitives.size[48] + tokens.primitives.size[24],
-  color: "var(--semantic-color-surface-container-foreground)",
+  color: "var(--kobber-semantic-color-surface-container-foreground)",
 });
 
 const heading = {

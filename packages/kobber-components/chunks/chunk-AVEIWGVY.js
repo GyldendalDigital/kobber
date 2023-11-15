@@ -69,7 +69,7 @@ var ProgressBarItem = ({
         className: progressBarItem_module_default.fill,
         role: "progressbar",
         style: {
-          "--progress-bar-fill-color": progressBar.valueNow === valueMax && !!progressBar.filledColorVar ? `var(${progressBar.filledColorVar})` : progressBar.fillColorVar ? `var(${progressBar.fillColorVar})` : "var(--component-progressbar-color-foreground-default)"
+          "--progress-bar-fill-color": progressBar.valueNow === valueMax && !!progressBar.filledColorVar ? `var(${progressBar.filledColorVar})` : progressBar.fillColorVar ? `var(${progressBar.fillColorVar})` : "var(--kobber-component-progressbar-color-foreground-default)"
         },
         "aria-valuenow": progressBar.valueNow,
         "aria-valuemin": valueMin,
@@ -160,13 +160,13 @@ var ProficiencyBar = ({
       style: {
         ...style,
         ...{
-          "--progress-bar-background-color": `var(--component-progressbar-color-background-${getProficiencyNameByPercentage(progressInPercent)})`
+          "--progress-bar-background-color": `var(--kobber-component-progressbar-color-background-${getProficiencyNameByPercentage(progressInPercent)})`
         }
       },
       progressBars: [{
         "aria-labelledby": labelledById,
         valueNow: progressInPercent,
-        fillColorVar: `--component-progressbar-color-foreground-${getProficiencyNameByPercentage(progressInPercent)}`
+        fillColorVar: `--kobber-component-progressbar-color-foreground-${getProficiencyNameByPercentage(progressInPercent)}`
       }]
     }
   );

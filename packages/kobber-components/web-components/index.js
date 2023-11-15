@@ -5,7 +5,7 @@ import {
   propNames,
   propNames2,
   propNames3
-} from "../chunks/chunk-WDMDHRN6.js";
+} from "../chunks/chunk-AVEIWGVY.js";
 
 // src/example/web-component.ts
 import r2wc from "@r2wc/react-to-web-component";

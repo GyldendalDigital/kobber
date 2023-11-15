@@ -6,24 +6,24 @@
     justify-items: start;
     justify-content: start;
     align-items: start;
-    gap: calc(var(--primitives-size-96) * 1px) calc(var(--primitives-size-32) * 1px);
-    margin-bottom: calc(var(--primitives-size-96) * 1px);
+    gap: calc(var(--kobber-primitives-size-96) * 1px) calc(var(--kobber-primitives-size-32) * 1px);
+    margin-bottom: calc(var(--kobber-primitives-size-96) * 1px);
 }
 
 .category {
     display: grid;
-    gap: calc(var(--primitives-border-radius-32) * 1px);
+    gap: calc(var(--kobber-primitives-border-radius-32) * 1px);
 }
 
 .colorBox {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: calc(var(--primitives-border-radius-16) * 1px);
+    gap: calc(var(--kobber-primitives-border-radius-16) * 1px);
     width: 298px;
-    border-radius: calc(var(--primitives-border-radius-16) * 1px);
-    padding: calc(var(--semantic-layout-container-padding-small) * 1px);
-    background-color: var(--semantic-color-surface-container-background);
-    color: var(--semantic-color-surface-container-foreground);
+    border-radius: calc(var(--kobber-primitives-border-radius-16) * 1px);
+    padding: calc(var(--kobber-semantic-layout-container-padding-small) * 1px);
+    background-color: var(--kobber-semantic-color-surface-container-background);
+    color: var(--kobber-semantic-color-surface-container-foreground);
 }
 
 .color {
@@ -32,7 +32,7 @@
 }
 
 .colorBorder {
-    outline: solid 1px var(--primitives-color-gray-1000);
+    outline: solid 1px var(--kobber-primitives-color-gray-1000);
 }
 
 .colorInfo {
@@ -53,15 +53,15 @@
 }
 
 .hexOpaque {
-    color: var(--semantic-color-surface-container-foreground);
+    color: var(--kobber-semantic-color-surface-container-foreground);
     padding-right: .1em;
     text-transform: uppercase;
 }
 
 .hexOpacity {
-    border-left: solid 2px color-mix(in srgb, var(--semantic-color-surface-container-foreground), transparent);
+    border-left: solid 2px color-mix(in srgb, var(--kobber-semantic-color-surface-container-foreground), transparent);
     padding-inline: .1em;
-    color: var(--semantic-color-surface-container-foreground);
+    color: var(--kobber-semantic-color-surface-container-foreground);
     text-transform: uppercase;
 }
 

@@ -27,6 +27,7 @@ export const getStyleDictionaryConfig = (
       css: {
         transforms: [...transformGroup.css, ...transforms],
         buildPath,
+        prefix: "kobber",
         files: [
           {
             destination: `${themeName}/tokens.css`,
