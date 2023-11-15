@@ -2,12 +2,10 @@
 
 ## 🛠️ Usage
 
-"namespace" will be replaced when the design system has been given a name.
-
 Design tokens can be imported as json, css variables or sass variables:
 
 ```JavaScript
-import theme from "~@gyldendal/kobber-base/themes/magazine/tokens.json";
+import theme from "~@gyldendal/kobber-base/themes/default/tokens.json";
 
 export const Button = styled.button`
     background-color: ${theme.component.button.color.background};
@@ -15,15 +13,15 @@ export const Button = styled.button`
 ```
 
 ```css
-@import "~@gyldendal/kobber-base/themes/magazine/tokens.css";
+@import "~@gyldendal/kobber-base/themes/default/tokens.css";
 
 .button {
-    background-color: var(--namespace-component-button-color-background);
+    background-color: var(--kobber-component-button-color-background);
 }
 ```
 
 ```scss
-@use "~@gyldendal/kobber-base/themes/magazine/tokens.scss" as tokens;
+@use "~@gyldendal/kobber-base/themes/default/tokens.scss" as tokens;
 
 .button {
     background-color: tokens.$component-button-color-background;
@@ -33,14 +31,14 @@ export const Button = styled.button`
 Typography can be applied directly to HTML using CSS classes or by using `composes` in css modules:
 
 ```html
-<style>@import "~@gyldendal/kobber-base/themes/magazine/typography.css";</style>
+<style>@import "~@gyldendal/kobber-base/themes/default/typography.css";</style>
 
-<h1 class="namespace-magazine-headingXxl">Heading</h1>
+<h1 class="kobber-default-headingXxl">Heading</h1>
 ```
 
 ```css
 .my-heading {
-  composes: headingXxl from "~@gyldendal/kobber-base/themes/magazine/typography.module.css";
+  composes: headingXxl from "~@gyldendal/kobber-base/themes/default/typography.module.css";
 }
 ```
 
@@ -49,7 +47,7 @@ Also see the typography component from @gyldendal/kobber-components:
 ```tsx
 import { ThemeProvider, Typography } from "~@gyldendal/kobber-base/react";
 
-<ThemeProvider variant="magazine">
+<ThemeProvider variant="default">
     <Typography component="h1" variant="headingXxl" />
 </TheThemeProviderme>
 ```

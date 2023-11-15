@@ -19,7 +19,7 @@ export const getTheme = (themeOrAstro?: Theme | AstroGlobal) => {
   const definedTheme = getThemeFromUrl(themeOrAstro);
   return {
     name: definedTheme,
-    className: `namespace-theme-${definedTheme}`,
+    className: `kobber-theme-${definedTheme}`,
     tokens: themes[definedTheme],
   };
 };

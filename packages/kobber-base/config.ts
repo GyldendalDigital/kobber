@@ -34,7 +34,7 @@ export const getStyleDictionaryConfig = (
             filter,
             options: {
               outputReferences: true,
-              selector: `.namespace-theme-${themeName}`,
+              selector: `.kobber-theme-${themeName}`,
             },
           },
         ],
