@@ -33,9 +33,7 @@ themeDirectories.forEach((directory) => {
   );
 
   const plainCss = typographyTokensFlattened
-    .map((item) =>
-      getTypographyCssClass([...item.path, item.name].join("-"), item.styles)
-    )
+    .map((item) => getTypographyCssClass(["kobber", "typography", ...item.path, item.name].join("-"), item.styles))
     .map(trimLineBreaks)
     .join("\n");
 

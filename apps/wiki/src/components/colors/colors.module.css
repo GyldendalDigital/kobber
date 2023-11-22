@@ -12,7 +12,7 @@
 
 .category {
     display: grid;
-    gap: calc(var(--kobber-primitives-border-radius-32) * 1px);
+    gap: calc(var(--kobber-primitives-size-32) * 1px);
 }
 
 .colorBox {

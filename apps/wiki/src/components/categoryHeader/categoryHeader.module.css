@@ -25,9 +25,25 @@
 }
 
 .codeToggleButton {
-    all: initial;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    padding: 0;
     padding: calc(var(--kobber-primitives-size-16) * 1px);
+    width: auto;
+    appearance: none;
+    text-align: inherit;
+    font-size: 1em;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    background: transparent;
+    -webkit-tap-highlight-color: transparent;
     background-color: var(--kobber-primitives-color-violet-1000);
     color: var(--kobber-primitives-color-white);
     cursor: pointer;
+  
+    &::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+    }
 }

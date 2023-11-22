@@ -1,4 +1,4 @@
-export const getTypographyCssClass = (className: string, styles: any) => `
+export const getTypographyCssClass = (className: string, styles: any) => removeEmptyLines(`
 .${className} {
   font-size: ${styles.fontSize}px;
   text-decoration: ${styles.textDecoration};
@@ -6,8 +6,10 @@ export const getTypographyCssClass = (className: string, styles: any) => `
   font-weight: ${styles.fontWeight};
   font-style: ${styles.fontStyle};
   font-stretch: ${styles.fontStretch};
-  letter-spacing: ${styles.letterSpacing};
+  ${styles.letterSpacing ? `letter-spacing: ${styles.letterSpacing};` : ""}
   line-height: ${styles.lineHeight / styles.fontSize};
-  margin-bottom: ${styles.paragraphSpacing}px;
+  margin-bottom: ${styles.paragraphSpacing ?? 0}px;
 }
-`;
+`);
+
+const removeEmptyLines = (string:string) => string.replace(/^\s*\n/gm, "");

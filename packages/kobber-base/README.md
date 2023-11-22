@@ -33,7 +33,7 @@ Typography can be applied directly to HTML using CSS classes or by using `compos
 ```html
 <style>@import "~@gyldendal/kobber-base/themes/default/typography.css";</style>
 
-<h1 class="kobber-default-headingXxl">Heading</h1>
+<h1 class="kobber-typography-heading-xl">Heading</h1>
 ```
 
 ```css

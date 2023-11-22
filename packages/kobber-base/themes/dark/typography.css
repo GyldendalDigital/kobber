@@ -1,180 +1,164 @@
-.action-button {
+.kobber-typography-action-button {
   font-size: 16px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.5;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.action-input-label {
+.kobber-typography-action-input-label {
   font-size: 16px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.action-input-placeholder {
+.kobber-typography-action-input-placeholder {
   font-size: 16px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.5;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.action-input-disabled {
+.kobber-typography-action-input-disabled {
   font-size: 16px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
   font-style: italic;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.action-disabled-placeholder {
+.kobber-typography-action-disabled-placeholder {
   font-size: 16px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
   font-style: italic;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.5;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.action-disabled-button {
+.kobber-typography-action-disabled-button {
   font-size: 16px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
   font-style: italic;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.5;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.content-body {
+.kobber-typography-content-body {
   font-size: 16px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.5;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.content-lead {
+.kobber-typography-content-lead {
   font-size: 24px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.5;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.content-caption {
+.kobber-typography-content-caption {
   font-size: 14px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.5;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.content-badge {
+.kobber-typography-content-badge {
   font-size: 12px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.5;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.heading-xxxl {
+.kobber-typography-heading-xxxl {
   font-size: 64px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.heading-xxl {
+.kobber-typography-heading-xxl {
   font-size: 48px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.heading-xl {
+.kobber-typography-heading-xl {
   font-size: 40px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.heading-l {
+.kobber-typography-heading-l {
   font-size: 32px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.heading-m {
+.kobber-typography-heading-m {
   font-size: 24px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.heading-s {
+.kobber-typography-heading-s {
   font-size: 20px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.heading-xs {
+.kobber-typography-heading-xs {
   font-size: 16px;
   text-decoration: none;
   font-family: Inter;
@@ -183,20 +167,19 @@
   font-stretch: normal;
   letter-spacing: 0.16;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.heading-xxs {
+.kobber-typography-heading-xxs {
   font-size: 14px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.heading-subheading {
+.kobber-typography-heading-subheading {
   font-size: 14px;
   text-decoration: none;
   font-family: Inter;
@@ -205,104 +188,95 @@
   font-stretch: normal;
   letter-spacing: 0.28;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.tile-heading {
+.kobber-typography-tile-heading {
   font-size: 24px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.tile-body {
+.kobber-typography-tile-body {
   font-size: 20px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.tile-subheader {
+.kobber-typography-tile-subheader {
   font-size: 16px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.list-listitem-header-default {
+.kobber-typography-list-listitem-header-default {
   font-size: 16px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.list-listitem-header-selected {
+.kobber-typography-list-listitem-header-selected {
   font-size: 16px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.list-listitem-header-small {
+.kobber-typography-list-listitem-header-small {
   font-size: 14px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 8.571428571428571;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.listitem-big-header-default {
+.kobber-typography-listitem-big-header-default {
   font-size: 16px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.listitem-big-header-selected {
+.kobber-typography-listitem-big-header-selected {
   font-size: 16px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1.2;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }
-.section-input {
+.kobber-typography-section-input {
   font-size: 32px;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
-  letter-spacing: undefined;
   line-height: 1;
-  margin-bottom: undefinedpx;
+  margin-bottom: 0px;
 }

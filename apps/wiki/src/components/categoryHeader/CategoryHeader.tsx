@@ -12,11 +12,11 @@ export const CategoryHeader: FunctionComponent<Props> = ({ heading, code }) => {
   return (
     <div className={styles.categoryHeader}>
       <div className={styles.top}>
-        <h2 className="heading-xl">{heading}</h2>
+        <h2 className="kobber-typography-heading-xl">{heading}</h2>
         {code && (
           <button
             type="button"
-            className={`${styles.codeToggleButton}`}
+            className={`${styles.codeToggleButton} kobber-typography-action-button`}
             onClick={() => setCodeIsOpen(!codeIsOpen)}
             aria-expanded={codeIsOpen}
           >
