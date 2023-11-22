@@ -1,12 +1,12 @@
 .fontExampleRow {
   display: flex;
-  gap: calc(var(--kobber-primitives-size-32) * 1px);
-  margin-bottom: calc(var(--kobber-primitives-size-32) * 1px);
+  margin-bottom: var(--kobber-primitives-size-32);
+  gap: var(--kobber-primitives-size-32);
 }
 
 .box {
-  padding: calc(var(--kobber-primitives-size-32) * 1px);
-  border-radius: calc(var(--kobber-primitives-size-16) * 1px);
+  border-radius: var(--kobber-primitives-size-16);
+  padding: var(--kobber-primitives-size-32);
   background-color: var(--kobber-primitives-color-white);
   color: var(--kobber-primitives-color-black);
 
@@ -17,6 +17,6 @@
 }
 
 .tdWithFormatting {
-  padding-block: calc(var(--kobber-primitives-size-32) * 1px);
+  padding-block: var(--kobber-primitives-size-32);
   text-transform: capitalize;
 }

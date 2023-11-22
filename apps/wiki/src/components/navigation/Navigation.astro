@@ -34,10 +34,10 @@ import * as typographyStyles from "@gyldendal/kobber-base/themes/default/typogra
 <style>
   ul {
     position: absolute;
-    top: calc(var(--kobber-primitives-size-18) * 1px);
-    right: calc(var(--kobber-primitives-size-18) * 1px);
+    top: var(--kobber-primitives-size-18);
+    right: var(--kobber-primitives-size-18);
     display: flex;
-    gap: calc(var(--kobber-primitives-size-6) * 1px);
+    gap: var(--kobber-primitives-size-6);
     justify-content: end;
     margin: 0;
     text-indent: 0;
@@ -51,10 +51,9 @@ import * as typographyStyles from "@gyldendal/kobber-base/themes/default/typogra
   a {
     display: flex;
     align-items: center;
-    gap: calc(var(--kobber-primitives-size-6) * 1px);
-    padding: calc(var(--kobber-primitives-size-6) * 1px)
-      calc(var(--kobber-primitives-size-12) * 1px);
-    border-radius: calc(var(--kobber-primitives-border-radius-pill) * 1px);
+    gap: var(--kobber-primitives-size-6);
+    padding: var(--kobber-primitives-size-6) var(--kobber-primitives-size-12);
+    border-radius: var(--kobber-primitives-border-radius-pill);
     background-color: var(--kobber-primitives-color-violet-1000);
     color: var(--kobber-primitives-color-white);
   }

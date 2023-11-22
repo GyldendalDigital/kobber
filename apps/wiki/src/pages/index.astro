@@ -24,20 +24,20 @@ import Layout from "../layouts/Layout.astro";
   .ds-heading {
     text-align: center;
     margin: 0;
-    padding: calc(var(--kobber-primitives-size-8) * 1px) 0;
+    padding: var(--kobber-primitives-size-8) 0;
   }
 
   .submit-button {
     background-color: var(--kobber-component-button-color-background);
-    border-radius: calc(var(--kobber-semantic-action-border-radius-pill) * 1px);
-    padding: calc(var(--kobber-component-button-padding-block) * 1px)
-      calc(var(--kobber-component-button-padding-inline) * 1px);
+    border-radius: var(--kobber-semantic-action-border-radius-pill);
+    padding: var(--kobber-component-button-padding-block)
+      var(--kobber-component-button-padding-inline);
     vertical-align: 5px;
     margin-left: 5px;
   }
 
   .status {
     text-align: center;
-    margin-top: calc(var(--kobber-primitives-size-18) * 1px);
+    margin-top: var(--kobber-primitives-size-18);
   }
 </style>

@@ -3,7 +3,7 @@ import { toCamelCase } from "./string-utils";
 
 export const getTypographyJson = ({ path, name, styles }: Item) => ({
   [toCamelCase([...path, name])]: {
-    fontSize: `${styles.fontSize}px`,
+    fontSize: `${styles.fontSize / 16}rem`,
     textDecoration: styles.textDecoration,
     fontFamily: styles.fontFamily,
     fontWeight: styles.fontWeight,

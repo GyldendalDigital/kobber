@@ -1,9 +1,20 @@
-import { Config, TransformedToken, transformGroup } from "style-dictionary";
+import StyleDictionary, {
+  Config,
+  TransformedToken,
+  transformGroup,
+} from "style-dictionary";
+import { pxToRem } from "./transforms/pxToRem";
+
+StyleDictionary.registerTransform(pxToRem);
 
 const buildPath = "./themes/";
 
-const filter = (token: TransformedToken) =>
-  !token.name.startsWith("font") && !token.name.startsWith("effect");
+const invalid = ["font", "effect"];
+
+const filter = (token: TransformedToken) => {
+  console.log("token.name", token.path[0]);
+  return !invalid.includes(token.path[0]);
+};
 
 export const getStyleDictionaryConfig = (
   themeName: string,
@@ -25,7 +36,7 @@ export const getStyleDictionaryConfig = (
         ],
       },
       css: {
-        transforms: [...transformGroup.css, ...transforms],
+        transforms: [...transformGroup.css, pxToRem.name, ...transforms],
         buildPath,
         prefix: "kobber",
         files: [

@@ -1,5 +1,5 @@
 .kobber-typography-action-button {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -9,7 +9,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-action-input-label {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -19,7 +19,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-action-input-placeholder {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -29,7 +29,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-action-input-disabled {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -39,7 +39,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-action-disabled-placeholder {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -49,7 +49,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-action-disabled-button {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -59,7 +59,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-content-body {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -69,7 +69,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-content-lead {
-  font-size: 24px;
+  font-size: 1.5rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -79,7 +79,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-content-caption {
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -89,7 +89,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-content-badge {
-  font-size: 12px;
+  font-size: 0.75rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -99,7 +99,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-heading-xxxl {
-  font-size: 64px;
+  font-size: 4rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -109,7 +109,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-heading-xxl {
-  font-size: 48px;
+  font-size: 3rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -119,7 +119,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-heading-xl {
-  font-size: 40px;
+  font-size: 2.5rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -129,7 +129,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-heading-l {
-  font-size: 32px;
+  font-size: 2rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -139,7 +139,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-heading-m {
-  font-size: 24px;
+  font-size: 1.5rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -149,7 +149,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-heading-s {
-  font-size: 20px;
+  font-size: 1.25rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -159,7 +159,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-heading-xs {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -170,7 +170,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-heading-xxs {
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -180,7 +180,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-heading-subheading {
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -191,7 +191,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-tile-heading {
-  font-size: 24px;
+  font-size: 1.5rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -201,7 +201,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-tile-body {
-  font-size: 20px;
+  font-size: 1.25rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -211,7 +211,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-tile-subheader {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -221,7 +221,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-list-listitem-header-default {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -231,7 +231,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-list-listitem-header-selected {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -241,7 +241,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-list-listitem-header-small {
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -251,7 +251,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-listitem-big-header-default {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -261,7 +261,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-listitem-big-header-selected {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -271,7 +271,7 @@
   margin-bottom: 0px;
 }
 .kobber-typography-section-input {
-  font-size: 32px;
+  font-size: 2rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;

@@ -1,6 +1,6 @@
 {
   "actionButton": {
-    "fontSize": "16px",
+    "fontSize": "1rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 500,
@@ -9,7 +9,7 @@
     "lineHeight": 1.5
   },
   "actionInputLabel": {
-    "fontSize": "16px",
+    "fontSize": "1rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 500,
@@ -18,7 +18,7 @@
     "lineHeight": 1.2
   },
   "actionInputPlaceholder": {
-    "fontSize": "16px",
+    "fontSize": "1rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 400,
@@ -27,7 +27,7 @@
     "lineHeight": 1.5
   },
   "actionInputDisabled": {
-    "fontSize": "16px",
+    "fontSize": "1rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 500,
@@ -36,7 +36,7 @@
     "lineHeight": 1.2
   },
   "actionDisabledPlaceholder": {
-    "fontSize": "16px",
+    "fontSize": "1rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 400,
@@ -45,7 +45,7 @@
     "lineHeight": 1.5
   },
   "actionDisabledButton": {
-    "fontSize": "16px",
+    "fontSize": "1rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 500,
@@ -54,7 +54,7 @@
     "lineHeight": 1.5
   },
   "contentBody": {
-    "fontSize": "16px",
+    "fontSize": "1rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 400,
@@ -63,7 +63,7 @@
     "lineHeight": 1.5
   },
   "contentLead": {
-    "fontSize": "24px",
+    "fontSize": "1.5rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 400,
@@ -72,7 +72,7 @@
     "lineHeight": 1.5
   },
   "contentCaption": {
-    "fontSize": "14px",
+    "fontSize": "0.875rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 400,
@@ -81,7 +81,7 @@
     "lineHeight": 1.5
   },
   "contentBadge": {
-    "fontSize": "12px",
+    "fontSize": "0.75rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 400,
@@ -90,7 +90,7 @@
     "lineHeight": 1.5
   },
   "headingXxxl": {
-    "fontSize": "64px",
+    "fontSize": "4rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 600,
@@ -99,7 +99,7 @@
     "lineHeight": 1.2
   },
   "headingXxl": {
-    "fontSize": "48px",
+    "fontSize": "3rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 600,
@@ -108,7 +108,7 @@
     "lineHeight": 1.2
   },
   "headingXl": {
-    "fontSize": "40px",
+    "fontSize": "2.5rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 600,
@@ -117,7 +117,7 @@
     "lineHeight": 1.2
   },
   "headingL": {
-    "fontSize": "32px",
+    "fontSize": "2rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 600,
@@ -126,7 +126,7 @@
     "lineHeight": 1.2
   },
   "headingM": {
-    "fontSize": "24px",
+    "fontSize": "1.5rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 600,
@@ -135,7 +135,7 @@
     "lineHeight": 1.2
   },
   "headingS": {
-    "fontSize": "20px",
+    "fontSize": "1.25rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 600,
@@ -144,7 +144,7 @@
     "lineHeight": 1.2
   },
   "headingXs": {
-    "fontSize": "16px",
+    "fontSize": "1rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 600,
@@ -154,7 +154,7 @@
     "lineHeight": 1.2
   },
   "headingXxs": {
-    "fontSize": "14px",
+    "fontSize": "0.875rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 600,
@@ -163,7 +163,7 @@
     "lineHeight": 1.2
   },
   "headingSubheading": {
-    "fontSize": "14px",
+    "fontSize": "0.875rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 400,
@@ -173,7 +173,7 @@
     "lineHeight": 1.2
   },
   "tileHeading": {
-    "fontSize": "24px",
+    "fontSize": "1.5rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 500,
@@ -182,7 +182,7 @@
     "lineHeight": 1.2
   },
   "tileBody": {
-    "fontSize": "20px",
+    "fontSize": "1.25rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 400,
@@ -191,7 +191,7 @@
     "lineHeight": 1.2
   },
   "tileSubheader": {
-    "fontSize": "16px",
+    "fontSize": "1rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 500,
@@ -200,7 +200,7 @@
     "lineHeight": 1.2
   },
   "listListitemHeaderDefault": {
-    "fontSize": "16px",
+    "fontSize": "1rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 400,
@@ -209,7 +209,7 @@
     "lineHeight": 1.2
   },
   "listListitemHeaderSelected": {
-    "fontSize": "16px",
+    "fontSize": "1rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 500,
@@ -218,7 +218,7 @@
     "lineHeight": 1.2
   },
   "listListitemHeaderSmall": {
-    "fontSize": "14px",
+    "fontSize": "0.875rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 400,
@@ -227,7 +227,7 @@
     "lineHeight": 8.571428571428571
   },
   "listitemBigHeaderDefault": {
-    "fontSize": "16px",
+    "fontSize": "1rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 400,
@@ -236,7 +236,7 @@
     "lineHeight": 1.2
   },
   "listitemBigHeaderSelected": {
-    "fontSize": "16px",
+    "fontSize": "1rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 500,
@@ -245,7 +245,7 @@
     "lineHeight": 1.2
   },
   "sectionInput": {
-    "fontSize": "32px",
+    "fontSize": "2rem",
     "textDecoration": "none",
     "fontFamily": "Inter",
     "fontWeight": 400,

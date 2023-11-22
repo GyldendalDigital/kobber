@@ -1,5 +1,5 @@
 .actionButton {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -9,7 +9,7 @@
   margin-bottom: 0px;
 }
 .actionInputLabel {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -19,7 +19,7 @@
   margin-bottom: 0px;
 }
 .actionInputPlaceholder {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -29,7 +29,7 @@
   margin-bottom: 0px;
 }
 .actionInputDisabled {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -39,7 +39,7 @@
   margin-bottom: 0px;
 }
 .actionDisabledPlaceholder {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -49,7 +49,7 @@
   margin-bottom: 0px;
 }
 .actionDisabledButton {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -59,7 +59,7 @@
   margin-bottom: 0px;
 }
 .contentBody {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -69,7 +69,7 @@
   margin-bottom: 0px;
 }
 .contentLead {
-  font-size: 24px;
+  font-size: 1.5rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -79,7 +79,7 @@
   margin-bottom: 0px;
 }
 .contentCaption {
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -89,7 +89,7 @@
   margin-bottom: 0px;
 }
 .contentBadge {
-  font-size: 12px;
+  font-size: 0.75rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -99,7 +99,7 @@
   margin-bottom: 0px;
 }
 .headingXxxl {
-  font-size: 64px;
+  font-size: 4rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -109,7 +109,7 @@
   margin-bottom: 0px;
 }
 .headingXxl {
-  font-size: 48px;
+  font-size: 3rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -119,7 +119,7 @@
   margin-bottom: 0px;
 }
 .headingXl {
-  font-size: 40px;
+  font-size: 2.5rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -129,7 +129,7 @@
   margin-bottom: 0px;
 }
 .headingL {
-  font-size: 32px;
+  font-size: 2rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -139,7 +139,7 @@
   margin-bottom: 0px;
 }
 .headingM {
-  font-size: 24px;
+  font-size: 1.5rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -149,7 +149,7 @@
   margin-bottom: 0px;
 }
 .headingS {
-  font-size: 20px;
+  font-size: 1.25rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -159,7 +159,7 @@
   margin-bottom: 0px;
 }
 .headingXs {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -170,7 +170,7 @@
   margin-bottom: 0px;
 }
 .headingXxs {
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 600;
@@ -180,7 +180,7 @@
   margin-bottom: 0px;
 }
 .headingSubheading {
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -191,7 +191,7 @@
   margin-bottom: 0px;
 }
 .tileHeading {
-  font-size: 24px;
+  font-size: 1.5rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -201,7 +201,7 @@
   margin-bottom: 0px;
 }
 .tileBody {
-  font-size: 20px;
+  font-size: 1.25rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -211,7 +211,7 @@
   margin-bottom: 0px;
 }
 .tileSubheader {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -221,7 +221,7 @@
   margin-bottom: 0px;
 }
 .listListitemHeaderDefault {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -231,7 +231,7 @@
   margin-bottom: 0px;
 }
 .listListitemHeaderSelected {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -241,7 +241,7 @@
   margin-bottom: 0px;
 }
 .listListitemHeaderSmall {
-  font-size: 14px;
+  font-size: 0.875rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -251,7 +251,7 @@
   margin-bottom: 0px;
 }
 .listitemBigHeaderDefault {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;
@@ -261,7 +261,7 @@
   margin-bottom: 0px;
 }
 .listitemBigHeaderSelected {
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 500;
@@ -271,7 +271,7 @@
   margin-bottom: 0px;
 }
 .sectionInput {
-  font-size: 32px;
+  font-size: 2rem;
   text-decoration: none;
   font-family: Inter;
   font-weight: 400;

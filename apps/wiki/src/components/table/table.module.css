@@ -1,94 +1,100 @@
+/* stylelint-disable selector-max-type */
 .tableContainer {
-    container-type: inline-size;
-    container-name: tableContainer;
+  container-type: inline-size;
+  container-name: tablecontainer;
 }
 
 .table {
-    width: 100%;
-    max-width: calc(var(--kobber-primitives-size-1024) * 1px);
-    border-spacing: 0 calc(var(--kobber-primitives-size-16) * 1px);
+  width: 100%;
+  max-width: var(--kobber-primitives-size-1024);
+  border-spacing: 0 var(--kobber-primitives-size-16);
 }
 
 .table th {
-    vertical-align: top;
-    text-align: left;
+  vertical-align: top;
+  text-align: left;
 
-    &:first-child {
-        padding-left: calc(var(--kobber-primitives-size-32) * 1px);
-    }
+  &:first-child {
+    padding-left: var(--kobber-primitives-size-32);
+  }
 }
 
 .table th,
 .table td {
-    padding-inline: calc(var(--kobber-primitives-size-16) * 1px);
-    color: var(--kobber-primitives-color-black);
+  padding-inline: var(--kobber-primitives-size-16);
+  color: var(--kobber-primitives-color-black);
 }
 
 .table td {
-    padding-block: calc(var(--kobber-primitives-size-32) * 1px);
-    background-color: var(--kobber-primitives-color-white);
+  padding-block: var(--kobber-primitives-size-32);
+  background-color: var(--kobber-primitives-color-white);
 }
 
 .table td:first-child {
-    padding-left: calc(var(--kobber-primitives-size-32) * 1px);
-    border-radius: calc(var(--kobber-primitives-border-radius-16) * 1px) 0 0 calc(var(--kobber-primitives-border-radius-16) * 1px);
+  border-radius: var(--kobber-primitives-border-radius-16) 0 0
+    var(--kobber-primitives-border-radius-16);
+  padding-left: var(--kobber-primitives-size-32);
 }
 
 .table td:last-child {
-    padding-right: calc(var(--kobber-primitives-size-32) * 1px);
-    border-radius: 0 calc(var(--kobber-primitives-border-radius-16) * 1px) calc(var(--kobber-primitives-border-radius-16) * 1px) 0;
+  border-radius: 0 var(--kobber-primitives-border-radius-16)
+    var(--kobber-primitives-border-radius-16) 0;
+  padding-right: var(--kobber-primitives-size-32);
 }
 
 .responsiveLabel {
-    composes: headingXs from "@gyldendal/kobber-base/themes/default/typography.module.css";
-    display: none;
+  display: none;
+  /* stylelint-disable-next-line property-no-unknown */
+  composes: headingxs from "@gyldendal/kobber-base/themes/default/typography.module.css";
 }
 
 @container tableContainer (max-width: 960px) {
-.table {
+  .table {
     display: block;
 
-    & thead, & th {
-        display: none;
+    & thead,
+    & th {
+      display: none;
     }
 
-    & tbody, & tr, & td {
-        display: block;
+    & tbody,
+    & tr,
+    & td {
+      display: block;
     }
 
     & tr {
-        margin-bottom: calc(var(--kobber-primitives-size-16) * 1px);
+      margin-bottom: var(--kobber-primitives-size-16);
     }
 
     & td {
-        padding-block: calc(var(--kobber-primitives-size-8) * 1px);
+      padding-block: var(--kobber-primitives-size-8);
     }
 
     & td:first-child {
-        padding-top: calc(var(--kobber-primitives-size-32) * 1px);
-        padding-left: calc(var(--kobber-primitives-size-16) * 1px);
-        border-radius: calc(var(--kobber-primitives-border-radius-16) * 1px) calc(var(--kobber-primitives-border-radius-16) * 1px) 0 0;
+      border-radius: var(--kobber-primitives-border-radius-16)
+        var(--kobber-primitives-border-radius-16) 0 0;
+      padding-top: var(--kobber-primitives-size-32);
+      padding-left: var(--kobber-primitives-size-16);
     }
 
     & td:last-child {
-        padding-bottom: calc(var(--kobber-primitives-size-32) * 1px);
-        border-radius: 0 0 calc(var(--kobber-primitives-border-radius-16) * 1px) calc(var(--kobber-primitives-border-radius-16) * 1px);
+      border-radius: 0 0 var(--kobber-primitives-border-radius-16)
+        var(--kobber-primitives-border-radius-16);
+      padding-bottom: var(--kobber-primitives-size-32);
     }
 
     .responsiveLabel {
-        display: inline-block;
-        padding-right: .25em;
+      display: inline-block;
+      padding-right: 0.25em;
     }
-
+  }
 }
-}
-  
 
 .tdWide {
-    width: 100%
+  width: 100%;
 }
 
 .tdNoWrap {
-    white-space: nowrap;
+  white-space: nowrap;
 }
-
