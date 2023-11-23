@@ -5,9 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
-    "build": "yarn tokens && yarn css",
-    "tokens": "ts-node ./build-tokens.ts",
-    "css": "ts-node build-css.ts"
+    "build": "yarn ts-node ./buildTokens.ts && ts-node buildTypography.ts"
   },
   "dependencies": {},
   "repository": {

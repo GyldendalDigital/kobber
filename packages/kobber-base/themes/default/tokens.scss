@@ -1,6 +1,6 @@
 
 // Do not edit directly
-// Generated on Wed, 22 Nov 2023 15:28:56 GMT
+// Generated on Thu, 23 Nov 2023 09:30:30 GMT
 
 $primitives-border-radius-8: 8;
 $primitives-border-radius-16: 16;
@@ -237,6 +237,17 @@ $component-progressbar-color-foreground-high: #421c9cff;
 $component-progressbar-color-foreground-unknown: #25292dff;
 $component-progressbar-size-small: 8;
 $component-progressbar-size-default: 12;
+$component-tooltip-border-radius: 8;
+$component-tooltip-color-background: #121516ff;
+$component-tooltip-color-foreground: #ffffffff;
+$component-tooltip-padding-inline: 16;
+$component-tooltip-padding-block: 8;
+$component-alert-color-error-foreground: #e0004eff;
+$component-alert-color-error-background: #ffd6e4ff;
+$component-alert-color-info-foreground: #006466ff;
+$component-alert-color-info-background: #cbf0f1ff;
+$component-alert-padding-inline: 24;
+$component-alert-padding-block: 16;
 $semantic-action-padding-xsmall: 8;
 $semantic-action-padding-medium: 16;
 $semantic-action-padding-small: 12;
@@ -251,11 +262,15 @@ $semantic-action-border-radius-xsmall: 8;
 $semantic-action-separator-border-width: 1;
 $semantic-action-separator-border-color: #dde0e3ff;
 $semantic-action-color-disabled-background: #dde0e3ff;
-$semantic-action-color-disabled-foreground: #373e43ff;
-$semantic-action-color-error-foreground: #ffffffff;
+$semantic-action-color-disabled-foreground: #5c6770ff;
+$semantic-action-color-error-foreground: #f4f5f6ff;
 $semantic-action-color-error-background: #e0004eff;
-$semantic-action-color-default-foreground: #000000ff;
+$semantic-action-color-default-foreground: #121516ff;
 $semantic-action-color-default-background: #f4f5f6ff;
+$semantic-action-color-active-background: #ffffffff;
+$semantic-action-color-active-foreground: #121516ff;
+$semantic-action-color-focus-border: #008c8fff;
+$semantic-action-color-hover-background: #dde0e3ff;
 $semantic-action-container-scale: 1.05;
 $semantic-image-thumbnail-border-radius: 1000;
 $semantic-image-icon-size-width: 24;
@@ -302,6 +317,8 @@ $semantic-color-surface-page-foreground: #121516ff;
 $semantic-color-surface-border: #c7ccd1ff;
 $semantic-color-surface-container-background: #ffffffff;
 $semantic-color-surface-container-foreground: #121516ff;
+$semantic-color-info-primary: #006466ff;
+$semantic-color-info-secondary: #cbf0f1ff;
 $sections-input-text-padding: 8;
 $sections-input-color-border-default: #7091ebff;
 $sections-input-color-border-selected: #112e7dff;
@@ -311,6 +328,13 @@ $sections-label-container-padding-inline: 6;
 $sections-label-container-padding-block: 2;
 $sections-label-container-border-radius: 2;
 $sections-label-container-gap: 6;
+$documentation-layout-page-background-color-primary: #d6cdbcff;
+$documentation-layout-page-background-color-secondary: #fdfcfbff;
+$documentation-layout-separator-border-color: #dde0e3ff;
+$documentation-layout-container-padding-large: 16;
+$documentation-layout-container-padding-small: 6;
+$documentation-layout-container-padding-medium: 8;
+$documentation-article-container-margin-bottom: 96;
 $typography-action-button-font-size: 16;
 $typography-action-button-text-decoration: none;
 $typography-action-button-font-family: Inter;

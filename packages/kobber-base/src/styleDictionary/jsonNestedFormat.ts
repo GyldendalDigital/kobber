@@ -1,6 +1,12 @@
-import { TransformedTokens } from "style-dictionary";
+import { Format, Named, TransformedTokens } from "style-dictionary";
 
-export const minifyDictionary = (obj: TransformedTokens) => {
+export const jsonNested: Named<Format> = {
+  name: "json/nested-v2",
+  formatter: ({ dictionary }) =>
+    JSON.stringify(minifyDictionary(dictionary.tokens), null, 2) + "\n",
+};
+
+const minifyDictionary = (obj: TransformedTokens) => {
   if (obj === null || obj === undefined) {
     return null;
   }

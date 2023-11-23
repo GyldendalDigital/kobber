@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 22 Nov 2023 15:28:56 GMT
+ * Generated on Thu, 23 Nov 2023 09:30:30 GMT
  */
 
 .kobber-theme-dark {
@@ -312,6 +312,8 @@
   --kobber-typography-action-button-font-family: Inter;
   --kobber-typography-action-button-text-decoration: none;
   --kobber-typography-action-button-font-size: 16;
+  --kobber-documentation-layout-page-background-color-secondary: #fdfcfbff;
+  --kobber-documentation-layout-page-background-color-primary: #d6cdbcff;
   --kobber-component-list-listitem-container-size-height: 64;
   --kobber-component-tile-heading-color-background: #f4f5f6a6;
   --kobber-primitives-scale-105: 0.065625rem;
@@ -455,6 +457,10 @@
   --kobber-primitives-size-2: 0.125rem;
   --kobber-primitives-border-width-1: 0.0625rem;
   --kobber-primitives-border-radius-pill: 62.5rem;
+  --kobber-documentation-article-container-margin-bottom: var(--kobber-primitives-size-96);
+  --kobber-documentation-layout-container-padding-medium: var(--kobber-primitives-size-8);
+  --kobber-documentation-layout-container-padding-small: var(--kobber-primitives-size-6);
+  --kobber-documentation-layout-container-padding-large: var(--kobber-primitives-size-16);
   --kobber-sections-label-container-gap: var(--kobber-primitives-size-6);
   --kobber-sections-label-container-border-radius: var(--kobber-primitives-size-2);
   --kobber-sections-label-container-padding-block: var(--kobber-primitives-size-2);
@@ -464,13 +470,15 @@
   --kobber-sections-input-color-border-selected: var(--kobber-primitives-color-violet-900);
   --kobber-sections-input-color-border-default: var(--kobber-primitives-color-violet-400);
   --kobber-sections-input-text-padding: var(--kobber-primitives-size-8);
+  --kobber-semantic-color-info-secondary: var(--kobber-primitives-color-turquoise-800);
+  --kobber-semantic-color-info-primary: var(--kobber-primitives-color-turquoise-200);
   --kobber-semantic-color-surface-container-foreground: var(--kobber-primitives-color-gray-100);
   --kobber-semantic-color-surface-container-background: var(--kobber-primitives-color-gray-900);
   --kobber-semantic-color-surface-border: var(--kobber-primitives-color-gray-800);
   --kobber-semantic-color-surface-page-foreground: var(--kobber-primitives-color-gray-100);
   --kobber-semantic-color-surface-page-background: var(--kobber-primitives-color-gray-1000);
-  --kobber-semantic-color-failure-secondary: var(--kobber-primitives-color-pink-200);
-  --kobber-semantic-color-failure-primary: var(--kobber-primitives-color-pink-800);
+  --kobber-semantic-color-failure-secondary: var(--kobber-primitives-color-pink-900);
+  --kobber-semantic-color-failure-primary: var(--kobber-primitives-color-pink-300);
   --kobber-semantic-color-success-secondar: var(--kobber-primitives-color-green-100);
   --kobber-semantic-color-success-secondary: var(--kobber-primitives-color-green-100);
   --kobber-semantic-color-success-primary: var(--kobber-primitives-color-green-600);
@@ -509,11 +517,15 @@
   --kobber-semantic-image-icon-size-width: var(--kobber-primitives-size-24);
   --kobber-semantic-image-thumbnail-border-radius: var(--kobber-primitives-border-radius-pill);
   --kobber-semantic-action-container-scale: var(--kobber-primitives-scale-105);
-  --kobber-semantic-action-color-default-background: var(--kobber-primitives-color-gray-100);
-  --kobber-semantic-action-color-default-foreground: var(--kobber-primitives-color-black);
-  --kobber-semantic-action-color-error-foreground: var(--kobber-primitives-color-white);
-  --kobber-semantic-action-color-disabled-foreground: var(--kobber-primitives-color-gray-800);
-  --kobber-semantic-action-color-disabled-background: var(--kobber-primitives-color-gray-200);
+  --kobber-semantic-action-color-hover-background: var(--kobber-primitives-color-gray-700);
+  --kobber-semantic-action-color-focus-border: var(--kobber-primitives-color-turquoise-400);
+  --kobber-semantic-action-color-active-foreground: var(--kobber-primitives-color-gray-100);
+  --kobber-semantic-action-color-active-background: var(--kobber-primitives-color-gray-900);
+  --kobber-semantic-action-color-default-background: var(--kobber-primitives-color-gray-800);
+  --kobber-semantic-action-color-default-foreground: var(--kobber-primitives-color-gray-100);
+  --kobber-semantic-action-color-error-foreground: var(--kobber-primitives-color-gray-900);
+  --kobber-semantic-action-color-disabled-foreground: var(--kobber-primitives-color-gray-500);
+  --kobber-semantic-action-color-disabled-background: var(--kobber-primitives-color-gray-800);
   --kobber-semantic-action-separator-border-color: var(--kobber-primitives-color-gray-200);
   --kobber-semantic-action-separator-border-width: var(--kobber-primitives-border-width-1);
   --kobber-semantic-action-border-radius-pill: var(--kobber-primitives-border-radius-pill);
@@ -565,11 +577,21 @@
   --kobber-primitives-border-radius-24: var(--kobber-primitives-size-24);
   --kobber-primitives-border-radius-16: var(--kobber-primitives-size-16);
   --kobber-primitives-border-radius-8: var(--kobber-primitives-size-8);
+  --kobber-documentation-layout-separator-border-color: var(--kobber-semantic-action-separator-border-color);
   --kobber-semantic-elevation-container-border-radius: var(--kobber-primitives-border-radius-16);
   --kobber-semantic-action-color-error-background: var(--kobber-semantic-color-failure-primary);
   --kobber-semantic-action-border-radius-xsmall: var(--kobber-primitives-border-radius-8);
   --kobber-semantic-action-border-radius-large: var(--kobber-primitives-border-radius-24);
   --kobber-semantic-action-border-radius-small: var(--kobber-primitives-border-radius-16);
+  --kobber-component-alert-padding-block: var(--kobber-semantic-layout-container-padding-medium);
+  --kobber-component-alert-padding-inline: var(--kobber-semantic-layout-container-padding-large);
+  --kobber-component-alert-color-info-background: var(--kobber-semantic-color-info-secondary);
+  --kobber-component-alert-color-info-foreground: var(--kobber-semantic-color-info-primary);
+  --kobber-component-alert-color-error-background: var(--kobber-semantic-color-failure-secondary);
+  --kobber-component-tooltip-padding-block: var(--kobber-semantic-action-padding-xsmall);
+  --kobber-component-tooltip-padding-inline: var(--kobber-semantic-action-padding-medium);
+  --kobber-component-tooltip-color-foreground: var(--kobber-semantic-color-surface-container-background);
+  --kobber-component-tooltip-color-background: var(--kobber-semantic-color-surface-container-foreground);
   --kobber-component-progressbar-size-default: var(--kobber-semantic-progress-size-default);
   --kobber-component-progressbar-size-small: var(--kobber-semantic-progress-size-small);
   --kobber-component-progressbar-color-foreground-unknown: var(--kobber-semantic-progress-color-foreground-unknown);
@@ -619,6 +641,8 @@
   --kobber-component-button-color-background: var(--kobber-semantic-action-color-default-background);
   --kobber-component-button-padding-inline: var(--kobber-semantic-action-padding-medium);
   --kobber-component-button-padding-block: var(--kobber-semantic-action-padding-xsmall);
+  --kobber-component-alert-color-error-foreground: var(--kobber-semantic-action-color-error-background);
+  --kobber-component-tooltip-border-radius: var(--kobber-semantic-action-border-radius-xsmall);
   --kobber-component-input-text-border-radius: var(--kobber-semantic-action-border-radius-xsmall);
   --kobber-component-modal-border-radius: var(--kobber-semantic-elevation-container-border-radius);
 }

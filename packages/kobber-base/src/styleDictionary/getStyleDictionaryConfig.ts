@@ -3,18 +3,16 @@ import StyleDictionary, {
   TransformedToken,
   transformGroup,
 } from "style-dictionary";
-import { pxToRem } from "./transforms/pxToRem";
+import { jsonNested } from "./jsonNestedFormat";
+import { pxToRemTransform } from "./pxToRemTransform";
 
-StyleDictionary.registerTransform(pxToRem);
+StyleDictionary.registerTransform(pxToRemTransform);
 
 const buildPath = "./themes/";
 
 const invalid = ["font", "effect"];
 
-const filter = (token: TransformedToken) => {
-  console.log("token.name", token.path[0]);
-  return !invalid.includes(token.path[0]);
-};
+const filter = (token: TransformedToken) => !invalid.includes(token.path[0]);
 
 export const getStyleDictionaryConfig = (
   themeName: string,
@@ -36,7 +34,11 @@ export const getStyleDictionaryConfig = (
         ],
       },
       css: {
-        transforms: [...transformGroup.css, pxToRem.name, ...transforms],
+        transforms: [
+          ...transformGroup.css,
+          pxToRemTransform.name,
+          ...transforms,
+        ],
         buildPath,
         prefix: "kobber",
         files: [
@@ -57,7 +59,7 @@ export const getStyleDictionaryConfig = (
         files: [
           {
             destination: `${themeName}/tokens.json`,
-            format: "json/nested-v2",
+            format: jsonNested.name,
             filter,
           },
         ],

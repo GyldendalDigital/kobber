@@ -1,8 +1,8 @@
 import * as fs from "fs";
-import { flattenNestedTokens } from "./utils/flattenNestedTokens";
-import { getTypographyCssClass } from "./utils/getTypographyCssClass";
-import { getTypographyJson } from "./utils/getTypographyJson";
-import { trimLineBreaks } from "./utils/string-utils";
+import { flattenNestedTokens } from "./src/typography/flattenNestedTokens";
+import { getTypographyCssClass } from "./src/typography/getTypographyCssClass";
+import { getTypographyJson } from "./src/typography/getTypographyJson";
+import { trimLineBreaks } from "./src/typography/stringUtils";
 
 const buildPath = "./themes";
 
@@ -33,7 +33,12 @@ themeDirectories.forEach((directory) => {
   );
 
   const plainCss = typographyTokensFlattened
-    .map((item) => getTypographyCssClass(["kobber", "typography", ...item.path, item.name].join("-"), item.styles))
+    .map((item) =>
+      getTypographyCssClass(
+        ["kobber", "typography", ...item.path, item.name].join("-"),
+        item.styles
+      )
+    )
     .map(trimLineBreaks)
     .join("\n");
 
