@@ -16,17 +16,21 @@
     "lint:css": "stylelint ./src/**/*.css",
     "build": "tsup",
     "prepare": "npm run build",
-    "dev": "npm run build -- --watch"
+    "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build"
   },
   "dependencies": {
-    "@r2wc/react-to-web-component": "^2.0.3",
     "@gyldendal/kobber-base": "*",
+    "@lit/react": "^1.0.2",
+    "@r2wc/react-to-web-component": "^2.0.3",
+    "lit": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@gyldendal/kobber-eslint": "*",
     "@gyldendal/kobber-stylelint": "*",
+    "@types/react": "18.2.0",
+    "onchange": "^7.1.0",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
   },

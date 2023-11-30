@@ -1,11 +1,14 @@
 import {
   Example,
+  Grid,
+  GridColumn,
+  GridRow,
   ProficiencyBar,
   ProgressBar,
   propNames,
   propNames2,
   propNames3
-} from "../chunks/chunk-AVEIWGVY.js";
+} from "../chunks/chunk-YPVHKMGE.js";
 
 // src/example/web-component.ts
 import r2wc from "@r2wc/react-to-web-component";
@@ -29,6 +32,9 @@ window.customElements.define("kobber-progress-bar", ProgressBar2);
 window.customElements.define("kobber-proficiency-bar", ProficiencyBar2);
 export {
   Example2 as Example,
+  Grid,
+  GridColumn,
+  GridRow,
   ProficiencyBar2 as ProficiencyBar,
   ProgressBar2 as ProgressBar
 };

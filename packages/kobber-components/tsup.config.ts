@@ -21,7 +21,7 @@ removeDirectory(cssDirectory);
 
 export default defineConfig(() => ({
   entry: {
-    [`${reactDirectory}/index`]: "src/index.react.ts",
+    [`${reactDirectory}/index`]: "src/index.react.tsx",
     [`${webComponentsDirectory}/index`]: "src/index.web-components.ts",
   },
   format: ["esm"],
