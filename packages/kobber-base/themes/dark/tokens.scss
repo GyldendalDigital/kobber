@@ -1,6 +1,6 @@
 
 // Do not edit directly
-// Generated on Thu, 23 Nov 2023 09:30:30 GMT
+// Generated on Thu, 30 Nov 2023 10:48:49 GMT
 
 $primitives-border-radius-8: 8;
 $primitives-border-radius-16: 16;
@@ -643,3 +643,13 @@ $typography-section-input-line-height: 32;
 $typography-section-input-paragraph-indent: 0;
 $typography-section-input-paragraph-spacing: 0;
 $typography-section-input-text-case: none;
+$layout-min-width: 320;
+$layout-max-width: 1280;
+$layout-viewport-width-small-min: 0;
+$layout-viewport-width-small-max: 639;
+$layout-viewport-width-medium-min: 640;
+$layout-viewport-width-medium-max: 1279;
+$layout-viewport-width-large-min: 1280;
+$layout-padding-min: 4;
+$layout-padding-max: 16;
+$layout-gap-4-16: clamp(0.25rem, calc(0.00rem + 1.25vw), 1rem);

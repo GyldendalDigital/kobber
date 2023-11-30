@@ -1,37 +1,54 @@
 import fs from "fs";
 import StyleDictionary from "style-dictionary";
-import { jsonNested } from "./src/styleDictionary/jsonNestedFormat";
 import { getStyleDictionaryConfig } from "./src/styleDictionary/getStyleDictionaryConfig";
+import { jsonNested } from "./src/styleDictionary/jsonNestedFormat";
 import { sanitizeJsonFromFigma } from "./src/styleDictionary/sanitizeJsonFromFigma";
+import { layoutTokens } from "./layoutTokens";
 
 const jsonString = fs.readFileSync("tokens-from-figma.json", "utf-8");
 
+type FigmaMode = "light" | "dark";
+
 interface ThemeConfig {
-  modeInFigma: "light" | "dark";
+  figmaMode: FigmaMode;
   themeName: string;
 }
 
 const themeConfigs: ThemeConfig[] = [
   {
-    modeInFigma: "light",
+    figmaMode: "light",
     themeName: "default",
   },
   {
-    modeInFigma: "dark",
+    figmaMode: "dark",
     themeName: "dark",
   },
 ];
 
-const defaultModeNameFromFigma: ThemeConfig["modeInFigma"] = "dark";
+const defaultModeNameFromFigma: FigmaMode = "dark";
 
 StyleDictionary.registerFormat(jsonNested);
 
-themeConfigs.forEach(({ modeInFigma, themeName }) => {
+// Convert Figma modes into themes
+
+const buildThemeTokens = ({ figmaMode, themeName }: ThemeConfig) => {
+  const allTokens = getAllTokens(figmaMode);
+  const config = getStyleDictionaryConfig(themeName, allTokens);
+  StyleDictionary.extend(config).buildAllPlatforms();
+};
+
+// Merge tokens from Figma and temporary, hardcoded tokens
+
+const getAllTokens = (figmaMode: FigmaMode) => {
   const sanitizedJson = sanitizeJsonFromFigma(
     jsonString,
     defaultModeNameFromFigma,
-    modeInFigma
+    figmaMode
   );
-  const config = getStyleDictionaryConfig(themeName, sanitizedJson);
-  StyleDictionary.extend(config).buildAllPlatforms();
-});
+  return {
+    ...sanitizedJson,
+    ...layoutTokens,
+  };
+};
+
+themeConfigs.forEach(buildThemeTokens);

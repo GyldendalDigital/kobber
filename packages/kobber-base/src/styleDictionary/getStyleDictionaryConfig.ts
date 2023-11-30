@@ -3,10 +3,13 @@ import StyleDictionary, {
   TransformedToken,
   transformGroup,
 } from "style-dictionary";
+import { fluidClampTransform } from "./fluidClampTransform";
 import { jsonNested } from "./jsonNestedFormat";
 import { pxToRemTransform } from "./pxToRemTransform";
 
 StyleDictionary.registerTransform(pxToRemTransform);
+
+StyleDictionary.registerTransform(fluidClampTransform);
 
 const buildPath = "./themes/";
 
@@ -23,7 +26,11 @@ export const getStyleDictionaryConfig = (
     tokens: tokensFromFigma,
     platforms: {
       scss: {
-        transforms: [...transformGroup.scss, ...transforms],
+        transforms: [
+          ...transformGroup.scss,
+          fluidClampTransform.name,
+          ...transforms,
+        ],
         buildPath,
         files: [
           {
@@ -36,6 +43,7 @@ export const getStyleDictionaryConfig = (
       css: {
         transforms: [
           ...transformGroup.css,
+          fluidClampTransform.name,
           pxToRemTransform.name,
           ...transforms,
         ],
@@ -54,7 +62,11 @@ export const getStyleDictionaryConfig = (
         ],
       },
       js: {
-        transforms: [...transformGroup.js, ...transforms],
+        transforms: [
+          ...transformGroup.js,
+          fluidClampTransform.name,
+          ...transforms,
+        ],
         buildPath,
         files: [
           {
