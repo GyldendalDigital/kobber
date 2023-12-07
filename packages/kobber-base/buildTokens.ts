@@ -3,7 +3,7 @@ import StyleDictionary from "style-dictionary";
 import { getStyleDictionaryConfig } from "./src/styleDictionary/getStyleDictionaryConfig";
 import { jsonNested } from "./src/styleDictionary/jsonNestedFormat";
 import { sanitizeJsonFromFigma } from "./src/styleDictionary/sanitizeJsonFromFigma";
-import { layoutTokens } from "./layoutTokens";
+import { additionalTokens } from "./additionalTokens";
 
 const jsonString = fs.readFileSync("tokens-from-figma.json", "utf-8");
 
@@ -47,7 +47,7 @@ const getAllTokens = (figmaMode: FigmaMode) => {
   );
   return {
     ...sanitizedJson,
-    ...layoutTokens,
+    ...additionalTokens,
   };
 };
 

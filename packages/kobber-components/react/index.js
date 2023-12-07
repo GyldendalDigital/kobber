@@ -5,7 +5,7 @@ import {
   GridRow,
   ProficiencyBar,
   ProgressBar
-} from "../chunks/chunk-YPVHKMGE.js";
+} from "../chunks/chunk-XWYYK76E.js";
 
 // src/index.react.tsx
 import { createComponent } from "@lit/react";

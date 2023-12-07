@@ -1,7 +1,7 @@
 .kobber-typography-action-button {
   font-size: 1rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -11,7 +11,7 @@
 .kobber-typography-action-input-label {
   font-size: 1rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -21,7 +21,7 @@
 .kobber-typography-action-input-placeholder {
   font-size: 1rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
@@ -31,7 +31,7 @@
 .kobber-typography-action-input-disabled {
   font-size: 1rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 500;
   font-style: italic;
   font-stretch: normal;
@@ -41,7 +41,7 @@
 .kobber-typography-action-disabled-placeholder {
   font-size: 1rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 400;
   font-style: italic;
   font-stretch: normal;
@@ -51,7 +51,7 @@
 .kobber-typography-action-disabled-button {
   font-size: 1rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 500;
   font-style: italic;
   font-stretch: normal;
@@ -61,7 +61,7 @@
 .kobber-typography-content-body {
   font-size: 1rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
@@ -71,7 +71,7 @@
 .kobber-typography-content-lead {
   font-size: 1.5rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
@@ -81,7 +81,7 @@
 .kobber-typography-content-caption {
   font-size: 0.875rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
@@ -91,7 +91,7 @@
 .kobber-typography-content-badge {
   font-size: 0.75rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
@@ -101,7 +101,7 @@
 .kobber-typography-heading-xxxl {
   font-size: 4rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -111,7 +111,7 @@
 .kobber-typography-heading-xxl {
   font-size: 3rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -121,7 +121,7 @@
 .kobber-typography-heading-xl {
   font-size: 2.5rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -131,7 +131,7 @@
 .kobber-typography-heading-l {
   font-size: 2rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -141,7 +141,7 @@
 .kobber-typography-heading-m {
   font-size: 1.5rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -151,7 +151,7 @@
 .kobber-typography-heading-s {
   font-size: 1.25rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -161,7 +161,7 @@
 .kobber-typography-heading-xs {
   font-size: 1rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -172,7 +172,7 @@
 .kobber-typography-heading-xxs {
   font-size: 0.875rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -182,7 +182,7 @@
 .kobber-typography-heading-subheading {
   font-size: 0.875rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
@@ -193,7 +193,7 @@
 .kobber-typography-tile-heading {
   font-size: 1.5rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -203,7 +203,7 @@
 .kobber-typography-tile-body {
   font-size: 1.25rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
@@ -213,7 +213,7 @@
 .kobber-typography-tile-subheader {
   font-size: 1rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -223,7 +223,7 @@
 .kobber-typography-list-listitem-header-default {
   font-size: 1rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
@@ -233,7 +233,7 @@
 .kobber-typography-list-listitem-header-selected {
   font-size: 1rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -243,7 +243,7 @@
 .kobber-typography-list-listitem-header-small {
   font-size: 0.875rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
@@ -253,7 +253,7 @@
 .kobber-typography-listitem-big-header-default {
   font-size: 1rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
@@ -263,7 +263,7 @@
 .kobber-typography-listitem-big-header-selected {
   font-size: 1rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -273,7 +273,7 @@
 .kobber-typography-section-input {
   font-size: 2rem;
   text-decoration: none;
-  font-family: Inter;
+  font-family: Inter, 'Inter Variable';
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;

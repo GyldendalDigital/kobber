@@ -8,7 +8,7 @@
     "styles": {
       "fontSize": 16,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 500,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -26,7 +26,7 @@
     "styles": {
       "fontSize": 16,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 500,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -44,7 +44,7 @@
     "styles": {
       "fontSize": 16,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 400,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -62,7 +62,7 @@
     "styles": {
       "fontSize": 16,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 500,
       "fontStyle": "italic",
       "fontStretch": "normal",
@@ -80,7 +80,7 @@
     "styles": {
       "fontSize": 16,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 400,
       "fontStyle": "italic",
       "fontStretch": "normal",
@@ -98,7 +98,7 @@
     "styles": {
       "fontSize": 16,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 500,
       "fontStyle": "italic",
       "fontStretch": "normal",
@@ -115,7 +115,7 @@
     "styles": {
       "fontSize": 16,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 400,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -132,7 +132,7 @@
     "styles": {
       "fontSize": 24,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 400,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -149,7 +149,7 @@
     "styles": {
       "fontSize": 14,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 400,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -166,7 +166,7 @@
     "styles": {
       "fontSize": 12,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 400,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -183,7 +183,7 @@
     "styles": {
       "fontSize": 64,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 600,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -200,7 +200,7 @@
     "styles": {
       "fontSize": 48,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 600,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -217,7 +217,7 @@
     "styles": {
       "fontSize": 40,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 600,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -234,7 +234,7 @@
     "styles": {
       "fontSize": 32,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 600,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -251,7 +251,7 @@
     "styles": {
       "fontSize": 24,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 600,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -268,7 +268,7 @@
     "styles": {
       "fontSize": 20,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 600,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -285,7 +285,7 @@
     "styles": {
       "fontSize": 16,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 600,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -303,7 +303,7 @@
     "styles": {
       "fontSize": 14,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 600,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -320,7 +320,7 @@
     "styles": {
       "fontSize": 14,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 400,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -338,7 +338,7 @@
     "styles": {
       "fontSize": 24,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 500,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -355,7 +355,7 @@
     "styles": {
       "fontSize": 20,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 400,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -372,7 +372,7 @@
     "styles": {
       "fontSize": 16,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 500,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -391,7 +391,7 @@
     "styles": {
       "fontSize": 16,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 400,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -410,7 +410,7 @@
     "styles": {
       "fontSize": 16,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 500,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -429,7 +429,7 @@
     "styles": {
       "fontSize": 14,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 400,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -448,7 +448,7 @@
     "styles": {
       "fontSize": 16,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 400,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -467,7 +467,7 @@
     "styles": {
       "fontSize": 16,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 500,
       "fontStyle": "normal",
       "fontStretch": "normal",
@@ -484,7 +484,7 @@
     "styles": {
       "fontSize": 32,
       "textDecoration": "none",
-      "fontFamily": "Inter",
+      "fontFamily": "Inter, 'Inter Variable'",
       "fontWeight": 400,
       "fontStyle": "normal",
       "fontStretch": "normal",

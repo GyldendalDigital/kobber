@@ -1,6 +1,11 @@
+import { layout } from "@gyldendal/kobber-base/themes/default/tokens.json";
 import { CSSResultGroup, LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { layout } from "@gyldendal/kobber-base/themes/default/tokens.json";
+import {
+  ResponsiveCssValue,
+  responsiveValueConverter as converter,
+} from "../utils/responsiveCssValue";
+import { toCss } from "../utils/toCss";
 
 @customElement("kobber-grid-column")
 export class GridColumn extends LitElement {
@@ -11,23 +16,30 @@ export class GridColumn extends LitElement {
     }
   `;
 
-  @property({ type: Number })
-  span = 1;
+  @property({ converter })
+  span?: number = 1;
 
-  @property({ type: String })
-  alignSelf?: string;
+  @property({ converter, attribute: "grid-area" })
+  gridArea?: ResponsiveCssValue;
 
-  @property({ type: String })
-  justifySelf?: string;
+  @property({ converter, attribute: "align-self" })
+  alignSelf?: ResponsiveCssValue;
+
+  @property({ converter, attribute: "justify-self" })
+  justifySelf?: ResponsiveCssValue;
+
+  styles = () => ({
+    gridArea: this.gridArea,
+    gridColumn: `span ${this.span}`,
+    alignSelf: this.alignSelf,
+    justifySelf: this.justifySelf,
+  });
 
   render() {
+    const css = toCss(":host", this.styles());
     return html`
       <style>
-        :host {
-          grid-column: span ${this.span};
-          align-self: ${this.alignSelf};
-          justify-self: ${this.justifySelf};
-        }
+        ${css}
       </style>
       <slot />
     `;

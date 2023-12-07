@@ -1,9 +1,11 @@
 /**
  * Do not edit directly
- * Generated on Thu, 30 Nov 2023 10:48:49 GMT
+ * Generated on Thu, 07 Dec 2023 15:07:17 GMT
  */
 
 .kobber-theme-dark {
+  --kobber-layout-gap-8-16: clamp(0.5rem, calc(0.33rem + 0.83vw), 1rem);
+  --kobber-layout-gap-4-8: clamp(0.25rem, calc(0.17rem + 0.42vw), 0.5rem);
   --kobber-layout-gap-4-16: clamp(0.25rem, calc(0.00rem + 1.25vw), 1rem);
   --kobber-layout-padding-max: 16;
   --kobber-layout-padding-min: 4;
@@ -14,6 +16,9 @@
   --kobber-layout-viewport-width-small-min: 0;
   --kobber-layout-max-width: 1280;
   --kobber-layout-min-width: 320;
+  --kobber-media-query-large: (min-width: 1280px);
+  --kobber-media-query-medium: (min-width: 640px) and (max-width: 1279px);
+  --kobber-media-query-small: (max-width: 639px);
   --kobber-typography-section-input-text-case: none;
   --kobber-typography-section-input-paragraph-spacing: 0;
   --kobber-typography-section-input-paragraph-indent: 0;
@@ -22,7 +27,7 @@
   --kobber-typography-section-input-font-stretch: normal;
   --kobber-typography-section-input-font-style: normal;
   --kobber-typography-section-input-font-weight: 400;
-  --kobber-typography-section-input-font-family: Inter;
+  --kobber-typography-section-input-font-family: Inter, 'Inter Variable';
   --kobber-typography-section-input-text-decoration: none;
   --kobber-typography-section-input-font-size: 32;
   --kobber-typography-listitem-big-header-selected-text-case: none;
@@ -33,7 +38,7 @@
   --kobber-typography-listitem-big-header-selected-font-stretch: normal;
   --kobber-typography-listitem-big-header-selected-font-style: normal;
   --kobber-typography-listitem-big-header-selected-font-weight: 500;
-  --kobber-typography-listitem-big-header-selected-font-family: Inter;
+  --kobber-typography-listitem-big-header-selected-font-family: Inter, 'Inter Variable';
   --kobber-typography-listitem-big-header-selected-text-decoration: none;
   --kobber-typography-listitem-big-header-selected-font-size: 16;
   --kobber-typography-listitem-big-header-default-text-case: none;
@@ -44,7 +49,7 @@
   --kobber-typography-listitem-big-header-default-font-stretch: normal;
   --kobber-typography-listitem-big-header-default-font-style: normal;
   --kobber-typography-listitem-big-header-default-font-weight: 400;
-  --kobber-typography-listitem-big-header-default-font-family: Inter;
+  --kobber-typography-listitem-big-header-default-font-family: Inter, 'Inter Variable';
   --kobber-typography-listitem-big-header-default-text-decoration: none;
   --kobber-typography-listitem-big-header-default-font-size: 16;
   --kobber-typography-list-listitem-header-small-text-case: none;
@@ -55,7 +60,7 @@
   --kobber-typography-list-listitem-header-small-font-stretch: normal;
   --kobber-typography-list-listitem-header-small-font-style: normal;
   --kobber-typography-list-listitem-header-small-font-weight: 400;
-  --kobber-typography-list-listitem-header-small-font-family: Inter;
+  --kobber-typography-list-listitem-header-small-font-family: Inter, 'Inter Variable';
   --kobber-typography-list-listitem-header-small-text-decoration: none;
   --kobber-typography-list-listitem-header-small-font-size: 14;
   --kobber-typography-list-listitem-header-selected-text-case: none;
@@ -66,7 +71,7 @@
   --kobber-typography-list-listitem-header-selected-font-stretch: normal;
   --kobber-typography-list-listitem-header-selected-font-style: normal;
   --kobber-typography-list-listitem-header-selected-font-weight: 500;
-  --kobber-typography-list-listitem-header-selected-font-family: Inter;
+  --kobber-typography-list-listitem-header-selected-font-family: Inter, 'Inter Variable';
   --kobber-typography-list-listitem-header-selected-text-decoration: none;
   --kobber-typography-list-listitem-header-selected-font-size: 16;
   --kobber-typography-list-listitem-header-default-text-case: none;
@@ -77,7 +82,7 @@
   --kobber-typography-list-listitem-header-default-font-stretch: normal;
   --kobber-typography-list-listitem-header-default-font-style: normal;
   --kobber-typography-list-listitem-header-default-font-weight: 400;
-  --kobber-typography-list-listitem-header-default-font-family: Inter;
+  --kobber-typography-list-listitem-header-default-font-family: Inter, 'Inter Variable';
   --kobber-typography-list-listitem-header-default-text-decoration: none;
   --kobber-typography-list-listitem-header-default-font-size: 16;
   --kobber-typography-tile-subheader-text-case: none;
@@ -88,7 +93,7 @@
   --kobber-typography-tile-subheader-font-stretch: normal;
   --kobber-typography-tile-subheader-font-style: normal;
   --kobber-typography-tile-subheader-font-weight: 500;
-  --kobber-typography-tile-subheader-font-family: Inter;
+  --kobber-typography-tile-subheader-font-family: Inter, 'Inter Variable';
   --kobber-typography-tile-subheader-text-decoration: none;
   --kobber-typography-tile-subheader-font-size: 16;
   --kobber-typography-tile-body-text-case: none;
@@ -99,7 +104,7 @@
   --kobber-typography-tile-body-font-stretch: normal;
   --kobber-typography-tile-body-font-style: normal;
   --kobber-typography-tile-body-font-weight: 400;
-  --kobber-typography-tile-body-font-family: Inter;
+  --kobber-typography-tile-body-font-family: Inter, 'Inter Variable';
   --kobber-typography-tile-body-text-decoration: none;
   --kobber-typography-tile-body-font-size: 20;
   --kobber-typography-tile-heading-text-case: none;
@@ -110,7 +115,7 @@
   --kobber-typography-tile-heading-font-stretch: normal;
   --kobber-typography-tile-heading-font-style: normal;
   --kobber-typography-tile-heading-font-weight: 500;
-  --kobber-typography-tile-heading-font-family: Inter;
+  --kobber-typography-tile-heading-font-family: Inter, 'Inter Variable';
   --kobber-typography-tile-heading-text-decoration: none;
   --kobber-typography-tile-heading-font-size: 24;
   --kobber-typography-heading-subheading-text-case: uppercase;
@@ -121,7 +126,7 @@
   --kobber-typography-heading-subheading-font-stretch: normal;
   --kobber-typography-heading-subheading-font-style: normal;
   --kobber-typography-heading-subheading-font-weight: 400;
-  --kobber-typography-heading-subheading-font-family: Inter;
+  --kobber-typography-heading-subheading-font-family: Inter, 'Inter Variable';
   --kobber-typography-heading-subheading-text-decoration: none;
   --kobber-typography-heading-subheading-font-size: 14;
   --kobber-typography-heading-xxs-text-case: none;
@@ -132,7 +137,7 @@
   --kobber-typography-heading-xxs-font-stretch: normal;
   --kobber-typography-heading-xxs-font-style: normal;
   --kobber-typography-heading-xxs-font-weight: 600;
-  --kobber-typography-heading-xxs-font-family: Inter;
+  --kobber-typography-heading-xxs-font-family: Inter, 'Inter Variable';
   --kobber-typography-heading-xxs-text-decoration: none;
   --kobber-typography-heading-xxs-font-size: 14;
   --kobber-typography-heading-xs-text-case: uppercase;
@@ -143,7 +148,7 @@
   --kobber-typography-heading-xs-font-stretch: normal;
   --kobber-typography-heading-xs-font-style: normal;
   --kobber-typography-heading-xs-font-weight: 600;
-  --kobber-typography-heading-xs-font-family: Inter;
+  --kobber-typography-heading-xs-font-family: Inter, 'Inter Variable';
   --kobber-typography-heading-xs-text-decoration: none;
   --kobber-typography-heading-xs-font-size: 16;
   --kobber-typography-heading-s-text-case: none;
@@ -154,7 +159,7 @@
   --kobber-typography-heading-s-font-stretch: normal;
   --kobber-typography-heading-s-font-style: normal;
   --kobber-typography-heading-s-font-weight: 600;
-  --kobber-typography-heading-s-font-family: Inter;
+  --kobber-typography-heading-s-font-family: Inter, 'Inter Variable';
   --kobber-typography-heading-s-text-decoration: none;
   --kobber-typography-heading-s-font-size: 20;
   --kobber-typography-heading-m-text-case: none;
@@ -165,7 +170,7 @@
   --kobber-typography-heading-m-font-stretch: normal;
   --kobber-typography-heading-m-font-style: normal;
   --kobber-typography-heading-m-font-weight: 600;
-  --kobber-typography-heading-m-font-family: Inter;
+  --kobber-typography-heading-m-font-family: Inter, 'Inter Variable';
   --kobber-typography-heading-m-text-decoration: none;
   --kobber-typography-heading-m-font-size: 24;
   --kobber-typography-heading-l-text-case: none;
@@ -176,7 +181,7 @@
   --kobber-typography-heading-l-font-stretch: normal;
   --kobber-typography-heading-l-font-style: normal;
   --kobber-typography-heading-l-font-weight: 600;
-  --kobber-typography-heading-l-font-family: Inter;
+  --kobber-typography-heading-l-font-family: Inter, 'Inter Variable';
   --kobber-typography-heading-l-text-decoration: none;
   --kobber-typography-heading-l-font-size: 32;
   --kobber-typography-heading-xl-text-case: none;
@@ -187,7 +192,7 @@
   --kobber-typography-heading-xl-font-stretch: normal;
   --kobber-typography-heading-xl-font-style: normal;
   --kobber-typography-heading-xl-font-weight: 600;
-  --kobber-typography-heading-xl-font-family: Inter;
+  --kobber-typography-heading-xl-font-family: Inter, 'Inter Variable';
   --kobber-typography-heading-xl-text-decoration: none;
   --kobber-typography-heading-xl-font-size: 40;
   --kobber-typography-heading-xxl-text-case: none;
@@ -198,7 +203,7 @@
   --kobber-typography-heading-xxl-font-stretch: normal;
   --kobber-typography-heading-xxl-font-style: normal;
   --kobber-typography-heading-xxl-font-weight: 600;
-  --kobber-typography-heading-xxl-font-family: Inter;
+  --kobber-typography-heading-xxl-font-family: Inter, 'Inter Variable';
   --kobber-typography-heading-xxl-text-decoration: none;
   --kobber-typography-heading-xxl-font-size: 48;
   --kobber-typography-heading-xxxl-text-case: none;
@@ -209,7 +214,7 @@
   --kobber-typography-heading-xxxl-font-stretch: normal;
   --kobber-typography-heading-xxxl-font-style: normal;
   --kobber-typography-heading-xxxl-font-weight: 600;
-  --kobber-typography-heading-xxxl-font-family: Inter;
+  --kobber-typography-heading-xxxl-font-family: Inter, 'Inter Variable';
   --kobber-typography-heading-xxxl-text-decoration: none;
   --kobber-typography-heading-xxxl-font-size: 64;
   --kobber-typography-content-badge-text-case: none;
@@ -220,7 +225,7 @@
   --kobber-typography-content-badge-font-stretch: normal;
   --kobber-typography-content-badge-font-style: normal;
   --kobber-typography-content-badge-font-weight: 400;
-  --kobber-typography-content-badge-font-family: Inter;
+  --kobber-typography-content-badge-font-family: Inter, 'Inter Variable';
   --kobber-typography-content-badge-text-decoration: none;
   --kobber-typography-content-badge-font-size: 12;
   --kobber-typography-content-caption-text-case: none;
@@ -231,7 +236,7 @@
   --kobber-typography-content-caption-font-stretch: normal;
   --kobber-typography-content-caption-font-style: normal;
   --kobber-typography-content-caption-font-weight: 400;
-  --kobber-typography-content-caption-font-family: Inter;
+  --kobber-typography-content-caption-font-family: Inter, 'Inter Variable';
   --kobber-typography-content-caption-text-decoration: none;
   --kobber-typography-content-caption-font-size: 14;
   --kobber-typography-content-lead-text-case: none;
@@ -242,7 +247,7 @@
   --kobber-typography-content-lead-font-stretch: normal;
   --kobber-typography-content-lead-font-style: normal;
   --kobber-typography-content-lead-font-weight: 400;
-  --kobber-typography-content-lead-font-family: Inter;
+  --kobber-typography-content-lead-font-family: Inter, 'Inter Variable';
   --kobber-typography-content-lead-text-decoration: none;
   --kobber-typography-content-lead-font-size: 24;
   --kobber-typography-content-body-text-case: none;
@@ -253,7 +258,7 @@
   --kobber-typography-content-body-font-stretch: normal;
   --kobber-typography-content-body-font-style: normal;
   --kobber-typography-content-body-font-weight: 400;
-  --kobber-typography-content-body-font-family: Inter;
+  --kobber-typography-content-body-font-family: Inter, 'Inter Variable';
   --kobber-typography-content-body-text-decoration: none;
   --kobber-typography-content-body-font-size: 16;
   --kobber-typography-action-disabled-button-text-case: none;
@@ -264,7 +269,7 @@
   --kobber-typography-action-disabled-button-font-stretch: normal;
   --kobber-typography-action-disabled-button-font-style: italic;
   --kobber-typography-action-disabled-button-font-weight: 500;
-  --kobber-typography-action-disabled-button-font-family: Inter;
+  --kobber-typography-action-disabled-button-font-family: Inter, 'Inter Variable';
   --kobber-typography-action-disabled-button-text-decoration: none;
   --kobber-typography-action-disabled-button-font-size: 16;
   --kobber-typography-action-disabled-placeholder-text-case: none;
@@ -275,7 +280,7 @@
   --kobber-typography-action-disabled-placeholder-font-stretch: normal;
   --kobber-typography-action-disabled-placeholder-font-style: italic;
   --kobber-typography-action-disabled-placeholder-font-weight: 400;
-  --kobber-typography-action-disabled-placeholder-font-family: Inter;
+  --kobber-typography-action-disabled-placeholder-font-family: Inter, 'Inter Variable';
   --kobber-typography-action-disabled-placeholder-text-decoration: none;
   --kobber-typography-action-disabled-placeholder-font-size: 16;
   --kobber-typography-action-input-disabled-text-case: none;
@@ -286,7 +291,7 @@
   --kobber-typography-action-input-disabled-font-stretch: normal;
   --kobber-typography-action-input-disabled-font-style: italic;
   --kobber-typography-action-input-disabled-font-weight: 500;
-  --kobber-typography-action-input-disabled-font-family: Inter;
+  --kobber-typography-action-input-disabled-font-family: Inter, 'Inter Variable';
   --kobber-typography-action-input-disabled-text-decoration: none;
   --kobber-typography-action-input-disabled-font-size: 16;
   --kobber-typography-action-input-placeholder-text-case: none;
@@ -297,7 +302,7 @@
   --kobber-typography-action-input-placeholder-font-stretch: normal;
   --kobber-typography-action-input-placeholder-font-style: normal;
   --kobber-typography-action-input-placeholder-font-weight: 400;
-  --kobber-typography-action-input-placeholder-font-family: Inter;
+  --kobber-typography-action-input-placeholder-font-family: Inter, 'Inter Variable';
   --kobber-typography-action-input-placeholder-text-decoration: none;
   --kobber-typography-action-input-placeholder-font-size: 16;
   --kobber-typography-action-input-label-text-case: none;
@@ -308,7 +313,7 @@
   --kobber-typography-action-input-label-font-stretch: normal;
   --kobber-typography-action-input-label-font-style: normal;
   --kobber-typography-action-input-label-font-weight: 500;
-  --kobber-typography-action-input-label-font-family: Inter;
+  --kobber-typography-action-input-label-font-family: Inter, 'Inter Variable';
   --kobber-typography-action-input-label-text-decoration: none;
   --kobber-typography-action-input-label-font-size: 16;
   --kobber-typography-action-button-text-case: none;
@@ -319,7 +324,7 @@
   --kobber-typography-action-button-font-stretch: normal;
   --kobber-typography-action-button-font-style: normal;
   --kobber-typography-action-button-font-weight: 500;
-  --kobber-typography-action-button-font-family: Inter;
+  --kobber-typography-action-button-font-family: Inter, 'Inter Variable';
   --kobber-typography-action-button-text-decoration: none;
   --kobber-typography-action-button-font-size: 16;
   --kobber-documentation-layout-page-background-color-secondary: #fdfcfbff;

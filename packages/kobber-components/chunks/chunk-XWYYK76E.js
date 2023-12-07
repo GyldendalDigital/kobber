@@ -197,7 +197,7 @@ Grid.styles = css`
     :host {
       display: grid;
       max-width: ${unsafeCSS(layout.maxWidth)};
-      justify-items: center;
+      justify-content: center;
     }
   `;
 Grid = __decorateClass([
@@ -205,22 +205,79 @@ Grid = __decorateClass([
 ], Grid);
 
 // src/grid/GridColumn.ts
+import { layout as layout2 } from "@gyldendal/kobber-base/themes/default/tokens.json";
 import { LitElement as LitElement2, css as css2, html as html2, unsafeCSS as unsafeCSS2 } from "lit";
 import { customElement as customElement2, property } from "lit/decorators.js";
-import { layout as layout2 } from "@gyldendal/kobber-base/themes/default/tokens.json";
+
+// src/utils/responsiveCssValue.ts
+var responsiveValueConverter = {
+  fromAttribute: (value) => {
+    return value.trim().startsWith("{") ? JSON.parse(value) : value;
+  }
+};
+
+// src/utils/toCss.ts
+import { compile, serialize, stringify } from "stylis";
+var isResponsiveValue = (value) => typeof value === "object";
+var isStringValue = (value) => typeof value === "string";
+var toCss = (selector, styles) => {
+  const styleArray = Object.entries(styles);
+  const mediaQueries = getMediaQueries(styleArray);
+  const css4 = `
+    ${selector} {
+      ${styleArray.filter(([, value]) => isStringValue(value)).map((aaa) => {
+    return aaa;
+  }).map(
+    ([prop, value]) => value ? `${toCssProp(prop)}: ${value}` : void 0
+  ).join(";")}
+    }
+
+    ${mediaQueries.map(
+    (mediaQuery2) => `
+        @media ${mediaQuery2} {
+          ${styleArray.map(getDeclarations(mediaQuery2)).map((array) => array ? array.join(";") : "").filter(isValidDeclaration).map((declaration) => `${selector}{ ${declaration} }`).join(";")}
+        }`
+  ).join("")}
+
+  `;
+  const cssString = serialize(compile(css4), stringify);
+  return cssString;
+};
+var getDeclarations = (mediaQuery2) => ([camelCasedCssProp, value]) => {
+  const cssProp = toCssProp(camelCasedCssProp);
+  if (mediaQuery2 && isResponsiveValue(value)) {
+    return Object.entries(value).filter(([nestedMediaQuery]) => nestedMediaQuery === mediaQuery2).map(([, cssValue]) => `${cssProp}: ${cssValue}`);
+  } else if (value !== void 0 && mediaQuery2 === void 0) {
+    return [`${cssProp}: ${value}`];
+  }
+};
+var isValidDeclaration = (declaration) => declaration !== void 0 && declaration !== "";
+var getMediaQueries = (styleArray) => styleArray.reduce((array, [, value]) => {
+  if (isResponsiveValue(value)) {
+    const unique = Object.keys(value).filter((f) => !array.includes(f));
+    return [...array, ...unique];
+  }
+  return array;
+}, []);
+var toCssProp = (prop) => prop.includes("-") ? prop : prop.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g, "-$&").toLowerCase();
+
+// src/grid/GridColumn.ts
 var GridColumn = class extends LitElement2 {
   constructor() {
     super(...arguments);
     this.span = 1;
+    this.styles = () => ({
+      gridArea: this.gridArea,
+      gridColumn: `span ${this.span}`,
+      alignSelf: this.alignSelf,
+      justifySelf: this.justifySelf
+    });
   }
   render() {
+    const css4 = toCss(":host", this.styles());
     return html2`
       <style>
-        :host {
-          grid-column: span ${this.span};
-          align-self: ${this.alignSelf};
-          justify-self: ${this.justifySelf};
-        }
+        ${css4}
       </style>
       <slot />
     `;
@@ -233,136 +290,135 @@ GridColumn.styles = css2`
     }
   `;
 __decorateClass([
-  property({ type: Number })
+  property({ converter: responsiveValueConverter })
 ], GridColumn.prototype, "span", 2);
 __decorateClass([
-  property({ type: String })
+  property({ converter: responsiveValueConverter, attribute: "grid-area" })
+], GridColumn.prototype, "gridArea", 2);
+__decorateClass([
+  property({ converter: responsiveValueConverter, attribute: "align-self" })
 ], GridColumn.prototype, "alignSelf", 2);
 __decorateClass([
-  property({ type: String })
+  property({ converter: responsiveValueConverter, attribute: "justify-self" })
 ], GridColumn.prototype, "justifySelf", 2);
 GridColumn = __decorateClass([
   customElement2("kobber-grid-column")
 ], GridColumn);
 
 // src/grid/GridRow.ts
-import { layout as layout4 } from "@gyldendal/kobber-base/themes/default/tokens.json";
-import { LitElement as LitElement3, css as css4, html as html3, unsafeCSS as unsafeCSS3 } from "lit";
+import {
+  layout as layout3,
+  mediaQuery
+} from "@gyldendal/kobber-base/themes/default/tokens.json";
+import { LitElement as LitElement3, css as css3, html as html3 } from "lit";
 import { customElement as customElement3, property as property2 } from "lit/decorators.js";
-
-// src/utils/toCss.ts
-var toCss = (styleInfo) => {
-  return Object.keys(styleInfo).reduce((style, prop) => {
-    const value = styleInfo[prop];
-    if (value == null) {
-      return style;
-    }
-    prop = prop.includes("-") ? prop : prop.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g, "-$&").toLowerCase();
-    return style + `${prop}:${value};`;
-  }, "");
-};
-
-// src/grid/mediaQueries.ts
-import { css as css3 } from "lit";
-import { layout as layout3 } from "@gyldendal/kobber-base/themes/default/tokens.json";
-var { viewportWidth } = layout3;
-var smallViewport = css3`(max-width: ${viewportWidth.small.max}px)`;
-var mediumViewport = css3`(min-width: ${viewportWidth.medium.min}px) and (max-width: ${viewportWidth.medium.max}px)`;
-var largeViewport = css3`(min-width: ${viewportWidth.large.min}px)`;
-
-// src/grid/GridRow.ts
 var GridRow = class extends LitElement3 {
   constructor() {
     super(...arguments);
-    this.styles = () => ({
+    this.gridTemplateColumns = {
+      [mediaQuery.small]: "repeat(4, 1fr)",
+      [mediaQuery.medium]: "repeat(6, 1fr)",
+      [mediaQuery.large]: "repeat(12, 1fr)"
+    };
+    this.gap = layout3.gap["4-16"];
+    this.paddingRight = layout3.gap["8-16"];
+    this.paddingLeft = layout3.gap["8-16"];
+    this.hostStyles = () => ({
+      paddingTop: this.paddingTop,
+      paddingRight: this.paddingRight,
+      paddingBottom: this.paddingBottom,
+      paddingLeft: this.paddingLeft
+    });
+    this.gridStyles = () => ({
+      gridTemplate: this.gridTemplate,
       gridAutoColumns: this.gridAutoColumns,
       gridAutoFlow: this.gridAutoFlow,
       gridAutoRows: this.gridAutoRows,
-      gridTemplateAreas: this.gridTemplateAreas,
       gridTemplateColumns: this.gridTemplateColumns,
+      gridTemplateAreas: this.gridTemplateAreas,
       gridTemplateRows: this.gridTemplateRows,
       alignContent: this.alignContent,
       justifyContent: this.justifyContent,
       gap: this.gap,
       justifyItems: this.justifyItems,
-      alignItems: this.alignItems,
-      padding: this.padding
+      alignItems: this.alignItems
     });
   }
   render() {
+    const hostStyles = toCss(":host", this.hostStyles());
+    const gridStyles = toCss(".grid", this.gridStyles());
     return html3`
       <style>
-        :host {
-          ${toCss(this.styles())}
-        }
+        ${hostStyles}
+        ${gridStyles}
       </style>
-      <slot />
+      <div class="grid">
+        <slot />
+      </div>
     `;
   }
 };
-GridRow.styles = css4`
+GridRow.styles = css3`
     :host {
       display: grid;
-      gap: ${unsafeCSS3(layout4.gap["4-16"])};
-      padding: ${unsafeCSS3(layout4.gap["4-16"])};
       width: 100%;
-      max-width: ${layout4.maxWidth / 16}rem;
+      justify-items: center;
     }
 
-    @media ${smallViewport} {
-      :host {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    @media ${mediumViewport} {
-      :host {
-        grid-template-columns: repeat(6, 1fr);
-      }
-    }
-
-    @media ${largeViewport} {
-      :host {
-        grid-template-columns: repeat(12, 1fr);
-      }
+    .grid {
+      display: grid;
+      width: 100%;
+      max-width: ${layout3.maxWidth / 16}rem;
     }
   `;
 __decorateClass([
-  property2({ type: String })
+  property2({ converter: responsiveValueConverter, attribute: "grid-template" })
+], GridRow.prototype, "gridTemplate", 2);
+__decorateClass([
+  property2({ converter: responsiveValueConverter, attribute: "grid-auto-columns" })
 ], GridRow.prototype, "gridAutoColumns", 2);
 __decorateClass([
-  property2({ type: String })
+  property2({ converter: responsiveValueConverter, attribute: "grid-auto-flow" })
 ], GridRow.prototype, "gridAutoFlow", 2);
 __decorateClass([
-  property2({ type: String })
+  property2({ converter: responsiveValueConverter, attribute: "grid-auto-rows" })
 ], GridRow.prototype, "gridAutoRows", 2);
 __decorateClass([
-  property2({ type: String })
+  property2({ converter: responsiveValueConverter, attribute: "grid-template-areas" })
 ], GridRow.prototype, "gridTemplateAreas", 2);
 __decorateClass([
-  property2({ type: String })
+  property2({ converter: responsiveValueConverter, attribute: "grid-template-columns" })
 ], GridRow.prototype, "gridTemplateColumns", 2);
 __decorateClass([
-  property2({ type: String })
+  property2({ converter: responsiveValueConverter, attribute: "grid-template-rows" })
 ], GridRow.prototype, "gridTemplateRows", 2);
 __decorateClass([
-  property2({ type: String })
+  property2({ converter: responsiveValueConverter, attribute: "align-conent" })
 ], GridRow.prototype, "alignContent", 2);
 __decorateClass([
-  property2({ type: String })
+  property2({ converter: responsiveValueConverter, attribute: "justify-content" })
 ], GridRow.prototype, "justifyContent", 2);
 __decorateClass([
-  property2({ type: String })
+  property2({ converter: responsiveValueConverter, attribute: "gap" })
 ], GridRow.prototype, "gap", 2);
 __decorateClass([
-  property2({ type: String })
+  property2({ converter: responsiveValueConverter, attribute: "justify-items" })
 ], GridRow.prototype, "justifyItems", 2);
 __decorateClass([
-  property2({ type: String })
+  property2({ converter: responsiveValueConverter, attribute: "align-items" })
 ], GridRow.prototype, "alignItems", 2);
 __decorateClass([
-  property2({ type: String })
-], GridRow.prototype, "padding", 2);
+  property2({ converter: responsiveValueConverter, attribute: "padding-top" })
+], GridRow.prototype, "paddingTop", 2);
+__decorateClass([
+  property2({ converter: responsiveValueConverter, attribute: "padding-right" })
+], GridRow.prototype, "paddingRight", 2);
+__decorateClass([
+  property2({ converter: responsiveValueConverter, attribute: "padding-bottom" })
+], GridRow.prototype, "paddingBottom", 2);
+__decorateClass([
+  property2({ converter: responsiveValueConverter, attribute: "padding-left" })
+], GridRow.prototype, "paddingLeft", 2);
 GridRow = __decorateClass([
   customElement3("kobber-grid-row")
 ], GridRow);

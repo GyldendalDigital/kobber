@@ -2,7 +2,7 @@
   "actionButton": {
     "fontSize": "1rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 500,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -11,7 +11,7 @@
   "actionInputLabel": {
     "fontSize": "1rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 500,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -20,7 +20,7 @@
   "actionInputPlaceholder": {
     "fontSize": "1rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 400,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -29,7 +29,7 @@
   "actionInputDisabled": {
     "fontSize": "1rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 500,
     "fontStyle": "italic",
     "fontStretch": "normal",
@@ -38,7 +38,7 @@
   "actionDisabledPlaceholder": {
     "fontSize": "1rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 400,
     "fontStyle": "italic",
     "fontStretch": "normal",
@@ -47,7 +47,7 @@
   "actionDisabledButton": {
     "fontSize": "1rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 500,
     "fontStyle": "italic",
     "fontStretch": "normal",
@@ -56,7 +56,7 @@
   "contentBody": {
     "fontSize": "1rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 400,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -65,7 +65,7 @@
   "contentLead": {
     "fontSize": "1.5rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 400,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -74,7 +74,7 @@
   "contentCaption": {
     "fontSize": "0.875rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 400,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -83,7 +83,7 @@
   "contentBadge": {
     "fontSize": "0.75rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 400,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -92,7 +92,7 @@
   "headingXxxl": {
     "fontSize": "4rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 600,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -101,7 +101,7 @@
   "headingXxl": {
     "fontSize": "3rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 600,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -110,7 +110,7 @@
   "headingXl": {
     "fontSize": "2.5rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 600,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -119,7 +119,7 @@
   "headingL": {
     "fontSize": "2rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 600,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -128,7 +128,7 @@
   "headingM": {
     "fontSize": "1.5rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 600,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -137,7 +137,7 @@
   "headingS": {
     "fontSize": "1.25rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 600,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -146,7 +146,7 @@
   "headingXs": {
     "fontSize": "1rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 600,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -156,7 +156,7 @@
   "headingXxs": {
     "fontSize": "0.875rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 600,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -165,7 +165,7 @@
   "headingSubheading": {
     "fontSize": "0.875rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 400,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -175,7 +175,7 @@
   "tileHeading": {
     "fontSize": "1.5rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 500,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -184,7 +184,7 @@
   "tileBody": {
     "fontSize": "1.25rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 400,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -193,7 +193,7 @@
   "tileSubheader": {
     "fontSize": "1rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 500,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -202,7 +202,7 @@
   "listListitemHeaderDefault": {
     "fontSize": "1rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 400,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -211,7 +211,7 @@
   "listListitemHeaderSelected": {
     "fontSize": "1rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 500,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -220,7 +220,7 @@
   "listListitemHeaderSmall": {
     "fontSize": "0.875rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 400,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -229,7 +229,7 @@
   "listitemBigHeaderDefault": {
     "fontSize": "1rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 400,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -238,7 +238,7 @@
   "listitemBigHeaderSelected": {
     "fontSize": "1rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 500,
     "fontStyle": "normal",
     "fontStretch": "normal",
@@ -247,7 +247,7 @@
   "sectionInput": {
     "fontSize": "2rem",
     "textDecoration": "none",
-    "fontFamily": "Inter",
+    "fontFamily": "Inter, 'Inter Variable'",
     "fontWeight": 400,
     "fontStyle": "normal",
     "fontStretch": "normal",

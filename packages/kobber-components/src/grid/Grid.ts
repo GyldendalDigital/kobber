@@ -8,7 +8,7 @@ export class Grid extends LitElement {
     :host {
       display: grid;
       max-width: ${unsafeCSS(layout.maxWidth)};
-      justify-items: center;
+      justify-content: center;
     }
   `;
 
