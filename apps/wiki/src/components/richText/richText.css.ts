@@ -1,14 +1,19 @@
-import {contentBody,
+import {
+  contentBody,
   headingL,
-  headingM} from "@gyldendal/kobber-base/themes/default/typography-tokens.json";
+  headingM,
+} from "@gyldendal/kobber-base/themes/default/typography-tokens.json";
 import { globalStyle, style } from "@vanilla-extract/css";
 import { getTheme } from "../../theme";
 
-const { tokens  } = getTheme();
+const { tokens } = getTheme();
 
 export const richText = style({
-  marginBottom: tokens.primitives.size[48] + tokens.primitives.size[24],
   color: "var(--kobber-semantic-color-surface-container-foreground)",
+});
+
+export const marginBottom = style({
+  marginBottom: tokens.primitives.size[48] + tokens.primitives.size[24],
 });
 
 const heading = {

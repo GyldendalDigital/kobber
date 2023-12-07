@@ -9,6 +9,7 @@ interface Props {
 
 export const CategoryHeader: FunctionComponent<Props> = ({ heading, code }) => {
   const [codeIsOpen, setCodeIsOpen] = useState(false);
+  console.log("codeIsOpen", codeIsOpen);
   return (
     <div className={styles.categoryHeader}>
       <div className={styles.top}>
@@ -26,7 +27,7 @@ export const CategoryHeader: FunctionComponent<Props> = ({ heading, code }) => {
       </div>
       {code && (
         <div className={`${styles.code} ${codeIsOpen ? styles.codeOpen : ""}`}>
-          <CodeFormatter>{code}</CodeFormatter>
+          <CodeFormatter code={code} language="json" />
         </div>
       )}
     </div>
