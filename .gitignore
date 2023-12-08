@@ -16,3 +16,5 @@ pnpm-debug.log*
 
 # turbo
 .turbo
+
+dist
