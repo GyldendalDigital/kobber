@@ -82,20 +82,20 @@ async function main() {
     contentType: "application/javascript",
   });
 
-  // const response = await axios.put(url, body, {
-  // 	headers: {
-  // 		'Content-Type': 'multipart/form-data',
-  // 		Authorization: `Bearer ${bearerToken}`
-  // 	}
-  // });
+  const response = await axios.put(url, body, {
+  	headers: {
+  		'Content-Type': 'multipart/form-data',
+  		Authorization: `Bearer ${bearerToken}`
+  	}
+  });
 
-  // if (response.status !== 200) {
-  // 	console.error(`Received non-200 status code from CMS: ${response.status}`);
-  // 	console.error(JSON.stringify(response.data));
-  // 	return;
-  // }
+  if (response.status !== 200) {
+  	console.error(`Received non-200 status code from CMS: ${response.status}`);
+  	console.error(JSON.stringify(response.data));
+  	return;
+  }
 
-  // console.log(`Successfully updated file-package ${filePackageId}. New revision is ${response.data.newRevisionId}`);
+  console.log(`Successfully updated file-package ${filePackageId}. New revision is ${response.data.newRevisionId}`);
 }
 
 main();
