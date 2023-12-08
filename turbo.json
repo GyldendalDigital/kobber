@@ -20,6 +20,9 @@
     "storybook": {
       "cache": false,
       "persistent": true
+    },
+    "block-test": {
+      "cache": false
     }
   }
 }

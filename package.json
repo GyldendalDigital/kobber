@@ -15,7 +15,8 @@
     "build": "turbo build",
     "tokens": "turbo tokens",
     "storybook": "turbo storybook",
-    "css": "turbo css"
+    "css": "turbo css",
+    "test": "turbo block-test"
   },
   "dependencies": {
     "@changesets/cli": "latest",
