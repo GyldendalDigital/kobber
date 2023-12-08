@@ -1,11 +1,12 @@
 import react from "@astrojs/react";
+import svelte from "@astrojs/svelte";
 import cloudflare from "@astrojs/cloudflare";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
+  integrations: [react(), svelte()],
   vite: {
     ssr: {
       noExternal: [

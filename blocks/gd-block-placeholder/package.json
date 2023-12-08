@@ -2,13 +2,14 @@
   "name": "gd-block-placeholder",
   "private": true,
   "version": "0.0.0",
-  "main": "dist/gd-block-placeholder.js",
+  "main": "index.ts",
   "type": "module",
   "scripts": {
     "build": "vite build",
     "typecheck": "svelte-check --tsconfig ./tsconfig.json",
     "block-test": "vitest"
   },
+  "files": ["schema.json"],
   "dependencies": {
     "@gyldendal/kobber-base": "*"
   },

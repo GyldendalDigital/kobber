@@ -75,6 +75,14 @@
     "@vitejs/plugin-react" "^4.0.4"
     ultrahtml "^1.3.0"
 
+"@astrojs/svelte@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/svelte/-/svelte-5.0.0.tgz#ef2ebf99c97d3eaebc6815c3e7247e2f9d0d66f1"
+  integrity sha512-v8AZU9hSP4JuESDv5pev8S4eZQXulIoS/gBJbhAEBWfkANptsc7CP/qjWk83KWidNXX8hfVLI4VNlShWo3ADRw==
+  dependencies:
+    "@sveltejs/vite-plugin-svelte" "^3.0.0"
+    svelte2tsx "^0.6.25"
+
 "@astrojs/telemetry@3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@astrojs/telemetry/-/telemetry-3.0.4.tgz#566257082c87df84fcc136db23e071e1104b13fd"
@@ -3324,6 +3332,13 @@
   dependencies:
     debug "^4.3.4"
 
+"@sveltejs/vite-plugin-svelte-inspector@^2.0.0-next.0 || ^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@sveltejs/vite-plugin-svelte-inspector/-/vite-plugin-svelte-inspector-2.0.0.tgz#365afaa0dd63517838ce4686a3dc3982be348a9b"
+  integrity sha512-gjr9ZFg1BSlIpfZ4PRewigrvYmHWbDrq2uvvPB1AmTWKuM+dI1JXQSUu2pIrYLb/QncyiIGkFDFKTwJ0XqQZZg==
+  dependencies:
+    debug "^4.3.4"
+
 "@sveltejs/vite-plugin-svelte@^2.4.2":
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/@sveltejs/vite-plugin-svelte/-/vite-plugin-svelte-2.5.3.tgz#23f810d0c38d159491845175c2566a51639be3fc"
@@ -3336,6 +3351,19 @@
     magic-string "^0.30.3"
     svelte-hmr "^0.15.3"
     vitefu "^0.2.4"
+
+"@sveltejs/vite-plugin-svelte@^3.0.0":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@sveltejs/vite-plugin-svelte/-/vite-plugin-svelte-3.0.1.tgz#475d3496a2a1c7fb4ec6ee3a4d3f0af01fb052e1"
+  integrity sha512-CGURX6Ps+TkOovK6xV+Y2rn8JKa8ZPUHPZ/NKgCxAmgBrXReavzFl8aOSCj3kQ1xqT7yGJj53hjcV/gqwDAaWA==
+  dependencies:
+    "@sveltejs/vite-plugin-svelte-inspector" "^2.0.0-next.0 || ^2.0.0"
+    debug "^4.3.4"
+    deepmerge "^4.3.1"
+    kleur "^4.1.5"
+    magic-string "^0.30.5"
+    svelte-hmr "^0.15.3"
+    vitefu "^0.2.5"
 
 "@testing-library/dom@^9.3.1":
   version "9.3.3"
@@ -5388,6 +5416,11 @@ decompress-response@^6.0.0:
   integrity sha512-aW35yZM6Bb/4oJlZncMH2LCoZtJXTRxES17vE3hoRiowU2kWHaJKFkSBDnDR+cm9J+9QhXmREyIfv0pji9ejCQ==
   dependencies:
     mimic-response "^3.1.0"
+
+dedent-js@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/dedent-js/-/dedent-js-1.0.1.tgz#bee5fb7c9e727d85dffa24590d10ec1ab1255305"
+  integrity sha512-OUepMozQULMLUmhxS95Vudo0jb0UchLimi3+pQ2plj61Fcy8axbP9hbiD4Sz6DPqn6XG3kfmziVfQ1rSys5AJQ==
 
 deep-eql@^4.1.3:
   version "4.1.3"
@@ -8182,7 +8215,7 @@ magic-string@^0.27.0:
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.4.13"
 
-magic-string@^0.30.0, magic-string@^0.30.1, magic-string@^0.30.3, magic-string@^0.30.4:
+magic-string@^0.30.0, magic-string@^0.30.1, magic-string@^0.30.3, magic-string@^0.30.4, magic-string@^0.30.5:
   version "0.30.5"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.30.5.tgz#1994d980bd1c8835dc6e78db7cbd4ae4f24746f9"
   integrity sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==
@@ -9458,7 +9491,7 @@ parseurl@~1.3.3:
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
   integrity sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==
 
-pascal-case@^3.1.2:
+pascal-case@^3.1.1, pascal-case@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/pascal-case/-/pascal-case-3.1.2.tgz#b48e0ef2b98e205e7c1dae747d0b1508237660eb"
   integrity sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==
@@ -11305,6 +11338,14 @@ svelte-preprocess@^5.1.0:
     sorcery "^0.11.0"
     strip-indent "^3.0.0"
 
+svelte2tsx@^0.6.25:
+  version "0.6.27"
+  resolved "https://registry.yarnpkg.com/svelte2tsx/-/svelte2tsx-0.6.27.tgz#5b2c21f38608be51cd32de177722f123e57919e5"
+  integrity sha512-E1uPW1o6VsbRz+nUk3fznZ2lSmCITAJoNu8AYefWSvIwE2pSB01i5sId4RMbWNzfcwCQl1DcgGShCPcldl4rvg==
+  dependencies:
+    dedent-js "^1.0.1"
+    pascal-case "^3.1.1"
+
 svelte@^4.0.5:
   version "4.2.8"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-4.2.8.tgz#a279d8b6646131ffb11bc692840f8839b8ae4ed1"
@@ -12284,7 +12325,7 @@ vite@^4.4.5:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vitefu@^0.2.4:
+vitefu@^0.2.4, vitefu@^0.2.5:
   version "0.2.5"
   resolved "https://registry.yarnpkg.com/vitefu/-/vitefu-0.2.5.tgz#c1b93c377fbdd3e5ddd69840ea3aa70b40d90969"
   integrity sha512-SgHtMLoqaeeGnd2evZ849ZbACbnwQCIwRH57t18FxcXoZop0uQu0uzlIhJBlF/eWVzuce0sHeqPcDo+evVcg8Q==
