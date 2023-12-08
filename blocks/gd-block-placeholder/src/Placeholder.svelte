@@ -1,5 +1,4 @@
 <script lang="ts">
-  import "@gyldendal/kobber-base/themes/default/tokens.css";
   import type { PlaceholderData } from "../types";
   export let data: PlaceholderData;
 </script>
@@ -13,11 +12,11 @@
 <style>
   .container {
     display: flex;
-    background-color: var(--kobber-primitives-color-purple-400);
-    border-radius: var(--kobber-primitives-size-8);
-    padding: var(--kobber-semantic-layout-container-padding-large);
+    background-color: #9673E7;
+    border-radius: 8px;
+    padding: 24px;
     flex-direction: column;
-    font-size: var(--kobber-primitives-size-24);
+    font-size: 24px;
     width: 100%;
   }
 </style>
