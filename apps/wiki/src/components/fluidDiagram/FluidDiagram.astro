@@ -31,12 +31,6 @@ const { tokenName, fluidTokens } = Astro.props;
   });
   const rangeMax = Math.max(...ranges.flat());
   ranges.forEach(([min, max]) =>
-    drawSlope(
-      `${tokenName}["${min}-${max}"]`,
-      `${min}px`,
-      `${max}px`,
-      min / rangeMax,
-      max / rangeMax
-    )
+    drawSlope(`${min}px`, `${max}px`, min / rangeMax, max / rangeMax)
   );
 </script>

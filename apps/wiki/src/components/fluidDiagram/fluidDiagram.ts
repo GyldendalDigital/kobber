@@ -53,7 +53,6 @@ const drawMinWidth = () => {
 drawMinWidth();
 
 export const drawSlope = (
-  label: string,
   minLabel: string,
   maxLabel: string,
   min: number,
@@ -76,7 +75,7 @@ export const drawSlope = (
   context.strokeStyle = "black";
   context.beginPath();
   context.moveTo(gap, bottom);
-  context.fillText(`${label} ${minLabel}`, gap, bottom - gap);
+  context.fillText(minLabel, gap, bottom - gap);
 
   context.lineTo(gap + layout.minWidth, bottom);
   context.fillText(minLabel, gap + layout.minWidth, bottom - gap);
