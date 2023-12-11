@@ -185,29 +185,12 @@ var ProficiencyBar = ({
 };
 
 // src/grid/Grid.ts
-import { LitElement, css, html, unsafeCSS } from "lit";
-import { customElement } from "lit/decorators.js";
-import { layout } from "@gyldendal/kobber-base/themes/default/tokens.json";
-var Grid = class extends LitElement {
-  render() {
-    return html`<slot /> `;
-  }
-};
-Grid.styles = css`
-    :host {
-      display: grid;
-      max-width: ${unsafeCSS(layout.maxWidth)};
-      justify-content: center;
-    }
-  `;
-Grid = __decorateClass([
-  customElement("kobber-grid")
-], Grid);
-
-// src/grid/GridColumn.ts
-import { layout as layout2 } from "@gyldendal/kobber-base/themes/default/tokens.json";
-import { LitElement as LitElement2, css as css2, html as html2, unsafeCSS as unsafeCSS2 } from "lit";
-import { customElement as customElement2, property } from "lit/decorators.js";
+import {
+  layout,
+  mediaQuery
+} from "@gyldendal/kobber-base/themes/default/tokens.json";
+import { LitElement, css, html } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
 // src/utils/responsiveCssValue.ts
 var responsiveValueConverter = {
@@ -223,7 +206,7 @@ var isStringValue = (value) => typeof value === "string";
 var toCss = (selector, styles) => {
   const styleArray = Object.entries(styles);
   const mediaQueries = getMediaQueries(styleArray);
-  const css4 = `
+  const css3 = `
     ${selector} {
       ${styleArray.filter(([, value]) => isStringValue(value)).map((aaa) => {
     return aaa;
@@ -240,7 +223,7 @@ var toCss = (selector, styles) => {
   ).join("")}
 
   `;
-  const cssString = serialize(compile(css4), stringify);
+  const cssString = serialize(compile(css3), stringify);
   return cssString;
 };
 var getDeclarations = (mediaQuery2) => ([camelCasedCssProp, value]) => {
@@ -261,58 +244,8 @@ var getMediaQueries = (styleArray) => styleArray.reduce((array, [, value]) => {
 }, []);
 var toCssProp = (prop) => prop.includes("-") ? prop : prop.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g, "-$&").toLowerCase();
 
-// src/grid/GridColumn.ts
-var GridColumn = class extends LitElement2 {
-  constructor() {
-    super(...arguments);
-    this.span = 1;
-    this.styles = () => ({
-      gridArea: this.gridArea,
-      gridColumn: `span ${this.span}`,
-      alignSelf: this.alignSelf,
-      justifySelf: this.justifySelf
-    });
-  }
-  render() {
-    const css4 = toCss(":host", this.styles());
-    return html2`
-      <style>
-        ${css4}
-      </style>
-      <slot />
-    `;
-  }
-};
-GridColumn.styles = css2`
-    :host {
-      display: block;
-      max-width: ${unsafeCSS2(layout2.maxWidth)};
-    }
-  `;
-__decorateClass([
-  property({ converter: responsiveValueConverter })
-], GridColumn.prototype, "span", 2);
-__decorateClass([
-  property({ converter: responsiveValueConverter, attribute: "grid-area" })
-], GridColumn.prototype, "gridArea", 2);
-__decorateClass([
-  property({ converter: responsiveValueConverter, attribute: "align-self" })
-], GridColumn.prototype, "alignSelf", 2);
-__decorateClass([
-  property({ converter: responsiveValueConverter, attribute: "justify-self" })
-], GridColumn.prototype, "justifySelf", 2);
-GridColumn = __decorateClass([
-  customElement2("kobber-grid-column")
-], GridColumn);
-
-// src/grid/GridRow.ts
-import {
-  layout as layout3,
-  mediaQuery
-} from "@gyldendal/kobber-base/themes/default/tokens.json";
-import { LitElement as LitElement3, css as css3, html as html3 } from "lit";
-import { customElement as customElement3, property as property2 } from "lit/decorators.js";
-var GridRow = class extends LitElement3 {
+// src/grid/Grid.ts
+var Grid = class extends LitElement {
   constructor() {
     super(...arguments);
     this.gridTemplateColumns = {
@@ -320,9 +253,9 @@ var GridRow = class extends LitElement3 {
       [mediaQuery.medium]: "repeat(6, 1fr)",
       [mediaQuery.large]: "repeat(12, 1fr)"
     };
-    this.gap = layout3.gap["4-16"];
-    this.paddingRight = layout3.gap["8-16"];
-    this.paddingLeft = layout3.gap["8-16"];
+    this.gap = layout.gap["4-16"];
+    this.paddingRight = layout.gap["8-16"];
+    this.paddingLeft = layout.gap["8-16"];
     this.hostStyles = () => ({
       paddingTop: this.paddingTop,
       paddingRight: this.paddingRight,
@@ -347,7 +280,7 @@ var GridRow = class extends LitElement3 {
   render() {
     const hostStyles = toCss(":host", this.hostStyles());
     const gridStyles = toCss(".grid", this.gridStyles());
-    return html3`
+    return html`
       <style>
         ${hostStyles}
         ${gridStyles}
@@ -358,7 +291,7 @@ var GridRow = class extends LitElement3 {
     `;
   }
 };
-GridRow.styles = css3`
+Grid.styles = css`
     :host {
       display: grid;
       width: 100%;
@@ -368,60 +301,107 @@ GridRow.styles = css3`
     .grid {
       display: grid;
       width: 100%;
-      max-width: ${layout3.maxWidth / 16}rem;
+      max-width: ${layout.maxWidth / 16}rem;
     }
   `;
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "grid-template" })
-], GridRow.prototype, "gridTemplate", 2);
+  property({ converter: responsiveValueConverter, attribute: "grid-template" })
+], Grid.prototype, "gridTemplate", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "grid-auto-columns" })
-], GridRow.prototype, "gridAutoColumns", 2);
+  property({ converter: responsiveValueConverter, attribute: "grid-auto-columns" })
+], Grid.prototype, "gridAutoColumns", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "grid-auto-flow" })
-], GridRow.prototype, "gridAutoFlow", 2);
+  property({ converter: responsiveValueConverter, attribute: "grid-auto-flow" })
+], Grid.prototype, "gridAutoFlow", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "grid-auto-rows" })
-], GridRow.prototype, "gridAutoRows", 2);
+  property({ converter: responsiveValueConverter, attribute: "grid-auto-rows" })
+], Grid.prototype, "gridAutoRows", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "grid-template-areas" })
-], GridRow.prototype, "gridTemplateAreas", 2);
+  property({ converter: responsiveValueConverter, attribute: "grid-template-areas" })
+], Grid.prototype, "gridTemplateAreas", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "grid-template-columns" })
-], GridRow.prototype, "gridTemplateColumns", 2);
+  property({ converter: responsiveValueConverter, attribute: "grid-template-columns" })
+], Grid.prototype, "gridTemplateColumns", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "grid-template-rows" })
-], GridRow.prototype, "gridTemplateRows", 2);
+  property({ converter: responsiveValueConverter, attribute: "grid-template-rows" })
+], Grid.prototype, "gridTemplateRows", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "align-conent" })
-], GridRow.prototype, "alignContent", 2);
+  property({ converter: responsiveValueConverter, attribute: "align-conent" })
+], Grid.prototype, "alignContent", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "justify-content" })
-], GridRow.prototype, "justifyContent", 2);
+  property({ converter: responsiveValueConverter, attribute: "justify-content" })
+], Grid.prototype, "justifyContent", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "gap" })
-], GridRow.prototype, "gap", 2);
+  property({ converter: responsiveValueConverter, attribute: "gap" })
+], Grid.prototype, "gap", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "justify-items" })
-], GridRow.prototype, "justifyItems", 2);
+  property({ converter: responsiveValueConverter, attribute: "justify-items" })
+], Grid.prototype, "justifyItems", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "align-items" })
-], GridRow.prototype, "alignItems", 2);
+  property({ converter: responsiveValueConverter, attribute: "align-items" })
+], Grid.prototype, "alignItems", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "padding-top" })
-], GridRow.prototype, "paddingTop", 2);
+  property({ converter: responsiveValueConverter, attribute: "padding-top" })
+], Grid.prototype, "paddingTop", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "padding-right" })
-], GridRow.prototype, "paddingRight", 2);
+  property({ converter: responsiveValueConverter, attribute: "padding-right" })
+], Grid.prototype, "paddingRight", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "padding-bottom" })
-], GridRow.prototype, "paddingBottom", 2);
+  property({ converter: responsiveValueConverter, attribute: "padding-bottom" })
+], Grid.prototype, "paddingBottom", 2);
 __decorateClass([
-  property2({ converter: responsiveValueConverter, attribute: "padding-left" })
-], GridRow.prototype, "paddingLeft", 2);
-GridRow = __decorateClass([
-  customElement3("kobber-grid-row")
-], GridRow);
+  property({ converter: responsiveValueConverter, attribute: "padding-left" })
+], Grid.prototype, "paddingLeft", 2);
+Grid = __decorateClass([
+  customElement("kobber-grid")
+], Grid);
+
+// src/grid/GridColumn.ts
+import { layout as layout2 } from "@gyldendal/kobber-base/themes/default/tokens.json";
+import { LitElement as LitElement2, css as css2, html as html2, unsafeCSS } from "lit";
+import { customElement as customElement2, property as property2 } from "lit/decorators.js";
+var GridColumn = class extends LitElement2 {
+  constructor() {
+    super(...arguments);
+    this.span = 1;
+    this.styles = () => ({
+      gridArea: this.gridArea,
+      gridColumn: `span ${this.span}`,
+      alignSelf: this.alignSelf,
+      justifySelf: this.justifySelf
+    });
+  }
+  render() {
+    const css3 = toCss(":host", this.styles());
+    return html2`
+      <style>
+        ${css3}
+      </style>
+      <slot />
+    `;
+  }
+};
+GridColumn.styles = css2`
+    :host {
+      display: block;
+      max-width: ${unsafeCSS(layout2.maxWidth)};
+    }
+  `;
+__decorateClass([
+  property2({ converter: responsiveValueConverter })
+], GridColumn.prototype, "span", 2);
+__decorateClass([
+  property2({ converter: responsiveValueConverter, attribute: "grid-area" })
+], GridColumn.prototype, "gridArea", 2);
+__decorateClass([
+  property2({ converter: responsiveValueConverter, attribute: "align-self" })
+], GridColumn.prototype, "alignSelf", 2);
+__decorateClass([
+  property2({ converter: responsiveValueConverter, attribute: "justify-self" })
+], GridColumn.prototype, "justifySelf", 2);
+GridColumn = __decorateClass([
+  customElement2("kobber-grid-column")
+], GridColumn);
 
 export {
   propNames,
@@ -431,6 +411,5 @@ export {
   propNames3,
   ProficiencyBar,
   Grid,
-  GridColumn,
-  GridRow
+  GridColumn
 };

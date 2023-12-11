@@ -2,13 +2,12 @@ import {
   Example,
   Grid,
   GridColumn,
-  GridRow,
   ProficiencyBar,
   ProgressBar,
   propNames,
   propNames2,
   propNames3
-} from "../chunks/chunk-XWYYK76E.js";
+} from "../chunks/chunk-YUX5UU2M.js";
 
 // src/example/web-component.ts
 import r2wc from "@r2wc/react-to-web-component";
@@ -34,7 +33,6 @@ export {
   Example2 as Example,
   Grid,
   GridColumn,
-  GridRow,
   ProficiencyBar2 as ProficiencyBar,
   ProgressBar2 as ProgressBar
 };

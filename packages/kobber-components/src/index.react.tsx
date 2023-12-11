@@ -13,17 +13,10 @@ export {
 
 import { Grid } from "./grid/Grid";
 import { GridColumn } from "./grid/GridColumn";
-import { GridRow } from "./grid/GridRow";
 
 export const KobberGrid = createComponent({
   tagName: "kobber-grid",
   elementClass: Grid,
-  react: React,
-});
-
-export const KobberGridRow = createComponent({
-  tagName: "kobber-grid-row",
-  elementClass: GridRow,
   react: React,
 });
 

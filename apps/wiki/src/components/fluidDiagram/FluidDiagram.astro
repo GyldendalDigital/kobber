@@ -19,7 +19,6 @@ const { tokenName, fluidTokens } = Astro.props;
   import { drawSlope } from "./fluidDiagram.ts";
 
   const canvas = document.querySelector<HTMLCanvasElement>("#fluid");
-  console.log("canvas", canvas);
   if (!canvas) throw new Error("No canvas found");
   const tokenName = canvas.getAttribute("data-token-name");
   const fluidTokensString = canvas.getAttribute("data-fluid-tokens");
