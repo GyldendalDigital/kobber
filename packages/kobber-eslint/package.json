@@ -3,6 +3,16 @@
   "license": "MIT",
   "version": "0.1.0",
   "main": ".eslintrc.cjs",
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": ">=6",
+    "@typescript-eslint/parser": ">=6",
+    "eslint": ">=8",
+    "eslint-config-prettier": ">=9",
+    "eslint-plugin-react": ">=7",
+    "eslint-config-turbo": ">=1",
+    "eslint-plugin-jsx-a11y": ">=6",
+    "eslint-plugin-storybook": ">=0.6"
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
