@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "stylelint": "latest",
-    "stylelint-config-prettier": "latest",
     "stylelint-order": "latest",
     "stylelint-config-standard": "latest"
   }

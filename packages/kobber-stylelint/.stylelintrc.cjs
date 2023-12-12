@@ -2,13 +2,8 @@
  * @type {import("stylelint").Config}
  */
 module.exports = {
-  extends: [
-    "stylelint-config-standard",
-    "stylelint-config-prettier",
-  ],
-  plugins: [
-		"stylelint-order"
-	],
+  extends: ["stylelint-config-standard"],
+  plugins: ["stylelint-order"],
   rules: {
     "block-no-empty": [
       true,
