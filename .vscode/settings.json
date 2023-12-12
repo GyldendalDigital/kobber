@@ -3,6 +3,7 @@
     "editor.codeActionsOnSave": {
         "source.fixAll": "explicit"
     },
+    "css.validate": false,
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "files.insertFinalNewline": true
