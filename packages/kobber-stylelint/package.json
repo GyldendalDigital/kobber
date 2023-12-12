@@ -6,6 +6,11 @@
   "scripts": {
     "clean": "rm -rf .turbo node_modules"
   },
+  "peerDependencies": {
+    "stylelint": ">=15",
+    "stylelint-order": ">=6",
+    "stylelint-config-standard": ">=34"
+  },
   "dependencies": {
     "stylelint": "^15.11.0",
     "stylelint-order": "^6.0.3",
