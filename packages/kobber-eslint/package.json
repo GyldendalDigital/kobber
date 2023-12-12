@@ -3,15 +3,25 @@
   "license": "MIT",
   "version": "0.1.0",
   "main": ".eslintrc.cjs",
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": ">=6",
+    "@typescript-eslint/parser": ">=6",
+    "eslint": ">=8",
+    "eslint-config-prettier": ">=9",
+    "eslint-plugin-react": ">=7",
+    "eslint-config-turbo": ">=1",
+    "eslint-plugin-jsx-a11y": ">=6",
+    "eslint-plugin-storybook": ">=0.6"
+  },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "latest",
-    "@typescript-eslint/parser": "latest",
-    "eslint": "latest",
-    "eslint-config-prettier": "latest",
-    "eslint-plugin-react": "latest",
-    "eslint-config-turbo": "latest",
-    "eslint-plugin-jsx-a11y": "latest",
-    "eslint-plugin-storybook": "latest"
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-config-turbo": "^1.11.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-storybook": "^0.6.15"
   },
   "scripts": {
     "clean": "rm -rf node_modules"
