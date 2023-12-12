@@ -59,8 +59,45 @@ module.exports = {
     },
   },
   rules: {
-    // reference: https://eslint.org/docs/latest/rules/
+    "import/order": [
+      "error",
+      {
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          "sibling",
+          "parent",
+          "index",
+        ],
+      },
+    ],
+    "import/newline-after-import": "error",
+    "no-useless-concat": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "no-var": "error",
+    "prefer-template": "error",
     quotes: ["error", "double", "avoid-escape"],
+    "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/no-empty-function": "off",
+    "sort-imports": [
+      "error",
+      {
+        ignoreDeclarationSort: true,
+      },
+    ],
+    "unused-imports/no-unused-imports": "error",
   },
+  overrides: [
+    {
+      files: ["*.mdx"],
+      extends: "plugin:mdx/recommended",
+      rules: {
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+      },
+    },
+  ],
 };
