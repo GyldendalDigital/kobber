@@ -1,7 +1,7 @@
 /**
  * @type {import("stylelint").Config}
  */
-module.exports = {
+export default {
   extends: ["stylelint-config-standard"],
   plugins: ["stylelint-order"],
   rules: {
@@ -17,7 +17,6 @@ module.exports = {
         message: "Keep color definitions short",
       },
     ],
-    "declaration-block-no-shorthand-property-overrides": true,
     "declaration-empty-line-before": "never",
     "declaration-no-important": [
       true,
@@ -231,7 +230,6 @@ module.exports = {
         ignorePseudoClasses: ["/^global$/", "/^local$/"],
       },
     ],
-    "shorthand-property-no-redundant-values": true,
     "value-keyword-case": [
       "lower",
       {

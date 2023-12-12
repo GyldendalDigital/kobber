@@ -1,7 +1,7 @@
 {
   "name": "@gyldendal/kobber-stylelint",
   "version": "0.1.0",
-  "main": ".stylelintrc.cjs",
+  "main": ".stylelintrc.mjs",
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf .turbo node_modules"
@@ -12,8 +12,8 @@
     "stylelint-config-standard": ">=34"
   },
   "dependencies": {
-    "stylelint": "^15.11.0",
-    "stylelint-order": "^6.0.3",
-    "stylelint-config-standard": "^34.0.0"
+    "stylelint": "^16.0.2",
+    "stylelint-order": "^6.0.4",
+    "stylelint-config-standard": "^35.0.0"
   }
 }
