@@ -17,7 +17,7 @@ export class GridColumn extends LitElement {
   `;
 
   @property({ converter })
-  span?: number = 1;
+  span?: number | string = 1;
 
   @property({ converter, attribute: "grid-area" })
   gridArea?: ResponsiveCssValue;
