@@ -1,5 +1,5 @@
 import StyleDictionary, { Named, Transform } from "style-dictionary";
-import { fluidClamp } from "../utils/fluid";
+import { fluidClamp } from "../../utils/fluid";
 
 const isClamp = (token: StyleDictionary.TransformedToken) =>
   (token?.$type === "fluidClamp" || token?.type === "fluidClamp") &&

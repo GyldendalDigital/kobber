@@ -1,7 +1,7 @@
 ---
 import "@gyldendal/kobber-components/css/components.css";
 import { Example } from "@gyldendal/kobber-components/react";
-import tokens from "@gyldendal/kobber-base/themes/default/tokens.json";
+import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -23,7 +23,7 @@ import Layout from "../layouts/Layout.astro";
 
   <script>
     import { Example } from "@gyldendal/kobber-components/react";
-    import tokens from "@gyldendal/kobber-base/themes/default/tokens.json";
+    import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
     import { createElement } from "react";
     import { createRoot } from "react-dom/client";
     const element = document.getElementById("react-root");
@@ -59,7 +59,7 @@ import Layout from "../layouts/Layout.astro";
 
   <script>
     import { Example } from "@gyldendal/kobber-components/web-components";
-    import tokens from "@gyldendal/kobber-base/themes/default/tokens.json";
+    import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
     const example = new Example();
     example.backgroundColor = tokens.primitives.color.turquoise[100];
     example.message = "Scripted Web component";

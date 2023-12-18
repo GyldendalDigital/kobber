@@ -1,4 +1,4 @@
-import { layout } from "@gyldendal/kobber-base/themes/default/tokens.json";
+import { layout } from "@gyldendal/kobber-base/themes/default/tokens";
 
 const canvas = document.querySelector<HTMLCanvasElement>("#fluid");
 const context = canvas?.getContext("2d");

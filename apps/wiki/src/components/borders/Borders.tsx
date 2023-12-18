@@ -1,4 +1,4 @@
-import tokens from "@gyldendal/kobber-base/themes/default/tokens.json";
+import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 import { Page } from "../page/Page";
 import { RichText } from "../richText/RichText";
 import { Table, Td } from "../table/Table";

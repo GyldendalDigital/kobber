@@ -1,6 +1,6 @@
 import { type AstroGlobal } from "astro";
-import darkTokens from "@gyldendal/kobber-base/themes/dark/tokens.json";
-import defaultTokens from "@gyldendal/kobber-base/themes/default/tokens.json";
+import * as darkTokens from "@gyldendal/kobber-base/themes/dark/tokens";
+import * as defaultTokens from "@gyldendal/kobber-base/themes/default/tokens";
 
 export const themes = {
   default: defaultTokens,

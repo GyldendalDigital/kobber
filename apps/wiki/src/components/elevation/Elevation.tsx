@@ -1,7 +1,7 @@
 import type { FunctionComponent } from "react";
 import { Page } from "../page/Page";
 import { RichText } from "../richText/RichText";
-import tokens from "@gyldendal/kobber-base/themes/default/tokens.json";
+import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 
 export const Elevation: FunctionComponent = () => {
   return (

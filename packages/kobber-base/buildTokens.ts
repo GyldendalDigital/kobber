@@ -1,9 +1,10 @@
 import fs from "fs";
 import StyleDictionary from "style-dictionary";
-import { getStyleDictionaryConfig } from "./src/styleDictionary/getStyleDictionaryConfig";
-import { jsonNested } from "./src/styleDictionary/jsonNestedFormat";
-import { sanitizeJsonFromFigma } from "./src/styleDictionary/sanitizeJsonFromFigma";
 import { additionalTokens } from "./additionalTokens";
+import { esmFormat } from "./src/styleDictionary/formats/esm";
+import { jsonFormat } from "./src/styleDictionary/formats/json";
+import { getStyleDictionaryConfig } from "./src/styleDictionary/getStyleDictionaryConfig";
+import { sanitizeJsonFromFigma } from "./src/styleDictionary/sanitizeJsonFromFigma";
 
 const jsonString = fs.readFileSync("tokens-from-figma.json", "utf-8");
 
@@ -27,7 +28,9 @@ const themeConfigs: ThemeConfig[] = [
 
 const defaultModeNameFromFigma: FigmaMode = "dark";
 
-StyleDictionary.registerFormat(jsonNested);
+StyleDictionary.registerFormat(jsonFormat);
+
+StyleDictionary.registerFormat(esmFormat);
 
 // Convert Figma modes into themes
 

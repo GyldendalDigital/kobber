@@ -5,10 +5,10 @@
 Design tokens can be imported as json, css variables or sass variables:
 
 ```JavaScript
-import theme from "~@gyldendal/kobber-base/themes/default/tokens.json";
+import * as tokens from "~@gyldendal/kobber-base/themes/default/tokens";
 
 export const Button = styled.button`
-    background-color: ${theme.component.button.color.background};
+    background-color: ${tokens.component.button.color.background};
 `;
 ```
 

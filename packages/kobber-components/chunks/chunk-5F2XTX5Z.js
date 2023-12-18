@@ -11,7 +11,7 @@ var __decorateClass = (decorators, target, key, kind) => {
 };
 
 // src/example/Example.tsx
-import tokens from "@gyldendal/kobber-base/themes/default/tokens.json";
+import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.json";
 import React from "react";
 
 // src/example/example.module.css
@@ -188,7 +188,7 @@ var ProficiencyBar = ({
 import {
   layout,
   mediaQuery
-} from "@gyldendal/kobber-base/themes/default/tokens.json";
+} from "@gyldendal/kobber-base/themes/default/tokens";
 import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 

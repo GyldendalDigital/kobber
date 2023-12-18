@@ -1,5 +1,5 @@
 import * as typographyStyles from "@gyldendal/kobber-base/themes/default/typography.module.css";
-import tokens from "@gyldendal/kobber-base/themes/default/tokens.json";
+import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 import { type FunctionComponent, type ReactNode } from "react";
 import { RichText } from "../richText/RichText";
 import { TypographyTable } from "./TypographyTable";

@@ -3,9 +3,10 @@ import StyleDictionary, {
   TransformedToken,
   transformGroup,
 } from "style-dictionary";
-import { fluidClampTransform } from "./fluidClampTransform";
-import { jsonNested } from "./jsonNestedFormat";
-import { pxToRemTransform } from "./pxToRemTransform";
+import { esmFormat } from "./formats/esm";
+import { jsonFormat } from "./formats/json";
+import { fluidClampTransform } from "./transforms/fluidClamp";
+import { pxToRemTransform } from "./transforms/pxToRem";
 
 StyleDictionary.registerTransform(pxToRemTransform);
 
@@ -61,7 +62,7 @@ export const getStyleDictionaryConfig = (
           },
         ],
       },
-      js: {
+      json: {
         transforms: [
           ...transformGroup.js,
           fluidClampTransform.name,
@@ -71,7 +72,27 @@ export const getStyleDictionaryConfig = (
         files: [
           {
             destination: `${themeName}/tokens.json`,
-            format: jsonNested.name,
+            format: jsonFormat.name,
+            filter,
+          },
+        ],
+      },
+      js: {
+        transforms: [
+          ...transformGroup.js,
+          fluidClampTransform.name,
+          ...transforms,
+        ],
+        buildPath,
+        files: [
+          {
+            destination: `${themeName}/tokens.js`,
+            format: esmFormat.name,
+            filter,
+          },
+          {
+            destination: `${themeName}/tokens.ts`,
+            format: esmFormat.name,
             filter,
           },
         ],

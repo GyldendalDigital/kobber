@@ -1,6 +1,6 @@
 import { contentBody } from "@gyldendal/kobber-base/themes/default/typography-tokens.json";
 import { style } from "@vanilla-extract/css";
-import tokens from "@gyldendal/kobber-base/themes/default/tokens.json";
+import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 
 export const table = style({
   width: "100%",
