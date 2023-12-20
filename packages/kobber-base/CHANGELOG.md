@@ -1,5 +1,11 @@
 # @gyldendal/kobber-base
 
+## 0.3.1
+
+### Patch Changes
+
+- Added missing prepare script to kobber-base
+
 ## 0.3.0
 
 ### Minor Changes
