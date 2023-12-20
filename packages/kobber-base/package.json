@@ -2,10 +2,11 @@
   "name": "@gyldendal/kobber-base",
   "version": "0.2.0",
   "license": "MIT",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
-    "build": "yarn ts-node ./buildTokens.ts && ts-node buildTypography.ts"
+    "build": "tsx ./buildTokens.ts && tsx ./buildTypography.ts",
+    "yalc": "yalc publish"
   },
   "dependencies": {},
   "repository": {
@@ -15,7 +16,7 @@
   "devDependencies": {
     "@types/node": "20.9.0",
     "style-dictionary": "^3.9.0",
-    "ts-node": "^10.9.1",
+    "tsx": "^4.6.2",
     "typescript": "^5.2.2"
   }
 }
