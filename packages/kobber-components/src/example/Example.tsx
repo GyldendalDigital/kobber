@@ -1,4 +1,4 @@
-import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.json";
+import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import React, { FunctionComponent } from "react";
 import classNames from "./example.module.css";
 

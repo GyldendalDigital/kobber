@@ -1,4 +1,4 @@
-import { layout } from "@gyldendal/kobber-base/themes/default/tokens.json";
+import { layout } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { CSSResultGroup, LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import {

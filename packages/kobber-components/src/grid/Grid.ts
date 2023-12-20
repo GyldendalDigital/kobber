@@ -1,7 +1,7 @@
 import {
   layout,
   mediaQuery,
-} from "@gyldendal/kobber-base/themes/default/tokens";
+} from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import {
