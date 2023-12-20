@@ -3,6 +3,9 @@
   "version": "0.3.1",
   "license": "MIT",
   "type": "module",
+  "files": [
+    "themes"
+  ],
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "build": "tsx ./buildTokens.ts && tsx ./buildTypography.ts",
