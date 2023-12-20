@@ -1,12 +1,28 @@
-import StyleDictionary, {
-  Config,
-  TransformedToken,
-  transformGroup,
-} from "style-dictionary";
+import StyleDictionary, { Config, TransformedToken } from "style-dictionary";
 import { esmFormat } from "./formats/esm";
 import { jsonFormat } from "./formats/json";
+import { tsDeclarationsFormat } from "./formats/tsDeclarations";
 import { fluidClampTransform } from "./transforms/fluidClamp";
 import { pxToRemTransform } from "./transforms/pxToRem";
+
+const cssTransforms = [
+  "attribute/cti",
+  "name/cti/kebab",
+  "time/seconds",
+  "content/icon",
+  "size/rem",
+  "color/css",
+  fluidClampTransform.name,
+  pxToRemTransform.name,
+];
+
+const jsTransforms = [
+  "attribute/cti",
+  "name/cti/pascal",
+  "size/rem",
+  "color/hex",
+  fluidClampTransform.name,
+];
 
 StyleDictionary.registerTransform(pxToRemTransform);
 
@@ -27,11 +43,7 @@ export const getStyleDictionaryConfig = (
     tokens: tokensFromFigma,
     platforms: {
       scss: {
-        transforms: [
-          ...transformGroup.scss,
-          fluidClampTransform.name,
-          ...transforms,
-        ],
+        transforms: [...cssTransforms, ...transforms],
         buildPath,
         files: [
           {
@@ -42,12 +54,7 @@ export const getStyleDictionaryConfig = (
         ],
       },
       css: {
-        transforms: [
-          ...transformGroup.css,
-          fluidClampTransform.name,
-          pxToRemTransform.name,
-          ...transforms,
-        ],
+        transforms: [...cssTransforms, ...transforms],
         buildPath,
         prefix: "kobber",
         files: [
@@ -62,12 +69,8 @@ export const getStyleDictionaryConfig = (
           },
         ],
       },
-      json: {
-        transforms: [
-          ...transformGroup.js,
-          fluidClampTransform.name,
-          ...transforms,
-        ],
+      object: {
+        transforms: [...jsTransforms, ...transforms],
         buildPath,
         files: [
           {
@@ -75,24 +78,14 @@ export const getStyleDictionaryConfig = (
             format: jsonFormat.name,
             filter,
           },
-        ],
-      },
-      js: {
-        transforms: [
-          ...transformGroup.js,
-          fluidClampTransform.name,
-          ...transforms,
-        ],
-        buildPath,
-        files: [
           {
             destination: `${themeName}/tokens.js`,
             format: esmFormat.name,
             filter,
           },
           {
-            destination: `${themeName}/tokens.ts`,
-            format: esmFormat.name,
+            destination: `${themeName}/tokens.d.ts`,
+            format: tsDeclarationsFormat.name,
             filter,
           },
         ],
