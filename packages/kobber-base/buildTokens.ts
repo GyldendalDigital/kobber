@@ -3,6 +3,7 @@ import StyleDictionary from "style-dictionary";
 import { additionalTokens } from "./additionalTokens";
 import { esmFormat } from "./src/styleDictionary/formats/esm";
 import { jsonFormat } from "./src/styleDictionary/formats/json";
+import { tsDeclarationsFormat } from "./src/styleDictionary/formats/tsDeclarations";
 import { getStyleDictionaryConfig } from "./src/styleDictionary/getStyleDictionaryConfig";
 import { sanitizeJsonFromFigma } from "./src/styleDictionary/sanitizeJsonFromFigma";
 
@@ -31,6 +32,8 @@ const defaultModeNameFromFigma: FigmaMode = "dark";
 StyleDictionary.registerFormat(jsonFormat);
 
 StyleDictionary.registerFormat(esmFormat);
+
+StyleDictionary.registerFormat(tsDeclarationsFormat);
 
 // Convert Figma modes into themes
 
