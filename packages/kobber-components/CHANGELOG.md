@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.2
+
+### Patch Changes
+
+- Added files to kobber-base package.json
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.2
+
 ## 0.3.1
 
 ### Patch Changes
