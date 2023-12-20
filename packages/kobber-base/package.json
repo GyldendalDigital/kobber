@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "build": "tsx ./buildTokens.ts && tsx ./buildTypography.ts",
+    "prepare": "npm run build",
     "yalc": "yalc publish"
   },
   "dependencies": {},
