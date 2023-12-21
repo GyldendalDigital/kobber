@@ -51,8 +51,8 @@ export const ProgressBarItem: FunctionComponent<ProgressBarItemProps> = ({
               progressBar.valueNow === valueMax && !!progressBar.filledColorVar
                 ? `var(${progressBar.filledColorVar})`
                 : progressBar.fillColorVar
-                ? `var(${progressBar.fillColorVar})`
-                : "var(--kobber-component-progressbar-color-foreground-default)",
+                  ? `var(${progressBar.fillColorVar})`
+                  : "var(--kobber-component-progressbar-color-foreground-default)",
           } as CSSProperties
         }
         aria-valuenow={progressBar.valueNow}

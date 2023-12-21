@@ -1,5 +1,5 @@
-import { ResponsiveCssValue } from "./responsiveCssValue";
 import { compile, serialize, stringify } from "stylis";
+import { ResponsiveCssValue } from "./responsiveCssValue";
 
 type StyleValue = string | number | undefined | null | ResponsiveCssValue;
 export interface Styles {
@@ -25,7 +25,7 @@ export const toCss = (selector: string, styles: Readonly<Styles>) => {
           return aaa;
         })
         .map(([prop, value]) =>
-          value ? `${toCssProp(prop)}: ${value}` : undefined
+          value ? `${toCssProp(prop)}: ${value}` : undefined,
         )
         .join(";")}
     }
@@ -40,7 +40,7 @@ export const toCss = (selector: string, styles: Readonly<Styles>) => {
             .filter(isValidDeclaration)
             .map((declaration) => `${selector}{ ${declaration} }`)
             .join(";")}
-        }`
+        }`,
       )
       .join("")}
 

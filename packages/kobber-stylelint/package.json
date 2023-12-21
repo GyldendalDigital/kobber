@@ -1,7 +1,7 @@
 {
   "name": "@gyldendal/kobber-stylelint",
   "version": "0.3.1",
-  "main": ".stylelintrc.mjs",
+  "main": ".stylelintrc.cjs",
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf .turbo node_modules"
