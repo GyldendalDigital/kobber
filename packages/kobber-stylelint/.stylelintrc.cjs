@@ -187,6 +187,13 @@ module.exports = {
       "user-select",
       "will-change",
     ],
+    "property-no-unknown": [
+      true,
+      {
+        // Allow property used for css-fonts-4 variable fonts
+        ignoreProperties: ["font-named-instance"],
+      },
+    ],
     "selector-attribute-quotes": "never",
     "selector-class-pattern": [
       "^(?!js)([a-zA-Z]+(-{1,2}|_{1,2})?[a-z0-9]+)*$",
