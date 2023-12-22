@@ -10,6 +10,12 @@
   border-spacing: 0 var(--kobber-primitives-size-16);
 }
 
+.table th,
+.table td {
+  padding-inline: var(--kobber-primitives-size-16);
+  color: var(--kobber-primitives-color-black);
+}
+
 .table th {
   vertical-align: top;
   text-align: left;
@@ -17,12 +23,6 @@
   &:first-child {
     padding-left: var(--kobber-primitives-size-32);
   }
-}
-
-.table th,
-.table td {
-  padding-inline: var(--kobber-primitives-size-16);
-  color: var(--kobber-primitives-color-black);
 }
 
 .table td {
