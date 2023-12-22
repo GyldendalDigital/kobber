@@ -1,8 +1,8 @@
-import { bytesToBase64 } from "../utils";
 import gql from "./blogg.gql.ts";
+import { bytesToBase64 } from "../utils";
 
 export const fetchCmsData = async () => {
-  const response = await fetch(import.meta.env.CMS_BASE_URL + "/graphql", {
+  const response = await fetch(`${import.meta.env.CMS_BASE_URL}/graphql`, {
     method: "POST",
     headers: {
       "Accept-Language": "*",
@@ -27,25 +27,23 @@ const getAccessToken = async () => {
   }
 
   const tokenResponse = await fetch(
-    import.meta.env.TOKEN_BASE_URL + "/connect/token",
+    `${import.meta.env.TOKEN_BASE_URL}/connect/token`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-        Authorization:
-          "Basic " +
-          bytesToBase64(
-            new TextEncoder().encode(
-              import.meta.env.TOKEN_CLIENT_ID +
-                ":" +
-                import.meta.env.TOKEN_CLIENT_SECRET
-            )
+        Authorization: `Basic ${bytesToBase64(
+          new TextEncoder().encode(
+            `${import.meta.env.TOKEN_CLIENT_ID}:${
+              import.meta.env.TOKEN_CLIENT_SECRET
+            }`,
           ),
+        )}`,
       },
-      body:
-        "grant_type=client_credentials&scope=" +
-        import.meta.env.TOKEN_SCOPE_CMS,
-    }
+      body: `grant_type=client_credentials&scope=${
+        import.meta.env.TOKEN_SCOPE_CMS
+      }`,
+    },
   );
 
   const payload = await tokenResponse.json();

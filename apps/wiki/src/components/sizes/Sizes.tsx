@@ -1,9 +1,9 @@
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 import type { FunctionComponent } from "react";
+import { table, td, tdNoTextBreak } from "./sizes.css";
 import { Page } from "../page/Page";
 import { RichText } from "../richText/RichText";
 import { Table, Td } from "../table/Table";
-import { table, td, tdNoTextBreak } from "./sizes.css";
 import { UnitFormatter } from "../unitFormatter/UnitFormatter";
 
 const Size = (name: string, value: number) => (
@@ -18,8 +18,8 @@ const Size = (name: string, value: number) => (
         aria-label="Illustrasjon av størrelse"
         style={{
           background: tokens.primitives.color.violet[900],
-          width: value + "px",
-          height: tokens.primitives.size[18] + "px",
+          width: `${value}px`,
+          height: `${tokens.primitives.size[18]}px`,
         }}
       />
     </td>
@@ -39,7 +39,7 @@ export const Sizes = () => (
         },
       },
       null,
-      "  "
+      "  ",
     )}
   >
     <RichText>
@@ -56,7 +56,7 @@ export const Sizes = () => (
       <div style={{ width: "100%", overflowX: "auto" }}>
         <table className={table}>
           {Object.entries(tokens.primitives.size).map(([sizeName, sizeValue]) =>
-            Size(sizeName, sizeValue)
+            Size(sizeName, sizeValue),
           )}
         </table>
       </div>

@@ -1,6 +1,6 @@
 import type { FunctionComponent, ReactNode } from "react";
-import styles from "./table.module.css";
 import typographyStyles from "@gyldendal/kobber-base/themes/default/typography.module.css";
+import styles from "./table.module.css";
 
 interface Props {
   children?: ReactNode;

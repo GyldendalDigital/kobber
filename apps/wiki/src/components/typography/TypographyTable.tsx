@@ -1,9 +1,9 @@
 import type { FunctionComponent } from "react";
 import "../../css/inter.css";
-import { Table, Td, Th } from "../table/Table";
-import * as styles from "./typography.module.css";
 import typographyItems from "@gyldendal/kobber-base/themes/default/typography-tokens-flattened.json";
 import * as typographyStyles from "@gyldendal/kobber-base/themes/default/typography.module.css";
+import * as styles from "./typography.module.css";
+import { Table, Td, Th } from "../table/Table";
 
 interface Item {
   path: string[];

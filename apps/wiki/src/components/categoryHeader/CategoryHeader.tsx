@@ -1,4 +1,4 @@
-import { useState, type FunctionComponent, type ReactNode } from "react";
+import { type FunctionComponent, type ReactNode, useState } from "react";
 import styles from "./categoryHeader.module.css";
 import { CodeFormatter } from "../codeFormatter/CodeFormatter";
 

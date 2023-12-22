@@ -14,7 +14,7 @@ export const Borders = () => (
         },
       },
       null,
-      "  "
+      "  ",
     )}
   >
     <RichText>
@@ -39,7 +39,7 @@ export const Borders = () => (
                 />
               </Td>
             </tr>
-          )
+          ),
         )}
       </Table>
     </RichText>
@@ -72,7 +72,7 @@ export const Borders = () => (
                 />
               </Td>
             </tr>
-          )
+          ),
         )}
       </Table>
     </RichText>

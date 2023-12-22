@@ -1,9 +1,9 @@
 import * as typographyStyles from "@gyldendal/kobber-base/themes/default/typography.module.css";
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 import { type FunctionComponent, type ReactNode } from "react";
-import { RichText } from "../richText/RichText";
 import { TypographyTable } from "./TypographyTable";
 import * as styles from "./typography.module.css";
+import { RichText } from "../richText/RichText";
 import { Page } from "../page/Page";
 
 interface FontExampleProps {
@@ -39,7 +39,7 @@ export const Typography: FunctionComponent = () => {
           typography: tokens.typography,
         },
         null,
-        "  "
+        "  ",
       )}
     >
       <RichText>
@@ -113,7 +113,7 @@ export const Typography: FunctionComponent = () => {
             </strong>{" "}
             på én gang. Noen ganger er det også behov for lenker i løpende
             tekst, og de vil se ut som <a href="/">dette</a> (besøkt) og{" "}
-            <a href={"/?d=" + new Date().toISOString()}>dette</a> (ubesøkt).
+            <a href={`/?d=${new Date().toISOString()}`}>dette</a> (ubesøkt).
             Ideelt burde vi også vise en indikasjon på om lenka er{" "}
             <a href="/">intern</a> eller{" "}
             <a href="https://aksel.nav.no">ekstern</a>.
