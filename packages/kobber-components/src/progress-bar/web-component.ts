@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import r2wc from "@r2wc/react-to-web-component";
 import {
-  ProgressBar as ReactProgressBar,
   Props as ProgressBarProps,
+  ProgressBar as ReactProgressBar,
   propNames as progressBarPropName,
 } from "./ProgressBar";
 import {
-  ProficiencyBar as ReactProficiencyBar,
   Props as ProficiencyBarProps,
+  ProficiencyBar as ReactProficiencyBar,
   propNames as proficiencyBarPropName,
 } from "./ProficiencyBar";
 

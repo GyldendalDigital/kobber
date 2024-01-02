@@ -32,6 +32,7 @@
 }
 
 .colorBorder {
+  /* stylelint-disable-next-line property-disallowed-list */
   outline: solid 1px var(--kobber-primitives-color-gray-1000);
 }
 

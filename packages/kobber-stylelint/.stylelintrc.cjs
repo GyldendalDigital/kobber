@@ -1,7 +1,7 @@
 /**
  * @type {import("stylelint").Config}
  */
-export default {
+module.exports = {
   extends: ["stylelint-config-standard"],
   plugins: ["stylelint-order"],
   rules: {
@@ -187,9 +187,17 @@ export default {
       "user-select",
       "will-change",
     ],
+    "property-no-unknown": [
+      true,
+      {
+        // Allow property used for css-fonts-4 variable fonts
+        ignoreProperties: ["font-named-instance"],
+      },
+    ],
     "selector-attribute-quotes": "never",
     "selector-class-pattern": [
-      "^(?!js)([a-zA-Z]+(-{1,2}|_{1,2})?[a-z0-9]+)*$",
+        // Disallow styling class names prefixed with js_
+      "^(?!js)([a-zA-Z]+(-{1,2}|_{1,2})?[a-z0-9]+)$",
       {
         message:
           "Do not add styles to this non-styling class - instead, add your own class. Learn more at https://philipwalton.com/articles/decoupling-html-css-and-javascript/#classes-with-more-than-one-responsibility",
@@ -206,7 +214,7 @@ export default {
       0,
       {
         message:
-          "Avoid using element names in selectors - use BEM to make semantic class names",
+          "Avoid using element names in selectors - use semantic class names",
       },
     ],
     "selector-max-universal": [

@@ -22,7 +22,7 @@ const drawBreakPoints = () => {
     context.fillText(
       `${key} (${value.min}px - ${value.max ? `${value.max}px` : "Infinity"})`,
       x,
-      y
+      y,
     );
     context.moveTo(x, y + gap);
     context.lineTo(x, canvas.height - gap);
@@ -56,7 +56,7 @@ export const drawSlope = (
   minLabel: string,
   maxLabel: string,
   min: number,
-  max: number
+  max: number,
 ) => {
   setFont();
   const x = 0;
