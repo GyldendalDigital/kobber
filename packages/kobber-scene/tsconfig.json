@@ -1,0 +1,21 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+      "isolatedModules": true,
+      "allowSyntheticDefaultImports": true,
+      "lib": ["dom", "es2020"],
+      "jsx": "react",
+      "target": "ES2020",
+      "module": "esnext",
+      "moduleResolution": "bundler",
+      "strict": true,
+      "noEmit": true,
+      "resolveJsonModule": true,
+      "experimentalDecorators": true,
+      "useDefineForClassFields": false,
+      "paths": {
+        "react": [ "../../node_modules/@types/react" ]
+      }
+    }
+  }
+  
