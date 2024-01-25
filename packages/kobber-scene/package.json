@@ -5,8 +5,8 @@
   "type": "module",
   "files": [
     "chunks/**/*",
-    "index.d.ts",
-    "index.js"
+    "react/**/*",
+    "web-components/**/*"
   ],
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
@@ -19,11 +19,14 @@
   },
   "dependencies": {
     "@gyldendal/kobber-base": "*",
+    "@lit/context": "^1.1.0",
+    "@lit/react": "^1.0.2",
     "lit": "^3.1.0"
   },
   "devDependencies": {
     "@gyldendal/kobber-eslint": "*",
     "@gyldendal/kobber-stylelint": "*",
+    "@types/react": "18.2.0",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "eslint": "^8.55.0",

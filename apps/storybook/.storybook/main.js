@@ -12,6 +12,7 @@ function getAbsolutePath(value) {
 const config = {
   stories: [
     "../../../packages/kobber-components/src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../../../packages/kobber-scene/src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
     getAbsolutePath("@storybook/addon-links"),

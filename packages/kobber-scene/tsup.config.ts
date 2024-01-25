@@ -3,6 +3,10 @@ import { defineConfig } from "tsup";
 
 const chunks = "chunks";
 
+const reactDirectory = "react";
+
+const webComponentsDirectory = "web-components";
+
 const cssDirectory = "css";
 
 const removeDirectory = (directory: string) => {
@@ -11,11 +15,14 @@ const removeDirectory = (directory: string) => {
 };
 
 removeDirectory(chunks);
+removeDirectory(reactDirectory);
+removeDirectory(webComponentsDirectory);
 removeDirectory(cssDirectory);
 
 export default defineConfig(() => ({
   entry: {
-    ["index"]: "src/index.ts"
+    [`${reactDirectory}/index`]: "src/index.react.tsx",
+    [`${webComponentsDirectory}/index`]: "src/index.web-components.ts",
   },
   format: ["esm"],
   dts: true,
@@ -26,5 +33,5 @@ export default defineConfig(() => ({
   loader: { ".css": "local-css" },
   esbuildOptions(options) {
     options.chunkNames = `${chunks}/[name]-[hash]`;
-  }
+  },
 }));
