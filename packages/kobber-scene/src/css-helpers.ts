@@ -1,29 +1,29 @@
 import { redapticEnumToScenePadding } from "./css-converters";
-import { ActivityHorizontalAlignment, ActivityWhiteSpace } from "./types";
+import { RedapticHorizontalAlignment, RedapticWhiteSpace } from "./types";
 
 const margin = 10;
 
 export const getPaddings = (
-  activityWhiteSpace: ActivityWhiteSpace,
-  horizontalAlignment: ActivityHorizontalAlignment,
+  activityWhiteSpace: RedapticWhiteSpace,
+  horizontalAlignment: RedapticHorizontalAlignment,
 ) => {
   const pixels = redapticEnumToScenePadding(activityWhiteSpace);
   switch (horizontalAlignment) {
-    case ActivityHorizontalAlignment.Left:
+    case RedapticHorizontalAlignment.Left:
       return {
         top: pixels,
         right: pixels * 2 - margin,
         bottom: pixels,
         left: margin,
       };
-    case ActivityHorizontalAlignment.Center:
+    case RedapticHorizontalAlignment.Center:
       return {
         top: pixels,
         right: pixels,
         bottom: pixels,
         left: pixels,
       };
-    case ActivityHorizontalAlignment.Right:
+    case RedapticHorizontalAlignment.Right:
       return {
         top: pixels,
         right: margin,

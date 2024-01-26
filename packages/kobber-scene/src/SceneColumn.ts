@@ -7,7 +7,7 @@ import {
   redapticEnumToColumnGap,
 } from "./css-converters";
 import { cssReset } from "./css-reset";
-import { ActivityVerticalAlignment, ActivityWhiteSpace } from "./types";
+import { RedapticVerticalAlignment, RedapticWhiteSpace } from "./types";
 
 @customElement("kobber-scene-column")
 export class SceneColumn extends LitElement {
@@ -41,11 +41,11 @@ export class SceneColumn extends LitElement {
   private _context: Context = defaultContext;
 
   @property({ type: Number, attribute: "section-whitespace" })
-  sectionWhitespace: ActivityWhiteSpace = ActivityWhiteSpace.None;
+  sectionWhitespace: RedapticWhiteSpace = RedapticWhiteSpace.None;
 
   @property({ type: Number, attribute: "vertical-alignments" })
-  verticalAlignments: ActivityVerticalAlignment =
-    ActivityVerticalAlignment.None;
+  verticalAlignments: RedapticVerticalAlignment =
+    RedapticVerticalAlignment.None;
 
   render() {
     return html`

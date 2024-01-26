@@ -1,4 +1,4 @@
-export enum ActivityWhiteSpace {
+export enum RedapticWhiteSpace {
   None = 0,
   Small = 1,
   Medium = 2,
@@ -6,55 +6,26 @@ export enum ActivityWhiteSpace {
   ExtraLarge = 4,
 }
 
-// export enum ActivityWhiteSpace {
-//   None = "none",
-//   Small = "small",
-//   Medium = "medium",
-//   Large = "large",
-//   ExtraLarge = "extra-large",
-// }
-
-export enum ActivityMaxWidth {
+export enum RedapticMaxWidth {
   None = 0,
   StandardText = 1,
   ExtendedText = 2,
 }
 
-// export enum ActivityMaxWidth {
-//   None = "none",
-//   StandardText = "standard-text",
-//   ExtendedText = "extended-text",
-// }
-
-export enum ActivityHorizontalAlignment {
+export enum RedapticHorizontalAlignment {
   None = 0,
   Left = 1,
   Center = 2,
   Right = 3,
 }
 
-// export enum ActivityHorizontalAlignment {
-//   None = "none",
-//   Left = "left",
-//   Center = "center",
-//   Right = "right",
-// }
-
-export enum ActivityVerticalAlignment {
+export enum RedapticVerticalAlignment {
   None = 0,
   Top = 1,
   Center = 2,
   Bottom = 3,
   Stretch = 4,
 }
-
-// export enum ActivityVerticalAlignment {
-//   None = "none",
-//   Top = "top",
-//   Center = "center",
-//   Bottom = "bottom",
-//   Stretch = "stretch",
-// }
 
 export interface SceneBoundaryPadding {
   top: number;
@@ -69,26 +40,12 @@ export enum ActivityContentBoxFill {
   Dark = 2,
 }
 
-export interface ActivityRow {
+export interface RedapticRow {
   id: string;
-  rowWhitespace: ActivityWhiteSpace;
-  sectionWhitespace: ActivityWhiteSpace;
-  maxWidth: ActivityMaxWidth;
-  horizontalAlignment: ActivityHorizontalAlignment;
-  columns: ActivityColumn[];
+  columns: RedapticColumn[];
 }
 
-export interface ActivityColumn {
-  sizeRelation: number;
-  // activitySections: ActivitySection[];
-  activitySections: any[];
+interface RedapticColumn {
+  activitySections: { element: string }[];
   dynamicContentIds: string[];
-  verticalAlignments: ActivityVerticalAlignment;
-}
-
-export enum SectionElement {
-  AudioRecorder = "sc-audio-recorder",
-  CardCarousel = "sc-card-carousel",
-  FeatureHeader = "sc-feature-header",
-  Blackboard = "sc-blackboard-prototype",
 }

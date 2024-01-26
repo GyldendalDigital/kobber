@@ -12,9 +12,9 @@ import {
 } from "./stories/helpers";
 import {
   ActivityContentBoxFill,
-  ActivityHorizontalAlignment,
-  ActivityVerticalAlignment,
-  ActivityWhiteSpace,
+  RedapticHorizontalAlignment,
+  RedapticVerticalAlignment,
+  RedapticWhiteSpace,
 } from "./types";
 
 export const Header: StoryObj<SceneType> = { args: headerArgs };
@@ -55,15 +55,15 @@ const render: ArgsStoryFn<ReactRenderer, SceneType> = (args: SceneType) => {
         ?apply-padding-bottom=${args.applyPaddingBottom}
         max-content-width=${args.maxContentWidth}
         scene-whitespace=${enumKeyToValue(
-          ActivityWhiteSpace,
+          RedapticWhiteSpace,
           args.sceneWhitespace,
         )}
         scene-horizontal-alignments=${enumKeyToValue(
-          ActivityHorizontalAlignment,
+          RedapticHorizontalAlignment,
           args.sceneHorizontalAlignments,
         )}
         vertical-alignments=${enumKeyToValue(
-          ActivityVerticalAlignment,
+          RedapticVerticalAlignment,
           args.verticalAlignments,
         )}
         content-box-fill=${enumKeyToValue(
@@ -104,15 +104,15 @@ export default {
   argTypes: {
     sceneWhitespace: {
       control: "inline-radio",
-      options: enumKeysToArray(ActivityWhiteSpace),
+      options: enumKeysToArray(RedapticWhiteSpace),
     },
     sceneHorizontalAlignments: {
       control: "inline-radio",
-      options: enumKeysToArray(ActivityHorizontalAlignment),
+      options: enumKeysToArray(RedapticHorizontalAlignment),
     },
     verticalAlignments: {
       control: "inline-radio",
-      options: enumKeysToArray(ActivityVerticalAlignment),
+      options: enumKeysToArray(RedapticVerticalAlignment),
     },
     contentBoxFill: {
       control: "inline-radio",

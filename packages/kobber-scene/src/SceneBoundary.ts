@@ -7,9 +7,9 @@ import { getPaddings, whiteSpaceScale } from "./css-helpers";
 import { cssReset } from "./css-reset";
 import {
   ActivityContentBoxFill,
-  ActivityHorizontalAlignment,
-  ActivityVerticalAlignment,
-  ActivityWhiteSpace,
+  RedapticHorizontalAlignment,
+  RedapticVerticalAlignment,
+  RedapticWhiteSpace,
 } from "./types";
 
 @customElement("kobber-scene-boundary")
@@ -114,15 +114,15 @@ export class SceneBoundary extends LitElement {
   contentBoxFill?: ActivityContentBoxFill;
 
   @property({ type: Number, attribute: "scene-whitespace" })
-  sceneWhitespace: ActivityWhiteSpace = ActivityWhiteSpace.None;
+  sceneWhitespace: RedapticWhiteSpace = RedapticWhiteSpace.None;
 
   @property({ type: Number, attribute: "scene-horizontal-alignments" })
-  sceneHorizontalAlignments: ActivityHorizontalAlignment =
-    ActivityHorizontalAlignment.None;
+  sceneHorizontalAlignments: RedapticHorizontalAlignment =
+    RedapticHorizontalAlignment.None;
 
   @property({ type: Number, attribute: "vertical-alignments" })
-  verticalAlignments: ActivityVerticalAlignment =
-    ActivityVerticalAlignment.None;
+  verticalAlignments: RedapticVerticalAlignment =
+    RedapticVerticalAlignment.None;
 
   render() {
     return html`

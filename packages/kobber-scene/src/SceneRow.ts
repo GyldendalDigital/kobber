@@ -9,9 +9,9 @@ import {
 } from "./css-converters";
 import { cssReset } from "./css-reset";
 import {
-  ActivityHorizontalAlignment,
-  ActivityMaxWidth,
-  ActivityWhiteSpace,
+  RedapticHorizontalAlignment,
+  RedapticMaxWidth,
+  RedapticWhiteSpace,
 } from "./types";
 
 @customElement("kobber-scene-row")
@@ -29,15 +29,11 @@ export class SceneRow extends LitElement {
 
   private getHostStyles = () => {
     const maxWidth = redapticEnumToMaxWidth(this.maxWidth);
+    console.log("#", this.horizontalAlignment);
     return css`
       :host {
         grid-gap: ${this.transform("10px")};
-        grid-template-columns: ${unsafeCSS(
-          this.columns
-            ?.split(",")
-            .map((column) => `${column}fr`)
-            .join(" "),
-        )};
+        grid-template-columns: ${unsafeCSS(this.columns)};
         max-width: ${maxWidth ? this.transform(maxWidth) : unsafeCSS("none")};
         justify-self: ${unsafeCSS(
           redapticEnumToHorizontalAlignment(
@@ -69,17 +65,17 @@ export class SceneRow extends LitElement {
   columns?: string;
 
   @property({ type: Number, attribute: "row-whitespace" })
-  rowWhitespace: ActivityWhiteSpace = ActivityWhiteSpace.None;
+  rowWhitespace: RedapticWhiteSpace = RedapticWhiteSpace.None;
 
   @property({ type: Number, attribute: "section-whitespace" })
-  sectionWhitespace?: ActivityWhiteSpace;
+  sectionWhitespace?: RedapticWhiteSpace;
 
   @property({ type: Number, attribute: "max-width" })
-  maxWidth: ActivityMaxWidth = ActivityMaxWidth.None;
+  maxWidth: RedapticMaxWidth = RedapticMaxWidth.None;
 
   @property({ type: Number, attribute: "horizontal-alignment" })
-  horizontalAlignment: ActivityHorizontalAlignment =
-    ActivityHorizontalAlignment.None;
+  horizontalAlignment: RedapticHorizontalAlignment =
+    RedapticHorizontalAlignment.None;
 
   render() {
     return html`

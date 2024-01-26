@@ -1,23 +1,22 @@
-import { ActivityContentBoxFill, ActivityRow, SectionElement } from "./types";
+import { ActivityContentBoxFill, RedapticRow } from "./types";
 
-const fullWidthSections = [
-  SectionElement.FeatureHeader,
-  SectionElement.CardCarousel,
-];
+const fullWidthSections = ["sc-feature-header", "sc-card-carousel"];
 
 type RowGroupPresentation = "normal" | "fullWidth" | "fullSize";
 
-export interface RowGroup {
+export interface RowGroup<CompleteRedapticRow extends RedapticRow> {
   presentation: RowGroupPresentation;
-  rows: ActivityRow[];
+  rows: CompleteRedapticRow[];
   applyPaddingBottom: boolean;
 }
 
-export const groupRowsByPresentation = (
-  rows: ActivityRow[],
+export const groupRowsByPresentation = <
+  CompleteRedapticRow extends RedapticRow,
+>(
+  rows: CompleteRedapticRow[],
   contentBoxFill: ActivityContentBoxFill,
 ) => {
-  const groups: RowGroup[] = [];
+  const groups: RowGroup<CompleteRedapticRow>[] = [];
 
   rows.forEach((row, rowIndex) => {
     const presentation = getRowPresentation(row, rows, contentBoxFill);
@@ -37,7 +36,10 @@ export const groupRowsByPresentation = (
   });
 };
 
-const groupContainsOnly = (group: RowGroup, sectionName: string) => {
+const groupContainsOnly = (
+  group: RowGroup<RedapticRow>,
+  sectionName: string,
+) => {
   const sectionNames = group.rows.reduce<string[]>((sectionNames, row) => {
     row.columns.forEach((column) => {
       column.activitySections.forEach((activitySection) => {
@@ -52,8 +54,8 @@ const groupContainsOnly = (group: RowGroup, sectionName: string) => {
 };
 
 const getRowPresentation = (
-  row: ActivityRow,
-  rows: ActivityRow[],
+  row: RedapticRow,
+  rows: RedapticRow[],
   contentBoxFill: ActivityContentBoxFill,
 ): RowGroupPresentation => {
   if (displaySectionInFullWidth(contentBoxFill, row)) return "fullWidth";
@@ -65,8 +67,8 @@ const getRowPresentation = (
 
 const displayDynamicContentInFullSize = (
   contentBoxFill: ActivityContentBoxFill,
-  row: ActivityRow,
-  rows: ActivityRow[],
+  row: RedapticRow,
+  rows: RedapticRow[],
 ) => {
   return (
     displayDynamicContentInFullWidth(contentBoxFill, row) && rows.length === 1
@@ -75,7 +77,7 @@ const displayDynamicContentInFullSize = (
 
 const displaySectionInFullWidth = (
   contentBoxFill: ActivityContentBoxFill,
-  row: ActivityRow,
+  row: RedapticRow,
 ) => {
   if (hasMultipleColumns(row)) return false;
   if (hasContentBoxFill(contentBoxFill)) return false;
@@ -89,14 +91,14 @@ const displaySectionInFullWidth = (
 
 const displayDynamicContentInFullWidth = (
   contentBoxFill: ActivityContentBoxFill,
-  row: ActivityRow,
+  row: RedapticRow,
 ) => {
   if (hasMultipleColumns(row)) return false;
   if (hasContentBoxFill(contentBoxFill)) return false;
   return row.columns[0]?.dynamicContentIds?.length > 0;
 };
 
-const hasMultipleColumns = (row: ActivityRow) => row.columns.length > 1;
+const hasMultipleColumns = (row: RedapticRow) => row.columns.length > 1;
 
 const hasContentBoxFill = (contentBoxFill: ActivityContentBoxFill) => {
   return contentBoxFill !== ActivityContentBoxFill.None;

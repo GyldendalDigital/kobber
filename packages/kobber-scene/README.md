@@ -17,3 +17,6 @@ import "@gyldendal/kobber-scene/web-components";
 
 <kobber-scene>...</kobber-scene>;
 ```
+
+[types.ts](./src/types.ts) contains enums from Redaptic
+

@@ -7,10 +7,10 @@ import { SceneColumn } from "../SceneColumn";
 import { SceneRow } from "../SceneRow";
 import {
   ActivityContentBoxFill,
-  ActivityHorizontalAlignment,
-  ActivityMaxWidth,
-  ActivityVerticalAlignment,
-  ActivityWhiteSpace,
+  RedapticHorizontalAlignment,
+  RedapticMaxWidth,
+  RedapticVerticalAlignment,
+  RedapticWhiteSpace,
 } from "../types";
 
 export interface SceneType
@@ -77,16 +77,16 @@ export const headerArgs: SceneType = {
   applyPaddingBottom: false,
   maxContentWidth: "",
   sceneWhitespace: enumValueToKey(
-    ActivityWhiteSpace,
-    ActivityWhiteSpace.Medium,
+    RedapticWhiteSpace,
+    RedapticWhiteSpace.Medium,
   ),
   sceneHorizontalAlignments: enumValueToKey(
-    ActivityHorizontalAlignment,
-    ActivityHorizontalAlignment.Center,
+    RedapticHorizontalAlignment,
+    RedapticHorizontalAlignment.Center,
   ),
   verticalAlignments: enumValueToKey(
-    ActivityVerticalAlignment,
-    ActivityVerticalAlignment.Top,
+    RedapticVerticalAlignment,
+    RedapticVerticalAlignment.Top,
   ),
   contentBoxFill: enumValueToKey(
     ActivityContentBoxFill,
@@ -94,15 +94,15 @@ export const headerArgs: SceneType = {
   ),
   rows: [
     {
-      columns: "1",
-      rowWhitespace: ActivityWhiteSpace.None,
-      sectionWhitespace: ActivityWhiteSpace.Medium,
-      maxWidth: ActivityMaxWidth.None,
-      horizontalAlignment: ActivityHorizontalAlignment.Center,
+      columns: "1fr",
+      rowWhitespace: RedapticWhiteSpace.None,
+      sectionWhitespace: RedapticWhiteSpace.Medium,
+      maxWidth: RedapticMaxWidth.None,
+      horizontalAlignment: RedapticHorizontalAlignment.Center,
       columnItems: [
         {
-          sectionWhitespace: ActivityWhiteSpace.Medium,
-          verticalAlignments: ActivityVerticalAlignment.Center,
+          sectionWhitespace: RedapticWhiteSpace.Medium,
+          verticalAlignments: RedapticVerticalAlignment.Center,
           content: getExampleHeader,
         },
       ],
@@ -117,16 +117,16 @@ export const args: SceneType = {
   applyPaddingBottom: false,
   maxContentWidth: "",
   sceneWhitespace: enumValueToKey(
-    ActivityWhiteSpace,
-    ActivityWhiteSpace.Medium,
+    RedapticWhiteSpace,
+    RedapticWhiteSpace.Medium,
   ),
   sceneHorizontalAlignments: enumValueToKey(
-    ActivityHorizontalAlignment,
-    ActivityHorizontalAlignment.Center,
+    RedapticHorizontalAlignment,
+    RedapticHorizontalAlignment.Center,
   ),
   verticalAlignments: enumValueToKey(
-    ActivityVerticalAlignment,
-    ActivityVerticalAlignment.Top,
+    RedapticVerticalAlignment,
+    RedapticVerticalAlignment.Top,
   ),
   contentBoxFill: enumValueToKey(
     ActivityContentBoxFill,
@@ -134,44 +134,44 @@ export const args: SceneType = {
   ),
   rows: [
     {
-      columns: "1,1,1",
-      rowWhitespace: ActivityWhiteSpace.Small,
-      sectionWhitespace: ActivityWhiteSpace.Medium,
-      maxWidth: ActivityMaxWidth.None,
-      horizontalAlignment: ActivityHorizontalAlignment.Center,
+      columns: "1fr 1fr 1fr",
+      rowWhitespace: RedapticWhiteSpace.Small,
+      sectionWhitespace: RedapticWhiteSpace.Medium,
+      maxWidth: RedapticMaxWidth.None,
+      horizontalAlignment: RedapticHorizontalAlignment.Center,
       columnItems: [
         {
-          sectionWhitespace: ActivityWhiteSpace.Medium,
-          verticalAlignments: ActivityVerticalAlignment.Center,
+          sectionWhitespace: RedapticWhiteSpace.Medium,
+          verticalAlignments: RedapticVerticalAlignment.Center,
           content: getExampleContent1,
         },
         {
-          sectionWhitespace: ActivityWhiteSpace.Medium,
-          verticalAlignments: ActivityVerticalAlignment.Center,
+          sectionWhitespace: RedapticWhiteSpace.Medium,
+          verticalAlignments: RedapticVerticalAlignment.Center,
           content: getExampleContent2,
         },
         {
-          sectionWhitespace: ActivityWhiteSpace.Medium,
-          verticalAlignments: ActivityVerticalAlignment.Center,
+          sectionWhitespace: RedapticWhiteSpace.Medium,
+          verticalAlignments: RedapticVerticalAlignment.Center,
           content: getExampleContent3,
         },
       ],
     },
     {
-      columns: "1,1",
-      rowWhitespace: ActivityWhiteSpace.None,
-      sectionWhitespace: ActivityWhiteSpace.Medium,
-      maxWidth: ActivityMaxWidth.None,
-      horizontalAlignment: ActivityHorizontalAlignment.Center,
+      columns: "1fr 1fr",
+      rowWhitespace: RedapticWhiteSpace.None,
+      sectionWhitespace: RedapticWhiteSpace.Medium,
+      maxWidth: RedapticMaxWidth.None,
+      horizontalAlignment: RedapticHorizontalAlignment.Center,
       columnItems: [
         {
-          sectionWhitespace: ActivityWhiteSpace.Medium,
-          verticalAlignments: ActivityVerticalAlignment.Center,
+          sectionWhitespace: RedapticWhiteSpace.Medium,
+          verticalAlignments: RedapticVerticalAlignment.Center,
           content: getExampleContent4,
         },
         {
-          sectionWhitespace: ActivityWhiteSpace.Medium,
-          verticalAlignments: ActivityVerticalAlignment.Center,
+          sectionWhitespace: RedapticWhiteSpace.Medium,
+          verticalAlignments: RedapticVerticalAlignment.Center,
           content: getExampleContent1,
         },
       ],
@@ -186,16 +186,16 @@ export const args2: SceneType = {
   applyPaddingBottom: false,
   maxContentWidth: "",
   sceneWhitespace: enumValueToKey(
-    ActivityWhiteSpace,
-    ActivityWhiteSpace.Medium,
+    RedapticWhiteSpace,
+    RedapticWhiteSpace.Medium,
   ),
   sceneHorizontalAlignments: enumValueToKey(
-    ActivityHorizontalAlignment,
-    ActivityHorizontalAlignment.Center,
+    RedapticHorizontalAlignment,
+    RedapticHorizontalAlignment.Center,
   ),
   verticalAlignments: enumValueToKey(
-    ActivityVerticalAlignment,
-    ActivityVerticalAlignment.Top,
+    RedapticVerticalAlignment,
+    RedapticVerticalAlignment.Top,
   ),
   contentBoxFill: enumValueToKey(
     ActivityContentBoxFill,
@@ -203,25 +203,25 @@ export const args2: SceneType = {
   ),
   rows: [
     {
-      columns: "1,1,1",
-      rowWhitespace: ActivityWhiteSpace.None,
-      sectionWhitespace: ActivityWhiteSpace.Medium,
-      maxWidth: ActivityMaxWidth.StandardText,
-      horizontalAlignment: ActivityHorizontalAlignment.Center,
+      columns: "1fr 1fr 1fr",
+      rowWhitespace: RedapticWhiteSpace.None,
+      sectionWhitespace: RedapticWhiteSpace.Medium,
+      maxWidth: RedapticMaxWidth.StandardText,
+      horizontalAlignment: RedapticHorizontalAlignment.Center,
       columnItems: [
         {
-          sectionWhitespace: ActivityWhiteSpace.Medium,
-          verticalAlignments: ActivityVerticalAlignment.Center,
+          sectionWhitespace: RedapticWhiteSpace.Medium,
+          verticalAlignments: RedapticVerticalAlignment.Center,
           content: getExampleContent1,
         },
         {
-          sectionWhitespace: ActivityWhiteSpace.Medium,
-          verticalAlignments: ActivityVerticalAlignment.Center,
+          sectionWhitespace: RedapticWhiteSpace.Medium,
+          verticalAlignments: RedapticVerticalAlignment.Center,
           content: getExampleContent2,
         },
         {
-          sectionWhitespace: ActivityWhiteSpace.Medium,
-          verticalAlignments: ActivityVerticalAlignment.Center,
+          sectionWhitespace: RedapticWhiteSpace.Medium,
+          verticalAlignments: RedapticVerticalAlignment.Center,
           content: getExampleContent3,
         },
       ],
