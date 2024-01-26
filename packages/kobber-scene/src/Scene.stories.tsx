@@ -48,7 +48,10 @@ const render: ArgsStoryFn<ReactRenderer, SceneType> = (args: SceneType) => {
     <style>
       ${getBodyCss()}
     </style>
-    <kobber-scene min-height="${args.minHeight}">
+    <kobber-scene
+      min-height="${args.minHeight}"
+      responsive-breakpoint=${args.responsiveBreakpoint}
+    >
       <kobber-scene-boundary
         ?is-first-row=${args.isFirstRow}
         ?is-full-width=${args.isFullWidth}

@@ -27,42 +27,11 @@ export class SceneRow extends LitElement {
     `,
   ];
 
-  private getHostStyles = () => {
-    const maxWidth = redapticEnumToMaxWidth(this.maxWidth);
-    console.log("#", this.horizontalAlignment);
-    return css`
-      :host {
-        grid-gap: ${this.transform("10px")};
-        grid-template-columns: ${unsafeCSS(this.columns)};
-        max-width: ${maxWidth ? this.transform(maxWidth) : unsafeCSS("none")};
-        justify-self: ${unsafeCSS(
-          redapticEnumToHorizontalAlignment(
-            this.maxWidth,
-            this.horizontalAlignment,
-          ),
-        )};
-        padding-bottom: ${this.transform(
-          redapticEnumToRowGap(this.rowWhitespace),
-        )};
-      }
-
-      @media (max-width: 640px) {
-        :host {
-          grid-template-columns: 1fr;
-        }
-      }
-    `;
-  };
-
-  private get transform() {
-    return this._context.cssDimensionTransformer;
-  }
-
   @consume({ context, subscribe: true })
   private _context: ContextType = defaultContext;
 
   @property({ type: String, attribute: "columns" })
-  columns?: string;
+  columns: string = "1fr";
 
   @property({ type: Number, attribute: "row-whitespace" })
   rowWhitespace: RedapticWhiteSpace = RedapticWhiteSpace.None;
@@ -76,6 +45,34 @@ export class SceneRow extends LitElement {
   @property({ type: Number, attribute: "horizontal-alignment" })
   horizontalAlignment: RedapticHorizontalAlignment =
     RedapticHorizontalAlignment.None;
+
+  @property({ type: Number, attribute: "responsive-breakpoint" })
+  private getHostStyles = () => {
+    const maxWidth = redapticEnumToMaxWidth(this.maxWidth);
+    return css`
+      :host {
+        grid-gap: ${this.transform("10px")};
+        grid-template-columns: var(
+          --responsive-grid-template-columns,
+          ${unsafeCSS(this.columns)}
+        );
+        max-width: ${maxWidth ? this.transform(maxWidth) : unsafeCSS("none")};
+        justify-self: ${unsafeCSS(
+          redapticEnumToHorizontalAlignment(
+            this.maxWidth,
+            this.horizontalAlignment,
+          ),
+        )};
+        padding-bottom: ${this.transform(
+          redapticEnumToRowGap(this.rowWhitespace),
+        )};
+      }
+    `;
+  };
+
+  private get transform() {
+    return this._context.cssDimensionTransformer;
+  }
 
   render() {
     return html`

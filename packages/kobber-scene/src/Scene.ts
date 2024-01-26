@@ -1,12 +1,11 @@
-import { ContextProvider } from "@lit/context";
-import { LitElement, css, html, unsafeCSS } from "lit";
-import { customElement, property, state } from "lit/decorators.js";
+import { css, html } from "lit";
+import { customElement, property } from "lit/decorators.js";
 import "./Container";
-import { context, defaultContext } from "./context";
+import { ContextProvider } from "./ContextProvider";
 import { cssReset } from "./css-reset";
 
 @customElement("kobber-scene")
-export class Scene extends LitElement {
+export class Scene extends ContextProvider {
   static styles = [
     cssReset,
     css`
@@ -15,23 +14,6 @@ export class Scene extends LitElement {
       }
     `,
   ];
-
-  @state()
-  @property({ attribute: false })
-  provider = new ContextProvider(this, {
-    context,
-    initialValue: defaultContext,
-  });
-
-  @property()
-  set cssDimensionTransformer(
-    cssDimensionTransformer: (value: string | number) => string,
-  ) {
-    this.provider.setValue({
-      cssDimensionTransformer: (value: string | number) =>
-        unsafeCSS(cssDimensionTransformer(value)),
-    });
-  }
 
   @property({ type: String, attribute: "min-height" })
   minHeight?: string;

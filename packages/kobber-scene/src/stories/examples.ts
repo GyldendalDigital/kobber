@@ -14,7 +14,7 @@ import {
 } from "../types";
 
 export interface SceneType
-  extends Pick<Scene, "minHeight">,
+  extends Pick<Scene, "minHeight" | "responsiveBreakpoint">,
     Pick<
       SceneBoundary,
       | "isFirstRow"
@@ -70,12 +70,15 @@ export const getExampleContent4 = () => {
   return html`<div style="${exampleStyles} background-color: #2CD3E1;"></div>`;
 };
 
+const responsiveBreakpoint = 640;
+
 export const headerArgs: SceneType = {
   minHeight: "0",
   isFirstRow: true,
   isFullWidth: true,
   applyPaddingBottom: false,
   maxContentWidth: "",
+  responsiveBreakpoint,
   sceneWhitespace: enumValueToKey(
     RedapticWhiteSpace,
     RedapticWhiteSpace.Medium,
@@ -116,6 +119,7 @@ export const args: SceneType = {
   isFullWidth: false,
   applyPaddingBottom: false,
   maxContentWidth: "",
+  responsiveBreakpoint,
   sceneWhitespace: enumValueToKey(
     RedapticWhiteSpace,
     RedapticWhiteSpace.Medium,
@@ -185,6 +189,7 @@ export const args2: SceneType = {
   isFullWidth: false,
   applyPaddingBottom: false,
   maxContentWidth: "",
+  responsiveBreakpoint,
   sceneWhitespace: enumValueToKey(
     RedapticWhiteSpace,
     RedapticWhiteSpace.Medium,
