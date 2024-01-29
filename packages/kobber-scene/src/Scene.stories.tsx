@@ -18,8 +18,8 @@ import {
   templateResultToString,
 } from "./stories/helpers";
 import {
-  ActivityContentBoxFill,
   RedapticBackgroundImageStyle,
+  RedapticContentBoxFill,
   RedapticHorizontalAlignment,
   RedapticVerticalAlignment,
   RedapticWhiteSpace,
@@ -51,8 +51,8 @@ export const MultipleScenes: StoryObj<SceneType> = {
             ...args,
             minHeight: "",
             contentBoxFill: enumValueToKey(
-              ActivityContentBoxFill,
-              ActivityContentBoxFill.White,
+              RedapticContentBoxFill,
+              RedapticContentBoxFill.White,
             ),
             imageBackground: {
               backgroundColor: "#FFB84Cee",
@@ -106,7 +106,7 @@ const render: ArgsStoryFn<ReactRenderer, SceneType> = (args: SceneType) => {
           args.verticalAlignments,
         )}
         content-box-fill=${enumKeyToValue(
-          ActivityContentBoxFill,
+          RedapticContentBoxFill,
           args.contentBoxFill,
         )}
       >
@@ -155,7 +155,7 @@ export default {
     },
     contentBoxFill: {
       control: "inline-radio",
-      options: enumKeysToArray(ActivityContentBoxFill),
+      options: enumKeysToArray(RedapticContentBoxFill),
     },
   },
   render,

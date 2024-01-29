@@ -6,7 +6,7 @@ import { redapticEnumToSceneAlignment } from "./css-converters";
 import { getPaddings, whiteSpaceScale } from "./css-helpers";
 import { cssReset } from "./css-reset";
 import {
-  ActivityContentBoxFill,
+  RedapticContentBoxFill,
   RedapticHorizontalAlignment,
   RedapticVerticalAlignment,
   RedapticWhiteSpace,
@@ -70,13 +70,13 @@ export class SceneBoundary extends LitElement {
   `;
 
   private get getTheme() {
-    if (this.contentBoxFill === ActivityContentBoxFill.Dark) {
+    if (this.contentBoxFill === RedapticContentBoxFill.Dark) {
       return css`
         background-color: black;
         color: white;
       `;
     }
-    if (this.contentBoxFill === ActivityContentBoxFill.White) {
+    if (this.contentBoxFill === RedapticContentBoxFill.White) {
       return css`
         background-color: white;
         color: black;
@@ -86,8 +86,8 @@ export class SceneBoundary extends LitElement {
 
   private get hasContentBoxFill() {
     return (
-      this.contentBoxFill === ActivityContentBoxFill.Dark ||
-      this.contentBoxFill === ActivityContentBoxFill.White
+      this.contentBoxFill === RedapticContentBoxFill.Dark ||
+      this.contentBoxFill === RedapticContentBoxFill.White
     );
   }
 
@@ -111,7 +111,7 @@ export class SceneBoundary extends LitElement {
   maxContentWidth?: string;
 
   @property({ type: Number, attribute: "content-box-fill" })
-  contentBoxFill?: ActivityContentBoxFill;
+  contentBoxFill?: RedapticContentBoxFill;
 
   @property({ type: Number, attribute: "scene-whitespace" })
   sceneWhitespace: RedapticWhiteSpace = RedapticWhiteSpace.None;

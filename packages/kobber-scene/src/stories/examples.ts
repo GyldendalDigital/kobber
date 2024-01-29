@@ -8,8 +8,8 @@ import { SceneColumn } from "../SceneColumn";
 import { SceneImageBackground } from "../SceneImageBackground";
 import { SceneRow } from "../SceneRow";
 import {
-  ActivityContentBoxFill,
   RedapticBackgroundImageStyle,
+  RedapticContentBoxFill,
   RedapticHorizontalAlignment,
   RedapticMaxWidth,
   RedapticVerticalAlignment,
@@ -109,8 +109,8 @@ export const headerArgs: SceneType = {
     RedapticVerticalAlignment.Top,
   ),
   contentBoxFill: enumValueToKey(
-    ActivityContentBoxFill,
-    ActivityContentBoxFill.None,
+    RedapticContentBoxFill,
+    RedapticContentBoxFill.None,
   ),
   rows: [
     {
@@ -150,8 +150,8 @@ export const args: SceneType = {
     RedapticVerticalAlignment.Top,
   ),
   contentBoxFill: enumValueToKey(
-    ActivityContentBoxFill,
-    ActivityContentBoxFill.Dark,
+    RedapticContentBoxFill,
+    RedapticContentBoxFill.Dark,
   ),
   imageBackground: {
     backgroundColor: "#444444aa",
@@ -232,8 +232,8 @@ export const imageArgs: SceneType = {
     RedapticVerticalAlignment.Top,
   ),
   contentBoxFill: enumValueToKey(
-    ActivityContentBoxFill,
-    ActivityContentBoxFill.None,
+    RedapticContentBoxFill,
+    RedapticContentBoxFill.None,
   ),
   rows: [],
 };
@@ -258,8 +258,8 @@ export const args2: SceneType = {
     RedapticVerticalAlignment.Top,
   ),
   contentBoxFill: enumValueToKey(
-    ActivityContentBoxFill,
-    ActivityContentBoxFill.None,
+    RedapticContentBoxFill,
+    RedapticContentBoxFill.None,
   ),
   rows: [
     {

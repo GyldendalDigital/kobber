@@ -34,7 +34,7 @@ export interface SceneBoundaryPadding {
   left: number;
 }
 
-export enum ActivityContentBoxFill {
+export enum RedapticContentBoxFill {
   None = 0,
   White = 1,
   Dark = 2,

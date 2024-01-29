@@ -1,4 +1,4 @@
-import { ActivityContentBoxFill, RedapticRow } from "./types";
+import { RedapticContentBoxFill, RedapticRow } from "./types";
 
 const fullWidthSections = ["sc-feature-header", "sc-card-carousel"];
 
@@ -14,7 +14,7 @@ export const groupRowsByPresentation = <
   CompleteRedapticRow extends RedapticRow,
 >(
   rows: CompleteRedapticRow[],
-  contentBoxFill: ActivityContentBoxFill,
+  contentBoxFill: RedapticContentBoxFill,
 ) => {
   const groups: RowGroup<CompleteRedapticRow>[] = [];
 
@@ -56,7 +56,7 @@ const groupContainsOnly = (
 const getRowPresentation = (
   row: RedapticRow,
   rows: RedapticRow[],
-  contentBoxFill: ActivityContentBoxFill,
+  contentBoxFill: RedapticContentBoxFill,
 ): RowGroupPresentation => {
   if (displaySectionInFullWidth(contentBoxFill, row)) return "fullWidth";
   if (displayDynamicContentInFullSize(contentBoxFill, row, rows))
@@ -66,7 +66,7 @@ const getRowPresentation = (
 };
 
 const displayDynamicContentInFullSize = (
-  contentBoxFill: ActivityContentBoxFill,
+  contentBoxFill: RedapticContentBoxFill,
   row: RedapticRow,
   rows: RedapticRow[],
 ) => {
@@ -76,7 +76,7 @@ const displayDynamicContentInFullSize = (
 };
 
 const displaySectionInFullWidth = (
-  contentBoxFill: ActivityContentBoxFill,
+  contentBoxFill: RedapticContentBoxFill,
   row: RedapticRow,
 ) => {
   if (hasMultipleColumns(row)) return false;
@@ -90,7 +90,7 @@ const displaySectionInFullWidth = (
 };
 
 const displayDynamicContentInFullWidth = (
-  contentBoxFill: ActivityContentBoxFill,
+  contentBoxFill: RedapticContentBoxFill,
   row: RedapticRow,
 ) => {
   if (hasMultipleColumns(row)) return false;
@@ -100,6 +100,6 @@ const displayDynamicContentInFullWidth = (
 
 const hasMultipleColumns = (row: RedapticRow) => row.columns.length > 1;
 
-const hasContentBoxFill = (contentBoxFill: ActivityContentBoxFill) => {
-  return contentBoxFill !== ActivityContentBoxFill.None;
+const hasContentBoxFill = (contentBoxFill: RedapticContentBoxFill) => {
+  return contentBoxFill !== RedapticContentBoxFill.None;
 };
