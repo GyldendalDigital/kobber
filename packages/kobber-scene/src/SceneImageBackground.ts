@@ -31,6 +31,11 @@ export class SceneImageBackground extends SceneBackground {
     `,
   ];
 
+  constructor() {
+    super();
+    this.role = "img";
+  }
+
   @property({ type: String, attribute: "background-color" })
   backgroundColor: string = "white";
 

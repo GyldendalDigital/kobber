@@ -52,7 +52,8 @@ interface ImageBackground
     | "backgroundImageUrl"
     | "backgroundImageStyle"
     | "width"
-    | "aria-label"
+    | "ariaLabel"
+    | "lang"
   > {}
 
 interface Column
@@ -154,7 +155,8 @@ export const args: SceneType = {
   ),
   imageBackground: {
     backgroundColor: "#444444aa",
-    ["aria-label"]: "aria-label",
+    ariaLabel: "aria-label",
+    lang: "en",
   },
   rows: [
     {
@@ -213,7 +215,8 @@ export const imageArgs: SceneType = {
   imageBackground: {
     backgroundColor: "#F266AB",
     backgroundImageUrl,
-    ["aria-label"]: "aria-label",
+    ariaLabel: "aria-label",
+    lang: "en",
     backgroundImageStyle: RedapticBackgroundImageStyle.Fit,
   },
   sceneWhitespace: enumValueToKey(

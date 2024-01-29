@@ -1,5 +1,4 @@
 import { LitElement, css, html } from "lit";
-import { property } from "lit/decorators.js";
 import { cssReset } from "./css-reset";
 
 const zIndexFixedBackground = 0;
@@ -24,9 +23,6 @@ export class SceneBackground extends LitElement {
       }
     `,
   ];
-
-  @property({ type: String, attribute: "aria-label" })
-  ["aria-label"]?: string;
 
   render() {
     return html`<slot /> `;

@@ -85,7 +85,8 @@ const render: ArgsStoryFn<ReactRenderer, SceneType> = (args: SceneType) => {
         background-color=${args.imageBackground.backgroundColor}
         background-image-url=${args.imageBackground.backgroundImageUrl}
         background-image-style=${args.imageBackground.backgroundImageStyle}
-        aria-label=${args.imageBackground["aria-label"]}
+        aria-label=${args.imageBackground.ariaLabel}
+        lang=${args.imageBackground.lang}
       />`}
       <kobber-scene-boundary
         ?is-first-row=${args.isFirstRow}
