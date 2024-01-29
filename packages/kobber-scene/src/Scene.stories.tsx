@@ -58,6 +58,8 @@ export const MultipleScenes: StoryObj<SceneType> = {
               backgroundColor: "#FFB84Cee",
               backgroundImageUrl,
               backgroundImageStyle: RedapticBackgroundImageStyle.Fit,
+              ariaLabel: args.imageBackground?.ariaLabel ?? null,
+              lang: args.imageBackground?.lang ?? "",
             },
           },
           context,
