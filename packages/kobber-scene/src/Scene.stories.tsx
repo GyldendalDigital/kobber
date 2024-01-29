@@ -1,23 +1,34 @@
 import { Meta, ReactRenderer, StoryObj } from "@storybook/react";
+import { ArgsStoryFn } from "@storybook/types";
 import { html } from "lit-html";
 import React, { ComponentType, FunctionComponent } from "react";
 import "./index.web-components";
-import { ArgsStoryFn } from "@storybook/types";
-import { SceneType, args, args2, headerArgs } from "./stories/examples";
+import {
+  SceneType,
+  args,
+  args2,
+  headerArgs,
+  imageArgs,
+} from "./stories/examples";
 import {
   enumKeyToValue,
   enumKeysToArray,
+  enumValueToKey,
   getBodyCss,
   templateResultToString,
 } from "./stories/helpers";
 import {
   ActivityContentBoxFill,
+  RedapticBackgroundImageStyle,
   RedapticHorizontalAlignment,
   RedapticVerticalAlignment,
   RedapticWhiteSpace,
 } from "./types";
+import { backgroundImageUrl } from "./stories/background-image-url";
 
 export const Header: StoryObj<SceneType> = { args: headerArgs };
+
+export const BackgroundImageOnly: StoryObj<SceneType> = { args: imageArgs };
 
 export const WithContextBoxFill: StoryObj<SceneType> = { args };
 
@@ -34,6 +45,23 @@ export const MultipleScenes: StoryObj<SceneType> = {
         {render(headerArgs, context)}
         {render({ ...args, minHeight: "" }, context)}
         {render({ ...args2, minHeight: "" }, context)}
+        {render(imageArgs, context)}
+        {render(
+          {
+            ...args,
+            minHeight: "",
+            contentBoxFill: enumValueToKey(
+              ActivityContentBoxFill,
+              ActivityContentBoxFill.White,
+            ),
+            imageBackground: {
+              backgroundColor: "#FFB84Cee",
+              backgroundImageUrl,
+              backgroundImageStyle: RedapticBackgroundImageStyle.Fit,
+            },
+          },
+          context,
+        )}
       </>
     );
   },
@@ -52,6 +80,13 @@ const render: ArgsStoryFn<ReactRenderer, SceneType> = (args: SceneType) => {
       min-height="${args.minHeight}"
       responsive-breakpoint=${args.responsiveBreakpoint}
     >
+      ${args.imageBackground &&
+      html`<kobber-scene-image-background
+        background-color=${args.imageBackground.backgroundColor}
+        background-image-url=${args.imageBackground.backgroundImageUrl}
+        background-image-style=${args.imageBackground.backgroundImageStyle}
+        aria-label=${args.imageBackground["aria-label"]}
+      />`}
       <kobber-scene-boundary
         ?is-first-row=${args.isFirstRow}
         ?is-full-width=${args.isFullWidth}

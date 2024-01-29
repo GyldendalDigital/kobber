@@ -46,7 +46,6 @@ export class SceneRow extends LitElement {
   horizontalAlignment: RedapticHorizontalAlignment =
     RedapticHorizontalAlignment.None;
 
-  @property({ type: Number, attribute: "responsive-breakpoint" })
   private getHostStyles = () => {
     const maxWidth = redapticEnumToMaxWidth(this.maxWidth);
     return css`

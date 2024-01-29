@@ -1,12 +1,15 @@
 import { TemplateResult } from "lit";
 import { html } from "lit-html";
+import { backgroundImageUrl } from "./background-image-url";
 import { enumValueToKey } from "./helpers";
 import { Scene } from "../Scene";
 import { SceneBoundary } from "../SceneBoundary";
 import { SceneColumn } from "../SceneColumn";
+import { SceneImageBackground } from "../SceneImageBackground";
 import { SceneRow } from "../SceneRow";
 import {
   ActivityContentBoxFill,
+  RedapticBackgroundImageStyle,
   RedapticHorizontalAlignment,
   RedapticMaxWidth,
   RedapticVerticalAlignment,
@@ -26,6 +29,7 @@ export interface SceneType
       | "verticalAlignments"
       | "contentBoxFill"
     > {
+  imageBackground?: ImageBackground;
   rows: Row[];
 }
 
@@ -40,6 +44,16 @@ interface Row
   > {
   columnItems: Column[];
 }
+
+interface ImageBackground
+  extends Pick<
+    SceneImageBackground,
+    | "backgroundColor"
+    | "backgroundImageUrl"
+    | "backgroundImageStyle"
+    | "width"
+    | "aria-label"
+  > {}
 
 interface Column
   extends Pick<SceneColumn, "sectionWhitespace" | "verticalAlignments"> {
@@ -72,12 +86,14 @@ export const getExampleContent4 = () => {
 
 const responsiveBreakpoint = 640;
 
+const maxContentWidth = "800px";
+
 export const headerArgs: SceneType = {
   minHeight: "0",
   isFirstRow: true,
   isFullWidth: true,
   applyPaddingBottom: false,
-  maxContentWidth: "",
+  maxContentWidth,
   responsiveBreakpoint,
   sceneWhitespace: enumValueToKey(
     RedapticWhiteSpace,
@@ -118,7 +134,7 @@ export const args: SceneType = {
   isFirstRow: false,
   isFullWidth: false,
   applyPaddingBottom: false,
-  maxContentWidth: "",
+  maxContentWidth,
   responsiveBreakpoint,
   sceneWhitespace: enumValueToKey(
     RedapticWhiteSpace,
@@ -136,6 +152,10 @@ export const args: SceneType = {
     ActivityContentBoxFill,
     ActivityContentBoxFill.Dark,
   ),
+  imageBackground: {
+    backgroundColor: "#444444aa",
+    ["aria-label"]: "aria-label",
+  },
   rows: [
     {
       columns: "1fr 1fr 1fr",
@@ -183,12 +203,44 @@ export const args: SceneType = {
   ],
 };
 
+export const imageArgs: SceneType = {
+  minHeight: "100vh",
+  isFirstRow: false,
+  isFullWidth: false,
+  applyPaddingBottom: false,
+  maxContentWidth,
+  responsiveBreakpoint,
+  imageBackground: {
+    backgroundColor: "#F266AB",
+    backgroundImageUrl,
+    ["aria-label"]: "aria-label",
+    backgroundImageStyle: RedapticBackgroundImageStyle.Fit,
+  },
+  sceneWhitespace: enumValueToKey(
+    RedapticWhiteSpace,
+    RedapticWhiteSpace.Medium,
+  ),
+  sceneHorizontalAlignments: enumValueToKey(
+    RedapticHorizontalAlignment,
+    RedapticHorizontalAlignment.Center,
+  ),
+  verticalAlignments: enumValueToKey(
+    RedapticVerticalAlignment,
+    RedapticVerticalAlignment.Top,
+  ),
+  contentBoxFill: enumValueToKey(
+    ActivityContentBoxFill,
+    ActivityContentBoxFill.None,
+  ),
+  rows: [],
+};
+
 export const args2: SceneType = {
   minHeight: "100vh",
   isFirstRow: false,
   isFullWidth: false,
   applyPaddingBottom: false,
-  maxContentWidth: "",
+  maxContentWidth,
   responsiveBreakpoint,
   sceneWhitespace: enumValueToKey(
     RedapticWhiteSpace,

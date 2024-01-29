@@ -3,6 +3,7 @@ import * as React from "react";
 import { Scene } from "./Scene";
 import { SceneBoundary } from "./SceneBoundary";
 import { SceneColumn } from "./SceneColumn";
+import { SceneImageBackground } from "./SceneImageBackground";
 import { SceneRow } from "./SceneRow";
 
 export { groupRowsByPresentation } from "./groupRowsByPresentation";
@@ -10,6 +11,12 @@ export { groupRowsByPresentation } from "./groupRowsByPresentation";
 export const KobberScene = createComponent({
   tagName: "kobber-scene",
   elementClass: Scene,
+  react: React,
+});
+
+export const KobberSceneImageBackground = createComponent({
+  tagName: "kobber-scene-image-background",
+  elementClass: SceneImageBackground,
   react: React,
 });
 

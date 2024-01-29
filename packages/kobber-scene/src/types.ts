@@ -40,6 +40,12 @@ export enum ActivityContentBoxFill {
   Dark = 2,
 }
 
+export enum RedapticBackgroundImageStyle {
+  Stretch = 0,
+  Tile = 1,
+  Fit = 2,
+}
+
 export interface RedapticRow {
   id: string;
   columns: RedapticColumn[];
