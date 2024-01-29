@@ -31,11 +31,6 @@ export class SceneImageBackground extends SceneBackground {
     `,
   ];
 
-  constructor() {
-    super();
-    this.role = "img";
-  }
-
   @property({ type: String, attribute: "background-color" })
   backgroundColor: string = "white";
 
@@ -48,6 +43,11 @@ export class SceneImageBackground extends SceneBackground {
 
   @property({ type: String, attribute: "width" })
   width?: string = "100%";
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.role = "img";
+  }
 
   private getStyles = () => {
     return css`
