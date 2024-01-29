@@ -40,7 +40,6 @@ export class CssVariableProvider extends LitElement {
 
   private _updateCssColumns = (currentSceneWidth?: number) => {
     const width = currentSceneWidth ?? this.getBoundingClientRect().width;
-    console.log("width", width, this.responsiveBreakpoint);
     if (width < this.responsiveBreakpoint) {
       this.style.setProperty("--responsive-grid-template-columns", "1fr");
     } else {
