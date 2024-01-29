@@ -3,8 +3,9 @@ import { LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { Context, context, defaultContext } from "./context";
 import { redapticEnumToSceneAlignment } from "./css-converters";
-import { getPaddings, whiteSpaceScale } from "./css-helpers";
+import { getPaddings } from "./css-helpers";
 import { cssReset } from "./css-reset";
+import { fluidHorizontalPadding } from "./fluidHorizontalPadding";
 import {
   RedapticContentBoxFill,
   RedapticHorizontalAlignment,
@@ -40,8 +41,8 @@ export class SceneBoundary extends LitElement {
           max-width: ${unsafeCSS(this.maxContentWidth)};
           padding-top: ${this.transform(padding.top)};
           padding-bottom: ${this.transform(padding.bottom)};
-          padding-right: ${unsafeCSS(whiteSpaceScale(padding.right))};
-          padding-left: ${unsafeCSS(whiteSpaceScale(padding.left))};
+          padding-right: ${unsafeCSS(fluidHorizontalPadding(padding.right))};
+          padding-left: ${unsafeCSS(fluidHorizontalPadding(padding.left))};
         `
       : css`
           padding-top: ${this.transform(!this.isFirstRow ? padding.top : 0)};
@@ -62,7 +63,7 @@ export class SceneBoundary extends LitElement {
         css`
           box-shadow: 0 0 ${this.transform("30px")} rgba(0, 0, 0, 0.3);
           padding: ${this.transform("27.2px")}
-            ${unsafeCSS(whiteSpaceScale(25.6))};
+            ${unsafeCSS(fluidHorizontalPadding(25.6))};
           border-radius: ${this.transform("7px")};
           ${unsafeCSS(this.getTheme)};
         `,

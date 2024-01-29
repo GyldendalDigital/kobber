@@ -3,6 +3,7 @@ import { LitElement, html, unsafeCSS } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 import "./Container";
 import { context, defaultContext } from "./context";
+import { getFluidHorizontalPadding } from "./fluidHorizontalPadding";
 
 @customElement("kobber-scene-context-provider")
 export class ContextProvider extends LitElement {
@@ -30,13 +31,21 @@ export class ContextProvider extends LitElement {
 
   constructor() {
     super();
-    this._resizeObserver = new window.ResizeObserver((entries) =>
-      this._updateCssColumns(this._resizeObserverEntriesToWidth(entries)),
-    );
+    this._resizeObserver = new window.ResizeObserver((entries) => {
+      this._updateCssColumns(this._resizeObserverEntriesToWidth(entries));
+      this._updateHorizontalPadding();
+    });
   }
 
   private _resizeObserverEntriesToWidth = (entries: ResizeObserverEntry[]) =>
     entries.length > 0 ? entries[0].contentRect.width : undefined;
+
+  connectedCallback() {
+    super.connectedCallback();
+    this._resizeObserver.observe(this);
+    this._updateCssColumns();
+    this._updateHorizontalPadding();
+  }
 
   private _updateCssColumns = (currentSceneWidth?: number) => {
     const width = currentSceneWidth ?? this.getBoundingClientRect().width;
@@ -47,11 +56,11 @@ export class ContextProvider extends LitElement {
     }
   };
 
-  connectedCallback() {
-    super.connectedCallback();
-    this._resizeObserver.observe(this);
-    this._updateCssColumns();
-  }
+  private _updateHorizontalPadding = (currentSceneWidth?: number) => {
+    const width = currentSceneWidth ?? this.getBoundingClientRect().width;
+    const [cssVariableName, value] = getFluidHorizontalPadding(width);
+    this.style.setProperty(cssVariableName, value.toString());
+  };
 
   disconnectedCallback() {
     this._resizeObserver.unobserve(this);

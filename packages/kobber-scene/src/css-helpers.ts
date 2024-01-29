@@ -39,9 +39,3 @@ export const getPaddings = (
       };
   }
 };
-
-const cssVariableName = "--white-space-scale";
-
-export const whiteSpaceScale = (pixelValue: number) => {
-  return `calc(var(${cssVariableName}, 1) * ${pixelValue}px)`;
-};
