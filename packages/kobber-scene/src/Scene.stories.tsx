@@ -2,13 +2,15 @@ import { Meta, ReactRenderer, StoryObj } from "@storybook/react";
 import { ArgsStoryFn } from "@storybook/types";
 import { html } from "lit-html";
 import React, { ComponentType, FunctionComponent } from "react";
+import { calculatePadding } from "./calculatePadding";
 import "./index.web-components";
+import { backgroundImageUrl } from "./stories/background-image-url";
 import {
-  SceneType,
-  args,
-  args2,
+  SceneWithAdditionalControls,
+  backgroundImageOnlyArgs,
+  contextBoxFillArgs,
   headerArgs,
-  imageArgs,
+  plainRowArgs,
 } from "./stories/examples";
 import {
   enumKeyToValue,
@@ -24,16 +26,25 @@ import {
   CmsVerticalAlignment,
   CmsWhiteSpace,
 } from "./types";
-import { backgroundImageUrl } from "./stories/background-image-url";
 
-export const Header: StoryObj<SceneType> = { args: headerArgs };
+export const Header: StoryObj<SceneWithAdditionalControls> = {
+  args: headerArgs,
+};
 
-export const BackgroundImageOnly: StoryObj<SceneType> = { args: imageArgs };
+export const BackgroundImageOnly: StoryObj<SceneWithAdditionalControls> = {
+  args: backgroundImageOnlyArgs,
+};
 
-export const WithContextBoxFill: StoryObj<SceneType> = { args };
+export const ContextBoxFill: StoryObj<SceneWithAdditionalControls> = {
+  args: contextBoxFillArgs,
+};
 
-export const MultipleScenes: StoryObj<SceneType> = {
-  args,
+export const PlainRow: StoryObj<SceneWithAdditionalControls> = {
+  args: plainRowArgs,
+};
+
+export const MultipleScenes: StoryObj<SceneWithAdditionalControls> = {
+  args: contextBoxFillArgs,
   parameters: {
     controls: {
       include: [],
@@ -43,12 +54,12 @@ export const MultipleScenes: StoryObj<SceneType> = {
     return (
       <>
         {render(headerArgs, context)}
-        {render({ ...args, minHeight: "" }, context)}
-        {render({ ...args2, minHeight: "" }, context)}
-        {render(imageArgs, context)}
+        {render({ ...contextBoxFillArgs, minHeight: "" }, context)}
+        {render({ ...plainRowArgs, minHeight: "" }, context)}
+        {render(backgroundImageOnlyArgs, context)}
         {render(
           {
-            ...args,
+            ...contextBoxFillArgs,
             minHeight: "",
             contentBoxFill: enumValueToKey(
               CmsContentBoxFill,
@@ -58,8 +69,8 @@ export const MultipleScenes: StoryObj<SceneType> = {
               backgroundColor: "#FFB84Cee",
               backgroundImageUrl,
               backgroundImageStyle: CmsBackgroundImageStyle.Fit,
-              ariaLabel: args.imageBackground?.ariaLabel ?? null,
-              lang: args.imageBackground?.lang ?? "",
+              ariaLabel: contextBoxFillArgs.imageBackground?.ariaLabel ?? null,
+              lang: contextBoxFillArgs.imageBackground?.lang ?? "",
             },
           },
           context,
@@ -73,7 +84,22 @@ const Wrapper: FunctionComponent<{ children: string }> = ({ children }) => (
   <div dangerouslySetInnerHTML={{ __html: children }} />
 );
 
-const render: ArgsStoryFn<ReactRenderer, SceneType> = (args: SceneType) => {
+const render: ArgsStoryFn<ReactRenderer, SceneWithAdditionalControls> = (
+  args: SceneWithAdditionalControls,
+) => {
+  const padding = calculatePadding({
+    isFirstRow: args.calculatePadding_isFirstRow,
+    isFullWidth: args.calculatePadding_isFullWidth,
+    applyPaddingBottom: args.calculatePadding_applyPaddingBottom,
+    sceneWhitespace: enumKeyToValue(
+      CmsWhiteSpace,
+      args.calculatePadding_sceneWhitespace,
+    ) as unknown as CmsWhiteSpace,
+    sceneHorizontalAlignments: enumKeyToValue(
+      CmsHorizontalAlignment,
+      args.calculatePadding_sceneHorizontalAlignments,
+    ) as unknown as CmsHorizontalAlignment,
+  });
   const template = html`
     <style>
       ${getBodyCss()}
@@ -91,15 +117,8 @@ const render: ArgsStoryFn<ReactRenderer, SceneType> = (args: SceneType) => {
         lang=${args.imageBackground.lang}
       />`}
       <kobber-scene-boundary
-        ?is-first-row=${args.isFirstRow}
-        ?is-full-width=${args.isFullWidth}
-        ?apply-padding-bottom=${args.applyPaddingBottom}
         max-content-width=${args.maxContentWidth}
-        scene-whitespace=${enumKeyToValue(CmsWhiteSpace, args.sceneWhitespace)}
-        scene-horizontal-alignments=${enumKeyToValue(
-          CmsHorizontalAlignment,
-          args.sceneHorizontalAlignments,
-        )}
+        padding=${JSON.stringify(padding)}
         vertical-alignments=${enumKeyToValue(
           CmsVerticalAlignment,
           args.verticalAlignments,
@@ -136,15 +155,15 @@ const render: ArgsStoryFn<ReactRenderer, SceneType> = (args: SceneType) => {
 };
 
 export default {
-  component: Wrapper as unknown as ComponentType<SceneType>,
+  component: Wrapper as unknown as ComponentType<SceneWithAdditionalControls>,
   title: "scene/scene",
   tags: ["autodocs"],
   argTypes: {
-    sceneWhitespace: {
+    calculatePadding_sceneWhitespace: {
       control: "inline-radio",
       options: enumKeysToArray(CmsWhiteSpace),
     },
-    sceneHorizontalAlignments: {
+    calculatePadding_sceneHorizontalAlignments: {
       control: "inline-radio",
       options: enumKeysToArray(CmsHorizontalAlignment),
     },
@@ -158,4 +177,4 @@ export default {
     },
   },
   render,
-} satisfies Meta<SceneType>;
+} satisfies Meta<SceneWithAdditionalControls>;

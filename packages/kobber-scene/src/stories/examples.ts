@@ -8,29 +8,32 @@ import { SceneColumn } from "../SceneColumn";
 import { SceneImageBackground } from "../SceneImageBackground";
 import { SceneRow } from "../SceneRow";
 import {
-  CmsHorizontalAlignment,
-  CmsMaxWidth,
-  CmsWhiteSpace,
   CmsBackgroundImageStyle,
   CmsContentBoxFill,
+  CmsHorizontalAlignment,
+  CmsMaxWidth,
   CmsVerticalAlignment,
+  CmsWhiteSpace,
 } from "../types";
+import { CalculatePaddingOptions } from "../calculatePadding";
 
 export interface SceneType
   extends Pick<Scene, "minHeight" | "responsiveBreakpoint">,
     Pick<
       SceneBoundary,
-      | "isFirstRow"
-      | "isFullWidth"
-      | "applyPaddingBottom"
-      | "maxContentWidth"
-      | "sceneWhitespace"
-      | "sceneHorizontalAlignments"
-      | "verticalAlignments"
-      | "contentBoxFill"
+      "maxContentWidth" | "verticalAlignments" | "contentBoxFill"
     > {
   imageBackground?: ImageBackground;
   rows: Row[];
+}
+
+export interface SceneWithAdditionalControls extends SceneType {
+  // These properties are not defined in any component, but instead passed through the calculatePadding-function
+  calculatePadding_isFirstRow: CalculatePaddingOptions["isFirstRow"];
+  calculatePadding_isFullWidth: CalculatePaddingOptions["isFullWidth"];
+  calculatePadding_applyPaddingBottom: CalculatePaddingOptions["applyPaddingBottom"];
+  calculatePadding_sceneWhitespace: CalculatePaddingOptions["sceneWhitespace"];
+  calculatePadding_sceneHorizontalAlignments: CalculatePaddingOptions["sceneHorizontalAlignments"];
 }
 
 interface Row
@@ -89,15 +92,18 @@ const responsiveBreakpoint = 640;
 
 const maxContentWidth = "800px";
 
-export const headerArgs: SceneType = {
+export const headerArgs: SceneWithAdditionalControls = {
   minHeight: "0",
-  isFirstRow: true,
-  isFullWidth: true,
-  applyPaddingBottom: false,
   maxContentWidth,
   responsiveBreakpoint,
-  sceneWhitespace: enumValueToKey(CmsWhiteSpace, CmsWhiteSpace.Medium),
-  sceneHorizontalAlignments: enumValueToKey(
+  calculatePadding_isFirstRow: true,
+  calculatePadding_isFullWidth: true,
+  calculatePadding_applyPaddingBottom: false,
+  calculatePadding_sceneWhitespace: enumValueToKey(
+    CmsWhiteSpace,
+    CmsWhiteSpace.Medium,
+  ),
+  calculatePadding_sceneHorizontalAlignments: enumValueToKey(
     CmsHorizontalAlignment,
     CmsHorizontalAlignment.Center,
   ),
@@ -105,10 +111,7 @@ export const headerArgs: SceneType = {
     CmsVerticalAlignment,
     CmsVerticalAlignment.Top,
   ),
-  contentBoxFill: enumValueToKey(
-    CmsContentBoxFill,
-    CmsContentBoxFill.None,
-  ),
+  contentBoxFill: CmsContentBoxFill.None,
   rows: [
     {
       columns: "1fr",
@@ -127,15 +130,18 @@ export const headerArgs: SceneType = {
   ],
 };
 
-export const args: SceneType = {
+export const contextBoxFillArgs: SceneWithAdditionalControls = {
   minHeight: "100vh",
-  isFirstRow: false,
-  isFullWidth: false,
-  applyPaddingBottom: false,
   maxContentWidth,
   responsiveBreakpoint,
-  sceneWhitespace: enumValueToKey(CmsWhiteSpace, CmsWhiteSpace.Medium),
-  sceneHorizontalAlignments: enumValueToKey(
+  calculatePadding_isFirstRow: false,
+  calculatePadding_isFullWidth: false,
+  calculatePadding_applyPaddingBottom: false,
+  calculatePadding_sceneWhitespace: enumValueToKey(
+    CmsWhiteSpace,
+    CmsWhiteSpace.Medium,
+  ),
+  calculatePadding_sceneHorizontalAlignments: enumValueToKey(
     CmsHorizontalAlignment,
     CmsHorizontalAlignment.Center,
   ),
@@ -143,10 +149,7 @@ export const args: SceneType = {
     CmsVerticalAlignment,
     CmsVerticalAlignment.Top,
   ),
-  contentBoxFill: enumValueToKey(
-    CmsContentBoxFill,
-    CmsContentBoxFill.Dark,
-  ),
+  contentBoxFill: enumValueToKey(CmsContentBoxFill, CmsContentBoxFill.Dark),
   imageBackground: {
     backgroundColor: "#444444aa",
     ariaLabel: "aria-label",
@@ -199,13 +202,21 @@ export const args: SceneType = {
   ],
 };
 
-export const imageArgs: SceneType = {
+export const backgroundImageOnlyArgs: SceneWithAdditionalControls = {
   minHeight: "100vh",
-  isFirstRow: false,
-  isFullWidth: false,
-  applyPaddingBottom: false,
   maxContentWidth,
   responsiveBreakpoint,
+  calculatePadding_isFirstRow: false,
+  calculatePadding_isFullWidth: false,
+  calculatePadding_applyPaddingBottom: false,
+  calculatePadding_sceneWhitespace: enumValueToKey(
+    CmsWhiteSpace,
+    CmsWhiteSpace.Medium,
+  ),
+  calculatePadding_sceneHorizontalAlignments: enumValueToKey(
+    CmsHorizontalAlignment,
+    CmsHorizontalAlignment.Center,
+  ),
   imageBackground: {
     backgroundColor: "#F266AB",
     backgroundImageUrl,
@@ -213,31 +224,26 @@ export const imageArgs: SceneType = {
     lang: "en",
     backgroundImageStyle: CmsBackgroundImageStyle.Fit,
   },
-  sceneWhitespace: enumValueToKey(CmsWhiteSpace, CmsWhiteSpace.Medium),
-  sceneHorizontalAlignments: enumValueToKey(
-    CmsHorizontalAlignment,
-    CmsHorizontalAlignment.Center,
-  ),
   verticalAlignments: enumValueToKey(
     CmsVerticalAlignment,
     CmsVerticalAlignment.Top,
   ),
-  contentBoxFill: enumValueToKey(
-    CmsContentBoxFill,
-    CmsContentBoxFill.None,
-  ),
+  contentBoxFill: enumValueToKey(CmsContentBoxFill, CmsContentBoxFill.None),
   rows: [],
 };
 
-export const args2: SceneType = {
+export const plainRowArgs: SceneWithAdditionalControls = {
   minHeight: "100vh",
-  isFirstRow: false,
-  isFullWidth: false,
-  applyPaddingBottom: false,
   maxContentWidth,
   responsiveBreakpoint,
-  sceneWhitespace: enumValueToKey(CmsWhiteSpace, CmsWhiteSpace.Medium),
-  sceneHorizontalAlignments: enumValueToKey(
+  calculatePadding_isFirstRow: false,
+  calculatePadding_isFullWidth: false,
+  calculatePadding_applyPaddingBottom: false,
+  calculatePadding_sceneWhitespace: enumValueToKey(
+    CmsWhiteSpace,
+    CmsWhiteSpace.Medium,
+  ),
+  calculatePadding_sceneHorizontalAlignments: enumValueToKey(
     CmsHorizontalAlignment,
     CmsHorizontalAlignment.Center,
   ),
@@ -245,10 +251,7 @@ export const args2: SceneType = {
     CmsVerticalAlignment,
     CmsVerticalAlignment.Top,
   ),
-  contentBoxFill: enumValueToKey(
-    CmsContentBoxFill,
-    CmsContentBoxFill.None,
-  ),
+  contentBoxFill: enumValueToKey(CmsContentBoxFill, CmsContentBoxFill.None),
   rows: [
     {
       columns: "1fr 1fr 1fr",

@@ -8,11 +8,7 @@ import {
   cmsEnumToRowGap,
 } from "./css-converters";
 import { cssReset } from "./css-reset";
-import {
-  CmsHorizontalAlignment,
-  CmsMaxWidth,
-  CmsWhiteSpace,
-} from "./types";
+import { CmsHorizontalAlignment, CmsMaxWidth, CmsWhiteSpace } from "./types";
 
 @customElement("kobber-scene-row")
 export class SceneRow extends LitElement {
@@ -43,8 +39,7 @@ export class SceneRow extends LitElement {
   maxWidth: CmsMaxWidth = CmsMaxWidth.None;
 
   @property({ type: Number, attribute: "horizontal-alignment" })
-  horizontalAlignment: CmsHorizontalAlignment =
-    CmsHorizontalAlignment.None;
+  horizontalAlignment: CmsHorizontalAlignment = CmsHorizontalAlignment.None;
 
   private getHostStyles = () => {
     const maxWidth = cmsEnumToMaxWidth(this.maxWidth);
@@ -57,14 +52,9 @@ export class SceneRow extends LitElement {
         );
         max-width: ${maxWidth ? this.transform(maxWidth) : unsafeCSS("none")};
         justify-self: ${unsafeCSS(
-          cmsEnumToHorizontalAlignment(
-            this.maxWidth,
-            this.horizontalAlignment,
-          ),
+          cmsEnumToHorizontalAlignment(this.maxWidth, this.horizontalAlignment),
         )};
-        padding-bottom: ${this.transform(
-          cmsEnumToRowGap(this.rowWhitespace),
-        )};
+        padding-bottom: ${this.transform(cmsEnumToRowGap(this.rowWhitespace))};
       }
     `;
   };

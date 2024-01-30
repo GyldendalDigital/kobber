@@ -49,6 +49,15 @@ interface CmsColumn {
   dynamicContentIds: string[];
 }
 
+type PaddingValue = string | undefined;
+
+export type Padding = [
+  top: PaddingValue,
+  right: PaddingValue,
+  bottom: PaddingValue,
+  left: PaddingValue,
+];
+
 export interface SceneBoundaryPadding {
   top: number;
   right: number;

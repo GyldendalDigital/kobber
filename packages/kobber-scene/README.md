@@ -13,6 +13,27 @@ Can be imported as web components or react components:
 
 Enums that match data from CMS are defined in [types.ts](./src/types.ts)
 
+## Calculate padding
+
+Pass CMS-data and other variables through the [`calculatePadding`](./src/calculatePadding.ts)-function and pass it to  `kobber-scene-boundary` to apply css paddings.
+
+```javascript
+import { calculatePadding } from '@gyldendal/kobber-scene/web-components';
+
+const padding = calculatePadding({
+  sceneWhitespace: sceneFromCms.sceneWhitespace,
+  sceneHorizontalAlignments: sceneFromCms.sceneHorizontalAlignments
+});
+```
+
+```html
+<kobber-scene>
+  <kobber-scene-boundary padding=${JSON.stringify(padding)}>
+    ...
+  </kobber-scene-boundary>
+</kobber-scene>
+```
+
 ## Optional presentation logic
 
 The following rules are applied to thousands of scenes in Skolestudio:

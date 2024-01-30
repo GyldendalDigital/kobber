@@ -2,10 +2,7 @@ import { consume } from "@lit/context";
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { Context, context, defaultContext } from "./context";
-import {
-  cmsEnumToColumnAlignment,
-  cmsEnumToColumnGap,
-} from "./css-converters";
+import { cmsEnumToColumnAlignment, cmsEnumToColumnGap } from "./css-converters";
 import { cssReset } from "./css-reset";
 import { CmsVerticalAlignment, CmsWhiteSpace } from "./types";
 
@@ -44,8 +41,7 @@ export class SceneColumn extends LitElement {
   sectionWhitespace: CmsWhiteSpace = CmsWhiteSpace.None;
 
   @property({ type: Number, attribute: "vertical-alignments" })
-  verticalAlignments: CmsVerticalAlignment =
-    CmsVerticalAlignment.None;
+  verticalAlignments: CmsVerticalAlignment = CmsVerticalAlignment.None;
 
   render() {
     return html`
