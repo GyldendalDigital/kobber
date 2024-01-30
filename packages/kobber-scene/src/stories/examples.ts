@@ -8,12 +8,12 @@ import { SceneColumn } from "../SceneColumn";
 import { SceneImageBackground } from "../SceneImageBackground";
 import { SceneRow } from "../SceneRow";
 import {
-  RedapticBackgroundImageStyle,
-  RedapticContentBoxFill,
-  RedapticHorizontalAlignment,
-  RedapticMaxWidth,
-  RedapticVerticalAlignment,
-  RedapticWhiteSpace,
+  CmsHorizontalAlignment,
+  CmsMaxWidth,
+  CmsWhiteSpace,
+  CmsBackgroundImageStyle,
+  CmsContentBoxFill,
+  CmsVerticalAlignment,
 } from "../types";
 
 export interface SceneType
@@ -96,33 +96,30 @@ export const headerArgs: SceneType = {
   applyPaddingBottom: false,
   maxContentWidth,
   responsiveBreakpoint,
-  sceneWhitespace: enumValueToKey(
-    RedapticWhiteSpace,
-    RedapticWhiteSpace.Medium,
-  ),
+  sceneWhitespace: enumValueToKey(CmsWhiteSpace, CmsWhiteSpace.Medium),
   sceneHorizontalAlignments: enumValueToKey(
-    RedapticHorizontalAlignment,
-    RedapticHorizontalAlignment.Center,
+    CmsHorizontalAlignment,
+    CmsHorizontalAlignment.Center,
   ),
   verticalAlignments: enumValueToKey(
-    RedapticVerticalAlignment,
-    RedapticVerticalAlignment.Top,
+    CmsVerticalAlignment,
+    CmsVerticalAlignment.Top,
   ),
   contentBoxFill: enumValueToKey(
-    RedapticContentBoxFill,
-    RedapticContentBoxFill.None,
+    CmsContentBoxFill,
+    CmsContentBoxFill.None,
   ),
   rows: [
     {
       columns: "1fr",
-      rowWhitespace: RedapticWhiteSpace.None,
-      sectionWhitespace: RedapticWhiteSpace.Medium,
-      maxWidth: RedapticMaxWidth.None,
-      horizontalAlignment: RedapticHorizontalAlignment.Center,
+      rowWhitespace: CmsWhiteSpace.None,
+      sectionWhitespace: CmsWhiteSpace.Medium,
+      maxWidth: CmsMaxWidth.None,
+      horizontalAlignment: CmsHorizontalAlignment.Center,
       columnItems: [
         {
-          sectionWhitespace: RedapticWhiteSpace.Medium,
-          verticalAlignments: RedapticVerticalAlignment.Center,
+          sectionWhitespace: CmsWhiteSpace.Medium,
+          verticalAlignments: CmsVerticalAlignment.Center,
           content: getExampleHeader,
         },
       ],
@@ -137,21 +134,18 @@ export const args: SceneType = {
   applyPaddingBottom: false,
   maxContentWidth,
   responsiveBreakpoint,
-  sceneWhitespace: enumValueToKey(
-    RedapticWhiteSpace,
-    RedapticWhiteSpace.Medium,
-  ),
+  sceneWhitespace: enumValueToKey(CmsWhiteSpace, CmsWhiteSpace.Medium),
   sceneHorizontalAlignments: enumValueToKey(
-    RedapticHorizontalAlignment,
-    RedapticHorizontalAlignment.Center,
+    CmsHorizontalAlignment,
+    CmsHorizontalAlignment.Center,
   ),
   verticalAlignments: enumValueToKey(
-    RedapticVerticalAlignment,
-    RedapticVerticalAlignment.Top,
+    CmsVerticalAlignment,
+    CmsVerticalAlignment.Top,
   ),
   contentBoxFill: enumValueToKey(
-    RedapticContentBoxFill,
-    RedapticContentBoxFill.Dark,
+    CmsContentBoxFill,
+    CmsContentBoxFill.Dark,
   ),
   imageBackground: {
     backgroundColor: "#444444aa",
@@ -161,43 +155,43 @@ export const args: SceneType = {
   rows: [
     {
       columns: "1fr 1fr 1fr",
-      rowWhitespace: RedapticWhiteSpace.Small,
-      sectionWhitespace: RedapticWhiteSpace.Medium,
-      maxWidth: RedapticMaxWidth.None,
-      horizontalAlignment: RedapticHorizontalAlignment.Center,
+      rowWhitespace: CmsWhiteSpace.Small,
+      sectionWhitespace: CmsWhiteSpace.Medium,
+      maxWidth: CmsMaxWidth.None,
+      horizontalAlignment: CmsHorizontalAlignment.Center,
       columnItems: [
         {
-          sectionWhitespace: RedapticWhiteSpace.Medium,
-          verticalAlignments: RedapticVerticalAlignment.Center,
+          sectionWhitespace: CmsWhiteSpace.Medium,
+          verticalAlignments: CmsVerticalAlignment.Center,
           content: getExampleContent1,
         },
         {
-          sectionWhitespace: RedapticWhiteSpace.Medium,
-          verticalAlignments: RedapticVerticalAlignment.Center,
+          sectionWhitespace: CmsWhiteSpace.Medium,
+          verticalAlignments: CmsVerticalAlignment.Center,
           content: getExampleContent2,
         },
         {
-          sectionWhitespace: RedapticWhiteSpace.Medium,
-          verticalAlignments: RedapticVerticalAlignment.Center,
+          sectionWhitespace: CmsWhiteSpace.Medium,
+          verticalAlignments: CmsVerticalAlignment.Center,
           content: getExampleContent3,
         },
       ],
     },
     {
       columns: "1fr 1fr",
-      rowWhitespace: RedapticWhiteSpace.None,
-      sectionWhitespace: RedapticWhiteSpace.Medium,
-      maxWidth: RedapticMaxWidth.None,
-      horizontalAlignment: RedapticHorizontalAlignment.Center,
+      rowWhitespace: CmsWhiteSpace.None,
+      sectionWhitespace: CmsWhiteSpace.Medium,
+      maxWidth: CmsMaxWidth.None,
+      horizontalAlignment: CmsHorizontalAlignment.Center,
       columnItems: [
         {
-          sectionWhitespace: RedapticWhiteSpace.Medium,
-          verticalAlignments: RedapticVerticalAlignment.Center,
+          sectionWhitespace: CmsWhiteSpace.Medium,
+          verticalAlignments: CmsVerticalAlignment.Center,
           content: getExampleContent4,
         },
         {
-          sectionWhitespace: RedapticWhiteSpace.Medium,
-          verticalAlignments: RedapticVerticalAlignment.Center,
+          sectionWhitespace: CmsWhiteSpace.Medium,
+          verticalAlignments: CmsVerticalAlignment.Center,
           content: getExampleContent1,
         },
       ],
@@ -217,23 +211,20 @@ export const imageArgs: SceneType = {
     backgroundImageUrl,
     ariaLabel: "aria-label",
     lang: "en",
-    backgroundImageStyle: RedapticBackgroundImageStyle.Fit,
+    backgroundImageStyle: CmsBackgroundImageStyle.Fit,
   },
-  sceneWhitespace: enumValueToKey(
-    RedapticWhiteSpace,
-    RedapticWhiteSpace.Medium,
-  ),
+  sceneWhitespace: enumValueToKey(CmsWhiteSpace, CmsWhiteSpace.Medium),
   sceneHorizontalAlignments: enumValueToKey(
-    RedapticHorizontalAlignment,
-    RedapticHorizontalAlignment.Center,
+    CmsHorizontalAlignment,
+    CmsHorizontalAlignment.Center,
   ),
   verticalAlignments: enumValueToKey(
-    RedapticVerticalAlignment,
-    RedapticVerticalAlignment.Top,
+    CmsVerticalAlignment,
+    CmsVerticalAlignment.Top,
   ),
   contentBoxFill: enumValueToKey(
-    RedapticContentBoxFill,
-    RedapticContentBoxFill.None,
+    CmsContentBoxFill,
+    CmsContentBoxFill.None,
   ),
   rows: [],
 };
@@ -245,43 +236,40 @@ export const args2: SceneType = {
   applyPaddingBottom: false,
   maxContentWidth,
   responsiveBreakpoint,
-  sceneWhitespace: enumValueToKey(
-    RedapticWhiteSpace,
-    RedapticWhiteSpace.Medium,
-  ),
+  sceneWhitespace: enumValueToKey(CmsWhiteSpace, CmsWhiteSpace.Medium),
   sceneHorizontalAlignments: enumValueToKey(
-    RedapticHorizontalAlignment,
-    RedapticHorizontalAlignment.Center,
+    CmsHorizontalAlignment,
+    CmsHorizontalAlignment.Center,
   ),
   verticalAlignments: enumValueToKey(
-    RedapticVerticalAlignment,
-    RedapticVerticalAlignment.Top,
+    CmsVerticalAlignment,
+    CmsVerticalAlignment.Top,
   ),
   contentBoxFill: enumValueToKey(
-    RedapticContentBoxFill,
-    RedapticContentBoxFill.None,
+    CmsContentBoxFill,
+    CmsContentBoxFill.None,
   ),
   rows: [
     {
       columns: "1fr 1fr 1fr",
-      rowWhitespace: RedapticWhiteSpace.None,
-      sectionWhitespace: RedapticWhiteSpace.Medium,
-      maxWidth: RedapticMaxWidth.StandardText,
-      horizontalAlignment: RedapticHorizontalAlignment.Center,
+      rowWhitespace: CmsWhiteSpace.None,
+      sectionWhitespace: CmsWhiteSpace.Medium,
+      maxWidth: CmsMaxWidth.StandardText,
+      horizontalAlignment: CmsHorizontalAlignment.Center,
       columnItems: [
         {
-          sectionWhitespace: RedapticWhiteSpace.Medium,
-          verticalAlignments: RedapticVerticalAlignment.Center,
+          sectionWhitespace: CmsWhiteSpace.Medium,
+          verticalAlignments: CmsVerticalAlignment.Center,
           content: getExampleContent1,
         },
         {
-          sectionWhitespace: RedapticWhiteSpace.Medium,
-          verticalAlignments: RedapticVerticalAlignment.Center,
+          sectionWhitespace: CmsWhiteSpace.Medium,
+          verticalAlignments: CmsVerticalAlignment.Center,
           content: getExampleContent2,
         },
         {
-          sectionWhitespace: RedapticWhiteSpace.Medium,
-          verticalAlignments: RedapticVerticalAlignment.Center,
+          sectionWhitespace: CmsWhiteSpace.Medium,
+          verticalAlignments: CmsVerticalAlignment.Center,
           content: getExampleContent3,
         },
       ],

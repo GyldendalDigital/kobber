@@ -2,15 +2,15 @@ import { consume } from "@lit/context";
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { Context, context, defaultContext } from "./context";
-import { redapticEnumToSceneAlignment } from "./css-converters";
+import { cmsEnumToSceneAlignment } from "./css-converters";
 import { getPaddings } from "./css-helpers";
 import { cssReset } from "./css-reset";
 import { fluidHorizontalPadding } from "./fluidHorizontalPadding";
 import {
-  RedapticContentBoxFill,
-  RedapticHorizontalAlignment,
-  RedapticVerticalAlignment,
-  RedapticWhiteSpace,
+  CmsHorizontalAlignment,
+  CmsWhiteSpace,
+  CmsContentBoxFill,
+  CmsVerticalAlignment,
 } from "./types";
 
 @customElement("kobber-scene-boundary")
@@ -56,7 +56,7 @@ export class SceneBoundary extends LitElement {
     position: relative;
     display: grid;
     align-self: ${unsafeCSS(
-      redapticEnumToSceneAlignment(this.verticalAlignments),
+      cmsEnumToSceneAlignment(this.verticalAlignments),
     )};
     ${unsafeCSS(
       this.hasContentBoxFill &&
@@ -71,13 +71,13 @@ export class SceneBoundary extends LitElement {
   `;
 
   private get getTheme() {
-    if (this.contentBoxFill === RedapticContentBoxFill.Dark) {
+    if (this.contentBoxFill === CmsContentBoxFill.Dark) {
       return css`
         background-color: black;
         color: white;
       `;
     }
-    if (this.contentBoxFill === RedapticContentBoxFill.White) {
+    if (this.contentBoxFill === CmsContentBoxFill.White) {
       return css`
         background-color: white;
         color: black;
@@ -87,8 +87,8 @@ export class SceneBoundary extends LitElement {
 
   private get hasContentBoxFill() {
     return (
-      this.contentBoxFill === RedapticContentBoxFill.Dark ||
-      this.contentBoxFill === RedapticContentBoxFill.White
+      this.contentBoxFill === CmsContentBoxFill.Dark ||
+      this.contentBoxFill === CmsContentBoxFill.White
     );
   }
 
@@ -112,18 +112,18 @@ export class SceneBoundary extends LitElement {
   maxContentWidth?: string;
 
   @property({ type: Number, attribute: "content-box-fill" })
-  contentBoxFill?: RedapticContentBoxFill;
+  contentBoxFill?: CmsContentBoxFill;
 
   @property({ type: Number, attribute: "scene-whitespace" })
-  sceneWhitespace: RedapticWhiteSpace = RedapticWhiteSpace.None;
+  sceneWhitespace: CmsWhiteSpace = CmsWhiteSpace.None;
 
   @property({ type: Number, attribute: "scene-horizontal-alignments" })
-  sceneHorizontalAlignments: RedapticHorizontalAlignment =
-    RedapticHorizontalAlignment.None;
+  sceneHorizontalAlignments: CmsHorizontalAlignment =
+    CmsHorizontalAlignment.None;
 
   @property({ type: Number, attribute: "vertical-alignments" })
-  verticalAlignments: RedapticVerticalAlignment =
-    RedapticVerticalAlignment.None;
+  verticalAlignments: CmsVerticalAlignment =
+    CmsVerticalAlignment.None;
 
   render() {
     return html`

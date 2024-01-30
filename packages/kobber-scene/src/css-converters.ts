@@ -1,112 +1,106 @@
 import {
-  RedapticHorizontalAlignment,
-  RedapticMaxWidth,
-  RedapticVerticalAlignment,
-  RedapticWhiteSpace,
+  CmsHorizontalAlignment,
+  CmsMaxWidth,
+  CmsVerticalAlignment,
+  CmsWhiteSpace,
 } from "./types";
 
-export const redapticEnumToColumnGap = (
-  activityWhiteSpace: RedapticWhiteSpace,
-) => {
+export const cmsEnumToColumnGap = (activityWhiteSpace: CmsWhiteSpace) => {
   switch (activityWhiteSpace) {
-    case RedapticWhiteSpace.Small:
+    case CmsWhiteSpace.Small:
       return 20;
-    case RedapticWhiteSpace.Medium:
+    case CmsWhiteSpace.Medium:
       return 40;
-    case RedapticWhiteSpace.Large:
+    case CmsWhiteSpace.Large:
       return 80;
-    case RedapticWhiteSpace.ExtraLarge:
+    case CmsWhiteSpace.ExtraLarge:
       return 160;
     default:
       return 0;
   }
 };
 
-export const redapticEnumToScenePadding = (
-  activityWhiteSpace: RedapticWhiteSpace,
-) => {
+export const cmsEnumToScenePadding = (activityWhiteSpace: CmsWhiteSpace) => {
   switch (activityWhiteSpace) {
-    case RedapticWhiteSpace.Small:
+    case CmsWhiteSpace.Small:
       return 32;
-    case RedapticWhiteSpace.Medium:
+    case CmsWhiteSpace.Medium:
       return 64;
-    case RedapticWhiteSpace.Large:
+    case CmsWhiteSpace.Large:
       return 128;
-    case RedapticWhiteSpace.ExtraLarge:
+    case CmsWhiteSpace.ExtraLarge:
       return 256;
     default:
       return 32;
   }
 };
 
-export const redapticEnumToSceneAlignment = (
-  verticalAlignment: RedapticVerticalAlignment,
+export const cmsEnumToSceneAlignment = (
+  verticalAlignment: CmsVerticalAlignment,
 ) => {
   switch (verticalAlignment) {
-    case RedapticVerticalAlignment.Center:
+    case CmsVerticalAlignment.Center:
       return "center";
-    case RedapticVerticalAlignment.Top:
+    case CmsVerticalAlignment.Top:
       return "start";
-    case RedapticVerticalAlignment.Bottom:
+    case CmsVerticalAlignment.Bottom:
       return "end";
-    case RedapticVerticalAlignment.Stretch:
+    case CmsVerticalAlignment.Stretch:
       return "stretch";
   }
 };
 
-export const redapticEnumToRowGap = (
-  activityWhiteSpace: RedapticWhiteSpace,
-) => {
+export const cmsEnumToRowGap = (activityWhiteSpace: CmsWhiteSpace) => {
   switch (activityWhiteSpace) {
-    case RedapticWhiteSpace.Small:
+    case CmsWhiteSpace.Small:
       return 20;
-    case RedapticWhiteSpace.Medium:
+    case CmsWhiteSpace.Medium:
       return 40;
-    case RedapticWhiteSpace.Large:
+    case CmsWhiteSpace.Large:
       return 80;
-    case RedapticWhiteSpace.ExtraLarge:
+    case CmsWhiteSpace.ExtraLarge:
       return 160;
     default:
       return 0;
   }
 };
 
-export const redapticEnumToHorizontalAlignment = (
-  maxWidth: RedapticMaxWidth,
-  horizontalAlignment: RedapticHorizontalAlignment,
+export const cmsEnumToHorizontalAlignment = (
+  maxWidth: CmsMaxWidth,
+  horizontalAlignment: CmsHorizontalAlignment,
 ) => {
-  if (maxWidth !== RedapticMaxWidth.None) {
+  if (maxWidth !== CmsMaxWidth.None) {
     switch (horizontalAlignment) {
-      case RedapticHorizontalAlignment.Left:
+      case CmsHorizontalAlignment.Left:
         return "start";
-      case RedapticHorizontalAlignment.Right:
+      case CmsHorizontalAlignment.Right:
         return "end";
-      case RedapticHorizontalAlignment.Center:
+      case CmsHorizontalAlignment.Center:
         return "center";
     }
   }
 };
 
-export const redapticEnumToColumnAlignment = (
-  verticalAlignments: RedapticVerticalAlignment,
+export const cmsEnumToColumnAlignment = (
+  verticalAlignments: CmsVerticalAlignment,
 ) => {
   switch (verticalAlignments) {
-    case RedapticVerticalAlignment.Center:
+    case CmsVerticalAlignment.Center:
       return "center";
-    case RedapticVerticalAlignment.Top:
+    case CmsVerticalAlignment.Top:
       return "start";
-    case RedapticVerticalAlignment.Bottom:
+    case CmsVerticalAlignment.Bottom:
       return "end";
-    case RedapticVerticalAlignment.Stretch:
+    case CmsVerticalAlignment.Stretch:
       return "stretch";
   }
 };
 
-export const redapticEnumToMaxWidth = (maxWidth: RedapticMaxWidth) => {
+export const cmsEnumToMaxWidth = (maxWidth: CmsMaxWidth) => {
   switch (maxWidth) {
-    case RedapticMaxWidth.StandardText:
+    case CmsMaxWidth.StandardText:
       return 550;
-    case RedapticMaxWidth.ExtendedText:
+    case CmsMaxWidth.ExtendedText:
       return 640;
   }
 };

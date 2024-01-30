@@ -1,7 +1,7 @@
 import { css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { SceneBackground } from "./SceneBackground";
-import { RedapticBackgroundImageStyle } from "./types";
+import { CmsBackgroundImageStyle } from "./types";
 
 @customElement("kobber-scene-image-background")
 export class SceneImageBackground extends SceneBackground {
@@ -38,8 +38,8 @@ export class SceneImageBackground extends SceneBackground {
   backgroundImageUrl?: string;
 
   @property({ type: Number, attribute: "background-image-style" })
-  backgroundImageStyle?: RedapticBackgroundImageStyle =
-    RedapticBackgroundImageStyle.Stretch;
+  backgroundImageStyle?: CmsBackgroundImageStyle =
+    CmsBackgroundImageStyle.Stretch;
 
   @property({ type: String, attribute: "width" })
   width?: string = "100%";
@@ -55,18 +55,18 @@ export class SceneImageBackground extends SceneBackground {
 
       &:before {
         width: ${unsafeCSS(
-          this.backgroundImageStyle === RedapticBackgroundImageStyle.Fit
+          this.backgroundImageStyle === CmsBackgroundImageStyle.Fit
             ? this.width
             : "100%",
         )};
         background-image: ${unsafeCSS(`url(${this.backgroundImageUrl})`)};
 
-        ${this.backgroundImageStyle === RedapticBackgroundImageStyle.Stretch
+        ${this.backgroundImageStyle === CmsBackgroundImageStyle.Stretch
           ? css`
               background-repeat: no-repeat;
               background-size: cover;
             `
-          : this.backgroundImageStyle === RedapticBackgroundImageStyle.Fit
+          : this.backgroundImageStyle === CmsBackgroundImageStyle.Fit
             ? css`
                 background-repeat: no-repeat;
                 background-size: contain;

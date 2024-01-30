@@ -10,7 +10,6 @@ export class SceneBackground extends LitElement {
 
   static styles = [
     cssReset,
-    // TODO: ForceBrowserRepaint
     css`
       :host {
         position: absolute;

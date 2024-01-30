@@ -18,11 +18,11 @@ import {
   templateResultToString,
 } from "./stories/helpers";
 import {
-  RedapticBackgroundImageStyle,
-  RedapticContentBoxFill,
-  RedapticHorizontalAlignment,
-  RedapticVerticalAlignment,
-  RedapticWhiteSpace,
+  CmsBackgroundImageStyle,
+  CmsContentBoxFill,
+  CmsHorizontalAlignment,
+  CmsVerticalAlignment,
+  CmsWhiteSpace,
 } from "./types";
 import { backgroundImageUrl } from "./stories/background-image-url";
 
@@ -51,13 +51,13 @@ export const MultipleScenes: StoryObj<SceneType> = {
             ...args,
             minHeight: "",
             contentBoxFill: enumValueToKey(
-              RedapticContentBoxFill,
-              RedapticContentBoxFill.White,
+              CmsContentBoxFill,
+              CmsContentBoxFill.White,
             ),
             imageBackground: {
               backgroundColor: "#FFB84Cee",
               backgroundImageUrl,
-              backgroundImageStyle: RedapticBackgroundImageStyle.Fit,
+              backgroundImageStyle: CmsBackgroundImageStyle.Fit,
               ariaLabel: args.imageBackground?.ariaLabel ?? null,
               lang: args.imageBackground?.lang ?? "",
             },
@@ -95,20 +95,17 @@ const render: ArgsStoryFn<ReactRenderer, SceneType> = (args: SceneType) => {
         ?is-full-width=${args.isFullWidth}
         ?apply-padding-bottom=${args.applyPaddingBottom}
         max-content-width=${args.maxContentWidth}
-        scene-whitespace=${enumKeyToValue(
-          RedapticWhiteSpace,
-          args.sceneWhitespace,
-        )}
+        scene-whitespace=${enumKeyToValue(CmsWhiteSpace, args.sceneWhitespace)}
         scene-horizontal-alignments=${enumKeyToValue(
-          RedapticHorizontalAlignment,
+          CmsHorizontalAlignment,
           args.sceneHorizontalAlignments,
         )}
         vertical-alignments=${enumKeyToValue(
-          RedapticVerticalAlignment,
+          CmsVerticalAlignment,
           args.verticalAlignments,
         )}
         content-box-fill=${enumKeyToValue(
-          RedapticContentBoxFill,
+          CmsContentBoxFill,
           args.contentBoxFill,
         )}
       >
@@ -145,19 +142,19 @@ export default {
   argTypes: {
     sceneWhitespace: {
       control: "inline-radio",
-      options: enumKeysToArray(RedapticWhiteSpace),
+      options: enumKeysToArray(CmsWhiteSpace),
     },
     sceneHorizontalAlignments: {
       control: "inline-radio",
-      options: enumKeysToArray(RedapticHorizontalAlignment),
+      options: enumKeysToArray(CmsHorizontalAlignment),
     },
     verticalAlignments: {
       control: "inline-radio",
-      options: enumKeysToArray(RedapticVerticalAlignment),
+      options: enumKeysToArray(CmsVerticalAlignment),
     },
     contentBoxFill: {
       control: "inline-radio",
-      options: enumKeysToArray(RedapticContentBoxFill),
+      options: enumKeysToArray(CmsContentBoxFill),
     },
   },
   render,

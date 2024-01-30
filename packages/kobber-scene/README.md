@@ -1,6 +1,6 @@
 # Kobber scene
 
-Components for rendering scene objects from Redaptic.
+Components for rendering scene objects from CMS.
 
 See [Scene.stories.tsx](./src/Scene.stories.tsx) for examples.
 
@@ -9,9 +9,9 @@ Can be imported as web components or react components:
 `@gyldendal/kobber-scene/web-components`<br />
 `@gyldendal/kobber-scene/react`
 
-## Redaptic data
+## CMS data
 
-Enums that match data from Redaptic are defined in [types.ts](./src/types.ts)
+Enums that match data from CMS are defined in [types.ts](./src/types.ts)
 
 ## Optional presentation logic
 

@@ -3,15 +3,15 @@ import { LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { Context as ContextType, context, defaultContext } from "./context";
 import {
-  redapticEnumToHorizontalAlignment,
-  redapticEnumToMaxWidth,
-  redapticEnumToRowGap,
+  cmsEnumToHorizontalAlignment,
+  cmsEnumToMaxWidth,
+  cmsEnumToRowGap,
 } from "./css-converters";
 import { cssReset } from "./css-reset";
 import {
-  RedapticHorizontalAlignment,
-  RedapticMaxWidth,
-  RedapticWhiteSpace,
+  CmsHorizontalAlignment,
+  CmsMaxWidth,
+  CmsWhiteSpace,
 } from "./types";
 
 @customElement("kobber-scene-row")
@@ -34,20 +34,20 @@ export class SceneRow extends LitElement {
   columns: string = "1fr";
 
   @property({ type: Number, attribute: "row-whitespace" })
-  rowWhitespace: RedapticWhiteSpace = RedapticWhiteSpace.None;
+  rowWhitespace: CmsWhiteSpace = CmsWhiteSpace.None;
 
   @property({ type: Number, attribute: "section-whitespace" })
-  sectionWhitespace?: RedapticWhiteSpace;
+  sectionWhitespace?: CmsWhiteSpace;
 
   @property({ type: Number, attribute: "max-width" })
-  maxWidth: RedapticMaxWidth = RedapticMaxWidth.None;
+  maxWidth: CmsMaxWidth = CmsMaxWidth.None;
 
   @property({ type: Number, attribute: "horizontal-alignment" })
-  horizontalAlignment: RedapticHorizontalAlignment =
-    RedapticHorizontalAlignment.None;
+  horizontalAlignment: CmsHorizontalAlignment =
+    CmsHorizontalAlignment.None;
 
   private getHostStyles = () => {
-    const maxWidth = redapticEnumToMaxWidth(this.maxWidth);
+    const maxWidth = cmsEnumToMaxWidth(this.maxWidth);
     return css`
       :host {
         grid-gap: ${this.transform("10px")};
@@ -57,13 +57,13 @@ export class SceneRow extends LitElement {
         );
         max-width: ${maxWidth ? this.transform(maxWidth) : unsafeCSS("none")};
         justify-self: ${unsafeCSS(
-          redapticEnumToHorizontalAlignment(
+          cmsEnumToHorizontalAlignment(
             this.maxWidth,
             this.horizontalAlignment,
           ),
         )};
         padding-bottom: ${this.transform(
-          redapticEnumToRowGap(this.rowWhitespace),
+          cmsEnumToRowGap(this.rowWhitespace),
         )};
       }
     `;

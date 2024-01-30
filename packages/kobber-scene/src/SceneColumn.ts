@@ -3,11 +3,11 @@ import { LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { Context, context, defaultContext } from "./context";
 import {
-  redapticEnumToColumnAlignment,
-  redapticEnumToColumnGap,
+  cmsEnumToColumnAlignment,
+  cmsEnumToColumnGap,
 } from "./css-converters";
 import { cssReset } from "./css-reset";
-import { RedapticVerticalAlignment, RedapticWhiteSpace } from "./types";
+import { CmsVerticalAlignment, CmsWhiteSpace } from "./types";
 
 @customElement("kobber-scene-column")
 export class SceneColumn extends LitElement {
@@ -25,10 +25,10 @@ export class SceneColumn extends LitElement {
   private getHostStyles = () => css`
     :host {
       row-gap: ${this.transform(
-        `${redapticEnumToColumnGap(this.sectionWhitespace)}px`,
+        `${cmsEnumToColumnGap(this.sectionWhitespace)}px`,
       )};
       align-self: ${unsafeCSS(
-        redapticEnumToColumnAlignment(this.verticalAlignments),
+        cmsEnumToColumnAlignment(this.verticalAlignments),
       )};
     }
   `;
@@ -41,11 +41,11 @@ export class SceneColumn extends LitElement {
   private _context: Context = defaultContext;
 
   @property({ type: Number, attribute: "section-whitespace" })
-  sectionWhitespace: RedapticWhiteSpace = RedapticWhiteSpace.None;
+  sectionWhitespace: CmsWhiteSpace = CmsWhiteSpace.None;
 
   @property({ type: Number, attribute: "vertical-alignments" })
-  verticalAlignments: RedapticVerticalAlignment =
-    RedapticVerticalAlignment.None;
+  verticalAlignments: CmsVerticalAlignment =
+    CmsVerticalAlignment.None;
 
   render() {
     return html`
