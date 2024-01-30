@@ -21,8 +21,8 @@ Pass CMS-data and other variables through the [`calculatePadding`](./src/calcula
 import { calculatePadding } from '@gyldendal/kobber-scene/web-components';
 
 const padding = calculatePadding({
-  sceneWhitespace: sceneFromCms.sceneWhitespace,
-  sceneHorizontalAlignments: sceneFromCms.sceneHorizontalAlignments
+  cmsWhiteSpace: sceneFromCms.sceneWhitespace,
+  cmsHorizontalAlignment: sceneFromCms.sceneHorizontalAlignments
 });
 ```
 
