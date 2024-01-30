@@ -11,8 +11,8 @@ export interface CalculatePaddingOptions {
   isFirstRow?: boolean;
   isFullWidth?: boolean;
   applyPaddingBottom?: boolean;
-  sceneWhitespace?: CmsWhiteSpace;
-  sceneHorizontalAlignments?: CmsHorizontalAlignment;
+  cmsWhiteSpace?: CmsWhiteSpace;
+  cmsHorizontalAlignment?: CmsHorizontalAlignment;
 }
 
 export const calculatePadding = ({
@@ -20,8 +20,9 @@ export const calculatePadding = ({
   isFirstRow = false,
   isFullWidth = false,
   applyPaddingBottom = true,
-  sceneWhitespace = CmsWhiteSpace.None,
-  sceneHorizontalAlignments = CmsHorizontalAlignment.None,
+  cmsWhiteSpace: sceneWhitespace = CmsWhiteSpace.None,
+  cmsHorizontalAlignment:
+    sceneHorizontalAlignments = CmsHorizontalAlignment.None,
 }: CalculatePaddingOptions): Padding => {
   const padding = getPaddings(sceneWhitespace, sceneHorizontalAlignments);
   const transform = cssDimensionTransformer;

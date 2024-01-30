@@ -91,11 +91,11 @@ const render: ArgsStoryFn<ReactRenderer, SceneWithAdditionalControls> = (
     isFirstRow: args.calculatePadding_isFirstRow,
     isFullWidth: args.calculatePadding_isFullWidth,
     applyPaddingBottom: args.calculatePadding_applyPaddingBottom,
-    sceneWhitespace: enumKeyToValue(
+    cmsWhiteSpace: enumKeyToValue(
       CmsWhiteSpace,
       args.calculatePadding_sceneWhitespace,
     ) as unknown as CmsWhiteSpace,
-    sceneHorizontalAlignments: enumKeyToValue(
+    cmsHorizontalAlignment: enumKeyToValue(
       CmsHorizontalAlignment,
       args.calculatePadding_sceneHorizontalAlignments,
     ) as unknown as CmsHorizontalAlignment,
