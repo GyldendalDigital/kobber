@@ -2,9 +2,12 @@
 
 ## 📦 Packages
 
-[Base](./packages/kobber-base/README.md)
+[@gyldendal/kobber-base](./packages/kobber-base/README.md)
 <br />
-[Components](./packages/kobber-components/README.md)
+[@gyldendal/kobber-components](./packages/kobber-components/README.md)
+<br />
+[@gyldendal/kobber-scene](./packages/kobber-scene/README.md)
+
 
 ## 🙏 Credits
 
