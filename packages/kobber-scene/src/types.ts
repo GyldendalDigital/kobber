@@ -57,10 +57,3 @@ export type Padding = [
   bottom: PaddingValue,
   left: PaddingValue,
 ];
-
-export interface SceneBoundaryPadding {
-  top: number;
-  right: number;
-  bottom: number;
-  left: number;
-}
