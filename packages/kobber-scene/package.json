@@ -1,0 +1,36 @@
+{
+  "name": "@gyldendal/kobber-scene",
+  "version": "0.0.0",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "chunks/**/*",
+    "react/**/*",
+    "web-components/**/*"
+  ],
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "yarn lint:js",
+    "lint:js": "eslint ./src/**/*.{ts,tsx}",
+    "build": "tsup",
+    "prepare": "npm run build",
+    "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build"
+  },
+  "dependencies": {
+    "@lit/context": "^1.1.0",
+    "@lit/react": "^1.0.2",
+    "lit": "^3.1.0"
+  },
+  "devDependencies": {
+    "@gyldendal/kobber-eslint": "*",
+    "@types/react": "18.2.0",
+    "eslint": "^8.55.0",
+    "onchange": "^7.1.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GyldendalDigital/kobber"
+  }
+}

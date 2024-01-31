@@ -21,11 +21,13 @@
     "@fontsource/fira-code": "^5.0.15",
     "@gyldendal/kobber-base": "*",
     "@gyldendal/kobber-components": "*",
+    "@gyldendal/kobber-scene": "*",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@vanilla-extract/css": "^1.14.0",
     "astro": "^3.5.3",
     "highlight.js": "^11.8.0",
+    "mime": "^4.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0"
