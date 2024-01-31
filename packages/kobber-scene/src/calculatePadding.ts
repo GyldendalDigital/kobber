@@ -1,13 +1,8 @@
-import {
-  CssDimensionTransformer,
-  defaultCssDimensionTransformer,
-} from "./context";
 import { getPaddings } from "./css-helpers";
 import { fluidHorizontalPadding } from "./fluidHorizontalPadding";
 import { CmsHorizontalAlignment, CmsWhiteSpace, Padding } from "./types";
 
 export interface CalculatePaddingOptions {
-  cssDimensionTransformer?: CssDimensionTransformer;
   isFirstRow?: boolean;
   isFullWidth?: boolean;
   applyPaddingBottom?: boolean;
@@ -16,7 +11,6 @@ export interface CalculatePaddingOptions {
 }
 
 export const calculatePadding = ({
-  cssDimensionTransformer = defaultCssDimensionTransformer,
   isFirstRow = false,
   isFullWidth = false,
   applyPaddingBottom = true,
@@ -25,18 +19,17 @@ export const calculatePadding = ({
     sceneHorizontalAlignments = CmsHorizontalAlignment.None,
 }: CalculatePaddingOptions): Padding => {
   const padding = getPaddings(sceneWhitespace, sceneHorizontalAlignments);
-  const transform = cssDimensionTransformer;
   return !isFullWidth
     ? [
-        transform(padding.top).cssText,
+        padding.top,
         fluidHorizontalPadding(padding.right),
-        transform(padding.bottom).cssText,
+        padding.bottom,
         fluidHorizontalPadding(padding.left),
       ]
     : [
-        transform(!isFirstRow ? padding.top : 0).cssText,
-        undefined,
-        transform(applyPaddingBottom ? padding.bottom : 0).cssText,
-        undefined,
+        !isFirstRow ? padding.top : 0,
+        0,
+        applyPaddingBottom ? padding.bottom : 0,
+        0,
       ];
 };

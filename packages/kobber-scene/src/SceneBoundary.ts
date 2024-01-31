@@ -31,7 +31,9 @@ export class SceneBoundary extends LitElement {
   `;
 
   private _paddingToCssString = () =>
-    this.padding.map((value) => (value === undefined ? 0 : value)).join(" ");
+    this.padding
+      .map((value) => (typeof value === "number" ? `${value}px` : value))
+      .join(" ");
 
   private getInnerStyles = () => css`
     position: relative;
@@ -79,7 +81,7 @@ export class SceneBoundary extends LitElement {
   private _context: Context = defaultContext;
 
   @property({ type: Object, attribute: "padding" })
-  padding: Padding = [undefined, undefined, undefined, undefined];
+  padding: Padding = [0, 0, 0, 0];
 
   @property({ type: String, attribute: "max-content-width" })
   maxContentWidth?: string;

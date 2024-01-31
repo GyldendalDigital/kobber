@@ -6,8 +6,7 @@ import { SceneColumn } from "./SceneColumn";
 import { SceneImageBackground } from "./SceneImageBackground";
 import { SceneRow } from "./SceneRow";
 
-export { calculatePadding } from "./calculatePadding";
-export { groupRowsByPresentation } from "./groupRowsByPresentation";
+export * from "./index";
 
 export const KobberScene = createComponent({
   tagName: "kobber-scene",

@@ -32,8 +32,8 @@ export interface SceneWithAdditionalControls extends SceneType {
   calculatePadding_isFirstRow: CalculatePaddingOptions["isFirstRow"];
   calculatePadding_isFullWidth: CalculatePaddingOptions["isFullWidth"];
   calculatePadding_applyPaddingBottom: CalculatePaddingOptions["applyPaddingBottom"];
-  calculatePadding_sceneWhitespace: CalculatePaddingOptions["sceneWhitespace"];
-  calculatePadding_sceneHorizontalAlignments: CalculatePaddingOptions["sceneHorizontalAlignments"];
+  calculatePadding_sceneWhitespace: CalculatePaddingOptions["cmsWhiteSpace"];
+  calculatePadding_sceneHorizontalAlignments: CalculatePaddingOptions["cmsHorizontalAlignment"];
 }
 
 interface Row

@@ -49,7 +49,7 @@ interface CmsColumn {
   dynamicContentIds: string[];
 }
 
-type PaddingValue = string | undefined;
+type PaddingValue = string | number;
 
 export type Padding = [
   top: PaddingValue,
