@@ -1,6 +1,6 @@
 {
   "name": "@gyldendal/kobber-scene",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "license": "MIT",
   "type": "module",
   "files": [
@@ -31,6 +31,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/GyldendalDigital/kobber"
+    "url": "https://github.com/GyldendalDigital/kobber/tree/main/packages/kobber-scene"
   }
 }
