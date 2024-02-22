@@ -37,8 +37,8 @@
     "turbo": "latest",
     "typescript": "^5.2.2"
   },
-  "packageManager": "yarn@1.22.19",
+  "packageManager": "yarn@4.1.0",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   }
 }
