@@ -1,6 +1,6 @@
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 import type { FunctionComponent } from "react";
-import { table, td, tdNoTextBreak } from "./sizes.css";
+import { table, td, tdNoTextBreak } from "./sizes.module.css";
 import { Page } from "../page/Page";
 import { RichText } from "../richText/RichText";
 import { Table, Td } from "../table/Table";

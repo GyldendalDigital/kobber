@@ -24,7 +24,6 @@
     "@gyldendal/kobber-scene": "*",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
-    "@vanilla-extract/css": "^1.14.0",
     "astro": "^3.5.3",
     "highlight.js": "^11.8.0",
     "mime": "^4.0.1",
@@ -35,7 +34,6 @@
   "devDependencies": {
     "@gyldendal/kobber-eslint": "*",
     "@gyldendal/kobber-stylelint": "*",
-    "@vanilla-extract/vite-plugin": "^3.9.0",
     "chromatic": "^7.4.0",
     "typescript": "^5.2.2",
     "vite": "^4.5.0"

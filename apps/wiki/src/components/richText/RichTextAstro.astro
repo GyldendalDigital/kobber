@@ -1,7 +1,7 @@
 ---
-import * as styles from "./richText.css.ts";
+import { RichText } from "./RichText";
 ---
 
-<div class={styles.richText}>
+<RichText client:load>
   <slot />
-</div>
+</RichText>

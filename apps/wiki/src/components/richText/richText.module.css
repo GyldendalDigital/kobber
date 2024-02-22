@@ -1,0 +1,37 @@
+/* stylelint-disable declaration-no-important */
+/* stylelint-disable selector-max-type */
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable property-no-unknown */
+/* stylelint-disable value-keyword-case */
+
+.richText {
+  color: var(--kobber-semantic-color-surface-container-foreground);
+}
+
+
+.marginBottom {
+  margin-bottom: calc(var(--kobber-primitives-size-24) + var(--kobber-primitives-size-48));
+}
+
+.heading {
+  margin: 0 0 var(--kobber-primitives-size-16) 0 !important;
+  border-bottom: 2px solid var(--kobber-primitives-color-gray-300);
+  padding-bottom: var(--kobber-primitives-size-16);
+}
+
+.h2 {
+  composes: heading;
+  composes: headingL from "@gyldendal/kobber-base/themes/default/typography.module.css";
+}
+
+.h3 {
+  composes: heading;
+  composes: headingM from "@gyldendal/kobber-base/themes/default/typography.module.css";
+}
+
+.p {
+  composes: contentBody from "@gyldendal/kobber-base/themes/default/typography.module.css";
+  /* stylelint-disable-next-line order/properties-order */
+  margin: 0 0 var(--kobber-primitives-size-32) 0 !important;
+  max-width: 576px;
+}

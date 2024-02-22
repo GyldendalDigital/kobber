@@ -1,10 +1,10 @@
 import hljs from "highlight.js/lib/core";
+import css from "highlight.js/lib/languages/css";
 import json from "highlight.js/lib/languages/json";
 import ts from "highlight.js/lib/languages/typescript";
-import css from "highlight.js/lib/languages/css";
 import "highlight.js/styles/atom-one-dark.css";
 import type { FunctionComponent } from "react";
-import { pre } from "./codeFormatter.css";
+import { pre } from "./codeFormatter.module.css";
 
 hljs.registerLanguage("json", json);
 

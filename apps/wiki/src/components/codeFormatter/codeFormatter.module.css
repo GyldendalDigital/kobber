@@ -1,0 +1,10 @@
+.pre {
+    margin: 0;
+    font-family: 'Fira Code', sans-serif;
+    font-size: 1rem;
+
+    :global(.hljs) {
+        padding: var(--kobber-semantic-layout-container-padding-large);
+        background-color: var(--kobber-primitives-color-violet-1000);
+    }
+}
