@@ -8,12 +8,12 @@
   },
   "peerDependencies": {
     "stylelint": ">=15",
-    "stylelint-order": ">=6",
-    "stylelint-config-standard": ">=34"
+    "stylelint-config-standard": ">=34",
+    "stylelint-order": ">=6"
   },
   "dependencies": {
     "stylelint": "^16.0.2",
-    "stylelint-order": "^6.0.4",
-    "stylelint-config-standard": "^35.0.0"
+    "stylelint-config-standard": "^35.0.0",
+    "stylelint-order": "^6.0.4"
   }
 }
