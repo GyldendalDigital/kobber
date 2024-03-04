@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.3
+
+### Patch Changes
+
+- Scene background image fix for Safari 16 and lower
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.3
+
 ## 0.3.2
 
 ### Patch Changes
