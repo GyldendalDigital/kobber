@@ -8,25 +8,24 @@ export class SceneImageBackground extends SceneBackground {
   static styles = [
     ...SceneBackground.styles,
     css`
-      .image {
+      .crop {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         clip: rect(0, auto, auto, 0);
+      }
 
-        &:before {
-          content: "";
-          display: block;
-          position: fixed;
-          top: 0;
-          left: 0;
-          height: 100%;
-          background-position: center center;
-          transform: translateZ(0);
-          will-change: transform;
-        }
+      .image {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-position: center center;
+        transform: translateZ(0);
+        will-change: transform;
       }
     `,
   ];
@@ -49,41 +48,49 @@ export class SceneImageBackground extends SceneBackground {
     this.role = "img";
   }
 
-  private getStyles = () => {
+  private getCropStyles = () => {
     return css`
       background-color: ${unsafeCSS(this.backgroundColor)};
+    `;
+  };
 
-      &:before {
-        width: ${unsafeCSS(
-          this.backgroundImageStyle === CmsBackgroundImageStyle.Fit
-            ? this.width
-            : "100%",
-        )};
-        background-image: ${unsafeCSS(`url(${this.backgroundImageUrl})`)};
+  private getImageStyles = () => {
+    return css`
+      width: ${unsafeCSS(
+        this.backgroundImageStyle === CmsBackgroundImageStyle.Fit
+          ? this.width
+          : "100%",
+      )};
+      background-image: ${unsafeCSS(`url(${this.backgroundImageUrl})`)};
 
-        ${this.backgroundImageStyle === CmsBackgroundImageStyle.Stretch
+      ${this.backgroundImageStyle === CmsBackgroundImageStyle.Stretch
+        ? css`
+            background-repeat: no-repeat;
+            background-size: cover;
+          `
+        : this.backgroundImageStyle === CmsBackgroundImageStyle.Fit
           ? css`
               background-repeat: no-repeat;
-              background-size: cover;
+              background-size: contain;
             `
-          : this.backgroundImageStyle === CmsBackgroundImageStyle.Fit
-            ? css`
-                background-repeat: no-repeat;
-                background-size: contain;
-              `
-            : css``};
-      }
+          : css``};
     `;
   };
 
   render() {
     return html`
       <style>
+        .crop {
+          ${this.getCropStyles()}
+        }
+
         .image {
-          ${this.getStyles()}
+          ${this.getImageStyles()}
         }
       </style>
-      <div class="image" />
+      <div class="crop">
+        <div class="image" />
+      </div>
     `;
   }
 }
