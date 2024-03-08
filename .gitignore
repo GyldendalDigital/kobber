@@ -16,3 +16,4 @@ pnpm-debug.log*
 
 # turbo
 .turbo
+.yarn/install-state.gz

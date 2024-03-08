@@ -9,7 +9,6 @@ import "./inter.css";
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
-        color: /(background|color)$/i,
         date: /Date$/,
       },
     },
@@ -32,8 +31,8 @@ import "./inter.css";
   decorators: [
     (Story, context) => {
       const story = Story();
-      console.log(story)
-      story.classList.add(context.globals.theme || "kobber-theme-default");
+      if (story instanceof HTMLElement)
+        story.classList.add(context.globals.theme || "kobber-theme-default");
       return story;
     },
   ],
