@@ -1,0 +1,18 @@
+$ tsup
+[34mCLI[39m Building entry: {"react/index":"src/index.react.tsx","web-components/index":"src/index.web-components.ts"}
+[34mCLI[39m Using tsconfig: tsconfig.json
+[34mCLI[39m tsup v7.3.0
+[34mCLI[39m Using tsup config: C:\repo\kobber\packages\kobber-components\tsup.config.ts
+[34mCLI[39m Target: es2020
+[34mESM[39m Build start
+[34mDTS[39m Build start
+[32mESM[39m [1mreact\index.js           [22m[32m526.00 B[39m
+[32mESM[39m [1mweb-components\index.js  [22m[32m887.00 B[39m
+[32mESM[39m [1mchunks\chunk-RVLPKW3U.js [22m[32m12.50 KB[39m
+[32mESM[39m [1mweb-components\index.css [22m[32m1.36 KB[39m
+[32mESM[39m [1mreact\index.css          [22m[32m1.36 KB[39m
+[32mESM[39m ⚡️ Build success in 1129ms
+[32mDTS[39m ⚡️ Build success in 4019ms
+[32mDTS[39m [1mreact\index.d.ts          [22m[32m515.00 B[39m
+[32mDTS[39m [1mweb-components\index.d.ts [22m[32m492.00 B[39m
+[32mDTS[39m [1mGridColumn-beKW06iH.d.ts  [22m[32m4.34 KB[39m

@@ -1,5 +1,5 @@
 {
-  "name": "storybook",
+  "name": "storybook-react",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "clean": "rm -rf node_modules storybook-static",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6007",
     "build-storybook": "storybook build"
   }
 }

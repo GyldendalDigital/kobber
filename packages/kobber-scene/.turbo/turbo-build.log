@@ -1,0 +1,15 @@
+$ tsup
+[34mCLI[39m Building entry: {"react/index":"src/index.react.tsx","web-components/index":"src/index.web-components.ts"}
+[34mCLI[39m Using tsconfig: tsconfig.json
+[34mCLI[39m tsup v7.3.0
+[34mCLI[39m Using tsup config: C:\repo\kobber\packages\kobber-scene\tsup.config.ts
+[34mCLI[39m Target: es2020
+[34mESM[39m Build start
+[32mESM[39m [1mreact\index.js           [22m[32m1.04 KB[39m
+[32mESM[39m [1mweb-components\index.js  [22m[32m305.00 B[39m
+[32mESM[39m [1mchunks\chunk-S73X7IJR.js [22m[32m22.97 KB[39m
+[32mESM[39m ⚡️ Build success in 28ms
+[34mDTS[39m Build start
+[32mDTS[39m ⚡️ Build success in 6063ms
+[32mDTS[39m [1mreact\index.d.ts          [22m[32m846.00 B[39m
+[32mDTS[39m [1mweb-components\index.d.ts [22m[32m4.27 KB[39m
