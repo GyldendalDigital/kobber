@@ -1365,7 +1365,7 @@
             },
             "background": {
               "type": "color",
-              "value": "{semantic.action.color.info.disabled.background}"
+              "value": "{semantic.action.color.default.disabled.background}"
             }
           },
           "default": {
@@ -2278,7 +2278,7 @@
         },
         "large": {
           "type": "dimension",
-          "value": 24
+          "value": "{primitives.size.24}"
         }
       },
       "heading": {
