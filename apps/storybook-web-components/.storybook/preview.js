@@ -1,7 +1,5 @@
 import "@gyldendal/kobber-base/themes/default/tokens.css";
-import "@gyldendal/kobber-base/themes/default/typography.css";
 import "@gyldendal/kobber-base/themes/dark/tokens.css";
-import "@gyldendal/kobber-base/themes/dark/typography.css";
 import "./inter.css";
 
 /** @type { import('@storybook/web-components').Preview } */ const preview = {
