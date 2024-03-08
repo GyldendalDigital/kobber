@@ -4,5 +4,4 @@
     )
     var(--kobber-primitives-size-32);
   color: var(--kobber-semantic-color-surface-page-foreground);
-  background-color: var(--kobber-semantic-color-surface-page-background);
 }

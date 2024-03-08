@@ -1,5 +1,6 @@
 # dependencies
 node_modules/
+.yarn/
 
 # logs
 npm-debug.log*
@@ -15,4 +16,3 @@ pnpm-debug.log*
 .DS_Store
 
 # turbo
-.turbo
