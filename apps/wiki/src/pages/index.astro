@@ -1,6 +1,7 @@
 ---
 import "@fontsource/fira-code";
 import { getTheme } from "../theme";
+import Layout from "../layouts/Layout.astro";
 
 interface Props {
   title?: string;
@@ -24,10 +25,11 @@ const theme = getTheme(Astro);
     <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{titleWithSuffix}</title>
-  </head><div class="commingsoon">
-    Kobber dokumentasjon åpner i løpet av april.
-  </div>
+  </head>
 
+  <div class="commingsoon">Kobber dokumentasjon åpner i løpet av april.</div>
+
+  <!-- <Layout /> -->
   <!-- OpenGraph Tags -->
   <meta property="og:title" content={titleWithSuffix} />
   <meta property="og:site_name" content="Kobber" />
@@ -81,6 +83,5 @@ const theme = getTheme(Astro);
       }
     </style>
   </body>
-
 
 </html>
