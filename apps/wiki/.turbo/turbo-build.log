@@ -1,0 +1,96 @@
+$ astro build
+  ◆ Astro collects completely anonymous usage data.
+    This optional program helps shape our roadmap.
+    Run `npm run astro telemetry disable` to opt-out.
+    Details: https://astro.build/telemetry
+
+12:32:12 [@astrojs/cloudflare] The current configuration does not support image optimization. To allow your project to build with the original, unoptimized images, the image service has been automatically switched to the 'noop' option. See https://docs.astro.build/en/reference/configuration-reference/#imageservice
+12:32:13 [content] No content directory found. Skipping type generation.
+12:32:13 [build] output target: server
+12:32:13 [build] deploy adapter: @astrojs/cloudflare
+12:32:13 [build] Collecting build info...
+12:32:13 [build] Completed in 217ms.
+12:32:13 [build] Building server entrypoints...
+▲ [WARNING] "esbuild" should be marked as external for use with "require.resolve" [require-resolve-not-external]
+
+    ../../node_modules/vite/node_modules/esbuild/lib/main.js:1803:36:
+      1803 │   const libMainJS = require.resolve("esbuild");
+           ╵                                     ~~~~~~~~~
+
+▲ [WARNING] "esbuild" should be marked as external for use with "require.resolve" [require-resolve-not-external]
+
+    ../../node_modules/vite/node_modules/esbuild/lib/main.js:1803:36:
+      1803 │   const libMainJS = require.resolve("esbuild");
+           ╵                                     ~~~~~~~~~
+
+▲ [WARNING] "esbuild" should be marked as external for use with "require.resolve" [require-resolve-not-external]
+
+    ../../node_modules/esbuild/lib/main.js:1825:36:
+      1825 │   const libMainJS = require.resolve("esbuild");
+           ╵                                     ~~~~~~~~~
+
+▲ [WARNING] "esbuild" should be marked as external for use with "require.resolve" [require-resolve-not-external]
+
+    ../../node_modules/esbuild/lib/main.js:1825:36:
+      1825 │   const libMainJS = require.resolve("esbuild");
+           ╵                                     ~~~~~~~~~
+
+✘ [ERROR] Top-level await is currently not supported with the "cjs" output format
+
+    ../../node_modules/vitefu/src/index.js:15:31:
+      15 │     const { createRequire } = (await import('module')).default
+         ╵                                ~~~~~
+
+✘ [ERROR] Top-level await is currently not supported with the "cjs" output format
+
+    ../../node_modules/vitefu/src/index.js:15:31:
+      15 │     const { createRequire } = (await import('module')).default
+         ╵                                ~~~~~
+
+✘ [ERROR] Could not resolve "lightningcss"
+
+    ../../node_modules/vite/dist/node/chunks/dep-52909643.js:39646:59:
+      39646 │ ...ightningCSS = createCachedImport(() => import('lightningcss'));
+            ╵                                                  ~~~~~~~~~~~~~~
+
+  You can mark the path "lightningcss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle. You can also add ".catch()" here to handle this failure at run-time instead of bundle-time.
+
+✘ [ERROR] Could not resolve "lightningcss"
+
+    ../../node_modules/vite/dist/node/chunks/dep-52909643.js:39646:59:
+      39646 │ ...ightningCSS = createCachedImport(() => import('lightningcss'));
+            ╵                                                  ~~~~~~~~~~~~~~
+
+  You can mark the path "lightningcss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle. You can also add ".catch()" here to handle this failure at run-time instead of bundle-time.
+
+[31m[vanilla-extract] Build failed with 2 errors:
+../../node_modules/vite/dist/node/chunks/dep-52909643.js:39646:59: ERROR: Could not resolve "lightningcss"
+../../node_modules/vitefu/src/index.js:15:31: ERROR: Top-level await is currently not supported with the "cjs" output format[39m
+file: [36mC:/repo/kobber/apps/wiki/src/components/richText/richText.css.ts[39m
+ error   Could not resolve "lightningcss"
+  File:
+    ../../node_modules/vite/dist/node/chunks/dep-52909643.js:39646:59
+  Code:
+    39645 | }
+    > 39646 | const importLightningCSS = createCachedImport(() => import('lightningcss'));
+            |                                                           ^
+      39647 | async function compileLightningCSS(id, src, config, urlReplacer) {
+      39648 |     const deps = new Set();
+      39649 |     // Relative path is needed to get stable hash when using CSS modules
+  Stacktrace:
+Error: Build failed with 2 errors:
+../../node_modules/vite/dist/node/chunks/dep-52909643.js:39646:59: ERROR: Could not resolve "lightningcss"
+../../node_modules/vitefu/src/index.js:15:31: ERROR: Top-level await is currently not supported with the "cjs" output format
+    at failureErrorWithLog (C:\repo\kobber\node_modules\esbuild\lib\main.js:1651:15)
+    at C:\repo\kobber\node_modules\esbuild\lib\main.js:1059:25
+    at runOnEndCallbacks (C:\repo\kobber\node_modules\esbuild\lib\main.js:1486:45)
+    at buildResponseToResult (C:\repo\kobber\node_modules\esbuild\lib\main.js:1057:7)
+    at C:\repo\kobber\node_modules\esbuild\lib\main.js:1086:16
+    at responseCallbacks.<computed> (C:\repo\kobber\node_modules\esbuild\lib\main.js:704:9)
+    at handleIncomingPacket (C:\repo\kobber\node_modules\esbuild\lib\main.js:764:9)
+    at Socket.readFromStdout (C:\repo\kobber\node_modules\esbuild\lib\main.js:680:7)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
