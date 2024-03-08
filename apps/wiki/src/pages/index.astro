@@ -1,10 +1,6 @@
 ---
 import "@fontsource/fira-code";
 import { getTheme } from "../theme";
-import Header from "../layouts/Header.astro";
-import Sidebar from "../layouts/Sidebar.astro";
-import Main from "../layouts/Main.astro";
-import Footer from "../layouts/Footer.astro";
 
 interface Props {
   title?: string;
@@ -28,41 +24,29 @@ const theme = getTheme(Astro);
     <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{titleWithSuffix}</title>
+  </head><div class="commingsoon">
+    Kobber dokumentasjon åpner i løpet av april.
+  </div>
 
-    <!-- OpenGraph Tags -->
-    <meta property="og:title" content={titleWithSuffix} />
-    <meta property="og:site_name" content="Kobber" />
-    <meta property="og:locale" content="no" />
-    <meta
-      property="og:description"
-      name="description"
-      content="Byggesteiner Gyldendal bruker til å lage solide, sammenhengende og universelt tilgjengelige produkter."
-    />
+  <!-- OpenGraph Tags -->
+  <meta property="og:title" content={titleWithSuffix} />
+  <meta property="og:site_name" content="Kobber" />
+  <meta property="og:locale" content="no" />
+  <meta
+    property="og:description"
+    name="description"
+    content="Byggesteiner Gyldendal bruker til å lage solide, sammenhengende og universelt tilgjengelige produkter."
+  />
 
-    <script type="module">
-      import RefreshRuntime from "/@react-refresh";
-      RefreshRuntime.injectIntoGlobalHook(window);
-      window.$RefreshReg$ = () => {};
-      window.$RefreshSig$ = () => (type) => type;
-      window.__vite_plugin_react_preamble_installed__ = true;
-    </script>
-  </head>
+  <script type="module">
+    import RefreshRuntime from "/@react-refresh";
+    RefreshRuntime.injectIntoGlobalHook(window);
+    window.$RefreshReg$ = () => {};
+    window.$RefreshSig$ = () => (type) => type;
+    window.__vite_plugin_react_preamble_installed__ = true;
+  </script>
+
   <body class:list={theme.className}>
-    <main>
-      <div class="header">
-        <Header />
-      </div>
-      <div class="sidebar">
-        <Sidebar />
-      </div>
-      <div class="main">
-        <Main />
-      </div>
-      <div class="footer">
-        <Footer />
-      </div>
-    </main>
-
     <style is:global>
       @import "@gyldendal/kobber-base/themes/default/tokens.css";
       @import "@gyldendal/kobber-base/themes/default/typography.css";
@@ -87,31 +71,16 @@ const theme = getTheme(Astro);
         background: #fdfcfb;
       }
 
-      .header {
-        grid-area: header;
-        border-bottom: 1px solid lightslategray;
-      }
-      .main {
-        grid-area: main;
-      }
-      .sidebar {
-        grid-area: sidebar;
-        min-height: calc(100vh - 300px);
-        border-right: 1px solid lightslategray;
-      }
-      .footer {
-        grid-area: footer;
-        border-top: 1px solid lightslategray;
-      }
-      main {
-        display: grid;
-        grid-template-columns: 300px 1fr;
-        grid-template-rows: 50px auto 250px;
-        grid-template-areas:
-          "sidebar header header header"
-          "sidebar main main main"
-          "footer footer footer footer";
+      .commingsoon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-size: 30px;
+        padding: 50px;
       }
     </style>
   </body>
+
+
 </html>

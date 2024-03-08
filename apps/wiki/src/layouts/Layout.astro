@@ -1,0 +1,49 @@
+---
+import Header from "../layouts/Header.astro";
+import Sidebar from "../layouts/Sidebar.astro";
+import Main from "../layouts/Main.astro";
+import Footer from "../layouts/Footer.astro";
+---
+
+<main>
+  <div class="header">
+    <Header />
+  </div>
+  <div class="sidebar">
+    <Sidebar />
+  </div>
+  <div class="main">
+    <Main />
+  </div>
+  <div class="footer">
+    <Footer />
+  </div>
+</main>
+
+<style>
+  .header {
+    grid-area: header;
+    border-bottom: 1px solid lightslategray;
+  }
+  .main {
+    grid-area: main;
+  }
+  .sidebar {
+    grid-area: sidebar;
+    min-height: calc(100vh - 300px);
+    border-right: 1px solid lightslategray;
+  }
+  .footer {
+    grid-area: footer;
+    border-top: 1px solid lightslategray;
+  }
+  main {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 50px auto 250px;
+    grid-template-areas:
+      "sidebar header header header"
+      "sidebar main main main"
+      "footer footer footer footer";
+  }
+</style>
