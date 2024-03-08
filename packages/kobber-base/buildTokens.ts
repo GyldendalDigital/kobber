@@ -9,7 +9,7 @@ import { sanitizeJsonFromFigma } from "./src/styleDictionary/sanitizeJsonFromFig
 
 const jsonString = fs.readFileSync("tokens-from-figma.json", "utf-8");
 
-type FigmaMode = "light" | "dark";
+type FigmaMode = "mode1" | "mode2";
 
 interface ThemeConfig {
   figmaMode: FigmaMode;
@@ -18,16 +18,16 @@ interface ThemeConfig {
 
 const themeConfigs: ThemeConfig[] = [
   {
-    figmaMode: "light",
+    figmaMode: "mode1",
     themeName: "default",
   },
   {
-    figmaMode: "dark",
+    figmaMode: "mode2",
     themeName: "dark",
   },
 ];
 
-const defaultModeNameFromFigma: FigmaMode = "dark";
+const defaultModeNameFromFigma: FigmaMode = "mode2";
 
 StyleDictionary.registerFormat(jsonFormat);
 

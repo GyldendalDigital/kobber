@@ -16,4 +16,5 @@ pnpm-debug.log*
 .DS_Store
 
 # turbo
+.turbo
 .yarn/install-state.gz
