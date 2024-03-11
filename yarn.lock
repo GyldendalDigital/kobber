@@ -3788,7 +3788,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-a11y@npm:^7.5.3":
+"@storybook/addon-a11y@npm:^7.6.17":
   version: 7.6.17
   resolution: "@storybook/addon-a11y@npm:7.6.17"
   dependencies:
@@ -3864,7 +3864,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-essentials@npm:^7.5.3":
+"@storybook/addon-essentials@npm:^7.6.17":
   version: 7.6.17
   resolution: "@storybook/addon-essentials@npm:7.6.17"
   dependencies:
@@ -3898,7 +3898,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-interactions@npm:^7.5.3":
+"@storybook/addon-interactions@npm:^7.6.17":
   version: 7.6.17
   resolution: "@storybook/addon-interactions@npm:7.6.17"
   dependencies:
@@ -3911,7 +3911,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:^7.5.3":
+"@storybook/addon-links@npm:^7.6.17":
   version: 7.6.17
   resolution: "@storybook/addon-links@npm:7.6.17"
   dependencies:
@@ -3976,7 +3976,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/blocks@npm:7.6.17, @storybook/blocks@npm:^7.5.3":
+"@storybook/blocks@npm:7.6.17, @storybook/blocks@npm:^7.6.17":
   version: 7.6.17
   resolution: "@storybook/blocks@npm:7.6.17"
   dependencies:
@@ -4034,7 +4034,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-vite@npm:7.6.17, @storybook/builder-vite@npm:^7.5.3":
+"@storybook/builder-vite@npm:7.6.17, @storybook/builder-vite@npm:^7.6.17":
   version: 7.6.17
   resolution: "@storybook/builder-vite@npm:7.6.17"
   dependencies:
@@ -4449,7 +4449,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react-vite@npm:^7.5.3":
+"@storybook/react-vite@npm:^7.6.17":
   version: 7.6.17
   resolution: "@storybook/react-vite@npm:7.6.17"
   dependencies:
@@ -4468,7 +4468,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react@npm:7.6.17, @storybook/react@npm:^7.5.3":
+"@storybook/react@npm:7.6.17, @storybook/react@npm:^7.6.17":
   version: 7.6.17
   resolution: "@storybook/react@npm:7.6.17"
   dependencies:
@@ -4558,7 +4558,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/web-components-vite@npm:^7.5.3":
+"@storybook/web-components-vite@npm:^7.6.17":
   version: 7.6.17
   resolution: "@storybook/web-components-vite@npm:7.6.17"
   dependencies:
@@ -4571,7 +4571,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/web-components@npm:7.6.17, @storybook/web-components@npm:^7.5.3":
+"@storybook/web-components@npm:7.6.17, @storybook/web-components@npm:^7.6.17":
   version: 7.6.17
   resolution: "@storybook/web-components@npm:7.6.17"
   dependencies:
@@ -7845,7 +7845,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.18.0, esbuild@npm:^0.18.10, esbuild@npm:^0.18.2":
+"esbuild@npm:^0.18.0, esbuild@npm:^0.18.2":
   version: 0.18.20
   resolution: "esbuild@npm:0.18.20"
   dependencies:
@@ -13634,7 +13634,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.27, postcss@npm:^8.4.32, postcss@npm:^8.4.33, postcss@npm:^8.4.35":
+"postcss@npm:^8.4.32, postcss@npm:^8.4.33, postcss@npm:^8.4.35":
   version: 8.4.35
   resolution: "postcss@npm:8.4.35"
   dependencies:
@@ -14724,7 +14724,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.25.0 || ^3.3.0, rollup@npm:^3.2.5, rollup@npm:^3.27.1":
+"rollup@npm:^2.25.0 || ^3.3.0, rollup@npm:^3.2.5":
   version: 3.29.4
   resolution: "rollup@npm:3.29.4"
   dependencies:
@@ -15367,22 +15367,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "storybook-react@workspace:apps/storybook-react"
   dependencies:
-    "@storybook/addon-a11y": "npm:^7.5.3"
-    "@storybook/addon-essentials": "npm:^7.5.3"
-    "@storybook/addon-interactions": "npm:^7.5.3"
-    "@storybook/addon-links": "npm:^7.5.3"
+    "@storybook/addon-a11y": "npm:^7.6.17"
+    "@storybook/addon-essentials": "npm:^7.6.17"
+    "@storybook/addon-interactions": "npm:^7.6.17"
+    "@storybook/addon-links": "npm:^7.6.17"
     "@storybook/addon-onboarding": "npm:^1.0.8"
-    "@storybook/blocks": "npm:^7.5.3"
-    "@storybook/builder-vite": "npm:^7.5.3"
-    "@storybook/react": "npm:^7.5.3"
-    "@storybook/react-vite": "npm:^7.5.3"
+    "@storybook/blocks": "npm:^7.6.17"
+    "@storybook/builder-vite": "npm:^7.6.17"
+    "@storybook/react": "npm:^7.6.17"
+    "@storybook/react-vite": "npm:^7.6.17"
     lit-html: "npm:^3.1.1"
     prop-types: "npm:^15.8.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
-    storybook: "npm:^7.5.3"
+    storybook: "npm:^7.6.17"
     typescript: "npm:^5.2.2"
-    vite: "npm:^4.5.0"
+    vite: "npm:^5.1.5"
   languageName: unknown
   linkType: soft
 
@@ -15390,23 +15390,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "storybook-web-components@workspace:apps/storybook-web-components"
   dependencies:
-    "@storybook/addon-a11y": "npm:^7.5.3"
-    "@storybook/addon-essentials": "npm:^7.5.3"
-    "@storybook/addon-interactions": "npm:^7.5.3"
-    "@storybook/addon-links": "npm:^7.5.3"
+    "@storybook/addon-a11y": "npm:^7.6.17"
+    "@storybook/addon-essentials": "npm:^7.6.17"
+    "@storybook/addon-interactions": "npm:^7.6.17"
+    "@storybook/addon-links": "npm:^7.6.17"
     "@storybook/addon-onboarding": "npm:^1.0.8"
-    "@storybook/blocks": "npm:^7.5.3"
-    "@storybook/builder-vite": "npm:^7.5.3"
-    "@storybook/web-components": "npm:^7.5.3"
-    "@storybook/web-components-vite": "npm:^7.5.3"
+    "@storybook/blocks": "npm:^7.6.17"
+    "@storybook/builder-vite": "npm:^7.6.17"
+    "@storybook/web-components": "npm:^7.6.17"
+    "@storybook/web-components-vite": "npm:^7.6.17"
     lit-html: "npm:^3.1.1"
-    storybook: "npm:^7.5.3"
+    storybook: "npm:^7.6.17"
     typescript: "npm:^5.2.2"
-    vite: "npm:^4.5.0"
+    vite: "npm:^5.1.5"
   languageName: unknown
   linkType: soft
 
-"storybook@npm:^7.5.3":
+"storybook@npm:^7.6.17":
   version: 7.6.17
   resolution: "storybook@npm:7.6.17"
   dependencies:
@@ -17151,47 +17151,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^4.5.0":
-  version: 4.5.2
-  resolution: "vite@npm:4.5.2"
-  dependencies:
-    esbuild: "npm:^0.18.10"
-    fsevents: "npm:~2.3.2"
-    postcss: "npm:^8.4.27"
-    rollup: "npm:^3.27.1"
-  peerDependencies:
-    "@types/node": ">= 14"
-    less: "*"
-    lightningcss: ^1.21.0
-    sass: "*"
-    stylus: "*"
-    sugarss: "*"
-    terser: ^5.4.0
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  peerDependenciesMeta:
-    "@types/node":
-      optional: true
-    less:
-      optional: true
-    lightningcss:
-      optional: true
-    sass:
-      optional: true
-    stylus:
-      optional: true
-    sugarss:
-      optional: true
-    terser:
-      optional: true
-  bin:
-    vite: bin/vite.js
-  checksum: 10c0/68969ccf72ad2078aec7d9e023fce6de03746a4761f9308924212fff7bd42487145b270166cec66cddacfd7b1315ec5aa39ead174fbd7fcd463637a96ff4c9d1
-  languageName: node
-  linkType: hard
-
-"vite@npm:^5.1.4":
+"vite@npm:^5.1.4, vite@npm:^5.1.5":
   version: 5.1.5
   resolution: "vite@npm:5.1.5"
   dependencies:
@@ -17491,7 +17451,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-icons: "npm:^4.11.0"
     typescript: "npm:^5.2.2"
-    vite: "npm:^5.1.4"
+    vite: "npm:^5.1.5"
     wrangler: "npm:^3.32.0"
   languageName: unknown
   linkType: soft
