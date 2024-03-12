@@ -6,18 +6,15 @@
   "private": true,
   "dependencies": {
     "lit-html": "^3.1.1",
-    "storybook": "^7.6.17"
+    "storybook": "^8.0.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^7.6.17",
-    "@storybook/addon-essentials": "^7.6.17",
-    "@storybook/addon-interactions": "^7.6.17",
-    "@storybook/addon-links": "^7.6.17",
-    "@storybook/addon-onboarding": "^1.0.8",
-    "@storybook/blocks": "^7.6.17",
-    "@storybook/builder-vite": "^7.6.17",
-    "@storybook/web-components": "^7.6.17",
-    "@storybook/web-components-vite": "^7.6.17",
+    "@storybook/addon-a11y": "^8.0.0",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/blocks": "^8.0.0",
+    "@storybook/builder-vite": "^8.0.0",
+    "@storybook/web-components": "^8.0.0",
+    "@storybook/web-components-vite": "^8.0.0",
     "typescript": "^5.2.2",
     "vite": "^5.1.5"
   },
