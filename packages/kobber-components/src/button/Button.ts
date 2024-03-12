@@ -1,17 +1,12 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { consume } from "@lit/context";
-import { customElement, property, state } from "lit/decorators.js";
-import * as darkTokens from "@gyldendal/kobber-base/themes/dark/tokens.js"
+import { customElement, property } from "lit/decorators.js";
 import { Theme, themeContext } from "../utils/theme-context";
-import { ifDefined } from 'lit/directives/if-defined.js';
 
 @customElement("kobber-button")
 export class Button extends LitElement {
   @consume({ context: themeContext, subscribe: true })
   theme?: Theme
-
-  @state()
-  theme2 = this.theme?.tokens ?? darkTokens
 
   @property()
   color: "default" | "info" | "positive" | "negative" = "default";
@@ -21,12 +16,12 @@ export class Button extends LitElement {
 
   render() {
     const themeStyles = this.themedStyles();
-    
+
     return html`
       <style>
         ${themeStyles}
       </style>
-      <!-- TODO: set all attributes -->
+      <!-- TODO: set all relevant attributes -->
       <button ?disabled=${this.attributes.getNamedItem("disabled") ? true : false}>
         <slot></slot>
       </button>
@@ -35,7 +30,10 @@ export class Button extends LitElement {
 
   themedStyles = () => {
     const tokens = this.theme?.tokens;
-    if (!tokens) return css``;
+    if (!tokens) {
+      console.log("should never occur")
+      return css``;
+    }
 
     // TODO: 
     // fix units (px vs rem)
