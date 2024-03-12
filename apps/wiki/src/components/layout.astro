@@ -47,7 +47,7 @@ const exampleStyle = `background-color: ${tokens.primitives.color.pink[100]}`;
 
 .my-grid {
   gap: var(--kobber-layout-gap-4-16); /* ${JSON.stringify(
-    layout.gap["4-16"]
+    layout.gap["4-16"],
   ).replace(/"/g, "")} */
 }
 `.trim()}
@@ -129,7 +129,7 @@ const exampleStyle = `background-color: ${tokens.primitives.color.pink[100]}`;
           '"a" "b" "c" auto / 10px',
         [`(min-width: ${layout.viewportWidth.medium.max - 1}px)`]:
           '"a b c" auto / 1fr 1fr 1fr',
-      })
+      }),
     )}
   >
     <kobber-grid-column grid-area="a">A</kobber-grid-column>
