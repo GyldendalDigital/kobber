@@ -15,10 +15,7 @@ const config = {
     "../../../packages/kobber-scene/src/**/*.stories.@(js|mjs|ts)",
   ],
   addons: [
-    getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-essentials"), // 👈 Includes docs
-    getAbsolutePath("@storybook/addon-onboarding"),
-    getAbsolutePath("@storybook/addon-interactions"),
     getAbsolutePath("@storybook/addon-a11y"),
   ],
   framework: {
@@ -34,4 +31,5 @@ const config = {
   },
   staticDirs: ['../public'], //👈 Configures the static asset folder in Storybook
 };
+
 export default config;
