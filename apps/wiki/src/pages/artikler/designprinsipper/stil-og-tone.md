@@ -2,10 +2,10 @@
 layout: ../../layouts/Layout.astro
 ---
 
-<h1> 
-Designprinsipper
+<h1>
+Stil og tone
 </h1>
 
-<p> 
+<p>
 Bildetekst
 </p>
