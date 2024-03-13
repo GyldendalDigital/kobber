@@ -1,10 +1,10 @@
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 import type { FunctionComponent } from "react";
 import { table, td, tdNoTextBreak } from "./sizes.module.css";
-import { Page } from "../page/Page";
-import { RichText } from "../richText/RichText";
-import { Table, Td } from "../table/Table";
-import { UnitFormatter } from "../unitFormatter/UnitFormatter";
+import { Page } from "../../page/Page";
+import { RichText } from "../../richText/RichText";
+import { Table, Td } from "../../table/Table";
+import { UnitFormatter } from "../../unitFormatter/UnitFormatter";
 
 const Size = (name: string, value: number) => (
   <tr key={name}>
@@ -183,11 +183,10 @@ const LayoutRow: FunctionComponent<LayoutRowProps> = ({
             position: "relative",
             width: 240,
             height: height,
-            border: `solid ${padding}px ${
-              selected === "padding"
+            border: `solid ${padding}px ${selected === "padding"
                 ? tokens.primitives.color.violet[400]
                 : tokens.primitives.color.violet[200]
-            }`,
+              }`,
           }}
         >
           {pixels.horizontalGap && (

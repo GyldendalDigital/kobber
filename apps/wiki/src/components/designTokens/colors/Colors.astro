@@ -1,5 +1,5 @@
 ---
-import { getTheme } from "../../theme.ts";
+import { getTheme } from "../../../theme.ts";
 import { Page } from "../page/Page";
 import RichText from "../richText/RichTextAstro.astro";
 import * as richTextStyles from "../richText/richText.module.css";
@@ -20,7 +20,7 @@ const colorCategories = Object.entries(tokens.primitives.color).reduce(
   },
   {
     base: {},
-  } as Record<string, Record<string, string>>
+  } as Record<string, Record<string, string>>,
 );
 ---
 
@@ -33,7 +33,7 @@ const colorCategories = Object.entries(tokens.primitives.color).reduce(
       },
     },
     null,
-    "  "
+    "  ",
   )}
 >
   <RichText>
@@ -68,10 +68,11 @@ const colorCategories = Object.entries(tokens.primitives.color).reduce(
     <p>
       Godkjente kombinasjoner i henhold til kravene i WCAG.
       <br />
-       100–400 kan alltid brukes med sort.
+      100–400 kan alltid brukes med sort.
       <br />
-       1000 burde alltid kunne brukes med hvit, men gjelder ikke den gule
-      akkurat nå!
+      1000 burde alltid kunne brukes med hvit, men gjelder ikke den gule akkurat
+      nå!
     </p>
   </RichText>
 </Page>
+../page/Page.ts

@@ -17,6 +17,44 @@
 
   body {
     font-family: Inter, "Inter Variable", system-ui, sans-serif;
+      line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
     margin: 0;
+    
     background: #fdfcfb;
   }
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}

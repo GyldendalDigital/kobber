@@ -1,12 +1,13 @@
 <div class="container">
   <ul>
     <a href="/">
-      <li>Kobber</li>
+      <li><h3>Kobber</h3></li>
     </a>
   </ul>
-  <div>
-    <ul>
-      <h3>Designprinsipper</h3>
+
+  <ul>
+    <h3>Designprinsipper</h3>
+    <div class="menu-items">
       <a href="/artikkel/hva-er-kobber">
         <li>Stil og tone</li>
       </a>
@@ -16,11 +17,12 @@
       <a href="/artikkel/hvordan-lage-komponenter">
         <li>Layout</li>
       </a>
-    </ul>
-  </div>
-  <div>
-    <ul>
-      <h3>Komponenter</h3>
+    </div>
+  </ul>
+
+  <ul>
+    <h3>Komponenter</h3>
+    <div class="menu-items">
       <a href="/">
         <li>Knapper</li>
       </a>
@@ -30,11 +32,12 @@
       <a href="/">
         <li>Lister</li>
       </a>
-    </ul>
-  </div>
-  <div>
-    <ul>
-      <h3>Info</h3>
+    </div>
+  </ul>
+
+  <ul>
+    <h3>Info</h3>
+    <div class="menu-items">
       <a href="/artikler/info/hva-er-kobber">
         <li>Hva er Kobber?</li>
       </a>
@@ -44,8 +47,41 @@
       <a href="/">
         <li>Hvem gjør hva</li>
       </a>
-    </ul>
-  </div>
+    </div>
+  </ul>
 </div>
 
-<style></style>
+<style>
+  .container {
+    padding: 0 20px;
+  }
+  ol,
+  ul {
+    list-style: none;
+    padding: 20px;
+    background: #f5f2ee;
+    border-radius: 16px;
+  }
+
+  ul li {
+    padding: 2px 0;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
+  .category {
+    /* border: 2px #f5f2ee solid; */
+  }
+
+  .menu-items {
+    margin-top: 10px;
+  }
+</style>

@@ -1,8 +1,8 @@
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
-import { Page } from "../page/Page";
-import { RichText } from "../richText/RichText";
-import { Table, Td } from "../table/Table";
-import { UnitFormatter } from "../unitFormatter/UnitFormatter";
+import { Page } from "../../page/Page";
+import { RichText } from "../../richText/RichText";
+import { Table, Td } from "../../table/Table";
+import { UnitFormatter } from "../../unitFormatter/UnitFormatter";
 
 export const Borders = () => (
   <Page

@@ -3,8 +3,8 @@ import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 import { type FunctionComponent, type ReactNode } from "react";
 import { TypographyTable } from "./TypographyTable";
 import * as styles from "./typography.module.css";
-import { RichText } from "../richText/RichText";
-import { Page } from "../page/Page";
+import { RichText } from "../../richText/RichText";
+import { Page } from "../../page/Page";
 
 interface FontExampleProps {
   weight: keyof typeof tokens.primitives.font.weight;
