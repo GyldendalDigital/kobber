@@ -28,8 +28,8 @@ const theme = getTheme(Astro);
     <title>{titleWithSuffix}</title>
   </head>
 
-  <!-- <div class="commingsoon">Kobber dokumentasjon åpner i løpet av april.</div> -->
-  <Forside />
+  <div class="commingsoon">Kobber dokumentasjon åpner i løpet av april.</div>
+  <!-- <Forside /> -->
 
   <!-- OpenGraph Tags -->
   <meta property="og:title" content={titleWithSuffix} />
@@ -50,7 +50,7 @@ const theme = getTheme(Astro);
   </script>
 
   <body class:list={theme.className}>
-    <style is:global>
+    <style>
       .commingsoon {
         display: flex;
         justify-content: center;
@@ -61,4 +61,6 @@ const theme = getTheme(Astro);
       }
     </style>
   </body>
+
+
 </html>
