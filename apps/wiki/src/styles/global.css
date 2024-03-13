@@ -1,0 +1,22 @@
+  @import "@gyldendal/kobber-base/themes/default/tokens.css";
+  @import "@gyldendal/kobber-base/themes/default/typography.css";
+  @import "@gyldendal/kobber-base/themes/dark/tokens.css";
+  @import "@gyldendal/kobber-base/themes/dark/typography.css";
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  :root {
+  }
+
+  html {
+  }
+
+  body {
+    font-family: Inter, "Inter Variable", system-ui, sans-serif;
+    margin: 0;
+    background: #fdfcfb;
+  }

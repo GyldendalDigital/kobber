@@ -1,5 +1,5 @@
 import type { FunctionComponent } from "react";
-import "../../css/inter.css";
+import "../../styles/inter.css";
 import typographyItems from "@gyldendal/kobber-base/themes/default/typography-tokens-flattened.json";
 import * as typographyStyles from "@gyldendal/kobber-base/themes/default/typography.module.css";
 import * as styles from "./typography.module.css";
@@ -45,9 +45,8 @@ interface VariantProps {
 const Variant: FunctionComponent<VariantProps> = ({ item }) => (
   <tr>
     <Td
-      className={`${styles.tdWithFormatting} ${
-        typographyStyles[item.fullNameCamelCase]
-      }`}
+      className={`${styles.tdWithFormatting} ${typographyStyles[item.fullNameCamelCase]
+        }`}
     >
       {[...item.path, item.name].join(" ")}
     </Td>
