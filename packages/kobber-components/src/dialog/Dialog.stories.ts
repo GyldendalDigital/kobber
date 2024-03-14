@@ -22,16 +22,15 @@ export const Dialog: Story = {
   args: {},
   render: () => html`
     <link rel="stylesheet" href="/themes/light.css" />
-    <kobber-dialog label="Dialog" class="dialog-overview">
+    <kobber-dialog label="Dialog">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      <button data-close>Close</button>
+      <button data-close-button>Close</button>
     </kobber-dialog>
-    <button>Open</button>
+    <button data-open-button>Open</button>
     <script>
-      const dialog = document.querySelector(".dialog-overview");
-      const openButton = dialog.nextElementSibling;
-      const closeButton = dialog.querySelector("[data-close]");
-
+      const dialog = document.querySelector("kobber-dialog");
+      const openButton = document.querySelector("[data-open-button]");
+      const closeButton = dialog.querySelector("[data-close-button]");
       openButton.addEventListener("click", () => dialog.show());
       closeButton.addEventListener("click", () => dialog.hide());
     </script>
