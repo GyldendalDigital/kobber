@@ -1,3 +1,7 @@
+---
+const currentPath = new URL(Astro.request.url).pathname;
+---
+
 <div class="container">
   <ul>
     <a href="/">
@@ -38,14 +42,51 @@
   <ul>
     <h3>Info</h3>
     <div class="menu-items">
-      <a href="/artikler/info/hva-er-kobber">
+      <a
+        class={currentPath === "/artikler/info/hva-er-kobber" ? "active" : ""}
+        href="/artikler/info/hva-er-kobber"
+      >
         <li>Hva er Kobber?</li>
       </a>
-      <a href="/hva-betyr-Kobber-for-meg">
+      <a
+        class={currentPath === "/artikler/info/hva-betyr-kobber-for-meg"
+          ? "active"
+          : ""}
+        href="/artikler/info/hva-betyr-kobber-for-meg"
+      >
         <li>Hva betyr Kobber for meg?</li>
       </a>
-      <a href="/">
-        <li>Hvem gjør hva</li>
+      <a
+        class={currentPath === "/artikler/info/team/" ? "active" : ""}
+        href="/artikler/info/team/"
+      >
+        <li>Team</li>
+      </a>
+    </div>
+  </ul>
+
+  <ul class="design-menu">
+    <h3>Bruk for designere</h3>
+    <div class="menu-items">
+      <a
+        class={currentPath === "/artikler/design/arbeidsflyt-og-eierskap"
+          ? "active"
+          : ""}
+        href="/artikler/design/arbeidsflyt-og-eierskap"
+      >
+        <li>Arbeidsflyt og eierskap</li>
+      </a>
+    </div>
+  </ul>
+
+  <ul class="dev-menu">
+    <h3>Bruk for utviklere</h3>
+    <div class="menu-items">
+      <a
+        class={currentPath === "/artikler/utvikling/kom-i-gang" ? "active" : ""}
+        href="/artikler/utvikling/kom-i-gang"
+      >
+        <li>Kom i gang og oppsett</li>
       </a>
     </div>
   </ul>
@@ -63,8 +104,30 @@
     border-radius: 16px;
   }
 
+  .design-menu {
+    background: none;
+    border: 2px solid #ffe3ad;
+  }
+  .dev-menu {
+    background: none;
+    border: 2px solid #25292d;
+  }
+
   ul li {
     padding: 2px 0;
+  }
+
+  a {
+    font-weight: 400;
+  }
+  a.active {
+    font-weight: 600;
+    text-indent: 2px;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 16px;
   }
 
   p,

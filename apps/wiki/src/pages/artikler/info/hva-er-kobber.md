@@ -5,6 +5,7 @@ author: "Dag"
 date: "12 Mar 20242"
 ---
 
+
 <h1>
 Hva er kobber?
 </h1>
@@ -21,7 +22,7 @@ Hva er kobber?
   </tr>
   <tr>
     <td>font-weight</td>
-    <td>bold</td>
+    <td><strong>bold </strong></td>
   </tr>
   
   <tr>
@@ -54,6 +55,14 @@ Videre settes disse byggeklossene inn i en kontekst med et taksonomisk navn. Vi 
   <li>Component: tokens som gjelder for et komponent. Her vil ofte token referere til en semantisk verdi, men kan også referere til en primitiv verdi i noen tilfeller
    Eksempler (bruk fra presentasjon) </li>
 </ol>
+<ul>
+  <li> Primitiv: alle design-tokens verdier som finnes uten kontekst
+   Eksempler liste som over <br/> Link til Alle design tokens</li>
+  <li> Semantics: design-tokens satt i en semantisk kontekst som for eksempel
+   Eksempler (bruk fra presentasjon) </li>
+  <li>Component: tokens som gjelder for et komponent. Her vil ofte token referere til en semantisk verdi, men kan også referere til en primitiv verdi i noen tilfeller
+   Eksempler (bruk fra presentasjon) </li>
+</ul>
 
 <h3>Stor bredde i brukere og formater </h3>
 

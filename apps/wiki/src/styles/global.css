@@ -55,6 +55,24 @@ q:before, q:after {
 	content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 3px;
+  border: 1px solid #999189;
 }
+
+th {
+  background-color: #f5f2ee;
+}
+
+th,
+td {
+  border: 1px solid #999189;
+  padding: 6px;
+}
+
+ol > li::marker {
+  font-weight: bold;
+}
+
