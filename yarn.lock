@@ -1969,6 +1969,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ctrl/tinycolor@npm:^4.0.2":
+  version: 4.0.3
+  resolution: "@ctrl/tinycolor@npm:4.0.3"
+  checksum: 10c0/26eb198e1ae710af62ed479e9cb9cb2ff99d8df7d7ddca8345bbd0f38a0880a651ebcf3d11dfee8777c49a849a32d3f29c2335afc1ed1f0c1bb5f622f839e8fd
+  languageName: node
+  linkType: hard
+
 "@discoveryjs/json-ext@npm:^0.5.3":
   version: 0.5.7
   resolution: "@discoveryjs/json-ext@npm:0.5.7"
@@ -2701,7 +2708,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/dom@npm:^1.6.1":
+"@floating-ui/dom@npm:^1.5.3, @floating-ui/dom@npm:^1.6.1":
   version: 1.6.3
   resolution: "@floating-ui/dom@npm:1.6.3"
   dependencies:
@@ -2764,6 +2771,7 @@ __metadata:
     "@gyldendal/kobber-stylelint": "npm:*"
     "@lit/react": "npm:^1.0.2"
     "@r2wc/react-to-web-component": "npm:^2.0.3"
+    "@shoelace-style/shoelace": "npm:^2.14.0"
     "@types/react": "npm:18.2.0"
     "@types/stylis": "npm:^4.2.4"
     "@typescript-eslint/eslint-plugin": "npm:^6.14.0"
@@ -3076,7 +3084,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit/react@npm:^1.0.2":
+"@lit/react@npm:^1.0.0, @lit/react@npm:^1.0.2":
   version: 1.0.3
   resolution: "@lit/react@npm:1.0.3"
   peerDependencies:
@@ -3951,6 +3959,36 @@ __metadata:
   version: 4.12.1
   resolution: "@rollup/rollup-win32-x64-msvc@npm:4.12.1"
   conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@shoelace-style/animations@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@shoelace-style/animations@npm:1.1.0"
+  checksum: 10c0/a8c7c23252b0cc07809afb67ed48a628c9ba1259f339a271e3c8285295105c71596f2c1c9a8b1ac4809ab16ddff45de697e8ce0b6692a0ddc815f101a1b4ca87
+  languageName: node
+  linkType: hard
+
+"@shoelace-style/localize@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "@shoelace-style/localize@npm:3.1.2"
+  checksum: 10c0/b11bba6bb7c2e9d4ce4d7f527e1cb2e98d07089d42cf054a1b8afa1ff0c4d6a2edb43be4b5fca81315f7f98d4b9d103456ad1fc0aa0dc083a9ac383eccb70cc0
+  languageName: node
+  linkType: hard
+
+"@shoelace-style/shoelace@npm:^2.14.0":
+  version: 2.14.0
+  resolution: "@shoelace-style/shoelace@npm:2.14.0"
+  dependencies:
+    "@ctrl/tinycolor": "npm:^4.0.2"
+    "@floating-ui/dom": "npm:^1.5.3"
+    "@lit/react": "npm:^1.0.0"
+    "@shoelace-style/animations": "npm:^1.1.0"
+    "@shoelace-style/localize": "npm:^3.1.2"
+    composed-offset-position: "npm:^0.0.4"
+    lit: "npm:^3.0.0"
+    qr-creator: "npm:^1.0.0"
+  checksum: 10c0/42de5c9250d4d58659ee9a860181fbec05e59b1ce5be924f69e32d9c4c194fbafe10fbaad70d3c7f0c823d1456ed352638bb2372b7c8d1e259101f5e5f9aaaf6
   languageName: node
   linkType: hard
 
@@ -7707,6 +7745,13 @@ __metadata:
   version: 1.0.1
   resolution: "commondir@npm:1.0.1"
   checksum: 10c0/33a124960e471c25ee19280c9ce31ccc19574b566dc514fe4f4ca4c34fa8b0b57cf437671f5de380e11353ea9426213fca17687dd2ef03134fea2dbc53809fd6
+  languageName: node
+  linkType: hard
+
+"composed-offset-position@npm:^0.0.4":
+  version: 0.0.4
+  resolution: "composed-offset-position@npm:0.0.4"
+  checksum: 10c0/530cd316c9f2ba7ac12a83c7726bb5c3fc4fdf905950acc2492b9e7ca19ec92424306e098ebf353ad1a60dc6dc90f38dbe647d4f5710257230f3ab9e44b20a35
   languageName: node
   linkType: hard
 
@@ -11888,7 +11933,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit@npm:^3.1.0":
+"lit@npm:^3.0.0, lit@npm:^3.1.0":
   version: 3.1.2
   resolution: "lit@npm:3.1.2"
   dependencies:
@@ -14823,6 +14868,13 @@ __metadata:
     rimraf: "npm:^2.6.1"
     ws: "npm:^6.1.0"
   checksum: 10c0/29a73c2327e208e6528bac05f841b3340ee1a8d7bd59e7b235c9d8b3c0bf266804ad1aa901a0e4a1d66ce4202646f242988c3c5c4dfb105e9ad082bf4aae69be
+  languageName: node
+  linkType: hard
+
+"qr-creator@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "qr-creator@npm:1.0.0"
+  checksum: 10c0/91790d2400a840ddc84db081c9266f12dfcef367c5bf106a02cf7b007b7a972ac53dc31ccebdf46ebab9e50e28dd5e0dd5a79d6ac7e8718aea7b5396c379daca
   languageName: node
   linkType: hard
 
