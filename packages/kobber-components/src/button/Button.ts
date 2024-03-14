@@ -3,6 +3,10 @@ import { consume } from "@lit/context";
 import { customElement, property } from "lit/decorators.js";
 import { Theme, themeContext } from "../utils/theme-context";
 
+/** 
+ * TODO:
+ * - icons
+ */
 @customElement("kobber-button")
 export class Button extends LitElement {
   @consume({ context: themeContext, subscribe: true })
@@ -22,7 +26,7 @@ export class Button extends LitElement {
         ${themeStyles}
       </style>
       <!-- TODO: set all relevant attributes -->
-      <button ?disabled=${this.attributes.getNamedItem("disabled") ? true : false}>
+      <button class=${this.classList.value} ?disabled=${this.attributes.getNamedItem("disabled") ? true : false}>
         <slot></slot>
       </button>
     `;
@@ -36,9 +40,9 @@ export class Button extends LitElement {
     }
 
     // TODO: 
-    // fix units (px vs rem)
-    // make a "withFallback"-function for states with no value and should use default 
-    // (like button disabled values, which are the same for all colors)
+    // - fix units (px vs rem)
+    // - make a "withFallback"-function for states with no value and should use default 
+    //   (like button disabled values, which are the same for all colors)
     return css`
     button {
       /* Common for all variants */
@@ -50,6 +54,11 @@ export class Button extends LitElement {
       font-weight: ${tokens.typography.action.button.fontWeight};
       font-style: ${unsafeCSS(tokens.typography.action.button.fontStyle)};
       font-stretch: ${unsafeCSS(tokens.typography.action.button.fontStretch)};
+
+      &:focus:enabled, &.focus {
+        outline: none;
+        box-shadow: 0 0 0 4px ${unsafeCSS(tokens.semantic.color.focus)};
+      }
       
       &:disabled {
         background-color: ${unsafeCSS(tokens.component.button.color.default.disabled.background)};
@@ -57,20 +66,15 @@ export class Button extends LitElement {
         font-style: ${unsafeCSS(tokens.typography.action.disabled.button.fontStyle)};
       }
 
-      &:focus {
-        outline: none;
-        box-shadow: 0 0 0 4px ${unsafeCSS(tokens.semantic.color.focus)};
-      }
-
       /* Different for each variant */
       background-color: ${unsafeCSS(tokens.component.button.color[this.color].default.background)};
       color: ${unsafeCSS(tokens.component.button.color[this.color].default.foreground)};
 
-      &:hover {
+      &:hover:enabled, &.hover {
         background-color: ${unsafeCSS(tokens.component.button.color[this.color].hover.background)};
       }
 
-      &:active {
+      &:active:enabled, &.active {
         background-color: ${unsafeCSS(tokens.component.button.color[this.color].active.background)};
       }
     }
