@@ -2763,6 +2763,9 @@ __metadata:
     "@gyldendal/kobber-eslint": "npm:*"
     "@gyldendal/kobber-stylelint": "npm:*"
     "@lit/react": "npm:^1.0.2"
+    "@microsoft/fast-components": "npm:^2.30.6"
+    "@microsoft/fast-element": "npm:^1.12.0"
+    "@microsoft/fast-foundation": "npm:^2.49.5"
     "@r2wc/react-to-web-component": "npm:^2.0.3"
     "@types/react": "npm:18.2.0"
     "@types/stylis": "npm:^4.2.4"
@@ -3148,6 +3151,54 @@ __metadata:
   version: 3.2.0
   resolution: "@medv/finder@npm:3.2.0"
   checksum: 10c0/2215db8f105430b40fd5c0071cca834667e1f73e8245a6a69e7aee05e35d1ed7c0f24824fe6e4d93e73bb287ee954681e7c7aa036b621043a760a6cae3a696b5
+  languageName: node
+  linkType: hard
+
+"@microsoft/fast-colors@npm:^5.3.0":
+  version: 5.3.1
+  resolution: "@microsoft/fast-colors@npm:5.3.1"
+  checksum: 10c0/4493b279370a4d565dd8401eb34f10e397d9e8847ac291532cc3013e7393895ac3434085d73e3bcb4d3c28ea52981a3e4f6679077fa2b9ae07d798f446abf233
+  languageName: node
+  linkType: hard
+
+"@microsoft/fast-components@npm:^2.30.6":
+  version: 2.30.6
+  resolution: "@microsoft/fast-components@npm:2.30.6"
+  dependencies:
+    "@microsoft/fast-colors": "npm:^5.3.0"
+    "@microsoft/fast-element": "npm:^1.10.1"
+    "@microsoft/fast-foundation": "npm:^2.46.2"
+    "@microsoft/fast-web-utilities": "npm:^5.4.1"
+    tslib: "npm:^1.13.0"
+  checksum: 10c0/18cd6da087e27d94769180028da425376138d364124b71153958936ba9f38380822b9548c8ceab04d3f6677d9a279a192b5f4fcfe61342cc6cd40fb54260f43b
+  languageName: node
+  linkType: hard
+
+"@microsoft/fast-element@npm:^1.10.1, @microsoft/fast-element@npm:^1.12.0":
+  version: 1.12.0
+  resolution: "@microsoft/fast-element@npm:1.12.0"
+  checksum: 10c0/689a973bbcf28c21cb3160d167e5151e72cab6dc475246aad0b3048fd2f40973bd2352bb54d259959e8d4c197783f0d30a50bfdbfa32c11c4534f219cf9fb816
+  languageName: node
+  linkType: hard
+
+"@microsoft/fast-foundation@npm:^2.46.2, @microsoft/fast-foundation@npm:^2.49.5":
+  version: 2.49.5
+  resolution: "@microsoft/fast-foundation@npm:2.49.5"
+  dependencies:
+    "@microsoft/fast-element": "npm:^1.12.0"
+    "@microsoft/fast-web-utilities": "npm:^5.4.1"
+    tabbable: "npm:^5.2.0"
+    tslib: "npm:^1.13.0"
+  checksum: 10c0/70eec6f6c9acb5d702784ce8fe55ce39439572e18a4b1fc3934a93033227ed99b3834fb6e202e3346ab74d3ee4a359c91eb9af36bc4e08c1b2b0f76143761050
+  languageName: node
+  linkType: hard
+
+"@microsoft/fast-web-utilities@npm:^5.4.1":
+  version: 5.4.1
+  resolution: "@microsoft/fast-web-utilities@npm:5.4.1"
+  dependencies:
+    exenv-es6: "npm:^1.1.1"
+  checksum: 10c0/12efc658b190b7977f8272f8f5fe1d3388cdc8b919053a50043b15fd8f858d4544dcbc6df7dca3e71f87c7f045b596f9799413f52f9c57e10db5932a5714c5bc
   languageName: node
   linkType: hard
 
@@ -9433,6 +9484,13 @@ __metadata:
     signal-exit: "npm:^4.1.0"
     strip-final-newline: "npm:^3.0.0"
   checksum: 10c0/2c52d8775f5bf103ce8eec9c7ab3059909ba350a5164744e9947ed14a53f51687c040a250bda833f906d1283aa8803975b84e6c8f7a7c42f99dc8ef80250d1af
+  languageName: node
+  linkType: hard
+
+"exenv-es6@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "exenv-es6@npm:1.1.1"
+  checksum: 10c0/66e70b0ceffba2c720fcd4342002c4d3f6908deea7012ca612c97ad115b7cbb2d39030626947883aafd5f05488d32362485934444906db08502bb6c8ada6e130
   languageName: node
   linkType: hard
 
@@ -16849,6 +16907,13 @@ __metadata:
     "@pkgr/core": "npm:^0.1.0"
     tslib: "npm:^2.6.2"
   checksum: 10c0/b5c1e7c03fefe3d36a9ab4e71dd21859cb32be4138712c31a893382a568fd00efc59ede8f521dd7e53d43a2fea92bdf717e987ea9ed6ad94f97ef28d71d0ba2f
+  languageName: node
+  linkType: hard
+
+"tabbable@npm:^5.2.0":
+  version: 5.3.3
+  resolution: "tabbable@npm:5.3.3"
+  checksum: 10c0/c6cb54be76ecff7d0132fed77ff11cedf76a2ce320f55e350f70d8f68998227e72bc3f8b1ee5e7b02dbe4b4c2ef7b6fa43c3aea7cfa82ef06e7d23746df97a35
   languageName: node
   linkType: hard
 

@@ -4,3 +4,5 @@ export { GridColumn } from "./grid/GridColumn";
 export { ProficiencyBar, ProgressBar } from "./progress-bar/web-component";
 export { Button } from "./button/Button";
 export { Dropdown } from "./dropdown/Dropdown";
+export { Checkbox } from "./checkbox/Checkbox";
+export { Radio, RadioGroup } from "./radio/Radio";
