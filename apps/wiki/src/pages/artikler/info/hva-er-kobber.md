@@ -1,4 +1,4 @@
----
+g---
 layout: ../../../layouts/Layout.astro
 title: "Hva er et designsystem"
 author: "Dag"
@@ -11,11 +11,11 @@ Hva er kobber?
 
 ### Hva er et desigsystem?
 
-Et designsystem er små byggeklosser satt i en kontekst. Disse byggeklossene kalles på fagspråket for \*design-tokens\* og består av en egenskap og en verdi som for eksempel font-size: 12px. Det essensielle med design-tokens er at det er globale verdier som kan leses av alle typer produksjonsverktøy som CSS (web-utvikling), Figma (designverktøy), InDesign (bokproduksjon), Word, Power-Point og så videre.
+Et designsystem er små byggeklosser satt i en kontekst. Disse byggeklossene kalles på fagspråket for **design-tokens** og består av en egenskap og en verdi som for eksempel font-size: 12px. Det essensielle med design-tokens er at det er globale verdier som kan leses av alle typer produksjonsverktøy som CSS (web-utvikling), Figma (designverktøy), InDesign (bokproduksjon), Word, Power-Point og så videre.
 
 Andre eksempler på design-tokens
 
-| Verdi    | Egenskap |
+| Egenskap    | Verdi |
 | -------- | ------- |
 | font-weight   | **bold**  |
 | color         | #E50049   |
