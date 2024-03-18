@@ -1,13 +1,12 @@
 /** @type {import('prettier').Config} */
 module.exports = {
     endOfLine: "lf",
-    semi: false,
+    semi: true,
     singleQuote: false,
     arrowParens: "avoid",
-    tabWidth: 4,
-    trailingComma: "none",
+    tabWidth: 2,
     printWidth: 120,
-    importOrder: ["^app/(.*)$", "^ui/(.*)$", "^[./]"],
+    importOrder: ["^packages/(.*)$", "^apps/(.*)$", "^[./]"],
     importOrderSeparation: false,
     importOrderSortSpecifiers: true
 }
