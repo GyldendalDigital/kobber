@@ -1,9 +1,5 @@
-/** @type {import('prettier').Config} */
+const sharedConfig = require("./packages/kobber-prettier/prettier.config");
+
 module.exports = {
-  endOfLine: "lf",
-  semi: false,
-  singleQuote: false,
-  tabWidth: 2,
-  trailingComma: "es5",
-  printWidth: 100,
+  ...sharedConfig,
 };

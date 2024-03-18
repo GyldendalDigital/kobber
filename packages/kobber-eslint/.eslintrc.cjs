@@ -17,10 +17,10 @@ module.exports = {
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "prettier",
+    // "prettier",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:prettier/recommended",
+    // "plugin:prettier/recommended",
     "plugin:storybook/recommended",
   ],
   globals: {
@@ -47,7 +47,7 @@ module.exports = {
     "@typescript-eslint/eslint-plugin",
     "eslint-plugin-import",
     "eslint-plugin-jsx-a11y",
-    "eslint-plugin-prettier",
+    // "eslint-plugin-prettier",
     "eslint-plugin-react",
     "eslint-plugin-react-hooks",
     "eslint-plugin-storybook",
@@ -55,7 +55,7 @@ module.exports = {
   ],
   settings: {
     react: {
-      version: "detect", // Tells eslint-plugin-react to automatically detect the version of React to use
+      version: "detect", // Tells eslint-plugin-react to automatically detect the version ofs React to use
     },
   },
   rules: {

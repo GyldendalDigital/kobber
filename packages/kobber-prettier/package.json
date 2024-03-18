@@ -1,0 +1,12 @@
+{
+  "name": "@gyldendal/kobber-prettier",
+  "version": "0.3.3",
+  "main": "prettier.config.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules"
+  },
+  "dependencies": {
+    "prettier": "^3.2.5"
+  }
+}

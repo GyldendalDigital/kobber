@@ -13,14 +13,12 @@ export class Dropdown extends LitElement {
   text?: string = "";
 
   render() {
-    return html`
-    <div>
+    return html` <div>
       <kobber-button .text=${`${this.text} 👇`}></kobber-button>
-
       <ul>
-       <li>Item 1</li>
-       <li>Item 2</li>
-       <li>Item 3</li>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
       </ul>
     </div>`;
   }
