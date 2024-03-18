@@ -2766,6 +2766,7 @@ __metadata:
     "@microsoft/fast-components": "npm:^2.30.6"
     "@microsoft/fast-element": "npm:^1.12.0"
     "@microsoft/fast-foundation": "npm:^2.49.5"
+    "@microsoft/fast-react-wrapper": "npm:^0.3.23"
     "@r2wc/react-to-web-component": "npm:^2.0.3"
     "@types/react": "npm:18.2.0"
     "@types/stylis": "npm:^4.2.4"
@@ -3190,6 +3191,18 @@ __metadata:
     tabbable: "npm:^5.2.0"
     tslib: "npm:^1.13.0"
   checksum: 10c0/70eec6f6c9acb5d702784ce8fe55ce39439572e18a4b1fc3934a93033227ed99b3834fb6e202e3346ab74d3ee4a359c91eb9af36bc4e08c1b2b0f76143761050
+  languageName: node
+  linkType: hard
+
+"@microsoft/fast-react-wrapper@npm:^0.3.23":
+  version: 0.3.23
+  resolution: "@microsoft/fast-react-wrapper@npm:0.3.23"
+  dependencies:
+    "@microsoft/fast-element": "npm:^1.12.0"
+    "@microsoft/fast-foundation": "npm:^2.49.5"
+  peerDependencies:
+    react: ">=16.9.0"
+  checksum: 10c0/590e6b00909e8daed1f8ce42688c1812f0855d4e9f9cdfd8e0635bdf1618867c5ae2e97cbf54e475fa1c48127a605f6fc82ab1ef79fa14c1d7525f4f4f424049
   languageName: node
   linkType: hard
 
