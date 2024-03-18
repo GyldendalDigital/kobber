@@ -23,6 +23,10 @@ export class Input extends LitElement {
     @property()
     errorMessage: string = "Error message"
 
+    contextChanged() {
+        this.requestUpdate()
+    }
+
     render() {
         const themeStyles = this.themedStyles()
 
@@ -30,8 +34,8 @@ export class Input extends LitElement {
             <style>
                 ${themeStyles}
             </style>
-            <label></label>
-            <input class=${this.classList.value} />
+            <label>${this.label}</label>
+            <input class=${this.classList.value} placeholder=${this.placeholder} />
         `
     }
 

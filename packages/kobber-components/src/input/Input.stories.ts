@@ -32,6 +32,6 @@ export const Input: Story = {
         hasError: false
     },
     render: args => `
-      <kobber-input state=${args.state}>${args.label}</kobber-input>
+      <kobber-input state=${args.state} label=${args.label} placeholder=${args.placeholder}>Test text</kobber-input>
   `
 }
