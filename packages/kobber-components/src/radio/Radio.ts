@@ -22,12 +22,11 @@ const styles = css`
 
   .control {
     box-sizing: border-box;
-    width: var(--input-radio-size, 24px);
-    height: var(--input-radio-size, 24px);
-    border-radius: var(--input-radio-border-radius, 1000px);
-    border: 1px solid var(--input-color-default-foreground, #121516);
-    background: var(--input-color-default-background, #f4f5f6);
-    padding: var(--input-radio-padding-block, 2px);
+    width: var(--kobber-component-input-radio-size);
+    height: var(--kobber-component-input-radio-size);
+    border-radius: var(--kobber-component-input-radio-border-radius);
+    border: 1px solid var(--kobber-component-input-color-default-foreground);
+    background: var(--kobber-component-input-color-default-background);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,7 +36,7 @@ const styles = css`
   .checked-indicator {
     align-self: center;
     justify-self: center;
-    fill: var(--input-color-default-foreground, #121516);
+    fill: var(--kobber-component-input-color-default-foreground);
     opacity: 0;
     display: none;
   }
@@ -55,7 +54,7 @@ const styles = css`
   }
 
   :host(:focus-visible) .control {
-    box-shadow: 0px 0px 0px 3px var(--color-focus, #00468f);
+    box-shadow: 0px 0px 0px 3px var(--kobber-semantic-color-focus);
   }
 
   :host([disabled]) .label,
@@ -63,7 +62,12 @@ const styles = css`
   :host([readonly]) .control,
   :host([disabled]) .control {
     cursor: not-allowed;
-    color: var(--action-color-default-disabled-foreground, #373e43);
+    color: var(--kobber-component-input-color-disabled-foreground);
+  }
+
+  :host([readonly]) .control,
+  :host([disabled]) .control {
+    background: var(--kobber-component-input-color-disabled-background);
   }
 
   .label {
@@ -72,7 +76,7 @@ const styles = css`
     justify-content: center;
     flex: 1 0 0;
     align-self: stretch;
-    color: var(--input-color-default-foreground, #121516);
+    color: var(--kobber-component-input-color-default-foreground);
     font-family: Inter;
     font-size: 16px;
     font-style: normal;

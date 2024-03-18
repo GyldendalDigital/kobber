@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import "../checkbox/Checkbox";
+import { html } from "lit";
 
 const meta: Meta = {
   component: "kobber-checkbox",
@@ -12,23 +13,29 @@ export const Checkbox: Story = {
   args: {
     text: "",
   },
-  render: (Story, context) => {
-    return `
-    <div class="${context.globals?.theme}">
-    <fieldset style="display: flex; flex-direction: column; gap: 10px;" > 
-      <legend>Test-checkbox</legend>
-      <kobber-checkbox onclick='handleClick(this);'>Unchecked</kobber-checkbox>
-      <kobber-checkbox checked>Checked</kobber-checkbox>
-      <kobber-checkbox id="cb-indetarminate" indetarminate>Indeterminate</kobber-checkbox>
-      <kobber-checkbox disabled>Disabled</kobber-checkbox>
-      <kobber-checkbox disabled checked>Checked + Disabled</kobber-checkbox>
-      <kobber-checkbox disabled id="cb-indetarminate-2">Indeterminate + Disabled</kobber-checkbox>
-    </fieldset>
-    <script>
-      document.getElementById("cb-indetarminate").indeterminate = true;
-      document.getElementById("cb-indetarminate-2").indeterminate = true;
-    </script>
-    </div>
-  `;
+  render: (_, context) => {
+    return html`
+      <div class="${context.globals?.theme}">
+        <fieldset style="display: flex; flex-direction: column; gap: 10px;">
+          <legend>Test-checkbox</legend>
+          <kobber-checkbox onclick="handleClick(this);"
+            >Unchecked</kobber-checkbox
+          >
+          <kobber-checkbox checked>Checked</kobber-checkbox>
+          <kobber-checkbox id="cb-indetarminate" indetarminate
+            >Indeterminate</kobber-checkbox
+          >
+          <kobber-checkbox disabled>Disabled</kobber-checkbox>
+          <kobber-checkbox disabled checked>Checked + Disabled</kobber-checkbox>
+          <kobber-checkbox disabled id="cb-indetarminate-2"
+            >Indeterminate + Disabled</kobber-checkbox
+          >
+        </fieldset>
+        <script>
+          document.getElementById("cb-indetarminate").indeterminate = true;
+          document.getElementById("cb-indetarminate-2").indeterminate = true;
+        </script>
+      </div>
+    `;
   },
 };

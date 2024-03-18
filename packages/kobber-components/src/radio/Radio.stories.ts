@@ -13,16 +13,18 @@ export const Radio: Story = {
   args: {
     text: "",
   },
-  render: () => {
+  render: (_, context) => {
     return html`
-      <form @submit="${() => false}">
-        <kobber-radio-group>
-            <kobber-radio value="1" checked>1</kobber-radio>
-            <kobber-radio value="2">2</kobber-radio>
-            <kobber-radio value="3">3</kobber-radio>
-            <kobber-radio value="4" disabled>Disabled</kobber-radio>
-        <kobber-radio-group>
-      </form>
+     <div class="${context.globals?.theme}">
+        <form @submit="${() => false}">
+          <kobber-radio-group>
+              <kobber-radio value="1" checked>1</kobber-radio>
+              <kobber-radio value="2">2</kobber-radio>
+              <kobber-radio value="3">3</kobber-radio>
+              <kobber-radio value="4" disabled>Disabled</kobber-radio>
+          <kobber-radio-group>
+        </form>
+    </div>
   `;
   },
 };
