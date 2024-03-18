@@ -99,10 +99,12 @@ const RG = FastRadioGroup.compose({
   styles,
 });
 
+// Documentation: https://github.com/microsoft/fast/tree/master/packages/web-components/fast-foundation/src/radio
 export const Radio = provideFASTDesignSystem()
   .withPrefix("kobber")
   .register(R());
 
+// Documentation: https://github.com/microsoft/fast/tree/master/packages/web-components/fast-foundation/src/radio-group
 export const RadioGroup = provideFASTDesignSystem()
   .withPrefix("kobber")
   .register(RG());

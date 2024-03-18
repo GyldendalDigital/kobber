@@ -31,7 +31,6 @@ const styles = css`
     border-radius: var(--kobber-component-input-checkbox-border-radius);
     border: 1px solid var(--kobber-component-input-color-default-foreground);
     background: var(--kobber-component-input-color-default-background);
-    padding: var(--kobber-component-input-checkbox-padding-block);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -63,6 +62,7 @@ const styles = css`
   :host(:not([disabled])) .control:hover {
     border-width: 2px;
   }
+
   :host(:focus-visible) {
     outline: none;
   }
@@ -102,6 +102,9 @@ const styles = css`
     visibility: hidden;
   }
 `;
+
+// See here for fast checkbox example-styling: https://github.com/microsoft/fast/blob/master/packages/web-components/fast-foundation/src/checkbox/stories/checkbox.register.ts
+// Documentation: https://github.com/microsoft/fast/tree/master/packages/web-components/fast-foundation/src/checkbox
 
 const C = FastCheckbox.compose<CheckboxOptions>({
   baseName: "checkbox",

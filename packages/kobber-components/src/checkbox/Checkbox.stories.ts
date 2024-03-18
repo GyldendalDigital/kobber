@@ -22,9 +22,11 @@ export const Checkbox: Story = {
       <kobber-checkbox id="cb-indetarminate" indetarminate>Indeterminate</kobber-checkbox>
       <kobber-checkbox disabled>Disabled</kobber-checkbox>
       <kobber-checkbox disabled checked>Checked + Disabled</kobber-checkbox>
+      <kobber-checkbox disabled id="cb-indetarminate-2">Indeterminate + Disabled</kobber-checkbox>
     </fieldset>
     <script>
       document.getElementById("cb-indetarminate").indeterminate = true;
+      document.getElementById("cb-indetarminate-2").indeterminate = true;
     </script>
     </div>
   `;
