@@ -17,10 +17,8 @@ module.exports = {
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    // "prettier",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
-    // "plugin:prettier/recommended",
     "plugin:storybook/recommended",
   ],
   globals: {
@@ -47,7 +45,6 @@ module.exports = {
     "@typescript-eslint/eslint-plugin",
     "eslint-plugin-import",
     "eslint-plugin-jsx-a11y",
-    // "eslint-plugin-prettier",
     "eslint-plugin-react",
     "eslint-plugin-react-hooks",
     "eslint-plugin-storybook",

@@ -1,40 +1,35 @@
 {
-  "name": "@gyldendal/kobber-eslint",
-  "license": "MIT",
-  "version": "0.3.3",
-  "main": ".eslintrc.cjs",
-  "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": ">=6",
-    "@typescript-eslint/parser": ">=6",
-    "eslint": ">=8",
-    "eslint-config-prettier": ">=9",
-    "eslint-config-turbo": ">=1",
-    "eslint-plugin-import": ">=2",
-    "eslint-plugin-jsx-a11y": ">=6",
-    "eslint-plugin-mdx": ">=2",
-    "eslint-plugin-prettier": ">=5",
-    "eslint-plugin-react": ">=7",
-    "eslint-plugin-react-hooks": ">=4",
-    "eslint-plugin-storybook": ">=0.6",
-    "eslint-plugin-unused-imports": ">=3"
-  },
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.14.0",
-    "@typescript-eslint/parser": "^6.14.0",
-    "eslint": "^8.55.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-config-turbo": "^1.11.1",
-    "eslint-plugin-import": "^2.28.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-mdx": "^2.1.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-storybook": "^0.6.15",
-    "eslint-plugin-unused-imports": "^3.0.0",
-    "prettier": "^3.1.0"
-  },
-  "scripts": {
-    "clean": "rm -rf node_modules"
-  }
+          "name": "@gyldendal/kobber-eslint",
+          "license": "MIT",
+          "version": "0.3.3",
+          "main": ".eslintrc.cjs",
+          "peerDependencies": {
+                    "@typescript-eslint/eslint-plugin": ">=6",
+                    "@typescript-eslint/parser": ">=6",
+                    "eslint": ">=8",
+                    "eslint-config-turbo": ">=1",
+                    "eslint-plugin-import": ">=2",
+                    "eslint-plugin-jsx-a11y": ">=6",
+                    "eslint-plugin-mdx": ">=2",
+                    "eslint-plugin-react": ">=7",
+                    "eslint-plugin-react-hooks": ">=4",
+                    "eslint-plugin-storybook": ">=0.6",
+                    "eslint-plugin-unused-imports": ">=3"
+          },
+          "dependencies": {
+                    "@typescript-eslint/eslint-plugin": "^6.14.0",
+                    "@typescript-eslint/parser": "^6.14.0",
+                    "eslint": "^8.55.0",
+                    "eslint-config-turbo": "^1.11.1",
+                    "eslint-plugin-import": "^2.28.0",
+                    "eslint-plugin-jsx-a11y": "^6.8.0",
+                    "eslint-plugin-mdx": "^2.1.0",
+                    "eslint-plugin-react": "^7.33.2",
+                    "eslint-plugin-react-hooks": "^4.6.0",
+                    "eslint-plugin-storybook": "^0.6.15",
+                    "eslint-plugin-unused-imports": "^3.0.0"
+          },
+          "scripts": {
+                    "clean": "rm -rf node_modules"
+          }
 }
