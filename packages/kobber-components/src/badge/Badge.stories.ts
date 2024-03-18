@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import { badgeName } from "./Badge"
+import { customElementName } from "./Badge";
 
 const types = ["subject", "category"];
-const colors = ["#0093d2", "#f49900", "#76b72a"]
+const colors = ["#0093d2", "#f49900", "#76b72a"];
 
 const meta: Meta = {
-  component: badgeName,
+  component: customElementName,
   tags: ["autodocs"],
   argTypes: {
     color: {
@@ -29,7 +29,7 @@ export const Badge: Story = {
     type: types[0],
   },
   render: (args) => `
-    <${badgeName} color=${args.color} type=${args.type}>${args.text}</${badgeName}>
+    <${customElementName} color=${args.color} type=${args.type}>${args.text}</${customElementName}>
   `,
 };
 
@@ -41,9 +41,16 @@ export const Badges: Story = {
   },
   render: (args) => `
     <div style="display: grid; gap: 10px; grid-template-columns: repeat(3, 1fr);">
-      ${types.map(type => colors.map(color =>
-    `<${badgeName} color=${color} type=${type}>${args.text}</${badgeName}>`)
-    .join("")).join("")}
+      ${types
+        .map((type) =>
+          colors
+            .map(
+              (color) =>
+                `<${customElementName} color=${color} type=${type}>${args.text}</${customElementName}>`
+            )
+            .join("")
+        )
+        .join("")}
     </div>
   `,
 };

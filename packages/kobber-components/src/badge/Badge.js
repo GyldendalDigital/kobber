@@ -1,8 +1,8 @@
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 
 /** Vanilla web component.
- * 
- * TODO: 
+ *
+ * TODO:
  * - contrast valid text color based on background color
  * - theme support
  */
@@ -11,7 +11,7 @@ export class Badge extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
 
-    const fontSize = "12px";
+    const fontSize = `${tokens.typography.action.button.fontSize / 16}rem;`;
     const customColor =
       this.getAttribute("color") ?? tokens.component.badge.color.background;
 
@@ -19,11 +19,10 @@ export class Badge extends HTMLElement {
      <style>
        :host {
         padding: ${tokens.component.badge.padding.top}px ${tokens.component.badge.padding.right}px;
-        font-size: ${tokens.typography.action.button.fontSize / 16}rem;
+        font-size: ${fontSize};
         font-family: ${tokens.typography.action.button.fontFamily};
         font-weight: ${tokens.typography.action.button.fontWeight};
         border-radius: ${tokens.component.button.border.radius}px;
-        font-size: ${fontSize};
         color: ${tokens.component.badge.color.foreground};
         display: flex;
         justify-content: center;
@@ -34,7 +33,7 @@ export class Badge extends HTMLElement {
        }
 
        .circle {
-        display: inline-block;
+          display: inline-block;
           width: ${fontSize};
           height: ${fontSize};
           border-radius: 50%;
@@ -47,8 +46,8 @@ export class Badge extends HTMLElement {
   }
 }
 
-export const badgeName = "kobber-badge";
+export const customElementName = "kobber-badge";
 
-if (!customElements.get(badgeName)) {
-  customElements.define(badgeName, Badge);
+if (!customElements.get(customElementName)) {
+  customElements.define(customElementName, Badge);
 }
