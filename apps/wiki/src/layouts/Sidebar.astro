@@ -3,14 +3,29 @@ const currentPath = new URL(Astro.request.url).pathname;
 ---
 
 <div class="container">
-  <ul>
-    <a href="/">
-      <li><h3>Kobber</h3></li>
-    </a>
-  </ul>
+  <a href="/">
+    <span class="logo">Kobber</span>
+  </a>
 
   <ul>
-    <h3>Designprinsipper</h3>
+    <h3>
+      <div class="ikon">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.0625 18C15.6135 18 16.875 16.7385 16.875 15.1875V5.5935C16.875 5.37675 16.8495 5.15775 16.7977 4.9425C16.7955 4.93125 16.7895 4.9095 16.782 4.88775C16.7348 4.70025 16.6643 4.509 16.5773 4.335L15.069 1.317C14.877 0.933001 14.4908 0.695251 14.061 0.695251C13.8885 0.695251 13.7145 0.736502 13.5592 0.813752C13.3425 0.921751 13.164 1.101 13.0553 1.31775L11.5463 4.33575C11.4615 4.5075 11.3918 4.695 11.3408 4.89375C11.334 4.914 11.3288 4.93275 11.325 4.953C11.2755 5.15775 11.25 5.37675 11.25 5.59425V15.1875C11.25 16.7385 12.5115 18 14.0625 18ZM15.75 15.1875C15.75 16.1183 14.9933 16.875 14.0625 16.875C13.1317 16.875 12.375 16.1183 12.375 15.1875H15.75ZM12.375 14.0625V5.625H15.75V14.0625H12.375ZM12.723 4.5L14.0633 1.82025L15.402 4.5H12.723Z"
+            fill="#25292d"></path>
+          <path
+            d="M7.3125 18C8.24325 18 9 17.2432 9 16.3125V1.6875C9 0.75675 8.24325 0 7.3125 0H2.8125C1.88175 0 1.125 0.75675 1.125 1.6875V16.3125C1.125 17.2432 1.88175 18 2.8125 18H7.3125ZM7.875 16.3125C7.875 16.623 7.623 16.875 7.3125 16.875H2.8125C2.502 16.875 2.25 16.623 2.25 16.3125V1.6875C2.25 1.377 2.502 1.125 2.8125 1.125H7.3125C7.623 1.125 7.875 1.377 7.875 1.6875V3.375H6.1875C5.877 3.375 5.625 3.627 5.625 3.9375C5.625 4.248 5.877 4.5 6.1875 4.5H7.875V6.75H6.1875C5.877 6.75 5.625 7.002 5.625 7.3125C5.625 7.623 5.877 7.875 6.1875 7.875H7.875V10.125H6.1875C5.877 10.125 5.625 10.377 5.625 10.6875C5.625 10.998 5.877 11.25 6.1875 11.25H7.875V13.5H6.1875C5.877 13.5 5.625 13.752 5.625 14.0625C5.625 14.373 5.877 14.625 6.1875 14.625H7.875V16.3125Z"
+            fill="#25292d"></path>
+        </svg>
+      </div>Designprinsipper
+    </h3>
     <div class="menu-items">
       <a href="/artikkel/hva-er-kobber">
         <li>Stil og tone</li>
@@ -20,6 +35,21 @@ const currentPath = new URL(Astro.request.url).pathname;
       </a>
       <a href="/artikkel/hvordan-lage-komponenter">
         <li>Layout</li>
+      </a>
+      <a href="">
+        <li>Logoer</li>
+      </a>
+      <a href="">
+        <li>Visuelle medier</li>
+      </a>
+      <a href="">
+        <li>Fargebruk</li>
+      </a>
+      <a href="">
+        <li>Typografi</li>
+      </a>
+      <a href="">
+        <li>Alle design tokens</li>
       </a>
     </div>
   </ul>
@@ -36,12 +66,30 @@ const currentPath = new URL(Astro.request.url).pathname;
       <a href="/">
         <li>Lister</li>
       </a>
+      <a href="/">
+        <li>Modal</li>
+      </a>
+      <a href="/">
+        <li>Trekkspillmeny</li>
+      </a>
+      <a href="/">
+        <li>Navigasjon</li>
+      </a>
+      <a href="/">
+        <li>Skjemaer</li>
+      </a>
+      <a href="/">
+        <li>Progresjon</li>
+      </a>
     </div>
   </ul>
 
   <ul>
-    <h3>Info</h3>
+    <h3>Generelt</h3>
     <div class="menu-items">
+      <a href="/">
+        <li>Blogg</li>
+      </a>
       <a
         class={currentPath === "/artikler/info/hva-er-kobber" ? "active" : ""}
         href="/artikler/info/hva-er-kobber"
@@ -62,6 +110,12 @@ const currentPath = new URL(Astro.request.url).pathname;
       >
         <li>Team</li>
       </a>
+      <a
+        class={currentPath === "/artikler/generelt/innspill/" ? "active" : ""}
+        href="/artikler/generelt/innspill/"
+      >
+        <li>Kom med innspill</li>
+      </a>
     </div>
   </ul>
 
@@ -76,6 +130,18 @@ const currentPath = new URL(Astro.request.url).pathname;
       >
         <li>Arbeidsflyt og eierskap</li>
       </a>
+      <a href="">
+        <li>Hvordan bruke designsystemet</li>
+      </a>
+      <a
+        class={currentPath ===
+        "/artikler/design/hvordan-lage-komponenter-i-figma"
+          ? "active"
+          : ""}
+        href="/artikler/design/hvordan-lage-komponenter-i-figma"
+      >
+        <li>Hvordan lage designsystemet</li>
+      </a>
     </div>
   </ul>
 
@@ -88,33 +154,55 @@ const currentPath = new URL(Astro.request.url).pathname;
       >
         <li>Kom i gang og oppsett</li>
       </a>
+      <a href="">
+        <li>Utvikle med designsystemet</li>
+      </a>
+      <a href="">
+        <li>Bidra til komponentbiblioteket</li>
+      </a>
     </div>
   </ul>
 </div>
 
 <style>
   .container {
-    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    font-size: 14px;
+  }
+  .logo {
+    font-size: 16px;
+    display: inline-block;
+    background: #f5f2ee;
+    border: 2px solid #f5f2ee;
+    border-radius: 0 0 16px 16px;
+    padding: 12px 18px;
+    margin-top: -2px;
+    font-weight: 500;
   }
   ol,
   ul {
     list-style: none;
-    padding: 20px;
-    background: #f5f2ee;
+    padding: 18px;
+    /* background: #f5f2ee; */
+    border: 2px solid #f8f6f5;
     border-radius: 16px;
   }
 
   .design-menu {
-    background: none;
+    background: #ffe3ad;
     border: 2px solid #ffe3ad;
   }
   .dev-menu {
-    background: none;
+    background: #25292d;
     border: 2px solid #25292d;
+    color: #fdfdfd;
   }
 
   ul li {
     padding: 2px 0;
+    text-indent: 6px;
+    line-height: 1.75;
   }
 
   a {
@@ -122,12 +210,20 @@ const currentPath = new URL(Astro.request.url).pathname;
   }
   a.active {
     font-weight: 600;
-    text-indent: 2px;
+  }
+
+  h1 {
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
   }
 
   h3 {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
   p,
@@ -145,6 +241,6 @@ const currentPath = new URL(Astro.request.url).pathname;
   }
 
   .menu-items {
-    margin-top: 10px;
+    margin-top: 6px;
   }
 </style>
