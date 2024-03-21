@@ -1,4 +1,4 @@
-g---
+---
 layout: ../../../layouts/Layout.astro
 title: "Hva er et designsystem"
 author: "Dag"
