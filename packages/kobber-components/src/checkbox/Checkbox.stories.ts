@@ -6,13 +6,6 @@ const meta: Meta = {
   component: "kobber-checkbox",
   tags: ["autodocs"],
   argTypes: {},
-  // decorators: [
-  //   (Story, context) => `
-  //   <kobber-theme-context theme-id=${context.globals.theme}>
-  //     ${Story()}
-  //   </kobber-theme-context>
-  //   `,
-  // ],
 };
 
 export default meta;
@@ -25,8 +18,7 @@ export const Checkbox: Story = {
     <div class="${context.globals?.theme}" style="display: flex; flex-direction: column; gap: 10px; min-width: 30vw;">
       <fieldset style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
         <legend>Test-checkbox</legend>
-        <kobber-checkbox label="Checkbox"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </kobber-checkbox>
-        <kobber-checkbox onclick="handleClick(this);">Unchecked</kobber-checkbox>
+        <kobber-checkbox>Unchecked</kobber-checkbox>
         <kobber-checkbox checked>Checked</kobber-checkbox>
         <kobber-checkbox id="cb-indetarminate" indetarminate>Indeterminate</kobber-checkbox>
         <kobber-checkbox disabled>Disabled</kobber-checkbox>

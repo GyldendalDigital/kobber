@@ -22,7 +22,6 @@ import formControlStyles from "../base/styles/form-control.styles";
  * @status stable
  * @since 2.0
  *
- * @dependency sl-icon
  *
  * @slot - The checkbox's label.
  * @slot help-text - Text that describes how to use the checkbox. Alternatively, you can use the `help-text` attribute.
@@ -43,11 +42,11 @@ import formControlStyles from "../base/styles/form-control.styles";
  */
 
 const checked = svg`<svg class="checked-indicator" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-<path d="M11.6485 2.81742L5.31801 11.5167C4.84923 12.1611 4.08879 12.1611 3.61956 11.5167L0.351719 7.02544C-0.11724 6.38108 -0.11724 5.3359 0.351719 4.69142C0.820766 4.04681 1.58114 4.04681 2.04998 4.69117L4.46904 8.01569L9.94997 0.483271C10.419 -0.161335 11.1795 -0.160846 11.6483 0.483271C12.1172 1.12775 12.1172 2.17257 11.6485 2.81742Z" fill="#121516"/>
+<path d="M11.6485 2.81742L5.31801 11.5167C4.84923 12.1611 4.08879 12.1611 3.61956 11.5167L0.351719 7.02544C-0.11724 6.38108 -0.11724 5.3359 0.351719 4.69142C0.820766 4.04681 1.58114 4.04681 2.04998 4.69117L4.46904 8.01569L9.94997 0.483271C10.419 -0.161335 11.1795 -0.160846 11.6483 0.483271C12.1172 1.12775 12.1172 2.17257 11.6485 2.81742Z" fill="currentColor"/>
 </svg>`;
 
 const indeterminate = svg`<svg class="indeterminate-indicator" xmlns="http://www.w3.org/2000/svg" width="12" height="3" viewBox="0 0 12 3" fill="none">
-<rect width="12" height="3" rx="1.5" fill="#121516"/>
+<rect width="12" height="3" rx="1.5" fill="currentColor"/>
 </svg>`;
 
 @customElement("kobber-checkbox")

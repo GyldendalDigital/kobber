@@ -38,7 +38,11 @@ export default css`
   .checkbox--disabled .checkbox__control,
   .checkbox--disabled .checkbox__label {
     cursor: not-allowed;
-    color: var(--kobber-component-input-color-disabled-foreground) hotpink;
+    color: var(--kobber-component-input-color-disabled-foreground);
+  }
+
+  .checkbox--disabled .checkbox__control {
+    background: var(--kobber-component-input-color-disabled-background);
   }
 
   .checkbox__control {
@@ -73,7 +77,7 @@ export default css`
   }
 
   /* Hover */
-  .checkbox:not(.checkbox--checked):not(.checkbox--disabled) .checkbox__control:hover {
+  .checkbox:not(.checkbox--disabled) .checkbox__control:hover {
     border-width: 2px;
   }
 
@@ -81,17 +85,6 @@ export default css`
   .checkbox:not(.checkbox--checked):not(.checkbox--disabled) .checkbox__input:focus-visible ~ .checkbox__control {
     box-shadow: 0px 0px 0px 3px var(--kobber-semantic-color-focus);
     outline-offset: 0px;
-  }
-
-  /* Checked/indeterminate */
-  .checkbox--checked .checkbox__control,
-  .checkbox--indeterminate .checkbox__control {
-  }
-
-  /* Checked/indeterminate + hover */
-  .checkbox.checkbox--checked:not(.checkbox--disabled) .checkbox__control:hover,
-  .checkbox.checkbox--indeterminate:not(.checkbox--disabled) .checkbox__control:hover {
-    border-width: 2px;
   }
 
   /* Checked/indeterminate + focus */
