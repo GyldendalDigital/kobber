@@ -10,13 +10,7 @@ const currentPath = new URL(Astro.request.url).pathname;
   <ul>
     <h3>
       <div class="ikon">
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M14.0625 18C15.6135 18 16.875 16.7385 16.875 15.1875V5.5935C16.875 5.37675 16.8495 5.15775 16.7977 4.9425C16.7955 4.93125 16.7895 4.9095 16.782 4.88775C16.7348 4.70025 16.6643 4.509 16.5773 4.335L15.069 1.317C14.877 0.933001 14.4908 0.695251 14.061 0.695251C13.8885 0.695251 13.7145 0.736502 13.5592 0.813752C13.3425 0.921751 13.164 1.101 13.0553 1.31775L11.5463 4.33575C11.4615 4.5075 11.3918 4.695 11.3408 4.89375C11.334 4.914 11.3288 4.93275 11.325 4.953C11.2755 5.15775 11.25 5.37675 11.25 5.59425V15.1875C11.25 16.7385 12.5115 18 14.0625 18ZM15.75 15.1875C15.75 16.1183 14.9933 16.875 14.0625 16.875C13.1317 16.875 12.375 16.1183 12.375 15.1875H15.75ZM12.375 14.0625V5.625H15.75V14.0625H12.375ZM12.723 4.5L14.0633 1.82025L15.402 4.5H12.723Z"
             fill="#25292d"></path>
@@ -27,28 +21,40 @@ const currentPath = new URL(Astro.request.url).pathname;
       </div>Designprinsipper
     </h3>
     <div class="menu-items">
-      <a href="/artikkel/hva-er-kobber">
+      <a
+        href="/artikkel/stil-og-tone"
+        class={currentPath === "/artikkel/designprinsipper/stil-og-tone" ? "active" : ""}
+      >
         <li>Stil og tone</li>
       </a>
-      <a href="/artikkel/designprinsipper">
+      <a
+        href="/artikkel/designprinsipper"
+        class={currentPath === "/artikkel/designprinsipper/designprinsipper" ? "active" : ""}
+      >
         <li>Hierarki og kolleksjoner</li>
       </a>
-      <a href="/artikkel/hvordan-lage-komponenter">
+      <a href="/artikkel/layout" class={currentPath === "/artikkel/designprinsipper/layout" ? "active" : ""}>
         <li>Layout</li>
       </a>
-      <a href="">
+      <a href="/artikkel/logoer" class={currentPath === "/artikkel/designprinsipper/logoer" ? "active" : ""}>
         <li>Logoer</li>
       </a>
-      <a href="">
+      <a
+        href="/artikkel/visuelle-medier"
+        class={currentPath === "/artikkel/designprinsipper/visuelle-medier" ? "active" : ""}
+      >
         <li>Visuelle medier</li>
       </a>
-      <a href="">
+      <a href="/artikkel/fargebruk" class={currentPath === "/artikkel/designprinsipper/fargebruk" ? "active" : ""}>
         <li>Fargebruk</li>
       </a>
-      <a href="">
+      <a href="/artikkel/typografi" class={currentPath === "/artikkel/designprinsipper/typografi" ? "active" : ""}>
         <li>Typografi</li>
       </a>
-      <a href="">
+      <a
+        href="/artikkel/alle-design-tokens"
+        class={currentPath === "/artikkel/designprinsipper/alle-design-tokens" ? "active" : ""}
+      >
         <li>Alle design tokens</li>
       </a>
     </div>
@@ -57,28 +63,40 @@ const currentPath = new URL(Astro.request.url).pathname;
   <ul>
     <h3>Komponenter</h3>
     <div class="menu-items">
-      <a href="/">
+      <a
+        href="/artikler/komponenter/knapper"
+        class={currentPath === "/artikler/komponenter/alle-design-tokens" ? "active" : ""}
+      >
         <li>Knapper</li>
       </a>
-      <a href="/">
+      <a href="/artikler/komponenter/kort" class={currentPath === "/artikler/komponenter/" ? "active" : ""}>
         <li>Kort</li>
       </a>
-      <a href="/">
+      <a href="/artikler/komponenter/lister" class={currentPath === "/artikler/komponenter/" ? "active" : ""}>
         <li>Lister</li>
       </a>
-      <a href="/">
+      <a href="/artikler/komponenter/modal" class={currentPath === "/artikler/komponenter/modal" ? "active" : ""}>
         <li>Modal</li>
       </a>
-      <a href="/">
+      <a
+        href="/artikler/komponenter/trekkspillmeny"
+        class={currentPath === "/artikler/komponenter/trekkspillmeny" ? "active" : ""}
+      >
         <li>Trekkspillmeny</li>
       </a>
-      <a href="/">
+      <a
+        href="/artikler/komponenter/navigasjon"
+        class={currentPath === "/artikler/komponenter/navigasjon" ? "active" : ""}
+      >
         <li>Navigasjon</li>
       </a>
-      <a href="/">
+      <a href="/artikler/komponenter/skjemaer" class={currentPath === "/artikler/komponenter/skjemaer" ? "active" : ""}>
         <li>Skjemaer</li>
       </a>
-      <a href="/">
+      <a
+        href="/artikler/komponenter/progresjon"
+        class={currentPath === "/artikler/komponenter/progresjon" ? "active" : ""}
+      >
         <li>Progresjon</li>
       </a>
     </div>
@@ -91,41 +109,50 @@ const currentPath = new URL(Astro.request.url).pathname;
         <li>Blogg</li>
       </a>
       <a
-        class={currentPath === "/artikler/info/hva-er-kobber" ? "active" : ""}
-        href="/artikler/info/hva-er-kobber"
+        class={currentPath === "/artikler/generelt/hva-er-kobber" ? "active" : ""}
+        href="/artikler/generelt/hva-er-kobber"
       >
         <li>Hva er Kobber?</li>
       </a>
       <a
-        class={currentPath === "/artikler/info/hva-betyr-kobber-for-meg"
-          ? "active"
-          : ""}
-        href="/artikler/info/hva-betyr-kobber-for-meg"
+        class={currentPath === "/artikler/generelt/hva-betyr-kobber-for-meg" ? "active" : ""}
+        href="/artikler/generelt/hva-betyr-kobber-for-meg"
       >
         <li>Hva betyr Kobber for meg?</li>
       </a>
-      <a
-        class={currentPath === "/artikler/info/team/" ? "active" : ""}
-        href="/artikler/info/team/"
-      >
+      <a class={currentPath === "/artikler/generelt/team/" ? "active" : ""} href="/artikler/generelt/team/">
         <li>Team</li>
       </a>
-      <a
-        class={currentPath === "/artikler/generelt/innspill/" ? "active" : ""}
-        href="/artikler/generelt/innspill/"
-      >
+      <a class={currentPath === "/artikler/generelt/innspill/" ? "active" : ""} href="/artikler/generelt/innspill/">
         <li>Kom med innspill</li>
       </a>
     </div>
   </ul>
 
   <ul class="design-menu">
-    <h3>Bruk for designere</h3>
+    <h3>
+      <div class="ikon">
+        <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_591_4390)">
+            <path
+              d="M12.9772 13.5398C13.128 13.5398 13.269 13.4813 13.3755 13.3748C13.5322 13.218 13.5825 12.9825 13.5022 12.7755L11.0332 6.35475C11.007 6.26325 10.9582 6.18 10.8915 6.114L7.80899 3.0315C7.70249 2.925 7.56149 2.8665 7.41149 2.8665C7.26149 2.8665 7.11974 2.925 7.01399 3.0315C6.90749 3.13725 6.84899 3.279 6.84899 3.429C6.84899 3.579 6.90749 3.72075 7.01399 3.8265L9.45299 6.2655L8.39999 6.61725C8.16599 6.69525 7.94324 6.804 7.73624 6.94125L5.02199 4.227C4.91549 4.1205 4.77449 4.062 4.62449 4.062C4.47449 4.062 4.33274 4.1205 4.22699 4.227C4.12049 4.33275 4.06199 4.4745 4.06199 4.6245C4.06199 4.7745 4.12049 4.91625 4.22699 5.022L6.94124 7.73625C6.80474 7.94175 6.69674 8.16375 6.61874 8.39775L6.26774 9.45L3.82874 7.011C3.72224 6.9045 3.58124 6.846 3.43124 6.846C3.28124 6.846 3.13949 6.9045 3.03374 7.011C2.92724 7.1175 2.86874 7.2585 2.86874 7.4085C2.86874 7.5585 2.92724 7.70025 3.03374 7.806L6.11624 10.8885C6.12074 10.893 6.12524 10.8968 6.12974 10.9013C6.14099 10.911 6.15299 10.9208 6.16424 10.9305C6.17999 10.9433 6.19499 10.9553 6.21149 10.965C6.21899 10.9703 6.24149 10.9823 6.24974 10.986C6.26249 10.9935 6.27749 11.001 6.29324 11.0078C6.30299 11.0123 6.31349 11.0168 6.32399 11.0198L12.7755 13.5008C12.84 13.527 12.9075 13.5398 12.9772 13.5398ZM11.9977 11.9978L7.21724 10.1595L7.68599 8.75325C7.85324 8.25075 8.25224 7.851 8.75474 7.68375L10.1587 7.21575L11.9977 11.9978Z"
+              fill="#25292D"></path>
+            <path
+              d="M9 18C13.9628 18 18 13.9628 18 9C18 4.03725 13.9628 0 9 0C4.03725 0 0 4.03725 0 9C0 13.9628 4.03725 18 9 18ZM9 1.125C13.3425 1.125 16.875 4.6575 16.875 9C16.875 13.3425 13.3425 16.875 9 16.875C4.6575 16.875 1.125 13.3425 1.125 9C1.125 4.6575 4.6575 1.125 9 1.125Z"
+              fill="#25292D"></path>
+          </g>
+          <defs>
+            <clipPath id="clip0_591_4390">
+              <rect width="18" height="18" fill="white" transform="matrix(-1 0 0 1 18 0)"></rect>
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+      Bruk for designere
+    </h3>
     <div class="menu-items">
       <a
-        class={currentPath === "/artikler/design/arbeidsflyt-og-eierskap"
-          ? "active"
-          : ""}
+        class={currentPath === "/artikler/design/arbeidsflyt-og-eierskap" ? "active" : ""}
         href="/artikler/design/arbeidsflyt-og-eierskap"
       >
         <li>Arbeidsflyt og eierskap</li>
@@ -134,10 +161,7 @@ const currentPath = new URL(Astro.request.url).pathname;
         <li>Hvordan bruke designsystemet</li>
       </a>
       <a
-        class={currentPath ===
-        "/artikler/design/hvordan-lage-komponenter-i-figma"
-          ? "active"
-          : ""}
+        class={currentPath === "/artikler/design/hvordan-lage-komponenter-i-figma" ? "active" : ""}
         href="/artikler/design/hvordan-lage-komponenter-i-figma"
       >
         <li>Hvordan lage designsystemet</li>
@@ -146,12 +170,34 @@ const currentPath = new URL(Astro.request.url).pathname;
   </ul>
 
   <ul class="dev-menu">
-    <h3>Bruk for utviklere</h3>
+    <h3>
+      <div class="ikon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_591_4407)">
+            <path
+              d="M17.4375 18.0023C17.748 18.0023 18 17.7502 18 17.4398V0.564751C18 0.254251 17.748 0.00225067 17.4375 0.00225067C17.127 0.00225067 16.875 0.254251 16.875 0.564751V1.60875L15.237 1.10475C14.496 0.876751 13.7273 0.761251 12.9525 0.761251C11.5132 0.761251 10.1047 1.1595 8.87925 1.91325C7.83225 2.5575 6.62625 2.898 5.39175 2.898C4.77525 2.898 4.1625 2.8125 3.57225 2.64375L1.7955 2.136C1.67025 2.10075 1.54125 2.082 1.4115 2.082C0.63525 2.082 0.00374985 2.71275 0.00300026 3.4875V13.14C0.00300026 13.7648 0.422251 14.3205 1.023 14.4923L3.26325 15.1328C3.95475 15.33 4.671 15.4305 5.39325 15.4305C6.837 15.4305 8.24775 15.0323 9.47175 14.2793C10.5195 13.6342 11.724 13.2938 12.9548 13.2938C13.6177 13.2938 14.2755 13.3928 14.91 13.5878L16.875 14.1953V17.4398C16.875 17.7502 17.127 18.0023 17.4375 18.0023ZM12.9548 12.168C11.5155 12.168 10.107 12.5662 8.88225 13.3208C7.83525 13.965 6.6285 14.3055 5.394 14.3055C4.77675 14.3055 4.164 14.22 3.573 14.0513L1.33275 13.4108C1.21275 13.3763 1.12875 13.2653 1.12875 13.14V3.48825C1.12875 3.333 1.2555 3.207 1.41075 3.207C1.437 3.207 1.46325 3.21075 1.488 3.2175L3.264 3.72525C3.95475 3.9225 4.671 4.02225 5.3925 4.02225C6.83625 4.02225 8.2455 3.624 9.4695 2.871C10.5165 2.22675 11.721 1.88625 12.9525 1.88625C13.6155 1.88625 14.2732 1.98525 14.907 2.18025L16.875 2.7855V13.0178L15.2408 12.513C14.499 12.2843 13.7302 12.168 12.9548 12.168Z"
+              fill="#fdfdfd"></path>
+            <path
+              d="M6.43201 10.6658C6.58201 10.6658 6.72376 10.6073 6.82951 10.5008C6.93526 10.3943 6.99451 10.2533 6.99451 10.1033C6.99451 9.95325 6.93601 9.8115 6.82951 9.70575L5.02576 7.902L6.82951 6.09825C6.93601 5.9925 6.99451 5.85075 6.99451 5.70075C6.99451 5.55075 6.93601 5.409 6.82951 5.30325C6.72301 5.19675 6.58201 5.13825 6.43201 5.13825C6.28201 5.13825 6.14026 5.19675 6.03451 5.30325L3.83326 7.5045C3.72676 7.611 3.66826 7.752 3.66826 7.902C3.66826 8.052 3.72676 8.19375 3.83326 8.2995L6.03451 10.5008C6.14026 10.6073 6.28201 10.6658 6.43201 10.6658Z"
+              fill="#fdfdfd"></path>
+            <path
+              d="M11.568 10.6658C11.718 10.6658 11.8598 10.6073 11.9655 10.5008L14.1668 8.2995C14.2733 8.193 14.3318 8.052 14.3318 7.902C14.3318 7.752 14.2733 7.61025 14.1668 7.5045L11.9655 5.30325C11.859 5.19675 11.718 5.13825 11.568 5.13825C11.418 5.13825 11.2763 5.19675 11.1705 5.30325C11.064 5.40975 11.0055 5.55075 11.0055 5.70075C11.0055 5.85075 11.064 5.9925 11.1705 6.09825L12.9743 7.902L11.1705 9.70575C11.064 9.81225 11.0055 9.95325 11.0055 10.1033C11.0055 10.2533 11.064 10.395 11.1705 10.5008C11.2763 10.6073 11.418 10.6658 11.568 10.6658Z"
+              fill="#fdfdfd"></path>
+            <path
+              d="M9.73349 10.6657C9.79424 10.6657 9.85424 10.656 9.91199 10.6365C10.0537 10.5892 10.1692 10.4887 10.2367 10.3545C10.3042 10.2202 10.3147 10.0672 10.2675 9.92475L8.80049 5.52225C8.72399 5.292 8.51024 5.1375 8.26799 5.1375C8.20724 5.1375 8.14649 5.14725 8.08874 5.16675C7.79474 5.265 7.63574 5.58375 7.73324 5.87775L9.20024 10.2802C9.27674 10.5112 9.49124 10.6657 9.73349 10.6657Z"
+              fill="#fdfdfd"></path>
+          </g>
+          <defs>
+            <clipPath id="clip0_591_4407">
+              <rect width="18" height="18" fill="white" transform="matrix(-1 0 0 1 18 0)"></rect>
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+      Bruk for utviklere
+    </h3>
     <div class="menu-items">
-      <a
-        class={currentPath === "/artikler/utvikling/kom-i-gang" ? "active" : ""}
-        href="/artikler/utvikling/kom-i-gang"
-      >
+      <a class={currentPath === "/artikler/utvikling/kom-i-gang" ? "active" : ""} href="/artikler/utvikling/kom-i-gang">
         <li>Kom i gang og oppsett</li>
       </a>
       <a href="">
@@ -162,85 +208,88 @@ const currentPath = new URL(Astro.request.url).pathname;
       </a>
     </div>
   </ul>
+
+  <style>
+    .container {
+      position: sticky;
+      top: 0;
+      font-size: 14px;
+    }
+    .logo {
+      font-size: 16px;
+      display: inline-block;
+      background: #f5f2ee;
+      border: 2px solid #f5f2ee;
+      border-radius: 0 0 16px 16px;
+      padding: 12px 18px;
+      margin-top: -2px;
+      font-weight: 500;
+    }
+    ol,
+    ul {
+      list-style: none;
+      padding: 18px;
+      /* background: #f5f2ee; */
+      /* border: 2px solid #f8f6f5; */
+      border: 2px solid #f5f2ee;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+    .design-menu {
+      background: #ffe3ad;
+      border: 2px solid #ffe3ad;
+    }
+    .dev-menu {
+      background: #25292d;
+      border: 2px solid #25292d;
+      color: #fdfdfd;
+    }
+
+    li {
+      padding: 2px 0;
+      text-indent: 6px;
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    a {
+      font-weight: 400;
+    }
+    a.active {
+      font-weight: 600;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    h3 {
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+    }
+
+    .category {
+      /* border: 2px #f5f2ee solid; */
+    }
+
+    .menu-items {
+      margin-top: 6px;
+    }
+  </style>
 </div>
-
-<style>
-  .container {
-    position: sticky;
-    top: 0;
-    font-size: 14px;
-  }
-  .logo {
-    font-size: 16px;
-    display: inline-block;
-    background: #f5f2ee;
-    border: 2px solid #f5f2ee;
-    border-radius: 0 0 16px 16px;
-    padding: 12px 18px;
-    margin-top: -2px;
-    font-weight: 500;
-  }
-  ol,
-  ul {
-    list-style: none;
-    padding: 18px;
-    /* background: #f5f2ee; */
-    border: 2px solid #f8f6f5;
-    border-radius: 16px;
-  }
-
-  .design-menu {
-    background: #ffe3ad;
-    border: 2px solid #ffe3ad;
-  }
-  .dev-menu {
-    background: #25292d;
-    border: 2px solid #25292d;
-    color: #fdfdfd;
-  }
-
-  ul li {
-    padding: 2px 0;
-    text-indent: 6px;
-    line-height: 1.75;
-  }
-
-  a {
-    font-weight: 400;
-  }
-  a.active {
-    font-weight: 600;
-  }
-
-  h1 {
-    font-weight: 600;
-    font-size: 20px;
-    letter-spacing: 1px;
-  }
-
-  h3 {
-    font-weight: 600;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-  }
-
-  .category {
-    /* border: 2px #f5f2ee solid; */
-  }
-
-  .menu-items {
-    margin-top: 6px;
-  }
-</style>
