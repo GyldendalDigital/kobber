@@ -50,7 +50,7 @@ const indeterminate = svg`<svg class="indeterminate-indicator" xmlns="http://www
 </svg>`;
 
 @customElement("kobber-checkbox")
-export default class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
+export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
   static styles: CSSResultGroup = [componentStyles, formControlStyles, styles];
 
   private readonly formControlController = new FormControlController(this, {
@@ -207,9 +207,6 @@ export default class Checkbox extends ShoelaceElement implements ShoelaceFormCon
       <div
         class=${classMap({
           "form-control": true,
-          "form-control--small": this.size === "small",
-          "form-control--medium": this.size === "medium",
-          "form-control--large": this.size === "large",
           "form-control--has-help-text": hasHelpText,
         })}
       >

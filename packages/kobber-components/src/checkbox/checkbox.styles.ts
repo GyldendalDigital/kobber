@@ -3,7 +3,6 @@ import { css } from "lit";
 export default css`
   :host {
     display: flex;
-    /* width: 160px; */
     align-items: flex-start;
     gap: var(--kobber-component-input-checkbox-gap);
   }
@@ -12,26 +11,8 @@ export default css`
     position: relative;
     display: inline-flex;
     align-items: flex-start;
-    font-family: var(--sl-input-font-family);
-    font-weight: var(--sl-input-font-weight);
-    color: var(--sl-input-label-color);
     vertical-align: middle;
     cursor: pointer;
-  }
-
-  .checkbox--small {
-    --toggle-size: var(--sl-toggle-size-small);
-    font-size: var(--sl-input-font-size-small);
-  }
-
-  .checkbox--medium {
-    --toggle-size: var(--sl-toggle-size-medium);
-    font-size: var(--sl-input-font-size-medium);
-  }
-
-  .checkbox--large {
-    --toggle-size: var(--sl-toggle-size-large);
-    font-size: var(--sl-input-font-size-large);
   }
 
   /* Disabled */
