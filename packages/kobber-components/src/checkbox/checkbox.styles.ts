@@ -56,7 +56,7 @@ export default css`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 var(--kobber-component-input-checkbox-gap);
+    margin-right: var(--kobber-component-input-checkbox-gap);
   }
 
   .checkbox__input {
