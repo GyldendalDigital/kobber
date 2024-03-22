@@ -22,6 +22,7 @@ export class Grid extends LitElement {
     .grid {
       display: grid;
       width: 100%;
+      min-width: 0;
       max-width: ${layout.maxWidth / 16}rem;
     }
   `;
