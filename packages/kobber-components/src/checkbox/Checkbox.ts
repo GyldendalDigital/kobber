@@ -2,17 +2,17 @@ import { classMap } from "lit/directives/class-map.js";
 import { CSSResultGroup, html, svg } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { live } from "lit/directives/live.js";
-import { customElement, property, query, state } from "lit/decorators.js";
-import styles from "./checkbox.styles";
+import { property, query, state } from "lit/decorators.js";
 // import styles from "./_checkbox.styles.css" assert { type: "css" };
+import styles from "./checkbox.styles";
 import { defaultValue } from "../base/internal/default-value";
-import { FormControlController } from "../base/internal/form";
-import { HasSlotController } from "../base/internal/slot";
 import { watch } from "../base/internal/watch";
 import ShoelaceElement from "../base/internal/shoelace-element";
 import type { ShoelaceFormControl } from "../base/internal/shoelace-element";
-import componentStyles from "../base/styles/component.styles";
+import { FormControlController } from "../base/internal/form";
 import formControlStyles from "../base/styles/form-control.styles";
+import componentStyles from "../base/styles/component.styles";
+import { HasSlotController } from "../base/internal/slot";
 
 /**
  * @summary Checkboxes allow the user to toggle an option on or off.
@@ -47,18 +47,23 @@ const indeterminate = svg`<svg class="indeterminate-indicator" xmlns="http://www
 <rect width="12" height="3" rx="1.5" fill="currentColor"/>
 </svg>`;
 
-@customElement("kobber-checkbox")
 export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
   static styles: CSSResultGroup = [componentStyles, formControlStyles, styles];
+  // static dependencies = { "sl-icon": SlIcon };
 
   private readonly formControlController = new FormControlController(this, {
-    value: (control: Checkbox) => (control.checked ? control.value || "on" : undefined),
-    defaultValue: (control: Checkbox) => control.defaultChecked,
-    setValue: (control: Checkbox, checked: boolean) => (control.checked = checked),
+    value: (control: ShoelaceFormControl) => (control.checked ? control.value || "on" : undefined),
+    defaultValue: (control: ShoelaceFormControl) => control.defaultChecked,
+    setValue: (control: ShoelaceFormControl, value: unknown) => {
+      if (typeof value === "boolean") {
+        control.checked = value;
+      }
+    },
   });
+
   private readonly hasSlotController = new HasSlotController(this, "help-text");
 
-  @query('input[type="checkbox"]') input: HTMLInputElement;
+  @query('input[type="checkbox"]') input!: HTMLInputElement;
 
   @state() private hasFocus = false;
 
@@ -68,7 +73,10 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
   @property() name = "";
 
   /** The current value of the checkbox, submitted as a name/value pair with form data. */
-  @property() value: string;
+  @property() value: string = "";
+
+  /** The checkbox's size. */
+  @property({ reflect: true }) size: "small" | "medium" | "large" = "medium";
 
   /** Disables the checkbox. */
   @property({ type: Boolean, reflect: true }) disabled = false;
@@ -258,5 +266,11 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
         </div>
       </div>
     `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "kobber-checkbox": Checkbox;
   }
 }

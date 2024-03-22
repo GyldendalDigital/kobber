@@ -64,8 +64,8 @@ type ValidEventTypeMap = EventTypesWithRequiredDetail | EventTypesWithoutRequire
 
 export default class ShoelaceElement extends LitElement {
   // Make localization attributes reactive
-  @property() dir: string;
-  @property() lang: string;
+  @property() dir: string = "";
+  @property() lang: string = "";
 
   /** Emits a custom event with more convenient defaults. */
   emit<T extends string & keyof EventTypesWithoutRequiredDetail>(
@@ -94,7 +94,6 @@ export default class ShoelaceElement extends LitElement {
   }
 
   /* eslint-disable */
-  // @ts-expect-error This is auto-injected at build time.
   static version = "2.14.0";
   /* eslint-enable */
 
@@ -157,6 +156,9 @@ export interface ShoelaceFormControl extends ShoelaceElement {
   required?: boolean;
   minlength?: number;
   maxlength?: number;
+  checked?: boolean;
+  indeterminate?: boolean;
+  input: HTMLInputElement;
 
   // Form validation properties
   readonly validity: ValidityState;

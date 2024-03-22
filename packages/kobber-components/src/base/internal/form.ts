@@ -214,7 +214,7 @@ export class FormControlController implements ReactiveController {
 
     // For buttons, we only submit the value if they were the submitter. This is currently done in doAction() by
     // injecting the name/value on a temporary button, so we can just skip them here.
-    const isButton = this.host.tagName.toLowerCase() === "sl-button";
+    const isButton = this.host.tagName.toLowerCase() === "kobber-button";
 
     if (
       this.host.isConnected &&
