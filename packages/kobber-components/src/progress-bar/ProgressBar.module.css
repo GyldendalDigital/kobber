@@ -2,12 +2,8 @@
 
 @layer guds {
   .list {
-    --progress-bar-height: calc(
-      var(--kobber-component-progressbar-size-default) + (1em - 16px)
-    );
-    --progress-bar-border-radius: var(
-      --kobber-component-progressbar-border-radius
-    );
+    --progress-bar-height: var(--kobber-component-progressbar-size-default);
+    --progress-bar-border-radius: var(--kobber-component-progressbar-border-radius);
     position: relative;
     display: flex;
     border-radius: var(--progress-bar-border-radius);
@@ -24,13 +20,10 @@
   }
 
   .low {
-    --progress-bar-height: calc(
-      var(--kobber-component-progressbar-size-small) + (1em - 16px)
-    );
+    --progress-bar-height: var(--kobber-component-progressbar-size-small);
   }
 
   .show-full-length {
     justify-content: space-between;
   }
-} 
- 
+}
