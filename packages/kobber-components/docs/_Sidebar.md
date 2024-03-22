@@ -5,4 +5,4 @@
 
 ### Modules
 
-- [toCss](../wiki/toCss)
+- [stringifyStyleObject](../wiki/stringifyStyleObject)

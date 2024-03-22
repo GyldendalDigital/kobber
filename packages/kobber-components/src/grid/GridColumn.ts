@@ -1,11 +1,8 @@
 import { layout } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { CSSResultGroup, LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import {
-  ResponsiveCssValue,
-  responsiveValueConverter as converter,
-} from "../utils/responsiveCssValue";
-import { toCss } from "../utils/toCss";
+import { ResponsiveCssValue, responsiveValueConverter as converter } from "../utils/responsiveCssValue";
+import { stringifyStyleObject } from "../utils/stringifyStyleObject";
 
 @customElement("kobber-grid-column")
 export class GridColumn extends LitElement {
@@ -36,7 +33,7 @@ export class GridColumn extends LitElement {
   });
 
   render() {
-    const css = toCss(":host", this.styles());
+    const css = stringifyStyleObject(":host", this.styles());
     return html`
       <style>
         ${css}

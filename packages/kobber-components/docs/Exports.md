@@ -1,7 +1,5 @@
 # @gyldendal/kobber-components
 
-## Table of contents
+## Modules
 
-### Modules
-
-- [toCss](../wiki/toCss)
+- [stringifyStyleObject](../wiki/stringifyStyleObject)
