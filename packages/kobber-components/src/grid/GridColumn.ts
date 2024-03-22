@@ -12,7 +12,7 @@ export class GridColumn extends LitElement {
   static styles: CSSResultGroup = css`
     :host {
       display: block;
-      max-width: ${unsafeCSS(layout.maxWidth)};
+      max-width: ${unsafeCSS(layout.maxWidth)}px;
     }
   `;
 
