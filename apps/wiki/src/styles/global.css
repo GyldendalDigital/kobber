@@ -25,6 +25,10 @@
     /* border: 2px solid #f5f2ee; */
   }
 
+  #root, #__next {
+  isolation: isolate;
+}
+
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
@@ -38,12 +42,18 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
-  h1 {
-    color: #e50049;
-  }
+h1 {
+  color: #e50049;
+  margin-bottom: 48px;
+}
 
-#root, #__next {
-  isolation: isolate;
+h3 {
+  margin-top: 48px;
+  margin-bottom: 18px;
+}
+
+p {
+  margin-bottom: 24px;
 }
 
 a:link, a:visited {
@@ -65,6 +75,7 @@ table-layout: fixed;
   border-collapse: collapse;
   border-spacing: 3px;
   border: 1px solid #999189;
+  margin-bottom: 24px;  
 }
 
 th {
@@ -77,7 +88,26 @@ td {
   padding: 6px;
 }
 
+ol, ul {
+  margin-bottom: 24px;
+}
+
+li {
+  margin-bottom: 12px;
+}
+
 ol > li::marker {
   font-weight: bold;
 }
 
+ .info-box {
+    background: #EBF4FF;
+    padding: 16px 32px;
+    border-radius: 6px;
+    margin-bottom: 32px;
+  }
+ .link-box {
+    background: #FFE3AD;
+    padding: 16px 32px;
+    border-radius: 6px;
+  }
