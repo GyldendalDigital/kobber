@@ -70,9 +70,6 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
   /** The current value of the checkbox, submitted as a name/value pair with form data. */
   @property() value: string;
 
-  /** The checkbox's size. */
-  @property({ reflect: true }) size: "small" | "medium" | "large" = "medium";
-
   /** Disables the checkbox. */
   @property({ type: Boolean, reflect: true }) disabled = false;
 
@@ -216,9 +213,6 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
             "checkbox--disabled": this.disabled,
             "checkbox--focused": this.hasFocus,
             "checkbox--indeterminate": this.indeterminate,
-            "checkbox--small": this.size === "small",
-            "checkbox--medium": this.size === "medium",
-            "checkbox--large": this.size === "large",
           })}
         >
           <input
