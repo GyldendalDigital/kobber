@@ -30,10 +30,10 @@ Hvor læreverkene følger bokas utrykk til en viss grad, er dette spesielt vikti
 
 Beskrivelse
 
-## Ungdomstrinn, 8.-10.trinn
+### Ungdomstrinn, 8.-10.trinn
 
 Beskrivelse
 
-## Videregående skole, 11.-13.trinn
+### Videregående skole, 11.-13.trinn
 
 Beskrivelse
