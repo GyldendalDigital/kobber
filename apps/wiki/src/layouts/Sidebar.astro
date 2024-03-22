@@ -22,38 +22,26 @@ const currentPath = new URL(Astro.request.url).pathname;
     </h3>
     <div class="menu-items">
       <a
-        href="/artikkel/stil-og-tone"
-        class={currentPath === "/artikkel/designprinsipper/stil-og-tone" ? "active" : ""}
+        href="/artikler/designprinsipper/designprinsipper"
+        class={currentPath === "/artikler/designprinsipper/designprinsipper" ? "active" : ""}
+      >
+        <li>Hovedprinsipper</li>
+      </a>
+      <a
+        href="/artikler/designprinsipper/stil-og-tone"
+        class={currentPath === "/artikler/designprinsipper/stil-og-tone" ? "active" : ""}
       >
         <li>Stil og tone</li>
       </a>
       <a
-        href="/artikkel/designprinsipper"
-        class={currentPath === "/artikkel/designprinsipper/designprinsipper" ? "active" : ""}
+        href="/artikler/designprinsipper/kolleksjoner-og-modus"
+        class={currentPath === "/artikler/designprinsipper/kolleksjoner-og-modus" ? "active" : ""}
       >
-        <li>Hierarki og kolleksjoner</li>
-      </a>
-      <a href="/artikkel/layout" class={currentPath === "/artikkel/designprinsipper/layout" ? "active" : ""}>
-        <li>Layout</li>
-      </a>
-      <a href="/artikkel/logoer" class={currentPath === "/artikkel/designprinsipper/logoer" ? "active" : ""}>
-        <li>Logoer</li>
+        <li>Kolleksjoner og modus</li>
       </a>
       <a
-        href="/artikkel/visuelle-medier"
-        class={currentPath === "/artikkel/designprinsipper/visuelle-medier" ? "active" : ""}
-      >
-        <li>Visuelle medier</li>
-      </a>
-      <a href="/artikkel/fargebruk" class={currentPath === "/artikkel/designprinsipper/fargebruk" ? "active" : ""}>
-        <li>Fargebruk</li>
-      </a>
-      <a href="/artikkel/typografi" class={currentPath === "/artikkel/designprinsipper/typografi" ? "active" : ""}>
-        <li>Typografi</li>
-      </a>
-      <a
-        href="/artikkel/alle-design-tokens"
-        class={currentPath === "/artikkel/designprinsipper/alle-design-tokens" ? "active" : ""}
+        href="/artikler/designprinsipper/alle-design-tokens"
+        class={currentPath === "/artikler/designprinsipper/alle-design-tokens" ? "active" : ""}
       >
         <li>Alle design tokens</li>
       </a>
@@ -63,41 +51,11 @@ const currentPath = new URL(Astro.request.url).pathname;
   <ul>
     <h3>Komponenter</h3>
     <div class="menu-items">
-      <a
-        href="/artikler/komponenter/knapper"
-        class={currentPath === "/artikler/komponenter/alle-design-tokens" ? "active" : ""}
-      >
+      <a href="/artikler/komponenter/knapper" class={currentPath === "/artikler/komponenter/knapper" ? "active" : ""}>
         <li>Knapper</li>
       </a>
-      <a href="/artikler/komponenter/kort" class={currentPath === "/artikler/komponenter/" ? "active" : ""}>
+      <a href="/artikler/komponenter/kort" class={currentPath === "/artikler/komponenter/kort" ? "active" : ""}>
         <li>Kort</li>
-      </a>
-      <a href="/artikler/komponenter/lister" class={currentPath === "/artikler/komponenter/" ? "active" : ""}>
-        <li>Lister</li>
-      </a>
-      <a href="/artikler/komponenter/modal" class={currentPath === "/artikler/komponenter/modal" ? "active" : ""}>
-        <li>Modal</li>
-      </a>
-      <a
-        href="/artikler/komponenter/trekkspillmeny"
-        class={currentPath === "/artikler/komponenter/trekkspillmeny" ? "active" : ""}
-      >
-        <li>Trekkspillmeny</li>
-      </a>
-      <a
-        href="/artikler/komponenter/navigasjon"
-        class={currentPath === "/artikler/komponenter/navigasjon" ? "active" : ""}
-      >
-        <li>Navigasjon</li>
-      </a>
-      <a href="/artikler/komponenter/skjemaer" class={currentPath === "/artikler/komponenter/skjemaer" ? "active" : ""}>
-        <li>Skjemaer</li>
-      </a>
-      <a
-        href="/artikler/komponenter/progresjon"
-        class={currentPath === "/artikler/komponenter/progresjon" ? "active" : ""}
-      >
-        <li>Progresjon</li>
       </a>
     </div>
   </ul>
@@ -105,9 +63,6 @@ const currentPath = new URL(Astro.request.url).pathname;
   <ul>
     <h3>Generelt</h3>
     <div class="menu-items">
-      <a href="/">
-        <li>Blogg</li>
-      </a>
       <a
         class={currentPath === "/artikler/generelt/hva-er-kobber" ? "active" : ""}
         href="/artikler/generelt/hva-er-kobber"
@@ -119,12 +74,6 @@ const currentPath = new URL(Astro.request.url).pathname;
         href="/artikler/generelt/hva-betyr-kobber-for-meg"
       >
         <li>Hva betyr Kobber for meg?</li>
-      </a>
-      <a class={currentPath === "/artikler/generelt/team/" ? "active" : ""} href="/artikler/generelt/team/">
-        <li>Team</li>
-      </a>
-      <a class={currentPath === "/artikler/generelt/innspill/" ? "active" : ""} href="/artikler/generelt/innspill/">
-        <li>Kom med innspill</li>
       </a>
     </div>
   </ul>
@@ -152,19 +101,22 @@ const currentPath = new URL(Astro.request.url).pathname;
     </h3>
     <div class="menu-items">
       <a
-        class={currentPath === "/artikler/design/arbeidsflyt-og-eierskap" ? "active" : ""}
-        href="/artikler/design/arbeidsflyt-og-eierskap"
-      >
-        <li>Arbeidsflyt og eierskap</li>
-      </a>
-      <a href="">
-        <li>Hvordan bruke designsystemet</li>
-      </a>
-      <a
         class={currentPath === "/artikler/design/hvordan-lage-komponenter-i-figma" ? "active" : ""}
         href="/artikler/design/hvordan-lage-komponenter-i-figma"
       >
-        <li>Hvordan lage designsystemet</li>
+        <li>Bidra til Kobber</li>
+      </a>
+      <a
+        class={currentPath === "/artikler/design/skalering-ved-hover-i-figma" ? "active" : ""}
+        href="/artikler/design/skalering-ved-hover-i-figma"
+      >
+        <li>Skalering ved hover</li>
+      </a>
+      <a
+        class={currentPath === "/artikler/design/hvordan-lase-bildeproporsjoner-i-figma" ? "active" : ""}
+        href="/artikler/design/hvordan-lase-bildeproporsjoner-i-figma"
+      >
+        <li>Lås bildeproporsjoner</li>
       </a>
     </div>
   </ul>
@@ -198,13 +150,7 @@ const currentPath = new URL(Astro.request.url).pathname;
     </h3>
     <div class="menu-items">
       <a class={currentPath === "/artikler/utvikling/kom-i-gang" ? "active" : ""} href="/artikler/utvikling/kom-i-gang">
-        <li>Kom i gang og oppsett</li>
-      </a>
-      <a href="">
-        <li>Utvikle med designsystemet</li>
-      </a>
-      <a href="">
-        <li>Bidra til komponentbiblioteket</li>
+        <li>Kom i gang</li>
       </a>
     </div>
   </ul>
@@ -255,6 +201,7 @@ const currentPath = new URL(Astro.request.url).pathname;
 
     a {
       font-weight: 400;
+      text-decoration: none;
     }
     a.active {
       font-weight: 600;

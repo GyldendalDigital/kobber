@@ -1,8 +1,8 @@
 ---
 layout: ../../../layouts/Layout.astro
-title: "Hello, World!"
-author: "Matthew Phillips"
-date: "09 Aug 2022"
+title: "Hva betyr Kobber for meg som jobber i Gyldendal?"
+author: "Dag"
+date: "22 Mars 2024"
 ---
 
 # Hva betyr Kobber for meg som jobber i Gyldendal?

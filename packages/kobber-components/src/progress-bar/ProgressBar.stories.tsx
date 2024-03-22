@@ -1,6 +1,7 @@
 import React, { CSSProperties } from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { Args, Meta, StoryObj } from "@storybook/react";
 import { ProgressBar, Props } from "./ProgressBar";
+import "@gyldendal/kobber-base/themes/default/tokens.css";
 
 const meta: Meta<
   Props & {
@@ -38,30 +39,45 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+const getFillColor = (args: Args) => {
+  if (!args.__progressColor) {
+    return "";
+  }
+  if (args.__progressColor === "default") {
+    return "--kobber-component-progressbar-color-foreground-default-primary";
+  }
+  if (args.__progressColor === "unknown") {
+    return "--kobber-semantic-progress-color-foreground-unknown";
+  }
+  return `--kobber-component-progressbar-color-foreground-${args.__progressColor}`;
+};
+
 export const Single: Story = {
   render: (args) => {
     args.progressBars = [
       {
         valueNow: args.__progressBarFirstValue,
-        fillColorVar: args.__progressColor
-          ? `--component-progressbar-color-foreground-${args.__progressColor}`
-          : "",
+        fillColorVar: getFillColor(args),
         filledColorVar: args.__progressBarFilledColorGreen
-          ? "--component-progressbar-color-background-good"
+          ? "--kobber-component-progressbar-color-background-good"
           : "",
         "aria-label": "Første",
       },
     ];
+
+    console.info("args.progressBars")
+    console.info(args.progressBars)
     return (
       <ProgressBar
         {...args}
         style={
           {
             "--progress-bar-background-color": args.__progressColor
-              ? `var(--component-progressbar-color-background-${args.__progressColor})`
+              ? `var(--kobber-component-progressbar-color-background-${args.__progressColor})`
               : "",
           } as CSSProperties
         }
+        className="kobber-theme-default"
       />
     );
   },
@@ -93,9 +109,7 @@ export const Double: Story = {
       {
         valueNow: args.__progressBarSecondValue,
         "aria-label": "Andre",
-        fillColorVar: args.__progressColor
-          ? `--component-progressbar-color-foreground-${args.__progressColor}`
-          : "",
+        fillColorVar: getFillColor(args),
       },
     ];
     return <ProgressBar {...args} />;

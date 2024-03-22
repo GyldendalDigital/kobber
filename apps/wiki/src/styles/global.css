@@ -9,23 +9,18 @@
     box-sizing: border-box;
   }
 
-  :root {
-  }
-
-  html {
-  }
-
-  body {
-    font-family: Inter, "Inter Variable", system-ui, sans-serif;
-      line-height: 1.5;
+body {
+  font-family: Inter, "Inter Variable", system-ui, sans-serif;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-    margin: 0;
-    
-    background: #fdfcfb;
-    /* border: 2px solid #f5f2ee; */
-  }
+  margin: 0;
+  
+  background: #fdfcfb;
+  /* border: 8px solid #f5f2ee;
+  border-radius: 48px; */
+}
 
-  #root, #__next {
+#root, #__next {
   isolation: isolate;
 }
 
@@ -38,37 +33,41 @@ input, button, textarea, select {
   font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+
+
+h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
+  margin-top: 42px;
+  margin-bottom: 12px;
+  font-weight: 600;
 }
 
 h1 {
   color: #e50049;
-  margin-bottom: 48px;
-}
-
-h3 {
-  margin-top: 48px;
-  margin-bottom: 18px;
+  margin-bottom: 42px;
+  font-size: 42px;
 }
 
 p {
   margin-bottom: 24px;
+  overflow-wrap: break-word;
 }
 
 a:link, a:visited {
-  text-decoration: none;
+  text-decoration: underline;
   color: inherit;
 }
 
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 table-layout: fixed;
   width: 100%;
@@ -89,11 +88,11 @@ td {
 }
 
 ol, ul {
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 li {
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 ol > li::marker {
@@ -104,10 +103,18 @@ ol > li::marker {
     background: #EBF4FF;
     padding: 16px 32px;
     border-radius: 6px;
-    margin-bottom: 32px;
+    margin: 48px 0;
   }
+  
  .link-box {
     background: #FFE3AD;
     padding: 16px 32px;
     border-radius: 6px;
+    margin: 48px 0;
+  }
+
+  pre {
+    padding: 16px 16px;
+    border-radius: 6px;
+    margin: 48px 0;
   }
