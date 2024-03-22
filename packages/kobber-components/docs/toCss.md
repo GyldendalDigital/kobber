@@ -27,7 +27,7 @@ Converts an object with CSS properties and values to a CSS string.
 
 **`Example`**
 
-Example using media queries
+Example using media queries.
 
 ```ts
 toCss(
@@ -42,4 +42,4 @@ toCss(
 
 #### Defined in
 
-[packages/kobber-components/src/utils/toCss.ts:31](https://github.com/GyldendalDigital/kobber/blob/1e5064e/packages/kobber-components/src/utils/toCss.ts#L31)
+[packages/kobber-components/src/utils/toCss.ts:31](https://github.com/GyldendalDigital/kobber/blob/980200a/packages/kobber-components/src/utils/toCss.ts#L31)

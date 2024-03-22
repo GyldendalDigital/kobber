@@ -15,7 +15,7 @@ const isStringValue = (value: StyleValue): value is string => typeof value === "
  * Converts an object with CSS properties and values to a CSS string.
  *
  * @example
- * Example using media queries
+ * Example using media queries.
  *
  * ```ts
  * toCss(
