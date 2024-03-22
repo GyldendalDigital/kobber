@@ -2,8 +2,7 @@ import { classMap } from "lit/directives/class-map.js";
 import { CSSResultGroup, html, svg } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { live } from "lit/directives/live.js";
-import { property, query, state } from "lit/decorators.js";
-// import styles from "./_checkbox.styles.css" assert { type: "css" };
+import { customElement, property, query, state } from "lit/decorators.js";
 import styles from "./checkbox.styles";
 import { defaultValue } from "../base/internal/default-value";
 import { watch } from "../base/internal/watch";
@@ -47,6 +46,7 @@ const indeterminate = svg`<svg class="indeterminate-indicator" xmlns="http://www
 <rect width="12" height="3" rx="1.5" fill="currentColor"/>
 </svg>`;
 
+@customElement("kobber-checkbox")
 export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
   static styles: CSSResultGroup = [componentStyles, formControlStyles, styles];
   // static dependencies = { "sl-icon": SlIcon };
@@ -74,9 +74,6 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
 
   /** The current value of the checkbox, submitted as a name/value pair with form data. */
   @property() value: string = "";
-
-  /** The checkbox's size. */
-  @property({ reflect: true }) size: "small" | "medium" | "large" = "medium";
 
   /** Disables the checkbox. */
   @property({ type: Boolean, reflect: true }) disabled = false;
