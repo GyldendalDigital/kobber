@@ -18,6 +18,7 @@ type CssDeclarations = Record<string, StyleValue>;
  * toCss(
  *   ".grid",
  *   {
+ *     display: "grid",
  *     "grid-template-columns": {
  *       "(max-width: 639px)": "repeat(4, 1fr)",
  *       "(min-width: 640px)": "repeat(6, 1fr)"
@@ -25,7 +26,7 @@ type CssDeclarations = Record<string, StyleValue>;
  *   })
  * ```
  *
- * Outputs this string, which can then be rendered into a `<style>`-element.
+ * Outputs a string which can then be rendered into a `<style>`-element:
  *
  * ```css
  * .grid {
@@ -51,11 +52,19 @@ type CssDeclarations = Record<string, StyleValue>;
  *
  * ```ts
  * @customElement("my-grid")
- * export class Grid extends LitElement {
+ * export class MyGrid extends LitElement {
  *
  *   @property({ attribute: "grid-template-columns" })
- *   gridTemplateColumns?: ResponsiveCssValue;
+ *   gridTemplateColumns?: string | Record<string, string>;
  *
+ *   render() {
+ *     return html`
+ *       <style>
+ *         ${stringifyStyleObject(":host", { gridTemplateColumns: this.gridTemplateColumns })}
+ *       </style>
+ *       <slot />
+ *     `;
+ *   }
  * }
  * ```
  *

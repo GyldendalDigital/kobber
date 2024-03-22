@@ -28,6 +28,7 @@ Example using media queries.
 toCss(
   ".grid",
   {
+    display: "grid",
     "grid-template-columns": {
       "(max-width: 639px)": "repeat(4, 1fr)",
       "(min-width: 640px)": "repeat(6, 1fr)"
@@ -35,7 +36,7 @@ toCss(
   })
 ```
 
-Outputs this string, which can then be rendered into a `<style>`-element.
+Outputs a string which can then be rendered into a `<style>`-element:
 
 ```css
 .grid {
@@ -61,11 +62,19 @@ Can be used as responsive properties in Lit elements:
 
 ```ts
 @customElement("my-grid")
-export class Grid extends LitElement {
+export class MyGrid extends LitElement {
 
   @property({ attribute: "grid-template-columns" })
-  gridTemplateColumns?: ResponsiveCssValue;
+  gridTemplateColumns?: string | Record<string, string>;
 
+  render() {
+    return html`
+      <style>
+        ${stringifyStyleObject(":host", { gridTemplateColumns: this.gridTemplateColumns })}
+      </style>
+      <slot />
+    `;
+  }
 }
 ```
 
@@ -80,4 +89,4 @@ export class Grid extends LitElement {
 
 #### Defined in
 
-packages/kobber-components/src/utils/stringifyStyleObject.ts:71
+[packages/kobber-components/src/utils/stringifyStyleObject.ts:80](https://github.com/GyldendalDigital/kobber/blob/fde0156/packages/kobber-components/src/utils/stringifyStyleObject.ts#L80)
