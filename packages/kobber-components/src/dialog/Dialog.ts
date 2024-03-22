@@ -14,18 +14,6 @@ import { getAnimation, setDefaultAnimation } from "../base/utilities/animation-r
 import { waitForEvent } from "../base/internal/event";
 import { animateTo, stopAnimations } from "../base/internal/animate";
 import { Button } from "../button/Button";
-import { stringifyStyleObject } from "../utils/stringifyStyleObject";
-
-console.log(
-  "###",
-  stringifyStyleObject(".grid", {
-    display: "grid",
-    "grid-template-columns": {
-      "(max-width: 639px)": "repeat(2, 1fr)",
-      "(min-width: 640px)": "repeat(4, 1fr)",
-    },
-  }),
-);
 
 /**
  * @summary Dialogs, sometimes called "modals", appear above the page and require the user's immediate attention.
