@@ -2,10 +2,6 @@
 
 ## Table of contents
 
-### Interfaces
-
-- [Styles](../wiki/toCss.Styles)
-
 ### Functions
 
 - [toCss](../wiki/toCss#tocss)
@@ -23,7 +19,7 @@ Converts an object with CSS properties and values to a CSS string.
 | Name | Type |
 | :------ | :------ |
 | `selector` | `string` |
-| `styles` | `Readonly`\<[`Styles`](../wiki/toCss.Styles)\> |
+| `styles` | `Readonly`\<`Styles`\> |
 
 #### Returns
 
@@ -46,4 +42,4 @@ toCss(
 
 #### Defined in
 
-[packages/kobber-components/src/utils/toCss.ts:31](https://github.com/GyldendalDigital/kobber/blob/8fa9ef2/packages/kobber-components/src/utils/toCss.ts#L31)
+[packages/kobber-components/src/utils/toCss.ts:31](https://github.com/GyldendalDigital/kobber/blob/1e5064e/packages/kobber-components/src/utils/toCss.ts#L31)
