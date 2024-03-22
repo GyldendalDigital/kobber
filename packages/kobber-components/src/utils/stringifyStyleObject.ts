@@ -15,7 +15,7 @@ type CssDeclarations = Record<string, StyleValue>;
  * Example using media queries.
  *
  * ```ts
- * toCss(
+ * stringifyStyleObject(
  *   ".grid",
  *   {
  *     display: "grid",

@@ -25,7 +25,7 @@ Useful for adding responsive properties to web components.
 Example using media queries.
 
 ```ts
-toCss(
+stringifyStyleObject(
   ".grid",
   {
     display: "grid",
@@ -89,4 +89,4 @@ export class MyGrid extends LitElement {
 
 #### Defined in
 
-[packages/kobber-components/src/utils/stringifyStyleObject.ts:80](https://github.com/GyldendalDigital/kobber/blob/fde0156/packages/kobber-components/src/utils/stringifyStyleObject.ts#L80)
+[packages/kobber-components/src/utils/stringifyStyleObject.ts:80](https://github.com/GyldendalDigital/kobber/blob/41837f9/packages/kobber-components/src/utils/stringifyStyleObject.ts#L80)
