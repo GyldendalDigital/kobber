@@ -2,6 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { ProficiencyBar } from "./ProficiencyBar";
 import { getProficiencyNameByPercentage } from "../utils/progressHelpers";
+import "@gyldendal/kobber-base/themes/default/tokens.css";
 
 const labelledById = "aria-progress-id";
 
@@ -26,7 +27,7 @@ const meta: Meta<typeof ProficiencyBar> = {
   },
   decorators: [
     (Story, storyContext) => (
-      <div>
+      <div className="kobber-theme-default">
         <span id={labelledById}>
           Progress:{" "}
           {getProficiencyNameByPercentage(storyContext.args.progressInPercent)}
