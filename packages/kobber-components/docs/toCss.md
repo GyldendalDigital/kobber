@@ -43,3 +43,4 @@ toCss(
 #### Defined in
 
 [packages/kobber-components/src/utils/toCss.ts:31](https://github.com/GyldendalDigital/kobber/blob/980200a/packages/kobber-components/src/utils/toCss.ts#L31)
+
