@@ -1,5 +1,11 @@
 # @gyldendal/kobber-base
 
+## 0.3.6
+
+### Patch Changes
+
+- Fix: include checkbox type file
+
 ## 0.3.4
 
 ### Patch Changes

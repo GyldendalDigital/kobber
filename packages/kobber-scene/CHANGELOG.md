@@ -1,5 +1,11 @@
 # @gyldendal/kobber-scene
 
+## 0.3.6
+
+### Patch Changes
+
+- Fix: include checkbox type file
+
 ## 0.3.5
 
 ### Patch Changes
