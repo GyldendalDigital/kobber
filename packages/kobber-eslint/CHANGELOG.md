@@ -1,5 +1,11 @@
 # @gyldendal/kobber-eslint
 
+## 0.3.4
+
+### Patch Changes
+
+- Added Button, Badge, Checkbox
+
 ## 0.3.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @gyldendal/kobber-scene
 
+## 0.3.5
+
+### Patch Changes
+
+- Added Button, Badge, Checkbox
+
 ## 0.3.4
 
 ### Patch Changes

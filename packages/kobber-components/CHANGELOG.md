@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.4
+
+### Patch Changes
+
+- Added Button, Badge, Checkbox
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.4
+
 ## 0.3.3
 
 ### Patch Changes
