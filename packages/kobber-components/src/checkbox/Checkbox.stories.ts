@@ -20,15 +20,16 @@ export const Checkbox: Story = {
         <legend>Test-checkbox</legend>
         <kobber-checkbox>Unchecked</kobber-checkbox>
         <kobber-checkbox checked>Checked</kobber-checkbox>
-        <kobber-checkbox id="cb-indetarminate" indetarminate>Indeterminate</kobber-checkbox>
+        <kobber-checkbox id="cb-indeterminate" indeterminate>Indeterminate</kobber-checkbox>
         <kobber-checkbox disabled>Disabled</kobber-checkbox>
         <kobber-checkbox disabled checked>Checked + Disabled</kobber-checkbox>
-        <kobber-checkbox disabled id="cb-indetarminate-2">Indeterminate + Disabled</kobber-checkbox>
+        <kobber-checkbox disabled id="cb-indeterminate-2">Indeterminate + Disabled</kobber-checkbox>
+      </fieldset>
       </fieldset>
     </div>
     <script>
-      document.getElementById("cb-indetarminate").indeterminate = true;
-      document.getElementById("cb-indetarminate-2").indeterminate = true;
+      document.getElementById("cb-indeterminate").indeterminate = true;
+      document.getElementById("cb-indeterminate-2").indeterminate = true;
     </script>
   `,
 };
