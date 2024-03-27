@@ -9,9 +9,11 @@ export default css`
 
   .checkbox {
     position: relative;
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
     align-items: flex-start;
-    vertical-align: middle;
+    justify-content: center;
+    gap: (--kobber-component-input-checkbox-gap);
     cursor: pointer;
   }
 
@@ -33,11 +35,16 @@ export default css`
     border-radius: var(--kobber-component-input-checkbox-border-radius);
     border: 1px solid var(--kobber-component-input-color-default-foreground);
     background: var(--kobber-component-input-color-default-background);
+    padding: var(--kobber-component-input-checkbox-padding-block) var(--kobber-component-input-checkbox-padding-inline);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-right: var(--kobber-component-input-checkbox-gap);
+  }
+
+  .checkbox__control > svg {
+    width: 100%;
+    height: 100%;
   }
 
   .checkbox__input {
@@ -55,6 +62,8 @@ export default css`
     fill: var(--kobber-component-input-color-default-foreground);
     opacity: 0;
     display: none;
+    width: 100%;
+    height: 100%;
   }
 
   /* Hover */

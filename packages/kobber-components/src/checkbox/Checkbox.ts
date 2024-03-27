@@ -265,9 +265,3 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
     `;
   }
 }
-
-declare global {
-  interface HTMLElementTagNameMap {
-    "kobber-checkbox": Checkbox;
-  }
-}
