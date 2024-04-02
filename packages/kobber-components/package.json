@@ -16,7 +16,8 @@
     "lint:css": "stylelint ./src/**/*.css",
     "build": "tsup",
     "prepare": "npm run build",
-    "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build"
+    "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
+    "test": "web-test-runner"
   },
   "dependencies": {
     "@gyldendal/kobber-base": "*",
@@ -29,12 +30,16 @@
     "stylis": "^4.3.0"
   },
   "devDependencies": {
+    "@esm-bundle/chai": "4.3.4-fix.0",
     "@gyldendal/kobber-eslint": "*",
     "@gyldendal/kobber-stylelint": "*",
+    "@types/mocha": "^10.0.6",
     "@types/react": "18.2.0",
     "@types/stylis": "^4.2.4",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
+    "@web/dev-server-esbuild": "^1.0.2",
+    "@web/test-runner": "^0.18.1",
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-turbo": "^1.11.1",
