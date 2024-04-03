@@ -28,7 +28,7 @@ export const Badge: Story = {
     color: colors[0],
     type: types[0],
   },
-  render: (args) => `
+  render: args => `
     <${customElementName} color=${args.color} type=${args.type}>${args.text}</${customElementName}>
   `,
 };
@@ -39,16 +39,13 @@ export const Badges: Story = {
     color: colors[0],
     type: types[0],
   },
-  render: (args) => `
+  render: args => `
     <div style="display: grid; gap: 10px; grid-template-columns: repeat(3, 1fr);">
       ${types
-        .map((type) =>
+        .map(type =>
           colors
-            .map(
-              (color) =>
-                `<${customElementName} color=${color} type=${type}>${args.text}</${customElementName}>`
-            )
-            .join("")
+            .map(color => `<${customElementName} color=${color} type=${type}>${args.text}</${customElementName}>`)
+            .join(""),
         )
         .join("")}
     </div>
