@@ -6,6 +6,8 @@ import "@gyldendal/kobber-base/themes/default/tokens.css";
  * The progress bar is not native <progress> elements, due to poor
  * tweakability of the native element (both semantically and styling).
  *
+ * Attention: Use only aria-label, not aria-labelledby (as IDREFs don't work across light DOM and shadow DOM). Ref https://coryrylan.com/blog/accessibility-with-id-referencing-and-shadow-dom.
+ *
  */
 export class ProgressBarItem extends HTMLElement {
   constructor() {
@@ -17,8 +19,9 @@ export class ProgressBarItem extends HTMLElement {
   }
 
   connectedCallback() {
-    const ariaLabel = this.getAttribute("ariaLabel") || "";
-    const ariaLabelledby = this.getAttribute("ariaLabelledby") || "";
+    const ariaLabel =
+      this.getAttribute("ariaLabel") ||
+      ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */
     const explainOtherUnitThanPercentage = this.getAttribute("explainOtherUnitThanPercentage") || "";
     const valueNow = this.getAttribute("value-now");
     const valueMin = this.getAttribute("value-min") || "0";
@@ -53,7 +56,6 @@ export class ProgressBarItem extends HTMLElement {
       aria-valuenow="${valueNow}"
       aria-valuemin="${valueMin}"
       aria-label="${ariaLabel}"
-      aria-labelledby="${ariaLabelledby}"
       aria-valuetext="${explainOtherUnitThanPercentage}"
       aria-valuemax="${valueMax}"
     ></div>

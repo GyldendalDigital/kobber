@@ -41,8 +41,6 @@ export default meta;
 
 type Story = StoryObj;
 
-const labelledById = "aria-progress-id";
-
 const composeHumanReadableValue = (progressInPercent: number) =>
   `${progressInPercent}% (${getProficiencyNameByPercentage(progressInPercent)})`;
 
@@ -162,11 +160,8 @@ export const Proficiency: Story = {
     <p
       style="grid-column: 2;"
     >
-    <span id="${labelledById}">
-      Progress:</span>
-      <span>
+      Progress:
       ${composeHumanReadableValue(args.__progressBarFirstValue) + getProgressSuffix(args.__progressBarFirstValue)}
-      </span>
     </p>
     <${ProgressBar}
       style="grid-column: 2;"
@@ -175,7 +170,7 @@ export const Proficiency: Story = {
       )})"
     >
       <${ProgressBarItem} 
-        ariaLabelledby="${labelledById}"
+        ariaLabel="Progress"
         explainOtherUnitThanPercentage="${composeHumanReadableValue(args.__progressBarFirstValue)}"
         value-now="${args.__progressBarFirstValue}"
         fill-color="var(--kobber-component-progressbar-color-foreground-${getProficiencyNameByPercentage(args.__progressBarFirstValue)})"
