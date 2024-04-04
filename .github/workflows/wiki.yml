@@ -27,7 +27,7 @@ jobs:
           cache: "yarn"
 
       - name: Run yarn
-        run: yarn install && yarn build
+        run: yarn install --immutable && yarn build
 
       - name: Run yarn typedoc
         working-directory: packages/kobber-components
