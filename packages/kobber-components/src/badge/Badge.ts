@@ -6,8 +6,7 @@ import { isValidColor } from "../utils/color";
  * Badges are compact elements that are used to display a small amount of information,
  * such as a number or a status indicator.
  *
- * TODO:
- * - theme support
+ * @todo theme support
  */
 export class Badge extends HTMLElement {
   constructor() {

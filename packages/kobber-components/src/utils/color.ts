@@ -4,7 +4,7 @@ const rgbRegex = /^rgb\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s
 const rgbaRegex =
   /^rgb(?:a)?\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,|\/)\s*([-+]?\d*[.]?\d+[%]?)\s*\)$/i;
 
-/** Not supporting color names like "red" */
+/** Not supporting hsl or color names like "red" */
 export const isValidColor = (color: string) => {
   if (color === "transparent") return true;
   if (hexRegex.test(color)) return true;
