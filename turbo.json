@@ -20,6 +20,10 @@
     "storybook": {
       "cache": false,
       "persistent": true
+    },
+    "build-storybook-web-components": {
+      "dependsOn": ["^build"],
+      "outputs": ["storybook-static/**"]
     }
   }
 }

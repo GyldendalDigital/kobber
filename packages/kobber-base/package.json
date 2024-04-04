@@ -7,7 +7,7 @@
     "themes"
   ],
   "scripts": {
-    "clean": "rm -rf .turbo node_modules",
+    "clean": "rm -rf .turbo node_modules themes",
     "build": "tsx ./buildTokens.ts && tsx ./buildTypography.ts",
     "prepare": "npm run build",
     "yalc": "yalc publish"

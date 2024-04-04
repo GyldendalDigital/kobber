@@ -5,22 +5,24 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@gyldendal/kobber-base": "*",
     "lit-html": "^3.1.1",
-    "storybook": "^8.0.0"
+    "storybook": "^8.0.5"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^8.0.0",
-    "@storybook/addon-essentials": "^8.0.0",
-    "@storybook/blocks": "^8.0.0",
-    "@storybook/builder-vite": "^8.0.0",
-    "@storybook/web-components": "^8.0.0",
-    "@storybook/web-components-vite": "^8.0.0",
+    "@storybook/addon-a11y": "^8.0.5",
+    "@storybook/addon-essentials": "^8.0.5",
+    "@storybook/blocks": "^8.0.5",
+    "@storybook/builder-vite": "^8.0.5",
+    "@storybook/web-components": "^8.0.5",
+    "@storybook/web-components-vite": "^8.0.5",
     "typescript": "^5.2.2",
     "vite": "^5.1.5"
   },
   "scripts": {
     "clean": "rm -rf node_modules storybook-static",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build-storybook-web-components": "storybook build"
   }
 }

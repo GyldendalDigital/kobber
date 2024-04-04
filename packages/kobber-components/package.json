@@ -10,7 +10,7 @@
     "web-components/**/*"
   ],
   "scripts": {
-    "clean": "rm -rf .turbo node_modules",
+    "clean": "rm -rf .turbo node_modules chunks css react web-components",
     "lint": "yarn lint:js & yarn lint:css",
     "lint:js": "eslint ./src/**/*.{ts,tsx}",
     "lint:css": "stylelint ./src/**/*.css",
