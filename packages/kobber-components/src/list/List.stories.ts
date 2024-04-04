@@ -1,44 +1,39 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import { customElementName } from "./ListVertical";
-import "./ListHorizontal";
+import { customElementName } from "./List";
 
 export default {
   component: customElementName,
-  tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    direction: {
+      options: ["vertical", "horizontal"],
+      control: { type: "select" },
+    },
+    itemTextPrefix: {
+      control: { type: "text" },
+    },
+    itemCount: {
+      control: { type: "range", min: 0, max: 20 },
+    },
+  },
   decorators: [
     (story, storyContext) => `
-    <div 
-      style="display: grid; grid-template-columns: repeat(3, 200px)"
-      class="${storyContext.globals.theme}"
-    >
+    <div class="${storyContext.globals.theme}">
       ${story()}
     </div>`,
   ],
 } satisfies Meta;
 
-export const ListVertical: StoryObj = {
-  args: {},
-  render: () => `
-    <kobber-list-vertical>
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-      </ul>
-    </kobber-list-vertical>
-  `,
-};
-
-export const ListHorizontal: StoryObj = {
-  args: {},
-  render: () => `
-    <kobber-list-horizontal>
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-      </ul>
-    </kobber-list-horizontal>
+export const List: StoryObj = {
+  args: {
+    direction: "vertical",
+    itemTextPrefix: "Item",
+    itemCount: 3,
+  },
+  render: args => `
+    <kobber-list direction=${args.direction}>
+      ${[...Array(args.itemCount).keys()]
+        .map(i => `<kobber-list-item>${args.itemTextPrefix} ${i + 1}</kobber-list-item>`)
+        .join("")}
+    </kobber-list>
   `,
 };
