@@ -27,8 +27,11 @@ jobs:
           cache: "yarn"
 
       - name: Run yarn
+        run: yarn install && yarn build
+
+      - name: Run yarn typedoc
         working-directory: packages/kobber-components
-        run: yarn install && yarn build && yarn typedoc
+        run: yarn typedoc
 
       - name: Generate wiki
         uses: Andrew-Chen-Wang/github-wiki-action@v4.4.0
