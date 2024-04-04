@@ -1,20 +1,36 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { customElementName } from "./Badge";
 
-const types = ["subject", "category"];
-const colors = ["#0093d2", "#f49900", "#76b72a"];
+const brandColors = [
+  {
+    color: "#0093d2",
+    title: "Multi",
+  },
+  {
+    color: "#f49900",
+    title: "Refleks",
+  },
+  {
+    color: "#000000",
+    title: "Magasin",
+  },
+];
+
+const backgroundColors = brandColors.map(({ color }) => color);
+const circleColors = brandColors.map(({ color }) => color);
 
 const meta: Meta = {
   component: customElementName,
   tags: ["autodocs"],
   argTypes: {
-    color: {
-      options: colors,
-      control: { type: "select" },
+    textColor: {
+      control: { type: "color", presetColors: ["#ffffff", "#000000"] },
     },
-    type: {
-      options: types,
-      control: { type: "select" },
+    backgroundColor: {
+      control: { type: "color", presetColors: brandColors },
+    },
+    circleColor: {
+      control: { type: "color", presetColors: brandColors },
     },
   },
 };
@@ -22,32 +38,41 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
+type Props = Partial<typeof args>;
+const args = {
+  text: "Badge text",
+  textColor: "#000000",
+  backgroundColor: backgroundColors[0],
+  circleColor: null as string | null,
+};
+
+const render = ({ text, textColor, backgroundColor, circleColor }: Props) => `
+  <${customElementName} 
+    text-color="${textColor}"
+    background-color="${backgroundColor}"
+    circle-color=${circleColor}>
+    ${text}
+  </${customElementName}>
+`;
+
 export const Badge: Story = {
-  args: {
-    text: "Badge text",
-    color: colors[0],
-    type: types[0],
-  },
-  render: args => `
-    <${customElementName} color=${args.color} type=${args.type}>${args.text}</${customElementName}>
-  `,
+  args,
+  render,
 };
 
 export const Badges: Story = {
-  args: {
-    text: "Badge text",
-    color: colors[0],
-    type: types[0],
-  },
-  render: args => `
-    <div style="display: grid; gap: 10px; grid-template-columns: repeat(3, 1fr);">
-      ${types
-        .map(type =>
-          colors
-            .map(color => `<${customElementName} color=${color} type=${type}>${args.text}</${customElementName}>`)
-            .join(""),
-        )
-        .join("")}
+  args,
+  render: ({ text }) => `
+    <div>
+      <p>With circle color</p>
+      <div style="display: flex; gap: 10px; justify-content: space-between;">
+        ${circleColors.map(circleColor => render({ text, circleColor })).join("")}
+      </div>
+        
+      <p>With background color</p>
+      <div style="display: flex; gap: 10px; justify-content: space-between;">
+        ${backgroundColors.map(backgroundColor => render({ text, backgroundColor })).join("")}
+      </div>
     </div>
   `,
 };
