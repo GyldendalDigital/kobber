@@ -14,6 +14,7 @@
     "lint": "yarn lint:js & yarn lint:css",
     "lint:js": "eslint ./src/**/*.{ts,tsx}",
     "lint:css": "stylelint ./src/**/*.css",
+    "typedoc": "npx typedoc --entryPointStrategy expand './src/utils/**/*.ts' --skipErrorChecking --excludeNotDocumented --plugin typedoc-plugin-markdown --plugin typedoc-github-wiki-theme --hideInPageTOC true",
     "build": "tsup",
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
@@ -57,6 +58,9 @@
     "stylelint-config-standard": "^35.0.0",
     "stylelint-order": "^6.0.4",
     "tsup": "^7.2.0",
+    "typedoc": "^0.25.12",
+    "typedoc-github-wiki-theme": "^1.1.0",
+    "typedoc-plugin-markdown": "^3.17.1",
     "typescript": "^5.2.2"
   },
   "repository": {
