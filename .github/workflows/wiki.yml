@@ -28,7 +28,7 @@ jobs:
 
       - name: Run yarn
         working-directory: packages/kobber-components
-        run: yarn install --immutable && yarn build && yarn typedoc
+        run: yarn install && yarn build && yarn typedoc
 
       - name: Generate wiki
         uses: Andrew-Chen-Wang/github-wiki-action@v4.4.0
