@@ -1,14 +1,8 @@
-import {
-  layout,
-  mediaQuery,
-} from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { layout, mediaQuery } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import {
-  ResponsiveCssValue,
-  responsiveValueConverter as converter,
-} from "../utils/responsiveCssValue";
-import { toCss } from "../utils/toCss";
+import { ResponsiveCssValue, responsiveValueConverter as converter } from "../utils/responsiveCssValue";
+import { stringifyStyleObject } from "../utils/stringifyStyleObject";
 
 @customElement("kobber-grid")
 export class Grid extends LitElement {
@@ -102,8 +96,8 @@ export class Grid extends LitElement {
   });
 
   render() {
-    const hostStyles = toCss(":host", this.hostStyles());
-    const gridStyles = toCss(".grid", this.gridStyles());
+    const hostStyles = stringifyStyleObject(":host", this.hostStyles());
+    const gridStyles = stringifyStyleObject(".grid", this.gridStyles());
     return html`
       <style>
         ${hostStyles}
