@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
     paths:
-      - packages/kobber-components/docs/**
-      - .github/workflows/publish-wiki.yml
+      - packages/kobber-components/**
+      - .github/workflows/wiki.yml
 concurrency:
   group: publish-wiki
   cancel-in-progress: true
