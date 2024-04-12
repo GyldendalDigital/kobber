@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.7
+
+### Patch Changes
+
+- Updated default grid paddings
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.7
+
 ## 0.3.6
 
 ### Patch Changes
