@@ -53,7 +53,7 @@ export class Grid extends LitElement {
   justifyContent?: ResponsiveCssValue;
 
   @property({ converter, attribute: "gap" })
-  gap?: ResponsiveCssValue = layout.gap["4-16"];
+  gap?: ResponsiveCssValue = layout.gap["8-16"];
 
   @property({ converter, attribute: "justify-items" })
   justifyItems?: ResponsiveCssValue;
@@ -65,13 +65,13 @@ export class Grid extends LitElement {
   paddingTop?: ResponsiveCssValue;
 
   @property({ converter, attribute: "padding-right" })
-  paddingRight?: ResponsiveCssValue = layout.gap["8-16"];
+  paddingRight?: ResponsiveCssValue = layout.gap["16-32"];
 
   @property({ converter, attribute: "padding-bottom" })
   paddingBottom?: ResponsiveCssValue;
 
   @property({ converter, attribute: "padding-left" })
-  paddingLeft?: ResponsiveCssValue = layout.gap["8-16"];
+  paddingLeft?: ResponsiveCssValue = layout.gap["16-32"];
 
   hostStyles = () => ({
     paddingTop: this.paddingTop,

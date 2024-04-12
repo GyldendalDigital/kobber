@@ -70,6 +70,16 @@ export const additionalTokens = {
           unit: "rem",
         },
       },
+      "16-32": {
+        type: "fluidClamp",
+        value: {
+          min: rem(16),
+          max: rem(32),
+          viewportMin: rem(minWidth),
+          viewportMax: rem(viewportWidth.large.min.value),
+          unit: "rem",
+        },
+      },
     },
   },
 };
