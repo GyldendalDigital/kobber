@@ -13,7 +13,7 @@ export default css`
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    gap: (--kobber-component-input-checkbox-gap);
+    gap: var(--kobber-component-input-checkbox-gap);
     cursor: pointer;
   }
 
