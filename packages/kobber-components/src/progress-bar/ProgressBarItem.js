@@ -29,12 +29,14 @@ export class ProgressBarItem extends HTMLElement {
     const fillColor = this.getAttribute("fill-color") || this.fillColorFallback;
     const filledColor = this.getAttribute("filled-color") || "";
 
+    const widthInPercent = (100.0 * valueNow) / (valueMax - valueMin);
+
     const fillColorValue = valueNow === valueMax && filledColor !== "" ? filledColor : fillColor;
 
     this.shadowRoot.innerHTML = `
     <style>
       :host {
-        --progress-bar-item-width: ${valueNow}%;
+        --progress-bar-item-width: ${widthInPercent}%;
         --progress-bar-fill-color: ${fillColorValue};
         width: var(--progress-bar-item-width);
         height: var(--progress-bar-height, ${this.heightValueFallback}); 
