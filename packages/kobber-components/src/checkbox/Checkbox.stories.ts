@@ -5,14 +5,15 @@ import { html } from "lit";
 const meta: Meta = {
   component: "kobber-checkbox",
   tags: ["autodocs"],
+  decorators: [(story, storyContext) => html` <div class="${storyContext.globals.theme}">${story()}</div>`],
 };
 
 export default meta;
 type Story = StoryObj;
 
-export const Checkbox: Story = {
-  render: (_, context) => html`
-    <div class="${context.globals?.theme}" style="display: flex; flex-direction: column; gap: 10px; min-width: 30vw;">
+export const AllStates: Story = {
+  render: () => html`
+    <div style="display: flex; flex-direction: column; gap: 10px; min-width: 30vw;">
       <fieldset style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
         <legend>Test-checkbox</legend>
         <kobber-checkbox>Unchecked</kobber-checkbox>
@@ -29,4 +30,31 @@ export const Checkbox: Story = {
       document.getElementById("cb-indeterminate-2").indeterminate = true;
     </script>
   `,
+};
+
+/**
+ * For some reason, page need to be reloaded for controls to come into effect.
+ */
+export const Checkbox: Story = {
+  render: args => {
+    return html`
+      <kobber-checkbox>${args.checked}</kobber-checkbox>
+      <script>
+        const checkbox = document.querySelector("kobber-checkbox");
+        checkbox.checked = ${args.checked === "checked"};
+        checkbox.indeterminate = ${args.checked === "indeterminate"};
+        checkbox.disabled = ${args.disabled};
+      </script>
+    `;
+  },
+  argTypes: {
+    checked: {
+      control: "inline-radio",
+      options: ["unchecked", "checked", "indeterminate"],
+    },
+  },
+  args: {
+    checked: "checked",
+    disabled: false,
+  },
 };
