@@ -6,7 +6,7 @@ import "@gyldendal/kobber-base/themes/default/tokens.css";
 
 const meta: Meta = {
   title: "Progress-Bar",
-  component: ProgressBar,
+  component: "kobber-progress-bar",
   tags: ["autodocs"],
   args: {
     __progressBarFirstValue: 45,
