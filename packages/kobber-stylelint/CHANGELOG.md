@@ -1,5 +1,17 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.8
+
+### Patch Changes
+
+- Progress bar updates
+
+## 0.3.7
+
+### Patch Changes
+
+- Updated default grid paddings
+
 ## 0.3.6
 
 ### Patch Changes
