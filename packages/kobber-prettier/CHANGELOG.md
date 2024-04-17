@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.8
+
+### Patch Changes
+
+- Progress bar updates
+
 ## 0.3.7
 
 ### Patch Changes
