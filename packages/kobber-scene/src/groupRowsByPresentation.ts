@@ -2,7 +2,7 @@ import { CmsContentBoxFill, CmsRow } from "./types";
 
 const fullWidthSections = ["sc-feature-header", "sc-card-carousel"];
 
-type RowGroupPresentation = "normal" | "fullWidth" | "fullSize";
+export type RowGroupPresentation = "normal" | "fullWidth" | "fullSize";
 
 export interface RowGroup<CompleteCmsRow extends CmsRow> {
   presentation: RowGroupPresentation;
