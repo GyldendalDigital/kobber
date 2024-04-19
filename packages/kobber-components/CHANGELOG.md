@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.9
+
+### Patch Changes
+
+- KobberScene: Made fullSize presentation mode use all paddings
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.9
+
 ## 0.3.8
 
 ### Patch Changes
