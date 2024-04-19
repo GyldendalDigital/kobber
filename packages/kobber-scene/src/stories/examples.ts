@@ -19,10 +19,7 @@ import { CalculatePaddingOptions } from "../calculatePadding";
 
 export interface SceneType
   extends Pick<Scene, "minHeight" | "responsiveBreakpoint">,
-    Pick<
-      SceneBoundary,
-      "maxContentWidth" | "verticalAlignments" | "contentBoxFill"
-    > {
+    Pick<SceneBoundary, "maxContentWidth" | "verticalAlignments" | "contentBoxFill"> {
   imageBackground?: ImageBackground;
   rows: Row[];
 }
@@ -30,44 +27,29 @@ export interface SceneType
 export interface SceneWithAdditionalControls extends SceneType {
   // These properties are not defined in any component, but instead passed through the calculatePadding-function
   calculatePadding_isFirstRow: CalculatePaddingOptions["isFirstRow"];
-  calculatePadding_isFullWidth: CalculatePaddingOptions["isFullWidth"];
+  calculatePadding_presentation: CalculatePaddingOptions["presentation"];
   calculatePadding_applyPaddingBottom: CalculatePaddingOptions["applyPaddingBottom"];
   calculatePadding_sceneWhitespace: CalculatePaddingOptions["cmsWhiteSpace"];
   calculatePadding_sceneHorizontalAlignments: CalculatePaddingOptions["cmsHorizontalAlignment"];
 }
 
 interface Row
-  extends Pick<
-    SceneRow,
-    | "columns"
-    | "rowWhitespace"
-    | "sectionWhitespace"
-    | "maxWidth"
-    | "horizontalAlignment"
-  > {
+  extends Pick<SceneRow, "columns" | "rowWhitespace" | "sectionWhitespace" | "maxWidth" | "horizontalAlignment"> {
   columnItems: Column[];
 }
 
 interface ImageBackground
   extends Pick<
     SceneImageBackground,
-    | "backgroundColor"
-    | "backgroundImageUrl"
-    | "backgroundImageStyle"
-    | "width"
-    | "ariaLabel"
-    | "lang"
+    "backgroundColor" | "backgroundImageUrl" | "backgroundImageStyle" | "width" | "ariaLabel" | "lang"
   > {}
 
-interface Column
-  extends Pick<SceneColumn, "sectionWhitespace" | "verticalAlignments"> {
+interface Column extends Pick<SceneColumn, "sectionWhitespace" | "verticalAlignments"> {
   content: () => TemplateResult;
 }
 
 export const getExampleHeader = () => {
-  return html`<div
-    style="padding: 20px;  min-height: 120px; background-color: #F266AB;"
-  ></div>`;
+  return html`<div style="padding: 20px;  min-height: 120px; background-color: #F266AB;"></div>`;
 };
 
 const exampleStyles = "padding: 20px; border-radius: 7px;";
@@ -97,20 +79,11 @@ export const headerArgs: SceneWithAdditionalControls = {
   maxContentWidth,
   responsiveBreakpoint,
   calculatePadding_isFirstRow: true,
-  calculatePadding_isFullWidth: true,
+  calculatePadding_presentation: "fullWidth",
   calculatePadding_applyPaddingBottom: false,
-  calculatePadding_sceneWhitespace: enumValueToKey(
-    CmsWhiteSpace,
-    CmsWhiteSpace.Medium,
-  ),
-  calculatePadding_sceneHorizontalAlignments: enumValueToKey(
-    CmsHorizontalAlignment,
-    CmsHorizontalAlignment.Center,
-  ),
-  verticalAlignments: enumValueToKey(
-    CmsVerticalAlignment,
-    CmsVerticalAlignment.Top,
-  ),
+  calculatePadding_sceneWhitespace: enumValueToKey(CmsWhiteSpace, CmsWhiteSpace.Medium),
+  calculatePadding_sceneHorizontalAlignments: enumValueToKey(CmsHorizontalAlignment, CmsHorizontalAlignment.Center),
+  verticalAlignments: enumValueToKey(CmsVerticalAlignment, CmsVerticalAlignment.Top),
   contentBoxFill: CmsContentBoxFill.None,
   rows: [
     {
@@ -135,20 +108,11 @@ export const contextBoxFillArgs: SceneWithAdditionalControls = {
   maxContentWidth,
   responsiveBreakpoint,
   calculatePadding_isFirstRow: false,
-  calculatePadding_isFullWidth: false,
+  calculatePadding_presentation: "normal",
   calculatePadding_applyPaddingBottom: false,
-  calculatePadding_sceneWhitespace: enumValueToKey(
-    CmsWhiteSpace,
-    CmsWhiteSpace.Medium,
-  ),
-  calculatePadding_sceneHorizontalAlignments: enumValueToKey(
-    CmsHorizontalAlignment,
-    CmsHorizontalAlignment.Center,
-  ),
-  verticalAlignments: enumValueToKey(
-    CmsVerticalAlignment,
-    CmsVerticalAlignment.Top,
-  ),
+  calculatePadding_sceneWhitespace: enumValueToKey(CmsWhiteSpace, CmsWhiteSpace.Medium),
+  calculatePadding_sceneHorizontalAlignments: enumValueToKey(CmsHorizontalAlignment, CmsHorizontalAlignment.Center),
+  verticalAlignments: enumValueToKey(CmsVerticalAlignment, CmsVerticalAlignment.Top),
   contentBoxFill: enumValueToKey(CmsContentBoxFill, CmsContentBoxFill.Dark),
   imageBackground: {
     backgroundColor: "#444444aa",
@@ -207,16 +171,10 @@ export const backgroundImageOnlyArgs: SceneWithAdditionalControls = {
   maxContentWidth,
   responsiveBreakpoint,
   calculatePadding_isFirstRow: false,
-  calculatePadding_isFullWidth: false,
+  calculatePadding_presentation: "normal",
   calculatePadding_applyPaddingBottom: false,
-  calculatePadding_sceneWhitespace: enumValueToKey(
-    CmsWhiteSpace,
-    CmsWhiteSpace.Medium,
-  ),
-  calculatePadding_sceneHorizontalAlignments: enumValueToKey(
-    CmsHorizontalAlignment,
-    CmsHorizontalAlignment.Center,
-  ),
+  calculatePadding_sceneWhitespace: enumValueToKey(CmsWhiteSpace, CmsWhiteSpace.Medium),
+  calculatePadding_sceneHorizontalAlignments: enumValueToKey(CmsHorizontalAlignment, CmsHorizontalAlignment.Center),
   imageBackground: {
     backgroundColor: "#F266AB",
     backgroundImageUrl,
@@ -224,10 +182,7 @@ export const backgroundImageOnlyArgs: SceneWithAdditionalControls = {
     lang: "en",
     backgroundImageStyle: CmsBackgroundImageStyle.Fit,
   },
-  verticalAlignments: enumValueToKey(
-    CmsVerticalAlignment,
-    CmsVerticalAlignment.Top,
-  ),
+  verticalAlignments: enumValueToKey(CmsVerticalAlignment, CmsVerticalAlignment.Top),
   contentBoxFill: enumValueToKey(CmsContentBoxFill, CmsContentBoxFill.None),
   rows: [],
 };
@@ -237,20 +192,11 @@ export const plainRowArgs: SceneWithAdditionalControls = {
   maxContentWidth,
   responsiveBreakpoint,
   calculatePadding_isFirstRow: false,
-  calculatePadding_isFullWidth: false,
+  calculatePadding_presentation: "normal",
   calculatePadding_applyPaddingBottom: false,
-  calculatePadding_sceneWhitespace: enumValueToKey(
-    CmsWhiteSpace,
-    CmsWhiteSpace.Medium,
-  ),
-  calculatePadding_sceneHorizontalAlignments: enumValueToKey(
-    CmsHorizontalAlignment,
-    CmsHorizontalAlignment.Center,
-  ),
-  verticalAlignments: enumValueToKey(
-    CmsVerticalAlignment,
-    CmsVerticalAlignment.Top,
-  ),
+  calculatePadding_sceneWhitespace: enumValueToKey(CmsWhiteSpace, CmsWhiteSpace.Medium),
+  calculatePadding_sceneHorizontalAlignments: enumValueToKey(CmsHorizontalAlignment, CmsHorizontalAlignment.Center),
+  verticalAlignments: enumValueToKey(CmsVerticalAlignment, CmsVerticalAlignment.Top),
   contentBoxFill: enumValueToKey(CmsContentBoxFill, CmsContentBoxFill.None),
   rows: [
     {

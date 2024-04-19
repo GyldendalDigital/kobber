@@ -12,13 +12,7 @@ import {
   headerArgs,
   plainRowArgs,
 } from "./stories/examples";
-import {
-  enumKeyToValue,
-  enumKeysToArray,
-  enumValueToKey,
-  getBodyCss,
-  templateResultToString,
-} from "./stories/helpers";
+import { enumKeyToValue, enumKeysToArray, enumValueToKey, getBodyCss, templateResultToString } from "./stories/helpers";
 import {
   CmsBackgroundImageStyle,
   CmsContentBoxFill,
@@ -61,10 +55,7 @@ export const MultipleScenes: StoryObj<SceneWithAdditionalControls> = {
           {
             ...contextBoxFillArgs,
             minHeight: "",
-            contentBoxFill: enumValueToKey(
-              CmsContentBoxFill,
-              CmsContentBoxFill.White,
-            ),
+            contentBoxFill: enumValueToKey(CmsContentBoxFill, CmsContentBoxFill.White),
             imageBackground: {
               backgroundColor: "#FFB84Cee",
               backgroundImageUrl,
@@ -84,17 +75,12 @@ const Wrapper: FunctionComponent<{ children: string }> = ({ children }) => (
   <div dangerouslySetInnerHTML={{ __html: children }} />
 );
 
-const render: ArgsStoryFn<ReactRenderer, SceneWithAdditionalControls> = (
-  args: SceneWithAdditionalControls,
-) => {
+const render: ArgsStoryFn<ReactRenderer, SceneWithAdditionalControls> = (args: SceneWithAdditionalControls) => {
   const padding = calculatePadding({
     isFirstRow: args.calculatePadding_isFirstRow,
-    isFullWidth: args.calculatePadding_isFullWidth,
+    presentation: args.calculatePadding_presentation,
     applyPaddingBottom: args.calculatePadding_applyPaddingBottom,
-    cmsWhiteSpace: enumKeyToValue(
-      CmsWhiteSpace,
-      args.calculatePadding_sceneWhitespace,
-    ) as unknown as CmsWhiteSpace,
+    cmsWhiteSpace: enumKeyToValue(CmsWhiteSpace, args.calculatePadding_sceneWhitespace) as unknown as CmsWhiteSpace,
     cmsHorizontalAlignment: enumKeyToValue(
       CmsHorizontalAlignment,
       args.calculatePadding_sceneHorizontalAlignments,
@@ -104,10 +90,7 @@ const render: ArgsStoryFn<ReactRenderer, SceneWithAdditionalControls> = (
     <style>
       ${getBodyCss()}
     </style>
-    <kobber-scene
-      min-height="${args.minHeight}"
-      responsive-breakpoint=${args.responsiveBreakpoint}
-    >
+    <kobber-scene min-height="${args.minHeight}" responsive-breakpoint=${args.responsiveBreakpoint}>
       ${args.imageBackground &&
       html`<kobber-scene-image-background
         background-color=${args.imageBackground.backgroundColor}
@@ -119,17 +102,11 @@ const render: ArgsStoryFn<ReactRenderer, SceneWithAdditionalControls> = (
       <kobber-scene-boundary
         max-content-width=${args.maxContentWidth}
         padding=${JSON.stringify(padding)}
-        vertical-alignments=${enumKeyToValue(
-          CmsVerticalAlignment,
-          args.verticalAlignments,
-        )}
-        content-box-fill=${enumKeyToValue(
-          CmsContentBoxFill,
-          args.contentBoxFill,
-        )}
+        vertical-alignments=${enumKeyToValue(CmsVerticalAlignment, args.verticalAlignments)}
+        content-box-fill=${enumKeyToValue(CmsContentBoxFill, args.contentBoxFill)}
       >
         ${args.rows.map(
-          (row) =>
+          row =>
             html`<kobber-scene-row
               columns=${row.columns}
               row-whitespace=${row.rowWhitespace}
@@ -138,7 +115,7 @@ const render: ArgsStoryFn<ReactRenderer, SceneWithAdditionalControls> = (
               horizontal-alignment=${row.horizontalAlignment}
             >
               ${row.columnItems.map(
-                (column) =>
+                column =>
                   html`<kobber-scene-column
                       section-whitespace=${column.sectionWhitespace}
                       vertical-alignments=${column.verticalAlignments}
