@@ -38,7 +38,7 @@ export const AllStates: Story = {
 export const Checkbox: Story = {
   render: args => {
     return html`
-      <kobber-checkbox>${args.checked}</kobber-checkbox>
+      <kobber-checkbox help-text=${args.helpText}>${args.checked}</kobber-checkbox>
       <script>
         const checkbox = document.querySelector("kobber-checkbox");
         checkbox.checked = ${args.checked === "checked"};
@@ -56,5 +56,6 @@ export const Checkbox: Story = {
   args: {
     checked: "checked",
     disabled: false,
+    helpText: "Læreren din har skrudd av denne innstillingen.",
   },
 };
