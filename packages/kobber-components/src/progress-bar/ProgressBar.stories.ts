@@ -9,7 +9,6 @@ const meta: Meta = {
   component: "kobber-progress-bar",
   tags: ["autodocs"],
   args: {
-    __progressBarFirstValue: 45,
     height: "default",
   },
   argTypes: {
@@ -17,19 +16,11 @@ const meta: Meta = {
       control: "inline-radio",
       options: ["default", "low"],
     },
-    __progressBarFirstValue: {
-      name: "Value",
-      description: "In reality, the sum of the bars' values will never exceed 100&nbsp;%.",
-      control: { type: "range", min: 0, max: 100 },
-      table: {
-        category: "First bar",
-      },
-    },
   },
   decorators: [
     (story, storyContext) => `
     <div 
-      style="display: grid; grid-template-columns: repeat(3, 200px)"
+      style="display: grid; grid-template-columns: repeat(3, 200px); gap: 0.5em;"
       class="${storyContext.globals.theme}"
     >
       ${story()}
@@ -76,11 +67,33 @@ export const Single: Story = {
       >
         <${ProgressBarItem} 
           ariaLabel="Måloppnåelse"
-          value-now="${args.__progressBarFirstValue}"
+          value-now="45"
           fill-color="${getFillColor(args)}"
           filled-color="${filledColor}"
         ></${ProgressBarItem}>
     </${ProgressBar}>
+
+    <label style="grid-column: 2;">
+      Change value
+      <input type="number" value="45" class="storybook-progress-bar-value" min="0" max="100" />
+    </label>
+
+    <script>
+      const valueSelector = document.querySelector(".storybook-progress-bar-value");
+      const progressBarItem = document.querySelector("${ProgressBarItem}");
+      valueSelector.addEventListener("change", (event) => {
+        if(progressBarItem) {
+          progressBarItem.setAttribute("value-now", event.target.value);
+        }
+      });
+    </script>
+
+    <details style="grid-column: 1/-1;">
+     <summary>Why not use a storybook control?</summary>
+     Because storybook re-renders stories when controls change. This creates the illusion that we don't need to observe for attribute changes.<br />
+     When component is used in real life, re-rendering does not occur, and observing needs to be in place.<br />
+     By using this input instead of a storybook control, we see something closer to what real-world usage looks like.
+    </details>
     `;
   },
   args: {
@@ -123,11 +136,20 @@ export const Double: Story = {
   },
   args: {
     spaceBetweenBars: true,
+    __progressBarFirstValue: 45,
     __progressBarSecondValue: 40,
     __progressColor: "low",
     height: "low",
   },
   argTypes: {
+    __progressBarFirstValue: {
+      name: "Value",
+      description: "In reality, the sum of the bars' values will never exceed 100&nbsp;%.",
+      control: { type: "range", min: 0, max: 100 },
+      table: {
+        category: "First bar",
+      },
+    },
     __progressBarSecondValue: {
       name: "Value",
       control: { type: "range", min: 0, max: 100 },
@@ -149,6 +171,9 @@ export const Double: Story = {
  * A special use case, where there is just one bar, and the background should match the bar's color.
  */
 export const Proficiency: Story = {
+  args: {
+    __progressBarFirstValue: 45,
+  },
   argTypes: {
     height: {
       table: {
