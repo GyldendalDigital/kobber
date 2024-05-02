@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.10
+
+### Patch Changes
+
+- ee2a7b7: Add observedAttributes to progressBarItem
+
 ## 0.3.9
 
 ### Patch Changes
