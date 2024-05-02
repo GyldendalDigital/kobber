@@ -13,25 +13,24 @@ export class ProgressBarItem extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    this.valueNow;
     this.fillColorFallback = "var(--kobber-component-progressbar-color-foreground-default-primary)";
     this.heightValueFallback = "var(--kobber-component-progressbar-color-background-default)";
     this.borderRadiusValueFallback = "var(--kobber-component-progressbar-border-radius)";
   }
 
-  connectedCallback() {
+  renderComponent() {
     const ariaLabel =
       this.getAttribute("ariaLabel") ||
       ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */
     const explainOtherUnitThanPercentage = this.getAttribute("explainOtherUnitThanPercentage") || "";
-    const valueNow = this.getAttribute("value-now");
     const valueMin = this.getAttribute("value-min") || "0";
     const valueMax = this.getAttribute("value-max") || "100";
     const fillColor = this.getAttribute("fill-color") || this.fillColorFallback;
     const filledColor = this.getAttribute("filled-color") || "";
 
-    const widthInPercent = (100.0 * valueNow) / (valueMax - valueMin);
-
-    const fillColorValue = valueNow === valueMax && filledColor !== "" ? filledColor : fillColor;
+    const widthInPercent = (100.0 * this.valueNow) / (valueMax - valueMin);
+    const fillColorValue = this.valueNow === valueMax && filledColor !== "" ? filledColor : fillColor;
 
     this.shadowRoot.innerHTML = `
     <style>
@@ -55,13 +54,32 @@ export class ProgressBarItem extends HTMLElement {
     <div 
       class="fill"
       role="progressbar"
-      aria-valuenow="${valueNow}"
+      aria-valuenow="${this.valueNow}"
       aria-valuemin="${valueMin}"
       aria-label="${ariaLabel}"
       aria-valuetext="${explainOtherUnitThanPercentage}"
       aria-valuemax="${valueMax}"
     ></div>
   `;
+  }
+
+  connectedCallback() {
+    this.valueNow = this.getAttribute("value-now");
+    this.renderComponent();
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    const progressBar = this.shadowRoot.querySelector("[role='progressbar']");
+    if (progressBar) {
+      if (name === "value-now") {
+        this.valueNow = newValue;
+      }
+      this.renderComponent();
+    }
+  }
+
+  static get observedAttributes() {
+    return ["value-now"];
   }
 }
 
