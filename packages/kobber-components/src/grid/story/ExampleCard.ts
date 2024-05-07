@@ -1,7 +1,6 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
-import { stringifyStyleObject } from "../../utils/stringifyStyleObject";
 
 const paddingBlock = "16px";
 
@@ -116,11 +115,7 @@ export class ExampleCard extends LitElement {
   };
 
   render() {
-    const hostStyles = stringifyStyleObject(":host", this.hostStyles());
     return html`
-      <style>
-        ${hostStyles}
-      </style>
       <div class="media">
         <img src="${this.image}" alt="" />
       </div>

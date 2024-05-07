@@ -3,7 +3,8 @@ import { ContextProvider as LitContextProvider } from "@lit/context";
 import { LitElement, css, html } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 import { context, defaultContext } from "./context";
-import { GridConfigId, gridConfigs } from "./gridConfig";
+import { gridConfigs } from "./gridConfig";
+import { GridConfigId } from "./gridConfig/types";
 import { ResponsiveCssValue, responsiveValueConverter as converter } from "../utils/responsiveCssValue";
 import { stringifyStyleObject } from "../utils/stringifyStyleObject";
 
