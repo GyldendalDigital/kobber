@@ -88,4 +88,5 @@ const render: ArgsStoryFn<WebComponentsRenderer> = args => {
 export const GridStory: Story = {
   render,
   parameters: { layout: "fullscreen" },
+  args: { gridConfig: gridConfigIds[0] },
 };
