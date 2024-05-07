@@ -17,6 +17,9 @@ export class GridColumnAspectRatio extends GridColumn {
     }
   `;
 
+  @property()
+  ["--span"]?: ResponsiveCssValue;
+
   @property({ converter, attribute: "aspect-ratio" })
   aspectRatio?: ResponsiveCssValue;
 

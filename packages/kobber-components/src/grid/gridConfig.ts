@@ -15,7 +15,7 @@ type GridColumnStyles = Pick<
   "gridColumn" | "paddingTop" | "paddingRight" | "paddingBottom" | "paddingLeft"
 >;
 
-type GridColumnAspectRatioStyles = GridColumnStyles & Pick<GridColumnAspectRatio, "aspectRatio">;
+type GridColumnAspectRatioStyles = GridColumnStyles & Pick<GridColumnAspectRatio, "--span" | "aspectRatio">;
 
 export interface GridConfig {
   id: GridConfigId;
@@ -72,12 +72,11 @@ const getCardGridConfig = (): GridConfig => {
       gridColumn: {
         [containerQuery]: "span 1",
       },
-
+    },
+    gridColumnAspectRatioStyles: {
       ["--span"]: {
         [containerQuery]: "1",
       },
-    },
-    gridColumnAspectRatioStyles: {
       aspectRatio: {
         // all: "1 / 1.125",
         all: "var(--span) / 1.125",
