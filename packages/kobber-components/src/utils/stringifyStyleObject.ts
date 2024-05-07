@@ -1,7 +1,5 @@
 import { compile, serialize, stringify } from "stylis";
-import { ResponsiveCssValue } from "./responsiveCssValue";
-
-type StyleValue = string | number | undefined | null | ResponsiveCssValue;
+import { StyleValue, isResponsiveCssStringValue, isResponsiveCssValue } from "./responsiveCssValue";
 
 type CssDeclaration = [string, StyleValue];
 
@@ -91,28 +89,32 @@ export const stringifyStyleObject = (selector: string, styles: Readonly<CssDecla
 const renderStringDeclarations = (selector: string, styleArray: CssDeclaration[]) => `
 ${selector} {
   ${styleArray
-    .filter(([, value]) => isStringValue(value))
+    .filter(([, value]) => isResponsiveCssStringValue(value))
     .map(([prop, value]) => (value ? `${toCssProp(prop)}: ${value}` : undefined))
     .join(";")}
 }
 `;
 
-const renderMediaQuery = (selector: string, mediaQuery: string, styleArray: CssDeclaration[]) => `
-@media ${mediaQuery} {
-  ${styleArray
-    .map(getDeclarations(mediaQuery))
-    .map(array => (array ? array.join(";") : ""))
-    .filter(isValidDeclaration)
-    .map(declaration => `${selector}{ ${declaration} }`)
-    .join(";")}
-}
-`;
+const renderMediaQuery = (selector: string, mediaQuery: string, styleArray: CssDeclaration[]) => {
+  const isContainerQuery = mediaQuery.trim().startsWith("@container");
+  const prefix = isContainerQuery ? "" : "@media";
+  return `
+  ${prefix} ${mediaQuery} {
+    ${styleArray
+      .map(getDeclarations(mediaQuery))
+      .map(array => (array ? array.join(";") : ""))
+      .filter(isValidDeclaration)
+      .map(declaration => `${selector}{ ${declaration} }`)
+      .join(";")}
+  }
+  `;
+};
 
 const getDeclarations =
   (mediaQuery?: string) =>
   ([camelCasedCssProp, value]: [string, StyleValue]) => {
     const cssProp = toCssProp(camelCasedCssProp);
-    if (mediaQuery && isResponsiveValue(value)) {
+    if (mediaQuery && isResponsiveCssValue(value)) {
       return Object.entries(value)
         .filter(([nestedMediaQuery]) => nestedMediaQuery === mediaQuery)
         .map(([, cssValue]) => `${cssProp}: ${cssValue}`);
@@ -121,15 +123,11 @@ const getDeclarations =
     }
   };
 
-const isResponsiveValue = (value: StyleValue): value is ResponsiveCssValue => typeof value === "object";
-
-const isStringValue = (value: StyleValue): value is string => typeof value === "string";
-
 const isValidDeclaration = (declaration: string | undefined) => declaration !== undefined && declaration !== "";
 
 const getMediaQueries = (styleArray: CssDeclaration[]) =>
   styleArray.reduce((array, [, value]) => {
-    if (isResponsiveValue(value)) {
+    if (isResponsiveCssValue(value)) {
       const unique = Object.keys(value).filter(f => !array.includes(f));
       return [...array, ...unique];
     }

@@ -1,6 +1,9 @@
 import { layout, mediaQuery } from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { ContextProvider as LitContextProvider } from "@lit/context";
 import { LitElement, css, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, state } from "lit/decorators.js";
+import { context, defaultContext } from "./context";
+import { GridConfigId, gridConfigs } from "./gridConfig";
 import { ResponsiveCssValue, responsiveValueConverter as converter } from "../utils/responsiveCssValue";
 import { stringifyStyleObject } from "../utils/stringifyStyleObject";
 
@@ -8,6 +11,7 @@ import { stringifyStyleObject } from "../utils/stringifyStyleObject";
 export class Grid extends LitElement {
   static styles = css`
     :host {
+      container-type: inline-size;
       display: grid;
       width: 100%;
       justify-items: center;
@@ -20,6 +24,26 @@ export class Grid extends LitElement {
       max-width: ${layout.maxWidth / 16}rem;
     }
   `;
+
+  @state()
+  private _configId: GridConfigId | undefined;
+
+  @property({ attribute: false })
+  private _provider = new LitContextProvider(this, {
+    context,
+    initialValue: defaultContext,
+  });
+
+  public get provider() {
+    return this._provider;
+  }
+
+  public set provider(value) {
+    this._provider = value;
+  }
+
+  @property()
+  config?: GridConfigId;
 
   @property({ converter, attribute: "grid-template" })
   gridTemplate?: ResponsiveCssValue;
@@ -53,7 +77,7 @@ export class Grid extends LitElement {
   justifyContent?: ResponsiveCssValue;
 
   @property({ converter, attribute: "gap" })
-  gap?: ResponsiveCssValue = layout.gap["8-16"];
+  gap?: ResponsiveCssValue = layout.gap["8-24"];
 
   @property({ converter, attribute: "justify-items" })
   justifyItems?: ResponsiveCssValue;
@@ -72,6 +96,25 @@ export class Grid extends LitElement {
 
   @property({ converter, attribute: "padding-left" })
   paddingLeft?: ResponsiveCssValue = layout.gap["16-32"];
+
+  attributeChangedCallback(name: unknown, _old: unknown, value: unknown) {
+    if (name === "config") {
+      this.applyConfig(value as GridConfigId);
+    }
+  }
+
+  applyConfig = (configId: GridConfigId) => {
+    this._configId = configId;
+    const styles = gridConfigs[this._configId].gridStyles ?? {};
+    this.gridTemplateColumns = styles.gridTemplateColumns ?? this.gridTemplateColumns;
+    this.gridAutoColumns = styles.gridAutoColumns ?? this.gridAutoColumns;
+    this.gap = styles.gap ?? this.gap;
+    this.paddingTop = styles.paddingTop ?? this.paddingTop;
+    this.paddingRight = styles.paddingRight ?? this.paddingRight;
+    this.paddingBottom = styles.paddingBottom ?? this.paddingBottom;
+    this.paddingLeft = styles.paddingTop ?? this.paddingLeft;
+    this.provider.setValue({ config: this._configId });
+  };
 
   hostStyles = () => ({
     paddingTop: this.paddingTop,
