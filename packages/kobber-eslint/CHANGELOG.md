@@ -1,5 +1,11 @@
 # @gyldendal/kobber-eslint
 
+## 0.3.11
+
+### Patch Changes
+
+- Predefined grid config for card layouts
+
 ## 0.3.10
 
 ### Patch Changes

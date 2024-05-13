@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.11
+
+### Patch Changes
+
+- Predefined grid config for card layouts
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.11
+
 ## 0.3.10
 
 ### Patch Changes
