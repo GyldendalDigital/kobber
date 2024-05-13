@@ -1,11 +1,16 @@
 import { layout, mediaQuery } from "@gyldendal/kobber-base/themes/default/tokens.js";
-import { LitElement, css, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { ContextProvider as LitContextProvider } from "@lit/context";
+import { css, html } from "lit";
+import { customElement, property, state } from "lit/decorators.js";
+import { context, defaultContext } from "./context";
+import { gridConfigs } from "./gridConfig";
+import { GridConfig, GridConfigId } from "./gridConfig/types";
+import { StyledLitElement } from "../utils/StyledLitElement";
 import { ResponsiveCssValue, responsiveValueConverter as converter } from "../utils/responsiveCssValue";
 import { stringifyStyleObject } from "../utils/stringifyStyleObject";
 
 @customElement("kobber-grid")
-export class Grid extends LitElement {
+export class Grid extends StyledLitElement {
   static styles = css`
     :host {
       display: grid;
@@ -21,83 +26,77 @@ export class Grid extends LitElement {
     }
   `;
 
-  @property({ converter, attribute: "grid-template" })
-  gridTemplate?: ResponsiveCssValue;
+  @property({ attribute: false })
+  private _provider = new LitContextProvider(this, {
+    context,
+    initialValue: defaultContext,
+  });
 
-  @property({ converter, attribute: "grid-auto-columns" })
-  gridAutoColumns?: ResponsiveCssValue;
+  public get provider() {
+    return this._provider;
+  }
 
-  @property({ converter, attribute: "grid-auto-flow" })
-  gridAutoFlow?: ResponsiveCssValue;
+  public set provider(value) {
+    this._provider = value;
+  }
 
-  @property({ converter, attribute: "grid-auto-rows" })
-  gridAutoRows?: ResponsiveCssValue;
+  @state()
+  private _config: GridConfig | undefined;
 
-  @property({ converter, attribute: "grid-template-areas" })
-  gridTemplateAreas?: ResponsiveCssValue;
+  @property()
+  set config(value: GridConfigId) {
+    const config = gridConfigs[value];
+    this._config = config;
+    this.provider.setValue({ config });
+  }
 
   @property({ converter, attribute: "grid-template-columns" })
-  gridTemplateColumns?: ResponsiveCssValue = {
+  override gridTemplateColumns?: ResponsiveCssValue = {
     [mediaQuery.small]: "repeat(4, 1fr)",
     [mediaQuery.medium]: "repeat(6, 1fr)",
     [mediaQuery.large]: "repeat(12, 1fr)",
   };
 
-  @property({ converter, attribute: "grid-template-rows" })
-  gridTemplateRows?: ResponsiveCssValue;
-
-  @property({ converter, attribute: "align-conent" })
-  alignContent?: ResponsiveCssValue;
-
-  @property({ converter, attribute: "justify-content" })
-  justifyContent?: ResponsiveCssValue;
-
   @property({ converter, attribute: "gap" })
-  gap?: ResponsiveCssValue = layout.gap["8-16"];
-
-  @property({ converter, attribute: "justify-items" })
-  justifyItems?: ResponsiveCssValue;
-
-  @property({ converter, attribute: "align-items" })
-  alignItems?: ResponsiveCssValue;
-
-  @property({ converter, attribute: "padding-top" })
-  paddingTop?: ResponsiveCssValue;
+  gap?: ResponsiveCssValue = layout.gap["8-24"];
 
   @property({ converter, attribute: "padding-right" })
   paddingRight?: ResponsiveCssValue = layout.gap["16-32"];
 
-  @property({ converter, attribute: "padding-bottom" })
-  paddingBottom?: ResponsiveCssValue;
-
   @property({ converter, attribute: "padding-left" })
   paddingLeft?: ResponsiveCssValue = layout.gap["16-32"];
 
-  hostStyles = () => ({
-    paddingTop: this.paddingTop,
-    paddingRight: this.paddingRight,
-    paddingBottom: this.paddingBottom,
-    paddingLeft: this.paddingLeft,
-  });
-
-  gridStyles = () => ({
-    gridTemplate: this.gridTemplate,
-    gridAutoColumns: this.gridAutoColumns,
-    gridAutoFlow: this.gridAutoFlow,
-    gridAutoRows: this.gridAutoRows,
-    gridTemplateColumns: this.gridTemplateColumns,
-    gridTemplateAreas: this.gridTemplateAreas,
-    gridTemplateRows: this.gridTemplateRows,
-    alignContent: this.alignContent,
-    justifyContent: this.justifyContent,
-    gap: this.gap,
-    justifyItems: this.justifyItems,
-    alignItems: this.alignItems,
-  });
-
   render() {
-    const hostStyles = stringifyStyleObject(":host", this.hostStyles());
-    const gridStyles = stringifyStyleObject(".grid", this.gridStyles());
+    const {
+      containerType,
+      padding,
+      paddingBlock,
+      paddingBlockEnd,
+      paddingBlockStart,
+      paddingInline,
+      paddingInlineEnd,
+      paddingInlineStart,
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft,
+      ...rest
+    } = this.getStyles(this._config?.gridProperties);
+    const hostStyles = stringifyStyleObject(":host", {
+      containerType,
+      padding,
+      paddingBlock,
+      paddingBlockEnd,
+      paddingBlockStart,
+      paddingInline,
+      paddingInlineEnd,
+      paddingInlineStart,
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft,
+    });
+    const gridStyles = stringifyStyleObject(".grid", rest);
     return html`
       <style>
         ${hostStyles}

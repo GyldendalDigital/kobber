@@ -70,6 +70,36 @@ export const additionalTokens = {
           unit: "rem",
         },
       },
+      "8-24": {
+        type: "fluidClamp",
+        value: {
+          min: rem(8),
+          max: rem(24),
+          viewportMin: rem(minWidth),
+          viewportMax: rem(viewportWidth.large.min.value),
+          unit: "rem",
+        },
+      },
+      "8-32": {
+        type: "fluidClamp",
+        value: {
+          min: rem(8),
+          max: rem(32),
+          viewportMin: rem(minWidth),
+          viewportMax: rem(viewportWidth.large.min.value),
+          unit: "rem",
+        },
+      },
+      "6-12": {
+        type: "fluidClamp",
+        value: {
+          min: rem(6),
+          max: rem(12),
+          viewportMin: rem(minWidth),
+          viewportMax: rem(viewportWidth.large.min.value),
+          unit: "rem",
+        },
+      },
       "16-32": {
         type: "fluidClamp",
         value: {
