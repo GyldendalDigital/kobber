@@ -7,6 +7,7 @@ import "./GridColumn";
 import "./GridColumnAspectRatio";
 import { gridConfigs } from "./gridConfig";
 import "./story/ExampleCard";
+import { mediaQuery } from "@gyldendal/kobber-base/themes/default/tokens";
 
 const gridConfigArray = Object.values(gridConfigs);
 
@@ -80,6 +81,18 @@ const render: ArgsStoryFn<WebComponentsRenderer> = args => {
         <kobber-grid-column-aspect-ratio>
           <kobber-example-card badge="10" image="${placeholderImage}" heading="Lorem ipsum" body="Dolor sit amet" />
         </kobber-grid-column-aspect-ratio>
+      </kobber-grid>
+
+      <kobber-grid
+        grid-template-columns="${JSON.stringify({
+          [mediaQuery.small]: "repeat(4, 1fr)",
+          [mediaQuery.medium]: "repeat(6, 1fr)",
+          [mediaQuery.large]: "repeat(12, 1fr)",
+        })}"
+      >
+        <kobber-grid-column> Column 1 </kobber-grid-column>
+        <kobber-grid-column> Column 2 </kobber-grid-column>
+        <kobber-grid-column> Column 3 </kobber-grid-column>
       </kobber-grid>
     </div>
   `;

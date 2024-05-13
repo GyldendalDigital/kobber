@@ -1,8 +1,8 @@
 import { createContext } from "@lit/context";
-import { GridConfigId } from "./gridConfig/types";
+import { GridConfig } from "./gridConfig/types";
 
 export interface Context {
-  config?: GridConfigId;
+  config?: GridConfig;
 }
 
 export const defaultContext: Context = {};

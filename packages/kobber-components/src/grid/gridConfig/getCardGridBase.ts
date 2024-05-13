@@ -1,11 +1,12 @@
 import { layout } from "@gyldendal/kobber-base/themes/default/tokens";
+import { GridConfig } from "./types";
 
 interface GetCardGridBaseOptions {
   maxColumns: number;
   aspectRatioHeight: number;
 }
 
-export const getCardGridBase = ({ maxColumns, aspectRatioHeight }: GetCardGridBaseOptions) => {
+export const getCardGridBase = ({ maxColumns, aspectRatioHeight }: GetCardGridBaseOptions): GridConfig => {
   const gap = layout.gap["6-12"];
 
   const minCardWidth = 208;
@@ -18,10 +19,13 @@ export const getCardGridBase = ({ maxColumns, aspectRatioHeight }: GetCardGridBa
 
   return {
     id: "cardGrid",
-    gridStyles: {
+    gridProperties: {
+      padding: gap,
+      gap: "0",
+      containerType: "inline-size",
       gridTemplateColumns: {
         all: `repeat(
-          auto-fit,
+          auto-fill,
           minmax(
             min(
               100%,
@@ -35,24 +39,12 @@ export const getCardGridBase = ({ maxColumns, aspectRatioHeight }: GetCardGridBa
         )`,
         [containerQuery]: "1fr",
       },
-      gap: "0",
-      paddingTop: gap,
-      paddingRight: gap,
-      paddingBottom: gap,
-      paddingLeft: gap,
     },
-    gridColumnStyles: {
-      paddingTop: gap,
-      paddingRight: gap,
-      paddingBottom: gap,
-      paddingLeft: gap,
-
-      // Override custom grid column spans set by consumer
+    gridColumnAspectRatioProperties: {
+      padding: gap,
       gridColumn: {
         [containerQuery]: "span 1",
       },
-    },
-    gridColumnAspectRatioStyles: {
       ["--span"]: {
         [containerQuery]: "1",
       },

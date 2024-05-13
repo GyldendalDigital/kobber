@@ -7,6 +7,7 @@ import { GridColumn } from "./grid/GridColumn";
 import { Checkbox } from "./checkbox/Checkbox";
 import { ProgressBar } from "./progress-bar/ProgressBar";
 import { ProgressBarItem } from "./progress-bar/ProgressBarItem";
+import { GridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
 
 export const KobberGrid = createComponent({
   tagName: "kobber-grid",
@@ -17,6 +18,12 @@ export const KobberGrid = createComponent({
 export const KobberGridColumn = createComponent({
   tagName: "kobber-grid-column",
   elementClass: GridColumn,
+  react: React,
+});
+
+export const KobberGridColumnAspectRatio = createComponent({
+  tagName: "kobber-grid-column-aspect-ratio",
+  elementClass: GridColumnAspectRatio,
   react: React,
 });
 

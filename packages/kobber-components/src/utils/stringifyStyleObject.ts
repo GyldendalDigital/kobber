@@ -134,5 +134,5 @@ const getMediaQueries = (styleArray: CssDeclaration[]) =>
     return array;
   }, [] as string[]);
 
-const toCssProp = (prop: string) =>
+export const toCssProp = (prop: string) =>
   prop.includes("-") ? prop : prop.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g, "-$&").toLowerCase();

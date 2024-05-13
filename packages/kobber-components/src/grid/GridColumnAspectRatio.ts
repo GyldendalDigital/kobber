@@ -1,7 +1,6 @@
 import { CSSResultGroup, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { GridColumn } from "./GridColumn";
-import { gridConfigs } from "./gridConfig";
 import { ResponsiveCssValue, responsiveValueConverter as converter } from "../utils/responsiveCssValue";
 import { stringifyStyleObject } from "../utils/stringifyStyleObject";
 
@@ -23,29 +22,46 @@ export class GridColumnAspectRatio extends GridColumn {
   @property({ converter, attribute: "aspect-ratio" })
   aspectRatio?: ResponsiveCssValue;
 
-  private getAspectRatioStyles = () =>
+  private getSpanCssVariable = () =>
     stringifyStyleObject(":host", {
-      aspectRatio: this.getAspectRatio(),
       ["--span"]: this.span ? this.span.toString() : "1",
     });
 
-  private getAspectRatio() {
-    const stylesFromConfig = this.context.config
-      ? gridConfigs[this.context.config].gridColumnAspectRatioStyles
-      : undefined;
-    const aspectRatio = stylesFromConfig?.aspectRatio ?? this.aspectRatio;
-    return aspectRatio;
-  }
-
   render() {
+    const {
+      padding,
+      paddingBlock,
+      paddingBlockEnd,
+      paddingBlockStart,
+      paddingInline,
+      paddingInlineEnd,
+      paddingInlineStart,
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft,
+      ...rest
+    } = this.getStyles(this.context.config?.gridColumnAspectRatioProperties);
+    const paddingStyles = stringifyStyleObject(".padding", {
+      padding,
+      paddingBlock,
+      paddingBlockEnd,
+      paddingBlockStart,
+      paddingInline,
+      paddingInlineEnd,
+      paddingInlineStart,
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft,
+    });
+    const hostStyles = stringifyStyleObject(":host", rest);
     return html`
       <style>
         ${this.getGridColumnStyles()}
-        ${this.getStyles()}
-        ${this.getPaddingStyles(".padding")}
-        ${this.getConfigStyles()}
-        ${this.getPaddingStylesFromConfig(".padding")}
-        ${this.getAspectRatioStyles()}
+        ${hostStyles}
+        ${paddingStyles}
+        ${this.getSpanCssVariable()}
       </style>
       <div class="padding">
         <slot />
