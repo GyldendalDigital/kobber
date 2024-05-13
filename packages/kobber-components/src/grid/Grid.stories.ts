@@ -1,3 +1,4 @@
+import { mediaQuery } from "@gyldendal/kobber-base/themes/default/tokens";
 import { ArgsStoryFn } from "@storybook/types";
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { WebComponentsRenderer } from "@storybook/web-components";
@@ -7,7 +8,6 @@ import "./GridColumn";
 import "./GridColumnAspectRatio";
 import { gridConfigs } from "./gridConfig";
 import "./story/ExampleCard";
-import { mediaQuery } from "@gyldendal/kobber-base/themes/default/tokens";
 
 const gridConfigArray = Object.values(gridConfigs);
 
@@ -26,6 +26,7 @@ const meta: Meta = {
 };
 
 export default meta;
+
 type Story = StoryObj;
 
 const placeholderImage =
@@ -100,6 +101,7 @@ const render: ArgsStoryFn<WebComponentsRenderer> = args => {
 
 export const GridStory: Story = {
   render,
+  name: "Grid",
   parameters: { layout: "fullscreen" },
   args: { gridConfig: gridConfigIds[0] },
 };

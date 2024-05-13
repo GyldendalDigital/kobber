@@ -13,7 +13,9 @@ export const getCardGridBase = ({ maxColumns, aspectRatioHeight }: GetCardGridBa
 
   const oneColumnBreakpoint = 480;
 
-  const containerQuery = `@container (max-width: ${oneColumnBreakpoint}px)`;
+  // When container queries are supported everywhere, we can replace this with @container (max-width: ${oneColumnBreakpoint}px).
+  // So that the grid's layout depends on its available width rather than screen width.
+  const oneColumnQuery = `(max-width: ${oneColumnBreakpoint}px)`;
 
   const minColumnWidth = `calc(${minCardWidth}px + ${gap} + ${gap})`;
 
@@ -37,20 +39,20 @@ export const getCardGridBase = ({ maxColumns, aspectRatioHeight }: GetCardGridBa
             1fr
           )
         )`,
-        [containerQuery]: "1fr",
+        [oneColumnQuery]: "1fr",
       },
     },
     gridColumnAspectRatioProperties: {
       padding: gap,
       gridColumn: {
-        [containerQuery]: "span 1",
+        [oneColumnQuery]: "span 1",
       },
       ["--span"]: {
-        [containerQuery]: "1",
+        [oneColumnQuery]: "1",
       },
       aspectRatio: {
         all: `var(--span) / ${aspectRatioHeight}`,
-        [containerQuery]: `1 / ${aspectRatioHeight}`,
+        [oneColumnQuery]: `1 / ${aspectRatioHeight}`,
       },
     },
   };

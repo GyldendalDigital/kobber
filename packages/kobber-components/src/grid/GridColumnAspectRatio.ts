@@ -3,6 +3,7 @@ import { customElement, property } from "lit/decorators.js";
 import { GridColumn } from "./GridColumn";
 import { ResponsiveCssValue, responsiveValueConverter as converter } from "../utils/responsiveCssValue";
 import { stringifyStyleObject } from "../utils/stringifyStyleObject";
+import "./../aspect-ratio/AspectRatio";
 
 @customElement("kobber-grid-column-aspect-ratio")
 export class GridColumnAspectRatio extends GridColumn {
@@ -40,6 +41,7 @@ export class GridColumnAspectRatio extends GridColumn {
       paddingRight,
       paddingBottom,
       paddingLeft,
+      aspectRatio,
       ...rest
     } = this.getStyles(this.context.config?.gridColumnAspectRatioProperties);
     const paddingStyles = stringifyStyleObject(".padding", {
@@ -64,7 +66,9 @@ export class GridColumnAspectRatio extends GridColumn {
         ${this.getSpanCssVariable()}
       </style>
       <div class="padding">
-        <slot />
+        <kobber-aspect-ratio aspect-ratio=${JSON.stringify(aspectRatio)}>
+          <slot />
+        </kobber-aspect-ratio>
       </div>
     `;
   }

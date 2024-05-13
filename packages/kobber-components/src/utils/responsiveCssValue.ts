@@ -19,12 +19,12 @@ export const isResponsiveCssObjectValue = (value: StyleValue): value is Responsi
 
 export const isResponsiveCssStringValue = (value: StyleValue): value is string => typeof value === "string";
 
-export const mapResponsiveCssValue = (
+export const mapResponsiveCssValue = <ReturnType = string>(
   value: ResponsiveCssValue | undefined,
-  callback: (cssValue: string) => string,
+  callback: (cssValue: string) => ReturnType,
 ) => {
   if (isResponsiveCssObjectValue(value)) {
-    const updated: ResponsiveCssValue = {};
+    const updated: Record<string, ReturnType> = {};
     for (const query in value) {
       const cssValue = value[query];
       updated[query] = callback(cssValue);
