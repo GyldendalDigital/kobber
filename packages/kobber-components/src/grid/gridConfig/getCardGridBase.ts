@@ -11,7 +11,7 @@ export const getCardGridBase = ({ maxColumns, aspectRatioHeight }: GetCardGridBa
 
   const minCardWidth = 208;
 
-  const oneColumnBreakpoint = 480;
+  const oneColumnBreakpoint = 520;
 
   // When container queries are supported everywhere, we can replace this with @container (max-width: ${oneColumnBreakpoint}px).
   // So that the grid's layout depends on its available width rather than screen width.
