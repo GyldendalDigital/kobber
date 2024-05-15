@@ -96,4 +96,8 @@ export default css`
     font-style: normal;
     font-weight: 500;
   }
+
+  .form-control__help-text {
+    margin-left: calc(var(--kobber-component-input-checkbox-size) + var(--kobber-component-input-checkbox-gap));
+  }
 `;
