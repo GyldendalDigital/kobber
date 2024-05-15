@@ -46,6 +46,20 @@ export const Checkbox: Story = {
         checkbox.checked = ${args.checked === "checked"};
         checkbox.indeterminate = ${args.checked === "indeterminate"};
         checkbox.disabled = ${args.disabled};
+
+        const showCustomStyling = ${args.showCustomStyling};
+
+        if (showCustomStyling) {
+          const sheet = new CSSStyleSheet();
+          sheet.replaceSync(
+            ".form-control__help-text { color: ${args.disabled
+              ? "var(--kobber-semantic-action-color-default-disabled-foreground)"
+              : "var(--kobber-semantic-action-color-default-default-foreground)"};font-style: italic;}",
+          );
+
+          const elemStyleSheets = checkbox.shadowRoot.adoptedStyleSheets;
+          checkbox.shadowRoot.adoptedStyleSheets = [...elemStyleSheets, sheet];
+        }
       </script>
     `;
   },
@@ -58,5 +72,6 @@ export const Checkbox: Story = {
   args: {
     checked: "checked",
     disabled: false,
+    showCustomStyling: true,
   },
 };
