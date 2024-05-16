@@ -1,5 +1,11 @@
 # @gyldendal/kobber-base
 
+## 0.3.12
+
+### Patch Changes
+
+- Refine checkbox code (add new story, enable injecting styles)
+
 ## 0.3.11
 
 ### Patch Changes
