@@ -9,8 +9,11 @@ export default css`
     display: none;
   }
 
-  /* Label */
   .form-control--has-label .form-control__label {
+    display: inline-block;
+  }
+
+  .form-control--has-help-text .form-control__help-text {
     display: inline-block;
   }
 `;

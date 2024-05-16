@@ -5,26 +5,24 @@ import { html } from "lit";
 const meta: Meta = {
   component: "kobber-checkbox",
   tags: ["autodocs"],
-  argTypes: {},
+  decorators: [(story, storyContext) => html` <div class="${storyContext.globals.theme}">${story()}</div>`],
 };
 
 export default meta;
 type Story = StoryObj;
 
-export const Checkbox: Story = {
-  args: {},
-  render: (_, context) => html`
-    <!-- <link rel="stylesheet" href="/themes/light.css" /> -->
-    <div class="${context.globals?.theme}" style="display: flex; flex-direction: column; gap: 10px; min-width: 30vw;">
+export const AllStates: Story = {
+  render: () => html`
+    <div style="display: flex; flex-direction: column; gap: 10px; min-width: 30vw;">
       <fieldset style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
         <legend>Test-checkbox</legend>
         <kobber-checkbox>Unchecked</kobber-checkbox>
         <kobber-checkbox checked>Checked</kobber-checkbox>
-        <kobber-checkbox id="cb-indeterminate" indeterminate>Indeterminate</kobber-checkbox>
+        <kobber-checkbox id="cb-indeterminate">Indeterminate</kobber-checkbox>
+        <kobber-checkbox indeterminate>Indeterminate</kobber-checkbox>
         <kobber-checkbox disabled>Disabled</kobber-checkbox>
         <kobber-checkbox disabled checked>Checked + Disabled</kobber-checkbox>
         <kobber-checkbox disabled id="cb-indeterminate-2">Indeterminate + Disabled</kobber-checkbox>
-      </fieldset>
       </fieldset>
     </div>
     <script>
@@ -32,4 +30,48 @@ export const Checkbox: Story = {
       document.getElementById("cb-indeterminate-2").indeterminate = true;
     </script>
   `,
+};
+
+/**
+ * For some reason, page need to be reloaded for controls to come into effect.
+ */
+export const Checkbox: Story = {
+  render: args => {
+    return html`
+      <kobber-checkbox help-text="Læreren din har skrudd ${args.disabled ? "av" : "på"} denne innstillingen."
+        >${args.checked}</kobber-checkbox
+      >
+      <script>
+        const checkbox = document.querySelector("kobber-checkbox");
+        checkbox.checked = ${args.checked === "checked"};
+        checkbox.indeterminate = ${args.checked === "indeterminate"};
+        checkbox.disabled = ${args.disabled};
+
+        const showCustomStyling = ${args.showCustomStyling};
+
+        if (showCustomStyling) {
+          const sheet = new CSSStyleSheet();
+          sheet.replaceSync(
+            ".form-control__help-text { color: ${args.disabled
+              ? "var(--kobber-semantic-action-color-default-disabled-foreground)"
+              : "var(--kobber-semantic-action-color-default-default-foreground)"};font-style: italic;}",
+          );
+
+          const elemStyleSheets = checkbox.shadowRoot.adoptedStyleSheets;
+          checkbox.shadowRoot.adoptedStyleSheets = [...elemStyleSheets, sheet];
+        }
+      </script>
+    `;
+  },
+  argTypes: {
+    checked: {
+      control: "inline-radio",
+      options: ["unchecked", "checked", "indeterminate"],
+    },
+  },
+  args: {
+    checked: "checked",
+    disabled: false,
+    showCustomStyling: true,
+  },
 };

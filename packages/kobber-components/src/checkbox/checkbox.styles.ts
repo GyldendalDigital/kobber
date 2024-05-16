@@ -13,7 +13,7 @@ export default css`
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    gap: (--kobber-component-input-checkbox-gap);
+    gap: var(--kobber-component-input-checkbox-gap);
     cursor: pointer;
   }
 
@@ -95,5 +95,9 @@ export default css`
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
+  }
+
+  .form-control__help-text {
+    margin-left: calc(var(--kobber-component-input-checkbox-size) + var(--kobber-component-input-checkbox-gap));
   }
 `;
