@@ -1,4 +1,4 @@
-import { layout } from "@gyldendal/kobber-base/themes/default/tokens";
+import { layout } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { GridConfig } from "./types";
 
 interface GetCardGridBaseOptions {
