@@ -1,5 +1,11 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.13
+
+### Patch Changes
+
+- Enhance progressbar accessibility (by adding border)
+
 ## 0.3.12
 
 ### Patch Changes
