@@ -59,6 +59,7 @@ export class ProgressBar extends HTMLElement {
       .list {
         border-radius: inherit;
         background-color: ${backgroundColor};
+        border: 1px solid;
       }
         
       slot {
