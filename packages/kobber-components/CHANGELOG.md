@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.14
+
+### Patch Changes
+
+- Add extension to tokens import (to avoid pipeline crashing)
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.14
+
 ## 0.3.13
 
 ### Patch Changes
