@@ -1,4 +1,5 @@
 export const renderIndicators = () => {
+  document.querySelectorAll("[data-indicator]").forEach(element => element.remove());
   const cards = Array.from(document.querySelectorAll(".demo kobber-grid-column-aspect-ratio kobber-example-card"));
   const windowWidthIndicator = createIndicator(false);
   const boundaryIndicator = createIndicator(false);
@@ -56,6 +57,7 @@ interface UpdateOptions {
 
 const createIndicator = (vertical: boolean) => {
   const element = document.createElement("div");
+  element.setAttribute("data-indicator", "");
   element.style.borderBottom = vertical ? "" : "solid 1px black";
   element.style.borderLeft = vertical ? "solid 1px black" : "";
   element.style.fontSize = "12px";
