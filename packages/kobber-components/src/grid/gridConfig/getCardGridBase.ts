@@ -7,7 +7,9 @@ interface GetCardGridBaseOptions {
 }
 
 export const getCardGridBase = ({ maxColumns, aspectRatioHeight }: GetCardGridBaseOptions): GridConfig => {
-  const gap = layout.gap["8-12"];
+  const outerPadding = layout.gap["8-96"];
+
+  const gap = layout.gap["8-16"];
 
   const minCardWidth = 208;
 
@@ -23,8 +25,9 @@ export const getCardGridBase = ({ maxColumns, aspectRatioHeight }: GetCardGridBa
   return {
     id: "cardGrid",
     gridProperties: {
-      padding: gap,
-      maxWidth: `${1112 / 16}rem`,
+      padding: `${gap} ${outerPadding}`,
+      // maxWidth: `${1112 / 16}rem`,
+      maxWidth: `${1376 / 16}rem`,
 
       // Using css grid gaps will break aspect ratios
       gap: "0",

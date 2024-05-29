@@ -7,10 +7,10 @@ const viewportWidth = {
   },
   medium: {
     min: { type: "dimension", value: 640 },
-    max: { type: "dimension", value: 1280 - 1 },
+    max: { type: "dimension", value: 1600 - 1 },
   },
   large: {
-    min: { type: "dimension", value: 1280 },
+    min: { type: "dimension", value: 1600 },
   },
 };
 
@@ -60,6 +60,7 @@ export const additionalTokens = {
       ...createFluidClamp(8, 16),
       ...createFluidClamp(8, 24),
       ...createFluidClamp(8, 32),
+      ...createFluidClamp(8, 96),
       ...createFluidClamp(16, 24),
       ...createFluidClamp(16, 32),
     },
