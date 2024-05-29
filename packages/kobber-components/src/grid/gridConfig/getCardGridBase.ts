@@ -7,11 +7,12 @@ interface GetCardGridBaseOptions {
 }
 
 export const getCardGridBase = ({ maxColumns, aspectRatioHeight }: GetCardGridBaseOptions): GridConfig => {
-  const gap = layout.gap["6-12"];
+  const gap = layout.gap["8-12"];
 
   const minCardWidth = 208;
 
-  const oneColumnBreakpoint = 520;
+  // Below this point, two columns will be too small for minCardWidth
+  const oneColumnBreakpoint = 488;
 
   // When container queries are supported everywhere, we can replace this with @container (max-width: ${oneColumnBreakpoint}px).
   // So that the grid's layout depends on its available width rather than screen width.
@@ -23,7 +24,11 @@ export const getCardGridBase = ({ maxColumns, aspectRatioHeight }: GetCardGridBa
     id: "cardGrid",
     gridProperties: {
       padding: gap,
+      maxWidth: `${1112 / 16}rem`,
+
+      // Using css grid gaps will break aspect ratios
       gap: "0",
+
       containerType: "inline-size",
       gridTemplateColumns: {
         all: `repeat(

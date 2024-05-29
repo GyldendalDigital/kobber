@@ -9,6 +9,10 @@ import { StyledLitElement } from "../utils/StyledLitElement";
 import { ResponsiveCssValue, responsiveValueConverter as converter } from "../utils/responsiveCssValue";
 import { stringifyStyleObject } from "../utils/stringifyStyleObject";
 
+const defaultGridStyles = {
+  maxWidth: `${layout.maxWidth / 16}rem`,
+};
+
 @customElement("kobber-grid")
 export class Grid extends StyledLitElement {
   static styles = css`
@@ -20,9 +24,8 @@ export class Grid extends StyledLitElement {
 
     .grid {
       display: grid;
-      width: 100%;
       min-width: 0;
-      max-width: ${layout.maxWidth / 16}rem;
+      width: 100%;
     }
   `;
 
@@ -69,7 +72,6 @@ export class Grid extends StyledLitElement {
   render() {
     const {
       containerType,
-      padding,
       paddingBlock,
       paddingBlockEnd,
       paddingBlockStart,
@@ -80,11 +82,11 @@ export class Grid extends StyledLitElement {
       paddingRight,
       paddingBottom,
       paddingLeft,
+      padding,
       ...rest
     } = this.getStyles(this._config?.gridProperties);
     const hostStyles = stringifyStyleObject(":host", {
       containerType,
-      padding,
       paddingBlock,
       paddingBlockEnd,
       paddingBlockStart,
@@ -95,8 +97,9 @@ export class Grid extends StyledLitElement {
       paddingRight,
       paddingBottom,
       paddingLeft,
+      padding,
     });
-    const gridStyles = stringifyStyleObject(".grid", rest);
+    const gridStyles = stringifyStyleObject(".grid", { ...defaultGridStyles, ...rest });
     return html`
       <style>
         ${hostStyles}
