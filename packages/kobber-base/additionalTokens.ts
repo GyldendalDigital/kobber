@@ -16,6 +16,19 @@ const viewportWidth = {
 
 const rem = (value: number) => value / 16;
 
+const createFluidClamp = (min: number, max: number) => ({
+  [`${min}-${max}`]: {
+    type: "fluidClamp",
+    value: {
+      min: rem(min),
+      max: rem(max),
+      viewportMin: rem(minWidth),
+      viewportMax: rem(viewportWidth.large.min.value),
+      unit: "rem",
+    },
+  },
+});
+
 export const additionalTokens = {
   mediaQuery: {
     small: {
@@ -40,76 +53,15 @@ export const additionalTokens = {
       max: { type: "dimension", value: 16 },
     },
     gap: {
-      "4-16": {
-        type: "fluidClamp",
-        value: {
-          min: rem(4),
-          max: rem(16),
-          viewportMin: rem(minWidth),
-          viewportMax: rem(viewportWidth.large.min.value),
-          unit: "rem",
-        },
-      },
-      "4-8": {
-        type: "fluidClamp",
-        value: {
-          min: rem(4),
-          max: rem(8),
-          viewportMin: rem(minWidth),
-          viewportMax: rem(viewportWidth.large.min.value),
-          unit: "rem",
-        },
-      },
-      "8-16": {
-        type: "fluidClamp",
-        value: {
-          min: rem(8),
-          max: rem(16),
-          viewportMin: rem(minWidth),
-          viewportMax: rem(viewportWidth.large.min.value),
-          unit: "rem",
-        },
-      },
-      "8-24": {
-        type: "fluidClamp",
-        value: {
-          min: rem(8),
-          max: rem(24),
-          viewportMin: rem(minWidth),
-          viewportMax: rem(viewportWidth.large.min.value),
-          unit: "rem",
-        },
-      },
-      "8-32": {
-        type: "fluidClamp",
-        value: {
-          min: rem(8),
-          max: rem(32),
-          viewportMin: rem(minWidth),
-          viewportMax: rem(viewportWidth.large.min.value),
-          unit: "rem",
-        },
-      },
-      "6-12": {
-        type: "fluidClamp",
-        value: {
-          min: rem(6),
-          max: rem(12),
-          viewportMin: rem(minWidth),
-          viewportMax: rem(viewportWidth.large.min.value),
-          unit: "rem",
-        },
-      },
-      "16-32": {
-        type: "fluidClamp",
-        value: {
-          min: rem(16),
-          max: rem(32),
-          viewportMin: rem(minWidth),
-          viewportMax: rem(viewportWidth.large.min.value),
-          unit: "rem",
-        },
-      },
+      ...createFluidClamp(4, 16),
+      ...createFluidClamp(4, 8),
+      ...createFluidClamp(6, 12),
+      ...createFluidClamp(8, 12),
+      ...createFluidClamp(8, 16),
+      ...createFluidClamp(8, 24),
+      ...createFluidClamp(8, 32),
+      ...createFluidClamp(16, 24),
+      ...createFluidClamp(16, 32),
     },
   },
 };
