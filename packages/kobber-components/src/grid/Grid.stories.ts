@@ -8,6 +8,7 @@ import "./GridColumn";
 import "./GridColumnAspectRatio";
 import { gridConfigs } from "./gridConfig";
 import "./story/ExampleCard";
+import { renderIndicators } from "./story/renderIndicators";
 
 const gridConfigArray = Object.values(gridConfigs);
 
@@ -33,6 +34,8 @@ const placeholderImage =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==";
 
 const render: ArgsStoryFn<WebComponentsRenderer> = args => {
+  document.addEventListener("DOMContentLoaded", () => renderIndicators());
+
   return html`
     <style>
       html {
@@ -47,6 +50,10 @@ const render: ArgsStoryFn<WebComponentsRenderer> = args => {
 
       body {
         min-width: 320px;
+      }
+
+      .demo {
+        padding-top: 64px;
       }
     </style>
 

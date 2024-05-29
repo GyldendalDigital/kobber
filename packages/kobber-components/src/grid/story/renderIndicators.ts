@@ -1,0 +1,79 @@
+export const renderIndicators = () => {
+  const cards = Array.from(document.querySelectorAll(".demo kobber-grid-column-aspect-ratio kobber-example-card"));
+  const windowWidthIndicator = createIndicator(false);
+  const boundaryIndicator = createIndicator(false);
+  const leftWindowIndicator = createIndicator(false);
+  const rightWindowIndicator = createIndicator(false);
+  const horizontalIndicator = createIndicator(false);
+  const verticalIndicator = createIndicator(true);
+  const update = () => {
+    const target = cards[0];
+    const right = cards[1];
+    const rects = cards.map(card => card.getBoundingClientRect());
+    const targetRect = target.getBoundingClientRect();
+    const totalWidth = Math.max(...rects.map(({ right }) => right)) - Math.min(...rects.map(({ left }) => left));
+    windowWidthIndicator.update({
+      value: document.documentElement.clientWidth,
+      top: targetRect.top - 64,
+      left: 0,
+    });
+    boundaryIndicator.update({
+      value: totalWidth,
+      top: targetRect.top - 32,
+      left: targetRect.left,
+    });
+    leftWindowIndicator.update({
+      value: targetRect.left,
+      top: targetRect.top + targetRect.height / 2,
+      left: 0,
+    });
+    rightWindowIndicator.update({
+      value: targetRect.left,
+      top: targetRect.top + targetRect.height / 2,
+      left: document.documentElement.clientWidth - targetRect.left,
+    });
+    horizontalIndicator.update({
+      value: right.getBoundingClientRect().left - targetRect.right,
+      top: targetRect.top + targetRect.height / 2,
+      left: targetRect.right,
+    });
+    verticalIndicator.update({
+      value: (rects.find(({ top }) => top > targetRect.bottom)?.top ?? 0) - targetRect.bottom,
+      top: targetRect.bottom,
+      left: targetRect.left + 24,
+    });
+  };
+  window.addEventListener("resize", update);
+  window.addEventListener("scroll", update);
+  setTimeout(update, 1);
+};
+
+interface UpdateOptions {
+  value: number;
+  top: number;
+  left: number;
+}
+
+const createIndicator = (vertical: boolean) => {
+  const element = document.createElement("div");
+  element.style.borderBottom = vertical ? "" : "solid 1px black";
+  element.style.borderLeft = vertical ? "solid 1px black" : "";
+  element.style.fontSize = "12px";
+  element.style.display = "flex";
+  element.style.alignItems = "center";
+  element.style.justifyContent = "center";
+  element.style.padding = "2px";
+  document.body.appendChild(element);
+  return {
+    element,
+    update: ({ value, top, left }: UpdateOptions) => {
+      element.style.display = value < 0 ? "none" : "flex";
+      element.innerHTML = `${Math.round(value)}`;
+      element.style.position = "fixed";
+      element.style.top = `${top}px`;
+      element.style.left = `${left}px`;
+      element.style.height = vertical ? `${value}px` : "";
+      element.style.width = vertical ? "" : `${value}px`;
+    },
+  };
+};
