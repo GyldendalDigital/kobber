@@ -1,0 +1,19 @@
+{
+  "name": "@gyldendal/kobber-icons",
+  "version": "0.3.14",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "svg": "svg-sprite --config svg-sprite-config.json src/assets/svgs/**/*.svg",
+    "build": "yarn svg"
+  },
+  "devDependencies": {
+    "jsdom": "^24.1.0",
+    "svg-sprite": "^2.0.4",
+    "tsup": "^7.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GyldendalDigital/kobber"
+  }
+}

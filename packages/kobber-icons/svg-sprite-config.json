@@ -1,0 +1,9 @@
+{
+  "mode": {
+    "symbol": {
+      "dest": "symbols",
+      "sprite": "kobber-icons",
+      "inline": true
+    }
+  }
+}
