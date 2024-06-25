@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.15
+
+### Patch Changes
+
+- Add kobber-icons
+
 ## 0.3.14
 
 ### Patch Changes
