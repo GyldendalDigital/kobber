@@ -14,6 +14,7 @@ const config = {
     "../../../packages/kobber-components/src/**/*.stories.@(js|mjs|ts)",
     "../../../packages/kobber-scene/src/**/*.stories.@(js|mjs|ts)",
     "../../../packages/kobber-icons/src/**/*.stories.@(js|mjs|ts)",
+    "../../../packages/kobber-icons/src/**/*.@(mdx)",
   ],
   addons: [
     getAbsolutePath("@storybook/addon-essentials"), // 👈 Includes docs
