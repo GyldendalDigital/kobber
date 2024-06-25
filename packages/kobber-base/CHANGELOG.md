@@ -1,5 +1,11 @@
 # @gyldendal/kobber-base
 
+## 0.3.16
+
+### Patch Changes
+
+- Refine kobber-icons
+
 ## 0.3.15
 
 ### Patch Changes
