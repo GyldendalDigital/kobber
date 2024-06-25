@@ -1,0 +1,25 @@
+{
+  "mode": {
+    "symbol": {
+      "dest": "symbols",
+      "sprite": "kobber-icons",
+      "inline": true
+    }
+  },
+  "shape": {
+    "transform": [
+      {
+        "svgo": {
+          "plugins": [
+            {
+              "name": "convertColors",
+              "params": {
+                "currentColor": true
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

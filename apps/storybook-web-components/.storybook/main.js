@@ -13,6 +13,8 @@ const config = {
   stories: [
     "../../../packages/kobber-components/src/**/*.stories.@(js|mjs|ts)",
     "../../../packages/kobber-scene/src/**/*.stories.@(js|mjs|ts)",
+    "../../../packages/kobber-icons/src/**/*.stories.@(js|mjs|ts)",
+    "../../../packages/kobber-icons/src/**/*.@(mdx)",
   ],
   addons: [
     getAbsolutePath("@storybook/addon-essentials"), // 👈 Includes docs
@@ -27,9 +29,9 @@ const config = {
   },
   core: {
     disableTelemetry: true, // 👈 Disables telemetry
-    builder: '@storybook/builder-vite'
+    builder: "@storybook/builder-vite",
   },
-  staticDirs: ['../public'], //👈 Configures the static asset folder in Storybook
+  staticDirs: ["../public"], //👈 Configures the static asset folder in Storybook
 };
 
 export default config;

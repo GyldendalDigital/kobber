@@ -1,0 +1,62 @@
+.storybook-icons-list-wrappers {
+  display: grid;
+  justify-content: center;
+}
+
+.storybook-icons-list-wrapper {
+  margin: 0.5em;
+  border: 1px solid;
+  padding-bottom: 0.5em;
+  max-width: 40em;
+}
+
+.storybook-icons-heading {
+  text-align: center;
+}
+
+.storybook-icons-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.storybook-icon-item {
+  margin: 0.2em !important;
+  border: 1px solid;
+}
+
+.storybook-icon-figure {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  background-color: #d3d3d3;
+}
+
+.storybook-icon-variants-list {
+  display: flex;
+  justify-content: center;
+}
+
+.storybook-icon-variant {
+  padding: 0.5em;
+  margin: 0 !important;
+  color: #000;
+  background-color: #fff;
+}
+
+.storybook-icon-variant:nth-of-type(2) {
+  color: #fff;
+  background-color: #000;
+}
+
+.storybook-icon-caption {
+  padding: 0.2em;
+  text-align: center;
+}
+
+.no-list {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style-type: none !important;
+}

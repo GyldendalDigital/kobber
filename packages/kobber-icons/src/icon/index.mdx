@@ -1,0 +1,109 @@
+import { Description, Meta } from "@storybook/addon-docs";
+import { icons } from "../../symbols/kobber-icons-lists";
+import { KobberIcon } from "../index.react";
+import "./index.stories.css";
+
+<Meta components="kobber-icon" title="Icon/All" />
+
+# Icon
+
+<Description of="kobber-icon" />
+
+export const iconStorybookhelper = () => {
+    const prefixDelimiter = "_";
+    const printIcon = (icon) => {
+    return (
+      <li key={icon} className="storybook-icon-item kobber-theme-default">
+          <figure className="storybook-icon-figure">
+              <ol className="no-list storybook-icon-variants-list">
+                  <li className="storybook-icon-variant">
+                    <KobberIcon type={icon} />
+                  </li>
+                  <li className="storybook-icon-variant">
+                    <KobberIcon type={icon} />
+                  </li>
+              </ol>
+              <figcaption className="storybook-icon-caption">
+                  <code>{icon}</code>
+              </figcaption>
+          </figure>
+      </li>
+    )};
+    const listByPrefix = (prefixes) => (
+        <ul className="storybook-icons-list-wrappers no-list">
+            {prefixes.map((prefix, index) => (
+                <li key={index} className="storybook-icons-list-wrapper">
+                    <h2 className="storybook-icons-heading">
+                        {prefix.substring(
+                            0,
+                            prefix.length - prefixDelimiter.length,
+                        )}
+                    </h2>
+                    <ul className="storybook-icons-list no-list">
+                        {icons.map(
+                            (icon) => {
+                              if(icon.includes(prefix)) { 
+                                return printIcon(icon)
+                              }
+                            }
+                        )}
+                    </ul>
+                </li>
+            ))}
+        </ul>
+    );
+    const listAllUnprefixed = () => {
+        const unprefixedIcons = icons.filter(
+            (iconName) => !iconName.includes(prefixDelimiter),
+        );
+        return unprefixedIcons.length ? (
+            <li>
+                <span>Currently unprefixed icons:</span>
+                <ul className="storybook-icons-list no-list">
+                    {unprefixedIcons.map((icon) => {
+                      return printIcon(icon);
+                    }
+                    )}
+                </ul>
+            </li>
+        ) : (
+            <li>
+                Currently unprefixed icons: <i>none</i>
+            </li>
+        );
+    };
+    const allPrefixes = icons.reduce((prefixes, iconName, currentIndex) => {
+        const prefix = iconName.substring(
+            0,
+            iconName.indexOf(prefixDelimiter) + prefixDelimiter.length,
+        );
+        if (
+            prefix.length > prefixDelimiter.length &&
+            !prefixes.includes(prefix)
+        ) {
+            prefixes.push(prefix);
+        }
+        if (currentIndex + 1 === icons.length) {
+            prefixes.sort();
+        }
+        return prefixes;
+    }, []);
+    return ( 
+      <>
+        <h2>Usage</h2>
+            <ul className="storybook-text">
+                <li>Number of icons: {icons.length}</li>
+                <li>
+                    To sort icons per prefix: In the SpriteSymbol name (in the
+                    icons components file), add the prefix followed by an
+                    underscore delimiter:
+                    <code className="storybook-code">{prefixDelimiter}</code>
+                </li>
+                {listAllUnprefixed()}
+            </ul>
+            {listByPrefix(allPrefixes)}
+      </>
+    );
+};
+
+{iconStorybookhelper()}
