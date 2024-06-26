@@ -29,9 +29,6 @@ export default defineConfig(() => ({
   clean: false,
   bundle: true,
   external: ["react"],
-  esbuildOptions(options) {
-    options.chunkNames = `${chunks}/[name]-[hash]`;
-  },
   async onSuccess() {
     listAllSvgSymbols();
     copyIconsToOtherFolders();
