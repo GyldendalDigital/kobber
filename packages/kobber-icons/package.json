@@ -7,7 +7,6 @@
     "assets/**/*",
     "chunks/**/*",
     "react/**/*",
-    "symbols/**/*",
     "web-components/**/*"
   ],
   "scripts": {
