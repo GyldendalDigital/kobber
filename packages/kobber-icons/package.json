@@ -4,9 +4,9 @@
   "license": "MIT",
   "type": "module",
   "files": [
-    "assets/**/*",
     "chunks/**/*",
     "react/**/*",
+    "symbols/**/*",
     "web-components/**/*"
   ],
   "scripts": {
