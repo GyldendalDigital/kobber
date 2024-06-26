@@ -1,5 +1,11 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.18
+
+### Patch Changes
+
+- Yet further icon refinements
+
 ## 0.3.17
 
 ### Patch Changes
