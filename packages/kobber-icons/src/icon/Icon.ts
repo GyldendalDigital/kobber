@@ -1,8 +1,7 @@
-import { LitElement, css, html, unsafeCSS } from "lit";
+import { LitElement, css, html } from "lit";
 import { consume } from "@lit/context";
 import { customElement, property } from "lit/decorators.js";
 import { IconType } from "../../symbols/kobber-icons-lists";
-import icons from "../../symbols/kobber-icons.svg";
 import { Theme, themeContext } from "../../../kobber-components/src/utils/theme-context";
 import * as defaultTokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 
@@ -32,7 +31,7 @@ export class Icon extends LitElement {
       </style>
 
       <svg>
-        <use href="${icons}#${this.type}" />
+        <use href="#${this.type}" />
       </svg>
     `;
   }

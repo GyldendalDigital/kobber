@@ -1,10 +1,9 @@
 {
   "name": "@gyldendal/kobber-icons",
-  "version": "0.3.18",
+  "version": "0.3.19",
   "license": "MIT",
   "type": "module",
   "files": [
-    "assets/**/*",
     "chunks/**/*",
     "react/**/*",
     "symbols/**/*",

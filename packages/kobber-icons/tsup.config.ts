@@ -32,7 +32,6 @@ export default defineConfig(() => ({
   bundle: true,
   external: ["react"],
   esbuildOptions(options) {
-    options.assetNames = `${assets}/[name]-[hash]`;
     options.chunkNames = `${chunks}/[name]-[hash]`;
   },
   async onSuccess() {
