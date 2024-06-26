@@ -1,5 +1,11 @@
 # @gyldendal/kobber-eslint
 
+## 0.3.17
+
+### Patch Changes
+
+- Further icon refinement
+
 ## 0.3.16
 
 ### Patch Changes

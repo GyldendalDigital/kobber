@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.17
+
+### Patch Changes
+
+- Further icon refinement
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.17
+
 ## 0.3.16
 
 ### Patch Changes
