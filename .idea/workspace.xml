@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="init commit :)">
-      <change beforePath="$PROJECT_DIR$/turbo.json" beforeDir="false" afterPath="$PROJECT_DIR$/turbo.json" afterDir="false" />
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="fixing build error, newer version of turbo needs &quot;pipeline&quot; changed to &quot;tasks&quot; in turbo.json">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioRecorder.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +53,14 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1719929284995</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="fixing build error, newer version of turbo needs &quot;pipeline&quot; changed to &quot;tasks&quot; in turbo.json">
+      <option name="closed" value="true" />
+      <created>1719931105192</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1719931105192</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -60,6 +68,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="init commit :)" />
+    <MESSAGE value="fixing build error, newer version of turbo needs &quot;pipeline&quot; changed to &quot;tasks&quot; in turbo.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing build error, newer version of turbo needs &quot;pipeline&quot; changed to &quot;tasks&quot; in turbo.json" />
   </component>
 </project>
