@@ -10,9 +10,12 @@
     let recData = [];
     let audioArray = [];
     let totalDuration = 0;
+    let currentTime = 0;
+    let elapsedTime = 0;
+    let audioDurationArray = [];
 
     function playRecording() {
-        console.log(totalDuration);
+        console.log("totalDuration", totalDuration);
         if (audioArray.length > 0) {
             console.log(audioArray[0].duration);
             audioArray[0].play();
@@ -32,15 +35,18 @@
             if (audioArray.length - 1 > index) {
                 audio.addEventListener("ended", (event) => {
                     console.log(event);
+                    elapsedTime += event.target.currentTime;
                     audioArray[index + 1].play();
                 });
             }
             audio.addEventListener("timeupdate", (event) => {
                 console.log("timeupdate", event.target.currentTime);
+                currentTime = elapsedTime + event.target.currentTime;
             });
             audio.addEventListener("durationchange", (event) => {
                 console.log("durationchange:", event.target.duration);
                 if (Number(event.target.duration) && event.target.duration !== Infinity) {
+                    audioDurationArray[index] = event.target.duration;
                     totalDuration += event.target.duration;
                 }
             });
@@ -144,5 +150,8 @@
 <div id=".audio-recorder">
     <button on:mousedown={toggleRecord}>{isRecording ? "Stop" : "Record"}</button>
     <button on:mousedown={playRecording}>Play!</button>
+    <p>{"Current time: " + currentTime}</p>
+    <p>{"Elapsed time: " + elapsedTime}</p>
+    <p>{"array: " + audioDurationArray}</p>
     <canvas id=".visualizer" height="128px" width="128px"></canvas>
 </div>
