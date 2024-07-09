@@ -5,53 +5,69 @@
     let animationId = null;
     let isRecording = false;
 
-    let slider = null;
-
     let recData = [];
-    let audioArray = [];
-    let totalDuration = 0;
+    const audioArray = [];
     let currentTime = 0;
     let elapsedTime = 0;
+    let latestDuration = 0;
     let audioDurationArray = [];
+    let currentAudioIndex = 0;
 
-    function playRecording() {
-        console.log("totalDuration", totalDuration);
+    // Using window.performance.now(), but could also use date.getTime().
+    let audioStartTime = null;
+    let audioEndTime = null;
+
+    $: timeTotal = audioDurationArray.reduce((acc, current) => {return acc + current}, 0);
+
+    function roundWithDecimals(num, decimals){
+        return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
+    }
+
+    function onAudioEnd() {
+        if (currentAudioIndex < audioArray.length - 1) {
+            currentAudioIndex++;
+            elapsedTime = currentTime;
+            audioArray[currentAudioIndex].play();
+        }
+    }
+
+    function playAudio() {
+        currentTime = 0;
+        elapsedTime = 0;
+        currentAudioIndex = 0;
         if (audioArray.length > 0) {
-            console.log(audioArray[0].duration);
             audioArray[0].play();
         }
     }
 
+    function stopAudio() {
+        audioArray[currentAudioIndex].pause();
+    }
+
     function concatRecordings() {
-        console.log(recData);
-        let newAudio = new Audio();
+        const newAudio = new Audio();
         newAudio.preload = "auto";
         newAudio.src = window.URL.createObjectURL(...recData[recData.length - 1]);
         audioArray.push(newAudio);
 
-        console.log("populated audioArray:", audioArray);
+        console.log(audioArray, recData);
 
-        audioArray.forEach((audio, index) => {
-            if (audioArray.length - 1 > index) {
-                audio.addEventListener("ended", (event) => {
-                    console.log(event);
-                    elapsedTime += event.target.currentTime;
-                    audioArray[index + 1].play();
-                });
-            }
-            audio.addEventListener("timeupdate", (event) => {
-                console.log("timeupdate", event.target.currentTime);
-                currentTime = elapsedTime + event.target.currentTime;
-            });
-            audio.addEventListener("durationchange", (event) => {
-                console.log("durationchange:", event.target.duration);
-                if (Number(event.target.duration) && event.target.duration !== Infinity) {
-                    audioDurationArray[index] = event.target.duration;
-                    totalDuration += event.target.duration;
-                }
-            });
+        audioArray[audioArray.length - 1].addEventListener("ended", onAudioEnd);
+        audioArray[audioArray.length - 1].addEventListener("timeupdate", (event) => {
+            currentTime = elapsedTime + event.target.currentTime;
         });
-        //audioArray[0].play();
+        audioArray[audioArray.length - 1].addEventListener("durationchange", (event) => {
+            console.log("duarationchange: ", event.target.duration);
+            if (event.target.duration === Infinity) {
+                audioDurationArray[audioArray.length - 1] = (audioEndTime - audioStartTime) / 1000;
+            }
+            if (Number(event.target.duration) && event.target.duration !== Infinity) {
+                audioDurationArray[audioArray.length - 1] = event.target.duration;
+                latestDuration = event.target.duration;
+                console.log(latestDuration);
+            }
+        });
+
     }
 
     function draw() {
@@ -103,8 +119,7 @@
 
                     mediaRecorder = new MediaRecorder(stream);
                     mediaRecorder.start();
-                    console.log(mediaRecorder.state);
-
+                    audioStartTime = window.performance.now();
                     draw();
 
                     mediaRecorder.ondataavailable = (e) => {
@@ -116,24 +131,14 @@
     }
 
     async function stopRecording() {
+        audioEndTime = window.performance.now();
         mediaRecorder.stop();
-        console.log(mediaRecorder.state);
-
         mediaRecorder.onstop = (e) => {
             e.srcElement.stream.getTracks()[0].stop();
             window.cancelAnimationFrame(animationId);
             const canvas = document.getElementById(".visualizer");
             const canvasCtx = canvas.getContext("2d");
             canvasCtx.clearRect(0, 0, 1280, 1280);
-            console.log("onstop state:", mediaRecorder.state);
-
-            /*
-            const container = document.getElementById(".audio-recorder");
-            slider = document.createElement("input");
-            slider.type = "range";
-            slider.max = totalDuration;
-            container.appendChild(slider);
-             */
         };
     }
 
@@ -149,9 +154,15 @@
 
 <div id=".audio-recorder">
     <button on:mousedown={toggleRecord}>{isRecording ? "Stop" : "Record"}</button>
-    <button on:mousedown={playRecording}>Play!</button>
-    <p>{"Current time: " + currentTime}</p>
-    <p>{"Elapsed time: " + elapsedTime}</p>
-    <p>{"array: " + audioDurationArray}</p>
+    <button on:mousedown={playAudio}>Play!</button>
+    <input
+            type="range"
+            value={roundWithDecimals(currentTime, 2)}
+            max={roundWithDecimals(timeTotal, 2)}
+            step="0.01"
+            on:mousedown={stopAudio}
+    />
+    <p>{"Current time: " + roundWithDecimals(currentTime, 2)}</p>
+    <p>{"array: " + audioDurationArray + " - Total: " + roundWithDecimals(timeTotal, 2)}</p>
     <canvas id=".visualizer" height="128px" width="128px"></canvas>
 </div>
