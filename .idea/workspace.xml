@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="Playing around with timekeeping">
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="Working version of timekeeping! :)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioRecorder.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +73,14 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1720183466022</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="Working version of timekeeping! :)">
+      <option name="closed" value="true" />
+      <created>1720536483820</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1720536483820</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,6 +91,7 @@
     <MESSAGE value="fixing build error, newer version of turbo needs &quot;pipeline&quot; changed to &quot;tasks&quot; in turbo.json" />
     <MESSAGE value="Added sequential audio recording :)" />
     <MESSAGE value="Playing around with timekeeping" />
-    <option name="LAST_COMMIT_MESSAGE" value="Playing around with timekeeping" />
+    <MESSAGE value="Working version of timekeeping! :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working version of timekeeping! :)" />
   </component>
 </project>
