@@ -1,13 +1,24 @@
 <script>
+    /*
+    NOTES:
+        - Calculating total time before playing through is a bit wonky...
+        It seems like the browser because of security does not want to give exact
+        timings, which gives a weird result when timing the recording (off by fluctuating values).
+        -
+     */
+
+
     let mediaRecorder = null;
     let analyser = null;
     let audioCtx = null;
     let animationId = null;
     let isRecording = false;
+    let isPlaying = false;
+    let isMoving = false;
 
     let recData = [];
     const audioArray = [];
-    let currentTime = 0;
+    let currentTimeGlobal = 0;
     let elapsedTime = 0;
     let latestDuration = 0;
     let audioDurationArray = [];
@@ -17,6 +28,7 @@
     let audioStartTime = null;
     let audioEndTime = null;
 
+    // Unsure about how to update the timeTotal correctly...
     $: timeTotal = audioDurationArray.reduce((acc, current) => {return acc + current}, 0);
 
     function roundWithDecimals(num, decimals){
@@ -26,22 +38,48 @@
     function onAudioEnd() {
         if (currentAudioIndex < audioArray.length - 1) {
             currentAudioIndex++;
-            elapsedTime = currentTime;
+            elapsedTime = currentTimeGlobal;
+            audioArray[currentAudioIndex].currentTime = 0;
             audioArray[currentAudioIndex].play();
         }
     }
 
     function playAudio() {
-        currentTime = 0;
-        elapsedTime = 0;
-        currentAudioIndex = 0;
+        isPlaying = true;
         if (audioArray.length > 0) {
-            audioArray[0].play();
+            audioArray[currentAudioIndex].play();
         }
     }
 
     function stopAudio() {
         audioArray[currentAudioIndex].pause();
+        isPlaying = false;
+    }
+
+    function findAudioIndex(timestamp, accumulative, array, index) {
+        if (array.length > index) {
+            if (timestamp >= accumulative && timestamp <= (accumulative + array[index])) {
+                elapsedTime = accumulative;
+                audioArray[index].currentTime = timestamp - accumulative;
+                console.log("new current time:", audioArray[index].currentTime);
+                return index;
+            } else {
+                accumulative += array[index]
+                elapsedTime = accumulative;
+                return findAudioIndex(timestamp, accumulative, array, index + 1);
+            }
+        } else {
+            console.log("error, out of bounds, resetting to zero!")
+            return 0;
+        }
+    }
+
+    function movePlayhead(event) {
+        console.log("event", event.target.value);
+        currentTimeGlobal = Number(event.target.value);
+        currentAudioIndex = findAudioIndex(currentTimeGlobal, 0, audioDurationArray, 0);
+        console.log(currentTimeGlobal);
+        console.log(currentAudioIndex, audioArray);
     }
 
     function concatRecordings() {
@@ -54,7 +92,8 @@
 
         audioArray[audioArray.length - 1].addEventListener("ended", onAudioEnd);
         audioArray[audioArray.length - 1].addEventListener("timeupdate", (event) => {
-            currentTime = elapsedTime + event.target.currentTime;
+            console.log("timeupdate!", currentTimeGlobal);
+            currentTimeGlobal = elapsedTime + event.target.currentTime;
         });
         audioArray[audioArray.length - 1].addEventListener("durationchange", (event) => {
             console.log("duarationchange: ", event.target.duration);
@@ -157,12 +196,12 @@
     <button on:mousedown={playAudio}>Play!</button>
     <input
             type="range"
-            value={roundWithDecimals(currentTime, 2)}
+            value={currentTimeGlobal}
             max={roundWithDecimals(timeTotal, 2)}
             step="0.01"
             on:mousedown={stopAudio}
+            on:mouseup={e => movePlayhead(e)}
     />
-    <p>{"Current time: " + roundWithDecimals(currentTime, 2)}</p>
     <p>{"array: " + audioDurationArray + " - Total: " + roundWithDecimals(timeTotal, 2)}</p>
     <canvas id=".visualizer" height="128px" width="128px"></canvas>
 </div>

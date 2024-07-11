@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="Working version of timekeeping! :)">
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="typo fix :)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioRecorder.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +81,14 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1720536483820</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="typo fix :)">
+      <option name="closed" value="true" />
+      <created>1720609172738</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1720609172738</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -92,6 +100,7 @@
     <MESSAGE value="Added sequential audio recording :)" />
     <MESSAGE value="Playing around with timekeeping" />
     <MESSAGE value="Working version of timekeeping! :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working version of timekeeping! :)" />
+    <MESSAGE value="typo fix :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="typo fix :)" />
   </component>
 </project>
