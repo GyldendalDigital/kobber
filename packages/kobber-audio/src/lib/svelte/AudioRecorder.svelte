@@ -45,9 +45,14 @@
     }
 
     function playAudio() {
-        isPlaying = true;
-        if (audioArray.length > 0) {
-            audioArray[currentAudioIndex].play();
+        if (isPlaying) {
+            isPlaying = false;
+            audioArray[currentAudioIndex].pause();
+        } else {
+            isPlaying = true;
+            if (audioArray.length > 0) {
+                audioArray[currentAudioIndex].play();
+            }
         }
     }
 
@@ -193,7 +198,8 @@
 
 <div id=".audio-recorder">
     <button on:mousedown={toggleRecord}>{isRecording ? "Stop" : "Record"}</button>
-    <button on:mousedown={playAudio}>Play!</button>
+    <button on:mousedown={playAudio}>{isPlaying ? "Stop!" : "Play!"}</button>
+    <p>{"Global: " + roundWithDecimals(currentTimeGlobal, 1) + ". Current index: " + currentAudioIndex}</p>
     <input
             type="range"
             value={currentTimeGlobal}
