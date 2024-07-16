@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.20
+
+### Patch Changes
+
+- Correct icons
+
 ## 0.3.19
 
 ### Patch Changes
