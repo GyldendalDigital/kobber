@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import "@gyldendal/kobber-base/themes/default/tokens.css";
 import "./Icon";
-import { icons } from "../../symbols/kobber-icons-lists";
+import { icons } from "@gyldendal/kobber-icons/symbols/kobber-icons-lists";
 
 const meta: Meta = {
   component: "kobber-icon",
