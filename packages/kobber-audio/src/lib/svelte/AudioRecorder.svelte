@@ -7,6 +7,7 @@
         -
      */
 
+    import {audioBufferToWav} from "./AudioHelpers.js";
 
     let mediaRecorder = null;
     let analyser = null;
@@ -14,7 +15,6 @@
     let animationId = null;
     let isRecording = false;
     let isPlaying = false;
-    let isMoving = false;
 
     let recData = [];
     const audioArray = [];
@@ -29,7 +29,25 @@
     let audioEndTime = null;
 
     // Unsure about how to update the timeTotal correctly...
-    $: timeTotal = audioDurationArray.reduce((acc, current) => {return acc + current}, 0);
+    $: timeTotal = audioDurationArray[audioDurationArray.length - 1] ? audioDurationArray.reduce((acc, current) => {return acc + current}, 0) : 0;
+
+    function encodeToMP3() {
+        Promise.all(recData.map((data) => {return data[0].arrayBuffer()})).then((response) => {
+            let totalByteLength = 0;
+            response.forEach((buffer) => {
+                totalByteLength += buffer.byteLength;
+            });
+            let totalBuffer = new Uint8Array(totalByteLength);
+            let currentPosition = 0;
+            response.forEach((buffer) => {
+                totalBuffer.set(new Uint8Array(buffer), currentPosition);
+                currentPosition += buffer.byteLength;
+            })
+            audioCtx.decodeAudioData(totalBuffer.buffer).then((audioBuffer) => {
+                audioBufferToWav(audioBuffer);
+            });
+        })
+    }
 
     function roundWithDecimals(num, decimals){
         return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
@@ -74,8 +92,11 @@
                 return findAudioIndex(timestamp, accumulative, array, index + 1);
             }
         } else {
-            console.log("error, out of bounds, resetting to zero!")
-            return 0;
+            // Experimental to catch calculation errors
+
+            elapsedTime = timeTotal - audioDurationArray[index - 1];
+            audioArray[index - 1].currentTime = audioDurationArray[index - 1];
+            return index - 1;
         }
     }
 
@@ -199,6 +220,7 @@
 <div id=".audio-recorder">
     <button on:mousedown={toggleRecord}>{isRecording ? "Stop" : "Record"}</button>
     <button on:mousedown={playAudio}>{isPlaying ? "Stop!" : "Play!"}</button>
+    <button on:mousedown={encodeToMP3}>Download</button>
     <p>{"Global: " + roundWithDecimals(currentTimeGlobal, 1) + ". Current index: " + currentAudioIndex}</p>
     <input
             type="range"
