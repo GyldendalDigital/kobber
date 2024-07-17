@@ -1,5 +1,29 @@
 # @gyldendal/kobber-components
 
+## 0.3.23
+
+### Patch Changes
+
+- Correct icon assets exports paths
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.23
+
+## 0.3.22
+
+### Patch Changes
+
+- Move icon asset file to chunks export folder
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.22
+
+## 0.3.21
+
+### Patch Changes
+
+- Re-add icons' assets export
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.21
+
 ## 0.3.20
 
 ### Patch Changes

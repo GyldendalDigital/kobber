@@ -32,7 +32,9 @@ export default defineConfig(() => ({
   bundle: true,
   external: ["react"],
   esbuildOptions(options) {
+    options.publicPath = "@gyldendal/kobber-icons";
     options.chunkNames = `${chunks}/[name]-[hash]`;
+    options.assetNames = `${assets}/[name]-[hash]`;
   },
   async onSuccess() {
     listAllSvgSymbols();
