@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.22
+
+### Patch Changes
+
+- Move icon asset file to chunks export folder
+
 ## 0.3.21
 
 ### Patch Changes
