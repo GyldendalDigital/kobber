@@ -4,6 +4,7 @@
   "license": "MIT",
   "type": "module",
   "files": [
+    "assets/**/*",
     "chunks/**/*",
     "react/**/*",
     "symbols/**/*",
