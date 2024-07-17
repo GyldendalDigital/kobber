@@ -2,7 +2,6 @@ import fs from "fs";
 import { defineConfig } from "tsup";
 import { JSDOM } from "jsdom";
 
-const assets = "assets";
 const chunks = "chunks";
 const reactDirectory = "react";
 const svgSpriteFolder = "symbols";
@@ -15,7 +14,6 @@ const removeDirectory = (directory: string) => {
   fs.rmdirSync(directory, { recursive: true });
 };
 
-removeDirectory(assets);
 removeDirectory(chunks);
 removeDirectory(reactDirectory);
 removeDirectory(webComponentsDirectory);
@@ -33,7 +31,7 @@ export default defineConfig(() => ({
   external: ["react"],
   esbuildOptions(options) {
     options.chunkNames = `${chunks}/[name]-[hash]`;
-    options.assetNames = `${assets}/[name]-[hash]`;
+    options.assetNames = `${chunks}/[name]-[hash]`;
   },
   async onSuccess() {
     listAllSvgSymbols();
