@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.21
+
+### Patch Changes
+
+- Re-add icons' assets export
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.21
+
 ## 0.3.20
 
 ### Patch Changes
