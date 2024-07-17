@@ -1,5 +1,11 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.23
+
+### Patch Changes
+
+- Correct icon assets exports paths
+
 ## 0.3.22
 
 ### Patch Changes
