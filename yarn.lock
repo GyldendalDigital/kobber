@@ -2829,6 +2829,7 @@ __metadata:
     "@gyldendal/kobber-base": "npm:*"
     "@gyldendal/kobber-eslint": "npm:*"
     "@gyldendal/kobber-stylelint": "npm:*"
+    "@lit-labs/observers": "npm:^2.0.2"
     "@lit/react": "npm:^1.0.2"
     "@r2wc/react-to-web-component": "npm:^2.0.3"
     "@shoelace-style/shoelace": "npm:^2.14.0"
@@ -3181,6 +3182,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lit-labs/observers@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@lit-labs/observers@npm:2.0.2"
+  dependencies:
+    "@lit/reactive-element": "npm:^1.0.0 || ^2.0.0"
+  checksum: 10c0/77099b1596bf053a3378abbd9ab0e0edb2ab2602de9aa86ed8e7238ea64803cc9c5c8fdd61f100d06ae11a187dbd5b8df4dafec7cbbd4066e4f6afb335a7c816
+  languageName: node
+  linkType: hard
+
 "@lit-labs/ssr-dom-shim@npm:^1.2.0":
   version: 1.2.0
   resolution: "@lit-labs/ssr-dom-shim@npm:1.2.0"
@@ -3206,7 +3216,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit/reactive-element@npm:^1.6.2 || ^2.0.0, @lit/reactive-element@npm:^2.0.4":
+"@lit/reactive-element@npm:^1.0.0 || ^2.0.0, @lit/reactive-element@npm:^1.6.2 || ^2.0.0, @lit/reactive-element@npm:^2.0.4":
   version: 2.0.4
   resolution: "@lit/reactive-element@npm:2.0.4"
   dependencies:

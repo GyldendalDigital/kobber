@@ -1,0 +1,25 @@
+import {aspectRatioHeight, maxColumns, minCardWidth} from "./config";
+
+# CardLayout
+
+Layout for cards and card-like surfaces such as images.
+
+## Card sizes
+
+The smallest a card can get is <code>{minCardWidth}px</code> wide and about <code>{Math.ceil(minCardWidth * aspectRatioHeight)}px</code> tall with an aspect ratio of <code>1:{aspectRatioHeight}</code>.<br />
+The maximum number of grid columns is <code>{maxColumns}</code>, the cards will stretch to fit as many columns as possible.
+
+## Column gaps
+
+The grid column gaps are implemented using `padding` instead of `grid-gap` to make aspect ratios work.<br />
+
+
+## Responsiveness
+
+The layout does not use [media queries ](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries), but instead adapts to the available width of the component using CSS grid with `auto-fill` and JavaScript to adjust aspect ratios for wide columns.<br />
+The grid column gaps respond fluidly to the viewport's width to save space on small devices.
+
+## Future improvements
+
+When [CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries) are supported everywhere, the JavaScript used for adjusting aspect ratios for wide columns can be replaced with CSS.<br />
+[CSS aspect ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio) can replace the `padding-top`-hack.
