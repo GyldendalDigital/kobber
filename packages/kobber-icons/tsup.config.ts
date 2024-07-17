@@ -33,6 +33,7 @@ export default defineConfig(() => ({
   external: ["react"],
   esbuildOptions(options) {
     options.chunkNames = `${chunks}/[name]-[hash]`;
+    options.assetNames = `${assets}/[name]-[hash]`;
   },
   async onSuccess() {
     listAllSvgSymbols();

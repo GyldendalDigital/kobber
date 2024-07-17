@@ -1,5 +1,11 @@
 # @gyldendal/kobber-scene
 
+## 0.3.21
+
+### Patch Changes
+
+- Re-add icons' assets export
+
 ## 0.3.20
 
 ### Patch Changes
