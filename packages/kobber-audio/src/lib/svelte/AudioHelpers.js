@@ -86,7 +86,6 @@ function wavToMp3(channels, sampleRate, samples) {
     window.myAudioPlayer = document.createElement('audio');
     window.myAudioPlayer.src = bUrl;
     window.myAudioPlayer.setAttribute('controls', '');
+    // Only for testing for now!
     window.myAudioPlayer.play();
-    // send the download link to the console
-    console.log('mp3 download:', bUrl);
 }

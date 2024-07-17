@@ -1,3 +1,4 @@
+<svelte:options customElement="audio-recorder" />
 <script>
     /*
     NOTES:

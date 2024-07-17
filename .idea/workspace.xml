@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="Slight cleanup">
-      <change afterPath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioHelpers.js" afterDir="false" />
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="Added working download to mp3, combining all audio snippets into one file! :)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioHelpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioHelpers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioRecorder.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/svelte.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio/svelte.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +104,14 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1720704327980</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="Added working download to mp3, combining all audio snippets into one file! :)">
+      <option name="closed" value="true" />
+      <created>1721122036951</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1721122036951</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +126,7 @@
     <MESSAGE value="typo fix :)" />
     <MESSAGE value="Fixed scrolling back and forth! Needs more work, but it is currently in a working state :)" />
     <MESSAGE value="Slight cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Slight cleanup" />
+    <MESSAGE value="Added working download to mp3, combining all audio snippets into one file! :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added working download to mp3, combining all audio snippets into one file! :)" />
   </component>
 </project>
