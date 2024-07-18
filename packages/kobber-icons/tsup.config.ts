@@ -38,7 +38,6 @@ export default defineConfig(() => ({
   },
   async onSuccess() {
     listAllSvgSymbols();
-    copyIconsToOtherFolders();
   },
 }));
 
