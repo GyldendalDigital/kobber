@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.24
+
+### Patch Changes
+
+- Repair icon sprite loading
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.24
+
 ## 0.3.23
 
 ### Patch Changes

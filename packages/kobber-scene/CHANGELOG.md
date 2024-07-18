@@ -1,5 +1,11 @@
 # @gyldendal/kobber-scene
 
+## 0.3.24
+
+### Patch Changes
+
+- Repair icon sprite loading
+
 ## 0.3.23
 
 ### Patch Changes
