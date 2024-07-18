@@ -61,7 +61,7 @@ const listAllSvgSymbols = () => {
       iconTypeString = `${iconTypeString}  | "${symbol.id}"\n`;
     });
     iconTypeString = `${iconTypeString};`;
-    let iconsListString = "export const icons = [\n";
+    let iconsListString = "export const iconsList = [\n";
     symbols.forEach((symbol: SVGSymbolElement, index: number) => {
       if (index > 0) {
         iconsListString = `${iconsListString}, \n`;

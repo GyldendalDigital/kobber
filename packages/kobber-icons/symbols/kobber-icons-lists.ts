@@ -159,7 +159,7 @@ export type IconType =
   | "youtube"
 ; 
 
- export const icons = [
+ export const iconsList = [
  "add", 
  "add_figure", 
  "add_square", 
