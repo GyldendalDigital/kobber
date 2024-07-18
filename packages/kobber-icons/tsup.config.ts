@@ -26,23 +26,34 @@ const listAllSvgSymbols = () => {
   const file = fs.readFileSync(`${svgSpriteFolder}/${svgSpriteFile}`);
   const fileAsString = file.toString();
 
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(fileAsString, "text/html");
-  const symbols = doc.querySelectorAll("symbol");
-  if (symbols) {
+  const listIconTypes = (symbols: SVGSymbolElement[]) => {
     let iconTypeString = "export type IconType = \n";
-    symbols.forEach((symbol: SVGSymbolElement) => {
+    symbols.forEach(symbol => {
       iconTypeString = `${iconTypeString}  | "${symbol.id}"\n`;
     });
     iconTypeString = `${iconTypeString};`;
+    return iconTypeString;
+  };
+
+  const listIcons = (symbols: SVGSymbolElement[]) => {
     let iconsListString = "export const iconsList = [\n";
-    symbols.forEach((symbol: SVGSymbolElement, index: number) => {
+    symbols.forEach((symbol, index) => {
       if (index > 0) {
         iconsListString = `${iconsListString}, \n`;
       }
       iconsListString = `${iconsListString} "${symbol.id}"`;
     });
     iconsListString = `${iconsListString}\n];`;
+    return iconsListString;
+  };
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(fileAsString, "text/html");
+  const symbols: SVGSymbolElement[] = doc.querySelectorAll("symbol");
+  if (symbols) {
+    const iconTypeString = listIconTypes(symbols);
+    const iconsListString = listIcons(symbols);
+
     fs.writeFileSync(`${svgSpriteFolder}/${componentHelperFile}`, `${iconTypeString} \n\n ${iconsListString}`);
   }
 };
