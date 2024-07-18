@@ -12,7 +12,7 @@ const webComponentsDirectory = "web-components";
 
 const removeDirectory = (directory: string) => {
   if (!fs.existsSync(directory)) return;
-  fs.rmdirSync(directory, { recursive: true });
+  fs.rmSync(directory, { recursive: true });
 };
 
 class DOMParser {
@@ -70,8 +70,3 @@ export default defineConfig(() => ({
     options.assetNames = `${assets}/[name]-[hash]`;
   },
 }));
-
-const copyIconsToOtherFolders = () => {
-  const storybookFolder = "../../apps/storybook-web-components/symbols";
-  fs.copyFileSync(`${svgSpriteFolder}/${svgSpriteFile}`, `${storybookFolder}/${svgSpriteFile}`);
-};
