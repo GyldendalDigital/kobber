@@ -1,10 +1,12 @@
-import { LitElement, css, html } from "lit";
+import { LitElement, css, html, unsafeCSS } from "lit";
 import { consume } from "@lit/context";
 import { customElement, property } from "lit/decorators.js";
 import { Theme, themeContext } from "@gyldendal/kobber-components/src/utils/theme-context";
 import * as defaultTokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import icons from "@gyldendal/kobber-icons/symbols/kobber-icons.svg";
 import { IconType } from "@gyldendal/kobber-icons/symbols/kobber-icons-lists";
+import { Task } from "@lit/task";
+import { unsafeSVG } from "lit/directives/unsafe-svg.js";
 
 /**
  * @summary Icon component to be used with kobber-icons.
@@ -23,18 +25,37 @@ export class Icon extends LitElement {
   @property()
   type: IconType;
 
+  @property() sprite: string = icons;
+
+  private _productTask = new Task(this, {
+    task: async ([sprite]) => {
+      const response = await fetch(sprite);
+      if (!response.ok) {
+        throw new Error(`${response.status}`);
+      }
+      return response.text();
+    },
+    args: () => [this.sprite],
+  });
+
   render() {
     const themeStyles = this.themedStyles();
 
-    return html`
-      <style>
-        ${themeStyles}
-      </style>
+    return this._productTask.render({
+      pending: () => html`...`,
+      complete: sprite => html`
+        <style>
+          ${themeStyles}
+        </style>
 
-      <svg>
-        <use href="${icons}#${this.type}" />
-      </svg>
-    `;
+        ${unsafeSVG(sprite)}
+
+        <svg>
+          <use href="#${this.type}" />
+        </svg>
+      `,
+      error: e => html`<p>Error: ${e}</p>`,
+    });
   }
 
   themedStyles = () => {

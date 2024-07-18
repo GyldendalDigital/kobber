@@ -15,33 +15,6 @@ const removeDirectory = (directory: string) => {
   fs.rmdirSync(directory, { recursive: true });
 };
 
-removeDirectory(assets);
-removeDirectory(chunks);
-removeDirectory(reactDirectory);
-removeDirectory(webComponentsDirectory);
-
-export default defineConfig(() => ({
-  entry: {
-    [`${reactDirectory}/index`]: "src/index.react.tsx",
-    [`${webComponentsDirectory}/index`]: "src/index.web-components.ts",
-  },
-  format: ["esm"],
-  dts: true,
-  outDir: ".",
-  clean: false,
-  bundle: true,
-  external: ["react"],
-  esbuildOptions(options) {
-    options.publicPath = "@gyldendal/kobber-icons";
-    options.chunkNames = `${chunks}/[name]-[hash]`;
-    options.assetNames = `${assets}/[name]-[hash]`;
-  },
-  async onSuccess() {
-    listAllSvgSymbols();
-    copyIconsToOtherFolders();
-  },
-}));
-
 class DOMParser {
   parseFromString(s: string, contentType = "text/html") {
     return new JSDOM(s, { contentType }).window.document;
@@ -62,7 +35,7 @@ const listAllSvgSymbols = () => {
       iconTypeString = `${iconTypeString}  | "${symbol.id}"\n`;
     });
     iconTypeString = `${iconTypeString};`;
-    let iconsListString = "export const icons = [\n";
+    let iconsListString = "export const iconsList = [\n";
     symbols.forEach((symbol: SVGSymbolElement, index: number) => {
       if (index > 0) {
         iconsListString = `${iconsListString}, \n`;
@@ -73,6 +46,30 @@ const listAllSvgSymbols = () => {
     fs.writeFileSync(`${svgSpriteFolder}/${componentHelperFile}`, `${iconTypeString} \n\n ${iconsListString}`);
   }
 };
+
+removeDirectory(assets);
+removeDirectory(chunks);
+removeDirectory(reactDirectory);
+removeDirectory(webComponentsDirectory);
+
+listAllSvgSymbols();
+
+export default defineConfig(() => ({
+  entry: {
+    [`${reactDirectory}/index`]: "src/index.react.tsx",
+    [`${webComponentsDirectory}/index`]: "src/index.web-components.ts",
+  },
+  format: ["esm"],
+  dts: true,
+  outDir: ".",
+  clean: false,
+  bundle: true,
+  external: ["react"],
+  esbuildOptions(options) {
+    options.chunkNames = `${chunks}/[name]-[hash]`;
+    options.assetNames = `${assets}/[name]-[hash]`;
+  },
+}));
 
 const copyIconsToOtherFolders = () => {
   const storybookFolder = "../../apps/storybook-web-components/symbols";
