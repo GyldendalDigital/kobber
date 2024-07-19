@@ -9,7 +9,8 @@ const svgSpriteFolder = "symbols";
 const svgSpriteFile = "kobber-icons.svg";
 const componentHelperFile = "kobber-icons-lists.ts";
 const webComponentsDirectory = "web-components";
-const iconsDirectory = "src/icon/icons";
+const iconDirectory = "src/icon";
+const iconsDirectory = `${iconDirectory}/icons`;
 const webComponentsList = "src/index.web-components.ts";
 const reactList = "src/index.react.tsx";
 
@@ -84,12 +85,24 @@ const makeIconComponents = () => {
   };
 
   const makeStories = (symbols: SVGSymbolElement[]) => {
+    let iconGalleryMainImportsString = "import {";
+    let iconGalleryString = "";
+    const iconGalleryFirstImportString = 'import { Meta, Title, IconGallery, IconItem } from "@storybook/blocks";\n';
+    const iconGalleryMetaString = '<Meta title="Icon/All" />\n\n# All icons\n\n<IconGallery>\n';
     symbols.forEach(symbol => {
       const iconName = symbol.id;
-
-      const storyFileString = `import type { Meta, StoryObj } from "@storybook/web-components";\nimport "./index";\n\nconst meta: Meta = {\n\ttitle: "Icon/Icons",\n\tcomponent: "kobber-${iconName}",\n};\n\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\nexport const ${iconName}: Story = {};\n`;
+      const iconNameCapitalized = snakeToPascalCase(iconName);
+      iconGalleryMainImportsString = `${iconGalleryMainImportsString} ${iconNameCapitalized},`;
+      iconGalleryString = `${iconGalleryString}\t<IconItem name="<kobber-${iconName} />">\n\t\t<kobber-${iconName} style={{height: "1em", width: "1em"}}/>\n\t</IconItem>\n`;
+      const storyFileString = `import type { Meta, StoryObj } from "@storybook/web-components";\nimport ".";\n\nconst meta: Meta = {\n\ttitle: "Icon/Icons",\n\tcomponent: "kobber-${iconName}",\n};\n\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\nexport const ${iconName}: Story = {};\n`;
       fs.writeFileSync(`${iconsDirectory}/${iconName}/index.stories.ts`, storyFileString);
     });
+    iconGalleryMainImportsString = `${iconGalleryMainImportsString}} from "../index.web-components";\n\n`;
+    iconGalleryString = `${iconGalleryString}\n</IconGallery>\n`;
+    fs.writeFileSync(
+      `${iconDirectory}/index.mdx`,
+      `${iconGalleryFirstImportString}${iconGalleryMainImportsString} ${iconGalleryMetaString}${iconGalleryString}`,
+    );
   };
 
   const parser = new DOMParser();
