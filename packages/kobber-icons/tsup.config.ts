@@ -9,6 +9,7 @@ const svgSpriteFolder = "symbols";
 const svgSpriteFile = "kobber-icons.svg";
 const componentHelperFile = "kobber-icons-lists.ts";
 const webComponentsDirectory = "web-components";
+const iconsDirectory = "src/icon/icons";
 
 const removeDirectory = (directory: string) => {
   if (!fs.existsSync(directory)) return;
@@ -21,8 +22,61 @@ class DOMParser {
   }
 }
 
+// Utility snakeToPascalCase - copied from https://stackoverflow.com/questions/44082153/javascript-method-for-changing-snake-case-to-pascalcase#answer-44084313
+const snakeToPascalCase = (word: string): string => {
+  return word
+    .split("/")
+    .map(snake =>
+      snake
+        .split("_")
+        .map(substr => substr.charAt(0).toUpperCase() + substr.slice(1))
+        .join(""),
+    )
+    .join("/");
+};
+
+const makeIconComponents = () => {
+  removeDirectory(iconsDirectory);
+  fs.mkdirSync(iconsDirectory);
+
+  const file = fs.readFileSync(`${svgSpriteFolder}/${svgSpriteFile}`);
+  const fileAsString = file.toString();
+
+  const makeIcons = (symbols: SVGSymbolElement[]) => {
+    symbols.forEach(symbol => {
+      // TODO:
+      // Reconsider: Is viewbox needed? Can one simple be set? (Best: Copy from the real one.)
+      // Add aria-label/labelledby/role directly on SVG tag (based on attributes, like in progressBarItem).
+
+      const iconName = symbol.id;
+      const iconNameCapitalized = snakeToPascalCase(iconName);
+
+      const svgCode = `<svg>${symbol.innerHTML}</svg>`;
+      const componentCode = `export class ${iconNameCapitalized} extends HTMLElement {\n\tconstructor() {\n\t\tsuper();\n\t\tthis.attachShadow({ mode: "open" });\n\t}\n\trenderComponent() {\n\t\tthis.shadowRoot.innerHTML =\n\t\t\t'${svgCode}';\n\t}\n\tconnectedCallback() {\n\t\tthis.renderComponent();\n\t}\n}\n\nexport const customElementName = "kobber-${iconName}";\n\nif (!customElements.get(customElementName)) {\n\tcustomElements.define(customElementName, ${iconNameCapitalized});\n}\n`;
+
+      fs.mkdirSync(`${iconsDirectory}/${symbol.id}`);
+      fs.writeFileSync(`${iconsDirectory}/${symbol.id}/index.js`, componentCode);
+    });
+  };
+
+  const makeStories = (symbols: SVGSymbolElement[]) => {
+    symbols.forEach(symbol => {
+      // TODO: Possible to simplify? (test when svgs are ready to show)
+      const storyFileString = `import type { Meta, StoryObj } from "@storybook/web-components";\nimport "./index";\n\nconst meta: Meta = {\n\tcomponent: "kobber-${symbol.id}",\n};\n\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\nexport const ${symbol.id}: Story = {\n\targs: {},\n};`;
+      fs.writeFileSync(`${iconsDirectory}/${symbol.id}/index.stories.ts`, storyFileString);
+    });
+  };
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(fileAsString, "text/html");
+  const symbols: SVGSymbolElement[] = doc.querySelectorAll("symbol");
+  if (symbols) {
+    makeIcons(symbols);
+    makeStories(symbols);
+  }
+};
+
 const listAllSvgSymbols = () => {
-  const svgSpriteFolder = "symbols";
   const file = fs.readFileSync(`${svgSpriteFolder}/${svgSpriteFile}`);
   const fileAsString = file.toString();
 
@@ -64,6 +118,7 @@ removeDirectory(reactDirectory);
 removeDirectory(webComponentsDirectory);
 
 listAllSvgSymbols();
+makeIconComponents();
 
 export default defineConfig(() => ({
   entry: {
