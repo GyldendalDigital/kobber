@@ -10,6 +10,8 @@ const svgSpriteFile = "kobber-icons.svg";
 const componentHelperFile = "kobber-icons-lists.ts";
 const webComponentsDirectory = "web-components";
 const iconsDirectory = "src/icon/icons";
+const webComponentsList = "src/index.web-components.ts";
+const reactList = "src/index.react.tsx";
 
 const removeDirectory = (directory: string) => {
   if (!fs.existsSync(directory)) return;
@@ -59,11 +61,34 @@ const makeIconComponents = () => {
     });
   };
 
+  const listIconComponents = (symbols: SVGSymbolElement[]) => {
+    let reactString = "";
+    let reactImports = "";
+    let reactExports = "\n";
+    let webComponentString = "";
+
+    const reactPreamble = 'import { createComponent } from "@lit/react";\nimport * as React from "react";\n';
+
+    symbols.forEach(symbol => {
+      const iconName = symbol.id;
+      const iconNameCapitalized = snakeToPascalCase(iconName);
+
+      reactImports = `${reactImports}\nimport { ${iconNameCapitalized} } from "./icon/icons/${iconName}";`;
+      reactExports = `${reactExports}\nexport const Kobber${iconNameCapitalized} = createComponent({\n\ttagName: "kobber-${iconName}",\n\telementClass: ${iconNameCapitalized},\n\treact: React,\n});\n`;
+
+      webComponentString += `export { ${iconNameCapitalized} } from "./icon/icons/${iconName}";\n`;
+    });
+    reactString = `${reactPreamble} ${reactImports} ${reactExports}`;
+    fs.writeFileSync(reactList, reactString);
+    fs.writeFileSync(webComponentsList, webComponentString);
+  };
+
   const makeStories = (symbols: SVGSymbolElement[]) => {
     symbols.forEach(symbol => {
-      // TODO: Possible to simplify? (test when svgs are ready to show)
-      const storyFileString = `import type { Meta, StoryObj } from "@storybook/web-components";\nimport "./index";\n\nconst meta: Meta = {\n\tcomponent: "kobber-${symbol.id}",\n};\n\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\nexport const ${symbol.id}: Story = {\n\targs: {},\n};`;
-      fs.writeFileSync(`${iconsDirectory}/${symbol.id}/index.stories.ts`, storyFileString);
+      const iconName = symbol.id;
+
+      const storyFileString = `import type { Meta, StoryObj } from "@storybook/web-components";\nimport "./index";\n\nconst meta: Meta = {\n\ttitle: "Icon/Icons",\n\tcomponent: "kobber-${iconName}",\n};\n\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\nexport const ${iconName}: Story = {};\n`;
+      fs.writeFileSync(`${iconsDirectory}/${iconName}/index.stories.ts`, storyFileString);
     });
   };
 
@@ -73,6 +98,7 @@ const makeIconComponents = () => {
   if (symbols) {
     makeIcons(symbols);
     makeStories(symbols);
+    listIconComponents(symbols);
   }
 };
 
