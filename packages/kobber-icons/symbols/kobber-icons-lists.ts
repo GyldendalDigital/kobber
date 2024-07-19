@@ -36,7 +36,7 @@ export type IconType =
   | "copy_paste"
   | "cursor_pointer"
   | "cursor_pointer_circle"
-  | "delete"
+  | "delete_icon"
   | "dice"
   | "dictionary"
   | "download"
@@ -197,7 +197,7 @@ export type IconType =
  "copy_paste", 
  "cursor_pointer", 
  "cursor_pointer_circle", 
- "delete", 
+ "delete_icon", 
  "dice", 
  "dictionary", 
  "download", 
