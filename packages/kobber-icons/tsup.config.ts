@@ -50,20 +50,15 @@ const makeIconComponents = () => {
 
   const makeIcons = (symbols: NodeListOf<SVGSymbolElement>) => {
     symbols.forEach(symbol => {
-      // TODO:
-      // Reconsider: Is viewbox needed? Can one simple be set? (Best: Copy from the real one.)
-      // Add aria-label/labelledby/role directly on SVG tag (based on attributes, like in progressBarItem).
-
       const iconName = symbol.id;
       const iconNameCapitalized = snakeToPascalCase(iconName);
 
       const constructor = `\n\tconstructor() {\n\t\tsuper();\n\t\tthis.attachShadow({ mode: "open" });\n\t\tthis.heightValueFallback = "var(--kobber-semantic-image-icon-size-default-height)";\n\t\tthis.widthValueFallback = "var(--kobber-semantic-image-icon-size-default-width)";\n\t}\n\t`;
       const attributes = `\n\t\tconst ariaLabel =
-      this.getAttribute("aria-label") ||
-      ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */\n\t\tconst ariaHidden = ariaLabel === "";`;
+      this.getAttribute("aria-label") || ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */\n\t\tconst ariaHidden = ariaLabel === "";\n\t\tconst role = ariaHidden ? "presentation" : "img";`;
       const styles =
         "<style>svg {width: var(--icon-width, ${this.widthValueFallback});height: var(--icon-height, ${this.heightValueFallback});}</style>";
-      const svgCode = `<svg viewBox="${symbol.getAttribute("viewBox")}" aria-label="\${ariaLabel}" aria-hidden="\${ariaHidden}">${symbol.innerHTML}</svg>`;
+      const svgCode = `<svg viewBox="${symbol.getAttribute("viewBox")}" aria-label="\${ariaLabel}" aria-hidden="\${ariaHidden}" role="\${role}">${symbol.innerHTML}</svg>`;
 
       const componentCode = `export class ${iconNameCapitalized} extends HTMLElement {${constructor}renderComponent() {${attributes}\n\t\tthis.shadowRoot.innerHTML = \`
       ${styles}\n\t\t\t${svgCode}\`;\n\t}\n\tconnectedCallback() {\n\t\tthis.renderComponent();\n\t}\n}\n\nexport const customElementName = "${iconPrefix}-${iconName}";\n\nif (!customElements.get(customElementName)) {\n\tcustomElements.define(customElementName, ${iconNameCapitalized});\n}\n`;
