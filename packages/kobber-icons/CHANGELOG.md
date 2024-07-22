@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.27
+
+### Patch Changes
+
+- Add roles, rename icon prefix
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.27
+
 ## 0.3.26
 
 ### Patch Changes

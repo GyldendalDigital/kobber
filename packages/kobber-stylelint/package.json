@@ -1,6 +1,6 @@
 {
   "name": "@gyldendal/kobber-stylelint",
-  "version": "0.3.26",
+  "version": "0.3.27",
   "main": ".stylelintrc.cjs",
   "license": "MIT",
   "scripts": {
