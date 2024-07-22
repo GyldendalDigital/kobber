@@ -55,10 +55,15 @@ const makeIconComponents = () => {
       const iconNameCapitalized = snakeToPascalCase(iconName);
 
       const constructor = `\n\tconstructor() {\n\t\tsuper();\n\t\tthis.attachShadow({ mode: "open" });\n\t\tthis.heightValueFallback = "var(--kobber-semantic-image-icon-size-default-height)";\n\t\tthis.widthValueFallback = "var(--kobber-semantic-image-icon-size-default-width)";\n\t}\n\t`;
+      const attributes = `\n\t\tconst ariaLabel =
+      this.getAttribute("aria-label") ||
+      ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */\n\t\tconst ariaHidden = ariaLabel === "";`;
       const styles =
         "<style>svg {width: var(--icon-width, ${this.widthValueFallback});height: var(--icon-height, ${this.heightValueFallback});}</style>";
-      const svgCode = `<svg viewBox="${symbol.getAttribute("viewBox")}">${symbol.innerHTML}</svg>`;
-      const componentCode = `export class ${iconNameCapitalized} extends HTMLElement {${constructor}renderComponent() {\n\t\tthis.shadowRoot.innerHTML = \`${styles}\n\t\t\t${svgCode}\`;\n\t}\n\tconnectedCallback() {\n\t\tthis.renderComponent();\n\t}\n}\n\nexport const customElementName = "kobber-${iconName}";\n\nif (!customElements.get(customElementName)) {\n\tcustomElements.define(customElementName, ${iconNameCapitalized});\n}\n`;
+      const svgCode = `<svg viewBox="${symbol.getAttribute("viewBox")}" aria-label="\${ariaLabel}" aria-hidden="\${ariaHidden}">${symbol.innerHTML}</svg>`;
+
+      const componentCode = `export class ${iconNameCapitalized} extends HTMLElement {${constructor}renderComponent() {${attributes}\n\t\tthis.shadowRoot.innerHTML = \`
+      ${styles}\n\t\t\t${svgCode}\`;\n\t}\n\tconnectedCallback() {\n\t\tthis.renderComponent();\n\t}\n}\n\nexport const customElementName = "kobber-${iconName}";\n\nif (!customElements.get(customElementName)) {\n\tcustomElements.define(customElementName, ${iconNameCapitalized});\n}\n`;
 
       fs.mkdirSync(`${iconsDirectory}/${symbol.id}`);
       fs.writeFileSync(`${iconsDirectory}/${symbol.id}/index.js`, componentCode);
