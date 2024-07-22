@@ -54,8 +54,16 @@ const makeIconComponents = () => {
       const iconName = symbol.id;
       const iconNameCapitalized = snakeToPascalCase(iconName);
 
-      const svgCode = `<svg>${symbol.innerHTML}</svg>`;
-      const componentCode = `export class ${iconNameCapitalized} extends HTMLElement {\n\tconstructor() {\n\t\tsuper();\n\t\tthis.attachShadow({ mode: "open" });\n\t}\n\trenderComponent() {\n\t\tthis.shadowRoot.innerHTML =\n\t\t\t'${svgCode}';\n\t}\n\tconnectedCallback() {\n\t\tthis.renderComponent();\n\t}\n}\n\nexport const customElementName = "kobber-${iconName}";\n\nif (!customElements.get(customElementName)) {\n\tcustomElements.define(customElementName, ${iconNameCapitalized});\n}\n`;
+      const constructor = `\n\tconstructor() {\n\t\tsuper();\n\t\tthis.attachShadow({ mode: "open" });\n\t\tthis.heightValueFallback = "var(--kobber-semantic-image-icon-size-default-height)";\n\t\tthis.widthValueFallback = "var(--kobber-semantic-image-icon-size-default-width)";\n\t}\n\t`;
+      const attributes = `\n\t\tconst ariaLabel =
+      this.getAttribute("aria-label") ||
+      ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */\n\t\tconst ariaHidden = ariaLabel === "";`;
+      const styles =
+        "<style>svg {width: var(--icon-width, ${this.widthValueFallback});height: var(--icon-height, ${this.heightValueFallback});}</style>";
+      const svgCode = `<svg viewBox="${symbol.getAttribute("viewBox")}" aria-label="\${ariaLabel}" aria-hidden="\${ariaHidden}">${symbol.innerHTML}</svg>`;
+
+      const componentCode = `export class ${iconNameCapitalized} extends HTMLElement {${constructor}renderComponent() {${attributes}\n\t\tthis.shadowRoot.innerHTML = \`
+      ${styles}\n\t\t\t${svgCode}\`;\n\t}\n\tconnectedCallback() {\n\t\tthis.renderComponent();\n\t}\n}\n\nexport const customElementName = "kobber-${iconName}";\n\nif (!customElements.get(customElementName)) {\n\tcustomElements.define(customElementName, ${iconNameCapitalized});\n}\n`;
 
       fs.mkdirSync(`${iconsDirectory}/${symbol.id}`);
       fs.writeFileSync(`${iconsDirectory}/${symbol.id}/index.js`, componentCode);
@@ -93,8 +101,8 @@ const makeIconComponents = () => {
       const iconName = symbol.id;
       const iconNameCapitalized = snakeToPascalCase(iconName);
       iconGalleryMainImportsString = `${iconGalleryMainImportsString} ${iconNameCapitalized},`;
-      iconGalleryString = `${iconGalleryString}\t<IconItem name="<kobber-${iconName} />">\n\t\t<kobber-${iconName} style={{height: "1em", width: "1em"}}/>\n\t</IconItem>\n`;
-      const storyFileString = `import type { Meta, StoryObj } from "@storybook/web-components";\nimport ".";\n\nconst meta: Meta = {\n\ttitle: "Icon/Icons",\n\tcomponent: "kobber-${iconName}",\n};\n\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\nexport const ${iconName}: Story = {};\n`;
+      iconGalleryString = `${iconGalleryString}\t<IconItem name="Kobber${iconNameCapitalized} - <kobber-${iconName} />">\n\t\t<kobber-${iconName} class="kobber-theme-default" />\n\t</IconItem>\n`;
+      const storyFileString = `import type { Args, Meta, StoryObj } from "@storybook/web-components";\nimport ".";\n\nconst meta: Meta = {\n\ttitle: "Icon/Icons",\n\tcomponent: "kobber-${iconName}",\n\targs: {\n\t\tariaLabel: "",\n\t},\n\tdecorators: [\n\t\t(story, storyContext) => \`\n\t\t\t<div class="\${storyContext.globals.theme}">\n\t\t\t\t\${story()}\n\t\t\t</div>\n\t\t\`,\n\t],\n};\n\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\nexport const ${iconName}: Story = {\n\trender: (args: Args) => \`\n\t\t<kobber-add\n\t\t\taria-label="\${args.ariaLabel}"\n\t\t/>\n\t\`,\n};\n`;
       fs.writeFileSync(`${iconsDirectory}/${iconName}/index.stories.ts`, storyFileString);
     });
     iconGalleryMainImportsString = `${iconGalleryMainImportsString}} from "../index.web-components";\n\n`;

@@ -1,12 +1,28 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Args, Meta, StoryObj } from "@storybook/web-components";
 import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
 	component: "kobber-volume_off",
+	args: {
+		ariaLabel: "",
+	},
+	decorators: [
+		(story, storyContext) => `
+			<div class="${storyContext.globals.theme}">
+				${story()}
+			</div>
+		`,
+	],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const volume_off: Story = {};
+export const volume_off: Story = {
+	render: (args: Args) => `
+		<kobber-add
+			aria-label="${args.ariaLabel}"
+		/>
+	`,
+};
