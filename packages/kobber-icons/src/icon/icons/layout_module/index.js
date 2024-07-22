@@ -19,7 +19,7 @@ export class LayoutModule extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-layout_module";
+export const customElementName = "icon-layout_module";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, LayoutModule);

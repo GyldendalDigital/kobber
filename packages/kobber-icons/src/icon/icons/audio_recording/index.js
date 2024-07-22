@@ -19,7 +19,7 @@ export class AudioRecording extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-audio_recording";
+export const customElementName = "icon-audio_recording";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, AudioRecording);

@@ -19,7 +19,7 @@ export class SynchronizeArrowsSquare extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-synchronize__arrows__square";
+export const customElementName = "icon-synchronize__arrows__square";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, SynchronizeArrowsSquare);

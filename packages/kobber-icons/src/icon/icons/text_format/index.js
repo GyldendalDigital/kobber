@@ -19,7 +19,7 @@ export class TextFormat extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-text_format";
+export const customElementName = "icon-text_format";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, TextFormat);

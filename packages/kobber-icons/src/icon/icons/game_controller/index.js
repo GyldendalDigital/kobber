@@ -19,7 +19,7 @@ export class GameController extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-game_controller";
+export const customElementName = "icon-game_controller";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, GameController);

@@ -19,7 +19,7 @@ export class Close extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-close";
+export const customElementName = "icon-close";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Close);

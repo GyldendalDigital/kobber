@@ -19,7 +19,7 @@ export class FormTemplate extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-form_template";
+export const customElementName = "icon-form_template";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, FormTemplate);

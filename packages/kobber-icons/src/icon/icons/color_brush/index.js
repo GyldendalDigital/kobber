@@ -19,7 +19,7 @@ export class ColorBrush extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-color_brush";
+export const customElementName = "icon-color_brush";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ColorBrush);

@@ -19,7 +19,7 @@ export class ReadHome extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-read_home";
+export const customElementName = "icon-read_home";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ReadHome);

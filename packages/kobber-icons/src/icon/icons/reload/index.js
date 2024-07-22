@@ -19,7 +19,7 @@ export class Reload extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-reload";
+export const customElementName = "icon-reload";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Reload);

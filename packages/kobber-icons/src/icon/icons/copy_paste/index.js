@@ -19,7 +19,7 @@ export class CopyPaste extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-copy_paste";
+export const customElementName = "icon-copy_paste";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, CopyPaste);

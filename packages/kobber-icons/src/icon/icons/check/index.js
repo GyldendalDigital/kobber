@@ -19,7 +19,7 @@ export class Check extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-check";
+export const customElementName = "icon-check";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Check);

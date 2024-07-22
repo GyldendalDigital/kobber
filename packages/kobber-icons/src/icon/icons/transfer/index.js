@@ -19,7 +19,7 @@ export class Transfer extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-transfer";
+export const customElementName = "icon-transfer";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Transfer);

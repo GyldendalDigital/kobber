@@ -19,7 +19,7 @@ export class Menu extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-menu";
+export const customElementName = "icon-menu";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Menu);

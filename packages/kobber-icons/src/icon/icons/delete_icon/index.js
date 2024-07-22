@@ -19,7 +19,7 @@ export class DeleteIcon extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-delete_icon";
+export const customElementName = "icon-delete_icon";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, DeleteIcon);

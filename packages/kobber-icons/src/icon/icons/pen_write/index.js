@@ -19,7 +19,7 @@ export class PenWrite extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-pen_write";
+export const customElementName = "icon-pen_write";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, PenWrite);

@@ -19,7 +19,7 @@ export class Add extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-add";
+export const customElementName = "icon-add";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Add);

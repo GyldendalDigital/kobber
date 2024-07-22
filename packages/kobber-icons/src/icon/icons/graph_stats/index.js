@@ -19,7 +19,7 @@ export class GraphStats extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-graph_stats";
+export const customElementName = "icon-graph_stats";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, GraphStats);

@@ -19,7 +19,7 @@ export class FolderBookmark extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-folder_bookmark";
+export const customElementName = "icon-folder_bookmark";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, FolderBookmark);

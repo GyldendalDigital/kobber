@@ -19,7 +19,7 @@ export class ReadIdea extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-read_idea";
+export const customElementName = "icon-read_idea";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ReadIdea);

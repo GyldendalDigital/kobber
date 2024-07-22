@@ -19,7 +19,7 @@ export class Remove extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-remove";
+export const customElementName = "icon-remove";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Remove);

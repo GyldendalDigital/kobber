@@ -19,7 +19,7 @@ export class Undo extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-undo";
+export const customElementName = "icon-undo";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Undo);

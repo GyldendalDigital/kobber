@@ -3,7 +3,7 @@ import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
-	component: "kobber-undo",
+	component: "icon-undo",
 	args: {
 		ariaLabel: "",
 	},
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const undo: Story = {
 	render: (args: Args) => `
-		<kobber-add
+		<icon-undo
 			aria-label="${args.ariaLabel}"
 		/>
 	`,

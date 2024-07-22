@@ -19,7 +19,7 @@ export class MessageTyping extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-message_typing";
+export const customElementName = "icon-message_typing";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, MessageTyping);

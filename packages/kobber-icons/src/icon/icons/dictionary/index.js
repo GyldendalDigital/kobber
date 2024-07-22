@@ -19,7 +19,7 @@ export class Dictionary extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-dictionary";
+export const customElementName = "icon-dictionary";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Dictionary);

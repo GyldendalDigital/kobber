@@ -19,7 +19,7 @@ export class Image extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-image";
+export const customElementName = "icon-image";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Image);

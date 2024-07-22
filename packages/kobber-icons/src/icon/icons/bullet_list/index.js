@@ -19,7 +19,7 @@ export class BulletList extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-bullet_list";
+export const customElementName = "icon-bullet_list";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, BulletList);

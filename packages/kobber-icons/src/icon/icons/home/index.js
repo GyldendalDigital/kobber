@@ -19,7 +19,7 @@ export class Home extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-home";
+export const customElementName = "icon-home";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Home);

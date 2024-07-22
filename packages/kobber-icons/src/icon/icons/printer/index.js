@@ -19,7 +19,7 @@ export class Printer extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-printer";
+export const customElementName = "icon-printer";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Printer);

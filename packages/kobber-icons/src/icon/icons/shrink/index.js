@@ -19,7 +19,7 @@ export class Shrink extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-shrink";
+export const customElementName = "icon-shrink";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Shrink);

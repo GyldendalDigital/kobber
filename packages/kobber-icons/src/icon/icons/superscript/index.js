@@ -19,7 +19,7 @@ export class Superscript extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-superscript";
+export const customElementName = "icon-superscript";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Superscript);

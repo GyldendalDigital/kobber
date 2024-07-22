@@ -19,7 +19,7 @@ export class VideoPlayer extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-video_player";
+export const customElementName = "icon-video_player";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, VideoPlayer);

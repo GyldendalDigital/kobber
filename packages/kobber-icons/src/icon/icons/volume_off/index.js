@@ -19,7 +19,7 @@ export class VolumeOff extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-volume_off";
+export const customElementName = "icon-volume_off";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, VolumeOff);

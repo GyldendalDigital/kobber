@@ -19,7 +19,7 @@ export class LockUnlocked extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-lock_unlocked";
+export const customElementName = "icon-lock_unlocked";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, LockUnlocked);

@@ -19,7 +19,7 @@ export class FlipRight extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-flip_right";
+export const customElementName = "icon-flip_right";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, FlipRight);

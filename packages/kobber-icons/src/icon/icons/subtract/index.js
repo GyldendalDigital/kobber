@@ -19,7 +19,7 @@ export class Subtract extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-subtract";
+export const customElementName = "icon-subtract";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Subtract);

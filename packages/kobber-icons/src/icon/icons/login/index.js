@@ -19,7 +19,7 @@ export class Login extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-login";
+export const customElementName = "icon-login";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Login);

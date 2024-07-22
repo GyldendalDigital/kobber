@@ -19,7 +19,7 @@ export class Backspace extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-backspace";
+export const customElementName = "icon-backspace";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Backspace);

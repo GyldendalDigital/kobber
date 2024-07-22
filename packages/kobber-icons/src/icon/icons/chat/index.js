@@ -19,7 +19,7 @@ export class Chat extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-chat";
+export const customElementName = "icon-chat";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Chat);

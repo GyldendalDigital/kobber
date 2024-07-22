@@ -19,7 +19,7 @@ export class CircleShapeAdd extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-circle_shape_add";
+export const customElementName = "icon-circle_shape_add";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, CircleShapeAdd);

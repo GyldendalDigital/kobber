@@ -19,7 +19,7 @@ export class AlarmClock extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-alarm_clock";
+export const customElementName = "icon-alarm_clock";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, AlarmClock);

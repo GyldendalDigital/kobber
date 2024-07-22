@@ -19,7 +19,7 @@ export class BookOpen extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-book_open";
+export const customElementName = "icon-book_open";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, BookOpen);

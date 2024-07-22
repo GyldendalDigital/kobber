@@ -3,7 +3,7 @@ import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
-	component: "kobber-alarm_timer",
+	component: "icon-alarm_timer",
 	args: {
 		ariaLabel: "",
 	},
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const alarm_timer: Story = {
 	render: (args: Args) => `
-		<kobber-add
+		<icon-alarm_timer
 			aria-label="${args.ariaLabel}"
 		/>
 	`,

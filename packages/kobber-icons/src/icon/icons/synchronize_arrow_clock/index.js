@@ -19,7 +19,7 @@ export class SynchronizeArrowClock extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-synchronize_arrow_clock";
+export const customElementName = "icon-synchronize_arrow_clock";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, SynchronizeArrowClock);

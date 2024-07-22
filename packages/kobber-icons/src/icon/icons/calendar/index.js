@@ -19,7 +19,7 @@ export class Calendar extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-calendar";
+export const customElementName = "icon-calendar";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Calendar);

@@ -19,7 +19,7 @@ export class SchoolTeacher extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-school_teacher";
+export const customElementName = "icon-school_teacher";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, SchoolTeacher);

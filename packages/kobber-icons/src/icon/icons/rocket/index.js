@@ -19,7 +19,7 @@ export class Rocket extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-rocket";
+export const customElementName = "icon-rocket";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Rocket);

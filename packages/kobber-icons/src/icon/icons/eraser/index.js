@@ -19,7 +19,7 @@ export class Eraser extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-eraser";
+export const customElementName = "icon-eraser";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Eraser);

@@ -19,7 +19,7 @@ export class Bookmark extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-bookmark";
+export const customElementName = "icon-bookmark";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Bookmark);

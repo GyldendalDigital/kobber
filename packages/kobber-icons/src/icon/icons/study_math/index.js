@@ -19,7 +19,7 @@ export class StudyMath extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-study_math";
+export const customElementName = "icon-study_math";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, StudyMath);

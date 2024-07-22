@@ -19,7 +19,7 @@ export class Share extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-share";
+export const customElementName = "icon-share";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Share);

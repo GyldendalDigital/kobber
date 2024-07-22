@@ -19,7 +19,7 @@ export class QuestionCircle extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-question_circle";
+export const customElementName = "icon-question_circle";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, QuestionCircle);

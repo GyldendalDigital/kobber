@@ -19,7 +19,7 @@ export class TaskListClock extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-task_list_clock";
+export const customElementName = "icon-task_list_clock";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, TaskListClock);

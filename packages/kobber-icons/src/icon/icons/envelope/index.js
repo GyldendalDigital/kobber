@@ -19,7 +19,7 @@ export class Envelope extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-envelope";
+export const customElementName = "icon-envelope";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Envelope);

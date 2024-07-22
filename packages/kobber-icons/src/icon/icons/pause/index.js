@@ -19,7 +19,7 @@ export class Pause extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-pause";
+export const customElementName = "icon-pause";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Pause);

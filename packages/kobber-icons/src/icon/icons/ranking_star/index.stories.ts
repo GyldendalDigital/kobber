@@ -3,7 +3,7 @@ import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
-	component: "kobber-ranking_star",
+	component: "icon-ranking_star",
 	args: {
 		ariaLabel: "",
 	},
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const ranking_star: Story = {
 	render: (args: Args) => `
-		<kobber-add
+		<icon-ranking_star
 			aria-label="${args.ariaLabel}"
 		/>
 	`,

@@ -19,7 +19,7 @@ export class LockLocked extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-lock_locked";
+export const customElementName = "icon-lock_locked";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, LockLocked);

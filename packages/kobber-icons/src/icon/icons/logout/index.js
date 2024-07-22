@@ -19,7 +19,7 @@ export class Logout extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-logout";
+export const customElementName = "icon-logout";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Logout);

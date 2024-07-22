@@ -19,7 +19,7 @@ export class Pin extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-pin";
+export const customElementName = "icon-pin";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Pin);

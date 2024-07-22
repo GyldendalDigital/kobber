@@ -19,7 +19,7 @@ export class ModuleFour extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-module_four";
+export const customElementName = "icon-module_four";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ModuleFour);

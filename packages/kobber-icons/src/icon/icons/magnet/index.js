@@ -19,7 +19,7 @@ export class Magnet extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-magnet";
+export const customElementName = "icon-magnet";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Magnet);

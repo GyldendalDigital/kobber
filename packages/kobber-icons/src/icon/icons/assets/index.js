@@ -19,7 +19,7 @@ export class Assets extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-assets";
+export const customElementName = "icon-assets";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Assets);

@@ -19,7 +19,7 @@ export class AddSquare extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-add_square";
+export const customElementName = "icon-add_square";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, AddSquare);

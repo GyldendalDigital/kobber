@@ -19,7 +19,7 @@ export class AnalyticBars extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-analytic_bars";
+export const customElementName = "icon-analytic_bars";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, AnalyticBars);

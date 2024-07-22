@@ -19,7 +19,7 @@ export class Shuffle extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-shuffle";
+export const customElementName = "icon-shuffle";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Shuffle);

@@ -19,7 +19,7 @@ export class Dice extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-dice";
+export const customElementName = "icon-dice";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Dice);

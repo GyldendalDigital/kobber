@@ -19,7 +19,7 @@ export class Search extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-search";
+export const customElementName = "icon-search";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Search);

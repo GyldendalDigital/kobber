@@ -19,7 +19,7 @@ export class RatingStarCheck extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-rating_star_check";
+export const customElementName = "icon-rating_star_check";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, RatingStarCheck);

@@ -19,7 +19,7 @@ export class Glasses extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-glasses";
+export const customElementName = "icon-glasses";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Glasses);

@@ -19,7 +19,7 @@ export class Download extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-download";
+export const customElementName = "icon-download";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Download);

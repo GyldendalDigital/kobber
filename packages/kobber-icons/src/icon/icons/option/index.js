@@ -19,7 +19,7 @@ export class Option extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-option";
+export const customElementName = "icon-option";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Option);

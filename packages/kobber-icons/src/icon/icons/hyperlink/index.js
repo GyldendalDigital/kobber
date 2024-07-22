@@ -19,7 +19,7 @@ export class Hyperlink extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-hyperlink";
+export const customElementName = "icon-hyperlink";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Hyperlink);

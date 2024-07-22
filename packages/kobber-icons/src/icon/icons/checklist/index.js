@@ -19,7 +19,7 @@ export class Checklist extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-checklist";
+export const customElementName = "icon-checklist";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Checklist);

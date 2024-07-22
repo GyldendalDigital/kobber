@@ -19,7 +19,7 @@ export class LayoutRight extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-layout_right";
+export const customElementName = "icon-layout_right";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, LayoutRight);

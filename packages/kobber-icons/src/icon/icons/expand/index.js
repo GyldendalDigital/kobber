@@ -19,7 +19,7 @@ export class Expand extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-expand";
+export const customElementName = "icon-expand";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Expand);

@@ -19,7 +19,7 @@ export class Bincular extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-bincular";
+export const customElementName = "icon-bincular";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Bincular);

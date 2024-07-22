@@ -19,7 +19,7 @@ export class ArrowBack extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-arrow_back";
+export const customElementName = "icon-arrow_back";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ArrowBack);

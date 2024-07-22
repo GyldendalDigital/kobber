@@ -19,7 +19,7 @@ export class ChevronUp extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-chevron_up";
+export const customElementName = "icon-chevron_up";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ChevronUp);

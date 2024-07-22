@@ -19,7 +19,7 @@ export class TaskList extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-task_list";
+export const customElementName = "icon-task_list";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, TaskList);

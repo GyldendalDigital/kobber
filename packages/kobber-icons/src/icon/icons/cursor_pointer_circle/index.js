@@ -19,7 +19,7 @@ export class CursorPointerCircle extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-cursor_pointer_circle";
+export const customElementName = "icon-cursor_pointer_circle";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, CursorPointerCircle);

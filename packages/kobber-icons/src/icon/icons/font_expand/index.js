@@ -19,7 +19,7 @@ export class FontExpand extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-font_expand";
+export const customElementName = "icon-font_expand";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, FontExpand);

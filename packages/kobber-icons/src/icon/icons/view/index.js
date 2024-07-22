@@ -19,7 +19,7 @@ export class View extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-view";
+export const customElementName = "icon-view";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, View);

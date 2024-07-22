@@ -19,7 +19,7 @@ export class ParagraphCenter extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-paragraph_center";
+export const customElementName = "icon-paragraph_center";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ParagraphCenter);

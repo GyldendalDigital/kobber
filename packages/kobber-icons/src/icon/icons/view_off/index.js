@@ -19,7 +19,7 @@ export class ViewOff extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-view_off";
+export const customElementName = "icon-view_off";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ViewOff);

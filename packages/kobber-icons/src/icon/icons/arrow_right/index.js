@@ -19,7 +19,7 @@ export class ArrowRight extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-arrow_right";
+export const customElementName = "icon-arrow_right";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ArrowRight);

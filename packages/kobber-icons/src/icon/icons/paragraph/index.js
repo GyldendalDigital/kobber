@@ -19,7 +19,7 @@ export class Paragraph extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-paragraph";
+export const customElementName = "icon-paragraph";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Paragraph);

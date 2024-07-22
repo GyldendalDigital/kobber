@@ -19,7 +19,7 @@ export class SynchronizeArrowsWarning extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-synchronize_arrows_warning";
+export const customElementName = "icon-synchronize_arrows_warning";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, SynchronizeArrowsWarning);

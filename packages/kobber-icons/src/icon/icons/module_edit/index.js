@@ -19,7 +19,7 @@ export class ModuleEdit extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-module_edit";
+export const customElementName = "icon-module_edit";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ModuleEdit);

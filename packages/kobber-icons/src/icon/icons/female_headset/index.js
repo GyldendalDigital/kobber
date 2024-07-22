@@ -19,7 +19,7 @@ export class FemaleHeadset extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-female_headset";
+export const customElementName = "icon-female_headset";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, FemaleHeadset);

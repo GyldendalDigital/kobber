@@ -3,7 +3,7 @@ import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
-	component: "kobber-copy_paste",
+	component: "icon-copy_paste",
 	args: {
 		ariaLabel: "",
 	},
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const copy_paste: Story = {
 	render: (args: Args) => `
-		<kobber-add
+		<icon-copy_paste
 			aria-label="${args.ariaLabel}"
 		/>
 	`,

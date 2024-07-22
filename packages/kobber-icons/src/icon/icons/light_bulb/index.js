@@ -19,7 +19,7 @@ export class LightBulb extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-light_bulb";
+export const customElementName = "icon-light_bulb";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, LightBulb);

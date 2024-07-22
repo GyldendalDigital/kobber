@@ -19,7 +19,7 @@ export class PenTools extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-pen_tools";
+export const customElementName = "icon-pen_tools";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, PenTools);

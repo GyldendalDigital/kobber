@@ -19,7 +19,7 @@ export class Keyboard extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-keyboard";
+export const customElementName = "icon-keyboard";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Keyboard);

@@ -19,7 +19,7 @@ export class Subscript extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-subscript";
+export const customElementName = "icon-subscript";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Subscript);

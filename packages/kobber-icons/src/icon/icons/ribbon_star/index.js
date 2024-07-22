@@ -19,7 +19,7 @@ export class RibbonStar extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-ribbon_star";
+export const customElementName = "icon-ribbon_star";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, RibbonStar);

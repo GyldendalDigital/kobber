@@ -19,7 +19,7 @@ export class TextSync extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-text_sync";
+export const customElementName = "icon-text_sync";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, TextSync);

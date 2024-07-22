@@ -19,7 +19,7 @@ export class AlarmBell extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-alarm_bell";
+export const customElementName = "icon-alarm_bell";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, AlarmBell);

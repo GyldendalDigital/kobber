@@ -19,7 +19,7 @@ export class FrameExpand extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-frame_expand";
+export const customElementName = "icon-frame_expand";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, FrameExpand);

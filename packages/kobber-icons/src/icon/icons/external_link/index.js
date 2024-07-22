@@ -19,7 +19,7 @@ export class ExternalLink extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-external_link";
+export const customElementName = "icon-external_link";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ExternalLink);

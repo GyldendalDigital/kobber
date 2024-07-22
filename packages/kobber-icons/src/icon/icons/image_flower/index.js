@@ -19,7 +19,7 @@ export class ImageFlower extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-image_flower";
+export const customElementName = "icon-image_flower";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ImageFlower);

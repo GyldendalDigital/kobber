@@ -19,7 +19,7 @@ export class LayersBack extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-layers_back";
+export const customElementName = "icon-layers_back";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, LayersBack);

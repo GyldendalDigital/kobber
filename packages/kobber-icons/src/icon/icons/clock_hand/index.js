@@ -19,7 +19,7 @@ export class ClockHand extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-clock_hand";
+export const customElementName = "icon-clock_hand";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ClockHand);

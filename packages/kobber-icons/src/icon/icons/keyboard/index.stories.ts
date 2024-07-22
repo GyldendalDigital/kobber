@@ -3,7 +3,7 @@ import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
-	component: "kobber-keyboard",
+	component: "icon-keyboard",
 	args: {
 		ariaLabel: "",
 	},
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const keyboard: Story = {
 	render: (args: Args) => `
-		<kobber-add
+		<icon-keyboard
 			aria-label="${args.ariaLabel}"
 		/>
 	`,

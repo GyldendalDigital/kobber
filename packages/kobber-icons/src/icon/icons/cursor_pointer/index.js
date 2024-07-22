@@ -19,7 +19,7 @@ export class CursorPointer extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-cursor_pointer";
+export const customElementName = "icon-cursor_pointer";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, CursorPointer);

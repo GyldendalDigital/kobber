@@ -19,7 +19,7 @@ export class Newspaper extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-newspaper";
+export const customElementName = "icon-newspaper";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Newspaper);

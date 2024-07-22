@@ -19,7 +19,7 @@ export class VideoFileAdd extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-video_file_add";
+export const customElementName = "icon-video_file_add";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, VideoFileAdd);

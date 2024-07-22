@@ -3,7 +3,7 @@ import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
-	component: "kobber-logout",
+	component: "icon-logout",
 	args: {
 		ariaLabel: "",
 	},
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const logout: Story = {
 	render: (args: Args) => `
-		<kobber-add
+		<icon-logout
 			aria-label="${args.ariaLabel}"
 		/>
 	`,

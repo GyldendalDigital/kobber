@@ -19,7 +19,7 @@ export class ExpandResize extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-expand_resize";
+export const customElementName = "icon-expand_resize";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ExpandResize);

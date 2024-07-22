@@ -19,7 +19,7 @@ export class UserEdit extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-user_edit";
+export const customElementName = "icon-user_edit";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, UserEdit);

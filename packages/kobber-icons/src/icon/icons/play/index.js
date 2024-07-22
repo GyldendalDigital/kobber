@@ -19,7 +19,7 @@ export class Play extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-play";
+export const customElementName = "icon-play";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Play);

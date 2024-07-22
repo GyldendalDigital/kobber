@@ -19,7 +19,7 @@ export class MessageWarning extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-message_warning";
+export const customElementName = "icon-message_warning";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, MessageWarning);

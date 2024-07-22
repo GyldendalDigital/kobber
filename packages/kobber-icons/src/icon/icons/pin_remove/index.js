@@ -19,7 +19,7 @@ export class PinRemove extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-pin_remove";
+export const customElementName = "icon-pin_remove";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, PinRemove);

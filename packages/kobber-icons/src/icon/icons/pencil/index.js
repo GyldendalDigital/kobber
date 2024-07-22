@@ -19,7 +19,7 @@ export class Pencil extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-pencil";
+export const customElementName = "icon-pencil";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Pencil);

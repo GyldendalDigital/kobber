@@ -19,7 +19,7 @@ export class Clock extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-clock";
+export const customElementName = "icon-clock";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Clock);

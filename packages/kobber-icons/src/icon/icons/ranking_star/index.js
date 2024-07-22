@@ -19,7 +19,7 @@ export class RankingStar extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-ranking_star";
+export const customElementName = "icon-ranking_star";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, RankingStar);

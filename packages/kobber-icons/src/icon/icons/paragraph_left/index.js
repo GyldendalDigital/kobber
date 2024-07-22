@@ -19,7 +19,7 @@ export class ParagraphLeft extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-paragraph_left";
+export const customElementName = "icon-paragraph_left";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ParagraphLeft);

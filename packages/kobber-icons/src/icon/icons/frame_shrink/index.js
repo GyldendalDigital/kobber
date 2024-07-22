@@ -19,7 +19,7 @@ export class FrameShrink extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-frame_shrink";
+export const customElementName = "icon-frame_shrink";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, FrameShrink);

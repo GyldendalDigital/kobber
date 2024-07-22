@@ -19,7 +19,7 @@ export class Camera extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-camera";
+export const customElementName = "icon-camera";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Camera);

@@ -19,7 +19,7 @@ export class Settings extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-settings";
+export const customElementName = "icon-settings";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Settings);

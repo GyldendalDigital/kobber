@@ -19,7 +19,7 @@ export class CheckCircle extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-check_circle";
+export const customElementName = "icon-check_circle";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, CheckCircle);

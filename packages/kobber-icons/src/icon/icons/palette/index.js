@@ -19,7 +19,7 @@ export class Palette extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-palette";
+export const customElementName = "icon-palette";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Palette);

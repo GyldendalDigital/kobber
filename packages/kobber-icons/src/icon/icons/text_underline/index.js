@@ -19,7 +19,7 @@ export class TextUnderline extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-text_underline";
+export const customElementName = "icon-text_underline";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, TextUnderline);

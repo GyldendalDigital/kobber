@@ -19,7 +19,7 @@ export class Redo extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-redo";
+export const customElementName = "icon-redo";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Redo);

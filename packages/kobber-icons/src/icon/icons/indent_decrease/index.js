@@ -19,7 +19,7 @@ export class IndentDecrease extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-indent_decrease";
+export const customElementName = "icon-indent_decrease";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, IndentDecrease);

@@ -19,7 +19,7 @@ export class RetouchGraph extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-retouch_graph";
+export const customElementName = "icon-retouch_graph";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, RetouchGraph);

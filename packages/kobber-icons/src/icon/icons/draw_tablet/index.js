@@ -19,7 +19,7 @@ export class DrawTablet extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-draw_tablet";
+export const customElementName = "icon-draw_tablet";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, DrawTablet);

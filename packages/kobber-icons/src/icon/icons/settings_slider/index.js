@@ -19,7 +19,7 @@ export class SettingsSlider extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-settings_slider";
+export const customElementName = "icon-settings_slider";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, SettingsSlider);

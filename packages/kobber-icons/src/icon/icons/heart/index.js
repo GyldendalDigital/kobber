@@ -19,7 +19,7 @@ export class Heart extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-heart";
+export const customElementName = "icon-heart";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Heart);

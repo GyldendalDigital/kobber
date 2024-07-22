@@ -19,7 +19,7 @@ export class Elements extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-elements";
+export const customElementName = "icon-elements";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Elements);

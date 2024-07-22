@@ -19,7 +19,7 @@ export class Headphones extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-headphones";
+export const customElementName = "icon-headphones";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Headphones);

@@ -19,7 +19,7 @@ export class Library extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-library";
+export const customElementName = "icon-library";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Library);

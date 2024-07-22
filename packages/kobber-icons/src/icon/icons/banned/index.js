@@ -19,7 +19,7 @@ export class Banned extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-banned";
+export const customElementName = "icon-banned";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Banned);

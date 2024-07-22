@@ -19,7 +19,7 @@ export class Youtube extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-youtube";
+export const customElementName = "icon-youtube";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Youtube);

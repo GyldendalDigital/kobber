@@ -19,7 +19,7 @@ export class TextBold extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-text_bold";
+export const customElementName = "icon-text_bold";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, TextBold);

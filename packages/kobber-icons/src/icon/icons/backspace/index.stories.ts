@@ -3,7 +3,7 @@ import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
-	component: "kobber-backspace",
+	component: "icon-backspace",
 	args: {
 		ariaLabel: "",
 	},
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const backspace: Story = {
 	render: (args: Args) => `
-		<kobber-add
+		<icon-backspace
 			aria-label="${args.ariaLabel}"
 		/>
 	`,

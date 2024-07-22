@@ -19,7 +19,7 @@ export class TextStyle extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-text_style";
+export const customElementName = "icon-text_style";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, TextStyle);

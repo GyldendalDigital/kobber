@@ -19,7 +19,7 @@ export class MessageStar extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-message_star";
+export const customElementName = "icon-message_star";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, MessageStar);

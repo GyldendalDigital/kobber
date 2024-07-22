@@ -19,7 +19,7 @@ export class Refresh extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-refresh";
+export const customElementName = "icon-refresh";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Refresh);

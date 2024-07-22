@@ -19,7 +19,7 @@ export class NotebookPencil extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-notebook_pencil";
+export const customElementName = "icon-notebook_pencil";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, NotebookPencil);

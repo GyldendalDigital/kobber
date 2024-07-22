@@ -19,7 +19,7 @@ export class Circle extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-circle";
+export const customElementName = "icon-circle";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Circle);

@@ -19,7 +19,7 @@ export class PartyBalloon extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-party_balloon";
+export const customElementName = "icon-party_balloon";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, PartyBalloon);

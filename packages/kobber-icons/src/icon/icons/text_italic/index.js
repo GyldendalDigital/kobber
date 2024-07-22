@@ -19,7 +19,7 @@ export class TextItalic extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-text_italic";
+export const customElementName = "icon-text_italic";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, TextItalic);

@@ -19,7 +19,7 @@ export class TabletTouch extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-tablet_touch";
+export const customElementName = "icon-tablet_touch";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, TabletTouch);

@@ -19,7 +19,7 @@ export class NumberList extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-number_list";
+export const customElementName = "icon-number_list";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, NumberList);

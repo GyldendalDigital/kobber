@@ -19,7 +19,7 @@ export class MultipleUsers extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-multiple_users";
+export const customElementName = "icon-multiple_users";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, MultipleUsers);

@@ -19,7 +19,7 @@ export class ArrowUp extends HTMLElement {
 	}
 }
 
-export const customElementName = "kobber-arrow_up";
+export const customElementName = "icon-arrow_up";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, ArrowUp);
