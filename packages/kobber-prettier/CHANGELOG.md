@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.25
+
+### Patch Changes
+
+- Expose icons as components
+
 ## 0.3.24
 
 ### Patch Changes

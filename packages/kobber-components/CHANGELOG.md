@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.25
+
+### Patch Changes
+
+- Expose icons as components
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.25
+
 ## 0.3.24
 
 ### Patch Changes
