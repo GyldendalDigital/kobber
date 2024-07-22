@@ -7,19 +7,19 @@ export class Subtract extends HTMLElement {
 	}
 	renderComponent() {
 		const ariaLabel =
-      this.getAttribute("aria-label") ||
-      ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */
+      this.getAttribute("aria-label") || ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */
 		const ariaHidden = ariaLabel === "";
+		const role = ariaHidden ? "presentation" : "img";
 		this.shadowRoot.innerHTML = `
       <style>svg {width: var(--icon-width, ${this.widthValueFallback});height: var(--icon-height, ${this.heightValueFallback});}</style>
-			<svg viewBox="0 0 20 20" aria-label="${ariaLabel}" aria-hidden="${ariaHidden}"><g clip-path="url(#eza)"><path fill="currentColor" d="M.625 10.657a.625.625 0 1 1 0-1.25h18.75a.625.625 0 1 1 0 1.25H.625Z"></path></g><defs><clipPath id="eza"><path fill="currentColor" d="M0 0h20v20H0z"></path></clipPath></defs></svg>`;
+			<svg viewBox="0 0 20 20" aria-label="${ariaLabel}" aria-hidden="${ariaHidden}" role="${role}"><g clip-path="url(#eza)"><path fill="currentColor" d="M.625 10.657a.625.625 0 1 1 0-1.25h18.75a.625.625 0 1 1 0 1.25H.625Z"></path></g><defs><clipPath id="eza"><path fill="currentColor" d="M0 0h20v20H0z"></path></clipPath></defs></svg>`;
 	}
 	connectedCallback() {
 		this.renderComponent();
 	}
 }
 
-export const customElementName = "kobber-subtract";
+export const customElementName = "icon-subtract";
 
 if (!customElements.get(customElementName)) {
 	customElements.define(customElementName, Subtract);

@@ -3,7 +3,7 @@ import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
-	component: "kobber-bincular",
+	component: "icon-bincular",
 	args: {
 		ariaLabel: "",
 	},
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const bincular: Story = {
 	render: (args: Args) => `
-		<kobber-add
+		<icon-bincular
 			aria-label="${args.ariaLabel}"
 		/>
 	`,

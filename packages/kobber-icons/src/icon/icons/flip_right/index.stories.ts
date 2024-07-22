@@ -3,7 +3,7 @@ import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
-	component: "kobber-flip_right",
+	component: "icon-flip_right",
 	args: {
 		ariaLabel: "",
 	},
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const flip_right: Story = {
 	render: (args: Args) => `
-		<kobber-add
+		<icon-flip_right
 			aria-label="${args.ariaLabel}"
 		/>
 	`,

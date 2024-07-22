@@ -3,7 +3,7 @@ import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
-	component: "kobber-indent_decrease",
+	component: "icon-indent_decrease",
 	args: {
 		ariaLabel: "",
 	},
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const indent_decrease: Story = {
 	render: (args: Args) => `
-		<kobber-add
+		<icon-indent_decrease
 			aria-label="${args.ariaLabel}"
 		/>
 	`,

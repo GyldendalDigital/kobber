@@ -3,7 +3,7 @@ import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
-	component: "kobber-synchronize_arrows_warning",
+	component: "icon-synchronize_arrows_warning",
 	args: {
 		ariaLabel: "",
 	},
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const synchronize_arrows_warning: Story = {
 	render: (args: Args) => `
-		<kobber-add
+		<icon-synchronize_arrows_warning
 			aria-label="${args.ariaLabel}"
 		/>
 	`,

@@ -160,950 +160,950 @@ import { VolumeOn } from "./icon/icons/volume_on";
 import { Warning } from "./icon/icons/warning";
 import { Youtube } from "./icon/icons/youtube"; 
 
-export const KobberAdd = createComponent({
-	tagName: "kobber-add",
+export const IconAdd = createComponent({
+	tagName: "icon-add",
 	elementClass: Add,
 	react: React,
 });
 
-export const KobberAddFigure = createComponent({
-	tagName: "kobber-add_figure",
+export const IconAddFigure = createComponent({
+	tagName: "icon-add_figure",
 	elementClass: AddFigure,
 	react: React,
 });
 
-export const KobberAddSquare = createComponent({
-	tagName: "kobber-add_square",
+export const IconAddSquare = createComponent({
+	tagName: "icon-add_square",
 	elementClass: AddSquare,
 	react: React,
 });
 
-export const KobberAlarmBell = createComponent({
-	tagName: "kobber-alarm_bell",
+export const IconAlarmBell = createComponent({
+	tagName: "icon-alarm_bell",
 	elementClass: AlarmBell,
 	react: React,
 });
 
-export const KobberAlarmClock = createComponent({
-	tagName: "kobber-alarm_clock",
+export const IconAlarmClock = createComponent({
+	tagName: "icon-alarm_clock",
 	elementClass: AlarmClock,
 	react: React,
 });
 
-export const KobberAlarmTimer = createComponent({
-	tagName: "kobber-alarm_timer",
+export const IconAlarmTimer = createComponent({
+	tagName: "icon-alarm_timer",
 	elementClass: AlarmTimer,
 	react: React,
 });
 
-export const KobberAnalyticBars = createComponent({
-	tagName: "kobber-analytic_bars",
+export const IconAnalyticBars = createComponent({
+	tagName: "icon-analytic_bars",
 	elementClass: AnalyticBars,
 	react: React,
 });
 
-export const KobberArrowBack = createComponent({
-	tagName: "kobber-arrow_back",
+export const IconArrowBack = createComponent({
+	tagName: "icon-arrow_back",
 	elementClass: ArrowBack,
 	react: React,
 });
 
-export const KobberArrowDown = createComponent({
-	tagName: "kobber-arrow_down",
+export const IconArrowDown = createComponent({
+	tagName: "icon-arrow_down",
 	elementClass: ArrowDown,
 	react: React,
 });
 
-export const KobberArrowLeft = createComponent({
-	tagName: "kobber-arrow_left",
+export const IconArrowLeft = createComponent({
+	tagName: "icon-arrow_left",
 	elementClass: ArrowLeft,
 	react: React,
 });
 
-export const KobberArrowRight = createComponent({
-	tagName: "kobber-arrow_right",
+export const IconArrowRight = createComponent({
+	tagName: "icon-arrow_right",
 	elementClass: ArrowRight,
 	react: React,
 });
 
-export const KobberArrowUp = createComponent({
-	tagName: "kobber-arrow_up",
+export const IconArrowUp = createComponent({
+	tagName: "icon-arrow_up",
 	elementClass: ArrowUp,
 	react: React,
 });
 
-export const KobberAssets = createComponent({
-	tagName: "kobber-assets",
+export const IconAssets = createComponent({
+	tagName: "icon-assets",
 	elementClass: Assets,
 	react: React,
 });
 
-export const KobberAudioRecording = createComponent({
-	tagName: "kobber-audio_recording",
+export const IconAudioRecording = createComponent({
+	tagName: "icon-audio_recording",
 	elementClass: AudioRecording,
 	react: React,
 });
 
-export const KobberBackspace = createComponent({
-	tagName: "kobber-backspace",
+export const IconBackspace = createComponent({
+	tagName: "icon-backspace",
 	elementClass: Backspace,
 	react: React,
 });
 
-export const KobberBanned = createComponent({
-	tagName: "kobber-banned",
+export const IconBanned = createComponent({
+	tagName: "icon-banned",
 	elementClass: Banned,
 	react: React,
 });
 
-export const KobberBincular = createComponent({
-	tagName: "kobber-bincular",
+export const IconBincular = createComponent({
+	tagName: "icon-bincular",
 	elementClass: Bincular,
 	react: React,
 });
 
-export const KobberBookOpen = createComponent({
-	tagName: "kobber-book_open",
+export const IconBookOpen = createComponent({
+	tagName: "icon-book_open",
 	elementClass: BookOpen,
 	react: React,
 });
 
-export const KobberBookmark = createComponent({
-	tagName: "kobber-bookmark",
+export const IconBookmark = createComponent({
+	tagName: "icon-bookmark",
 	elementClass: Bookmark,
 	react: React,
 });
 
-export const KobberBulletList = createComponent({
-	tagName: "kobber-bullet_list",
+export const IconBulletList = createComponent({
+	tagName: "icon-bullet_list",
 	elementClass: BulletList,
 	react: React,
 });
 
-export const KobberCalendar = createComponent({
-	tagName: "kobber-calendar",
+export const IconCalendar = createComponent({
+	tagName: "icon-calendar",
 	elementClass: Calendar,
 	react: React,
 });
 
-export const KobberCamera = createComponent({
-	tagName: "kobber-camera",
+export const IconCamera = createComponent({
+	tagName: "icon-camera",
 	elementClass: Camera,
 	react: React,
 });
 
-export const KobberChat = createComponent({
-	tagName: "kobber-chat",
+export const IconChat = createComponent({
+	tagName: "icon-chat",
 	elementClass: Chat,
 	react: React,
 });
 
-export const KobberCheck = createComponent({
-	tagName: "kobber-check",
+export const IconCheck = createComponent({
+	tagName: "icon-check",
 	elementClass: Check,
 	react: React,
 });
 
-export const KobberCheckCircle = createComponent({
-	tagName: "kobber-check_circle",
+export const IconCheckCircle = createComponent({
+	tagName: "icon-check_circle",
 	elementClass: CheckCircle,
 	react: React,
 });
 
-export const KobberChecklist = createComponent({
-	tagName: "kobber-checklist",
+export const IconChecklist = createComponent({
+	tagName: "icon-checklist",
 	elementClass: Checklist,
 	react: React,
 });
 
-export const KobberChevronDown = createComponent({
-	tagName: "kobber-chevron_down",
+export const IconChevronDown = createComponent({
+	tagName: "icon-chevron_down",
 	elementClass: ChevronDown,
 	react: React,
 });
 
-export const KobberChevronUp = createComponent({
-	tagName: "kobber-chevron_up",
+export const IconChevronUp = createComponent({
+	tagName: "icon-chevron_up",
 	elementClass: ChevronUp,
 	react: React,
 });
 
-export const KobberCircle = createComponent({
-	tagName: "kobber-circle",
+export const IconCircle = createComponent({
+	tagName: "icon-circle",
 	elementClass: Circle,
 	react: React,
 });
 
-export const KobberCircleShapeAdd = createComponent({
-	tagName: "kobber-circle_shape_add",
+export const IconCircleShapeAdd = createComponent({
+	tagName: "icon-circle_shape_add",
 	elementClass: CircleShapeAdd,
 	react: React,
 });
 
-export const KobberClock = createComponent({
-	tagName: "kobber-clock",
+export const IconClock = createComponent({
+	tagName: "icon-clock",
 	elementClass: Clock,
 	react: React,
 });
 
-export const KobberClockHand = createComponent({
-	tagName: "kobber-clock_hand",
+export const IconClockHand = createComponent({
+	tagName: "icon-clock_hand",
 	elementClass: ClockHand,
 	react: React,
 });
 
-export const KobberClose = createComponent({
-	tagName: "kobber-close",
+export const IconClose = createComponent({
+	tagName: "icon-close",
 	elementClass: Close,
 	react: React,
 });
 
-export const KobberColorBrush = createComponent({
-	tagName: "kobber-color_brush",
+export const IconColorBrush = createComponent({
+	tagName: "icon-color_brush",
 	elementClass: ColorBrush,
 	react: React,
 });
 
-export const KobberCopyPaste = createComponent({
-	tagName: "kobber-copy_paste",
+export const IconCopyPaste = createComponent({
+	tagName: "icon-copy_paste",
 	elementClass: CopyPaste,
 	react: React,
 });
 
-export const KobberCursorPointer = createComponent({
-	tagName: "kobber-cursor_pointer",
+export const IconCursorPointer = createComponent({
+	tagName: "icon-cursor_pointer",
 	elementClass: CursorPointer,
 	react: React,
 });
 
-export const KobberCursorPointerCircle = createComponent({
-	tagName: "kobber-cursor_pointer_circle",
+export const IconCursorPointerCircle = createComponent({
+	tagName: "icon-cursor_pointer_circle",
 	elementClass: CursorPointerCircle,
 	react: React,
 });
 
-export const KobberDeleteIcon = createComponent({
-	tagName: "kobber-delete_icon",
+export const IconDeleteIcon = createComponent({
+	tagName: "icon-delete_icon",
 	elementClass: DeleteIcon,
 	react: React,
 });
 
-export const KobberDice = createComponent({
-	tagName: "kobber-dice",
+export const IconDice = createComponent({
+	tagName: "icon-dice",
 	elementClass: Dice,
 	react: React,
 });
 
-export const KobberDictionary = createComponent({
-	tagName: "kobber-dictionary",
+export const IconDictionary = createComponent({
+	tagName: "icon-dictionary",
 	elementClass: Dictionary,
 	react: React,
 });
 
-export const KobberDownload = createComponent({
-	tagName: "kobber-download",
+export const IconDownload = createComponent({
+	tagName: "icon-download",
 	elementClass: Download,
 	react: React,
 });
 
-export const KobberDrawTablet = createComponent({
-	tagName: "kobber-draw_tablet",
+export const IconDrawTablet = createComponent({
+	tagName: "icon-draw_tablet",
 	elementClass: DrawTablet,
 	react: React,
 });
 
-export const KobberElements = createComponent({
-	tagName: "kobber-elements",
+export const IconElements = createComponent({
+	tagName: "icon-elements",
 	elementClass: Elements,
 	react: React,
 });
 
-export const KobberEnvelope = createComponent({
-	tagName: "kobber-envelope",
+export const IconEnvelope = createComponent({
+	tagName: "icon-envelope",
 	elementClass: Envelope,
 	react: React,
 });
 
-export const KobberEraser = createComponent({
-	tagName: "kobber-eraser",
+export const IconEraser = createComponent({
+	tagName: "icon-eraser",
 	elementClass: Eraser,
 	react: React,
 });
 
-export const KobberExpand = createComponent({
-	tagName: "kobber-expand",
+export const IconExpand = createComponent({
+	tagName: "icon-expand",
 	elementClass: Expand,
 	react: React,
 });
 
-export const KobberExpandResize = createComponent({
-	tagName: "kobber-expand_resize",
+export const IconExpandResize = createComponent({
+	tagName: "icon-expand_resize",
 	elementClass: ExpandResize,
 	react: React,
 });
 
-export const KobberExternalLink = createComponent({
-	tagName: "kobber-external_link",
+export const IconExternalLink = createComponent({
+	tagName: "icon-external_link",
 	elementClass: ExternalLink,
 	react: React,
 });
 
-export const KobberFemaleHeadset = createComponent({
-	tagName: "kobber-female_headset",
+export const IconFemaleHeadset = createComponent({
+	tagName: "icon-female_headset",
 	elementClass: FemaleHeadset,
 	react: React,
 });
 
-export const KobberFlipRight = createComponent({
-	tagName: "kobber-flip_right",
+export const IconFlipRight = createComponent({
+	tagName: "icon-flip_right",
 	elementClass: FlipRight,
 	react: React,
 });
 
-export const KobberFolderBookmark = createComponent({
-	tagName: "kobber-folder_bookmark",
+export const IconFolderBookmark = createComponent({
+	tagName: "icon-folder_bookmark",
 	elementClass: FolderBookmark,
 	react: React,
 });
 
-export const KobberFontExpand = createComponent({
-	tagName: "kobber-font_expand",
+export const IconFontExpand = createComponent({
+	tagName: "icon-font_expand",
 	elementClass: FontExpand,
 	react: React,
 });
 
-export const KobberFormTemplate = createComponent({
-	tagName: "kobber-form_template",
+export const IconFormTemplate = createComponent({
+	tagName: "icon-form_template",
 	elementClass: FormTemplate,
 	react: React,
 });
 
-export const KobberFrameExpand = createComponent({
-	tagName: "kobber-frame_expand",
+export const IconFrameExpand = createComponent({
+	tagName: "icon-frame_expand",
 	elementClass: FrameExpand,
 	react: React,
 });
 
-export const KobberFrameShrink = createComponent({
-	tagName: "kobber-frame_shrink",
+export const IconFrameShrink = createComponent({
+	tagName: "icon-frame_shrink",
 	elementClass: FrameShrink,
 	react: React,
 });
 
-export const KobberGameController = createComponent({
-	tagName: "kobber-game_controller",
+export const IconGameController = createComponent({
+	tagName: "icon-game_controller",
 	elementClass: GameController,
 	react: React,
 });
 
-export const KobberGlasses = createComponent({
-	tagName: "kobber-glasses",
+export const IconGlasses = createComponent({
+	tagName: "icon-glasses",
 	elementClass: Glasses,
 	react: React,
 });
 
-export const KobberGraphStats = createComponent({
-	tagName: "kobber-graph_stats",
+export const IconGraphStats = createComponent({
+	tagName: "icon-graph_stats",
 	elementClass: GraphStats,
 	react: React,
 });
 
-export const KobberHeadphones = createComponent({
-	tagName: "kobber-headphones",
+export const IconHeadphones = createComponent({
+	tagName: "icon-headphones",
 	elementClass: Headphones,
 	react: React,
 });
 
-export const KobberHeart = createComponent({
-	tagName: "kobber-heart",
+export const IconHeart = createComponent({
+	tagName: "icon-heart",
 	elementClass: Heart,
 	react: React,
 });
 
-export const KobberHome = createComponent({
-	tagName: "kobber-home",
+export const IconHome = createComponent({
+	tagName: "icon-home",
 	elementClass: Home,
 	react: React,
 });
 
-export const KobberHyperlink = createComponent({
-	tagName: "kobber-hyperlink",
+export const IconHyperlink = createComponent({
+	tagName: "icon-hyperlink",
 	elementClass: Hyperlink,
 	react: React,
 });
 
-export const KobberImage = createComponent({
-	tagName: "kobber-image",
+export const IconImage = createComponent({
+	tagName: "icon-image",
 	elementClass: Image,
 	react: React,
 });
 
-export const KobberImageFlower = createComponent({
-	tagName: "kobber-image_flower",
+export const IconImageFlower = createComponent({
+	tagName: "icon-image_flower",
 	elementClass: ImageFlower,
 	react: React,
 });
 
-export const KobberIndentDecrease = createComponent({
-	tagName: "kobber-indent_decrease",
+export const IconIndentDecrease = createComponent({
+	tagName: "icon-indent_decrease",
 	elementClass: IndentDecrease,
 	react: React,
 });
 
-export const KobberIndentIncrease = createComponent({
-	tagName: "kobber-indent_increase",
+export const IconIndentIncrease = createComponent({
+	tagName: "icon-indent_increase",
 	elementClass: IndentIncrease,
 	react: React,
 });
 
-export const KobberInformation = createComponent({
-	tagName: "kobber-information",
+export const IconInformation = createComponent({
+	tagName: "icon-information",
 	elementClass: Information,
 	react: React,
 });
 
-export const KobberKeyboard = createComponent({
-	tagName: "kobber-keyboard",
+export const IconKeyboard = createComponent({
+	tagName: "icon-keyboard",
 	elementClass: Keyboard,
 	react: React,
 });
 
-export const KobberLayers = createComponent({
-	tagName: "kobber-layers",
+export const IconLayers = createComponent({
+	tagName: "icon-layers",
 	elementClass: Layers,
 	react: React,
 });
 
-export const KobberLayersBack = createComponent({
-	tagName: "kobber-layers_back",
+export const IconLayersBack = createComponent({
+	tagName: "icon-layers_back",
 	elementClass: LayersBack,
 	react: React,
 });
 
-export const KobberLayoutLeft = createComponent({
-	tagName: "kobber-layout_left",
+export const IconLayoutLeft = createComponent({
+	tagName: "icon-layout_left",
 	elementClass: LayoutLeft,
 	react: React,
 });
 
-export const KobberLayoutModule = createComponent({
-	tagName: "kobber-layout_module",
+export const IconLayoutModule = createComponent({
+	tagName: "icon-layout_module",
 	elementClass: LayoutModule,
 	react: React,
 });
 
-export const KobberLayoutRight = createComponent({
-	tagName: "kobber-layout_right",
+export const IconLayoutRight = createComponent({
+	tagName: "icon-layout_right",
 	elementClass: LayoutRight,
 	react: React,
 });
 
-export const KobberLibrary = createComponent({
-	tagName: "kobber-library",
+export const IconLibrary = createComponent({
+	tagName: "icon-library",
 	elementClass: Library,
 	react: React,
 });
 
-export const KobberLightBulb = createComponent({
-	tagName: "kobber-light_bulb",
+export const IconLightBulb = createComponent({
+	tagName: "icon-light_bulb",
 	elementClass: LightBulb,
 	react: React,
 });
 
-export const KobberLockLocked = createComponent({
-	tagName: "kobber-lock_locked",
+export const IconLockLocked = createComponent({
+	tagName: "icon-lock_locked",
 	elementClass: LockLocked,
 	react: React,
 });
 
-export const KobberLockUnlocked = createComponent({
-	tagName: "kobber-lock_unlocked",
+export const IconLockUnlocked = createComponent({
+	tagName: "icon-lock_unlocked",
 	elementClass: LockUnlocked,
 	react: React,
 });
 
-export const KobberLogin = createComponent({
-	tagName: "kobber-login",
+export const IconLogin = createComponent({
+	tagName: "icon-login",
 	elementClass: Login,
 	react: React,
 });
 
-export const KobberLogout = createComponent({
-	tagName: "kobber-logout",
+export const IconLogout = createComponent({
+	tagName: "icon-logout",
 	elementClass: Logout,
 	react: React,
 });
 
-export const KobberMagnet = createComponent({
-	tagName: "kobber-magnet",
+export const IconMagnet = createComponent({
+	tagName: "icon-magnet",
 	elementClass: Magnet,
 	react: React,
 });
 
-export const KobberMenu = createComponent({
-	tagName: "kobber-menu",
+export const IconMenu = createComponent({
+	tagName: "icon-menu",
 	elementClass: Menu,
 	react: React,
 });
 
-export const KobberMessage = createComponent({
-	tagName: "kobber-message",
+export const IconMessage = createComponent({
+	tagName: "icon-message",
 	elementClass: Message,
 	react: React,
 });
 
-export const KobberMessageQuestion = createComponent({
-	tagName: "kobber-message_question",
+export const IconMessageQuestion = createComponent({
+	tagName: "icon-message_question",
 	elementClass: MessageQuestion,
 	react: React,
 });
 
-export const KobberMessageStar = createComponent({
-	tagName: "kobber-message_star",
+export const IconMessageStar = createComponent({
+	tagName: "icon-message_star",
 	elementClass: MessageStar,
 	react: React,
 });
 
-export const KobberMessageTyping = createComponent({
-	tagName: "kobber-message_typing",
+export const IconMessageTyping = createComponent({
+	tagName: "icon-message_typing",
 	elementClass: MessageTyping,
 	react: React,
 });
 
-export const KobberMessageWarning = createComponent({
-	tagName: "kobber-message_warning",
+export const IconMessageWarning = createComponent({
+	tagName: "icon-message_warning",
 	elementClass: MessageWarning,
 	react: React,
 });
 
-export const KobberModuleEdit = createComponent({
-	tagName: "kobber-module_edit",
+export const IconModuleEdit = createComponent({
+	tagName: "icon-module_edit",
 	elementClass: ModuleEdit,
 	react: React,
 });
 
-export const KobberModuleFour = createComponent({
-	tagName: "kobber-module_four",
+export const IconModuleFour = createComponent({
+	tagName: "icon-module_four",
 	elementClass: ModuleFour,
 	react: React,
 });
 
-export const KobberMultipleUsers = createComponent({
-	tagName: "kobber-multiple_users",
+export const IconMultipleUsers = createComponent({
+	tagName: "icon-multiple_users",
 	elementClass: MultipleUsers,
 	react: React,
 });
 
-export const KobberNewspaper = createComponent({
-	tagName: "kobber-newspaper",
+export const IconNewspaper = createComponent({
+	tagName: "icon-newspaper",
 	elementClass: Newspaper,
 	react: React,
 });
 
-export const KobberNotebookPencil = createComponent({
-	tagName: "kobber-notebook_pencil",
+export const IconNotebookPencil = createComponent({
+	tagName: "icon-notebook_pencil",
 	elementClass: NotebookPencil,
 	react: React,
 });
 
-export const KobberNumberList = createComponent({
-	tagName: "kobber-number_list",
+export const IconNumberList = createComponent({
+	tagName: "icon-number_list",
 	elementClass: NumberList,
 	react: React,
 });
 
-export const KobberOption = createComponent({
-	tagName: "kobber-option",
+export const IconOption = createComponent({
+	tagName: "icon-option",
 	elementClass: Option,
 	react: React,
 });
 
-export const KobberPalette = createComponent({
-	tagName: "kobber-palette",
+export const IconPalette = createComponent({
+	tagName: "icon-palette",
 	elementClass: Palette,
 	react: React,
 });
 
-export const KobberParagraph = createComponent({
-	tagName: "kobber-paragraph",
+export const IconParagraph = createComponent({
+	tagName: "icon-paragraph",
 	elementClass: Paragraph,
 	react: React,
 });
 
-export const KobberParagraphCenter = createComponent({
-	tagName: "kobber-paragraph_center",
+export const IconParagraphCenter = createComponent({
+	tagName: "icon-paragraph_center",
 	elementClass: ParagraphCenter,
 	react: React,
 });
 
-export const KobberParagraphLeft = createComponent({
-	tagName: "kobber-paragraph_left",
+export const IconParagraphLeft = createComponent({
+	tagName: "icon-paragraph_left",
 	elementClass: ParagraphLeft,
 	react: React,
 });
 
-export const KobberParagraphRight = createComponent({
-	tagName: "kobber-paragraph_right",
+export const IconParagraphRight = createComponent({
+	tagName: "icon-paragraph_right",
 	elementClass: ParagraphRight,
 	react: React,
 });
 
-export const KobberPartyBalloon = createComponent({
-	tagName: "kobber-party_balloon",
+export const IconPartyBalloon = createComponent({
+	tagName: "icon-party_balloon",
 	elementClass: PartyBalloon,
 	react: React,
 });
 
-export const KobberPause = createComponent({
-	tagName: "kobber-pause",
+export const IconPause = createComponent({
+	tagName: "icon-pause",
 	elementClass: Pause,
 	react: React,
 });
 
-export const KobberPenTools = createComponent({
-	tagName: "kobber-pen_tools",
+export const IconPenTools = createComponent({
+	tagName: "icon-pen_tools",
 	elementClass: PenTools,
 	react: React,
 });
 
-export const KobberPenWrite = createComponent({
-	tagName: "kobber-pen_write",
+export const IconPenWrite = createComponent({
+	tagName: "icon-pen_write",
 	elementClass: PenWrite,
 	react: React,
 });
 
-export const KobberPencil = createComponent({
-	tagName: "kobber-pencil",
+export const IconPencil = createComponent({
+	tagName: "icon-pencil",
 	elementClass: Pencil,
 	react: React,
 });
 
-export const KobberPin = createComponent({
-	tagName: "kobber-pin",
+export const IconPin = createComponent({
+	tagName: "icon-pin",
 	elementClass: Pin,
 	react: React,
 });
 
-export const KobberPinRemove = createComponent({
-	tagName: "kobber-pin_remove",
+export const IconPinRemove = createComponent({
+	tagName: "icon-pin_remove",
 	elementClass: PinRemove,
 	react: React,
 });
 
-export const KobberPlay = createComponent({
-	tagName: "kobber-play",
+export const IconPlay = createComponent({
+	tagName: "icon-play",
 	elementClass: Play,
 	react: React,
 });
 
-export const KobberPrinter = createComponent({
-	tagName: "kobber-printer",
+export const IconPrinter = createComponent({
+	tagName: "icon-printer",
 	elementClass: Printer,
 	react: React,
 });
 
-export const KobberQuestionCircle = createComponent({
-	tagName: "kobber-question_circle",
+export const IconQuestionCircle = createComponent({
+	tagName: "icon-question_circle",
 	elementClass: QuestionCircle,
 	react: React,
 });
 
-export const KobberRankingStar = createComponent({
-	tagName: "kobber-ranking_star",
+export const IconRankingStar = createComponent({
+	tagName: "icon-ranking_star",
 	elementClass: RankingStar,
 	react: React,
 });
 
-export const KobberRatingStarCheck = createComponent({
-	tagName: "kobber-rating_star_check",
+export const IconRatingStarCheck = createComponent({
+	tagName: "icon-rating_star_check",
 	elementClass: RatingStarCheck,
 	react: React,
 });
 
-export const KobberRead = createComponent({
-	tagName: "kobber-read",
+export const IconRead = createComponent({
+	tagName: "icon-read",
 	elementClass: Read,
 	react: React,
 });
 
-export const KobberReadHome = createComponent({
-	tagName: "kobber-read_home",
+export const IconReadHome = createComponent({
+	tagName: "icon-read_home",
 	elementClass: ReadHome,
 	react: React,
 });
 
-export const KobberReadIdea = createComponent({
-	tagName: "kobber-read_idea",
+export const IconReadIdea = createComponent({
+	tagName: "icon-read_idea",
 	elementClass: ReadIdea,
 	react: React,
 });
 
-export const KobberRedo = createComponent({
-	tagName: "kobber-redo",
+export const IconRedo = createComponent({
+	tagName: "icon-redo",
 	elementClass: Redo,
 	react: React,
 });
 
-export const KobberRefresh = createComponent({
-	tagName: "kobber-refresh",
+export const IconRefresh = createComponent({
+	tagName: "icon-refresh",
 	elementClass: Refresh,
 	react: React,
 });
 
-export const KobberReload = createComponent({
-	tagName: "kobber-reload",
+export const IconReload = createComponent({
+	tagName: "icon-reload",
 	elementClass: Reload,
 	react: React,
 });
 
-export const KobberRemove = createComponent({
-	tagName: "kobber-remove",
+export const IconRemove = createComponent({
+	tagName: "icon-remove",
 	elementClass: Remove,
 	react: React,
 });
 
-export const KobberRetouchGraph = createComponent({
-	tagName: "kobber-retouch_graph",
+export const IconRetouchGraph = createComponent({
+	tagName: "icon-retouch_graph",
 	elementClass: RetouchGraph,
 	react: React,
 });
 
-export const KobberRibbonStar = createComponent({
-	tagName: "kobber-ribbon_star",
+export const IconRibbonStar = createComponent({
+	tagName: "icon-ribbon_star",
 	elementClass: RibbonStar,
 	react: React,
 });
 
-export const KobberRocket = createComponent({
-	tagName: "kobber-rocket",
+export const IconRocket = createComponent({
+	tagName: "icon-rocket",
 	elementClass: Rocket,
 	react: React,
 });
 
-export const KobberSchoolTeacher = createComponent({
-	tagName: "kobber-school_teacher",
+export const IconSchoolTeacher = createComponent({
+	tagName: "icon-school_teacher",
 	elementClass: SchoolTeacher,
 	react: React,
 });
 
-export const KobberSearch = createComponent({
-	tagName: "kobber-search",
+export const IconSearch = createComponent({
+	tagName: "icon-search",
 	elementClass: Search,
 	react: React,
 });
 
-export const KobberSettings = createComponent({
-	tagName: "kobber-settings",
+export const IconSettings = createComponent({
+	tagName: "icon-settings",
 	elementClass: Settings,
 	react: React,
 });
 
-export const KobberSettingsSlider = createComponent({
-	tagName: "kobber-settings_slider",
+export const IconSettingsSlider = createComponent({
+	tagName: "icon-settings_slider",
 	elementClass: SettingsSlider,
 	react: React,
 });
 
-export const KobberShare = createComponent({
-	tagName: "kobber-share",
+export const IconShare = createComponent({
+	tagName: "icon-share",
 	elementClass: Share,
 	react: React,
 });
 
-export const KobberShrink = createComponent({
-	tagName: "kobber-shrink",
+export const IconShrink = createComponent({
+	tagName: "icon-shrink",
 	elementClass: Shrink,
 	react: React,
 });
 
-export const KobberShuffle = createComponent({
-	tagName: "kobber-shuffle",
+export const IconShuffle = createComponent({
+	tagName: "icon-shuffle",
 	elementClass: Shuffle,
 	react: React,
 });
 
-export const KobberStudyMath = createComponent({
-	tagName: "kobber-study_math",
+export const IconStudyMath = createComponent({
+	tagName: "icon-study_math",
 	elementClass: StudyMath,
 	react: React,
 });
 
-export const KobberSubscript = createComponent({
-	tagName: "kobber-subscript",
+export const IconSubscript = createComponent({
+	tagName: "icon-subscript",
 	elementClass: Subscript,
 	react: React,
 });
 
-export const KobberSubtract = createComponent({
-	tagName: "kobber-subtract",
+export const IconSubtract = createComponent({
+	tagName: "icon-subtract",
 	elementClass: Subtract,
 	react: React,
 });
 
-export const KobberSuperscript = createComponent({
-	tagName: "kobber-superscript",
+export const IconSuperscript = createComponent({
+	tagName: "icon-superscript",
 	elementClass: Superscript,
 	react: React,
 });
 
-export const KobberSynchronizeArrowsSquare = createComponent({
-	tagName: "kobber-synchronize__arrows__square",
+export const IconSynchronizeArrowsSquare = createComponent({
+	tagName: "icon-synchronize__arrows__square",
 	elementClass: SynchronizeArrowsSquare,
 	react: React,
 });
 
-export const KobberSynchronizeArrowClock = createComponent({
-	tagName: "kobber-synchronize_arrow_clock",
+export const IconSynchronizeArrowClock = createComponent({
+	tagName: "icon-synchronize_arrow_clock",
 	elementClass: SynchronizeArrowClock,
 	react: React,
 });
 
-export const KobberSynchronizeArrowsWarning = createComponent({
-	tagName: "kobber-synchronize_arrows_warning",
+export const IconSynchronizeArrowsWarning = createComponent({
+	tagName: "icon-synchronize_arrows_warning",
 	elementClass: SynchronizeArrowsWarning,
 	react: React,
 });
 
-export const KobberTabletTouch = createComponent({
-	tagName: "kobber-tablet_touch",
+export const IconTabletTouch = createComponent({
+	tagName: "icon-tablet_touch",
 	elementClass: TabletTouch,
 	react: React,
 });
 
-export const KobberTaskList = createComponent({
-	tagName: "kobber-task_list",
+export const IconTaskList = createComponent({
+	tagName: "icon-task_list",
 	elementClass: TaskList,
 	react: React,
 });
 
-export const KobberTaskListClock = createComponent({
-	tagName: "kobber-task_list_clock",
+export const IconTaskListClock = createComponent({
+	tagName: "icon-task_list_clock",
 	elementClass: TaskListClock,
 	react: React,
 });
 
-export const KobberTeacherCorrect = createComponent({
-	tagName: "kobber-teacher_correct",
+export const IconTeacherCorrect = createComponent({
+	tagName: "icon-teacher_correct",
 	elementClass: TeacherCorrect,
 	react: React,
 });
 
-export const KobberTextBold = createComponent({
-	tagName: "kobber-text_bold",
+export const IconTextBold = createComponent({
+	tagName: "icon-text_bold",
 	elementClass: TextBold,
 	react: React,
 });
 
-export const KobberTextFormat = createComponent({
-	tagName: "kobber-text_format",
+export const IconTextFormat = createComponent({
+	tagName: "icon-text_format",
 	elementClass: TextFormat,
 	react: React,
 });
 
-export const KobberTextItalic = createComponent({
-	tagName: "kobber-text_italic",
+export const IconTextItalic = createComponent({
+	tagName: "icon-text_italic",
 	elementClass: TextItalic,
 	react: React,
 });
 
-export const KobberTextStyle = createComponent({
-	tagName: "kobber-text_style",
+export const IconTextStyle = createComponent({
+	tagName: "icon-text_style",
 	elementClass: TextStyle,
 	react: React,
 });
 
-export const KobberTextSync = createComponent({
-	tagName: "kobber-text_sync",
+export const IconTextSync = createComponent({
+	tagName: "icon-text_sync",
 	elementClass: TextSync,
 	react: React,
 });
 
-export const KobberTextUnderline = createComponent({
-	tagName: "kobber-text_underline",
+export const IconTextUnderline = createComponent({
+	tagName: "icon-text_underline",
 	elementClass: TextUnderline,
 	react: React,
 });
 
-export const KobberTransfer = createComponent({
-	tagName: "kobber-transfer",
+export const IconTransfer = createComponent({
+	tagName: "icon-transfer",
 	elementClass: Transfer,
 	react: React,
 });
 
-export const KobberUndo = createComponent({
-	tagName: "kobber-undo",
+export const IconUndo = createComponent({
+	tagName: "icon-undo",
 	elementClass: Undo,
 	react: React,
 });
 
-export const KobberUser = createComponent({
-	tagName: "kobber-user",
+export const IconUser = createComponent({
+	tagName: "icon-user",
 	elementClass: User,
 	react: React,
 });
 
-export const KobberUserEdit = createComponent({
-	tagName: "kobber-user_edit",
+export const IconUserEdit = createComponent({
+	tagName: "icon-user_edit",
 	elementClass: UserEdit,
 	react: React,
 });
 
-export const KobberUserQuestion = createComponent({
-	tagName: "kobber-user_question",
+export const IconUserQuestion = createComponent({
+	tagName: "icon-user_question",
 	elementClass: UserQuestion,
 	react: React,
 });
 
-export const KobberUsers = createComponent({
-	tagName: "kobber-users",
+export const IconUsers = createComponent({
+	tagName: "icon-users",
 	elementClass: Users,
 	react: React,
 });
 
-export const KobberVideoFileAdd = createComponent({
-	tagName: "kobber-video_file_add",
+export const IconVideoFileAdd = createComponent({
+	tagName: "icon-video_file_add",
 	elementClass: VideoFileAdd,
 	react: React,
 });
 
-export const KobberVideoPlayer = createComponent({
-	tagName: "kobber-video_player",
+export const IconVideoPlayer = createComponent({
+	tagName: "icon-video_player",
 	elementClass: VideoPlayer,
 	react: React,
 });
 
-export const KobberView = createComponent({
-	tagName: "kobber-view",
+export const IconView = createComponent({
+	tagName: "icon-view",
 	elementClass: View,
 	react: React,
 });
 
-export const KobberViewOff = createComponent({
-	tagName: "kobber-view_off",
+export const IconViewOff = createComponent({
+	tagName: "icon-view_off",
 	elementClass: ViewOff,
 	react: React,
 });
 
-export const KobberVolumeOff = createComponent({
-	tagName: "kobber-volume_off",
+export const IconVolumeOff = createComponent({
+	tagName: "icon-volume_off",
 	elementClass: VolumeOff,
 	react: React,
 });
 
-export const KobberVolumeOn = createComponent({
-	tagName: "kobber-volume_on",
+export const IconVolumeOn = createComponent({
+	tagName: "icon-volume_on",
 	elementClass: VolumeOn,
 	react: React,
 });
 
-export const KobberWarning = createComponent({
-	tagName: "kobber-warning",
+export const IconWarning = createComponent({
+	tagName: "icon-warning",
 	elementClass: Warning,
 	react: React,
 });
 
-export const KobberYoutube = createComponent({
-	tagName: "kobber-youtube",
+export const IconYoutube = createComponent({
+	tagName: "icon-youtube",
 	elementClass: Youtube,
 	react: React,
 });

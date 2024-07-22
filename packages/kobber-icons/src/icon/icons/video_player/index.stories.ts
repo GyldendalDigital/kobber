@@ -3,7 +3,7 @@ import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
-	component: "kobber-video_player",
+	component: "icon-video_player",
 	args: {
 		ariaLabel: "",
 	},
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const video_player: Story = {
 	render: (args: Args) => `
-		<kobber-add
+		<icon-video_player
 			aria-label="${args.ariaLabel}"
 		/>
 	`,

@@ -3,7 +3,7 @@ import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
-	component: "kobber-shuffle",
+	component: "icon-shuffle",
 	args: {
 		ariaLabel: "",
 	},
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const shuffle: Story = {
 	render: (args: Args) => `
-		<kobber-add
+		<icon-shuffle
 			aria-label="${args.ariaLabel}"
 		/>
 	`,

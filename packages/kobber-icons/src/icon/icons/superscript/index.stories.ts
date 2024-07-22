@@ -3,7 +3,7 @@ import ".";
 
 const meta: Meta = {
 	title: "Icon/Icons",
-	component: "kobber-superscript",
+	component: "icon-superscript",
 	args: {
 		ariaLabel: "",
 	},
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const superscript: Story = {
 	render: (args: Args) => `
-		<kobber-add
+		<icon-superscript
 			aria-label="${args.ariaLabel}"
 		/>
 	`,

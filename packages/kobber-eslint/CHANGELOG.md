@@ -1,5 +1,11 @@
 # @gyldendal/kobber-eslint
 
+## 0.3.27
+
+### Patch Changes
+
+- Add roles, rename icon prefix
+
 ## 0.3.26
 
 ### Patch Changes

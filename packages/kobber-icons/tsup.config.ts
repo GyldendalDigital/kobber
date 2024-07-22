@@ -14,6 +14,9 @@ const iconsDirectory = `${iconDirectory}/icons`;
 const webComponentsList = "src/index.web-components.ts";
 const reactList = "src/index.react.tsx";
 
+const iconPrefix = "icon";
+const iconPrefixPascal = "Icon";
+
 const removeDirectory = (directory: string) => {
   if (!fs.existsSync(directory)) return;
   fs.rmSync(directory, { recursive: true });
@@ -47,23 +50,18 @@ const makeIconComponents = () => {
 
   const makeIcons = (symbols: NodeListOf<SVGSymbolElement>) => {
     symbols.forEach(symbol => {
-      // TODO:
-      // Reconsider: Is viewbox needed? Can one simple be set? (Best: Copy from the real one.)
-      // Add aria-label/labelledby/role directly on SVG tag (based on attributes, like in progressBarItem).
-
       const iconName = symbol.id;
       const iconNameCapitalized = snakeToPascalCase(iconName);
 
       const constructor = `\n\tconstructor() {\n\t\tsuper();\n\t\tthis.attachShadow({ mode: "open" });\n\t\tthis.heightValueFallback = "var(--kobber-semantic-image-icon-size-default-height)";\n\t\tthis.widthValueFallback = "var(--kobber-semantic-image-icon-size-default-width)";\n\t}\n\t`;
       const attributes = `\n\t\tconst ariaLabel =
-      this.getAttribute("aria-label") ||
-      ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */\n\t\tconst ariaHidden = ariaLabel === "";`;
+      this.getAttribute("aria-label") || ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */\n\t\tconst ariaHidden = ariaLabel === "";\n\t\tconst role = ariaHidden ? "presentation" : "img";`;
       const styles =
         "<style>svg {width: var(--icon-width, ${this.widthValueFallback});height: var(--icon-height, ${this.heightValueFallback});}</style>";
-      const svgCode = `<svg viewBox="${symbol.getAttribute("viewBox")}" aria-label="\${ariaLabel}" aria-hidden="\${ariaHidden}">${symbol.innerHTML}</svg>`;
+      const svgCode = `<svg viewBox="${symbol.getAttribute("viewBox")}" aria-label="\${ariaLabel}" aria-hidden="\${ariaHidden}" role="\${role}">${symbol.innerHTML}</svg>`;
 
       const componentCode = `export class ${iconNameCapitalized} extends HTMLElement {${constructor}renderComponent() {${attributes}\n\t\tthis.shadowRoot.innerHTML = \`
-      ${styles}\n\t\t\t${svgCode}\`;\n\t}\n\tconnectedCallback() {\n\t\tthis.renderComponent();\n\t}\n}\n\nexport const customElementName = "kobber-${iconName}";\n\nif (!customElements.get(customElementName)) {\n\tcustomElements.define(customElementName, ${iconNameCapitalized});\n}\n`;
+      ${styles}\n\t\t\t${svgCode}\`;\n\t}\n\tconnectedCallback() {\n\t\tthis.renderComponent();\n\t}\n}\n\nexport const customElementName = "${iconPrefix}-${iconName}";\n\nif (!customElements.get(customElementName)) {\n\tcustomElements.define(customElementName, ${iconNameCapitalized});\n}\n`;
 
       fs.mkdirSync(`${iconsDirectory}/${symbol.id}`);
       fs.writeFileSync(`${iconsDirectory}/${symbol.id}/index.js`, componentCode);
@@ -83,7 +81,7 @@ const makeIconComponents = () => {
       const iconNameCapitalized = snakeToPascalCase(iconName);
 
       reactImports = `${reactImports}\nimport { ${iconNameCapitalized} } from "./icon/icons/${iconName}";`;
-      reactExports = `${reactExports}\nexport const Kobber${iconNameCapitalized} = createComponent({\n\ttagName: "kobber-${iconName}",\n\telementClass: ${iconNameCapitalized},\n\treact: React,\n});\n`;
+      reactExports = `${reactExports}\nexport const ${iconPrefixPascal}${iconNameCapitalized} = createComponent({\n\ttagName: "${iconPrefix}-${iconName}",\n\telementClass: ${iconNameCapitalized},\n\treact: React,\n});\n`;
 
       webComponentString += `export { ${iconNameCapitalized} } from "./icon/icons/${iconName}";\n`;
     });
@@ -101,8 +99,8 @@ const makeIconComponents = () => {
       const iconName = symbol.id;
       const iconNameCapitalized = snakeToPascalCase(iconName);
       iconGalleryMainImportsString = `${iconGalleryMainImportsString} ${iconNameCapitalized},`;
-      iconGalleryString = `${iconGalleryString}\t<IconItem name="Kobber${iconNameCapitalized} - <kobber-${iconName} />">\n\t\t<kobber-${iconName} class="kobber-theme-default" />\n\t</IconItem>\n`;
-      const storyFileString = `import type { Args, Meta, StoryObj } from "@storybook/web-components";\nimport ".";\n\nconst meta: Meta = {\n\ttitle: "Icon/Icons",\n\tcomponent: "kobber-${iconName}",\n\targs: {\n\t\tariaLabel: "",\n\t},\n\tdecorators: [\n\t\t(story, storyContext) => \`\n\t\t\t<div class="\${storyContext.globals.theme}">\n\t\t\t\t\${story()}\n\t\t\t</div>\n\t\t\`,\n\t],\n};\n\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\nexport const ${iconName}: Story = {\n\trender: (args: Args) => \`\n\t\t<kobber-add\n\t\t\taria-label="\${args.ariaLabel}"\n\t\t/>\n\t\`,\n};\n`;
+      iconGalleryString = `${iconGalleryString}\t<IconItem name="${iconPrefixPascal}${iconNameCapitalized} - <${iconPrefix}-${iconName} />">\n\t\t<${iconPrefix}-${iconName} class="kobber-theme-default" />\n\t</IconItem>\n`;
+      const storyFileString = `import type { Args, Meta, StoryObj } from "@storybook/web-components";\nimport ".";\n\nconst meta: Meta = {\n\ttitle: "Icon/Icons",\n\tcomponent: "${iconPrefix}-${iconName}",\n\targs: {\n\t\tariaLabel: "",\n\t},\n\tdecorators: [\n\t\t(story, storyContext) => \`\n\t\t\t<div class="\${storyContext.globals.theme}">\n\t\t\t\t\${story()}\n\t\t\t</div>\n\t\t\`,\n\t],\n};\n\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\nexport const ${iconName}: Story = {\n\trender: (args: Args) => \`\n\t\t<${iconPrefix}-${iconName}\n\t\t\taria-label="\${args.ariaLabel}"\n\t\t/>\n\t\`,\n};\n`;
       fs.writeFileSync(`${iconsDirectory}/${iconName}/index.stories.ts`, storyFileString);
     });
     iconGalleryMainImportsString = `${iconGalleryMainImportsString}} from "../index.web-components";\n\n`;
