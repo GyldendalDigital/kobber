@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.26
+
+### Patch Changes
+
+- Add aria-label, viewBox and styles to icons
+
 ## 0.3.25
 
 ### Patch Changes

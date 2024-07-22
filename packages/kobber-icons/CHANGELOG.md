@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.26
+
+### Patch Changes
+
+- Add aria-label, viewBox and styles to icons
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.26
+
 ## 0.3.25
 
 ### Patch Changes
