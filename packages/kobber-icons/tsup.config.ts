@@ -93,7 +93,7 @@ const makeIconComponents = () => {
       const iconName = symbol.id;
       const iconNameCapitalized = snakeToPascalCase(iconName);
       iconGalleryMainImportsString = `${iconGalleryMainImportsString} ${iconNameCapitalized},`;
-      iconGalleryString = `${iconGalleryString}\t<IconItem name="<kobber-${iconName} />">\n\t\t<kobber-${iconName} style={{height: "1em", width: "1em"}}/>\n\t</IconItem>\n`;
+      iconGalleryString = `${iconGalleryString}\t<IconItem name="Kobber${iconNameCapitalized} - <kobber-${iconName} />">\n\t\t<kobber-${iconName} class="kobber-theme-default" />\n\t</IconItem>\n`;
       const storyFileString = `import type { Meta, StoryObj } from "@storybook/web-components";\nimport ".";\n\nconst meta: Meta = {\n\ttitle: "Icon/Icons",\n\tcomponent: "kobber-${iconName}",\n};\n\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\nexport const ${iconName}: Story = {};\n`;
       fs.writeFileSync(`${iconsDirectory}/${iconName}/index.stories.ts`, storyFileString);
     });
