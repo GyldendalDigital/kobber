@@ -102,7 +102,7 @@ const makeIconComponents = () => {
       const iconNameCapitalized = snakeToPascalCase(iconName);
       iconGalleryMainImportsString = `${iconGalleryMainImportsString} ${iconNameCapitalized},`;
       iconGalleryString = `${iconGalleryString}\t<IconItem name="Kobber${iconNameCapitalized} - <kobber-${iconName} />">\n\t\t<kobber-${iconName} class="kobber-theme-default" />\n\t</IconItem>\n`;
-      const storyFileString = `import type { Meta, StoryObj } from "@storybook/web-components";\nimport ".";\n\nconst meta: Meta = {\n\ttitle: "Icon/Icons",\n\tcomponent: "kobber-${iconName}",\n};\n\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\nexport const ${iconName}: Story = {};\n`;
+      const storyFileString = `import type { Args, Meta, StoryObj } from "@storybook/web-components";\nimport ".";\n\nconst meta: Meta = {\n\ttitle: "Icon/Icons",\n\tcomponent: "kobber-${iconName}",\n\targs: {\n\t\tariaLabel: "",\n\t},\n\tdecorators: [\n\t\t(story, storyContext) => \`\n\t\t\t<div class="\${storyContext.globals.theme}">\n\t\t\t\t\${story()}\n\t\t\t</div>\n\t\t\`,\n\t],\n};\n\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\nexport const ${iconName}: Story = {\n\trender: (args: Args) => \`\n\t\t<kobber-add\n\t\t\taria-label="\${args.ariaLabel}"\n\t\t/>\n\t\`,\n};\n`;
       fs.writeFileSync(`${iconsDirectory}/${iconName}/index.stories.ts`, storyFileString);
     });
     iconGalleryMainImportsString = `${iconGalleryMainImportsString}} from "../index.web-components";\n\n`;
