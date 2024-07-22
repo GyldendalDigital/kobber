@@ -54,8 +54,11 @@ const makeIconComponents = () => {
       const iconName = symbol.id;
       const iconNameCapitalized = snakeToPascalCase(iconName);
 
-      const svgCode = `<svg>${symbol.innerHTML}</svg>`;
-      const componentCode = `export class ${iconNameCapitalized} extends HTMLElement {\n\tconstructor() {\n\t\tsuper();\n\t\tthis.attachShadow({ mode: "open" });\n\t}\n\trenderComponent() {\n\t\tthis.shadowRoot.innerHTML =\n\t\t\t'${svgCode}';\n\t}\n\tconnectedCallback() {\n\t\tthis.renderComponent();\n\t}\n}\n\nexport const customElementName = "kobber-${iconName}";\n\nif (!customElements.get(customElementName)) {\n\tcustomElements.define(customElementName, ${iconNameCapitalized});\n}\n`;
+      const constructor = `\n\tconstructor() {\n\t\tsuper();\n\t\tthis.attachShadow({ mode: "open" });\n\t\tthis.heightValueFallback = "var(--kobber-semantic-image-icon-size-default-height)";\n\t\tthis.widthValueFallback = "var(--kobber-semantic-image-icon-size-default-width)";\n\t}\n\t`;
+      const styles =
+        "<style>svg {width: var(--icon-width, ${this.widthValueFallback});height: var(--icon-height, ${this.heightValueFallback});}</style>";
+      const svgCode = `<svg viewBox="${symbol.getAttribute("viewBox")}">${symbol.innerHTML}</svg>`;
+      const componentCode = `export class ${iconNameCapitalized} extends HTMLElement {${constructor}renderComponent() {\n\t\tthis.shadowRoot.innerHTML = \`${styles}\n\t\t\t${svgCode}\`;\n\t}\n\tconnectedCallback() {\n\t\tthis.renderComponent();\n\t}\n}\n\nexport const customElementName = "kobber-${iconName}";\n\nif (!customElements.get(customElementName)) {\n\tcustomElements.define(customElementName, ${iconNameCapitalized});\n}\n`;
 
       fs.mkdirSync(`${iconsDirectory}/${symbol.id}`);
       fs.writeFileSync(`${iconsDirectory}/${symbol.id}/index.js`, componentCode);
