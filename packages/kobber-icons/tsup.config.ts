@@ -45,7 +45,7 @@ const makeIconComponents = () => {
   const file = fs.readFileSync(`${svgSpriteFolder}/${svgSpriteFile}`);
   const fileAsString = file.toString();
 
-  const makeIcons = (symbols: SVGSymbolElement[]) => {
+  const makeIcons = (symbols: NodeListOf<SVGSymbolElement>) => {
     symbols.forEach(symbol => {
       // TODO:
       // Reconsider: Is viewbox needed? Can one simple be set? (Best: Copy from the real one.)
@@ -62,7 +62,7 @@ const makeIconComponents = () => {
     });
   };
 
-  const listIconComponents = (symbols: SVGSymbolElement[]) => {
+  const listIconComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
     let reactString = "";
     let reactImports = "";
     let reactExports = "\n";
@@ -84,7 +84,7 @@ const makeIconComponents = () => {
     fs.writeFileSync(webComponentsList, webComponentString);
   };
 
-  const makeStories = (symbols: SVGSymbolElement[]) => {
+  const makeStories = (symbols: NodeListOf<SVGSymbolElement>) => {
     let iconGalleryMainImportsString = "import {";
     let iconGalleryString = "";
     const iconGalleryFirstImportString = 'import { Meta, Title, IconGallery, IconItem } from "@storybook/blocks";\n';
@@ -107,7 +107,7 @@ const makeIconComponents = () => {
 
   const parser = new DOMParser();
   const doc = parser.parseFromString(fileAsString, "text/html");
-  const symbols: SVGSymbolElement[] = doc.querySelectorAll("symbol");
+  const symbols: NodeListOf<SVGSymbolElement> = doc.querySelectorAll("symbol");
   if (symbols) {
     makeIcons(symbols);
     makeStories(symbols);
@@ -119,7 +119,7 @@ const listAllSvgSymbols = () => {
   const file = fs.readFileSync(`${svgSpriteFolder}/${svgSpriteFile}`);
   const fileAsString = file.toString();
 
-  const listIconTypes = (symbols: SVGSymbolElement[]) => {
+  const listIconTypes = (symbols: NodeListOf<SVGSymbolElement>) => {
     let iconTypeString = "export type IconType = \n";
     symbols.forEach(symbol => {
       iconTypeString = `${iconTypeString}  | "${symbol.id}"\n`;
@@ -128,7 +128,7 @@ const listAllSvgSymbols = () => {
     return iconTypeString;
   };
 
-  const listIcons = (symbols: SVGSymbolElement[]) => {
+  const listIcons = (symbols: NodeListOf<SVGSymbolElement>) => {
     let iconsListString = "export const iconsList = [\n";
     symbols.forEach((symbol, index) => {
       if (index > 0) {
@@ -142,7 +142,7 @@ const listAllSvgSymbols = () => {
 
   const parser = new DOMParser();
   const doc = parser.parseFromString(fileAsString, "text/html");
-  const symbols: SVGSymbolElement[] = doc.querySelectorAll("symbol");
+  const symbols: NodeListOf<SVGSymbolElement> = doc.querySelectorAll("symbol");
   if (symbols) {
     const iconTypeString = listIconTypes(symbols);
     const iconsListString = listIcons(symbols);
