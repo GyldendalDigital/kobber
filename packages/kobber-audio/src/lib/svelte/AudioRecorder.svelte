@@ -9,6 +9,8 @@
 
     import {audioBufferToWav} from "./AudioHelpers.js";
 
+    export let mp3Callback = null;
+
     let mediaRecorder = null;
     let analyser = null;
     let audioCtx = null;
@@ -44,7 +46,7 @@
                 currentPosition += buffer.byteLength;
             })
             audioCtx.decodeAudioData(totalBuffer.buffer).then((audioBuffer) => {
-                audioBufferToWav(audioBuffer);
+                mp3Callback && mp3Callback(audioBufferToWav(audioBuffer));
             });
         })
     }
@@ -220,7 +222,7 @@
 <div id=".audio-recorder">
     <button on:mousedown={toggleRecord}>{isRecording ? "Stop" : "Record"}</button>
     <button on:mousedown={playAudio}>{isPlaying ? "Stop!" : "Play!"}</button>
-    <button on:mousedown={encodeToMP3}>Download</button>
+    <button on:mousedown={mp3Callback(encodeToMP3())}>Download</button>
     <p>{"Global: " + roundWithDecimals(currentTimeGlobal, 1) + ". Current index: " + currentAudioIndex}</p>
     <input
             type="range"

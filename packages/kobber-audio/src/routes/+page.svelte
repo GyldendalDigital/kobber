@@ -1,5 +1,9 @@
 <script>
     import AudioRecorder from "$lib/svelte/AudioRecorder.svelte";
+
+    function callbackTest(blob) {
+        console.log(blob);
+    }
 </script>
 
 <h1>Hello Kobber User!</h1>
@@ -7,4 +11,4 @@
     This initial commit is to see that the basic svelte component setup is working.
 </p>
 
-<AudioRecorder/>
+<AudioRecorder mp3Callback={callbackTest}/>

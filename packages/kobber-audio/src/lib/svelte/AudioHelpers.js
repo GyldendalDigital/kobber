@@ -59,7 +59,7 @@ export function audioBufferToWav(aBuffer) {
     let wavHdr = lamejs.WavHeader.readHeader(new DataView(btwArrBuff));
     let wavSamples = new Int16Array(btwArrBuff, wavHdr.dataOffset, wavHdr.dataLen / 2);
 
-    wavToMp3(wavHdr.channels, wavHdr.sampleRate, wavSamples);
+    return wavToMp3(wavHdr.channels, wavHdr.sampleRate, wavSamples);
     //return wavSamples;
 }
 
@@ -81,11 +81,13 @@ function wavToMp3(channels, sampleRate, samples) {
         buffer.push(new Int8Array(d));
     }
 
-    let mp3Blob = new Blob(buffer, {type: 'audio/mp3'});
-    let bUrl = window.URL.createObjectURL(mp3Blob);
-    window.myAudioPlayer = document.createElement('audio');
-    window.myAudioPlayer.src = bUrl;
-    window.myAudioPlayer.setAttribute('controls', '');
+    return new Blob(buffer, {type: 'audio/mp3'});
+
+    //let mp3Blob = new Blob(buffer, {type: 'audio/mp3'});
+    //let bUrl = window.URL.createObjectURL(mp3Blob);
+    //window.myAudioPlayer = document.createElement('audio');
+    //window.myAudioPlayer.src = bUrl;
+    //window.myAudioPlayer.setAttribute('controls', '');
     // Only for testing for now!
-    window.myAudioPlayer.play();
+    //window.myAudioPlayer.play();
 }
