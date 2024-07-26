@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="Going back on last commit, looking at avoiding custom elements first">
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="Implemented the callback that will be used to save the data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioHelpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioHelpers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioRecorder.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio/src/routes/+page.svelte" afterDir="false" />
     </list>
@@ -23,9 +22,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2ignQuRErU7mghWcU6FU6U8mktb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -34,9 +33,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "git-widget-placeholder": "adding-package-audio",
+    "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "ts.external.directory.path": "/Users/solve.selander/WebstormProjects/kobber/node_modules/typescript/lib"
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "/Users/solve.selander/WebstormProjects/kobber/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -125,7 +128,22 @@
       <option name="presentableId" value="LOCAL−00011" />
       <updated>1721211436525</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL−00012" summary="Implemented the callback that will be used to save the data">
+      <option name="closed" value="true" />
+      <created>1721811872267</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1721811872267</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="Implemented the callback that will be used to save the data" />
+      <created>1721904239662</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721904239662</updated>
+      <workItem from="1721904240711" duration="2443000" />
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +161,7 @@
     <MESSAGE value="Added working download to mp3, combining all audio snippets into one file! :)" />
     <MESSAGE value="Looking at custom elements..." />
     <MESSAGE value="Going back on last commit, looking at avoiding custom elements first" />
-    <option name="LAST_COMMIT_MESSAGE" value="Going back on last commit, looking at avoiding custom elements first" />
+    <MESSAGE value="Implemented the callback that will be used to save the data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented the callback that will be used to save the data" />
   </component>
 </project>

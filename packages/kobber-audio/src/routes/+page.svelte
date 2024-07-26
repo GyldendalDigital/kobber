@@ -2,7 +2,9 @@
     import AudioRecorder from "$lib/svelte/AudioRecorder.svelte";
 
     function callbackTest(blob) {
-        console.log(blob);
+        if (blob) {
+            console.log("this is a callback test", blob);
+        }
     }
 </script>
 

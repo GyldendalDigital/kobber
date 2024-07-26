@@ -9,7 +9,7 @@
 
     import {audioBufferToWav} from "./AudioHelpers.js";
 
-    export let mp3Callback = null;
+    export let mp3Callback;
 
     let mediaRecorder = null;
     let analyser = null;
@@ -19,7 +19,7 @@
     let isPlaying = false;
 
     let recData = [];
-    const audioArray = [];
+    let audioArray = [];
     let currentTimeGlobal = 0;
     let elapsedTime = 0;
     let latestDuration = 0;
@@ -192,6 +192,7 @@
                     mediaRecorder.ondataavailable = (e) => {
                         recData[recData.length - 1].push(e.data);
                         concatRecordings();
+                        mp3Callback(encodeToMP3());
                     };
                 });
         }
@@ -209,6 +210,24 @@
         };
     }
 
+    function deleteRecording() {
+        if (isRecording) {
+            stopRecording();
+        }
+        if (isPlaying) {
+            stopAudio()
+        }
+        if (isRecording === false && isPlaying === false) {
+            recData = [];
+            audioArray = [];
+            currentTimeGlobal = 0;
+            elapsedTime = 0;
+            latestDuration = 0;
+            audioDurationArray = [];
+            currentAudioIndex = 0;
+        }
+    }
+
     function toggleRecord() {
         if (isRecording) {
             stopRecording();
@@ -222,7 +241,7 @@
 <div id=".audio-recorder">
     <button on:mousedown={toggleRecord}>{isRecording ? "Stop" : "Record"}</button>
     <button on:mousedown={playAudio}>{isPlaying ? "Stop!" : "Play!"}</button>
-    <button on:mousedown={mp3Callback(encodeToMP3())}>Download</button>
+    <button on:mousedown={deleteRecording}>{"Delete"}</button>
     <p>{"Global: " + roundWithDecimals(currentTimeGlobal, 1) + ". Current index: " + currentAudioIndex}</p>
     <input
             type="range"
