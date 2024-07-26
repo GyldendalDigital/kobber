@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.28
+
+### Patch Changes
+
+- Correct kobber-icons' README
+
 ## 0.3.27
 
 ### Patch Changes
