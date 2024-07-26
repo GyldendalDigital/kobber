@@ -21,13 +21,15 @@ You will also need to install
 
 ## Usage
 
-Icons can be imported as react components or as web components.
+Icons can be imported as react components, as web components, or as an SVG sprite.
+
+Each icon component is prefixed with `icon-`, to simplify understanding what kind of component is used.
 
 As a react component:
 
 ```jsx
-import { ProgressBar } from "@gyldendal/kobber-icons/react";
-const App = () => <ProgressBar />;
+import { IconArrowRight } from "@gyldendal/kobber-icons/react";
+const App = () => <IconArrowRight />;
 ```
 
 As a custom element:
@@ -36,41 +38,48 @@ As a custom element:
 <script>
   import "@gyldendal/kobber-icons/web-components";
 </script>
-<kobber-progress-bar />
+<icon-arrow_right />
 ```
 
-As a web component:
+Or include the sprite `@gyldendal/kobber-icons/symbols/kobber-icons.svg` in your html, and reference its symbols.
+The file `@gyldendal/kobber-icons/symbols/kobber-icons-lists.ts` contains a list of all icons and a type declaration, which can be useful.
 
-```JavaScript
-import { ProgressBar } from "@gyldendal/kobber-icons/web-components";
-const progressBar = new ProgressBar();
-document.body.appendChild(progressBar);
+(Note that such ID references do not currenly work across the shadow dom barrier.)
+
+```html
+<svg role="presentation" aria-hidden="true">
+  <use href="#arrow_right" />
+</svg>
 ```
 
-## CSS
+## ⚡ Quick how to: Update icons
 
-CSS can be imported in JavaScript if supported by your bundler:
+1. Recieve svgs from a designer (all current svgs in one zipped folder is preferred).
+2. Extract svgs to folder `kobber/packages/kobber-icons/src/assets/svgs`.
+3. Run `yarn build`.
+4. Commit changes, and publish according to [changeset](../../.changeset/README.md).
 
-```JavaScript
-import "@gyldendal/kobber-base/css/components.css";
+## 🧱 Icons folder structure
+
+```
+/
+└── chunks/
+│   └── chunk.js
+└── react/
+│   ├── index.js
+│   └── index.d.ts
+└── symbols/
+│   ├── kobber-icons.svg
+│   └── kobber-icons-lists.ts
+└── web-components/
+│   ├── index.js
+│   └── index.d.ts
+└── svg-sprite-config.json
+└── tsup.config.ts
 ```
 
-<mark>
-Kanskje vi bør inkludere vår egen css baseline i stedet for dette? ↓
-<br />
-Slik som https://mui.com/material-ui/react-css-baseline/</mark>
+First, the package [svg-sprite](https://github.com/svg-sprite/svg-sprite) makes the sprite `./symbols/kobber-icons.svg` from all icons in `src/assets/svgs`. `svg-sprite` uses `./svg-sprite-config.json` to make the sprite contain symbols, and ensure each symbol uses currentcolor as fill color.
 
-kobber-components assumes that `box-sizing` is set to `border-box`:
+In `./tsup.config.ts`, the sprite is used as input for making `./symbols/kobber-icons-lists.ts`, the all icon components and their story files.
 
-```css
-html {
-  box-sizing: border-box;
-}
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-```
-
-We recommend using [normalize.css](https://github.com/necolas/normalize.css/) or something similar to normalize browser styles.
+All files in folders (`chunks`, `react`, `symbols` and `web-components`) are auto generated and should never be edited manually.
