@@ -48,7 +48,7 @@ const makeIconComponents = () => {
   const file = fs.readFileSync(`${svgSpriteFolder}/${svgSpriteFile}`);
   const fileAsString = file.toString();
 
-  const makeIcons = (symbols: NodeListOf<SVGSymbolElement>) => {
+  const makeComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
     symbols.forEach(symbol => {
       const iconName = symbol.id;
       const iconNameCapitalized = snakeToPascalCase(iconName);
@@ -115,7 +115,7 @@ const makeIconComponents = () => {
   const doc = parser.parseFromString(fileAsString, "text/html");
   const symbols: NodeListOf<SVGSymbolElement> = doc.querySelectorAll("symbol");
   if (symbols) {
-    makeIcons(symbols);
+    makeComponents(symbols);
     makeStories(symbols);
     listIconComponents(symbols);
   }
