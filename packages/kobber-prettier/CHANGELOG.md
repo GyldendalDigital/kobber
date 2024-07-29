@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.29
+
+### Patch Changes
+
+- Correct icon lists, to be usable with sprites
+
 ## 0.3.28
 
 ### Patch Changes
