@@ -5,10 +5,10 @@ import { JSDOM } from "jsdom";
 const assets = "assets";
 const chunks = "chunks";
 const reactDirectory = "react";
-const svgSpriteFolder = "symbols";
-const svgSpriteFile = "kobber-icons.svg";
-const componentHelperFile = "kobber-icons-lists.ts";
 const webComponentsDirectory = "web-components";
+const svgSpriteDirectory = "symbols";
+const svgSpriteFile = `${svgSpriteDirectory}/kobber-icons.svg`;
+const componentHelperFile = `${svgSpriteDirectory}/kobber-icons-lists.ts`;
 const iconDirectory = "src/icon";
 const iconsDirectory = `${iconDirectory}/icons`;
 const webComponentsList = "src/index.web-components.ts";
@@ -50,7 +50,7 @@ const makeIconComponents = () => {
   removeDirectory(iconsDirectory);
   fs.mkdirSync(iconsDirectory);
 
-  const file = fs.readFileSync(`${svgSpriteFolder}/${svgSpriteFile}`);
+  const file = fs.readFileSync(svgSpriteFile);
   const fileAsString = file.toString();
 
   const getIconNames = (symbolName: string) => {
@@ -134,7 +134,7 @@ const makeIconComponents = () => {
 };
 
 const listAllSvgSymbols = () => {
-  const file = fs.readFileSync(`${svgSpriteFolder}/${svgSpriteFile}`);
+  const file = fs.readFileSync(svgSpriteFile);
   const fileAsString = file.toString();
 
   const listIconTypes = (symbols: NodeListOf<SVGSymbolElement>) => {
@@ -165,7 +165,7 @@ const listAllSvgSymbols = () => {
     const iconTypeString = listIconTypes(symbols);
     const iconsListString = listIcons(symbols);
 
-    fs.writeFileSync(`${svgSpriteFolder}/${componentHelperFile}`, `${iconTypeString} \n\n ${iconsListString}`);
+    fs.writeFileSync(componentHelperFile, `${iconTypeString} \n\n ${iconsListString}`);
   }
 };
 
