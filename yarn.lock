@@ -1147,6 +1147,11 @@
 "@esbuild/darwin-arm64@0.20.1":
   version "0.20.1"
 
+"@esbuild/darwin-arm64@0.21.5":
+  version "0.21.5"
+  resolved "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.21.5.tgz"
+  integrity sha512-DwqXqZyuk5AiWWf3UfLiRDJ5EDd49zg6O9wclZ7kUMv2WRFr4HKjXp/5t8JZ11QbQfUS6/cRCKGwYhtNAY88kQ==
+
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.4.0"
   dependencies:
@@ -1154,15 +1159,6 @@
 
 "@eslint-community/regexpp@^4.5.1", "@eslint-community/regexpp@^4.6.1":
   version "4.10.0"
-
-"@eslint/config-array@^0.17.0":
-  version "0.17.0"
-  resolved "https://registry.npmjs.org/@eslint/config-array/-/config-array-0.17.0.tgz"
-  integrity sha512-A68TBu6/1mHHuc5YJL0U0VVeGNiklLAL6rRmhTCP2B5XjWLMnrX+HkO+IAXyHvks5cyyY1jjK5ITPQ1HGS2EVA==
-  dependencies:
-    "@eslint/object-schema" "^2.1.4"
-    debug "^4.3.1"
-    minimatch "^3.1.2"
 
 "@eslint/eslintrc@^2.1.4":
   version "2.1.4"
@@ -1177,28 +1173,8 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@eslint/eslintrc@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-3.1.0.tgz"
-  integrity sha512-4Bfj15dVJdoy3RfZmmo86RK1Fwzn6SstsvK9JS+BaVKqC6QQQQyXekNaC+g+LKNgkQ+2VhGAzm6hO40AhMR3zQ==
-  dependencies:
-    ajv "^6.12.4"
-    debug "^4.3.2"
-    espree "^10.0.1"
-    globals "^14.0.0"
-    ignore "^5.2.0"
-    import-fresh "^3.2.1"
-    js-yaml "^4.1.0"
-    minimatch "^3.1.2"
-    strip-json-comments "^3.1.1"
-
 "@eslint/js@8.57.0":
   version "8.57.0"
-
-"@eslint/js@9.6.0":
-  version "9.6.0"
-  resolved "https://registry.npmjs.org/@eslint/js/-/js-9.6.0.tgz"
-  integrity sha512-D9B0/3vNg44ZeWbYMpBoXqNP4j6eQD5vNwIlGAuFRRzK/WtT/jvDQW3Bi9kkf3PMDMlM7Yi+73VLUsn5bJcl8A==
 
 "@eslint/object-schema@^2.1.4":
   version "2.1.4"
@@ -1321,11 +1297,6 @@
 
 "@humanwhocodes/object-schema@^2.0.2":
   version "2.0.2"
-
-"@humanwhocodes/retry@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.npmjs.org/@humanwhocodes/retry/-/retry-0.3.0.tgz"
-  integrity sha512-d2CGZR2o7fS6sWB7DG/3a95bGKQyHMACZ5aW8qGkkqQpUoZV6C0X7Pc7l4ZNMZkfNBf4VWNe9E1jRsf0G146Ew==
 
 "@iarna/toml@^2.2.5":
   version "2.2.5"
@@ -1888,9 +1859,6 @@
     "@types/estree" "^1.0.0"
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
-
-"@rollup/rollup-darwin-arm64@4.12.1", "@rollup/rollup-darwin-arm64@4.18.0":
-  version "4.12.1"
 
 "@rollup/rollup-darwin-arm64@4.13.2":
   version "4.13.2"
@@ -2967,13 +2935,6 @@
     tiny-invariant "^1.3.1"
     ts-dedent "^2.0.0"
 
-"@sveltejs/adapter-auto@^3.0.0":
-  version "3.2.2"
-  resolved "https://registry.npmjs.org/@sveltejs/adapter-auto/-/adapter-auto-3.2.2.tgz"
-  integrity sha512-Mso5xPCA8zgcKrv+QioVlqMZkyUQ5MjDJiEPuG/Z7cV/5tmwV7LmcVWk5tZ+H0NCOV1x12AsoSpt/CwFwuVXMA==
-  dependencies:
-    import-meta-resolve "^4.1.0"
-
 "@sveltejs/kit@^2.0.0":
   version "2.5.18"
   resolved "https://registry.npmjs.org/@sveltejs/kit/-/kit-2.5.18.tgz"
@@ -2992,15 +2953,6 @@
     sirv "^2.0.4"
     tiny-glob "^0.2.9"
 
-"@sveltejs/package@^2.0.0":
-  version "2.3.2"
-  dependencies:
-    chokidar "^3.6.0"
-    kleur "^4.1.5"
-    sade "^1.8.1"
-    semver "^7.5.4"
-    svelte2tsx "~0.7.0"
-
 "@sveltejs/vite-plugin-svelte-inspector@^2.1.0":
   version "2.1.0"
   resolved "https://registry.npmjs.org/@sveltejs/vite-plugin-svelte-inspector/-/vite-plugin-svelte-inspector-2.1.0.tgz"
@@ -3008,7 +2960,7 @@
   dependencies:
     debug "^4.3.4"
 
-"@sveltejs/vite-plugin-svelte@^3.0.0":
+"@sveltejs/vite-plugin-svelte@^3.0.0", "@sveltejs/vite-plugin-svelte@^3.1.1":
   version "3.1.1"
   resolved "https://registry.npmjs.org/@sveltejs/vite-plugin-svelte/-/vite-plugin-svelte-3.1.1.tgz"
   integrity sha512-rimpFEAboBBHIlzISibg94iP09k/KYdHgVhJlcsTfn7KMBhc70jFX/GRWkRdFCc2fdnk+4+Bdfej23cMDnJS6A==
@@ -3141,7 +3093,7 @@
 "@types/escodegen@^0.0.6":
   version "0.0.6"
 
-"@types/eslint@^8.56.7", "@types/eslint@>=8.0.0":
+"@types/eslint@>=8.0.0":
   version "8.56.10"
   resolved "https://registry.npmjs.org/@types/eslint/-/eslint-8.56.10.tgz"
   integrity sha512-Shavhk87gCtY2fhXDctcfS3e6FdxWkCx1iUZ9eEUbh7rTqlZT0/IzOkCOVt0fCjcFuZ9FPYfuezTBImfHCDBGQ==
@@ -3765,7 +3717,7 @@ acorn-walk@^7.2.0:
 acorn-walk@^8.2.0:
   version "8.3.2"
 
-"acorn@^6.0.0 || ^7.0.0 || ^8.0.0", acorn@^8.0.0, acorn@^8.10.0, acorn@^8.11.2, acorn@^8.11.3, acorn@^8.12.0, acorn@^8.8.0, acorn@^8.9.0:
+"acorn@^6.0.0 || ^7.0.0 || ^8.0.0", acorn@^8.0.0, acorn@^8.10.0, acorn@^8.11.2, acorn@^8.11.3, acorn@^8.8.0, acorn@^8.9.0:
   version "8.12.0"
   resolved "https://registry.npmjs.org/acorn/-/acorn-8.12.0.tgz"
   integrity sha512-RTvkC4w+KNXrM39/lWCUaG0IbRkWdCv7W/IOW9oU6SawyxulvkQy5HQPVTKxEjczcUvapcrw3cFx/60VN/NRNw==
@@ -5431,33 +5383,6 @@ esbuild@^0.19.11:
     "@esbuild/win32-ia32" "0.19.12"
     "@esbuild/win32-x64" "0.19.12"
 
-esbuild@^0.19.3:
-  version "0.19.12"
-  optionalDependencies:
-    "@esbuild/aix-ppc64" "0.19.12"
-    "@esbuild/android-arm" "0.19.12"
-    "@esbuild/android-arm64" "0.19.12"
-    "@esbuild/android-x64" "0.19.12"
-    "@esbuild/darwin-arm64" "0.19.12"
-    "@esbuild/darwin-x64" "0.19.12"
-    "@esbuild/freebsd-arm64" "0.19.12"
-    "@esbuild/freebsd-x64" "0.19.12"
-    "@esbuild/linux-arm" "0.19.12"
-    "@esbuild/linux-arm64" "0.19.12"
-    "@esbuild/linux-ia32" "0.19.12"
-    "@esbuild/linux-loong64" "0.19.12"
-    "@esbuild/linux-mips64el" "0.19.12"
-    "@esbuild/linux-ppc64" "0.19.12"
-    "@esbuild/linux-riscv64" "0.19.12"
-    "@esbuild/linux-s390x" "0.19.12"
-    "@esbuild/linux-x64" "0.19.12"
-    "@esbuild/netbsd-x64" "0.19.12"
-    "@esbuild/openbsd-x64" "0.19.12"
-    "@esbuild/sunos-x64" "0.19.12"
-    "@esbuild/win32-arm64" "0.19.12"
-    "@esbuild/win32-ia32" "0.19.12"
-    "@esbuild/win32-x64" "0.19.12"
-
 esbuild@^0.19.5:
   version "0.19.12"
   optionalDependencies:
@@ -5705,23 +5630,6 @@ eslint-plugin-storybook@^0.6.15:
     requireindex "^1.1.0"
     ts-dedent "^2.2.0"
 
-eslint-plugin-svelte@^2.36.0:
-  version "2.41.0"
-  resolved "https://registry.npmjs.org/eslint-plugin-svelte/-/eslint-plugin-svelte-2.41.0.tgz"
-  integrity sha512-gjU9Q/psxbWG1VNwYbEb0Q6U4W5PBGaDpYmO2zlQ+zlAMVS3Qt0luAK0ACi/tMSwRK6JENiySvMyJbO0YWmXSg==
-  dependencies:
-    "@eslint-community/eslint-utils" "^4.4.0"
-    "@jridgewell/sourcemap-codec" "^1.4.15"
-    eslint-compat-utils "^0.5.1"
-    esutils "^2.0.3"
-    known-css-properties "^0.34.0"
-    postcss "^8.4.38"
-    postcss-load-config "^3.1.4"
-    postcss-safe-parser "^6.0.0"
-    postcss-selector-parser "^6.1.0"
-    semver "^7.6.2"
-    svelte-eslint-parser "^0.39.2"
-
 eslint-plugin-turbo@1.12.4:
   version "1.12.4"
   dependencies:
@@ -5747,21 +5655,8 @@ eslint-scope@^7.2.2:
     esrecurse "^4.3.0"
     estraverse "^5.2.0"
 
-eslint-scope@^8.0.1:
-  version "8.0.1"
-  resolved "https://registry.npmjs.org/eslint-scope/-/eslint-scope-8.0.1.tgz"
-  integrity sha512-pL8XjgP4ZOmmwfFE8mEhSxA7ZY4C+LWyqjQ3o4yWkkmD0qcMT9kkW3zWHOczhWcjTSgqycYAgwSlXvZltv65og==
-  dependencies:
-    esrecurse "^4.3.0"
-    estraverse "^5.2.0"
-
 eslint-visitor-keys@^3.3.0, eslint-visitor-keys@^3.4.1, eslint-visitor-keys@^3.4.3:
   version "3.4.3"
-
-eslint-visitor-keys@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-4.0.0.tgz"
-  integrity sha512-OtIRv/2GyiF6o/d8K7MYKKbXrOUBIK6SfkIRM4Z0dY3w+LiQ0vy3F57m0Z71bjbyeiWFiHJ8brqnmE6H6/jEuw==
 
 "eslint@^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8", "eslint@^3 || ^4 || ^5 || ^6 || ^7 || ^8", "eslint@^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0", "eslint@^6.0.0 || ^7.0.0 || ^8.0.0", "eslint@^6.0.0 || ^7.0.0 || >=8.0.0", "eslint@^7.0.0 || ^8.0.0", "eslint@^7.0.0 || ^8.0.0-0 || ^9.0.0-0", eslint@^8.55.0, eslint@>=6, eslint@>=6.0.0, eslint@>=7.0.0, eslint@>=8.0.0, eslint@>6.6.0, eslint@8:
   version "8.57.0"
@@ -5805,59 +5700,10 @@ eslint-visitor-keys@^4.0.0:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
-eslint@^9.0.0:
-  version "9.6.0"
-  resolved "https://registry.npmjs.org/eslint/-/eslint-9.6.0.tgz"
-  integrity sha512-ElQkdLMEEqQNM9Njff+2Y4q2afHk7JpkPvrd7Xh7xefwgQynqPxwf55J7di9+MEibWUGdNjFF9ITG9Pck5M84w==
-  dependencies:
-    "@eslint-community/eslint-utils" "^4.2.0"
-    "@eslint-community/regexpp" "^4.6.1"
-    "@eslint/config-array" "^0.17.0"
-    "@eslint/eslintrc" "^3.1.0"
-    "@eslint/js" "9.6.0"
-    "@humanwhocodes/module-importer" "^1.0.1"
-    "@humanwhocodes/retry" "^0.3.0"
-    "@nodelib/fs.walk" "^1.2.8"
-    ajv "^6.12.4"
-    chalk "^4.0.0"
-    cross-spawn "^7.0.2"
-    debug "^4.3.2"
-    escape-string-regexp "^4.0.0"
-    eslint-scope "^8.0.1"
-    eslint-visitor-keys "^4.0.0"
-    espree "^10.1.0"
-    esquery "^1.5.0"
-    esutils "^2.0.2"
-    fast-deep-equal "^3.1.3"
-    file-entry-cache "^8.0.0"
-    find-up "^5.0.0"
-    glob-parent "^6.0.2"
-    ignore "^5.2.0"
-    imurmurhash "^0.1.4"
-    is-glob "^4.0.0"
-    is-path-inside "^3.0.3"
-    json-stable-stringify-without-jsonify "^1.0.1"
-    levn "^0.4.1"
-    lodash.merge "^4.6.2"
-    minimatch "^3.1.2"
-    natural-compare "^1.4.0"
-    optionator "^0.9.3"
-    strip-ansi "^6.0.1"
-    text-table "^0.2.0"
-
 esm-env@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/esm-env/-/esm-env-1.0.0.tgz"
   integrity sha512-Cf6VksWPsTuW01vU9Mk/3vRue91Zevka5SjyNf3nEpokFRuqt/KjUQoGAwq9qMmhpLTHmXzSIrFRw8zxWzmFBA==
-
-espree@^10.0.1, espree@^10.1.0:
-  version "10.1.0"
-  resolved "https://registry.npmjs.org/espree/-/espree-10.1.0.tgz"
-  integrity sha512-M1M6CpiE6ffoigIOWYO9UDP8TMUw9kqb21tf+08IgDYjCsOvCuDt4jQcZmoYxx+w7zlKw9/N0KXfto+I8/FrXA==
-  dependencies:
-    acorn "^8.12.0"
-    acorn-jsx "^5.3.2"
-    eslint-visitor-keys "^4.0.0"
 
 espree@^9.6.0, espree@^9.6.1:
   version "9.6.1"
@@ -5869,7 +5715,7 @@ espree@^9.6.0, espree@^9.6.1:
 esprima@^4.0.0, esprima@^4.0.1, esprima@~4.0.0:
   version "4.0.1"
 
-esquery@^1.4.2, esquery@^1.5.0:
+esquery@^1.4.2:
   version "1.5.0"
   dependencies:
     estraverse "^5.1.0"
@@ -6477,16 +6323,6 @@ globals@^13.19.0:
   dependencies:
     type-fest "^0.20.2"
 
-globals@^14.0.0:
-  version "14.0.0"
-  resolved "https://registry.npmjs.org/globals/-/globals-14.0.0.tgz"
-  integrity sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==
-
-globals@^15.0.0:
-  version "15.8.0"
-  resolved "https://registry.npmjs.org/globals/-/globals-15.8.0.tgz"
-  integrity sha512-VZAJ4cewHTExBWDHR6yptdIBlx9YSSZuwojj9Nt5mBRXQzrKakDsVKQ1J63sklLvzAJm0X5+RpO4i3Y2hcOnFw==
-
 globalthis@^1.0.3:
   version "1.0.3"
   dependencies:
@@ -6827,7 +6663,7 @@ import-meta-resolve@^2.0.0:
   version "2.2.2"
 
 import-meta-resolve@^4.0.0:
-  version "4.1.0"
+  version "2.2.2"
 
 import-meta-resolve@^4.1.0:
   version "4.1.0"
@@ -7307,11 +7143,10 @@ js-yaml@^3.6.1:
     esprima "^4.0.0"
 
 js-yaml@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.0.tgz"
-  integrity sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==
+  version "3.14.1"
   dependencies:
-    argparse "^2.0.1"
+    argparse "^1.0.7"
+    esprima "^4.0.0"
 
 jsbn@1.1.0:
   version "1.1.0"
@@ -7502,8 +7337,10 @@ koa@^2.13.0:
     vary "^1.1.2"
 
 "kobber-audio@file:/Users/solve.selander/WebstormProjects/kobber/packages/kobber-audio":
-  version "0.0.1"
+  version "0.0.0"
   resolved "file:packages/kobber-audio"
+  dependencies:
+    lamejs "^1.2.1"
 
 kuler@^2.0.0:
   version "2.0.0"
@@ -8683,9 +8520,7 @@ mkdirp@^0.5.1:
     minimist "^1.2.6"
 
 mkdirp@^0.5.4, mkdirp@^0.5.6:
-  version "0.5.6"
-  dependencies:
-    minimist "^1.2.6"
+  version "1.0.4"
 
 mkdirp@^1.0.3:
   version "1.0.4"
@@ -9354,7 +9189,7 @@ postcss-styled-syntax@^0.6.4:
 postcss-value-parser@^4.2.0:
   version "4.2.0"
 
-"postcss@^7 || ^8", postcss@^8.3.3, postcss@^8.4.12, postcss@^8.4.20, postcss@^8.4.21, postcss@^8.4.29, postcss@^8.4.31, postcss@^8.4.32, postcss@^8.4.33, postcss@^8.4.35, postcss@^8.4.38, postcss@>=8.0.9:
+"postcss@^7 || ^8", postcss@^8.3.3, postcss@^8.4.12, postcss@^8.4.20, postcss@^8.4.21, postcss@^8.4.29, postcss@^8.4.31, postcss@^8.4.32, postcss@^8.4.33, postcss@^8.4.38, postcss@^8.4.39, postcss@>=8.0.9:
   version "8.4.39"
   resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.39.tgz"
   integrity sha512-0vzE+lAiG7hZl1/9I8yzKLx3aR9Xbof3fBHKunvMfOCYAtMhrsnccJY2iTURb9EZd5+pLuiNV9/c/GZJOHsgIw==
@@ -9394,11 +9229,6 @@ prettier-linter-helpers@^1.0.0:
   version "1.0.0"
   dependencies:
     fast-diff "^1.1.2"
-
-prettier-plugin-svelte@^3.1.2:
-  version "3.2.5"
-  resolved "https://registry.npmjs.org/prettier-plugin-svelte/-/prettier-plugin-svelte-3.2.5.tgz"
-  integrity sha512-vP/M/Goc8z4iVIvrwXwbrYVjJgA0Hf8PO1G4LBh/ocSt6vUP6sLvyu9F3ABEGr+dbKyxZjEKLkeFsWy/yYl0HQ==
 
 prettier@^2.7.1:
   version "2.8.8"
@@ -9484,15 +9314,6 @@ pseudomap@^1.0.2:
 
 psl@^1.1.33:
   version "1.9.0"
-
-publint@^0.1.9:
-  version "0.1.16"
-  resolved "https://registry.npmjs.org/publint/-/publint-0.1.16.tgz"
-  integrity sha512-wJgk7HnXDT5Ap0DjFYbGz78kPkN44iQvDiaq8P63IEEyNU9mYXvaMd2cAyIM6OgqXM/IA3CK6XWIsRq+wjNpgw==
-  dependencies:
-    npm-packlist "^5.1.3"
-    picocolors "^1.0.0"
-    sade "^1.8.1"
 
 pump@^2.0.0:
   version "2.0.1"
@@ -10090,7 +9911,7 @@ rollup-pluginutils@^2.8.1:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^1.20.0||^2.0.0||^3.0.0||^4.0.0, "rollup@^2.25.0 || ^3.3.0", rollup@^2.78.0||^3.0.0||^4.0.0, rollup@^4.4.0:
+rollup@^1.20.0||^2.0.0||^3.0.0||^4.0.0, "rollup@^2.25.0 || ^3.3.0", rollup@^2.78.0||^3.0.0||^4.0.0, rollup@^4.13.0, rollup@^4.4.0:
   version "4.13.2"
   dependencies:
     "@types/estree" "1.0.5"
@@ -10115,49 +9936,6 @@ rollup@^1.20.0||^2.0.0||^3.0.0||^4.0.0, "rollup@^2.25.0 || ^3.3.0", rollup@^2.78
 rollup@^3.2.5:
   version "3.29.4"
   optionalDependencies:
-    fsevents "~2.3.2"
-
-rollup@^4.13.0:
-  version "4.18.0"
-  dependencies:
-    "@types/estree" "1.0.5"
-  optionalDependencies:
-    "@rollup/rollup-android-arm-eabi" "4.18.0"
-    "@rollup/rollup-android-arm64" "4.18.0"
-    "@rollup/rollup-darwin-arm64" "4.18.0"
-    "@rollup/rollup-darwin-x64" "4.18.0"
-    "@rollup/rollup-linux-arm-gnueabihf" "4.18.0"
-    "@rollup/rollup-linux-arm-musleabihf" "4.18.0"
-    "@rollup/rollup-linux-arm64-gnu" "4.18.0"
-    "@rollup/rollup-linux-arm64-musl" "4.18.0"
-    "@rollup/rollup-linux-powerpc64le-gnu" "4.18.0"
-    "@rollup/rollup-linux-riscv64-gnu" "4.18.0"
-    "@rollup/rollup-linux-s390x-gnu" "4.18.0"
-    "@rollup/rollup-linux-x64-gnu" "4.18.0"
-    "@rollup/rollup-linux-x64-musl" "4.18.0"
-    "@rollup/rollup-win32-arm64-msvc" "4.18.0"
-    "@rollup/rollup-win32-ia32-msvc" "4.18.0"
-    "@rollup/rollup-win32-x64-msvc" "4.18.0"
-    fsevents "~2.3.2"
-
-rollup@^4.2.0:
-  version "4.12.1"
-  dependencies:
-    "@types/estree" "1.0.5"
-  optionalDependencies:
-    "@rollup/rollup-android-arm-eabi" "4.12.1"
-    "@rollup/rollup-android-arm64" "4.12.1"
-    "@rollup/rollup-darwin-arm64" "4.12.1"
-    "@rollup/rollup-darwin-x64" "4.12.1"
-    "@rollup/rollup-linux-arm-gnueabihf" "4.12.1"
-    "@rollup/rollup-linux-arm64-gnu" "4.12.1"
-    "@rollup/rollup-linux-arm64-musl" "4.12.1"
-    "@rollup/rollup-linux-riscv64-gnu" "4.12.1"
-    "@rollup/rollup-linux-x64-gnu" "4.12.1"
-    "@rollup/rollup-linux-x64-musl" "4.12.1"
-    "@rollup/rollup-win32-arm64-msvc" "4.12.1"
-    "@rollup/rollup-win32-ia32-msvc" "4.12.1"
-    "@rollup/rollup-win32-x64-msvc" "4.12.1"
     fsevents "~2.3.2"
 
 rrweb-cssom@^0.6.0:
@@ -10868,18 +10646,6 @@ supports-hyperlinks@^3.0.0:
 supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
 
-svelte-check@^3.6.0:
-  version "3.8.4"
-  resolved "https://registry.npmjs.org/svelte-check/-/svelte-check-3.8.4.tgz"
-  integrity sha512-61aHMkdinWyH8BkkTX9jPLYxYzaAAz/FK/VQqdr2FiCQQ/q04WCwDlpGbHff1GdrMYTmW8chlTFvRWL9k0A8vg==
-  dependencies:
-    "@jridgewell/trace-mapping" "^0.3.17"
-    chokidar "^3.4.1"
-    picocolors "^1.0.0"
-    sade "^1.7.4"
-    svelte-preprocess "^5.1.3"
-    typescript "^5.0.3"
-
 svelte-eslint-parser@^0.39.2:
   version "0.39.2"
   resolved "https://registry.npmjs.org/svelte-eslint-parser/-/svelte-eslint-parser-0.39.2.tgz"
@@ -10907,7 +10673,7 @@ svelte-preprocess@^5.1.3:
     sorcery "^0.11.0"
     strip-indent "^3.0.0"
 
-"svelte@^3.19.0 || ^4.0.0", "svelte@^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0", "svelte@^3.23.0 || ^4.0.0-next.0 || ^4.0.0 || ^5.0.0-next.0", "svelte@^3.37.0 || ^4.0.0 || ^5.0.0-next.115", "svelte@^3.37.0 || ^4.0.0 || ^5.0.0-next.155", "svelte@^3.44.0 || ^4.0.0 || ^5.0.0-next.1", "svelte@^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0", "svelte@^3.55.0 || ^4.0.0-next.0 || ^4.0.0 || ^5.0.0-next.0", "svelte@^4.0.0 || ^5.0.0-next.0", svelte@^4.2.7:
+"svelte@^3.19.0 || ^4.0.0", "svelte@^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0", "svelte@^3.23.0 || ^4.0.0-next.0 || ^4.0.0 || ^5.0.0-next.0", "svelte@^3.37.0 || ^4.0.0 || ^5.0.0-next.115", "svelte@^3.37.0 || ^4.0.0 || ^5.0.0-next.155", "svelte@^3.44.0 || ^4.0.0 || ^5.0.0-next.1", "svelte@^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0", "svelte@^3.55.0 || ^4.0.0-next.0 || ^4.0.0 || ^5.0.0-next.0", "svelte@^4.0.0 || ^5.0.0-next.0", svelte@^4.2.18:
   version "4.2.18"
   dependencies:
     "@ampproject/remapping" "^2.2.1"
@@ -11222,7 +10988,7 @@ tslib@^1.13.0:
 tslib@^1.8.1:
   version "1.14.1"
 
-tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.2.0, tslib@^2.4.0, tslib@^2.4.1, tslib@^2.6.1, tslib@^2.6.2:
+tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.2.0, tslib@^2.4.0, tslib@^2.6.1, tslib@^2.6.2:
   version "2.6.2"
 
 tsscmp@1.0.6:
@@ -11813,12 +11579,14 @@ vinyl@^2.2.1:
     remove-trailing-separator "^1.0.1"
     replace-ext "^1.0.0"
 
-"vite@^3.0.0 || ^4.0.0 || ^5.0.0", "vite@^4.0.0 || ^5.0.0", vite@^4.1.0-beta.0, "vite@^4.2.0 || ^5.0.0", vite@^5.0.0, vite@^5.0.11, vite@^5.0.3, vite@^5.1.4, vite@^5.1.5:
-  version "5.1.5"
+"vite@^3.0.0 || ^4.0.0 || ^5.0.0", "vite@^4.0.0 || ^5.0.0", vite@^4.1.0-beta.0, "vite@^4.2.0 || ^5.0.0", vite@^5.0.0, vite@^5.0.3, vite@^5.1.4, vite@^5.1.5, vite@^5.3.4:
+  version "5.3.5"
+  resolved "https://registry.npmjs.org/vite/-/vite-5.3.5.tgz"
+  integrity sha512-MdjglKR6AQXQb9JGiS7Rc2wC6uMjcm7Go/NHNO63EwiJXfuk9PgqiP/n5IDJCziMkfw9n4Ubp7lttNwz+8ZVKA==
   dependencies:
-    esbuild "^0.19.3"
-    postcss "^8.4.35"
-    rollup "^4.2.0"
+    esbuild "^0.21.3"
+    postcss "^8.4.39"
+    rollup "^4.13.0"
   optionalDependencies:
     fsevents "~2.3.3"
 

@@ -4,10 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="Implemented the callback that will be used to save the data">
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="added delete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioRecorder.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/.npmrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/.prettierignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/.prettierrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/eslint.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/jsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/app.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/app.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/lib/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioHelpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio/src/audio-recorder-svelte/AudioHelpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/lib/svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio/src/audio-recorder-svelte/AudioRecorder.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/routes/+page.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/static/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/svelte.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/vite.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +50,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "git-widget-placeholder": "adding-package-audio",
+    "last_opened_file_path": "/Users/solve.selander/WebstormProjects/kobber/packages/kobber-audio/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -42,6 +60,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/kobber-audio/src" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -141,9 +164,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721904239662</updated>
-      <workItem from="1721904240711" duration="2443000" />
+      <workItem from="1721904240711" duration="2591000" />
+      <workItem from="1722501173267" duration="3263000" />
+      <workItem from="1722591364093" duration="1170000" />
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL−00013" summary="added delete">
+      <option name="closed" value="true" />
+      <created>1721973399681</created>
+      <option name="number" value="LOCAL−00013" />
+      <option name="presentableId" value="LOCAL−00013" />
+      <updated>1721973399681</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +194,7 @@
     <MESSAGE value="Looking at custom elements..." />
     <MESSAGE value="Going back on last commit, looking at avoiding custom elements first" />
     <MESSAGE value="Implemented the callback that will be used to save the data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented the callback that will be used to save the data" />
+    <MESSAGE value="added delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="added delete" />
   </component>
 </project>
