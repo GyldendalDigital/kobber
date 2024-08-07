@@ -12,7 +12,6 @@ export class CardLayoutColumnAspectRatio extends LitElement {
       min-width: 0;
       min-width: ${unsafeCSS(minColumnWidth)};
       grid-column: span var(--span);
-      --aspect-ratio: 1;
     }
 
     :host *,

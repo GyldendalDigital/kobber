@@ -41,7 +41,6 @@ export class CardLayout extends StyledLitElement {
     .grid {
       display: grid;
       width: 100%;
-      min-width: 0;
       min-width: calc(${minCardWidth / 16}rem + (2 * ${unsafeCSS(gap)}));
       max-width: ${maxInnerWidth / 16}rem;
       grid-template-columns: ${unsafeCSS(getGridTemplateColumns())};
