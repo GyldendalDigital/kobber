@@ -69,5 +69,7 @@ export const additionalTokens = {
       max: { type: "dimension", value: 16 },
     },
     gap: createGaps(),
+    fixedPageHeaderMaxWidth: { type: "dimension", value: 1472 },
+    contentMaxWidth: { type: "dimension", value: 1344 },
   },
 };
