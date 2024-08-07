@@ -7,6 +7,9 @@
     }
   },
   "shape": {
+    "id": {
+      "generator": "kobber-%s"
+    },
     "transform": [
       {
         "svgo": {

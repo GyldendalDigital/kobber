@@ -1,5 +1,41 @@
 # @gyldendal/kobber-scene
 
+## 0.3.29
+
+### Patch Changes
+
+- Correct icon lists, to be usable with sprites
+
+## 0.3.28
+
+### Patch Changes
+
+- Correct kobber-icons' README
+
+## 0.3.27
+
+### Patch Changes
+
+- Add roles, rename icon prefix
+
+## 0.3.26
+
+### Patch Changes
+
+- Add aria-label, viewBox and styles to icons
+
+## 0.3.25
+
+### Patch Changes
+
+- Expose icons as components
+
+## 0.3.24
+
+### Patch Changes
+
+- Repair icon sprite loading
+
 ## 0.3.23
 
 ### Patch Changes

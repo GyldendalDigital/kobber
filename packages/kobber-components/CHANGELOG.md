@@ -1,5 +1,53 @@
 # @gyldendal/kobber-components
 
+## 0.3.29
+
+### Patch Changes
+
+- Correct icon lists, to be usable with sprites
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.29
+
+## 0.3.28
+
+### Patch Changes
+
+- Correct kobber-icons' README
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.28
+
+## 0.3.27
+
+### Patch Changes
+
+- Add roles, rename icon prefix
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.27
+
+## 0.3.26
+
+### Patch Changes
+
+- Add aria-label, viewBox and styles to icons
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.26
+
+## 0.3.25
+
+### Patch Changes
+
+- Expose icons as components
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.25
+
+## 0.3.24
+
+### Patch Changes
+
+- Repair icon sprite loading
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.24
+
 ## 0.3.23
 
 ### Patch Changes

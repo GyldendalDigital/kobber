@@ -15,7 +15,7 @@ export class ProgressBarItem extends HTMLElement {
     this.attachShadow({ mode: "open" });
     this.valueNow;
     this.fillColorFallback = "var(--kobber-component-progressbar-color-foreground-default-primary)";
-    this.heightValueFallback = "var(--kobber-component-progressbar-color-background-default)";
+    this.heightValueFallback = "var(--kobber-component-progressbar-size-default)";
     this.borderRadiusValueFallback = "var(--kobber-component-progressbar-border-radius)";
   }
 
