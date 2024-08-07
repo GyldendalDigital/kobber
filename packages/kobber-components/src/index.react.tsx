@@ -8,6 +8,9 @@ import { Checkbox } from "./checkbox/Checkbox";
 import { ProgressBar } from "./progress-bar/ProgressBar";
 import { ProgressBarItem } from "./progress-bar/ProgressBarItem";
 import { GridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
+import { CardLayout } from "./layouts/card-layout/CardLayout";
+import { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
+import { BoxLayout } from "./layouts/box-layout/BoxLayout";
 
 export const KobberGrid = createComponent({
   tagName: "kobber-grid",
@@ -42,5 +45,23 @@ export const KobberProgressBar = createComponent({
 export const KobberProgressBarItem = createComponent({
   tagName: "kobber-progress-bar-item",
   elementClass: ProgressBarItem,
+  react: React,
+});
+
+export const KobberCardLayout = createComponent({
+  tagName: "kobber-card-layout",
+  elementClass: CardLayout,
+  react: React,
+});
+
+export const KobberCardLayoutColumnAspectRatio = createComponent({
+  tagName: "kobber-card-layout-column-aspect-ratio",
+  elementClass: CardLayoutColumnAspectRatio,
+  react: React,
+});
+
+export const KobberBoxLayout = createComponent({
+  tagName: "kobber-box-layout",
+  elementClass: BoxLayout,
   react: React,
 });

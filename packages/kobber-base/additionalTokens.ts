@@ -29,6 +29,22 @@ const createFluidClamp = (min: number, max: number) => ({
   },
 });
 
+const fluidClampMin = 4;
+
+const fluidClampMax = 96;
+
+const fluidClampStep = 4;
+
+const createGaps = () => {
+  let gaps = {};
+  for (let from = fluidClampMin; from <= fluidClampMax; from += fluidClampStep) {
+    for (let to = from + fluidClampStep; to <= fluidClampMax; to += fluidClampStep) {
+      gaps = { ...gaps, ...createFluidClamp(from, to) };
+    }
+  }
+  return gaps;
+};
+
 export const additionalTokens = {
   mediaQuery: {
     small: {
@@ -52,17 +68,8 @@ export const additionalTokens = {
       min: { type: "dimension", value: 4 },
       max: { type: "dimension", value: 16 },
     },
-    gap: {
-      ...createFluidClamp(4, 16),
-      ...createFluidClamp(4, 8),
-      ...createFluidClamp(6, 12),
-      ...createFluidClamp(8, 12),
-      ...createFluidClamp(8, 16),
-      ...createFluidClamp(8, 24),
-      ...createFluidClamp(8, 32),
-      ...createFluidClamp(8, 96),
-      ...createFluidClamp(16, 24),
-      ...createFluidClamp(16, 32),
-    },
+    gap: createGaps(),
+    fixedPageHeaderMaxWidth: { type: "dimension", value: 1472 },
+    contentMaxWidth: { type: "dimension", value: 1344 },
   },
 };
