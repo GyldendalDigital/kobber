@@ -1,6 +1,7 @@
-import { LitElement, css, html, unsafeCSS } from "lit";
-import { customElement, property } from "lit/decorators.js";
 import { layout } from "@gyldendal/kobber-base/themes/default/tokens";
+import { css, html, unsafeCSS } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import { StyledLitElement } from "../../utils/StyledLitElement";
 import { contentMaxWidth, headerMaxWidth } from "../tokens";
 
 const maxWidths = {
@@ -9,7 +10,7 @@ const maxWidths = {
 };
 
 @customElement("kobber-box")
-export class Box extends LitElement {
+export class Box extends StyledLitElement {
   static styles = css`
     :host {
       display: grid;
