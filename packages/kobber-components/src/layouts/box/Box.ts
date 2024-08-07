@@ -2,12 +2,9 @@ import { layout } from "@gyldendal/kobber-base/themes/default/tokens";
 import { css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { StyledLitElement } from "../../utils/StyledLitElement";
-import { contentMaxWidth, headerMaxWidth } from "../tokens";
+import { contentMaxWidth, fixedPageHeaderMaxWidth } from "../tokens";
 
-const maxWidths = {
-  header: headerMaxWidth,
-  content: contentMaxWidth,
-};
+const validMaxWidths = ["fixedPageHeader", "content"];
 
 @customElement("kobber-box")
 export class Box extends StyledLitElement {
@@ -23,12 +20,12 @@ export class Box extends StyledLitElement {
       width: 100%;
     }
 
-    .box.max-width-header {
-      max-width: ${maxWidths.header / 16}rem;
+    .box.max-width-fixed-page-header {
+      max-width: ${fixedPageHeaderMaxWidth / 16}rem;
     }
 
     .box.max-width-content {
-      max-width: ${maxWidths.content / 16}rem;
+      max-width: ${contentMaxWidth / 16}rem;
     }
   `;
 
@@ -37,7 +34,7 @@ export class Box extends StyledLitElement {
 
   private _getBoxClassName = () => {
     const maxWidth = this.maxWidth;
-    if (maxWidth === undefined || !Object.keys(maxWidths).includes(maxWidth)) {
+    if (maxWidth === undefined || !validMaxWidths.includes(maxWidth)) {
       console.error(`max-width "${this.maxWidth}" is not valid`);
     }
     return `max-width-${maxWidth}`;

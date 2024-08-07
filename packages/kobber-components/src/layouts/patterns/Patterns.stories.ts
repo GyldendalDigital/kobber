@@ -39,7 +39,7 @@ const render: ArgsStoryFn<WebComponentsRenderer, Args> = () => {
       }
     </style>
     <div class="demo">
-      <kobber-box max-width="header">
+      <kobber-box max-width="fixed-page-header">
         <kobber-example-surface>Header</kobber-example-surface>
       </kobber-box>
       <kobber-box max-width="content">Content</kobber-box>
