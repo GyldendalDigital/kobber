@@ -10,7 +10,7 @@ import { ProgressBarItem } from "./progress-bar/ProgressBarItem";
 import { GridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
 import { CardLayout } from "./layouts/card-layout/CardLayout";
 import { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
-import { Box } from "./layouts/box/Box";
+import { BoxLayout } from "./layouts/box-layout/BoxLayout";
 
 export const KobberGrid = createComponent({
   tagName: "kobber-grid",
@@ -60,8 +60,8 @@ export const KobberCardLayoutColumnAspectRatio = createComponent({
   react: React,
 });
 
-export const KobberBox = createComponent({
-  tagName: "kobber-box",
-  elementClass: Box,
+export const KobberBoxLayout = createComponent({
+  tagName: "kobber-box-layout",
+  elementClass: BoxLayout,
   react: React,
 });

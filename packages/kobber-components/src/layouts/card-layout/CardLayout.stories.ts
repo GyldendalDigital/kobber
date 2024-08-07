@@ -2,7 +2,7 @@ import { ArgsStoryFn } from "@storybook/types";
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { WebComponentsRenderer } from "@storybook/web-components";
 import { html } from "lit";
-import "../box/Box";
+import "../box-layout/BoxLayout";
 import "../story/ExampleCard";
 import "./CardLayout";
 import "./CardLayoutColumnAspectRatio";
@@ -54,9 +54,9 @@ const render: ArgsStoryFn<WebComponentsRenderer, Args> = ({ overrideContainerWid
     }
   </style>
   <div class="demo" data-indicator-container>
-    <kobber-box max-width="content">
+    <kobber-box-layout max-width="content">
       Container width: ${overrideContainerWidth ? `${containerWidth}px` : "auto"}
-    </kobber-box>
+    </kobber-box-layout>
     <div class="space-for-indicators"></div>
     ${example}
   </div>

@@ -2,7 +2,7 @@ import { ArgsStoryFn } from "@storybook/types";
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { WebComponentsRenderer } from "@storybook/web-components";
 import { html } from "lit";
-import "../box/Box";
+import "../box-layout/BoxLayout";
 import { example as cardLayoutExample } from "../card-layout/story/example";
 import "../story/ExampleSurface";
 import { globalStyles } from "../story/globalStyles";
@@ -39,10 +39,10 @@ const render: ArgsStoryFn<WebComponentsRenderer, Args> = () => {
       }
     </style>
     <div class="demo">
-      <kobber-box max-width="fixed-page-header">
+      <kobber-box-layout max-width="fixed-page-header">
         <kobber-example-surface>Header</kobber-example-surface>
-      </kobber-box>
-      <kobber-box max-width="content">Content</kobber-box>
+      </kobber-box-layout>
+      <kobber-box-layout max-width="content">Content</kobber-box-layout>
       <div class="space-for-indicators"></div>
       ${cardLayoutExample}
     </div>

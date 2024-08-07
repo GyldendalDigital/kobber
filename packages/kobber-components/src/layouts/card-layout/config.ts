@@ -1,9 +1,8 @@
 import { layout } from "@gyldendal/kobber-base/themes/default/tokens";
-import { contentMaxWidth } from "../tokens";
 
 export const maxColumns = 4;
 
-export const maxInnerWidth = contentMaxWidth + 32;
+export const maxInnerWidth = layout.contentMaxWidth + 32;
 
 export const outerPadding = layout.gap["8-16"];
 
