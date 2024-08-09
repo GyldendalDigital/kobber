@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="check">
+      <change afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/jsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/jsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/audio-recorder-svelte/AudioHelpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioHelpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/audio-recorder-svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/vite-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/vite-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/svelte.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/svelte.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2ignQuRErU7mghWcU6FU6U8mktb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;git-widget-placeholder&quot;: &quot;adding-package-audio&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/solve.selander/WebstormProjects/kobber/packages/kobber-audio/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/solve.selander/WebstormProjects/kobber/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/kobber-audio/src" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task id="LOCAL−00001" summary="init commit :)">
+      <option name="closed" value="true" />
+      <created>1719929284995</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1719929284995</updated>
+    </task>
+    <task id="LOCAL−00002" summary="fixing build error, newer version of turbo needs &quot;pipeline&quot; changed to &quot;tasks&quot; in turbo.json">
+      <option name="closed" value="true" />
+      <created>1719931105192</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1719931105192</updated>
+    </task>
+    <task id="LOCAL−00003" summary="Added sequential audio recording :)">
+      <option name="closed" value="true" />
+      <created>1720176688936</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1720176688936</updated>
+    </task>
+    <task id="LOCAL−00004" summary="Playing around with timekeeping">
+      <option name="closed" value="true" />
+      <created>1720183466022</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1720183466022</updated>
+    </task>
+    <task id="LOCAL−00005" summary="Working version of timekeeping! :)">
+      <option name="closed" value="true" />
+      <created>1720536483820</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1720536483820</updated>
+    </task>
+    <task id="LOCAL−00006" summary="typo fix :)">
+      <option name="closed" value="true" />
+      <created>1720609172738</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1720609172738</updated>
+    </task>
+    <task id="LOCAL−00007" summary="Fixed scrolling back and forth! Needs more work, but it is currently in a working state :)">
+      <option name="closed" value="true" />
+      <created>1720696781078</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1720696781078</updated>
+    </task>
+    <task id="LOCAL−00008" summary="Slight cleanup">
+      <option name="closed" value="true" />
+      <created>1720704327980</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1720704327980</updated>
+    </task>
+    <task id="LOCAL−00009" summary="Added working download to mp3, combining all audio snippets into one file! :)">
+      <option name="closed" value="true" />
+      <created>1721122036951</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1721122036951</updated>
+    </task>
+    <task id="LOCAL−00010" summary="Looking at custom elements...">
+      <option name="closed" value="true" />
+      <created>1721210253311</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1721210253311</updated>
+    </task>
+    <task id="LOCAL−00011" summary="Going back on last commit, looking at avoiding custom elements first">
+      <option name="closed" value="true" />
+      <created>1721211436525</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1721211436525</updated>
+    </task>
+    <task id="LOCAL−00012" summary="Implemented the callback that will be used to save the data">
+      <option name="closed" value="true" />
+      <created>1721811872267</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1721811872267</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="Implemented the callback that will be used to save the data" />
+      <created>1721904239662</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721904239662</updated>
+      <workItem from="1721904240711" duration="2591000" />
+      <workItem from="1722501173267" duration="3263000" />
+      <workItem from="1722591364093" duration="1543000" />
+      <workItem from="1722857604396" duration="10360000" />
+      <workItem from="1723024931217" duration="13495000" />
+      <workItem from="1723115183476" duration="13789000" />
+    </task>
+    <task id="LOCAL−00013" summary="added delete">
+      <option name="closed" value="true" />
+      <created>1721973399681</created>
+      <option name="number" value="LOCAL−00013" />
+      <option name="presentableId" value="LOCAL−00013" />
+      <updated>1721973399681</updated>
+    </task>
+    <task id="LOCAL−00014" summary="Removed svelte-kit, went for plain svelte instead">
+      <option name="closed" value="true" />
+      <created>1722592847689</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1722592847689</updated>
+    </task>
+    <task id="LOCAL−00015" summary="Removed svelte-kit, went for plain svelte instead">
+      <option name="closed" value="true" />
+      <created>1722592862717</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1722592862717</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init commit :)" />
+    <MESSAGE value="fixing build error, newer version of turbo needs &quot;pipeline&quot; changed to &quot;tasks&quot; in turbo.json" />
+    <MESSAGE value="Added sequential audio recording :)" />
+    <MESSAGE value="Playing around with timekeeping" />
+    <MESSAGE value="Working version of timekeeping! :)" />
+    <MESSAGE value="typo fix :)" />
+    <MESSAGE value="Fixed scrolling back and forth! Needs more work, but it is currently in a working state :)" />
+    <MESSAGE value="Slight cleanup" />
+    <MESSAGE value="Added working download to mp3, combining all audio snippets into one file! :)" />
+    <MESSAGE value="Looking at custom elements..." />
+    <MESSAGE value="Going back on last commit, looking at avoiding custom elements first" />
+    <MESSAGE value="Implemented the callback that will be used to save the data" />
+    <MESSAGE value="added delete" />
+    <MESSAGE value="Removed svelte-kit, went for plain svelte instead" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed svelte-kit, went for plain svelte instead" />
+  </component>
+</project>
