@@ -82,12 +82,4 @@ function wavToMp3(channels, sampleRate, samples) {
     }
 
     return new Blob(buffer, {type: 'audio/mp3'});
-
-    //let mp3Blob = new Blob(buffer, {type: 'audio/mp3'});
-    //let bUrl = window.URL.createObjectURL(mp3Blob);
-    //window.myAudioPlayer = document.createElement('audio');
-    //window.myAudioPlayer.src = bUrl;
-    //window.myAudioPlayer.setAttribute('controls', '');
-    // Only for testing for now!
-    //window.myAudioPlayer.play();
 }

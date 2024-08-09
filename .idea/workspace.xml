@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="Removed svelte-kit, went for plain svelte instead" />
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="check">
+      <change afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/jsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/jsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/audio-recorder-svelte/AudioHelpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioHelpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/audio-recorder-svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/vite-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/vite-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/svelte.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/svelte.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,19 +44,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "adding-package-audio",
-    "last_opened_file_path": "/Users/solve.selander/WebstormProjects/kobber/packages/kobber-audio/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "ts.external.directory.path": "/Users/solve.selander/WebstormProjects/kobber/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;git-widget-placeholder&quot;: &quot;adding-package-audio&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/solve.selander/WebstormProjects/kobber/packages/kobber-audio/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/solve.selander/WebstormProjects/kobber/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/kobber-audio/src" />
@@ -146,6 +164,9 @@
       <workItem from="1721904240711" duration="2591000" />
       <workItem from="1722501173267" duration="3263000" />
       <workItem from="1722591364093" duration="1543000" />
+      <workItem from="1722857604396" duration="10360000" />
+      <workItem from="1723024931217" duration="13495000" />
+      <workItem from="1723115183476" duration="13789000" />
     </task>
     <task id="LOCAL−00013" summary="added delete">
       <option name="closed" value="true" />
@@ -173,6 +194,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit :)" />

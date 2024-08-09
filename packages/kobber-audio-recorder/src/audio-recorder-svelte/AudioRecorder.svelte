@@ -1,3 +1,4 @@
+<svelte:options customElement={{tag: "kobber-audio-recorder", shadow: "none"}}/>
 <script>
     /*
     NOTES:
@@ -86,7 +87,6 @@
             if (timestamp >= accumulative && timestamp <= (accumulative + array[index])) {
                 elapsedTime = accumulative;
                 audioArray[index].currentTime = timestamp - accumulative;
-                console.log("new current time:", audioArray[index].currentTime);
                 return index;
             } else {
                 accumulative += array[index]
@@ -103,35 +103,27 @@
     }
 
     function movePlayhead(event) {
-        console.log("event", event.target.value);
         currentTimeGlobal = Number(event.target.value);
         currentAudioIndex = findAudioIndex(currentTimeGlobal, 0, audioDurationArray, 0);
-        console.log(currentTimeGlobal);
-        console.log(currentAudioIndex, audioArray);
     }
 
     function concatRecordings() {
         const newAudio = new Audio();
         newAudio.preload = "auto";
-        newAudio.src = window.URL.createObjectURL(...recData[recData.length - 1]);
+        newAudio.src = window.URL.createObjectURL(recData[recData.length - 1][0]);
         audioArray.push(newAudio);
-
-        console.log(audioArray, recData);
 
         audioArray[audioArray.length - 1].addEventListener("ended", onAudioEnd);
         audioArray[audioArray.length - 1].addEventListener("timeupdate", (event) => {
-            console.log("timeupdate!", currentTimeGlobal);
             currentTimeGlobal = elapsedTime + event.target.currentTime;
         });
         audioArray[audioArray.length - 1].addEventListener("durationchange", (event) => {
-            console.log("duarationchange: ", event.target.duration);
             if (event.target.duration === Infinity) {
                 audioDurationArray[audioArray.length - 1] = (audioEndTime - audioStartTime) / 1000;
             }
             if (Number(event.target.duration) && event.target.duration !== Infinity) {
                 audioDurationArray[audioArray.length - 1] = event.target.duration;
                 latestDuration = event.target.duration;
-                console.log(latestDuration);
             }
         });
 
@@ -139,9 +131,17 @@
 
     function draw() {
         animationId = window.requestAnimationFrame(draw);
+        const container = document.getElementById(".visualizer-container");
 
-        const canvas = document.getElementById(".visualizer");
-        const canvasCtx = canvas.getContext("2d");
+        if (container.childNodes.length === 0) {
+            const canvas = document.createElement("canvas");
+            canvas.height = 128;
+            canvas.width = 128;
+            canvas.id = ".visualizer";
+            container.appendChild(canvas);
+        }
+        //@ts-ignore
+        const canvasCtx = container.lastChild.getContext("2d");
         analyser.fftSize = 2048;
         const bufferLength = analyser.frequencyBinCount;
         const dataArray = new Uint8Array(bufferLength);
@@ -204,9 +204,8 @@
         mediaRecorder.onstop = (e) => {
             e.srcElement.stream.getTracks()[0].stop();
             window.cancelAnimationFrame(animationId);
-            const canvas = document.getElementById(".visualizer");
-            const canvasCtx = canvas.getContext("2d");
-            canvasCtx.clearRect(0, 0, 1280, 1280);
+            const visualizerContainer = document.getElementById(".visualizer-container");
+            visualizerContainer.removeChild(visualizerContainer.lastChild);
         };
     }
 
@@ -252,5 +251,5 @@
             on:mouseup={e => movePlayhead(e)}
     />
     <p>{"array: " + audioDurationArray + " - Total: " + roundWithDecimals(timeTotal, 2)}</p>
-    <canvas id=".visualizer" height="128px" width="128px"></canvas>
+    <div id=".visualizer-container"></div>
 </div>
