@@ -1,5 +1,11 @@
 # @gyldendal/kobber-scene
 
+## 0.3.31
+
+### Patch Changes
+
+- pointing to dist for audio-recorder
+
 ## 0.3.30
 
 ### Patch Changes

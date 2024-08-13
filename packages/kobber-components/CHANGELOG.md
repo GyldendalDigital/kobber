@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.31
+
+### Patch Changes
+
+- pointing to dist for audio-recorder
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.31
+
 ## 0.3.30
 
 ### Patch Changes

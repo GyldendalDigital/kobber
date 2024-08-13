@@ -1,11 +1,18 @@
 {
   "name": "@gyldendal/kobber-audio-recorder",
-  "version": "0.3.30",
+  "version": "0.3.31",
   "license": "MIT",
   "type": "module",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GyldendalDigital/kobber"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
