@@ -1,5 +1,11 @@
 # @gyldendal/kobber-scene
 
+## 0.3.32
+
+### Patch Changes
+
+- expose kobber-audio-recorder correctly
+
 ## 0.3.31
 
 ### Patch Changes
