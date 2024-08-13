@@ -1,5 +1,11 @@
 # @gyldendal/kobber-eslint
 
+## 0.3.30
+
+### Patch Changes
+
+- Adding kobber-audio-recorder package
+
 ## 0.3.29
 
 ### Patch Changes

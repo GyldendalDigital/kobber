@@ -4,24 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="check">
-      <change afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/jsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/main.js" afterDir="false" />
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="Moved dependency to dev dependency">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/jsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/audio-recorder-svelte/AudioHelpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioHelpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/audio-recorder-svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/src/vite-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/vite-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/svelte.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/svelte.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/vite.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +151,7 @@
       <workItem from="1722857604396" duration="10360000" />
       <workItem from="1723024931217" duration="13495000" />
       <workItem from="1723115183476" duration="13789000" />
+      <workItem from="1723451955222" duration="7052000" />
     </task>
     <task id="LOCAL−00013" summary="added delete">
       <option name="closed" value="true" />
@@ -189,7 +174,14 @@
       <option name="presentableId" value="LOCAL−00015" />
       <updated>1722592862717</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL−00016" summary="Moved dependency to dev dependency">
+      <option name="closed" value="true" />
+      <created>1723457000884</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1723457000884</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +213,7 @@
     <MESSAGE value="Implemented the callback that will be used to save the data" />
     <MESSAGE value="added delete" />
     <MESSAGE value="Removed svelte-kit, went for plain svelte instead" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed svelte-kit, went for plain svelte instead" />
+    <MESSAGE value="Moved dependency to dev dependency" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved dependency to dev dependency" />
   </component>
 </project>
