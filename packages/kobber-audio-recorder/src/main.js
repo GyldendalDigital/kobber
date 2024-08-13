@@ -1,1 +1,2 @@
-import AudioRecorder from "./audio-recorder-svelte/AudioRecorder.svelte"
+import AudioRecorder from "./audio-recorder-svelte/AudioRecorder.svelte";
+export default AudioRecorder;
