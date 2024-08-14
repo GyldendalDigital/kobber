@@ -50,9 +50,15 @@ import { Expand } from "./icon/icons/expand";
 import { ExpandResize } from "./icon/icons/expand_resize";
 import { ExternalLink } from "./icon/icons/external_link";
 import { FemaleHeadset } from "./icon/icons/female_headset";
+import { FilledCheckCircle } from "./icon/icons/filled_check_circle";
+import { FilledInformationCircle } from "./icon/icons/filled_information_circle";
+import { FilledWarningCircle } from "./icon/icons/filled_warning_circle";
 import { FlipRight } from "./icon/icons/flip_right";
 import { FolderBookmark } from "./icon/icons/folder_bookmark";
 import { FontExpand } from "./icon/icons/font_expand";
+import { FormChecked } from "./icon/icons/form_checked";
+import { FormIndeterminate } from "./icon/icons/form_indeterminate";
+import { FormRadio } from "./icon/icons/form_radio";
 import { FormTemplate } from "./icon/icons/form_template";
 import { FrameExpand } from "./icon/icons/frame_expand";
 import { FrameShrink } from "./icon/icons/frame_shrink";
@@ -454,6 +460,24 @@ export const IconFemaleHeadset = createComponent({
 	react: React,
 });
 
+export const IconFilledCheckCircle = createComponent({
+	tagName: "icon-filled_check_circle",
+	elementClass: FilledCheckCircle,
+	react: React,
+});
+
+export const IconFilledInformationCircle = createComponent({
+	tagName: "icon-filled_information_circle",
+	elementClass: FilledInformationCircle,
+	react: React,
+});
+
+export const IconFilledWarningCircle = createComponent({
+	tagName: "icon-filled_warning_circle",
+	elementClass: FilledWarningCircle,
+	react: React,
+});
+
 export const IconFlipRight = createComponent({
 	tagName: "icon-flip_right",
 	elementClass: FlipRight,
@@ -469,6 +493,24 @@ export const IconFolderBookmark = createComponent({
 export const IconFontExpand = createComponent({
 	tagName: "icon-font_expand",
 	elementClass: FontExpand,
+	react: React,
+});
+
+export const IconFormChecked = createComponent({
+	tagName: "icon-form_checked",
+	elementClass: FormChecked,
+	react: React,
+});
+
+export const IconFormIndeterminate = createComponent({
+	tagName: "icon-form_indeterminate",
+	elementClass: FormIndeterminate,
+	react: React,
+});
+
+export const IconFormRadio = createComponent({
+	tagName: "icon-form_radio",
+	elementClass: FormRadio,
 	react: React,
 });
 

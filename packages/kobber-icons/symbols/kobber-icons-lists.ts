@@ -48,9 +48,15 @@ export type IconType =
   | "kobber-expand_resize"
   | "kobber-external_link"
   | "kobber-female_headset"
+  | "kobber-filled_check_circle"
+  | "kobber-filled_information_circle"
+  | "kobber-filled_warning_circle"
   | "kobber-flip_right"
   | "kobber-folder_bookmark"
   | "kobber-font_expand"
+  | "kobber-form_checked"
+  | "kobber-form_indeterminate"
+  | "kobber-form_radio"
   | "kobber-form_template"
   | "kobber-frame_expand"
   | "kobber-frame_shrink"
@@ -209,9 +215,15 @@ export type IconType =
  "kobber-expand_resize", 
  "kobber-external_link", 
  "kobber-female_headset", 
+ "kobber-filled_check_circle", 
+ "kobber-filled_information_circle", 
+ "kobber-filled_warning_circle", 
  "kobber-flip_right", 
  "kobber-folder_bookmark", 
  "kobber-font_expand", 
+ "kobber-form_checked", 
+ "kobber-form_indeterminate", 
+ "kobber-form_radio", 
  "kobber-form_template", 
  "kobber-frame_expand", 
  "kobber-frame_shrink", 
