@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.34
+
+### Patch Changes
+
+- Add some filled icons
+
 ## 0.3.33
 
 ### Patch Changes
