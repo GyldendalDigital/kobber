@@ -8,9 +8,10 @@
         -
      */
 
-    import {audioBufferToWav} from "./AudioHelpers.js";
+    import { audioBufferToWav, } from "./AudioHelpers.js";
 
     export let mp3Callback;
+    export let audioData;
 
     let mediaRecorder = null;
     let analyser = null;
@@ -23,7 +24,6 @@
     let audioArray = [];
     let currentTimeGlobal = 0;
     let elapsedTime = 0;
-    let latestDuration = 0;
     let audioDurationArray = [];
     let currentAudioIndex = 0;
 
@@ -31,11 +31,40 @@
     let audioStartTime = null;
     let audioEndTime = null;
 
+    $: if (audioData !== undefined && audioArray.length === 0) {
+        // New audio needs events!
+
+        recData.push([audioData]);
+        const newAudio = new Audio();
+        newAudio.preload = "metadata";
+        newAudio.src = window.URL.createObjectURL(recData[recData.length - 1][0]);
+        console.log(newAudio.duration);
+        audioArray.push(newAudio);
+        audioData.arrayBuffer().then((arrayBuffer) => {
+            audioCtx = new AudioContext();
+            audioCtx.decodeAudioData(arrayBuffer).then((buffer) => {
+                console.log(buffer);
+                audioDurationArray.push(roundWithDecimals(buffer.duration, 2));
+                console.log(audioDurationArray);
+                timeTotal = roundWithDecimals(buffer.duration, 2);
+            });
+        })
+    }
+
     // Unsure about how to update the timeTotal correctly...
     $: timeTotal = audioDurationArray[audioDurationArray.length - 1] ? audioDurationArray.reduce((acc, current) => {return acc + current}, 0) : 0;
 
+    function roundWithDecimals(num, decimals){
+        return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
+    }
+
+    // Takes the raw recorded data, creates a new buffer for them,
+    // decodes that new buffer, converts to wav, converts to mp3,
+    // and finally calls the callback with that mp3.
     function encodeToMP3() {
+        console.log(recData);
         Promise.all(recData.map((data) => {return data[0].arrayBuffer()})).then((response) => {
+            console.log("response", response);
             let totalByteLength = 0;
             response.forEach((buffer) => {
                 totalByteLength += buffer.byteLength;
@@ -47,22 +76,10 @@
                 currentPosition += buffer.byteLength;
             })
             audioCtx.decodeAudioData(totalBuffer.buffer).then((audioBuffer) => {
+                // Sidenote: Either rename or export both converting helper functions.
                 mp3Callback && mp3Callback(audioBufferToWav(audioBuffer));
             });
         })
-    }
-
-    function roundWithDecimals(num, decimals){
-        return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
-    }
-
-    function onAudioEnd() {
-        if (currentAudioIndex < audioArray.length - 1) {
-            currentAudioIndex++;
-            elapsedTime = currentTimeGlobal;
-            audioArray[currentAudioIndex].currentTime = 0;
-            audioArray[currentAudioIndex].play();
-        }
     }
 
     function playAudio() {
@@ -72,6 +89,7 @@
         } else {
             isPlaying = true;
             if (audioArray.length > 0) {
+                console.log(audioArray[currentAudioIndex]);
                 audioArray[currentAudioIndex].play();
             }
         }
@@ -82,6 +100,19 @@
         isPlaying = false;
     }
 
+    // Connected to an audio elements onended event
+    function onAudioEnd() {
+        if (currentAudioIndex < audioArray.length - 1) {
+            currentAudioIndex++;
+            elapsedTime = currentTimeGlobal;
+            audioArray[currentAudioIndex].currentTime = 0;
+            audioArray[currentAudioIndex].play();
+        } else {
+            isPlaying = false;
+        }
+    }
+
+    // Used to navigate over the array when moving the playhead.
     function findAudioIndex(timestamp, accumulative, array, index) {
         if (array.length > index) {
             if (timestamp >= accumulative && timestamp <= (accumulative + array[index])) {
@@ -95,7 +126,6 @@
             }
         } else {
             // Experimental to catch calculation errors
-
             elapsedTime = timeTotal - audioDurationArray[index - 1];
             audioArray[index - 1].currentTime = audioDurationArray[index - 1];
             return index - 1;
@@ -107,7 +137,8 @@
         currentAudioIndex = findAudioIndex(currentTimeGlobal, 0, audioDurationArray, 0);
     }
 
-    function concatRecordings() {
+    // Adds the newest recorded data to the array of audio elements
+    function updateRecordings() {
         const newAudio = new Audio();
         newAudio.preload = "auto";
         newAudio.src = window.URL.createObjectURL(recData[recData.length - 1][0]);
@@ -123,12 +154,13 @@
             }
             if (Number(event.target.duration) && event.target.duration !== Infinity) {
                 audioDurationArray[audioArray.length - 1] = event.target.duration;
-                latestDuration = event.target.duration;
             }
         });
 
+        console.log(audioArray);
     }
 
+    // drawing the visual feedback of voice used when recording
     function draw() {
         animationId = window.requestAnimationFrame(draw);
         const container = document.getElementById(".visualizer-container");
@@ -170,6 +202,9 @@
         canvasCtx.stroke();
     }
 
+    // Sets up all audio related objects, and then starts recording.
+    // Also includes the ondataavailable() event that delivers the
+    // recorded data when the recording is finished.
     function startRecording() {
         audioCtx = new AudioContext();
         if (navigator.mediaDevices) {
@@ -188,17 +223,18 @@
                     mediaRecorder.start();
                     audioStartTime = window.performance.now();
                     draw();
-
-                    mediaRecorder.ondataavailable = (e) => {
-                        recData[recData.length - 1].push(e.data);
-                        concatRecordings();
-                        mp3Callback(encodeToMP3());
-                    };
                 });
         }
     }
 
+    // Stops the recording, and handles the data being received.
     async function stopRecording() {
+        mediaRecorder.ondataavailable = (e) => {
+            recData[recData.length - 1].push(e.data);
+            updateRecordings();
+            mp3Callback(encodeToMP3());
+        };
+
         audioEndTime = window.performance.now();
         mediaRecorder.stop();
         mediaRecorder.onstop = (e) => {
@@ -221,7 +257,6 @@
             audioArray = [];
             currentTimeGlobal = 0;
             elapsedTime = 0;
-            latestDuration = 0;
             audioDurationArray = [];
             currentAudioIndex = 0;
         }
@@ -235,6 +270,7 @@
         }
         isRecording = !isRecording;
     }
+
 </script>
 
 <div id=".audio-recorder">

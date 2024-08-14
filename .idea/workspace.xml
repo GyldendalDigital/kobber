@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="updated changelog and versions (patch)">
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="changed files to dist in package.json for audio-recorder">
+      <change afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-base/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-base/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="adding-package-audio" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,7 +33,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "audio-recorder-readme-comments-cleanup",
     "last_opened_file_path": "/Users/solve.selander/WebstormProjects/kobber/packages/kobber-audio/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -155,6 +156,8 @@
       <workItem from="1723115183476" duration="13789000" />
       <workItem from="1723451955222" duration="7052000" />
       <workItem from="1723539473661" duration="5119000" />
+      <workItem from="1723617352710" duration="5168000" />
+      <workItem from="1723628589191" duration="9006000" />
     </task>
     <task id="LOCAL−00013" summary="added delete">
       <option name="closed" value="true" />
