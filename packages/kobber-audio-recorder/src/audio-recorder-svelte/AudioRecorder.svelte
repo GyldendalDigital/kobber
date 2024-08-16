@@ -6,6 +6,12 @@
         It seems like the browser because of security does not want to give exact
         timings, which gives a weird result when timing the recording (off by fluctuating values).
         -
+     KNOWN BUGS:
+        - Sometimes an audio resets playback from 0 (inconsistent).
+        Maybe write a check in playAudio() to re-set the value based on currentTimeGlobal.
+        - durationChange sometimes runs wild (inconsistent).
+        Usually you don't need to re-update the durationchange, so look into analyzing
+        the initial with arraybuffer, so the check for previous duration becomes cleaner.
      */
 
     import { audioBufferToWav, } from "./AudioHelpers.js";
@@ -31,32 +37,49 @@
     let audioStartTime = null;
     let audioEndTime = null;
 
-    $: if (audioData !== undefined && audioArray.length === 0) {
-        // New audio needs events!
+    function roundWithDecimals(num, decimals){
+        return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
+    }
 
+    // Adds events for audio elements for them to handle playback
+    function audioEventSetter(audio, index) {
+        audio.addEventListener("ended", onAudioEnd);
+        audio.addEventListener("timeupdate", (event) => {
+            currentTimeGlobal = elapsedTime + event.target.currentTime;
+        });
+        audio.addEventListener("durationchange", (event) => {
+            if (event.target.duration === Infinity) {
+                audioDurationArray[index] = roundWithDecimals((audioEndTime - audioStartTime) / 1000, 1);
+
+                // Consider swapping the code above with this:
+                //
+                // audioData.arrayBuffer().then((arrayBuffer) => {
+                //     audioCtx = new AudioContext();
+                //     audioCtx.decodeAudioData(arrayBuffer).then((buffer) => {
+                //         console.log(buffer);
+                //         audioDurationArray.push(roundWithDecimals(buffer.duration, 2));
+                //         console.log(audioDurationArray);
+                //         timeTotal = roundWithDecimals(buffer.duration, 2);
+                //     });
+                // });
+                //
+            } else if (Number(event.target.duration)) {
+                audioDurationArray[index] = roundWithDecimals(Number(event.target.duration), 1);
+            }
+        });
+    }
+
+    $: if (audioData !== undefined && audioArray.length === 0) {
         recData.push([audioData]);
         const newAudio = new Audio();
         newAudio.preload = "metadata";
         newAudio.src = window.URL.createObjectURL(recData[recData.length - 1][0]);
-        console.log(newAudio.duration);
+        audioEventSetter(newAudio, 0);
         audioArray.push(newAudio);
-        audioData.arrayBuffer().then((arrayBuffer) => {
-            audioCtx = new AudioContext();
-            audioCtx.decodeAudioData(arrayBuffer).then((buffer) => {
-                console.log(buffer);
-                audioDurationArray.push(roundWithDecimals(buffer.duration, 2));
-                console.log(audioDurationArray);
-                timeTotal = roundWithDecimals(buffer.duration, 2);
-            });
-        })
     }
 
     // Unsure about how to update the timeTotal correctly...
     $: timeTotal = audioDurationArray[audioDurationArray.length - 1] ? audioDurationArray.reduce((acc, current) => {return acc + current}, 0) : 0;
-
-    function roundWithDecimals(num, decimals){
-        return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
-    }
 
     // Takes the raw recorded data, creates a new buffer for them,
     // decodes that new buffer, converts to wav, converts to mp3,
@@ -142,20 +165,8 @@
         const newAudio = new Audio();
         newAudio.preload = "auto";
         newAudio.src = window.URL.createObjectURL(recData[recData.length - 1][0]);
+        audioEventSetter(newAudio, audioArray.length);
         audioArray.push(newAudio);
-
-        audioArray[audioArray.length - 1].addEventListener("ended", onAudioEnd);
-        audioArray[audioArray.length - 1].addEventListener("timeupdate", (event) => {
-            currentTimeGlobal = elapsedTime + event.target.currentTime;
-        });
-        audioArray[audioArray.length - 1].addEventListener("durationchange", (event) => {
-            if (event.target.duration === Infinity) {
-                audioDurationArray[audioArray.length - 1] = (audioEndTime - audioStartTime) / 1000;
-            }
-            if (Number(event.target.duration) && event.target.duration !== Infinity) {
-                audioDurationArray[audioArray.length - 1] = event.target.duration;
-            }
-        });
 
         console.log(audioArray);
     }

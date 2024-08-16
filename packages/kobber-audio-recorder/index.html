@@ -12,9 +12,10 @@
       let a = await fetch(`https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg`).then((mp3) => mp3.blob());
       const temp1 = document.querySelector("kobber-audio-recorder");
       temp1.mp3Callback = (e) => {console.log("check", e)};
-      console.log("test", a);
-      temp1.audioData = a;
+
+      document.getElementById("start-data-button").onclick = () => temp1.audioData = a;
     </script>
     <kobber-audio-recorder></kobber-audio-recorder>
+    <button id="start-data-button">Load some data!</button>
   </body>
 </html>
