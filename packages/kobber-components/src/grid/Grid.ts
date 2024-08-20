@@ -10,7 +10,7 @@ import { ResponsiveCssValue, responsiveValueConverter as converter } from "../ut
 import { stringifyStyleObject } from "../utils/stringifyStyleObject";
 
 const defaultGridStyles = {
-  maxWidth: `${layout.maxWidth / 16}rem`,
+  maxWidth: `${layout.contentMaxWidth / 16}rem`,
 };
 
 @customElement("kobber-grid")

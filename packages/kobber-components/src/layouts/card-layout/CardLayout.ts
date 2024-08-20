@@ -1,10 +1,11 @@
 import { ResizeController } from "@lit-labs/observers/resize-controller.js";
 import { css, html, unsafeCSS } from "lit";
-import { customElement } from "lit/decorators.js";
-import { gap, maxColumns, maxInnerWidth, minCardWidth, minColumnWidth, outerPadding } from "./config";
+import { customElement, property } from "lit/decorators.js";
+import { gap, maxInnerWidth, minCardWidth, minColumnWidth, outerPadding, validMaxColumns } from "./config";
 import { StyledLitElement } from "../../utils/StyledLitElement";
+import { stringifyStyleObject } from "../../utils/stringifyStyleObject";
 
-const getGridTemplateColumns = () => {
+const getGridTemplateColumns = (maxColumns: number) => {
   return `repeat(
       auto-fill,
       minmax(
@@ -43,7 +44,14 @@ export class CardLayout extends StyledLitElement {
       width: 100%;
       min-width: calc(${minCardWidth / 16}rem + (2 * ${unsafeCSS(gap)}));
       max-width: ${maxInnerWidth / 16}rem;
-      grid-template-columns: ${unsafeCSS(getGridTemplateColumns())};
+    }
+
+    .max-columns-4 {
+      grid-template-columns: ${unsafeCSS(getGridTemplateColumns(4))};
+    }
+
+    .max-columns-6 {
+      grid-template-columns: ${unsafeCSS(getGridTemplateColumns(6))};
     }
 
     ::slotted(kobber-card-layout-column-aspect-ratio) {
@@ -90,12 +98,39 @@ export class CardLayout extends StyledLitElement {
     if (hostWidth < minCardWidth * 4 + gapWidth * 5) {
       return 3;
     }
-    return 4;
+    if (hostWidth < minCardWidth * 5 + gapWidth * 6) {
+      return 4;
+    }
+    if (hostWidth < minCardWidth * 6 + gapWidth * 7) {
+      return 5;
+    }
+    return 6;
   };
 
-  render = () => html`
-    <div class="grid" style="--max-span: ${this._getMaxSpans()}">
-      <slot />
-    </div>
-  `;
+  private _maxColumns: number = 4;
+
+  @property({ type: Number, attribute: "max-columns" })
+  set maxColumns(value: number | string) {
+    const number = typeof value === "number" ? value : parseInt(value);
+    if (!validMaxColumns.includes(number)) {
+      throw new Error(`Max columns must be ${validMaxColumns.join(" or ")}, received ${value}`);
+    }
+    this._maxColumns = number;
+  }
+
+  get maxColumns() {
+    return this._maxColumns;
+  }
+
+  render = () => {
+    const styles = stringifyStyleObject(":host", this.getStyles());
+    return html`
+      <style>
+        ${styles}
+      </style>
+      <div class="grid max-columns-${this._maxColumns}" style="--max-span: ${this._getMaxSpans()}">
+        <slot />
+      </div>
+    `;
+  };
 }

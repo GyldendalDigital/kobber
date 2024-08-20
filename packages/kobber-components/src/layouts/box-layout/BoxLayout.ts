@@ -2,12 +2,13 @@ import { layout } from "@gyldendal/kobber-base/themes/default/tokens";
 import { css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { StyledLitElement } from "../../utils/StyledLitElement";
+import { stringifyStyleObject } from "../../utils/stringifyStyleObject";
 
-const validMaxWidths = ["fixedPageHeader", "content"];
+const validMaxWidths = ["fixed-page-header", "content"];
 
 @customElement("kobber-box-layout")
 export class BoxLayout extends StyledLitElement {
-  static styles = css`
+  private _getDefaultStyles = () => css`
     :host {
       display: grid;
       width: 100%;
@@ -40,7 +41,11 @@ export class BoxLayout extends StyledLitElement {
   };
 
   render = () =>
-    html`<div class="box ${this._getBoxClassName()}">
-      <slot />
-    </div>`;
+    html`<style>
+        ${this._getDefaultStyles()}
+        ${stringifyStyleObject(":host", this.getStyles())}
+      </style>
+      <div class="box ${this._getBoxClassName()}">
+        <slot />
+      </div>`;
 }
