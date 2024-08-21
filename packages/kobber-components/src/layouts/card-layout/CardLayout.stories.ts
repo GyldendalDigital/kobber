@@ -1,12 +1,13 @@
 import { ArgsStoryFn } from "@storybook/types";
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { WebComponentsRenderer } from "@storybook/web-components";
-import { html } from "lit";
+import { TemplateResult, html } from "lit";
 import "../box-layout/BoxLayout";
 import "../story/ExampleCard";
 import "./CardLayout";
 import "./CardLayoutColumnAspectRatio";
 import { example } from "./story/example";
+import { example6columns } from "./story/example6columns";
 import { renderIndicators } from "./story/renderIndicators";
 import Wiki from "./CardLayoutWiki.mdx";
 import { globalStyles } from "../story/globalStyles";
@@ -14,7 +15,14 @@ import { globalStyles } from "../story/globalStyles";
 interface Args {
   overrideContainerWidth: boolean;
   containerWidth: number;
+  cardHtml: TemplateResult;
 }
+
+const initIndicators = (canvasElement: HTMLElement) => {
+  const container = canvasElement.querySelector<HTMLElement>("[data-indicator-container]");
+  if (!container) return;
+  renderIndicators({ container });
+};
 
 const meta: Meta<Args> = {
   title: "layouts/CardLayout",
@@ -30,16 +38,21 @@ const meta: Meta<Args> = {
       control: { type: "range", min: 0, max: 1600, step: 16 },
     },
   },
+  play: ({ canvasElement }) => initIndicators(canvasElement),
   parameters: {
     docs: {
       page: Wiki,
     },
+    layout: "fullscreen",
+    overrideContainerWidth: false,
+    containerWidth: 800,
   },
+  decorators: [story => html`${globalStyles}${story()}`],
 };
 
 export default meta;
 
-const render: ArgsStoryFn<WebComponentsRenderer, Args> = ({ overrideContainerWidth, containerWidth }) => html`
+const render: ArgsStoryFn<WebComponentsRenderer, Args> = ({ cardHtml, overrideContainerWidth, containerWidth }) => html`
   <style>
     .demo {
       display: grid;
@@ -58,24 +71,18 @@ const render: ArgsStoryFn<WebComponentsRenderer, Args> = ({ overrideContainerWid
       Container width: ${overrideContainerWidth ? `${containerWidth}px` : "auto"}
     </kobber-box-layout>
     <div class="space-for-indicators"></div>
-    ${example}
+    ${cardHtml}
   </div>
 `;
-
-const initIndicators = (canvasElement: HTMLElement) => {
-  const container = canvasElement.querySelector<HTMLElement>("[data-indicator-container]");
-  if (!container) return;
-  renderIndicators({ container });
-};
 
 export const CardLayoutStory: StoryObj<Args> = {
   name: "CardLayout",
   render,
-  play: ({ canvasElement }) => initIndicators(canvasElement),
-  decorators: [story => html`${globalStyles}${story()}`],
-  parameters: { layout: "fullscreen" },
-  args: {
-    overrideContainerWidth: false,
-    containerWidth: 800,
-  },
+  args: { cardHtml: example },
+};
+
+export const CardLayout6ColumnStory: StoryObj<Args> = {
+  name: "CardLayout 6 columns",
+  render,
+  args: { cardHtml: example6columns },
 };
