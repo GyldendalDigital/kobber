@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.35
+
+### Patch Changes
+
+- Added card layout with six columns
+
 ## 0.3.34
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.35
+
+### Patch Changes
+
+- Added card layout with six columns
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.35
+
 ## 0.3.34
 
 ### Patch Changes
