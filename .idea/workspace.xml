@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="working on the design, not done but mostly in a functional state!">
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="more design tweaks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" afterDir="false" />
     </list>
@@ -157,7 +157,7 @@
       <workItem from="1723539473661" duration="5119000" />
       <workItem from="1723617352710" duration="5168000" />
       <workItem from="1723628589191" duration="22099000" />
-      <workItem from="1723806288069" duration="73340000" />
+      <workItem from="1723806288069" duration="74125000" />
     </task>
     <task id="LOCAL−00013" summary="added delete">
       <option name="closed" value="true" />
@@ -215,7 +215,14 @@
       <option name="presentableId" value="LOCAL−00020" />
       <updated>1724402390202</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL−00021" summary="more design tweaks">
+      <option name="closed" value="true" />
+      <created>1724403952443</created>
+      <option name="number" value="LOCAL−00021" />
+      <option name="presentableId" value="LOCAL−00021" />
+      <updated>1724403952443</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,6 +259,7 @@
     <MESSAGE value="added readme, comments, and working on taking in an audio source externally" />
     <MESSAGE value="cleaned up some code, added functionality for loading in existing audio, and made it easier to test this in the index.html" />
     <MESSAGE value="working on the design, not done but mostly in a functional state!" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on the design, not done but mostly in a functional state!" />
+    <MESSAGE value="more design tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="more design tweaks" />
   </component>
 </project>

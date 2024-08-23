@@ -6,13 +6,15 @@
         light: {
             backgroundColor: "#DFE2F1",
             recordColor: "#EF3116",
-            itemColor: "#fff",
+            itemPrimaryColor: "#fff",
+            itemSecondaryColor: "#3471a8",
             textColor: "#0F1642"
         },
         dark: {
             backgroundColor: "#0F1642",
             recordColor: "#EF3116",
-            itemColor: "#3471a8",
+            itemPrimaryColor: "#3471a8",
+            itemSecondaryColor: "#DFE2F1",
             textColor: "#fff"
         }
     }
@@ -20,7 +22,8 @@
     const theme = "light";
     const backgroundColor = designTokens[theme].backgroundColor;
     const recordColor = designTokens[theme].recordColor;
-    const itemColor = designTokens[theme].itemColor;
+    const itemPrimaryColor = designTokens[theme].itemPrimaryColor;
+    const itemSecondaryColor = designTokens[theme].itemSecondaryColor;
     const textColor = designTokens[theme].textColor;
 
     /*
@@ -72,7 +75,7 @@
             currentTimeGlobal = elapsedTime + event.target.currentTime;
 
             styleGlobal.innerHTML = "@scope (.kbr-ar-sound-container) {:scope{input[type=\"range\"]::-webkit-slider-runnable-track " +
-                `{background: linear-gradient(to right, #ff9800 0%, #ff9800 ${currentTimeGlobal / timeTotal * 100}%, #fff ${currentTimeGlobal / timeTotal * 100}%, #fff 100%)}}}`;
+                `{background: linear-gradient(to right, ${itemSecondaryColor} 0%, ${itemSecondaryColor} ${currentTimeGlobal / timeTotal * 100}%, ${itemPrimaryColor} ${currentTimeGlobal / timeTotal * 100}%, ${itemPrimaryColor} 100%)}}}`;
         });
         audio.addEventListener("durationchange", (event) => {
             if (event.target.duration === Infinity) {
@@ -347,7 +350,11 @@
         document.getElementById(".audio-recorder").appendChild(styleGlobal);
         document.getElementById("kbr-ar-slider").addEventListener("input", (e) => {
             styleGlobal.innerHTML = "@scope (.kbr-ar-sound-container) {:scope{input[type=\"range\"]::-webkit-slider-runnable-track " +
-                `{background: linear-gradient(to right, #ff9800 0%, #ff9800 ${e.target.value / timeTotal * 100}%, #fff ${e.target.value / timeTotal * 100}%, #fff 100%)}}}`;
+                `{background: linear-gradient(
+                to right, ${itemSecondaryColor} 0%,
+                ${itemSecondaryColor} ${e.target.value / timeTotal * 100}%,
+                ${itemPrimaryColor} ${e.target.value / timeTotal * 100}%,
+                ${itemPrimaryColor} 100%)}}}`;
         });
     })
 
@@ -358,7 +365,8 @@
      style="
         --background-color: {backgroundColor};
         --record-color: {recordColor};
-        --item-color: {itemColor};
+        --item-primary-color: {itemPrimaryColor};
+        --item-secondary-color: {itemSecondaryColor};
         --text-color: {textColor};
      "
 >
@@ -436,7 +444,7 @@
     input[type="range"]::-webkit-slider-runnable-track {
       height: 25%;
       border-radius: 1em;
-      background: white;
+      background: var(--item-primary-color);
     }
 
     input[type="range"]::-webkit-slider-thumb {
@@ -456,10 +464,9 @@
         position: relative;
         //min-height: 32px;
         //min-width: 32px;
-        //border: 12.5% solid var(--item-color);
-        border-color: var(--item-color);
+        border-color: var(--item-secondary-color);
         border-radius: 50%;
-        background-color: var(--item-color);
+        background-color: var(--item-primary-color);
         color: var(--text-color);
     }
     label {
