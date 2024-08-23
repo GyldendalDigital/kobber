@@ -1,5 +1,28 @@
 <svelte:options customElement={{tag: "kobber-audio-recorder", shadow: "none"}}/>
 <script>
+    import {onMount} from "svelte";
+
+    const designTokens = {
+        light: {
+            backgroundColor: "#DFE2F1",
+            recordColor: "#EF3116",
+            itemColor: "#fff",
+            textColor: "#0F1642"
+        },
+        dark: {
+            backgroundColor: "#0F1642",
+            recordColor: "#EF3116",
+            itemColor: "#3471a8",
+            textColor: "#fff"
+        }
+    }
+
+    const theme = "light";
+    const backgroundColor = designTokens[theme].backgroundColor;
+    const recordColor = designTokens[theme].recordColor;
+    const itemColor = designTokens[theme].itemColor;
+    const textColor = designTokens[theme].textColor;
+
     /*
     NOTES:
         - Calculating total time before playing through is a bit wonky...
@@ -19,6 +42,7 @@
     export let mp3Callback;
     export let audioData;
 
+    let styleGlobal = null;
     let mediaRecorder = null;
     let analyser = null;
     let audioCtx = null;
@@ -46,6 +70,9 @@
         audio.addEventListener("ended", onAudioEnd);
         audio.addEventListener("timeupdate", (event) => {
             currentTimeGlobal = elapsedTime + event.target.currentTime;
+
+            styleGlobal.innerHTML = "@scope (.kbr-ar-sound-container) {:scope{input[type=\"range\"]::-webkit-slider-runnable-track " +
+                `{background: linear-gradient(to right, #ff9800 0%, #ff9800 ${currentTimeGlobal / timeTotal * 100}%, #fff ${currentTimeGlobal / timeTotal * 100}%, #fff 100%)}}}`;
         });
         audio.addEventListener("durationchange", (event) => {
             if (event.target.duration === Infinity) {
@@ -77,6 +104,8 @@
         audioEventSetter(newAudio, 0);
         audioArray.push(newAudio);
     }
+
+    $: if(styleGlobal?.innerHTML) {};
 
     // Unsure about how to update the timeTotal correctly...
     $: timeTotal = audioDurationArray[audioDurationArray.length - 1] ? audioDurationArray.reduce((acc, current) => {return acc + current}, 0) : 0;
@@ -171,20 +200,54 @@
         console.log(audioArray);
     }
 
+    function drawSVG() {
+
+        analyser.fftSize = 256;
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+
+        //animationId = window.requestAnimationFrame(draw);
+        analyser.getByteFrequencyData(dataArray);
+        let sum = 0;
+        for (const amp of dataArray) {
+            sum += amp * amp / 10;
+        }
+
+        const volume = Math.sqrt(sum/dataArray.length);
+        let nodes = document.getElementById(".kbr-ar-svg")?.childNodes;
+        if((nodes.length > 0)) {
+            for (let i = 0; i < nodes.length; i++) {
+                let adjustment = 0;
+
+                if (i >= nodes.length / 2) {
+                    let reverse = (nodes.length - 1) - i
+                    adjustment = 1/4 * (reverse + 1)
+                } else {
+                    adjustment = 1/4 * (i + 1);
+                }
+                nodes[i].setAttribute("d", `
+                    M ${i * 16} 16
+                    v ${volume / 2 * adjustment}
+                    a 4,4 1 0 0 -4,4
+                    h 16
+                    a 4,4 1 0 0 -4,-4
+                    v -${volume * adjustment}
+                    a 4,4 1 0 0 4,-4
+                    h -16
+                    a 4,4 1 0 0 4,4
+                    Z`);
+            }
+        }
+        animationId = requestAnimationFrame(drawSVG);
+    }
+
     // drawing the visual feedback of voice used when recording
     function draw() {
         animationId = window.requestAnimationFrame(draw);
-        const container = document.getElementById(".visualizer-container");
+        const container = document.getElementById(".visualizer");
 
-        if (container.childNodes.length === 0) {
-            const canvas = document.createElement("canvas");
-            canvas.height = 128;
-            canvas.width = 128;
-            canvas.id = ".visualizer";
-            container.appendChild(canvas);
-        }
         //@ts-ignore
-        const canvasCtx = container.lastChild.getContext("2d");
+        const canvasCtx = container.getContext("2d");
         analyser.fftSize = 2048;
         const bufferLength = analyser.frequencyBinCount;
         const dataArray = new Uint8Array(bufferLength);
@@ -233,7 +296,7 @@
                     mediaRecorder = new MediaRecorder(stream);
                     mediaRecorder.start();
                     audioStartTime = window.performance.now();
-                    draw();
+                    drawSVG();
                 });
         }
     }
@@ -251,8 +314,6 @@
         mediaRecorder.onstop = (e) => {
             e.srcElement.stream.getTracks()[0].stop();
             window.cancelAnimationFrame(animationId);
-            const visualizerContainer = document.getElementById(".visualizer-container");
-            visualizerContainer.removeChild(visualizerContainer.lastChild);
         };
     }
 
@@ -281,22 +342,205 @@
         }
         isRecording = !isRecording;
     }
+    onMount(() => {
+        styleGlobal = document.createElement("style")
+        document.getElementById(".audio-recorder").appendChild(styleGlobal);
+        document.getElementById("kbr-ar-slider").addEventListener("input", (e) => {
+            console.log("chec");
+            styleGlobal.innerHTML = "@scope (.kbr-ar-sound-container) {:scope{input[type=\"range\"]::-webkit-slider-runnable-track " +
+                `{background: linear-gradient(to right, #ff9800 0%, #ff9800 ${e.target.value / timeTotal * 100}%, #fff ${e.target.value / timeTotal * 100}%, #fff 100%)}}}`;
+        });
+    })
 
 </script>
 
-<div id=".audio-recorder">
-    <button on:mousedown={toggleRecord}>{isRecording ? "Stop" : "Record"}</button>
-    <button on:mousedown={playAudio}>{isPlaying ? "Stop!" : "Play!"}</button>
-    <button on:mousedown={deleteRecording}>{"Delete"}</button>
-    <p>{"Global: " + roundWithDecimals(currentTimeGlobal, 1) + ". Current index: " + currentAudioIndex}</p>
-    <input
-            type="range"
-            value={currentTimeGlobal}
-            max={roundWithDecimals(timeTotal, 2)}
-            step="0.01"
-            on:mousedown={stopAudio}
-            on:mouseup={e => movePlayhead(e)}
-    />
-    <p>{"array: " + audioDurationArray + " - Total: " + roundWithDecimals(timeTotal, 2)}</p>
-    <div id=".visualizer-container"></div>
+<div id=".audio-recorder"
+     class="kbr-ar-grid-container"
+     style="
+        --background-color: {backgroundColor};
+        --record-color: {recordColor};
+        --item-color: {itemColor};
+        --text-color: {textColor};
+     "
+>
+    <span class="kbr-ar-grid-record">
+        <button class="kbr-ar-record-button" on:mousedown={toggleRecord}>
+            <label>{isRecording ? "Stop" : "Record"}</label>
+        </button>
+    </span>
+    <span class="kbr-ar-grid-playback">
+        <button class="kbr-ar-play-button" on:mousedown={playAudio}>
+            <label>
+                {isPlaying ? "Stop" : "Play"}
+            </label>
+        </button>
+        <button class="kbr-ar-delete-button" on:mousedown={deleteRecording}>
+            <label>
+                {"Delete"}
+            </label>
+        </button>
+        <div class="kbr-ar-sound-container">
+            <svg style={isRecording ? "display: block;" : "display: none;"}
+                 id=".kbr-ar-svg"
+                 class="kbr-ar-svg"
+                 viewBox="0 0 128 32"
+                 width="100%"
+                 height="100%"
+            >
+                <path stroke="black"/>
+                <path stroke="black"/>
+                <path stroke="black"/>
+                <path stroke="black"/>
+                <path stroke="black"/>
+                <path stroke="black"/>
+                <path stroke="black"/>
+                <path stroke="black"/>
+            </svg>
+            <input
+                    style={isRecording ? "display: none;" : "display: block;"}
+                    class="kbr-ar-slider"
+                    id="kbr-ar-slider"
+                    type="range"
+                    value={currentTimeGlobal}
+                    max={roundWithDecimals(timeTotal, 2)}
+                    step="0.01"
+                    on:mousedown={stopAudio}
+                    on:mouseup={e => movePlayhead(e)}
+            />
+        </div>
+        <div class="kbr-ar-time">
+            {
+                new Date(roundWithDecimals(currentTimeGlobal, 0)*1000).toISOString().substring(14, 19)
+                + " / " +
+                new Date(roundWithDecimals(timeTotal, 0)*1000).toISOString().substring(14, 19)
+            }
+        </div>
+    </span>
+<!--    <div class="kbr-ar-text" style="position: absolute">-->
+<!--        <p>{"Global: " + roundWithDecimals(currentTimeGlobal, 1) + ". Current index: " + currentAudioIndex}</p>-->
+<!--        <p>{"array: " + audioDurationArray + " - Total: " + roundWithDecimals(timeTotal, 2)}</p>-->
+<!--    </div>-->
 </div>
+
+<style lang="scss">
+    //Input range
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      outline: 0;
+      background: transparent;
+      height: 100%;
+      //box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 25%;
+      border-radius: 1em;
+      background: white;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; /* Override default look */
+      appearance: none;
+      margin-top: -3%; /* Centers thumb on the track */
+      background-color: #808080;
+      border-radius: 50%;
+      height: 200%;
+      width: 12.5%;
+    }
+
+
+    //Input range end
+
+    button {
+        position: relative;
+        //min-height: 32px;
+        //min-width: 32px;
+        //border: 0.125em solid var(--item-color);
+        border-radius: 50%;
+        background-color: var(--item-color);
+        color: var(--text-color);
+    }
+    label {
+      position: absolute;
+      bottom: -1.25em;
+      //font-size: 50%;
+    }
+    .kbr-ar-grid-container {
+        aspect-ratio: 2 / 1;
+        font-family: inherit;
+        display: grid;
+        grid-template-rows: repeat(4, minmax(0.5em, 1fr)) auto;
+        grid-template-columns: repeat(8, minmax(0.5em, 1fr));
+        justify-content: center;
+        border-radius: 0.5em;
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+    .kbr-ar-grid-record {
+        grid-row: 1 / span 2;
+        grid-column: 4 / span 2;
+        width: 100%;
+        height: 100%;
+    }
+    .kbr-ar-record-button {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        height: 80%;
+        margin: 10%;
+        background-color: var(--record-color);
+        // consider a more complex solution to simulate
+        // percentage sizing of outline/border, as it is
+        // not natively supported
+        // ref: https://stackoverflow.com/questions/13474754/how-to-set-borders-thickness-in-percentages
+        //outline: 1em solid white;
+        //outline-offset: -1em;
+    }
+    .kbr-ar-grid-playback {
+        grid-row: 3 / span 2;
+        grid-column: 1 / span 8;
+        display: grid;
+        grid-template-rows: repeat(2, minmax(0.5em, 1fr));
+        grid-template-columns: repeat(16, minmax(0.25em, 1fr));
+    }
+    .kbr-ar-play-button {
+        grid-row: 1;
+        grid-column: 2 / span 2;
+        display: flex;
+        justify-content: center;
+    }
+    .kbr-ar-delete-button {
+        grid-row: 1;
+        grid-column: 14 / span 2;
+        display: flex;
+        justify-content: center;
+    }
+    .kbr-ar-sound-container {
+        grid-row: 1;
+        grid-column: 5 / span 8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .kbr-ar-time {
+        grid-row: 2;
+        grid-column: 6 / span 6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+    }
+    .kbr-ar-slider {
+      width: 100%;
+    }
+
+    .kbr-ar-svg {
+        width: 100%;
+    }
+    .kbr-ar-text {
+        grid-row: 1;
+        grid-column: 1 / span 3;
+    }
+</style>
