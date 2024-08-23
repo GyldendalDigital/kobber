@@ -226,15 +226,15 @@
                     adjustment = 1/4 * (i + 1);
                 }
                 nodes[i].setAttribute("d", `
-                    M ${i * 16} 16
+                    M ${(i * 16) + 2} 16
                     v ${volume / 2 * adjustment}
-                    a 4,4 1 0 0 -4,4
-                    h 16
-                    a 4,4 1 0 0 -4,-4
+                    a 2,2 1 0 0 2,2
+                    h 8
+                    a 2,2 1 0 0 2,-2
                     v -${volume * adjustment}
-                    a 4,4 1 0 0 4,-4
-                    h -16
-                    a 4,4 1 0 0 4,4
+                    a 2,2 1 0 0 -2,-2
+                    h -8
+                    a 2,2 1 0 0 -2,2
                     Z`);
             }
         }
@@ -346,7 +346,6 @@
         styleGlobal = document.createElement("style")
         document.getElementById(".audio-recorder").appendChild(styleGlobal);
         document.getElementById("kbr-ar-slider").addEventListener("input", (e) => {
-            console.log("chec");
             styleGlobal.innerHTML = "@scope (.kbr-ar-sound-container) {:scope{input[type=\"range\"]::-webkit-slider-runnable-track " +
                 `{background: linear-gradient(to right, #ff9800 0%, #ff9800 ${e.target.value / timeTotal * 100}%, #fff ${e.target.value / timeTotal * 100}%, #fff 100%)}}}`;
         });
@@ -387,14 +386,14 @@
                  width="100%"
                  height="100%"
             >
-                <path stroke="black"/>
-                <path stroke="black"/>
-                <path stroke="black"/>
-                <path stroke="black"/>
-                <path stroke="black"/>
-                <path stroke="black"/>
-                <path stroke="black"/>
-                <path stroke="black"/>
+                <path />
+                <path />
+                <path />
+                <path />
+                <path />
+                <path />
+                <path />
+                <path />
             </svg>
             <input
                     style={isRecording ? "display: none;" : "display: block;"}
@@ -444,7 +443,7 @@
       -webkit-appearance: none; /* Override default look */
       appearance: none;
       margin-top: -3%; /* Centers thumb on the track */
-      background-color: #808080;
+      background-color: var(--text-color);
       border-radius: 50%;
       height: 200%;
       width: 12.5%;
@@ -457,7 +456,8 @@
         position: relative;
         //min-height: 32px;
         //min-width: 32px;
-        //border: 0.125em solid var(--item-color);
+        //border: 12.5% solid var(--item-color);
+        border-color: var(--item-color);
         border-radius: 50%;
         background-color: var(--item-color);
         color: var(--text-color);
@@ -538,6 +538,7 @@
 
     .kbr-ar-svg {
         width: 100%;
+        fill: var(--record-color);
     }
     .kbr-ar-text {
         grid-row: 1;

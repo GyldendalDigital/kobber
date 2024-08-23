@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="cleaned up some code, added functionality for loading in existing audio, and made it easier to test this in the index.html">
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="working on the design, not done but mostly in a functional state!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +157,7 @@
       <workItem from="1723539473661" duration="5119000" />
       <workItem from="1723617352710" duration="5168000" />
       <workItem from="1723628589191" duration="22099000" />
-      <workItem from="1723806288069" duration="71725000" />
+      <workItem from="1723806288069" duration="73340000" />
     </task>
     <task id="LOCAL−00013" summary="added delete">
       <option name="closed" value="true" />
@@ -211,7 +208,14 @@
       <option name="presentableId" value="LOCAL−00019" />
       <updated>1723790998640</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL−00020" summary="working on the design, not done but mostly in a functional state!">
+      <option name="closed" value="true" />
+      <created>1724402390202</created>
+      <option name="number" value="LOCAL−00020" />
+      <option name="presentableId" value="LOCAL−00020" />
+      <updated>1724402390202</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +251,7 @@
     <MESSAGE value="updated changelog and versions (patch)" />
     <MESSAGE value="added readme, comments, and working on taking in an audio source externally" />
     <MESSAGE value="cleaned up some code, added functionality for loading in existing audio, and made it easier to test this in the index.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaned up some code, added functionality for loading in existing audio, and made it easier to test this in the index.html" />
+    <MESSAGE value="working on the design, not done but mostly in a functional state!" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on the design, not done but mostly in a functional state!" />
   </component>
 </project>
