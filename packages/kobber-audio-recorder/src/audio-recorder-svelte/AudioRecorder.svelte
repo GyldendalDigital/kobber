@@ -29,9 +29,6 @@
         - Calculating total time before playing through is a bit wonky...
         It seems like the browser because of security does not want to give exact
         timings, which gives a weird result when timing the recording (off by fluctuating values).
-        - The progress color to the left on the input range is not consistent across browsers
-        with the current solution (safari does not allow updates from the <style> object).
-        Consider taking in the percentage value as a variable into the OG style element.
      KNOWN BUGS:
         - Sometimes an audio resets playback from 0 (inconsistent).
         Maybe write a check in playAudio() to re-set the value based on currentTimeGlobal.
@@ -78,23 +75,23 @@
             currentTimePercentage = currentTimeGlobal / timeTotal * 100 + "%";
         });
         audio.addEventListener("durationchange", (event) => {
-            if (event.target.duration === Infinity) {
-                audioDurationArray[index] = roundWithDecimals((audioEndTime - audioStartTime) / 1000, 1);
+            // Consider swapping the code below with a variation of this:
+            //
+            // audioData.arrayBuffer().then((arrayBuffer) => {
+            //     audioCtx = new AudioContext();
+            //     audioCtx.decodeAudioData(arrayBuffer).then((buffer) => {
+            //         console.log(buffer);
+            //         audioDurationArray.push(roundWithDecimals(buffer.duration, 2));
+            //         console.log(audioDurationArray);
+            //         timeTotal = roundWithDecimals(buffer.duration, 2);
+            //     });
+            // });
 
-                // Consider swapping the code above with this:
-                //
-                // audioData.arrayBuffer().then((arrayBuffer) => {
-                //     audioCtx = new AudioContext();
-                //     audioCtx.decodeAudioData(arrayBuffer).then((buffer) => {
-                //         console.log(buffer);
-                //         audioDurationArray.push(roundWithDecimals(buffer.duration, 2));
-                //         console.log(audioDurationArray);
-                //         timeTotal = roundWithDecimals(buffer.duration, 2);
-                //     });
-                // });
-                //
-            } else if (Number(event.target.duration)) {
-                audioDurationArray[index] = roundWithDecimals(Number(event.target.duration), 1);
+
+            if (event.target.duration === Infinity) {
+                audioDurationArray[index] = (audioEndTime - audioStartTime) / 1000;
+            } else if (Number(event.target.duration) && audioDurationArray[index] === undefined) {
+                audioDurationArray[index] = Number(event.target.duration);
             }
         });
     }
@@ -112,7 +109,9 @@
 
     // Unsure about how to update the timeTotal correctly...
     $: timeTotal = audioDurationArray[audioDurationArray.length - 1] ? audioDurationArray.reduce((acc, current) => {return acc + current}, 0) : 0;
-
+    $: if (timeTotal) {
+        console.log("timeTotal changed. timeTotal:", timeTotal, "audioDurationArray", audioDurationArray)
+    }
     // Takes the raw recorded data, creates a new buffer for them,
     // decodes that new buffer, converts to wav, converts to mp3,
     // and finally calls the callback with that mp3.
@@ -173,6 +172,7 @@
             if (timestamp >= accumulative && timestamp <= (accumulative + array[index])) {
                 elapsedTime = accumulative;
                 audioArray[index].currentTime = timestamp - accumulative;
+                console.log("end of findAudioIndex", audioArray[index].currentTime);
                 return index;
             } else {
                 accumulative += array[index]
@@ -188,6 +188,8 @@
     }
 
     function movePlayhead(event) {
+        //let temp = event.target.value >
+        //console.log(event.target.value, Number(event.target.value));
         currentTimeGlobal = Number(event.target.value);
         currentAudioIndex = findAudioIndex(currentTimeGlobal, 0, audioDurationArray, 0);
     }
@@ -398,7 +400,7 @@
                     id="kbr-ar-slider"
                     type="range"
                     value={currentTimeGlobal}
-                    max={roundWithDecimals(timeTotal, 2)}
+                    max={timeTotal}
                     step="0.1"
                     on:mousedown={stopAudio}
                     on:mouseup={e => movePlayhead(e)}
