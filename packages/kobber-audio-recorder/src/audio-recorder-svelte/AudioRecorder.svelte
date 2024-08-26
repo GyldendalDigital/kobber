@@ -1,7 +1,5 @@
 <svelte:options customElement={{tag: "kobber-audio-recorder", shadow: "none"}}/>
 <script>
-    import {onMount} from "svelte";
-
     const designTokens = {
         light: {
             backgroundColor: "#DFE2F1",
@@ -31,7 +29,9 @@
         - Calculating total time before playing through is a bit wonky...
         It seems like the browser because of security does not want to give exact
         timings, which gives a weird result when timing the recording (off by fluctuating values).
-        -
+        - The progress color to the left on the input range is not consistent across browsers
+        with the current solution (safari does not allow updates from the <style> object).
+        Consider taking in the percentage value as a variable into the OG style element.
      KNOWN BUGS:
         - Sometimes an audio resets playback from 0 (inconsistent).
         Maybe write a check in playAudio() to re-set the value based on currentTimeGlobal.
@@ -60,6 +60,8 @@
     let audioDurationArray = [];
     let currentAudioIndex = 0;
 
+    let currentTimePercentage = 0;
+
     // Using window.performance.now(), but could also use date.getTime().
     let audioStartTime = null;
     let audioEndTime = null;
@@ -73,9 +75,7 @@
         audio.addEventListener("ended", onAudioEnd);
         audio.addEventListener("timeupdate", (event) => {
             currentTimeGlobal = elapsedTime + event.target.currentTime;
-
-            styleGlobal.innerHTML = "@scope (.kbr-ar-sound-container) {:scope{input[type=\"range\"]::-webkit-slider-runnable-track " +
-                `{background: linear-gradient(to right, ${itemSecondaryColor} 0%, ${itemSecondaryColor} ${currentTimeGlobal / timeTotal * 100}%, ${itemPrimaryColor} ${currentTimeGlobal / timeTotal * 100}%, ${itemPrimaryColor} 100%)}}}`;
+            currentTimePercentage = currentTimeGlobal / timeTotal * 100 + "%";
         });
         audio.addEventListener("durationchange", (event) => {
             if (event.target.duration === Infinity) {
@@ -345,18 +345,6 @@
         }
         isRecording = !isRecording;
     }
-    onMount(() => {
-        styleGlobal = document.createElement("style")
-        document.getElementById(".audio-recorder").appendChild(styleGlobal);
-        document.getElementById("kbr-ar-slider").addEventListener("input", (e) => {
-            styleGlobal.innerHTML = "@scope (.kbr-ar-sound-container) {:scope{input[type=\"range\"]::-webkit-slider-runnable-track " +
-                `{background: linear-gradient(
-                to right, ${itemSecondaryColor} 0%,
-                ${itemSecondaryColor} ${e.target.value / timeTotal * 100}%,
-                ${itemPrimaryColor} ${e.target.value / timeTotal * 100}%,
-                ${itemPrimaryColor} 100%)}}}`;
-        });
-    })
 
 </script>
 
@@ -368,6 +356,7 @@
         --item-primary-color: {itemPrimaryColor};
         --item-secondary-color: {itemSecondaryColor};
         --text-color: {textColor};
+        --current-time-percentage: {currentTimePercentage};
      "
 >
     <span class="kbr-ar-grid-record">
@@ -410,9 +399,11 @@
                     type="range"
                     value={currentTimeGlobal}
                     max={roundWithDecimals(timeTotal, 2)}
-                    step="0.01"
+                    step="0.1"
                     on:mousedown={stopAudio}
                     on:mouseup={e => movePlayhead(e)}
+                    on:keypress={e => movePlayhead(e)}
+                    on:input={e => currentTimePercentage = e.target.value / timeTotal * 100 + "%"}
             />
         </div>
         <div class="kbr-ar-time">
@@ -430,7 +421,6 @@
 </div>
 
 <style lang="scss">
-    //Input range
 
     input[type="range"] {
       -webkit-appearance: none;
@@ -438,32 +428,49 @@
       outline: 0;
       background: transparent;
       height: 100%;
-      //box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
     }
-
     input[type="range"]::-webkit-slider-runnable-track {
       height: 25%;
       border-radius: 1em;
-      background: var(--item-primary-color);
+      background: linear-gradient(
+                      to right,
+                      var(--item-secondary-color) 0%,
+                      var(--item-secondary-color) var(--current-time-percentage),
+                      var(--item-primary-color) var(--current-time-percentage),
+                      var(--item-primary-color) 100%);
     }
 
     input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none; /* Override default look */
+      -webkit-appearance: none;
       appearance: none;
-      margin-top: -3%; /* Centers thumb on the track */
+      margin-top: -3%;
       background-color: var(--text-color);
       border-radius: 50%;
       height: 200%;
       width: 12.5%;
     }
 
+    input[type="range"]::-moz-range-track {
+      height: 25%;
+      border-radius: 1em;
+      background: linear-gradient(
+                      to right,
+                      var(--item-secondary-color) 0%,
+                      var(--item-secondary-color) var(--current-time-percentage),
+                      var(--item-primary-color) var(--current-time-percentage),
+                      var(--item-primary-color) 100%);
+    }
 
-    //Input range end
+    input[type="range"]::-moz-range-thumb {
+      border: none;
+      background-color: var(--text-color);
+      border-radius: 50%;
+      height: 50%;
+      width: 12.5%;
+    }
 
     button {
         position: relative;
-        //min-height: 32px;
-        //min-width: 32px;
         border-color: var(--item-secondary-color);
         border-radius: 50%;
         background-color: var(--item-primary-color);
@@ -472,7 +479,6 @@
     label {
       position: absolute;
       bottom: -1.25em;
-      //font-size: 50%;
     }
     .kbr-ar-grid-container {
         aspect-ratio: 2 / 1;
@@ -481,7 +487,7 @@
         grid-template-rows: repeat(4, minmax(0.5em, 1fr)) auto;
         grid-template-columns: repeat(8, minmax(0.5em, 1fr));
         justify-content: center;
-        border-radius: 0.5em;
+        border-radius: 5% / 10%;
         background-color: var(--background-color);
         color: var(--text-color);
     }
@@ -498,12 +504,7 @@
         height: 80%;
         margin: 10%;
         background-color: var(--record-color);
-        // consider a more complex solution to simulate
-        // percentage sizing of outline/border, as it is
-        // not natively supported
-        // ref: https://stackoverflow.com/questions/13474754/how-to-set-borders-thickness-in-percentages
-        //outline: 1em solid white;
-        //outline-offset: -1em;
+
     }
     .kbr-ar-grid-playback {
         grid-row: 3 / span 2;
@@ -551,4 +552,5 @@
         grid-row: 1;
         grid-column: 1 / span 3;
     }
+
 </style>

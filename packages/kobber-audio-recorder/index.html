@@ -17,11 +17,13 @@
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
     <script type="module">
-      let a = await fetch(`https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg`).then((mp3) => mp3.blob());
+      let a = await fetch(`https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg`).then((mp3) => mp3.blob()).catch(console.log("could not fetch the data :("));
       const temp1 = document.querySelector("kobber-audio-recorder");
       temp1.mp3Callback = (e) => {console.log("check", e)};
 
-      document.getElementById("start-data-button").onclick = () => temp1.audioData = a;
+      document.getElementById("start-data-button").addEventListener("click", () => {
+        temp1.audioData = a;
+      })
     </script>
     <div style="width: 256px;">
       <kobber-audio-recorder></kobber-audio-recorder>
@@ -29,7 +31,6 @@
     <!--
     <kobber-audio-recorder></kobber-audio-recorder>
     -->
-
     <button id="start-data-button">Load some data!</button>
     <input type="range"></input>
   </body>
