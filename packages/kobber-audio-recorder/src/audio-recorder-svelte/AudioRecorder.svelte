@@ -105,8 +105,6 @@
         audioArray.push(newAudio);
     }
 
-    $: if(styleGlobal?.innerHTML) {};
-
     // Unsure about how to update the timeTotal correctly...
     $: timeTotal = audioDurationArray[audioDurationArray.length - 1] ? audioDurationArray.reduce((acc, current) => {return acc + current}, 0) : 0;
     $: if (timeTotal) {
@@ -187,11 +185,18 @@
         }
     }
 
-    function movePlayhead(event) {
-        //let temp = event.target.value >
-        //console.log(event.target.value, Number(event.target.value));
-        currentTimeGlobal = Number(event.target.value);
-        currentAudioIndex = findAudioIndex(currentTimeGlobal, 0, audioDurationArray, 0);
+    function movePlayhead(event, keyboard) {
+        if (keyboard) {
+            console.log(event.key);
+            if (event.key === "ArrowLeft") {
+                currentTimeGlobal = currentTimeGlobal > 1 ? currentTimeGlobal -1 : 0;
+            } else if (event.key === "ArrowRight") {
+                currentTimeGlobal = currentTimeGlobal + 1 > timeTotal ? timeTotal : currentTimeGlobal + 1;
+            }
+        } else {
+            currentTimeGlobal = Number(event.target.value);
+            currentAudioIndex = findAudioIndex(currentTimeGlobal, 0, audioDurationArray, 0);
+        }
     }
 
     // Adds the newest recorded data to the array of audio elements
@@ -244,41 +249,6 @@
             }
         }
         animationId = requestAnimationFrame(drawSVG);
-    }
-
-    // drawing the visual feedback of voice used when recording
-    function draw() {
-        animationId = window.requestAnimationFrame(draw);
-        const container = document.getElementById(".visualizer");
-
-        //@ts-ignore
-        const canvasCtx = container.getContext("2d");
-        analyser.fftSize = 2048;
-        const bufferLength = analyser.frequencyBinCount;
-        const dataArray = new Uint8Array(bufferLength);
-
-        analyser.getByteTimeDomainData(dataArray);
-        canvasCtx.fillStyle = "rgb(200, 200, 200)";
-        canvasCtx.fillRect(0, 0, 128, 128);
-        canvasCtx.lineWidth = 2;
-        canvasCtx.strokeStyle = "rgb(0 0 0)";
-        canvasCtx.beginPath();
-        const sliceWidth = 128.0 / bufferLength;
-        let x = 0;
-        for (let i = 0; i < bufferLength; i++) {
-            const v = dataArray[i] / 128.0;
-            const y = (v * 128) / 2;
-
-            if (i === 0) {
-                canvasCtx.moveTo(x, y);
-            } else {
-                canvasCtx.lineTo(x, y);
-            }
-
-            x += sliceWidth;
-        }
-        canvasCtx.lineTo(128, 128 / 2);
-        canvasCtx.stroke();
     }
 
     // Sets up all audio related objects, and then starts recording.
@@ -372,11 +342,6 @@
                 {isPlaying ? "Stop" : "Play"}
             </label>
         </button>
-        <button class="kbr-ar-delete-button" on:mousedown={deleteRecording}>
-            <label>
-                {"Delete"}
-            </label>
-        </button>
         <div class="kbr-ar-sound-container">
             <svg style={isRecording ? "display: block;" : "display: none;"}
                  id=".kbr-ar-svg"
@@ -404,10 +369,15 @@
                     step="0.1"
                     on:mousedown={stopAudio}
                     on:mouseup={e => movePlayhead(e)}
-                    on:keypress={e => movePlayhead(e)}
+                    on:keydown={e => movePlayhead(e, true)}
                     on:input={e => currentTimePercentage = e.target.value / timeTotal * 100 + "%"}
             />
         </div>
+        <button class="kbr-ar-delete-button" on:mousedown={deleteRecording}>
+            <label>
+                {"Delete"}
+            </label>
+        </button>
         <div class="kbr-ar-time">
             {
                 new Date(roundWithDecimals(currentTimeGlobal, 0)*1000).toISOString().substring(14, 19)
@@ -469,6 +439,9 @@
       border-radius: 50%;
       height: 50%;
       width: 12.5%;
+    }
+    input[type="range"]:focus {
+      outline: 0.25em solid var(--item-secondary-color);
     }
 
     button {
