@@ -29,12 +29,17 @@
         - Calculating total time before playing through is a bit wonky...
         It seems like the browser because of security does not want to give exact
         timings, which gives a weird result when timing the recording (off by fluctuating values).
+        - Add a counter that is shown when recording, counting the seconds (total).
+        - Add icons to the buttons.
+        - Should the component have a breaking limit in terms of size?
+        And in relation to this, should there be some sort of font-size scaling?
      KNOWN BUGS:
         - Sometimes an audio resets playback from 0 (inconsistent).
         Maybe write a check in playAudio() to re-set the value based on currentTimeGlobal.
         - durationChange sometimes runs wild (inconsistent).
         Usually you don't need to re-update the durationchange, so look into analyzing
         the initial with arraybuffer, so the check for previous duration becomes cleaner.
+        - After recording, the progress of the range input is not updated with the new total.
      */
 
     import { audioBufferToWav, } from "./AudioHelpers.js";
@@ -42,7 +47,6 @@
     export let mp3Callback;
     export let audioData;
 
-    let styleGlobal = null;
     let mediaRecorder = null;
     let analyser = null;
     let audioCtx = null;
@@ -56,8 +60,7 @@
     let elapsedTime = 0;
     let audioDurationArray = [];
     let currentAudioIndex = 0;
-
-    let currentTimePercentage = 0;
+    let currentTimePercentage = "0%";
 
     // Using window.performance.now(), but could also use date.getTime().
     let audioStartTime = null;
@@ -107,16 +110,12 @@
 
     // Unsure about how to update the timeTotal correctly...
     $: timeTotal = audioDurationArray[audioDurationArray.length - 1] ? audioDurationArray.reduce((acc, current) => {return acc + current}, 0) : 0;
-    $: if (timeTotal) {
-        console.log("timeTotal changed. timeTotal:", timeTotal, "audioDurationArray", audioDurationArray)
-    }
+
     // Takes the raw recorded data, creates a new buffer for them,
     // decodes that new buffer, converts to wav, converts to mp3,
     // and finally calls the callback with that mp3.
     function encodeToMP3() {
-        console.log(recData);
         Promise.all(recData.map((data) => {return data[0].arrayBuffer()})).then((response) => {
-            console.log("response", response);
             let totalByteLength = 0;
             response.forEach((buffer) => {
                 totalByteLength += buffer.byteLength;
@@ -141,7 +140,6 @@
         } else {
             isPlaying = true;
             if (audioArray.length > 0) {
-                console.log(audioArray[currentAudioIndex]);
                 audioArray[currentAudioIndex].play();
             }
         }
@@ -170,7 +168,6 @@
             if (timestamp >= accumulative && timestamp <= (accumulative + array[index])) {
                 elapsedTime = accumulative;
                 audioArray[index].currentTime = timestamp - accumulative;
-                console.log("end of findAudioIndex", audioArray[index].currentTime);
                 return index;
             } else {
                 accumulative += array[index]
@@ -187,7 +184,6 @@
 
     function movePlayhead(event, keyboard) {
         if (keyboard) {
-            console.log(event.key);
             if (event.key === "ArrowLeft") {
                 currentTimeGlobal = currentTimeGlobal > 1 ? currentTimeGlobal -1 : 0;
             } else if (event.key === "ArrowRight") {
@@ -206,12 +202,9 @@
         newAudio.src = window.URL.createObjectURL(recData[recData.length - 1][0]);
         audioEventSetter(newAudio, audioArray.length);
         audioArray.push(newAudio);
-
-        console.log(audioArray);
     }
 
     function drawSVG() {
-
         analyser.fftSize = 256;
         const bufferLength = analyser.frequencyBinCount;
         const dataArray = new Uint8Array(bufferLength);
@@ -440,7 +433,7 @@
       height: 50%;
       width: 12.5%;
     }
-    input[type="range"]:focus {
+    input[type="range"]:focus-visible {
       outline: 0.25em solid var(--item-secondary-color);
     }
 
