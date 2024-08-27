@@ -417,6 +417,7 @@
     input[type="range"]::-webkit-slider-runnable-track {
       height: 25%;
       border-radius: 1em;
+      box-shadow: inset 0 0.1em 0.1em -0.1em;
       background: linear-gradient(
                       to right,
                       var(--item-secondary-color) 0%,
@@ -433,11 +434,13 @@
       border-radius: 50%;
       height: 200%;
       width: 12.5%;
+      box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
     }
 
     input[type="range"]::-moz-range-track {
       height: 25%;
       border-radius: 1em;
+      box-shadow: inset 0 0.1em 0.1em -0.1em;
       background: linear-gradient(
                       to right,
                       var(--item-secondary-color) 0%,
@@ -452,6 +455,7 @@
       border-radius: 50%;
       height: 50%;
       width: 12.5%;
+      box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
     }
     input[type="range"]:focus-visible {
       outline: 0.25em solid var(--item-secondary-color);
