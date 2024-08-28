@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="design work and bringing in some icons">
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="design touch ups">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" afterDir="false" />
     </list>
@@ -157,7 +157,7 @@
       <workItem from="1723539473661" duration="5119000" />
       <workItem from="1723617352710" duration="5168000" />
       <workItem from="1723628589191" duration="22099000" />
-      <workItem from="1723806288069" duration="100093000" />
+      <workItem from="1723806288069" duration="105291000" />
     </task>
     <task id="LOCAL−00013" summary="added delete">
       <option name="closed" value="true" />
@@ -264,7 +264,14 @@
       <option name="presentableId" value="LOCAL−00027" />
       <updated>1724761862126</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL−00028" summary="design touch ups">
+      <option name="closed" value="true" />
+      <created>1724762327441</created>
+      <option name="number" value="LOCAL−00028" />
+      <option name="presentableId" value="LOCAL−00028" />
+      <updated>1724762327441</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,12 +308,12 @@
     <MESSAGE value="cleaned up some code, added functionality for loading in existing audio, and made it easier to test this in the index.html" />
     <MESSAGE value="working on the design, not done but mostly in a functional state!" />
     <MESSAGE value="more design tweaks" />
-    <MESSAGE value="design touch ups" />
     <MESSAGE value="changed how the progress of the input range is set once again, this time to make it compatible with multiple browsers (safari was acting up)" />
     <MESSAGE value="minor bug fix on timeTotal" />
     <MESSAGE value="fixed some minor things for keyboard support" />
     <MESSAGE value="general cleanup o7" />
     <MESSAGE value="design work and bringing in some icons" />
-    <option name="LAST_COMMIT_MESSAGE" value="design work and bringing in some icons" />
+    <MESSAGE value="design touch ups" />
+    <option name="LAST_COMMIT_MESSAGE" value="design touch ups" />
   </component>
 </project>
