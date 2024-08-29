@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <style>
+      * {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Audio Recorder Demo</title>
@@ -9,9 +17,26 @@
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
     <script type="module">
-      const temp = document.querySelector("kobber-audio-recorder");
-      temp.mp3Callback = (e) => {console.log("check", e)};
+      let a = await fetch(`https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg`).then((mp3) => mp3.blob()).catch(console.log("could not fetch the data :("));
+      const temp1 = document.querySelector("kobber-audio-recorder");
+      temp1.mp3Callback = (e) => {console.log("check", e)};
+
+      document.getElementById("start-data-button").addEventListener("click", () => {
+        temp1.audioData = a;
+      })
+      document.getElementById(".lang").addEventListener("change", (e) => {
+        temp1.lang = e.target.value;
+      })
     </script>
+<!--    <div style="width: 16em">-->
+<!--      <kobber-audio-recorder></kobber-audio-recorder>-->
+<!--    </div>-->
     <kobber-audio-recorder></kobber-audio-recorder>
+    <button id="start-data-button">Load some data!</button>
+    <select name="lang" id=".lang">
+      <option value="nb">Bokmål</option>
+      <option value="nn">Nynorsk</option>
+      <option value="en">English</option>
+    </select>
   </body>
 </html>

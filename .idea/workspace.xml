@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="updated changelog and versions (patch)">
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="added translations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-base/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-base/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="adding-package-audio" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,13 +32,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "audio-recorder-readme-comments-cleanup",
     "last_opened_file_path": "/Users/solve.selander/WebstormProjects/kobber/packages/kobber-audio/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "ts.external.directory.path": "/Users/solve.selander/WebstormProjects/kobber/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -155,6 +156,9 @@
       <workItem from="1723115183476" duration="13789000" />
       <workItem from="1723451955222" duration="7052000" />
       <workItem from="1723539473661" duration="5119000" />
+      <workItem from="1723617352710" duration="5168000" />
+      <workItem from="1723628589191" duration="22099000" />
+      <workItem from="1723806288069" duration="122586000" />
     </task>
     <task id="LOCAL−00013" summary="added delete">
       <option name="closed" value="true" />
@@ -191,7 +195,105 @@
       <option name="presentableId" value="LOCAL−00017" />
       <updated>1723541095896</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL−00018" summary="added readme, comments, and working on taking in an audio source externally">
+      <option name="closed" value="true" />
+      <created>1723642917474</created>
+      <option name="number" value="LOCAL−00018" />
+      <option name="presentableId" value="LOCAL−00018" />
+      <updated>1723642917474</updated>
+    </task>
+    <task id="LOCAL−00019" summary="cleaned up some code, added functionality for loading in existing audio, and made it easier to test this in the index.html">
+      <option name="closed" value="true" />
+      <created>1723790998640</created>
+      <option name="number" value="LOCAL−00019" />
+      <option name="presentableId" value="LOCAL−00019" />
+      <updated>1723790998640</updated>
+    </task>
+    <task id="LOCAL−00020" summary="working on the design, not done but mostly in a functional state!">
+      <option name="closed" value="true" />
+      <created>1724402390202</created>
+      <option name="number" value="LOCAL−00020" />
+      <option name="presentableId" value="LOCAL−00020" />
+      <updated>1724402390202</updated>
+    </task>
+    <task id="LOCAL−00021" summary="more design tweaks">
+      <option name="closed" value="true" />
+      <created>1724403952443</created>
+      <option name="number" value="LOCAL−00021" />
+      <option name="presentableId" value="LOCAL−00021" />
+      <updated>1724403952443</updated>
+    </task>
+    <task id="LOCAL−00022" summary="design touch ups">
+      <option name="closed" value="true" />
+      <created>1724404756335</created>
+      <option name="number" value="LOCAL−00022" />
+      <option name="presentableId" value="LOCAL−00022" />
+      <updated>1724404756335</updated>
+    </task>
+    <task id="LOCAL−00023" summary="changed how the progress of the input range is set once again, this time to make it compatible with multiple browsers (safari was acting up)">
+      <option name="closed" value="true" />
+      <created>1724654404820</created>
+      <option name="number" value="LOCAL−00023" />
+      <option name="presentableId" value="LOCAL−00023" />
+      <updated>1724654404820</updated>
+    </task>
+    <task id="LOCAL−00024" summary="minor bug fix on timeTotal">
+      <option name="closed" value="true" />
+      <created>1724656115658</created>
+      <option name="number" value="LOCAL−00024" />
+      <option name="presentableId" value="LOCAL−00024" />
+      <updated>1724656115658</updated>
+    </task>
+    <task id="LOCAL−00025" summary="fixed some minor things for keyboard support">
+      <option name="closed" value="true" />
+      <created>1724658413523</created>
+      <option name="number" value="LOCAL−00025" />
+      <option name="presentableId" value="LOCAL−00025" />
+      <updated>1724658413523</updated>
+    </task>
+    <task id="LOCAL−00026" summary="general cleanup o7">
+      <option name="closed" value="true" />
+      <created>1724671214648</created>
+      <option name="number" value="LOCAL−00026" />
+      <option name="presentableId" value="LOCAL−00026" />
+      <updated>1724671214648</updated>
+    </task>
+    <task id="LOCAL−00027" summary="design work and bringing in some icons">
+      <option name="closed" value="true" />
+      <created>1724761862126</created>
+      <option name="number" value="LOCAL−00027" />
+      <option name="presentableId" value="LOCAL−00027" />
+      <updated>1724761862126</updated>
+    </task>
+    <task id="LOCAL−00028" summary="design touch ups">
+      <option name="closed" value="true" />
+      <created>1724762327441</created>
+      <option name="number" value="LOCAL−00028" />
+      <option name="presentableId" value="LOCAL−00028" />
+      <updated>1724762327441</updated>
+    </task>
+    <task id="LOCAL−00029" summary="more design work, adding icons">
+      <option name="closed" value="true" />
+      <created>1724848545824</created>
+      <option name="number" value="LOCAL−00029" />
+      <option name="presentableId" value="LOCAL−00029" />
+      <updated>1724848545824</updated>
+    </task>
+    <task id="LOCAL−00030" summary="general cleanup o7">
+      <option name="closed" value="true" />
+      <created>1724920166735</created>
+      <option name="number" value="LOCAL−00030" />
+      <option name="presentableId" value="LOCAL−00030" />
+      <updated>1724920166735</updated>
+    </task>
+    <task id="LOCAL−00031" summary="added translations">
+      <option name="closed" value="true" />
+      <created>1724924933804</created>
+      <option name="number" value="LOCAL−00031" />
+      <option name="presentableId" value="LOCAL−00031" />
+      <updated>1724924933805</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,9 +311,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="init commit :)" />
-    <MESSAGE value="fixing build error, newer version of turbo needs &quot;pipeline&quot; changed to &quot;tasks&quot; in turbo.json" />
-    <MESSAGE value="Added sequential audio recording :)" />
     <MESSAGE value="Playing around with timekeeping" />
     <MESSAGE value="Working version of timekeeping! :)" />
     <MESSAGE value="typo fix :)" />
@@ -225,6 +324,18 @@
     <MESSAGE value="Removed svelte-kit, went for plain svelte instead" />
     <MESSAGE value="Moved dependency to dev dependency" />
     <MESSAGE value="updated changelog and versions (patch)" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated changelog and versions (patch)" />
+    <MESSAGE value="added readme, comments, and working on taking in an audio source externally" />
+    <MESSAGE value="cleaned up some code, added functionality for loading in existing audio, and made it easier to test this in the index.html" />
+    <MESSAGE value="working on the design, not done but mostly in a functional state!" />
+    <MESSAGE value="more design tweaks" />
+    <MESSAGE value="changed how the progress of the input range is set once again, this time to make it compatible with multiple browsers (safari was acting up)" />
+    <MESSAGE value="minor bug fix on timeTotal" />
+    <MESSAGE value="fixed some minor things for keyboard support" />
+    <MESSAGE value="design work and bringing in some icons" />
+    <MESSAGE value="design touch ups" />
+    <MESSAGE value="more design work, adding icons" />
+    <MESSAGE value="general cleanup o7" />
+    <MESSAGE value="added translations" />
+    <option name="LAST_COMMIT_MESSAGE" value="added translations" />
   </component>
 </project>
