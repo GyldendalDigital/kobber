@@ -241,7 +241,7 @@
         }
 
         const volume = Math.sqrt(sum/dataArray.length);
-        let nodes = document.getElementById(".kbr-ar-svg")?.childNodes;
+        let nodes = document.getElementById(".kbr-ar-svg")?.children;
         if((nodes.length > 0)) {
             for (let i = 0; i < nodes.length; i++) {
                 let adjustment = 0;

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="general cleanup o7">
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="added translations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" afterDir="false" />
@@ -158,7 +158,7 @@
       <workItem from="1723539473661" duration="5119000" />
       <workItem from="1723617352710" duration="5168000" />
       <workItem from="1723628589191" duration="22099000" />
-      <workItem from="1723806288069" duration="120363000" />
+      <workItem from="1723806288069" duration="122586000" />
     </task>
     <task id="LOCAL−00013" summary="added delete">
       <option name="closed" value="true" />
@@ -286,7 +286,14 @@
       <option name="presentableId" value="LOCAL−00030" />
       <updated>1724920166735</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL−00031" summary="added translations">
+      <option name="closed" value="true" />
+      <created>1724924933804</created>
+      <option name="number" value="LOCAL−00031" />
+      <option name="presentableId" value="LOCAL−00031" />
+      <updated>1724924933805</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +311,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added sequential audio recording :)" />
     <MESSAGE value="Playing around with timekeeping" />
     <MESSAGE value="Working version of timekeeping! :)" />
     <MESSAGE value="typo fix :)" />
@@ -329,6 +335,7 @@
     <MESSAGE value="design touch ups" />
     <MESSAGE value="more design work, adding icons" />
     <MESSAGE value="general cleanup o7" />
-    <option name="LAST_COMMIT_MESSAGE" value="general cleanup o7" />
+    <MESSAGE value="added translations" />
+    <option name="LAST_COMMIT_MESSAGE" value="added translations" />
   </component>
 </project>
