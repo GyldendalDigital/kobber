@@ -1,5 +1,30 @@
 <svelte:options customElement={{tag: "kobber-audio-recorder", shadow: "none"}}/>
 <script>
+    export let theme = "light";
+    export let lang = "nb"
+
+    const translations = {
+        en: {
+            play: "Play",
+            stop: "Stop",
+            record: "Record",
+            delete: "Delete"
+        },
+        nb: {
+            play: "Spill av",
+            stop: "Stopp",
+            record: "Ta opp",
+            delete: "Slett"
+
+        },
+        nn: {
+            play: "Spel av",
+            stop: "Stopp",
+            record: "Ta opp",
+            delete: "Slett"
+        }
+    }
+
     const designTokens = {
         light: {
             backgroundColor: "#DFE2F1",
@@ -19,7 +44,6 @@
         }
     }
 
-    const theme = "light";
     const backgroundColor = designTokens[theme].backgroundColor;
     const recordColor = designTokens[theme].recordColor;
     const recordIconColor = designTokens[theme].recordIconColor;
@@ -354,7 +378,7 @@
                     <path d="M12 24C11.586 24 11.25 23.664 11.25 23.25V20.216C7.016 19.835 3.75 16.293 3.75 12V9.75C3.75 9.336 4.086 9 4.5 9C4.914 9 5.25 9.336 5.25 9.75V12C5.25 15.722 8.278 18.75 12 18.75C15.722 18.75 18.75 15.722 18.75 12V9.75C18.75 9.336 19.086 9 19.5 9C19.914 9 20.25 9.336 20.25 9.75V12C20.25 16.293 16.984 19.835 12.75 20.216V23.25C12.75 23.664 12.414 24 12 24Z" fill={recordIconColor}/>
                 </svg>
             {/if}
-            <label>{isRecording ? "Stop" : "Record"}</label>
+            <label>{isRecording ? translations[lang].stop : translations[lang].record}</label>
         </button>
     </span>
     <button class="kbr-ar-play-button"
@@ -372,7 +396,7 @@
             </svg>
         {/if}
         <label>
-            {isPlaying ? "Stop" : "Play"}
+            {isPlaying ? translations[lang].stop : translations[lang].play}
         </label>
     </button>
     <div class="kbr-ar-sound-container">
@@ -422,7 +446,7 @@
             </defs>
         </svg>
         <label>
-            {"Delete"}
+            {translations[lang].delete}
         </label>
     </button>
     <span class="kbr-ar-time">
@@ -615,5 +639,7 @@
     label {
       position: absolute;
       bottom: -1.25em;
+      font-size: 80%;
+      white-space: nowrap;
     }
 </style>
