@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.36
+
+### Patch Changes
+
+- kobber-audio-recorder design implementation
+
 ## 0.3.35
 
 ### Patch Changes

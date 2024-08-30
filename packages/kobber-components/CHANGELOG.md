@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.36
+
+### Patch Changes
+
+- kobber-audio-recorder design implementation
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.36
+
 ## 0.3.35
 
 ### Patch Changes
