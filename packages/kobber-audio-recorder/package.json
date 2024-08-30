@@ -6,10 +6,11 @@
   "files": [
     "dist/**"
   ],
-  "main": "dist/main.js",
+  "main": "dist/main.mjs",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "serve": "vite serve"
   },
   "repository": {
     "type": "git",

@@ -5,8 +5,13 @@ import { svelte } from "@sveltejs/vite-plugin-svelte";
 export default defineConfig({
   plugins: [svelte()],
   build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: `main.mjs`,
+      }
+    },
     lib: {
-      entry: "./src/main.js",
+      entry: "./src/main.mjs",
       formats: ["es"],
       fileName: "main",
       name: "audiorecorder",

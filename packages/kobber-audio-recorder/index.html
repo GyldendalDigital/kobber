@@ -15,7 +15,7 @@
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/main.mjs"></script>
     <script type="module">
       let a = await fetch(`https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg`).then((mp3) => mp3.blob()).catch(console.log("could not fetch the data :("));
       const temp1 = document.querySelector("kobber-audio-recorder");
