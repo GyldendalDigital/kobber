@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.37
+
+### Patch Changes
+
+- fixing previous build
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.37
+
 ## 0.3.36
 
 ### Patch Changes
