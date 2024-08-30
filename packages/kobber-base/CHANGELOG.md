@@ -1,5 +1,11 @@
 # @gyldendal/kobber-base
 
+## 0.3.38
+
+### Patch Changes
+
+- changing audio-recorder to build mjs
+
 ## 0.3.37
 
 ### Patch Changes
