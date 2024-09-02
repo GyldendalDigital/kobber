@@ -47,7 +47,7 @@ export class Button extends LitElement {
         ${themeStyles}
       </style>
       <!-- TODO: set all relevant attributes -->
-      <button class=${this.classList.value} ?disabled=${this.disabled ? true : false}>
+      <button class=${this.classList.value} ?disabled=${this.disabled}>
         <span><slot></slot></span>
         <slot name="icon"></slot>
       </button>
