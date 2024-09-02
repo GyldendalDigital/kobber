@@ -1,7 +1,8 @@
 <svelte:options customElement={{tag: "kobber-audio-recorder", shadow: "none"}}/>
 <script>
     export let theme = "light";
-    export let lang = "nb"
+    export let lang = "nb";
+    const uniqueId = Math.floor(Math.random() * 10000000).toString();
 
     const translations = {
         en: {
@@ -241,7 +242,7 @@
         }
 
         const volume = Math.sqrt(sum/dataArray.length);
-        let nodes = document.getElementById(".kbr-ar-svg")?.children;
+        let nodes = document.getElementById(".kbr-ar-svg-" + uniqueId)?.children;
         if((nodes.length > 0)) {
             for (let i = 0; i < nodes.length; i++) {
                 let adjustment = 0;
@@ -350,7 +351,7 @@
 
 </script>
 
-<div id=".audio-recorder"
+<div id={".audio-recorder-" + uniqueId}
      class="kbr-ar-grid-container"
      style="
         --background-color: {backgroundColor};
@@ -401,7 +402,7 @@
     </button>
     <div class="kbr-ar-sound-container">
         <svg style={isRecording ? "display: block;" : "display: none;"}
-             id=".kbr-ar-svg"
+             id={".kbr-ar-svg-" + uniqueId}
              class="kbr-ar-svg"
              viewBox="0 0 128 32"
              width="100%"
@@ -419,7 +420,7 @@
         <input
                 style={isRecording ? "display: none;" : "display: block;"}
                 class="kbr-ar-slider"
-                id="kbr-ar-slider"
+                id={"kbr-ar-slider-" + uniqueId}
                 type="range"
                 value={currentTimeGlobal}
                 max={timeTotal}
@@ -429,6 +430,7 @@
                 on:keydown={e => movePlayhead(e, true)}
                 on:input={e => currentTimePercentage = e.target.value / timeTotal * 100 + "%"}
                 disabled={timeTotal === 0}
+                aria-label={currentTimeGlobal.toString()}
         />
     </div>
     <button class="kbr-ar-delete-button"

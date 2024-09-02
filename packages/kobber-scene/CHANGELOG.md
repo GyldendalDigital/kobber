@@ -1,5 +1,11 @@
 # @gyldendal/kobber-scene
 
+## 0.3.39
+
+### Patch Changes
+
+- audio-recorder unique id
+
 ## 0.3.38
 
 ### Patch Changes

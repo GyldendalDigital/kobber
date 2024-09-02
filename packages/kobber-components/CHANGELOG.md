@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.39
+
+### Patch Changes
+
+- audio-recorder unique id
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.39
+
 ## 0.3.38
 
 ### Patch Changes
