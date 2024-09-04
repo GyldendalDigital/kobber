@@ -1,5 +1,7 @@
 <svelte:options customElement={{tag: "kobber-audio-recorder", shadow: "none"}}/>
 <script>
+    import {onMount} from "svelte";
+
     export let theme = "light";
     export let lang = "nb";
     const uniqueId = Math.floor(Math.random() * 10000000).toString();
@@ -8,21 +10,35 @@
         en: {
             play: "Play",
             stop: "Stop",
+            pause: "Pause",
             record: "Record",
-            delete: "Delete"
+            recordMore: "Record more",
+            delete: "Delete",
+            deletePrompt: "Are you sure you want to delete the recording?",
+            yes: "Yes",
+            no: "No"
         },
         nb: {
             play: "Spill av",
             stop: "Stopp",
+            pause: "Pause",
             record: "Ta opp",
-            delete: "Slett"
-
+            recordMore: "Ta opp mer",
+            delete: "Slett",
+            deletePrompt: "Er du sikker på at du vil slette opptaket?",
+            yes: "Ja",
+            no: "Nei"
         },
         nn: {
             play: "Spel av",
             stop: "Stopp",
+            pause: "Pause",
             record: "Ta opp",
-            delete: "Slett"
+            recordMore: "Ta opp meir",
+            delete: "Slett",
+            deletePrompt: "Er du sikker på at du vil slette opptaket?",
+            yes: "Ja",
+            no: "Nei"
         }
     }
 
@@ -79,6 +95,7 @@
     let animationId = null;
     let isRecording = false;
     let isPlaying = false;
+    let confirmDelete = false;
 
     let recData = [];
     let audioArray = [];
@@ -228,6 +245,10 @@
         newAudio.src = window.URL.createObjectURL(recData[recData.length - 1][0]);
         audioEventSetter(newAudio, audioArray.length);
         audioArray.push(newAudio);
+
+        currentAudioIndex = 0;
+        currentTimePercentage = "0%";
+        currentTimeGlobal = 0;
     }
 
     function drawSVG() {
@@ -337,6 +358,7 @@
             currentTimePercentage = "0%";
             timeTotal = 0;
             audioData = undefined;
+            confirmDelete = false;
         }
     }
 
@@ -349,6 +371,15 @@
         isRecording = !isRecording;
     }
 
+    $: currentWidth = document.getElementById(".audio-recorder-" + uniqueId)?.getBoundingClientRect().width;
+
+    onMount(() => {
+        const observer = new ResizeObserver((entries) => {
+            entries[0].target.style.fontSize = entries[0].contentBoxSize[0].inlineSize / 24 / 16 + "em";
+        });
+        observer.observe(document.getElementById(".audio-recorder-" + uniqueId));
+    });
+
 </script>
 
 <div id={".audio-recorder-" + uniqueId}
@@ -360,10 +391,13 @@
         --item-secondary-color: {itemSecondaryColor};
         --text-color: {textColor};
         --current-time-percentage: {currentTimePercentage};
+        --current-width: {currentWidth};
      "
 >
     <span class="kbr-ar-aspect" />
-    <span class="kbr-ar-grid-record">
+    <span class="kbr-ar-grid-record"
+          style={confirmDelete ? "display: none;" : ""}
+    >
         <button class="kbr-ar-record-button"
                 on:mousedown={toggleRecord}
                 disabled={isPlaying}
@@ -379,12 +413,21 @@
                     <path d="M12 24C11.586 24 11.25 23.664 11.25 23.25V20.216C7.016 19.835 3.75 16.293 3.75 12V9.75C3.75 9.336 4.086 9 4.5 9C4.914 9 5.25 9.336 5.25 9.75V12C5.25 15.722 8.278 18.75 12 18.75C15.722 18.75 18.75 15.722 18.75 12V9.75C18.75 9.336 19.086 9 19.5 9C19.914 9 20.25 9.336 20.25 9.75V12C20.25 16.293 16.984 19.835 12.75 20.216V23.25C12.75 23.664 12.414 24 12 24Z" fill={recordIconColor}/>
                 </svg>
             {/if}
-            <label>{isRecording ? translations[lang].stop : translations[lang].record}</label>
+            <label>
+                {
+                isRecording
+                    ? translations[lang].pause
+                    : timeTotal === 0
+                        ? translations[lang].record
+                        : translations[lang].recordMore
+                }
+            </label>
         </button>
     </span>
     <button class="kbr-ar-play-button"
             on:mousedown={playAudio}
             disabled={isRecording || timeTotal === 0}
+            style={confirmDelete ? "display: none;" : ""}
     >
         {#if isPlaying}
             <svg xmlns="http://www.w3.org/2000/svg" width="50%" height="50%" viewBox="0 0 16 26" fill="none">
@@ -400,7 +443,9 @@
             {isPlaying ? translations[lang].stop : translations[lang].play}
         </label>
     </button>
-    <div class="kbr-ar-sound-container">
+    <div class="kbr-ar-sound-container"
+         style={confirmDelete ? "display: none;" : ""}
+    >
         <svg style={isRecording ? "display: block;" : "display: none;"}
              id={".kbr-ar-svg-" + uniqueId}
              class="kbr-ar-svg"
@@ -434,8 +479,9 @@
         />
     </div>
     <button class="kbr-ar-delete-button"
-            on:mousedown={deleteRecording}
+            on:mousedown={() => confirmDelete = !confirmDelete}
             disabled={isRecording || timeTotal === 0}
+            style={confirmDelete ? "display: none;" : ""}
     >
         <svg xmlns="http://www.w3.org/2000/svg" width="75%" height="75%" viewBox="0 0 20 20" fill="none">
             <g clip-path="url(#clip0_710_817)">
@@ -451,7 +497,9 @@
             {translations[lang].delete}
         </label>
     </button>
-    <span class="kbr-ar-time">
+    <span class="kbr-ar-time"
+          style={confirmDelete ? "display: none;" : ""}
+    >
         {#if isRecording}
             {new Date(recordedSeconds * 1000).toISOString().substring(14, 19)}
         {:else}
@@ -462,6 +510,23 @@
             }
         {/if}
     </span>
+    <span class="kbr-ar-confirm-delete-text"
+          style={confirmDelete ? "" : "display: none;"}
+    >
+        {translations[lang].deletePrompt}
+    </span>
+    <button class="kbr-ar-confirm-delete-yes"
+            style={confirmDelete ? "" : "display: none;"}
+            on:mousedown={deleteRecording}
+    >
+        {translations[lang].yes}
+    </button>
+    <button class="kbr-ar-confirm-delete-no"
+            style={confirmDelete ? "" : "display: none;"}
+            on:mousedown={() => confirmDelete = !confirmDelete}
+    >
+        {translations[lang].no}
+    </button>
 
 <!--<div class="kbr-ar-text" style="position: absolute">-->
 <!--    <p>{"Global: " + roundWithDecimals(currentTimeGlobal, 1) + ". Current index: " + currentAudioIndex}</p>-->
@@ -475,6 +540,7 @@
         display: grid;
         width: 100%;
         height: 100%;
+        min-width: 128px;
         grid-template-columns: repeat(32, 1fr);
         grid-template-rows: repeat(19, 1fr);
         border-radius: 5% / 10%;
@@ -524,7 +590,6 @@
         align-items: center;
     }
     .kbr-ar-time {
-        font-size: 80%;
         grid-row: 17 / span 2;
         grid-column: 9 / span 16;
         height: 100%;
@@ -533,7 +598,6 @@
         justify-content: center;
         align-items: center;
         white-space: nowrap;
-
     }
     .kbr-ar-slider {
       width: 100%;
@@ -549,6 +613,29 @@
     .kbr-ar-text {
         grid-row: 1;
         grid-column: 1 / span 4;
+    }
+
+    .kbr-ar-confirm-delete-text {
+      grid-row: 8 / span 2;
+      grid-column: 2 / span 30;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .kbr-ar-confirm-delete-yes {
+      grid-row: 12 / span 2;
+      grid-column: 8 / span 8;
+      border-radius: 10% / 50%;
+    }
+
+    .kbr-ar-confirm-delete-no {
+      grid-row: 12 / span 2;
+      grid-column: 18 / span 8;
+      border-radius: 10% / 50%;
     }
 
     input[type="range"] {
@@ -622,6 +709,7 @@
       color: var(--text-color);
       padding: 0;
       box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
+      font-size: inherit;
     }
     button:hover:enabled {
       transition: transform 100ms, box-shadow 100ms;
@@ -641,7 +729,7 @@
     label {
       position: absolute;
       bottom: -1.25em;
-      font-size: 80%;
       white-space: nowrap;
+      font-size: inherit;
     }
 </style>
