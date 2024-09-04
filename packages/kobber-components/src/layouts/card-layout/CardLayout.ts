@@ -136,7 +136,7 @@ export class CardLayout extends StyledLitElement {
   @property({ attribute: "aspect-ratio-height" })
   set aspectRatioHeight(value: ValidAspectRatioHeight | string) {
     if (
-      !Object.values(ValidAspectRatioHeight).includes(value as ValidAspectRatioHeight) &&
+      !Object.values(ValidAspectRatioHeight).includes(value as ValidAspectRatioHeight) ||
       isNaN(value as unknown as number)
     ) {
       throw new Error(`Aspect ratio height ${value} is not valid`);
