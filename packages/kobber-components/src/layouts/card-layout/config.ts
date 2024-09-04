@@ -12,4 +12,14 @@ export const minCardWidth = 208;
 
 export const minColumnWidth = `calc(${minCardWidth / 16}rem + ${gap})`;
 
-export const aspectRatioHeight = 1.15;
+export enum ValidAspectRatioHeight {
+  Default = "default",
+}
+
+export const getAspectRatioHeightValue = (aspectRatioHeight: ValidAspectRatioHeight | string): number => {
+  switch (aspectRatioHeight) {
+    case ValidAspectRatioHeight.Default:
+      return 1.15;
+  }
+  return Number(aspectRatioHeight);
+};

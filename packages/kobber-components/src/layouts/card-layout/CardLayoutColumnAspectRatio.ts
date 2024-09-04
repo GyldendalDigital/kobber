@@ -1,6 +1,6 @@
 import { CSSResultGroup, LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { aspectRatioHeight, gap, minColumnWidth } from "./config";
+import { gap, minColumnWidth } from "./config";
 import { ResponsiveCssValue, responsiveValueConverter as converter } from "../../utils/responsiveCssValue";
 
 @customElement("kobber-card-layout-column-aspect-ratio")
@@ -22,7 +22,7 @@ export class CardLayoutColumnAspectRatio extends LitElement {
 
     .aspect-ratio {
       position: relative;
-      padding-top: calc(${aspectRatioHeight} / calc(var(--aspect-ratio-width)) * 100%);
+      padding-top: calc(var(--aspect-ratio-height) / calc(var(--aspect-ratio-width)) * 100%);
     }
 
     .aspect-ratio-absolute {
