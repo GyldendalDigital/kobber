@@ -1,9 +1,18 @@
 import { ResizeController } from "@lit-labs/observers/resize-controller.js";
 import { css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { gap, maxInnerWidth, minCardWidth, minColumnWidth, outerPadding, validMaxColumns } from "./config";
 import { StyledLitElement } from "../../utils/StyledLitElement";
 import { stringifyStyleObject } from "../../utils/stringifyStyleObject";
+import {
+  gap,
+  getAspectRatioHeightValue,
+  maxInnerWidth,
+  minCardWidth,
+  minColumnWidth,
+  outerPadding,
+  ValidAspectRatioHeight,
+  validMaxColumns,
+} from "./config";
 
 const getGridTemplateColumns = (maxColumns: number) => {
   return `repeat(
@@ -122,11 +131,35 @@ export class CardLayout extends StyledLitElement {
     return this._maxColumns;
   }
 
+  private _aspectRatioHeight: ValidAspectRatioHeight | string = ValidAspectRatioHeight.Default;
+
+  @property({ attribute: "aspect-ratio-height" })
+  set aspectRatioHeight(value: ValidAspectRatioHeight | string) {
+    if (
+      !Object.values(ValidAspectRatioHeight).includes(value as ValidAspectRatioHeight) &&
+      isNaN(value as unknown as number)
+    ) {
+      throw new Error(`Aspect ratio height ${value} is not valid`);
+    }
+    this._aspectRatioHeight = value;
+  }
+
+  get aspectRatioHeight() {
+    return this._aspectRatioHeight;
+  }
+
+  private getAspectRatioHeightStyles = () => css`
+    ::slotted(kobber-card-layout-column-aspect-ratio) {
+      --aspect-ratio-height: ${unsafeCSS(getAspectRatioHeightValue(this.aspectRatioHeight))};
+    }
+  `;
+
   render = () => {
     const styles = stringifyStyleObject(":host", this.getStyles());
     return html`
       <style>
         ${styles}
+        ${this.getAspectRatioHeightStyles()}
       </style>
       <div class="grid max-columns-${this._maxColumns}" style="--max-span: ${this._getMaxSpans()}">
         <slot />
