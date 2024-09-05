@@ -1,5 +1,11 @@
 # @gyldendal/kobber-scene
 
+## 0.3.40
+
+### Patch Changes
+
+- Custom aspect ratios for card layout columns
+
 ## 0.3.39
 
 ### Patch Changes

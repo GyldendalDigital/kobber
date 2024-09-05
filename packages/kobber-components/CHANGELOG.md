@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.40
+
+### Patch Changes
+
+- Custom aspect ratios for card layout columns
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.40
+
 ## 0.3.39
 
 ### Patch Changes
