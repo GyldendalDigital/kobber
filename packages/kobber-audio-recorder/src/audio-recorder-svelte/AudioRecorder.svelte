@@ -106,10 +106,6 @@
     let currentTimePercentage = "0%";
     let recordedSeconds = 0;
 
-    // Using window.performance.now(), but could also use date.getTime().
-    let audioStartTime = null;
-    let audioEndTime = null;
-
     function roundWithDecimals(num, decimals){
         return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
     }
@@ -326,7 +322,6 @@
 
                     mediaRecorder = new MediaRecorder(stream);
                     mediaRecorder.start();
-                    audioStartTime = window.performance.now();
                     drawSVG();
                     recordedSeconds = roundWithDecimals(timeTotal, 0);
                     countRecordingTime();
@@ -342,7 +337,6 @@
             mp3Callback(encodeToMP3());
         };
 
-        audioEndTime = window.performance.now();
         mediaRecorder.stop();
         mediaRecorder.onstop = (e) => {
             e.srcElement.stream.getTracks()[0].stop();
