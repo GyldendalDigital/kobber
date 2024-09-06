@@ -117,26 +117,15 @@
     // Adds events for audio elements for them to handle playback
     function audioEventSetter(audio, index) {
         audio.addEventListener("ended", onAudioEnd);
-        audio.addEventListener("timeupdate", (event) => {
-            currentTimeGlobal = elapsedTime + event.target.currentTime;
-            currentTimePercentage = currentTimeGlobal / timeTotal * 100 + "%";
-        });
+        audio.addEventListener("timeupdate", (event) => updateCurrentTime(event.target.currentTime));
         audio.addEventListener("durationchange", (event) => {
-            // Consider swapping the code below with a variation of this:
-            //
-            // audioData.arrayBuffer().then((arrayBuffer) => {
-            //     audioCtx = new AudioContext();
-            //     audioCtx.decodeAudioData(arrayBuffer).then((buffer) => {
-            //         console.log(buffer);
-            //         audioDurationArray.push(roundWithDecimals(buffer.duration, 2));
-            //         console.log(audioDurationArray);
-            //         timeTotal = roundWithDecimals(buffer.duration, 2);
-            //     });
-            // });
-
-
             if (event.target.duration === Infinity) {
-                audioDurationArray[index] = (audioEndTime - audioStartTime) / 1000;
+                recData[index][0].arrayBuffer().then((arrayBuffer) => {
+                    audioCtx = new AudioContext();
+                    audioCtx.decodeAudioData(arrayBuffer).then((buffer) => {
+                        audioDurationArray[index] = buffer.duration;
+                    });
+                });
             } else if (Number(event.target.duration) && audioDurationArray[index] === undefined) {
                 audioDurationArray[index] = Number(event.target.duration);
             }
@@ -176,6 +165,19 @@
         })
     }
 
+    function edgeHandler(isEnded) {
+        if (isEnded) {
+            currentTimeGlobal = timeTotal;
+            currentTimePercentage = "100%";
+            currentAudioIndex = audioDurationArray.length - 1;
+        } else {
+            currentTimeGlobal = 0;
+            currentTimePercentage = "0%";
+            currentAudioIndex = 0;
+            elapsedTime = 0;
+        }
+    }
+
     function playAudio() {
         if (isPlaying) {
             isPlaying = false;
@@ -183,6 +185,9 @@
         } else {
             isPlaying = true;
             if (audioArray.length > 0) {
+                if (currentTimeGlobal === timeTotal) {
+                    edgeHandler(false);
+                }
                 audioArray[currentAudioIndex].play();
             }
         }
@@ -193,6 +198,10 @@
         isPlaying = false;
     }
 
+    function updateCurrentTime(time) {
+        currentTimeGlobal = elapsedTime + time;
+        currentTimePercentage = currentTimeGlobal / timeTotal * 100 + "%";
+    }
     // Connected to an audio elements onended event
     function onAudioEnd() {
         if (currentAudioIndex < audioArray.length - 1) {
@@ -201,6 +210,7 @@
             audioArray[currentAudioIndex].currentTime = 0;
             audioArray[currentAudioIndex].play();
         } else {
+            edgeHandler(true);
             isPlaying = false;
         }
     }
@@ -232,8 +242,11 @@
             } else if (event.key === "ArrowRight") {
                 currentTimeGlobal = currentTimeGlobal + 1 > timeTotal ? timeTotal : currentTimeGlobal + 1;
             }
+            currentTimePercentage = currentTimeGlobal / timeTotal + "%";
+            currentAudioIndex = findAudioIndex(currentTimeGlobal, 0, audioDurationArray, 0);
         } else {
             currentTimeGlobal = Number(event.target.value);
+            currentTimePercentage = Number(event.target.value) / timeTotal + "%";
             currentAudioIndex = findAudioIndex(currentTimeGlobal, 0, audioDurationArray, 0);
         }
     }
@@ -245,10 +258,7 @@
         newAudio.src = window.URL.createObjectURL(recData[recData.length - 1][0]);
         audioEventSetter(newAudio, audioArray.length);
         audioArray.push(newAudio);
-
-        currentAudioIndex = 0;
-        currentTimePercentage = "0%";
-        currentTimeGlobal = 0;
+        edgeHandler(false);
     }
 
     function drawSVG() {
@@ -400,6 +410,7 @@
     >
         <button class="kbr-ar-record-button"
                 on:mousedown={toggleRecord}
+                on:click={toggleRecord}
                 disabled={isPlaying}
         >
             {#if isRecording}
@@ -426,6 +437,7 @@
     </span>
     <button class="kbr-ar-play-button"
             on:mousedown={playAudio}
+            on:click={playAudio}
             disabled={isRecording || timeTotal === 0}
             style={confirmDelete ? "display: none;" : ""}
     >
@@ -480,6 +492,7 @@
     </div>
     <button class="kbr-ar-delete-button"
             on:mousedown={() => confirmDelete = !confirmDelete}
+            on:click={() => confirmDelete = !confirmDelete}
             disabled={isRecording || timeTotal === 0}
             style={confirmDelete ? "display: none;" : ""}
     >
@@ -518,12 +531,14 @@
     <button class="kbr-ar-confirm-delete-yes"
             style={confirmDelete ? "" : "display: none;"}
             on:mousedown={deleteRecording}
+            on:click={deleteRecording}
     >
         {translations[lang].yes}
     </button>
     <button class="kbr-ar-confirm-delete-no"
             style={confirmDelete ? "" : "display: none;"}
             on:mousedown={() => confirmDelete = !confirmDelete}
+            on:click={() => confirmDelete = !confirmDelete}
     >
         {translations[lang].no}
     </button>
