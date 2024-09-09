@@ -1,5 +1,11 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.41
+
+### Patch Changes
+
+- CardLayout fallback for resizeObserver
+
 ## 0.3.40
 
 ### Patch Changes
