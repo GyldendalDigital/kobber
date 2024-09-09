@@ -83,6 +83,8 @@ export class CardLayout extends StyledLitElement {
     callback: ([entry]) => entry?.borderBoxSize[0],
   });
 
+  private _getHostWidth = () => this._resizeController.value?.inlineSize ?? this.getBoundingClientRect()?.width;
+
   connectedCallback() {
     super.connectedCallback();
     this._gapMeasurement = document.createElement("div");
@@ -94,7 +96,7 @@ export class CardLayout extends StyledLitElement {
   // Add `container-type: inline-size` to :host
 
   private _getMaxSpans = () => {
-    const hostWidth = this._resizeController.value?.inlineSize;
+    const hostWidth = this._getHostWidth();
     if (hostWidth === undefined) return "";
     if (!this._gapMeasurement) return;
     const gapWidth = this._gapMeasurement.getBoundingClientRect()?.width;
