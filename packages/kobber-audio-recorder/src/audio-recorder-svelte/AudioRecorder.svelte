@@ -1,5 +1,7 @@
 <svelte:options customElement={{tag: "kobber-audio-recorder", shadow: "none"}}/>
 <script>
+    import {onMount} from "svelte";
+
     export let theme = "light";
     export let lang = "nb";
     const uniqueId = Math.floor(Math.random() * 10000000).toString();
@@ -8,21 +10,35 @@
         en: {
             play: "Play",
             stop: "Stop",
+            pause: "Pause",
             record: "Record",
-            delete: "Delete"
+            recordMore: "Record more",
+            delete: "Delete",
+            deletePrompt: "Are you sure you want to delete the recording?",
+            yes: "Yes",
+            no: "No"
         },
         nb: {
             play: "Spill av",
             stop: "Stopp",
+            pause: "Pause",
             record: "Ta opp",
-            delete: "Slett"
-
+            recordMore: "Ta opp mer",
+            delete: "Slett",
+            deletePrompt: "Er du sikker på at du vil slette opptaket?",
+            yes: "Ja",
+            no: "Nei"
         },
         nn: {
             play: "Spel av",
             stop: "Stopp",
+            pause: "Pause",
             record: "Ta opp",
-            delete: "Slett"
+            recordMore: "Ta opp meir",
+            delete: "Slett",
+            deletePrompt: "Er du sikker på at du vil slette opptaket?",
+            yes: "Ja",
+            no: "Nei"
         }
     }
 
@@ -79,6 +95,7 @@
     let animationId = null;
     let isRecording = false;
     let isPlaying = false;
+    let confirmDelete = false;
 
     let recData = [];
     let audioArray = [];
@@ -89,10 +106,6 @@
     let currentTimePercentage = "0%";
     let recordedSeconds = 0;
 
-    // Using window.performance.now(), but could also use date.getTime().
-    let audioStartTime = null;
-    let audioEndTime = null;
-
     function roundWithDecimals(num, decimals){
         return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
     }
@@ -100,26 +113,15 @@
     // Adds events for audio elements for them to handle playback
     function audioEventSetter(audio, index) {
         audio.addEventListener("ended", onAudioEnd);
-        audio.addEventListener("timeupdate", (event) => {
-            currentTimeGlobal = elapsedTime + event.target.currentTime;
-            currentTimePercentage = currentTimeGlobal / timeTotal * 100 + "%";
-        });
+        audio.addEventListener("timeupdate", (event) => updateCurrentTime(event.target.currentTime));
         audio.addEventListener("durationchange", (event) => {
-            // Consider swapping the code below with a variation of this:
-            //
-            // audioData.arrayBuffer().then((arrayBuffer) => {
-            //     audioCtx = new AudioContext();
-            //     audioCtx.decodeAudioData(arrayBuffer).then((buffer) => {
-            //         console.log(buffer);
-            //         audioDurationArray.push(roundWithDecimals(buffer.duration, 2));
-            //         console.log(audioDurationArray);
-            //         timeTotal = roundWithDecimals(buffer.duration, 2);
-            //     });
-            // });
-
-
             if (event.target.duration === Infinity) {
-                audioDurationArray[index] = (audioEndTime - audioStartTime) / 1000;
+                recData[index][0].arrayBuffer().then((arrayBuffer) => {
+                    audioCtx = new AudioContext();
+                    audioCtx.decodeAudioData(arrayBuffer).then((buffer) => {
+                        audioDurationArray[index] = buffer.duration;
+                    });
+                });
             } else if (Number(event.target.duration) && audioDurationArray[index] === undefined) {
                 audioDurationArray[index] = Number(event.target.duration);
             }
@@ -159,6 +161,19 @@
         })
     }
 
+    function edgeHandler(isEnded) {
+        if (isEnded) {
+            currentTimeGlobal = timeTotal;
+            currentTimePercentage = "100%";
+            currentAudioIndex = audioDurationArray.length - 1;
+        } else {
+            currentTimeGlobal = 0;
+            currentTimePercentage = "0%";
+            currentAudioIndex = 0;
+            elapsedTime = 0;
+        }
+    }
+
     function playAudio() {
         if (isPlaying) {
             isPlaying = false;
@@ -166,6 +181,9 @@
         } else {
             isPlaying = true;
             if (audioArray.length > 0) {
+                if (currentTimeGlobal === timeTotal) {
+                    edgeHandler(false);
+                }
                 audioArray[currentAudioIndex].play();
             }
         }
@@ -176,6 +194,10 @@
         isPlaying = false;
     }
 
+    function updateCurrentTime(time) {
+        currentTimeGlobal = elapsedTime + time;
+        currentTimePercentage = currentTimeGlobal / timeTotal * 100 + "%";
+    }
     // Connected to an audio elements onended event
     function onAudioEnd() {
         if (currentAudioIndex < audioArray.length - 1) {
@@ -184,6 +206,7 @@
             audioArray[currentAudioIndex].currentTime = 0;
             audioArray[currentAudioIndex].play();
         } else {
+            edgeHandler(true);
             isPlaying = false;
         }
     }
@@ -215,8 +238,11 @@
             } else if (event.key === "ArrowRight") {
                 currentTimeGlobal = currentTimeGlobal + 1 > timeTotal ? timeTotal : currentTimeGlobal + 1;
             }
+            currentTimePercentage = currentTimeGlobal / timeTotal + "%";
+            currentAudioIndex = findAudioIndex(currentTimeGlobal, 0, audioDurationArray, 0);
         } else {
             currentTimeGlobal = Number(event.target.value);
+            currentTimePercentage = Number(event.target.value) / timeTotal + "%";
             currentAudioIndex = findAudioIndex(currentTimeGlobal, 0, audioDurationArray, 0);
         }
     }
@@ -228,6 +254,7 @@
         newAudio.src = window.URL.createObjectURL(recData[recData.length - 1][0]);
         audioEventSetter(newAudio, audioArray.length);
         audioArray.push(newAudio);
+        edgeHandler(false);
     }
 
     function drawSVG() {
@@ -295,7 +322,6 @@
 
                     mediaRecorder = new MediaRecorder(stream);
                     mediaRecorder.start();
-                    audioStartTime = window.performance.now();
                     drawSVG();
                     recordedSeconds = roundWithDecimals(timeTotal, 0);
                     countRecordingTime();
@@ -311,7 +337,6 @@
             mp3Callback(encodeToMP3());
         };
 
-        audioEndTime = window.performance.now();
         mediaRecorder.stop();
         mediaRecorder.onstop = (e) => {
             e.srcElement.stream.getTracks()[0].stop();
@@ -337,6 +362,7 @@
             currentTimePercentage = "0%";
             timeTotal = 0;
             audioData = undefined;
+            confirmDelete = false;
         }
     }
 
@@ -349,6 +375,20 @@
         isRecording = !isRecording;
     }
 
+    $: currentWidth = document.getElementById(".audio-recorder-" + uniqueId)?.getBoundingClientRect().width;
+
+    onMount(() => {
+        const observer = new ResizeObserver((entries) => {
+            if (entries[0].contentBoxSize[0]?.inlineSize) {
+                entries[0].target.style.fontSize = entries[0].contentBoxSize[0].inlineSize / 24 / 16 + "em";
+            } else {
+                entries[0].target.style.fontSize =
+                    document.getElementById(".audio-recorder-" + uniqueId)?.getBoundingClientRect().width / 24 / 16 + "em";
+            }
+        });
+        observer.observe(document.getElementById(".audio-recorder-" + uniqueId));
+    });
+
 </script>
 
 <div id={".audio-recorder-" + uniqueId}
@@ -360,12 +400,16 @@
         --item-secondary-color: {itemSecondaryColor};
         --text-color: {textColor};
         --current-time-percentage: {currentTimePercentage};
+        --current-width: {currentWidth};
      "
 >
     <span class="kbr-ar-aspect" />
-    <span class="kbr-ar-grid-record">
+    <span class="kbr-ar-grid-record"
+          style={confirmDelete ? "display: none;" : ""}
+    >
         <button class="kbr-ar-record-button"
                 on:mousedown={toggleRecord}
+                on:click={toggleRecord}
                 disabled={isPlaying}
         >
             {#if isRecording}
@@ -374,17 +418,35 @@
                     <path d="M14 2L14 24" stroke={recordIconColor} stroke-width="4" stroke-linecap="round"/>
                 </svg>
             {:else}
-                <svg xmlns="http://www.w3.org/2000/svg" width="75%" height="75%" viewBox="0 0 24 24" fill="none">
-                    <path d="M10.5 17.25C8.432 17.25 6.75 15.568 6.75 13.5V3.75C6.75 1.682 8.432 0 10.5 0H13.5C15.568 0 17.25 1.682 17.25 3.75V13.5C17.25 15.568 15.568 17.25 13.5 17.25H10.5ZM10.5 1.5C9.259 1.5 8.25 2.509 8.25 3.75V13.5C8.25 14.741 9.259 15.75 10.5 15.75H13.5C14.741 15.75 15.75 14.741 15.75 13.5V3.75C15.75 2.509 14.741 1.5 13.5 1.5H10.5Z" fill={recordIconColor}/>
-                    <path d="M12 24C11.586 24 11.25 23.664 11.25 23.25V20.216C7.016 19.835 3.75 16.293 3.75 12V9.75C3.75 9.336 4.086 9 4.5 9C4.914 9 5.25 9.336 5.25 9.75V12C5.25 15.722 8.278 18.75 12 18.75C15.722 18.75 18.75 15.722 18.75 12V9.75C18.75 9.336 19.086 9 19.5 9C19.914 9 20.25 9.336 20.25 9.75V12C20.25 16.293 16.984 19.835 12.75 20.216V23.25C12.75 23.664 12.414 24 12 24Z" fill={recordIconColor}/>
-                </svg>
+                {#if timeTotal === 0}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="75%" height="75%" viewBox="0 0 24 24" fill="none">
+                        <path d="M10.5 17.25C8.432 17.25 6.75 15.568 6.75 13.5V3.75C6.75 1.682 8.432 0 10.5 0H13.5C15.568 0 17.25 1.682 17.25 3.75V13.5C17.25 15.568 15.568 17.25 13.5 17.25H10.5ZM10.5 1.5C9.259 1.5 8.25 2.509 8.25 3.75V13.5C8.25 14.741 9.259 15.75 10.5 15.75H13.5C14.741 15.75 15.75 14.741 15.75 13.5V3.75C15.75 2.509 14.741 1.5 13.5 1.5H10.5Z" fill={recordIconColor}/>
+                        <path d="M12 24C11.586 24 11.25 23.664 11.25 23.25V20.216C7.016 19.835 3.75 16.293 3.75 12V9.75C3.75 9.336 4.086 9 4.5 9C4.914 9 5.25 9.336 5.25 9.75V12C5.25 15.722 8.278 18.75 12 18.75C15.722 18.75 18.75 15.722 18.75 12V9.75C18.75 9.336 19.086 9 19.5 9C19.914 9 20.25 9.336 20.25 9.75V12C20.25 16.293 16.984 19.835 12.75 20.216V23.25C12.75 23.664 12.414 24 12 24Z" fill={recordIconColor}/>
+                    </svg>
+                {:else}
+                    <svg width="75%" height="75%" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.75 19.25C6.682 19.25 5 17.568 5 15.5V5.75C5 3.682 6.682 2 8.75 2H11.75C13.818 2 15.5 3.682 15.5 5.75V15.5C15.5 17.568 13.818 19.25 11.75 19.25H8.75ZM8.75 3.5C7.509 3.5 6.5 4.509 6.5 5.75V15.5C6.5 16.741 7.509 17.75 8.75 17.75H11.75C12.991 17.75 14 16.741 14 15.5V5.75C14 4.509 12.991 3.5 11.75 3.5H8.75Z" fill={recordIconColor}/>
+                        <path d="M10.25 26C9.836 26 9.5 25.664 9.5 25.25V22.216C5.266 21.835 2 18.293 2 14V11.75C2 11.336 2.336 11 2.75 11C3.164 11 3.5 11.336 3.5 11.75V14C3.5 17.722 6.528 20.75 10.25 20.75C13.972 20.75 17 17.722 17 14V11.75C17 11.336 17.336 11 17.75 11C18.164 11 18.5 11.336 18.5 11.75V14C18.5 18.293 15.234 21.835 11 22.216V25.25C11 25.664 10.664 26 10.25 26Z" fill={recordIconColor}/>
+                        <path d="M14.25 25.5H21.25M17.75 22V29" stroke={recordIconColor} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                {/if}
             {/if}
-            <label>{isRecording ? translations[lang].stop : translations[lang].record}</label>
+            <label>
+                {
+                isRecording
+                    ? translations[lang].pause
+                    : timeTotal === 0
+                        ? translations[lang].record
+                        : translations[lang].recordMore
+                }
+            </label>
         </button>
     </span>
     <button class="kbr-ar-play-button"
             on:mousedown={playAudio}
+            on:click={playAudio}
             disabled={isRecording || timeTotal === 0}
+            style={confirmDelete ? "display: none;" : ""}
     >
         {#if isPlaying}
             <svg xmlns="http://www.w3.org/2000/svg" width="50%" height="50%" viewBox="0 0 16 26" fill="none">
@@ -401,7 +463,9 @@
             {isPlaying ? translations[lang].stop : translations[lang].play}
         </label>
     </button>
-    <div class="kbr-ar-sound-container">
+    <div class="kbr-ar-sound-container"
+         style={confirmDelete ? "display: none;" : ""}
+    >
         <svg style={isRecording ? "display: block;" : "display: none;"}
              id={".kbr-ar-svg-" + uniqueId}
              class="kbr-ar-svg"
@@ -435,8 +499,10 @@
         />
     </div>
     <button class="kbr-ar-delete-button"
-            on:mousedown={deleteRecording}
+            on:mousedown={() => confirmDelete = !confirmDelete}
+            on:click={() => confirmDelete = !confirmDelete}
             disabled={isRecording || timeTotal === 0}
+            style={confirmDelete ? "display: none;" : ""}
     >
         <svg xmlns="http://www.w3.org/2000/svg" width="75%" height="75%" viewBox="0 0 20 20" fill="none">
             <g clip-path="url(#clip0_710_817)">
@@ -452,7 +518,9 @@
             {translations[lang].delete}
         </label>
     </button>
-    <span class="kbr-ar-time">
+    <span class="kbr-ar-time"
+          style={confirmDelete ? "display: none;" : ""}
+    >
         {#if isRecording}
             {new Date(recordedSeconds * 1000).toISOString().substring(14, 19)}
         {:else}
@@ -463,6 +531,25 @@
             }
         {/if}
     </span>
+    <span class="kbr-ar-confirm-delete-text"
+          style={confirmDelete ? "" : "display: none;"}
+    >
+        {translations[lang].deletePrompt}
+    </span>
+    <button class="kbr-ar-confirm-delete-yes"
+            style={confirmDelete ? "" : "display: none;"}
+            on:mousedown={deleteRecording}
+            on:click={deleteRecording}
+    >
+        {translations[lang].yes}
+    </button>
+    <button class="kbr-ar-confirm-delete-no"
+            style={confirmDelete ? "" : "display: none;"}
+            on:mousedown={() => confirmDelete = !confirmDelete}
+            on:click={() => confirmDelete = !confirmDelete}
+    >
+        {translations[lang].no}
+    </button>
 
 <!--<div class="kbr-ar-text" style="position: absolute">-->
 <!--    <p>{"Global: " + roundWithDecimals(currentTimeGlobal, 1) + ". Current index: " + currentAudioIndex}</p>-->
@@ -476,6 +563,7 @@
         display: grid;
         width: 100%;
         height: 100%;
+        min-width: 128px;
         grid-template-columns: repeat(32, 1fr);
         grid-template-rows: repeat(19, 1fr);
         border-radius: 5% / 10%;
@@ -525,7 +613,6 @@
         align-items: center;
     }
     .kbr-ar-time {
-        font-size: 80%;
         grid-row: 17 / span 2;
         grid-column: 9 / span 16;
         height: 100%;
@@ -534,7 +621,6 @@
         justify-content: center;
         align-items: center;
         white-space: nowrap;
-
     }
     .kbr-ar-slider {
       width: 100%;
@@ -550,6 +636,29 @@
     .kbr-ar-text {
         grid-row: 1;
         grid-column: 1 / span 4;
+    }
+
+    .kbr-ar-confirm-delete-text {
+      grid-row: 8 / span 2;
+      grid-column: 2 / span 30;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .kbr-ar-confirm-delete-yes {
+      grid-row: 12 / span 2;
+      grid-column: 8 / span 8;
+      border-radius: 10% / 50%;
+    }
+
+    .kbr-ar-confirm-delete-no {
+      grid-row: 12 / span 2;
+      grid-column: 18 / span 8;
+      border-radius: 10% / 50%;
     }
 
     input[type="range"] {
@@ -623,6 +732,7 @@
       color: var(--text-color);
       padding: 0;
       box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
+      font-size: inherit;
     }
     button:hover:enabled {
       transition: transform 100ms, box-shadow 100ms;
@@ -642,7 +752,7 @@
     label {
       position: absolute;
       bottom: -1.25em;
-      font-size: 80%;
       white-space: nowrap;
+      font-size: inherit;
     }
 </style>
