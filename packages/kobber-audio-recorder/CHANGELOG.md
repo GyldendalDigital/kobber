@@ -1,5 +1,17 @@
 # @gyldendal/kobber-audio-recorder
 
+## 0.3.41
+
+### Patch Changes
+
+- CardLayout fallback for resizeObserver
+
+## 0.3.40
+
+### Patch Changes
+
+- Custom aspect ratios for card layout columns
+
 ## 0.3.39
 
 ### Patch Changes

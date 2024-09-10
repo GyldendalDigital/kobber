@@ -1,5 +1,21 @@
 # @gyldendal/kobber-components
 
+## 0.3.41
+
+### Patch Changes
+
+- CardLayout fallback for resizeObserver
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.41
+
+## 0.3.40
+
+### Patch Changes
+
+- Custom aspect ratios for card layout columns
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.40
+
 ## 0.3.39
 
 ### Patch Changes

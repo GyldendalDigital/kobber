@@ -454,6 +454,7 @@
             </svg>
         {/if}
         <label>
+            <!-- svelte-ignore a11y-label-has-associated-control -->
             {isPlaying ? translations[lang].stop : translations[lang].play}
         </label>
     </button>
