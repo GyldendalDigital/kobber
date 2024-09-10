@@ -379,7 +379,12 @@
 
     onMount(() => {
         const observer = new ResizeObserver((entries) => {
-            entries[0].target.style.fontSize = entries[0].contentBoxSize[0].inlineSize / 24 / 16 + "em";
+            if (entries[0].contentBoxSize[0]?.inlineSize) {
+                entries[0].target.style.fontSize = entries[0].contentBoxSize[0].inlineSize / 24 / 16 + "em";
+            } else {
+                entries[0].target.style.fontSize =
+                    document.getElementById(".audio-recorder-" + uniqueId)?.getBoundingClientRect().width / 24 / 16 + "em";
+            }
         });
         observer.observe(document.getElementById(".audio-recorder-" + uniqueId));
     });
