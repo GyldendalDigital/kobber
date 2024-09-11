@@ -1,5 +1,11 @@
 # @gyldendal/kobber-eslint
 
+## 0.3.42
+
+### Patch Changes
+
+- design and technical improvemnts in audio-recorder
+
 ## 0.3.41
 
 ### Patch Changes
