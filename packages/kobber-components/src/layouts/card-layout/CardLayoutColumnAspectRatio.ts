@@ -28,7 +28,10 @@ export class CardLayoutColumnAspectRatio extends LitElement {
     .aspect-ratio-absolute {
       display: grid;
       position: absolute;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       padding: ${unsafeCSS(gap)};
     }
   `;
