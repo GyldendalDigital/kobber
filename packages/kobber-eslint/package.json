@@ -1,7 +1,7 @@
 {
           "name": "@gyldendal/kobber-eslint",
           "license": "MIT",
-          "version": "0.3.42",
+          "version": "0.3.43",
           "main": ".eslintrc.cjs",
           "peerDependencies": {
                     "@typescript-eslint/eslint-plugin": ">=6",

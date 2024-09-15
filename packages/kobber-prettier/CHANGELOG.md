@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.43
+
+### Patch Changes
+
+- Chromium 80 card layout fixes
+
 ## 0.3.42
 
 ### Patch Changes
