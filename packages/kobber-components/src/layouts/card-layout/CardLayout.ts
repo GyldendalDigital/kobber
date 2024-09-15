@@ -80,10 +80,8 @@ export class CardLayout extends StyledLitElement {
   private _gapMeasurement: HTMLElement;
 
   private _resizeController = new ResizeController(this, {
-    callback: ([entry]) => entry?.borderBoxSize[0],
+    callback: ([entry]) => entry,
   });
-
-  private _getHostWidth = () => this._resizeController.value?.inlineSize ?? this.getBoundingClientRect()?.width;
 
   connectedCallback() {
     super.connectedCallback();
@@ -96,10 +94,10 @@ export class CardLayout extends StyledLitElement {
   // Add `container-type: inline-size` to :host
 
   private _getMaxSpans = () => {
-    const hostWidth = this._getHostWidth();
-    if (hostWidth === undefined) return "";
     if (!this._gapMeasurement) return;
     const gapWidth = this._gapMeasurement.getBoundingClientRect()?.width;
+    const hostWidth = this._getHostWidth(gapWidth);
+    if (hostWidth === undefined) return "";
     if (hostWidth < minCardWidth * 2 + gapWidth * 3) {
       return 1;
     }
@@ -116,6 +114,20 @@ export class CardLayout extends StyledLitElement {
       return 5;
     }
     return 6;
+  };
+
+  private _getHostWidth = (gapWidth: number) => {
+    const entry = this._resizeController.value;
+    if (entry) {
+      if (entry.borderBoxSize?.[0]?.inlineSize) {
+        return entry.borderBoxSize[0].inlineSize;
+      }
+
+      // Using legacy contentRect for browsers that don't support borderBoxSize
+      return entry.contentRect.width + gapWidth;
+    }
+
+    return this.getBoundingClientRect()?.width;
   };
 
   private _maxColumns: number = 4;
