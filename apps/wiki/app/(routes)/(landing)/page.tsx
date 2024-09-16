@@ -5,6 +5,42 @@ import { FeatureBoxType, NewsType } from "@/types/types";
 import { FeatureBox } from "@/components/feature-box";
 import { AwardListItem } from "@/components/award-list-item";
 
+const boxes: FeatureBoxType[] = [
+  {
+    title: "Er du UI/UX-designer?",
+    href: "/kom-i-gang",
+    image: "",
+  },
+  {
+    title: "Skriver du kode?",
+    image: "",
+  },
+  {
+    title: "Lager du innhold?",
+    image: "",
+    href: "/komponenter",
+  },
+  {
+    title: "Lager du innhold?",
+    image: "",
+  },
+];
+
+const news: NewsType[] = [
+  {
+    title: "Dette er nyhet nummer 1",
+    date: new Date(),
+  },
+  {
+    title: "Dette er nyhet nummer 2",
+    date: new Date(),
+  },
+  {
+    title: "Dette er nyhet nummer 3",
+    date: new Date(),
+  },
+];
+
 export default function Home() {
   return (
     <main className="flex flex-col gap-0 md:gap-10 pb-10">
@@ -32,39 +68,3 @@ export default function Home() {
     </main>
   );
 }
-
-export const boxes: FeatureBoxType[] = [
-  {
-    title: "Er du UI/UX-designer?",
-    href: "/kom-i-gang",
-    image: "",
-  },
-  {
-    title: "Skriver du kode?",
-    image: "",
-  },
-  {
-    title: "Lager du innhold?",
-    image: "",
-    href: "/komponenter",
-  },
-  {
-    title: "Lager du innhold?",
-    image: "",
-  },
-];
-
-export const news: NewsType[] = [
-  {
-    title: "Dette er nyhet nummer 1",
-    date: new Date(),
-  },
-  {
-    title: "Dette er nyhet nummer 2",
-    date: new Date(),
-  },
-  {
-    title: "Dette er nyhet nummer 3",
-    date: new Date(),
-  },
-];

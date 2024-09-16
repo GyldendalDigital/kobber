@@ -8,7 +8,7 @@ type GetStartedLayoutProps = {
 
 export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
   return (
-    <div className="grid grid-cols-[270px_1fr] overflow-hidden gap-5">
+    <div className="grid grid-cols-[270px_1fr] overflow-hidden gap-7">
       <div className="w-full md:w-[270px] rounded-[8px] space-y-96 ">
         <SideMenuBar items={VareMerkeRoutes} />
         <LogoSVG />
