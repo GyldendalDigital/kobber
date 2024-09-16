@@ -1,7 +1,6 @@
 "use client";
 import { ReactNode } from "react";
 import { TopMenu } from "./top-menu";
-import { KobberGrid } from "@gyldendal/kobber-components/react";
 
 type GridLayoutProps = {
   children: ReactNode;
@@ -11,9 +10,9 @@ export function GridLayout({ children }: GridLayoutProps) {
   // return <div></div>;
 
   return (
-    <KobberGrid maxWidth="100%" alignItems="center" gridTemplateColumns={"repeat(1, minmax(0,1fr))"}>
+    <kobber-grid maxWidth="100%" alignItems="center" gridTemplateColumns={"repeat(1, minmax(0,1fr))"}>
       <TopMenu />
       {children}
-    </KobberGrid>
+    </kobber-grid>
   );
 }
