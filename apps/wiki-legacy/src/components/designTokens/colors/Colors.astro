@@ -1,8 +1,7 @@
 ---
 import { getTheme } from "../../../theme.ts";
-import { Page } from "../page/Page";
-import RichText from "../richText/RichTextAstro.astro";
-import * as richTextStyles from "../richText/richText.module.css";
+import { Page } from "../../page/Page";
+import { RichText } from "../../richText/RichText";
 import Color from "./Color.astro";
 import classNames from "./colors.module.css";
 
@@ -20,7 +19,7 @@ const colorCategories = Object.entries(tokens.primitives.color).reduce(
   },
   {
     base: {},
-  } as Record<string, Record<string, string>>,
+  } as Record<string, Record<string, string>>
 );
 ---
 
@@ -33,30 +32,21 @@ const colorCategories = Object.entries(tokens.primitives.color).reduce(
       },
     },
     null,
-    "  ",
+    "  "
   )}
 >
   <RichText>
     <h2>Generelt om farger</h2>
-    <p>
-      Oversikt over hvilke farger som kan brukes sammen i henhold til kravene i
-      WCAG finner du nederst.
-    </p>
+    <p>Oversikt over hvilke farger som kan brukes sammen i henhold til kravene i WCAG finner du nederst.</p>
   </RichText>
   <div class={classNames.grid}>
     {
       Object.entries(colorCategories).map(([categoryName, colors]) => {
         return (
           <div class={classNames.category}>
-            <h3 class={richTextStyles.h3}>
-              {categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}
-            </h3>
+            <h3>{categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}</h3>
             {Object.entries(colors).map(([tokenKey, hex]) => (
-              <Color
-                categoryName={categoryName}
-                tokenKey={tokenKey}
-                hex={hex}
-              />
+              <Color categoryName={categoryName} tokenKey={tokenKey} hex={hex} />
             ))}
           </div>
         );
@@ -70,9 +60,7 @@ const colorCategories = Object.entries(tokens.primitives.color).reduce(
       <br />
       100–400 kan alltid brukes med sort.
       <br />
-      1000 burde alltid kunne brukes med hvit, men gjelder ikke den gule akkurat
-      nå!
+      1000 burde alltid kunne brukes med hvit, men gjelder ikke den gule akkurat nå!
     </p>
   </RichText>
 </Page>
-../page/Page.ts

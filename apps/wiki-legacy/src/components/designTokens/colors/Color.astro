@@ -1,7 +1,7 @@
 ---
 import HexFormatter from "./HexFormatter.astro";
 import classNames from "./colors.module.css";
-import * as typographyStyles from "@gyldendal/kobber-base/themes/default/typography.module.css";
+import typographyStyles from "@gyldendal/kobber-base/themes/default/typography.module.css";
 
 interface Props {
   categoryName: string;
@@ -14,9 +14,7 @@ const { categoryName, tokenKey, hex } = Astro.props;
 
 <div class={classNames.colorBox}>
   <div
-    class={`${classNames.color} ${
-      tokenKey === "white" ? classNames.colorBorder : ""
-    }`}
+    class={`${classNames.color} ${tokenKey === "white" ? classNames.colorBorder : ""}`}
     style={{ backgroundColor: hex }}
   >
   </div>
@@ -25,12 +23,6 @@ const { categoryName, tokenKey, hex } = Astro.props;
     <p>
       <div class={classNames.infoHeader}>
         <div class={typographyStyles.contentBadge}>Hex</div>
-        <button
-          class={classNames.copyButton}
-          onClick={() => navigator.clipboard.writeText(hex)}
-        >
-          Kopier
-        </button>
       </div>
       <div class={typographyStyles.contentBody}>
         <HexFormatter hex={hex} />
@@ -39,15 +31,6 @@ const { categoryName, tokenKey, hex } = Astro.props;
     <p>
       <div class={classNames.infoHeader}>
         <div class={typographyStyles.contentBadge}>Token</div>
-        <button
-          class={classNames.copyButton}
-          onClick={() =>
-            navigator.clipboard.writeText(
-              `tokens.primitives.color.${categoryName}.${tokenKey}`
-            )}
-        >
-          Kopier
-        </button>
       </div>
       <div class={typographyStyles.contentBody}>
         {categoryName}.{tokenKey}
