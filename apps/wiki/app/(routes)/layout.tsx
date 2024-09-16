@@ -30,9 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("bg-white min-h-screen  size-full antialiased transition-all", PPMori.className)}>
-        <div className="grid h-full ">
-          <GridLayout>{children}</GridLayout>
-        </div>
+        <GridLayout>{children}</GridLayout>
       </body>
     </html>
   );
