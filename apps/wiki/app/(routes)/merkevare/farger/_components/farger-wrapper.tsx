@@ -11,13 +11,13 @@ export default function FargerWrapper() {
 	const searchParams = useSearchParams()
 	const router = useRouter()
 	const pathname = usePathname()
-	const section = searchParams.get("section")
+	const section = searchParams?.get("section")
 
 	// Get a new searchParams string by merging the current
 	// searchParams with a provided key/value pair
 	const handleSwitchSection = useCallback(
 		(name: string, value: string) => {
-			const params = new URLSearchParams(searchParams.toString())
+			const params = new URLSearchParams(searchParams?.toString())
 			params.set(name, value)
 
 			return params.toString()

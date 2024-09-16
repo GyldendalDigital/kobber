@@ -24,7 +24,7 @@ export function TopMenu() {
                 className={cn(
                   "text-16 leading-[16px] hover:underline underline-offset-8 decoration-text/color/action-item/button",
                   {
-                    underline: isOnPath(pathName, route.href),
+                    underline: pathName && isOnPath(pathName, route.href),
                   },
                 )}
                 href={route.href}
