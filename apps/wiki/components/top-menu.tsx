@@ -13,11 +13,11 @@ export function TopMenu() {
   return (
     <div className="w-full h-72 sticky bg-white/80 backdrop-blur-sm top-0 z-50 py-16 px-24">
       <div className="h-[40px] flex items-center justify-between">
-        <Link href="/" className="text-[20px] font-normal text-[#532D37]">
+        <Link href="/" className="text-[20px] font-normal text-text/color/primary/title-s">
           Kobber
         </Link>
 
-        <ul className=" text-[#532D37]  items-center gap-[24px] hidden md:flex">
+        <ul className=" text-text/color/action-item/button  items-center gap-[24px] hidden md:flex">
           {mainRoutes.map((route, index) => (
             <li key={index}>
               <Link
@@ -31,7 +31,7 @@ export function TopMenu() {
             </li>
           ))}
         </ul>
-        <Button size={"icon"} className="flex md:hidden">
+        <Button size={"icon"} className="flex md:hidden bg-[#F9EAED]">
           <Menu className="size-5" />
         </Button>
       </div>

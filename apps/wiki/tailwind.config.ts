@@ -30,6 +30,12 @@ const config = {
         "24": "24px",
       },
       colors: {
+        // KOBBER TOKENS
+        "text/color/primary/title-s": "#481125",
+        "text/color/action-item/button": "#481125",
+
+        // START LEGACY
+
         "karmin-50": "#fceae9",
         "karmin-525": "#DC134F",
         "karmin-750": "#75011e",
@@ -46,6 +52,9 @@ const config = {
         "vin-325": "#CC94A1",
         "vin-525": "#A35E70",
         "vin-600": "#884d5d",
+
+        // END LEGACY
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
