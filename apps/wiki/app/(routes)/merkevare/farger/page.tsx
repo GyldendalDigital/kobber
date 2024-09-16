@@ -12,9 +12,9 @@ export default function FargerSection() {
         fargekombinasjoner som oppfyller kravene til universell utforming."
       />
       <div className="flex flex-row items-center gap-5">
-        <FargerBox />
-        <FargerBox />
-        <FargerBox />
+        <FargerBox type="Identitetspalett" />
+        <FargerBox type="Temafarger" />
+        <FargerBox type="UI-farger" />
       </div>
     </section>
   );
