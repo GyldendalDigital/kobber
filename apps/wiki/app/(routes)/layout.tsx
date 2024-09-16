@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("bg-white min-h-screen h-full size-full antialiased transition-all", PPMori.className)}>
-        <div className="grid mx-auto bg-blue-200 w-full sm:max-w-[240px] md:max-w-[400px]  xl:max-w-[960px] 2xl:max-w-[1280px] h-full overflow-hidden">
+        <div className="grid mx-auto  w-full sm:max-w-[240px] md:max-w-[400px]  xl:max-w-[960px] 2xl:max-w-[1280px] h-full overflow-hidden">
           <TopMenu />
           {children}
         </div>

@@ -40,6 +40,8 @@ const config = {
         "aubergine-750": "#6A1830",
         "aubergine-850": "#481125",
 
+        "carmine-525": "#DC134F",
+
         "vin-50": "#F3ECED",
         "vin-150": "#E5CFD3",
         "vin-325": "#CC94A1",
