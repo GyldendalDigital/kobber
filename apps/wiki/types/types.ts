@@ -2,6 +2,8 @@ export type RouteType = {
   title: string;
   href: string;
   disabled?: boolean;
+  isComing?: boolean;
+  subRoutes?: RouteType[];
 };
 
 export type RouteDataType = {
@@ -24,4 +26,9 @@ export type FeatureBoxType = {
 export type NewsType = {
   date: Date;
   title: string;
+};
+
+export type SideMenuBarType = {
+  groupTitle: string;
+  routes: RouteType[];
 };

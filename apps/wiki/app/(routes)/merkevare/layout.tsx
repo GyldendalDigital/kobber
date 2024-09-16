@@ -1,19 +1,19 @@
-import { SideBar } from "@/components/side-bar"
-import { LogoSVG } from "@/components/svg"
-import { BrandingRoutesData } from "@/data/routes-data"
+import { SideMenuBar } from "@/components/side-bar-menu/side-menu-bar";
+import { LogoSVG } from "@/components/svg";
+import { VareMerkeRoutes } from "@/config/routes";
 
 type GetStartedLayoutProps = {
-	children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
-	return (
-		<div className="grid grid-cols-[270px_1fr] overflow-hidden gap-5">
-			<div className="w-full md:w-[270px] rounded-[8px] space-y-96 ">
-				<SideBar routes={BrandingRoutesData} />
-				<LogoSVG />
-			</div>
-			<div className="w-full pb-20">{children}</div>
-		</div>
-	)
+  return (
+    <div className="grid grid-cols-[270px_1fr] overflow-hidden gap-5">
+      <div className="w-full md:w-[270px] rounded-[8px] space-y-96 ">
+        <SideMenuBar items={VareMerkeRoutes} />
+        <LogoSVG />
+      </div>
+      <div className="w-full pb-20">{children}</div>
+    </div>
+  );
 }
