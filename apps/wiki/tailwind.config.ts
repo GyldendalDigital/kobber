@@ -22,39 +22,37 @@ const config = {
       },
     },
     extend: {
+      // TODO: INSERT KOBBER TOKENS
       height: {
         "72": `${tokens.default.primitives.size[72]}px`,
       },
+      // TODO: INSERT KOBBER TOKENS
       padding: {
         "16": "16px",
         "24": "24px",
       },
+      // TODO: INSERT KOBBER TOKENS
       colors: {
         // KOBBER TOKENS
         "text/color/primary/title-s": "#481125",
+        "text/color/primary/title-m": "#481125",
+
+        "text/color/primary/display-s": "#481125",
+        "text/color/primary/heading-s": "#481125",
         "text/color/action-item/button": "#481125",
+        "text/color/secondary/display-s": "#DC134F",
 
         // START LEGACY
 
-        "karmin-50": "#fceae9",
-        "karmin-525": "#DC134F",
-        "karmin-750": "#75011e",
-        "karmin-850": "#4b0612",
         "aubergine-25": "#FDF9F9",
-        "aubergine-50": "#f9eaec",
+        "aubergine-50": "#F9EAED",
         "aubergine-250": "#f3a6b2",
-        "aubergine-675": "#8b2241",
-        "aubergine-750": "#6A1830",
         "aubergine-850": "#481125",
         "carmine-525": "#DC134F",
-        "vin-50": "#F3ECED",
-        "vin-150": "#E5CFD3",
-        "vin-325": "#CC94A1",
-        "vin-525": "#A35E70",
-        "vin-600": "#884d5d",
 
         // END LEGACY
 
+        // TODO: INSERT KOBBER TOKENS
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

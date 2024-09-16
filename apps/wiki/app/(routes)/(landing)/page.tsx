@@ -10,9 +10,9 @@ export default function Home() {
     <main className="flex flex-col gap-0 md:gap-10 pb-10">
       <HeroBanner image={GylImage} />
       {/* MAIN CONTENT */}
-      <div className="pt-[48px] px-[16px] md:py-0 md:px-[64px] pb-0 flex flex-col gap-10">
+      <div className="pt-[48px] px-[16px] md:py-0 md:px-[64px] pb-0 flex flex-col gap-14">
         <div className="grid gap-5">
-          <h2 className="text-karmin-750 text-[28px] font-normal">Utforsk</h2>
+          <h2 className="text-text/color/primary/heading-s text-[28px] font-normal">Utforsk</h2>
           <div className="flex flex-col md:flex-row gap-5">
             {boxes.map((item, index) => (
               <FeatureBox key={index} item={item} />
@@ -22,7 +22,7 @@ export default function Home() {
 
         <div className="grid gap-[64px] px-[16px]">
           <div className="h-[182px] grid gap-[16px]">
-            <h3 className="text-karmin-850 text-[23px]">Hva er nytt?</h3>
+            <h3 className="text-text/color/primary/title-m text-[23px]">Hva er nytt?</h3>
             {news.map((item, index) => (
               <AwardListItem key={index} award={item} />
             ))}
