@@ -32,3 +32,10 @@ export type SideMenuBarType = {
   groupTitle: string;
   routes: RouteType[];
 };
+
+export type ColorItemType = {
+  name: string;
+  hex: string;
+  rgb: string;
+  hasBorder?: boolean;
+};

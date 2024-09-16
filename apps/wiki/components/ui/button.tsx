@@ -16,6 +16,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-[#532D37] underline-offset-4 hover:underline ",
         menu: "text-[#532D37] hover:bg-aubergine-25 underline-offset-4",
+        info: "text-button/text/color/informative/main/primrary/fallback",
       },
       size: {
         default: "h-[44px] px-[14px] ",

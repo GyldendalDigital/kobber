@@ -43,6 +43,7 @@ const config = {
 
         "text/color/primary/title-s": "#481125",
         "text/color/primary/title-m": "#481125",
+        "text/color/primary/label-s": "#884D5D",
 
         "text/color/primary/display-s": "#481125",
         "text/color/primary/heading-s": "#481125",
@@ -50,6 +51,8 @@ const config = {
         "text/color/secondary/display-s": "#DC134F",
 
         "identity/meta/foreground": "#A35E70",
+
+        "button/text/color/informative/main/primrary/fallback": "#4420B0",
 
         // START LEGACY
 

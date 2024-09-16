@@ -13,7 +13,7 @@ export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
         <SideMenuBar items={VareMerkeRoutes} />
         <LogoSVG />
       </div>
-      <div className="w-full pb-20">{children}</div>
+      <section className="w-full md:w-[857px] pb-20">{children}</section>
     </div>
   );
 }

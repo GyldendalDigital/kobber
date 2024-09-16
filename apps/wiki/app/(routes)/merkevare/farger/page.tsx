@@ -3,7 +3,7 @@ import { FargerBox } from "./_components/farger-box";
 
 export default function FargerSection() {
   return (
-    <section className="w-full md:w-[858px] grid gap-14">
+    <div className="w-full md:w-[858px] grid gap-14">
       <TextCollection
         title="Farger"
         description="Gyldendals fargepalett er laget for å balansere det funksjonelle og det emosjonelle, og håndtere et bredt utvalg
@@ -16,6 +16,6 @@ export default function FargerSection() {
         <FargerBox type="Temafarger" />
         <FargerBox type="UI-farger" />
       </div>
-    </section>
+    </div>
   );
 }
