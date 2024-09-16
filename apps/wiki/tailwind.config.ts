@@ -31,6 +31,10 @@ const config = {
         "16": "16px",
         "24": "24px",
       },
+
+      gap: {
+        "24": "24px",
+      },
       // TODO: INSERT KOBBER TOKENS
       colors: {
         // KOBBER TOKENS

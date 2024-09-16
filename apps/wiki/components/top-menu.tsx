@@ -11,19 +11,22 @@ export function TopMenu() {
   const pathName = usePathname();
 
   return (
-    <div className="w-full h-72 sticky bg-white/80 backdrop-blur-sm top-0 z-50 py-16 px-24">
+    <div className="w-full h-72 sticky bg-aubergine-25/80 backdrop-blur-sm top-0 z-50 py-16 px-24">
       <div className="h-[40px] flex items-center justify-between">
         <Link href="/" className="text-[20px] font-normal text-text/color/primary/title-s">
           Kobber
         </Link>
 
-        <ul className=" text-text/color/action-item/button  items-center gap-[24px] hidden md:flex">
+        <ul className=" text-text/color/action-item/button   items-center gap-24 hidden md:flex">
           {mainRoutes.map((route, index) => (
             <li key={index}>
               <Link
-                className={cn("text-16 leading-[16px] hover:underline", {
-                  underline: isOnPath(pathName, route.href),
-                })}
+                className={cn(
+                  "text-16 leading-[16px] hover:underline underline-offset-8 decoration-text/color/action-item/button",
+                  {
+                    underline: isOnPath(pathName, route.href),
+                  },
+                )}
                 href={route.href}
               >
                 {route.title}
