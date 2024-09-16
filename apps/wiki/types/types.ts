@@ -1,22 +1,27 @@
 export type RouteType = {
-	title: string
-	href: string
-	disabled?: boolean
-}
+  title: string;
+  href: string;
+  disabled?: boolean;
+};
 
 export type RouteDataType = {
-	headerImage?: string
-	topicTitle?: string
-	title: string
-	description: string
-	text: string
-	href: string
-	hrefTitle: string
-}
+  headerImage?: string;
+  topicTitle?: string;
+  title: string;
+  description: string;
+  text: string;
+  href: string;
+  hrefTitle: string;
+};
 
 export type FeatureBoxType = {
-	title: string
-	image?: string
-	href?: string
-	onClick?: () => void
-}
+  title: string;
+  image?: string;
+  href?: string;
+  onClick?: () => void;
+};
+
+export type NewsType = {
+  date: Date;
+  title: string;
+};

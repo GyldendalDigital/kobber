@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
-import { TopBar } from "@/components/top-bar";
+import { TopMenu } from "@/components/top-menu";
 
 const PPMori = localFont({
   src: [
@@ -30,11 +30,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("bg-white min-h-screen h-full size-full antialiased transition-all", PPMori.className)}>
-        <div className=" flex flex-col items-center w-full md:w-[1280px] mx-auto h-full">
-          <div className="w-full md:w-[1280px] h-full flex flex-col">
-            <TopBar />
-            {children}
-          </div>
+        <div className="grid mx-auto bg-blue-200 w-full sm:max-w-[240px] md:max-w-[400px]  xl:max-w-[960px] 2xl:max-w-[1280px] h-full overflow-hidden">
+          <TopMenu />
+          {children}
         </div>
       </body>
     </html>

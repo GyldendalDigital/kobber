@@ -4,7 +4,7 @@ type ContentPageProps = {
   image: StaticImageData;
 };
 
-export function ContentPane({ image }: ContentPageProps) {
+export function HeroBanner({ image }: ContentPageProps) {
   return (
     <div className="w-full h-full md:h-[491px]  rounded-none  gap-[8px]  flex items-center justify-center bg-[#F9EAED] py-[32px] px-[16px]  md:py-[74px] md:px-[64px]">
       <div className="w-full h-full flex-col flex md:flex-row items-center gap-[72px] md:gap-[182px]">

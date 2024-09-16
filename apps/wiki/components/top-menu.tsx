@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 
-export function TopBar() {
+export function TopMenu() {
   const pathName = usePathname();
 
   return (

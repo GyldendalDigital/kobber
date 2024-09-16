@@ -1,22 +1,50 @@
 "use client";
-import { ContentPane } from "@/components/content-pane";
+import { HeroBanner } from "@/components/hero-banner";
 import GylImage from "@/public/gyl-art.png";
-import { FeatureBoxGrid } from "@/components/feature-box-grid";
-import { FeatureBoxType } from "@/types/types";
-import { KobberGrid } from "@gyldendal/kobber-components/react";
+import { FeatureBoxType, NewsType } from "@/types/types";
+import { FeatureBox } from "@/components/feature-box";
+import { AwardListItem } from "@/components/award-list-item";
 
-const boxes: FeatureBoxType[] = [
+export default function Home() {
+  return (
+    <main className="flex flex-col gap-0 md:gap-10">
+      <HeroBanner image={GylImage} />
+      {/* MAIN CONTENT */}
+      <div className="pt-[48px] px-[16px] md:py-0 md:px-[64px] pb-0 flex flex-col gap-10">
+        <div className="grid gap-5">
+          <h2 className="text-karmin-750 text-[28px] font-normal">Utforsk</h2>
+          <div className="flex flex-col md:flex-row gap-5">
+            {boxes.map((item, index) => (
+              <FeatureBox key={index} item={item} />
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-[64px] px-[16px]">
+          <div className="h-[182px] grid gap-[16px]">
+            <h3 className="text-karmin-850 text-[23px]">Hva er nytt?</h3>
+            {news.map((item, index) => (
+              <AwardListItem key={index} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+export const boxes: FeatureBoxType[] = [
   {
-    title: "Er du ny?",
+    title: "Er du UI/UX-designer?",
     href: "/kom-i-gang",
     image: "",
   },
   {
-    title: "Lager du grensesnitt?",
+    title: "Skriver du kode?",
     image: "",
   },
   {
-    title: "Skriver du kode?",
+    title: "Lager du innhold?",
     image: "",
     href: "/komponenter",
   },
@@ -26,19 +54,17 @@ const boxes: FeatureBoxType[] = [
   },
 ];
 
-export default function Home() {
-  return (
-    <main className="flex flex-col gap-10">
-      <ContentPane image={GylImage} />
-      <FeatureBoxGrid items={boxes} />
-      {/* <KobberCheckbox />
-			<KobberProgressBar>
-				<KobberProgressBarItem />
-			</KobberProgressBar>
-			<KobberGrid>
-				<div>Div 1</div>
-				<div>Div 2</div>
-			</KobberGrid> */}
-    </main>
-  );
-}
+export const news: NewsType[] = [
+  {
+    title: "Nyhet 1",
+    date: new Date(),
+  },
+  {
+    title: "Nyhet 2",
+    date: new Date(),
+  },
+  {
+    title: "Nyhet 3",
+    date: new Date(),
+  },
+];
