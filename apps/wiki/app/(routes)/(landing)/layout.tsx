@@ -1,14 +1,14 @@
-import Footer from "@/components/footer"
+import Footer from "@/components/footer";
 
 type HomeLayoutProps = {
-	children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export default function HomeLayout({ children }: HomeLayoutProps) {
-	return (
-		<div className="space-y-10">
-			{children}
-			<Footer />
-		</div>
-	)
+  return (
+    <div className="space-y-10">
+      {children}
+      <Footer />
+    </div>
+  );
 }

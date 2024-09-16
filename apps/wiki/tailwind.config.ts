@@ -30,7 +30,7 @@ const config = {
       },
       colors: {
         "karmin-50": "#fceae9",
-        "karmin-525": "#E50143",
+        "karmin-525": "#DC134F",
         "karmin-750": "#75011e",
         "karmin-850": "#4b0612",
         "aubergine-25": "#FDF9F9",
@@ -38,7 +38,7 @@ const config = {
         "aubergine-250": "#f3a6b2",
         "aubergine-675": "#8b2241",
         "aubergine-750": "#6A1830",
-        "aubergine-850": "#481120",
+        "aubergine-850": "#481125",
 
         "vin-50": "#F3ECED",
         "vin-150": "#E5CFD3",
