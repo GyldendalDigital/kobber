@@ -1,8 +1,13 @@
 ---
 import "@fontsource/fira-code";
 import { getTheme } from "../theme";
-import Forside from "./Forside.md";
 import "../styles/global.css";
+import { Borders } from "../components/designTokens/borders/Borders";
+import Colors from "../components/designTokens/colors/Colors.astro";
+import FluidDiagram from "../components/designTokens/fluidDiagram/FluidDiagram.astro";
+import { Elevation } from "../components/designTokens/elevation/Elevation";
+import { Sizes } from "../components/designTokens/sizes/Sizes";
+import * as defaultTokens from "@gyldendal/kobber-base/themes/default/tokens";
 
 interface Props {
   title?: string;
@@ -10,9 +15,7 @@ interface Props {
 
 const { title } = Astro.props;
 
-const titleWithSuffix = title
-  ? `${title} - Kobber - Gyldendals designsystem`
-  : "Kobber - Gyldendals designsystem";
+const titleWithSuffix = title ? `${title} - Kobber - Gyldendals designsystem` : "Kobber - Gyldendals designsystem";
 
 const theme = getTheme(Astro);
 ---
@@ -28,8 +31,11 @@ const theme = getTheme(Astro);
     <title>{titleWithSuffix}</title>
   </head>
 
-  <div class="commingsoon">Kobber dokumentasjon åpner i løpet av april.</div>
-  <!-- <Forside /> -->
+  <Sizes />
+  <FluidDiagram tokenName="layout.gap" fluidTokens={defaultTokens.layout.gap} />
+  <Elevation />
+  <Colors />
+  <Borders />
 
   <!-- OpenGraph Tags -->
   <meta property="og:title" content={titleWithSuffix} />
@@ -45,7 +51,7 @@ const theme = getTheme(Astro);
     import RefreshRuntime from "/@react-refresh";
     RefreshRuntime.injectIntoGlobalHook(window);
     window.$RefreshReg$ = () => {};
-    window.$RefreshSig$ = () => (type) => type;
+    window.$RefreshSig$ = () => type => type;
     window.__vite_plugin_react_preamble_installed__ = true;
   </script>
 

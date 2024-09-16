@@ -5,7 +5,7 @@ import {
   useEffect,
   useRef,
 } from "react";
-import * as styles from "./richText.module.css";
+import styles from "./richText.module.css";
 
 interface Props {
   children: ReactNode;
