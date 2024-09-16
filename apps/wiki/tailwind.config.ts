@@ -59,6 +59,7 @@ const config = {
         "carmine-525": "#DC134F",
         "vin-150": "#E5CFD3",
         "wine-150": "#E5CFD3",
+        "wine-750": "#532D37",
 
         // END LEGACY
 
