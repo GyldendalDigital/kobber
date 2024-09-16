@@ -11,7 +11,7 @@ type FeatureBoxProps = {
 export function FeatureBox({ item }: FeatureBoxProps) {
   if (item.href) {
     return (
-      <div className="w-full md:w-[270px] h-[282px] flex p-4 justify-start items-end relative rounded-[14px] overflow-hidden bg-[#EAE0E1]">
+      <div className="w-full md:w-[270px] md:h-[220px] h-[282px] flex p-4 justify-start items-end relative rounded-[14px] overflow-hidden bg-[#EAE0E1]">
         {item.image ? <Image src={item.image} fill alt="Image" className="object-cover" /> : null}
         <Link href={item.href} className={cn(buttonVariants({}))}>
           {item.title}
@@ -21,7 +21,7 @@ export function FeatureBox({ item }: FeatureBoxProps) {
   }
 
   return (
-    <div className="w-full md:w-[270px] h-[282px] flex p-4 justify-start items-end relative rounded-[14px] overflow-hidden bg-[#EAE0E1]">
+    <div className="w-full md:w-[270px] md:h-[220px] h-[282px] flex p-4 justify-start items-end relative rounded-[14px] overflow-hidden bg-[#EAE0E1]">
       {item.image ? <Image src={item.image} fill alt="Image" className="object-cover" /> : null}
       <Button>{item.title}</Button>
     </div>

@@ -34,6 +34,9 @@ const config = {
       // TODO: INSERT KOBBER TOKENS
       colors: {
         // KOBBER TOKENS
+
+        "text/color/primary/body": "#481125",
+
         "text/color/primary/title-s": "#481125",
         "text/color/primary/title-m": "#481125",
 
@@ -42,13 +45,15 @@ const config = {
         "text/color/action-item/button": "#481125",
         "text/color/secondary/display-s": "#DC134F",
 
+        "identity/meta/foreground": "#A35E70",
+
         // START LEGACY
 
         "aubergine-25": "#FDF9F9",
         "aubergine-50": "#F9EAED",
         "aubergine-250": "#f3a6b2",
-        "aubergine-850": "#481125",
         "carmine-525": "#DC134F",
+        "vin-150": "#E5CFD3",
 
         // END LEGACY
 

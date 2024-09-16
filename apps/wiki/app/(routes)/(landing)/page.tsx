@@ -56,15 +56,15 @@ export const boxes: FeatureBoxType[] = [
 
 export const news: NewsType[] = [
   {
-    title: "Nyhet 1",
+    title: "Dette er nyhet nummer 1",
     date: new Date(),
   },
   {
-    title: "Nyhet 2",
+    title: "Dette er nyhet nummer 2",
     date: new Date(),
   },
   {
-    title: "Nyhet 3",
+    title: "Dette er nyhet nummer 3",
     date: new Date(),
   },
 ];
