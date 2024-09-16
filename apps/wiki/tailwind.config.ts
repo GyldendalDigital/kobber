@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { tokens } from "./lib/theme";
 
 const config = {
   darkMode: ["class"],
@@ -22,7 +23,7 @@ const config = {
     },
     extend: {
       height: {
-        "72": "72px",
+        "72": `${tokens.default.primitives.size[72]}px`,
       },
       padding: {
         "16": "16px",
@@ -39,9 +40,7 @@ const config = {
         "aubergine-675": "#8b2241",
         "aubergine-750": "#6A1830",
         "aubergine-850": "#481125",
-
         "carmine-525": "#DC134F",
-
         "vin-50": "#F3ECED",
         "vin-150": "#E5CFD3",
         "vin-325": "#CC94A1",
