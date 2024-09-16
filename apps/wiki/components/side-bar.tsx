@@ -20,7 +20,7 @@ export function SideBar({ routes }: SideBarProps) {
 					<Link
 						href={route.href}
 						className={cn(buttonVariants({ variant: "menu", size: "sm", className: "w-full justify-start" }), {
-							" underline": isOnPath(pathName, route.href),
+							" underline": pathName && isOnPath(pathName, route.href),
 						})}
 					>
 						{route.hrefTitle}
