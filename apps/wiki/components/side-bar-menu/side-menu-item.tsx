@@ -13,7 +13,7 @@ type SideMenuItemProps = {
 };
 
 export function SideMenuItem({ routes, name }: SideMenuItemProps) {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(true);
   return (
     <Collapsible className="grid gap-[8px] w-full " open={isOpen} onOpenChange={setIsOpen}>
       <CollapsibleTrigger asChild>

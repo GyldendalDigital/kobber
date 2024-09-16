@@ -10,14 +10,14 @@ type SideMenuItemLinkProps = {
 
 export function SideMenuItemLink({ route }: SideMenuItemLinkProps) {
   const pathname = usePathname();
-  const isOnPath = pathname && pathname === route.href;
+  const isOnPath = pathname && pathname == route.href;
 
   return (
     <li>
       <Link
         href={route.isComing ? "#" : route.href}
         className={cn("p-[16px] flex items-center gap-[8px]  h-[48px]  rounded-md hover:bg-aubergine-50", {
-          "underline underline-offset-8 decoration-text/color/action-item/button": isOnPath,
+          "underline underline-offset-8 decoration-wine-750": isOnPath,
         })}
       >
         <span className="text-text/color/action-item/button text-sm">{route.title}</span>
@@ -34,7 +34,7 @@ export function SideMenuItemLink({ route }: SideMenuItemLinkProps) {
                 <Link
                   href={subRoute.isComing ? "#" : subRoute.href}
                   className={cn("p-[16px] flex items-center gap-[8px]  h-[48px]  rounded-md hover:bg-aubergine-50", {
-                    "underline underline-offset-8 decoration-text/color/action-item/button": isSubRouteOnPath,
+                    "underline underline-offset-8 decoration-wine-750": isSubRouteOnPath,
                   })}
                 >
                   <span className="text-text/color/action-item/button text-sm">{subRoute.title}</span>
