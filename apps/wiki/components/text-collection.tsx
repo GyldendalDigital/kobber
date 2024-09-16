@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 type TextCollectionProps = {
   title: string;
-  description: string;
+  description?: string;
   size?: "sm" | "md" | "lg";
 };
 
@@ -24,15 +24,17 @@ export function TextCollection({ title, description, size = "md" }: TextCollecti
       >
         {title}
       </h1>
-      <p
-        className={cn("text-text/color/primary/title-m leading-[33.6px]    ", {
-          "text-[14px] w-[70ch]": size === "sm",
-          "text-[18px] w-[60ch]": size === "md",
-          "text-[20px] w-[40ch]": size === "lg",
-        })}
-      >
-        {description}
-      </p>
+      {description && (
+        <p
+          className={cn("text-text/color/primary/title-m leading-[33.6px]    ", {
+            "text-[14px] w-[60ch]": size === "sm",
+            "text-[18px] w-[60ch]": size === "md",
+            "text-[20px] w-[40ch]": size === "lg",
+          })}
+        >
+          {description}
+        </p>
+      )}
     </div>
   );
 }

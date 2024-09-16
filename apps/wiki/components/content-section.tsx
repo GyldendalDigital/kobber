@@ -3,7 +3,7 @@ import { TextCollection } from "./text-collection";
 
 type ContentSectionProps = {
   title: string;
-  description: string;
+  description?: string;
   children: ReactNode;
 };
 

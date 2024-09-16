@@ -13,6 +13,11 @@ const AubergineColors: ColorItemType[] = [
   { name: "Aubergine 900", hex: "#330314", rgb: "(51, 3, 20)" },
   { name: "Aubergine 1000", hex: "#28000E", rgb: "(40, 0 ,14)" },
 ];
+const VinColors: ColorItemType[] = [
+  { name: "Wine 150", hex: "#E5CFD3", rgb: "(229, 207, 211)" },
+  { name: "Wine 525", hex: "#A35E70", rgb: "(163, 94, 112)" },
+  { name: "Wine 600", hex: "#884D5D", rgb: "(136, 77, 93)" },
+];
 
 export default function IdentitetsPalett() {
   return (
@@ -28,12 +33,24 @@ export default function IdentitetsPalett() {
       >
         <ColorBlockItem color={{ name: "Karmin 525", hex: "#DC134F", rgb: "(220, 19, 79)" }} enableCopy />
       </ContentSection>
+
       <ContentSection
         title="Aubergine"
         description="Auberginepaletten brukes aktivt i identiteten, til både tekstfarger og bakgrunnsfarger i henholdsvis mørkt eller lyst utrykk. Midttonen brukes til stikktitler, skillestreker og metatekster. Aubergine 25 brukes istedenfor helt hvitt og Aubergine 1000 erstatter helt svart."
       >
         <div className="grid grid-cols-4 gap-[24px]">
           {AubergineColors.map((color, index) => (
+            <ColorBlockItem key={index} color={color} />
+          ))}
+        </div>
+      </ContentSection>
+
+      <ContentSection
+        title="Vin"
+        description="Vin brukes i inaktive knapper, skillestreker, ingresser og metatekster, både i lyst og mørkt utrykk."
+      >
+        <div className="grid grid-cols-4 gap-[24px]">
+          {VinColors.map((color, index) => (
             <ColorBlockItem key={index} color={color} />
           ))}
         </div>
