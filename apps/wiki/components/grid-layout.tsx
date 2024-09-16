@@ -8,11 +8,12 @@ type GridLayoutProps = {
 };
 
 export function GridLayout({ children }: GridLayoutProps) {
-  return <div></div>;
-  // return (
-  //   <KobberGrid maxWidth="100%" alignItems="center" gridTemplateColumns={"repeat(1, minmax(0,1fr))"}>
-  //     <TopMenu />
-  //     {children}
-  //   </KobberGrid>
-  // );
+  // return <div></div>;
+
+  return (
+    <KobberGrid maxWidth="100%" alignItems="center" gridTemplateColumns={"repeat(1, minmax(0,1fr))"}>
+      <TopMenu />
+      {children}
+    </KobberGrid>
+  );
 }
