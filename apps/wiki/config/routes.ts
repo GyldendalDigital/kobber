@@ -72,6 +72,24 @@ export const VareMerkeRoutes: SideMenuBarType[] = [
       {
         title: "Typografi",
         href: `${BRANDING_URL}/typografi`,
+        subRoutes: [
+          {
+            title: "PP-Mori",
+            href: `${BRANDING_URL}/typografi/pp-mori`,
+          },
+          {
+            title: "Lyon",
+            href: `${BRANDING_URL}/typografi/lyon`,
+          },
+          {
+            title: "Inter",
+            href: `${BRANDING_URL}/typografi/inter`,
+          },
+          {
+            title: "Retningslinjer",
+            href: `${BRANDING_URL}/typografi/retningslinjer`,
+          },
+        ],
       },
       {
         title: "Ikoner",

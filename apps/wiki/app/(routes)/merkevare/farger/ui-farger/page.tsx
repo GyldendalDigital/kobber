@@ -8,12 +8,12 @@ export default function UiFarger() {
   return (
     <SectionLayout>
       <TextCollection
-        title="UI-farger"
-        description="Vi har noen farger som er forbeholdt digitale grensesnitt. Dette inkluderer farger som skal kommunisere til sluttbrukeren om suksess, informasjon og advarsler, samt en nøytral palett."
+        heading="UI-farger"
+        ingress="Vi har noen farger som er forbeholdt digitale grensesnitt. Dette inkluderer farger som skal kommunisere til sluttbrukeren om suksess, informasjon og advarsler, samt en nøytral palett."
       />
 
       {UIColors.map((theme, index) => (
-        <ContentSection title={theme.title} key={index}>
+        <ContentSection heading={theme.title} key={index}>
           <ColorBlockGrid colors={theme.colors} />
         </ContentSection>
       ))}
