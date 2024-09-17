@@ -37,6 +37,8 @@ const config = {
       },
 
       fontSize: {
+        "display-s": ["48px", "60px"],
+        "heading-s": ["32px", "50px"],
         body: ["16px", "25px"],
         "title-m": ["24px", "40px"],
       },
