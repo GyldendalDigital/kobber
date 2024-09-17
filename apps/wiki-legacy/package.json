@@ -22,13 +22,13 @@
     "@gyldendal/kobber-base": "*",
     "@gyldendal/kobber-components": "*",
     "@gyldendal/kobber-scene": "*",
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
+    "@types/react": "18.3.6",
+    "@types/react-dom": "18.3.0",
     "astro": "^4.4.2",
     "highlight.js": "^11.8.0",
     "mime": "^4.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-icons": "^4.11.0"
   },
   "devDependencies": {
