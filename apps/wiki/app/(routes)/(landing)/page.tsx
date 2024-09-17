@@ -2,8 +2,9 @@
 import { HeroBanner } from "@/components/hero-banner";
 import GylImage from "@/public/gyl-art.png";
 import { FeatureBoxType, NewsType } from "@/types/types";
-import { FeatureBox } from "@/components/feature-box";
+import { FeatureBoxGridItem } from "@/components/feature-box-grid-item";
 import { AwardListItem } from "@/components/award-list-item";
+import { FeatureBoxGrid } from "@/components/feature-box-grid";
 
 const boxes: FeatureBoxType[] = [
   {
@@ -49,11 +50,7 @@ export default function Home() {
       <div className="pt-[48px] px-[16px] md:py-0 md:px-[64px] pb-0 flex flex-col gap-14">
         <div className="grid gap-5">
           <h2 className="text-text/color/primary/heading-s text-[28px] font-normal">Utforsk</h2>
-          <div className="flex flex-col md:flex-row gap-5">
-            {boxes.map((item, index) => (
-              <FeatureBox key={index} item={item} />
-            ))}
-          </div>
+          <FeatureBoxGrid items={boxes} />
         </div>
 
         <div className="grid gap-[64px] px-[16px]">

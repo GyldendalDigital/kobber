@@ -1,5 +1,14 @@
 import { TextCollection } from "@/components/text-collection";
-import { FargerBox } from "./_components/farger-box";
+import { FeatureBoxType } from "@/types/types";
+import { FeatureBoxGrid } from "@/components/feature-box-grid";
+
+const url = "/merkevare/farger";
+
+const featureItems: FeatureBoxType[] = [
+  { title: "Identitetspalett", href: `${url}/identitetspalett` },
+  { title: "Temafarger", href: `${url}/temafarger` },
+  { title: "UI-farger", href: `${url}/ui-farger` },
+];
 
 export default function FargerSection() {
   return (
@@ -11,11 +20,8 @@ export default function FargerSection() {
         digitale tjenester. Mangfold er en av Gyldendals viktigste verdier, og det skal derfor være lett å lage
         fargekombinasjoner som oppfyller kravene til universell utforming."
       />
-      <div className="flex flex-row items-center gap-5">
-        <FargerBox type="Identitetspalett" />
-        <FargerBox type="Temafarger" />
-        <FargerBox type="UI-farger" />
-      </div>
+
+      <FeatureBoxGrid items={featureItems} />
     </div>
   );
 }

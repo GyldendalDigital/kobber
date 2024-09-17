@@ -1,4 +1,4 @@
-import { FeatureBox } from "@/components/feature-box";
+import { FeatureBox } from "@/components/feature-box-grid-item";
 import { ComponentsRoutesData } from "@/data/routes-data";
 import { FeatureBoxType } from "@/types/types";
 import Image from "next/image";

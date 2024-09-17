@@ -4,11 +4,11 @@ import { Button, buttonVariants } from "./ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type FeatureBoxProps = {
+type FeatureBoxGridItemProps = {
   item: FeatureBoxType;
 };
 
-export function FeatureBox({ item }: FeatureBoxProps) {
+export function FeatureBoxGridItem({ item }: FeatureBoxGridItemProps) {
   if (item.href) {
     return (
       <div className="w-full md:w-[270px] md:h-[220px] h-[282px] flex p-4 justify-start items-end relative rounded-[14px] overflow-hidden bg-[#EAE0E1]">

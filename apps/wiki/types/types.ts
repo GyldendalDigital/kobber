@@ -39,3 +39,9 @@ export type ColorItemType = {
   rgb: string;
   hasBorder?: boolean;
 };
+
+export type ColorThemeType = {
+  title: string;
+  description?: string;
+  colors: ColorItemType[];
+};

@@ -3,12 +3,12 @@ import { cn } from "@/lib/utils";
 import { ColorItemType } from "@/types/types";
 import { Copy } from "lucide-react";
 
-type ColorBlockItemProps = {
+type ColorBlockGridItem = {
   color: ColorItemType;
   enableCopy?: boolean;
 };
 
-export function ColorBlockItem({ color, enableCopy = false }: ColorBlockItemProps) {
+export function ColorBlockGridItem({ color, enableCopy = false }: ColorBlockGridItem) {
   return (
     <div className="w-fit grid gap-[16px]">
       <div

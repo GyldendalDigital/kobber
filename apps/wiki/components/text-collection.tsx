@@ -27,7 +27,7 @@ export function TextCollection({ title, description, size = "md" }: TextCollecti
       {description && (
         <p
           className={cn("text-text/color/primary/title-m leading-[33.6px]    ", {
-            "text-[14px] w-[60ch]": size === "sm",
+            "text-[14px] w-[67.5ch]": size === "sm",
             "text-[18px] w-[60ch]": size === "md",
             "text-[20px] w-[40ch]": size === "lg",
           })}

@@ -5,7 +5,7 @@ export default function UiFarger() {
     <div className="grid gap-10">
       <TextCollection
         title="UI-farger"
-        description="Dette er vår UiFarger, som består av de mest brukte fargene for å etablere Gyldendals stiluttrykk. Markedsføring forholder seg alltid til denne paletten, samtidig som utvidede paletter er tilgjengelige for designere av brukergrensesnitt og bokmalverk."
+        description="Vi har noen farger som er forbeholdt digitale grensesnitt. Dette inkluderer farger som skal kommunisere til sluttbrukeren om suksess, informasjon og advarsler, samt en nøytral palett."
       />
     </div>
   );
