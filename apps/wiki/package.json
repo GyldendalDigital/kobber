@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "@cloudflare/next-on-pages": "^1.13.2",
-    "@gyldendal/kobber-components": "*",
+    "@gyldendal/kobber-base": "workspace:^",
+    "@gyldendal/kobber-components": "workspace:^",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-collapsible": "^1.1.0",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
