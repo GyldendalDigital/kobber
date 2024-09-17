@@ -29,7 +29,7 @@ export function TextCollection({ heading, subheading, ingress, size = "md" }: Te
       {ingress && (
         <p
           className={cn("text-text/color/primary/title-m leading-[33.6px] whitespace-pre-wrap    ", {
-            "text-[14px] w-[67.5ch]": size === "sm",
+            "text-body w-[67.5ch]": size === "sm",
             "text-[18px] w-[60ch]": size === "md",
             "text-[20px] w-[40ch]": size === "lg",
           })}
