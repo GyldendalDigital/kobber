@@ -8,12 +8,17 @@ type GridLayoutProps = {
   children: ReactNode;
 };
 
-const KobberGrid = dynamic(() => import("@gyldendal/kobber-components/react").then(mod => mod.KobberGrid), {
-  ssr: false,
-});
+// const KobberGrid = dynamic(() => import("@gyldendal/kobber-components/react").then(mod => mod.KobberGrid), {
+//   ssr: false,
+// });
 
 export function GridLayout({ children }: GridLayoutProps) {
-  // return <div><TopMenu />{children}</div>;
+  return (
+    <div>
+      <TopMenu />
+      {children}
+    </div>
+  );
 
   // With user defined type definition (se kobber.types.tsx)
   // return (
@@ -26,10 +31,10 @@ export function GridLayout({ children }: GridLayoutProps) {
   // );
 
   // Without user defined type definition
-  return (
-    <KobberGrid maxWidth="100%" alignItems="center" gridTemplateColumns={"repeat(1, minmax(0,1fr))"}>
-      <TopMenu />
-      {children}
-    </KobberGrid>
-  );
+  // return (
+  //   <KobberGrid maxWidth="100%" alignItems="center" gridTemplateColumns={"repeat(1, minmax(0,1fr))"}>
+  //     <TopMenu />
+  //     {children}
+  //   </KobberGrid>
+  // );
 }
