@@ -7,13 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "pages:build": "npx @cloudflare/next-on-pages",
-    "preview": "yarn pages:build && wrangler pages dev",
-    "deploy": "yarn pages:build && wrangler pages deploy"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@cloudflare/next-on-pages": "^1.13.2",
     "@gyldendal/kobber-base": "*",
     "@gyldendal/kobber-components": "*",
     "@radix-ui/react-checkbox": "^1.1.1",
