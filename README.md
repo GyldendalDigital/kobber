@@ -2,7 +2,11 @@
 
 ## Run locally
 
-This project uses Yarn, so follow the directions on https://yarnpkg.com/getting-started/install to set up locally.
+Download yarn
+
+```
+corepack yarn
+```
 
 Then, run `yarn dev` for local development, or the other scripts in package.json.
 
