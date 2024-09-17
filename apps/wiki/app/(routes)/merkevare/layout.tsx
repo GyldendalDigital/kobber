@@ -1,3 +1,4 @@
+import { ContentLayout, ContentShell } from "@/components/content-layout";
 import { SideMenuBar } from "@/components/side-bar-menu/side-menu-bar";
 import { VareMerkeRoutes } from "@/config/routes";
 
@@ -7,11 +8,11 @@ type GetStartedLayoutProps = {
 
 export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
   return (
-    <div className="grid grid-cols-[270px_1fr] overflow-hidden gap-7 ">
-      <div className="w-full md:w-[270px]  ">
+    <ContentLayout>
+      <ContentShell>
         <SideMenuBar items={VareMerkeRoutes} />
-      </div>
+      </ContentShell>
       <section className="w-full md:w-[857px] pb-20">{children}</section>
-    </div>
+    </ContentLayout>
   );
 }

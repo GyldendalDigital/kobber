@@ -1,19 +1,18 @@
-import { SideBar } from "@/components/side-bar"
-import { LogoSVG } from "@/components/svg"
-import { ComponentsRoutesData } from "@/data/routes-data"
+import { ContentLayout, ContentShell } from "@/components/content-layout";
+import { SideMenuBar } from "@/components/side-bar-menu/side-menu-bar";
+import { ComponentsRoutes } from "@/config/routes";
 
 type ComponentsLayoutProps = {
-	children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export default function ComponentsLayout({ children }: ComponentsLayoutProps) {
-	return (
-		<div className="grid grid-cols-[270px_1fr] overflow-hidden gap-5">
-			<div className="w-full md:w-[270px] rounded-[8px] space-y-96 ">
-				<SideBar routes={ComponentsRoutesData} />
-				<LogoSVG />
-			</div>
-			<div className="w-full pb-20">{children}</div>
-		</div>
-	)
+  return (
+    <ContentLayout>
+      <ContentShell>
+        <SideMenuBar items={ComponentsRoutes} />
+      </ContentShell>
+      <section className="w-full pb-20">{children}</section>
+    </ContentLayout>
+  );
 }
