@@ -19,3 +19,7 @@ pnpm-debug.log*
 # turbo
 .turbo
 .yarn/install-state.gz
+
+
+# Generated icons (often with new internal indices)
+**/icon/icons/
