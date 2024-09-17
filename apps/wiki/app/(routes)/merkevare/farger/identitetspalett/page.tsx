@@ -3,10 +3,11 @@ import { TextCollection } from "@/components/text-collection";
 import { ColorBlockGridItem } from "@/components/color-block-grid-item";
 import { ColorBlockGrid } from "@/components/color-block-grid";
 import { IdentityColors } from "@/data/color-palettes";
+import { SectionLayout } from "@/components/section-layout";
 
 export default function IdentitetsPalett() {
   return (
-    <div className="grid gap-10">
+    <SectionLayout>
       <TextCollection
         title="Identitetspalett"
         description="Dette er vår identitetspalett, som består av de mest brukte fargene for å etablere Gyldendals stiluttrykk. Markedsføring forholder seg alltid til denne paletten, samtidig som utvidede paletter er tilgjengelige for designere av brukergrensesnitt og bokmalverk."
@@ -24,6 +25,6 @@ export default function IdentitetsPalett() {
           <ColorBlockGrid colors={theme.colors} />
         </ContentSection>
       ))}
-    </div>
+    </SectionLayout>
   );
 }

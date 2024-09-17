@@ -1,6 +1,7 @@
 import { TextCollection } from "@/components/text-collection";
 import { FeatureBoxType } from "@/types/types";
 import { FeatureBoxGrid } from "@/components/feature-box-grid";
+import { SectionLayout } from "@/components/section-layout";
 
 const url = "/merkevare/farger";
 
@@ -12,7 +13,7 @@ const featureItems: FeatureBoxType[] = [
 
 export default function FargerSection() {
   return (
-    <div className="w-full md:w-[858px] grid gap-14">
+    <SectionLayout>
       <TextCollection
         title="Farger"
         description="Gyldendals fargepalett er laget for å balansere det funksjonelle og det emosjonelle, og håndtere et bredt utvalg
@@ -22,6 +23,6 @@ export default function FargerSection() {
       />
 
       <FeatureBoxGrid items={featureItems} />
-    </div>
+    </SectionLayout>
   );
 }

@@ -1,11 +1,12 @@
 import { ColorBlockGrid } from "@/components/color-block-grid";
 import { ContentSection } from "@/components/content-section";
+import { SectionLayout } from "@/components/section-layout";
 import { TextCollection } from "@/components/text-collection";
 import { UIColors } from "@/data/color-palettes";
 
 export default function UiFarger() {
   return (
-    <div className="grid gap-10">
+    <SectionLayout>
       <TextCollection
         title="UI-farger"
         description="Vi har noen farger som er forbeholdt digitale grensesnitt. Dette inkluderer farger som skal kommunisere til sluttbrukeren om suksess, informasjon og advarsler, samt en nøytral palett."
@@ -16,6 +17,6 @@ export default function UiFarger() {
           <ColorBlockGrid colors={theme.colors} />
         </ContentSection>
       ))}
-    </div>
+    </SectionLayout>
   );
 }
