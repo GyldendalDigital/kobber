@@ -1,4 +1,5 @@
-import { FeatureBox } from "@/components/feature-box-grid-item";
+import { FeatureBoxGrid } from "@/components/feature-box-grid";
+import { FeatureBoxGridItem } from "@/components/feature-box-grid-item";
 import { ComponentsRoutesData } from "@/data/routes-data";
 import { FeatureBoxType } from "@/types/types";
 import Image from "next/image";
@@ -68,10 +69,7 @@ export default function ComponentsSection({ params }: ComponentsSectionProps) {
 
         <p className="whitespace-pre-wrap text-16 leading-[24px] text-[#532D37]">{text}</p>
       </div>
-
-      {boxes.map(box => (
-        <FeatureBox key={box.title} item={box} />
-      ))}
+      <FeatureBoxGrid items={boxes} />
     </section>
   );
 }

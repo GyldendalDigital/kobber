@@ -2,7 +2,6 @@
 import { HeroBanner } from "@/components/hero-banner";
 import GylImage from "@/public/gyl-art.png";
 import { FeatureBoxType, NewsType } from "@/types/types";
-import { FeatureBoxGridItem } from "@/components/feature-box-grid-item";
 import { AwardListItem } from "@/components/award-list-item";
 import { FeatureBoxGrid } from "@/components/feature-box-grid";
 
@@ -50,7 +49,7 @@ export default function Home() {
       <div className="pt-[48px] px-[16px] md:py-0 md:px-[64px] pb-0 flex flex-col gap-14">
         <div className="grid gap-5">
           <h2 className="text-text/color/primary/heading-s text-[28px] font-normal">Utforsk</h2>
-          <FeatureBoxGrid items={boxes} />
+          <FeatureBoxGrid items={boxes} className="md:grid-cols-4" />
         </div>
 
         <div className="grid gap-[64px] px-[16px]">
