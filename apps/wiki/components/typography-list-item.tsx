@@ -6,16 +6,25 @@ type TypographyListItemProps = {
 
 export function TypographyListItem({ typography }: TypographyListItemProps) {
   return (
-    <div className="rounded-[16px] w-full py-4 grid grid-cols-[fit-content(130px)_fit-content(150px)_1fr] gap-7 items-center">
-      <span className="text-text/color/primary/title-m text-[28px]">{typography.name}</span>
-      <div className="grid gap-[8px] text-text/color/primary/body ">
+    <div className="rounded-[16px] w-full py-4 grid grid-cols-[130px_150px_1fr] gap-7 items-center">
+      <span className="text-text/color/primary/title-m text-title-m">{typography.name}</span>
+      <div className="grid gap-[8px] text-text/color/primary/body text-body ">
         <span>Weight: {typography.weight}</span>
         <span>
           Size: {typography.rem.toLocaleString("no-NO")}rem / {typography.px}px
         </span>
         <span>Line height: {typography.lineHeight}px</span>
       </div>
-      <span className="text-text/color/primary/title-m text-[70px]">{typography.display}</span>
+      <span
+        className="text-text/color/primary/title-m"
+        style={{
+          fontSize: `${typography.rem}rem`,
+          lineHeight: `${typography.lineHeight}px`,
+          fontWeight: `${typography.weight.toLowerCase()}`,
+        }}
+      >
+        {typography.display}
+      </span>
     </div>
   );
 }
