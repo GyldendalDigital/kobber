@@ -2,15 +2,15 @@ import { ReactNode } from "react";
 import { TextCollection } from "./text-collection";
 
 type ContentSectionProps = {
-  title: string;
-  description?: string;
+  heading: string;
+  ingress?: string;
   children: ReactNode;
 };
 
-export function ContentSection({ title, description, children }: ContentSectionProps) {
+export function ContentSection({ heading, ingress, children }: ContentSectionProps) {
   return (
     <div className="grid gap-10">
-      <TextCollection title={title} description={description} size="sm" />
+      <TextCollection heading={heading} ingress={ingress} size="sm" />
       {children}
     </div>
   );

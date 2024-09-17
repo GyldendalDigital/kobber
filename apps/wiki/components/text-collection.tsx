@@ -1,12 +1,13 @@
 import { cn } from "@/lib/utils";
 
 type TextCollectionProps = {
-  title: string;
-  description?: string;
+  heading: string;
+  subheading?: string;
+  ingress?: string;
   size?: "sm" | "md" | "lg";
 };
 
-export function TextCollection({ title, description, size = "md" }: TextCollectionProps) {
+export function TextCollection({ heading, subheading, ingress, size = "md" }: TextCollectionProps) {
   return (
     <div
       className={cn("w-full md:w-[857px]  grid", {
@@ -22,9 +23,10 @@ export function TextCollection({ title, description, size = "md" }: TextCollecti
           "text-[62px]": size === "lg",
         })}
       >
-        {title}
+        {heading}
       </h1>
-      {description && (
+      {subheading && <h2 className="text-text/color/primary/title-m text-[26px]">{subheading}</h2>}
+      {ingress && (
         <p
           className={cn("text-text/color/primary/title-m leading-[33.6px]    ", {
             "text-[14px] w-[67.5ch]": size === "sm",
@@ -32,7 +34,7 @@ export function TextCollection({ title, description, size = "md" }: TextCollecti
             "text-[20px] w-[40ch]": size === "lg",
           })}
         >
-          {description}
+          {ingress}
         </p>
       )}
     </div>

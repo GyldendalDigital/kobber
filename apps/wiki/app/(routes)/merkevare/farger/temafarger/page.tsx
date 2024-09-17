@@ -8,11 +8,11 @@ export default function Temafarger() {
   return (
     <SectionLayout>
       <TextCollection
-        title="Temafarger"
-        description="Temafarger kan benyttes i avgrensede område for å sette stemning rundt et tema, en enkeltutgivelse eller en kolleksjon av utgivelser. Det er ikke tillatt å bruke disse palettene på et helt brukergrensesnitt eller for å kategorisere produkt-spesifikt innhold."
+        heading="Temafarger"
+        ingress="Temafarger kan benyttes i avgrensede område for å sette stemning rundt et tema, en enkeltutgivelse eller en kolleksjon av utgivelser. Det er ikke tillatt å bruke disse palettene på et helt brukergrensesnitt eller for å kategorisere produkt-spesifikt innhold."
       />
       {ThemeColors.map((theme, index) => (
-        <ContentSection key={index} title={theme.title}>
+        <ContentSection key={index} heading={theme.title}>
           <ColorBlockGrid colors={theme.colors} />
         </ContentSection>
       ))}
