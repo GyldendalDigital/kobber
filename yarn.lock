@@ -3145,7 +3145,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-components@npm:*, @gyldendal/kobber-components@workspace:packages/kobber-components":
+"@gyldendal/kobber-components@npm:*, @gyldendal/kobber-components@workspace:^, @gyldendal/kobber-components@workspace:packages/kobber-components":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-components@workspace:packages/kobber-components"
   dependencies:
@@ -15027,7 +15027,7 @@ __metadata:
   dependencies:
     "@cloudflare/next-on-pages": "npm:^1.13.2"
     "@gyldendal/kobber-base": "workspace:^"
-    "@gyldendal/kobber-components": "npm:*"
+    "@gyldendal/kobber-components": "workspace:^"
     "@ianvs/prettier-plugin-sort-imports": "npm:^4.3.1"
     "@radix-ui/react-checkbox": "npm:^1.1.1"
     "@radix-ui/react-collapsible": "npm:^1.1.0"
