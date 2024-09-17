@@ -45,3 +45,12 @@ export type ColorThemeType = {
   description?: string;
   colors: ColorItemType[];
 };
+
+export type TypographyItemType = {
+  name: string;
+  weight: "Regular" | "Bold" | "Light" | "Book" | "Semi Bold";
+  rem: number;
+  px: number;
+  lineHeight: number;
+  display: string;
+};

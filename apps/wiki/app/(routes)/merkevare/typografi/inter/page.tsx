@@ -1,5 +1,16 @@
-import React from "react";
+import { SectionLayout } from "@/components/section-layout";
+import { TextCollection } from "@/components/text-collection";
+
+const ingress = `Inter er en open source-font som brukes på komponenter i brukergrensesnitt, og i digitale tekster hvor det finnes pedagogiske behov for ulike varianter av bokstaver og tegn.
+
+Inter er en funksjonell font med lite identitet, og er optimal for bruk på små tekster i funksjonelle komponenter og brukergrensesnitt. 
+
+Inter brukes aldri brukes på markedsflater.`;
 
 export default function InterPage() {
-  return <div>InterPage</div>;
+  return (
+    <SectionLayout>
+      <TextCollection heading="Lyon Display" ingress={ingress} />
+    </SectionLayout>
+  );
 }

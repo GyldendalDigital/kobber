@@ -1,5 +1,8 @@
 import { SectionLayout } from "@/components/section-layout";
 import { TextCollection } from "@/components/text-collection";
+import { TypographyList } from "@/components/typography-list";
+import { TypographyListItem } from "@/components/typography-list-item";
+import { PPMoriTypography } from "@/data/typography";
 
 const ingress = `PP Mori er Gyldendals identitetsbærende hovedskrift og benyttes i Gyldendal på alle nivåer i vår kommunikasjon - fra logoer til overskrifter, brødtekst og fotnoter.
 
@@ -11,6 +14,7 @@ export default function PPMoriPage() {
   return (
     <SectionLayout>
       <TextCollection heading="PP MORI" ingress={ingress} />
+      <TypographyList items={PPMoriTypography} />
     </SectionLayout>
   );
 }
