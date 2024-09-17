@@ -1,5 +1,4 @@
-"use client";
-// import type { Metadata } from "next";
+import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
@@ -18,11 +17,10 @@ const PPMori = localFont({
   ],
 });
 
-// TODO: put back when "use-client" is removed
-// export const metadata: Metadata = {
-//   title: "Kobber Wiki",
-//   description: "Kobber WIKI",
-// };
+export const metadata: Metadata = {
+  title: "Kobber Wiki",
+  description: "Kobber WIKI",
+};
 
 export default function RootLayout({
   children,

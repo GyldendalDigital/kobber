@@ -1,8 +1,7 @@
-"use client";
 import { ReactNode } from "react";
 import { TopMenu } from "./top-menu";
 // import "@gyldendal/kobber-components/web-components";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
 type GridLayoutProps = {
   children: ReactNode;
