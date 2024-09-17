@@ -41,6 +41,10 @@ type ComponentsSectionProps = {
   };
 };
 
+export async function generateStaticParams() {
+  return ComponentsRoutesData.map(x => ({ slug: x.href.split("/").reverse()[0] }));
+}
+
 export default function ComponentsSection({ params }: ComponentsSectionProps) {
   const { slug } = params;
 
