@@ -66,6 +66,32 @@ export const ComponentsRoutes: SideMenuBarType[] = [
     ],
   },
   {
+    groupTitle: "Feedback",
+    routes: [
+      {
+        title: "Alert",
+        href: `${COMPONENTS_URL}/alert`,
+      },
+      {
+        title: "Labels",
+        href: `${COMPONENTS_URL}/labels`,
+      },
+      {
+        title: "Loader",
+        href: `${COMPONENTS_URL}/loader`,
+        isComing: true,
+      },
+      {
+        title: "Progressbar",
+        href: `${COMPONENTS_URL}/progressbar`,
+      },
+      {
+        title: "Tooltip",
+        href: `${COMPONENTS_URL}/tooltip`,
+      },
+    ],
+  },
+  {
     groupTitle: "Layout",
     routes: [
       {
