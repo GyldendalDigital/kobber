@@ -1,6 +1,7 @@
 import { ContentSection } from "@/components/content-section";
 import { PracticeIllustration } from "@/components/practice-illustration";
 import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 
 export function PracticeSection() {
   return (
@@ -14,8 +15,8 @@ export function PracticeSection() {
       <PracticeIllustration
         notAcceptedText="Knappen skal ikke brekke over to linjer, eller overskride knappens rammer."
         acceptedText="Velg korte beskrivelser av handlingen brukeren kan ta."
-        acceptedComponent={<div>Hello</div>}
-        notAcceptedComponent={<div>World</div>}
+        acceptedComponent={<AcceptedComponenTwo />}
+        notAcceptedComponent={<NotAcceptedComponenTwo />}
       />
     </ContentSection>
   );
@@ -29,12 +30,34 @@ function AcceptedComponent() {
     </>
   );
 }
+
 function NotAcceptedComponent() {
   return (
     <>
       <Button variant={"dropdown"}>Valg 1</Button>
       <Button variant={"dropdown"}>Valg 2</Button>
       <Button variant={"dropdown"}>Valg 3</Button>
+    </>
+  );
+}
+
+function AcceptedComponenTwo() {
+  return (
+    <>
+      <Button variant={"dropdown"}>
+        Last ned <Download className="size-4 ml-2" />
+      </Button>
+    </>
+  );
+}
+
+function NotAcceptedComponenTwo() {
+  return (
+    <>
+      <Button variant={"dropdown"} className="flex-col items-center justify-center max-w-[102px] overflow-hidden ">
+        <Download className="size-4 ml-2" />
+        <span>Last ned innhold</span>
+      </Button>
     </>
   );
 }
