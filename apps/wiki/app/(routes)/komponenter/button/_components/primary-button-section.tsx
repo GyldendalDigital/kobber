@@ -16,7 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export function ButtonSection() {
+export function PrimaryButtonSection() {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [isLeftAligned, setIsLeftAligned] = useState<boolean>(false);
 

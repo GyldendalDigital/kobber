@@ -18,7 +18,7 @@ export function TextCollection({ heading, subheading, ingress, size = "md" }: Te
     >
       <h1
         className={cn("text-text/color/primary/display-s ", {
-          "text-[30px]": size === "sm",
+          "text-[26px]": size === "sm",
           "text-[48px]": size === "md",
           "text-[62px]": size === "lg",
         })}

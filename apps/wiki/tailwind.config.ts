@@ -52,6 +52,7 @@ const config = {
 
         "text/color/primary/title-s": "#481125",
         "text/color/primary/title-m": "#481125",
+        "text/color/primary/label-m": "#481125",
         "text/color/primary/label-s": "#884D5D",
 
         "text/color/primary/display-s": "#481125",

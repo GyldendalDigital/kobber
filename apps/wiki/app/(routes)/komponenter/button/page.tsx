@@ -2,7 +2,9 @@ import { SectionLayout } from "@/components/section-layout";
 import { TextCollection } from "@/components/text-collection";
 
 import { Metadata } from "next";
-import { ButtonSection } from "./_components/section";
+import { PrimaryButtonSection } from "./_components/primary-button-section";
+import { SecondaryButtonSection } from "./_components/secondary-button-section";
+import { PracticeSection } from "./_components/practice-section";
 
 export const metadata: Metadata = {
   title: "Button | Kobber",
@@ -17,7 +19,9 @@ export default function ButtonPage() {
   return (
     <SectionLayout>
       <TextCollection heading="Button" subheading={subheading} />
-      <ButtonSection />
+      <PrimaryButtonSection />
+      <SecondaryButtonSection />
+      <PracticeSection />
     </SectionLayout>
   );
 }
