@@ -9,21 +9,16 @@ type FeatureBoxGridItemProps = {
 };
 
 export function FeatureBoxGridItem({ item }: FeatureBoxGridItemProps) {
-  if (item.href) {
-    return (
-      <div className="w-full md:w-[270px] md:h-[220px] h-[282px] flex p-4 justify-start items-end relative rounded-[14px] overflow-hidden bg-[#EAE0E1]">
-        {item.image ? <Image src={item.image} fill alt="Image" className="object-cover" /> : null}
+  return (
+    <div className="bg-[#EAE0E1] rounded-[14px] overflow-hidden flex p-4 justify-start items-end relative">
+      {item.image ? <Image src={item.image} fill alt="Image" className="object-cover" /> : null}
+      {item.href ? (
         <Link href={item.href} className={cn(buttonVariants({}))}>
           {item.title}
         </Link>
-      </div>
-    );
-  }
-
-  return (
-    <div className="w-full md:w-[270px] md:h-[220px] h-[282px] flex p-4 justify-start items-end relative rounded-[14px] overflow-hidden bg-[#EAE0E1]">
-      {item.image ? <Image src={item.image} fill alt="Image" className="object-cover" /> : null}
-      <Button>{item.title}</Button>
+      ) : (
+        <Button>{item.title}</Button>
+      )}
     </div>
   );
 }

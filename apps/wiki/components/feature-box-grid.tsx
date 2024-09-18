@@ -1,6 +1,7 @@
 import { FeatureBoxType } from "@/types/types";
 import { FeatureBoxGridItem } from "./feature-box-grid-item";
 import { cn } from "@/lib/utils";
+import { KobberCardLayout, KobberCardLayoutColumnAspectRatio, KobberGrid } from "@gyldendal/kobber-components/react";
 
 type FeatureBoxGridProps = {
   items: FeatureBoxType[];
@@ -9,10 +10,12 @@ type FeatureBoxGridProps = {
 
 export function FeatureBoxGrid({ items, className }: FeatureBoxGridProps) {
   return (
-    <div className={cn("grid grid-cols-1 md:grid-cols-3 gap-5", className)}>
+    <KobberCardLayout gap="5px" aspect-ratio-height="0.9">
       {items.map((item, index) => (
-        <FeatureBoxGridItem key={index} item={item} />
+        <KobberCardLayoutColumnAspectRatio key={index}>
+          <FeatureBoxGridItem item={item} />
+        </KobberCardLayoutColumnAspectRatio>
       ))}
-    </div>
+    </KobberCardLayout>
   );
 }
