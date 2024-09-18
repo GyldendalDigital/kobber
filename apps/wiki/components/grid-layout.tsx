@@ -1,6 +1,7 @@
+"use client";
 import { ReactNode } from "react";
 import { TopMenu } from "./top-menu";
-// import "@gyldendal/kobber-components/web-components";
+import { KobberGrid } from "@gyldendal/kobber-components/react";
 // import dynamic from "next/dynamic";
 
 type GridLayoutProps = {
@@ -12,12 +13,12 @@ type GridLayoutProps = {
 // });
 
 export function GridLayout({ children }: GridLayoutProps) {
-  return (
-    <div>
-      <TopMenu />
-      {children}
-    </div>
-  );
+  // return (
+  //   <div>
+  //     <TopMenu />
+  //     {children}
+  //   </div>
+  // );
 
   // With user defined type definition (se kobber.types.tsx)
   // return (
@@ -30,10 +31,10 @@ export function GridLayout({ children }: GridLayoutProps) {
   // );
 
   // Without user defined type definition
-  // return (
-  //   <KobberGrid maxWidth="100%" alignItems="center" gridTemplateColumns={"repeat(1, minmax(0,1fr))"}>
-  //     <TopMenu />
-  //     {children}
-  //   </KobberGrid>
-  // );
+  return (
+    <KobberGrid maxWidth="100%" alignItems="center" gridTemplateColumns={"repeat(1, minmax(0,1fr))"}>
+      <TopMenu />
+      {children}
+    </KobberGrid>
+  );
 }
