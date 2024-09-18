@@ -18,8 +18,8 @@ const PPMori = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Kobber Wiki",
-  description: "Kobber WIKI",
+  title: "Kobber - Gyldendals designsystem",
+  description: "Byggesteiner Gyldendal bruker til å lage solide, sammenhengende og universelt tilgjengelige produkter.",
 };
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("bg-aubergine-25 min-h-screen  size-full antialiased transition-all", PPMori.className)}>
-        <GridLayout>{children}</GridLayout>
+        {children}
       </body>
     </html>
   );
