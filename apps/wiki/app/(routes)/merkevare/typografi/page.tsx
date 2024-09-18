@@ -2,6 +2,13 @@ import { FeatureBoxGrid } from "@/components/feature-box-grid";
 import { SectionLayout } from "@/components/section-layout";
 import { TextCollection } from "@/components/text-collection";
 import { FeatureBoxType } from "@/types/types";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Typografi | Kobber Wiki",
+  description:
+    "Typografien skal sikre gjenkjennelighet for merkevaren og stå seg like godt på det analoge som på det digitale. Kombinasjonen av en leken og moderne primærfont i PP Mori, og en moderne tolkning av en klassisk serif i Lyon Display, gjør at vi forener tradisjon og innovasjon på en varm og uhøytidelig måte.",
+};
 
 const url = "/merkevare/typografi";
 

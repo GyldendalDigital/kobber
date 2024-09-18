@@ -3,6 +3,13 @@ import { ContentSection } from "@/components/content-section";
 import { SectionLayout } from "@/components/section-layout";
 import { TextCollection } from "@/components/text-collection";
 import { UIColors } from "@/data/color-palettes";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "UI-farger | Kobber Wiki",
+  description:
+    "Vi har noen farger som er forbeholdt digitale grensesnitt. Dette inkluderer farger som skal kommunisere til sluttbrukeren om suksess, informasjon og advarsler, samt en nøytral palett.",
+};
 
 export default function UiFarger() {
   return (

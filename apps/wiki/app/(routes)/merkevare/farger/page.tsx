@@ -2,6 +2,13 @@ import { TextCollection } from "@/components/text-collection";
 import { FeatureBoxType } from "@/types/types";
 import { FeatureBoxGrid } from "@/components/feature-box-grid";
 import { SectionLayout } from "@/components/section-layout";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Farger | Kobber Wiki",
+  description:
+    "Farger er en viktig del av Gyldendals merkevare, og er laget for å balansere det funksjonelle og det emosjonelle. Fargepaletten er laget for å håndtere et bredt utvalg av ulike målgrupper.",
+};
 
 const url = "/merkevare/farger";
 

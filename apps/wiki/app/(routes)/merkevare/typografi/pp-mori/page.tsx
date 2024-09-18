@@ -1,8 +1,14 @@
 import { SectionLayout } from "@/components/section-layout";
 import { TextCollection } from "@/components/text-collection";
 import { TypographyList } from "@/components/typography-list";
-import { TypographyListItem } from "@/components/typography-list-item";
 import { PPMoriTypography } from "@/data/typography";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "PP Mori | Kobber Wiki",
+  description:
+    "PP Mori er Gyldendals identitetsbærende hovedskrift og benyttes i Gyldendal på alle nivåer i vår kommunikasjon - fra logoer til overskrifter, brødtekst og fotnoter.",
+};
 
 const ingress = `PP Mori er Gyldendals identitetsbærende hovedskrift og benyttes i Gyldendal på alle nivåer i vår kommunikasjon - fra logoer til overskrifter, brødtekst og fotnoter.
 

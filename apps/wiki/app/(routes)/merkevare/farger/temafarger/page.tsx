@@ -3,6 +3,13 @@ import { TextCollection } from "@/components/text-collection";
 import { ColorBlockGrid } from "@/components/color-block-grid";
 import { ThemeColors } from "@/data/color-palettes";
 import { SectionLayout } from "@/components/section-layout";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Temafarger | Kobber Wiki",
+  description:
+    "Temafarger kan benyttes i avgrensede område for å sette stemning rundt et tema, en enkeltutgivelse eller en kolleksjon av utgivelser. Det er ikke tillatt å bruke disse palettene på et helt brukergrensesnitt eller for å kategorisere produkt-spesifikt innhold.",
+};
 
 export default function Temafarger() {
   return (
