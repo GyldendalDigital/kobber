@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { PrimaryButtonSection } from "./_components/primary-button-section";
 import { SecondaryButtonSection } from "./_components/secondary-button-section";
 import { PracticeSection } from "./_components/practice-section";
+import { InteractiveStatesSection } from "./_components/interactive-states-section";
 
 export const metadata: Metadata = {
   title: "Button | Kobber",
@@ -22,6 +23,7 @@ export default function ButtonPage() {
       <PrimaryButtonSection />
       <SecondaryButtonSection />
       <PracticeSection />
+      <InteractiveStatesSection />
     </SectionLayout>
   );
 }

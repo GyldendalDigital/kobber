@@ -70,6 +70,7 @@ const config = {
         "aubergine-50": "#F9EAED",
         "aubergine-250": "#f3a6b2",
         "aubergine-750": "#691837",
+        "aubergine-900": "#330314",
         "carmine-525": "#DC134F",
         "vin-150": "#E5CFD3",
         "wine-150": "#E5CFD3",
