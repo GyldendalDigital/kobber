@@ -1,7 +1,6 @@
 import { createComponent } from "@lit/react";
 import * as React from "react";
 
-export { Example, type ExampleProps } from "./example/Example";
 import { Grid } from "./grid/Grid";
 import { GridColumn } from "./grid/GridColumn";
 import { Checkbox } from "./checkbox/Checkbox";

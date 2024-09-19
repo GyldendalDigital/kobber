@@ -1,5 +1,0 @@
-@import url("@gyldendal/kobber-base/themes/default/tokens.css");
-
-.example {
-    color: var(--kobber-primitives-color-gray-800);
-}
