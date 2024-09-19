@@ -1,0 +1,67 @@
+{
+  "primitives": {
+    "color": {
+      "carmine": {
+        "25": {
+          "type": "color",
+          "value": "#fdf8f8ff",
+          "blendMode": "normal"
+        }
+      }
+    }
+  },
+  "semantics": {
+    "action": {
+      "color": {
+        "carmine": {
+          "lightest": {
+            "opaque": {
+              "type": "color",
+              "value": "{semantics.mode 1.color.brand.carmine.25}"
+            }
+          }
+        }
+      }
+    },
+    "color": {
+      "brand": {
+        "carmine": {
+          "25": {
+            "type": "color",
+            "value": "{primitives.mode 1.color.carmine.25}"
+          }
+        }
+      }
+    }
+  },
+  "component": {
+    "button": {
+      "background": {
+        "color": {
+          "primary": {
+            "carmine": {
+              "supplemental": {
+                "primary": {
+                  "fallback": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.carmine.lightest.opaque}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "typography": {
+    "primary": {
+      "display l": {
+        "fontSize": {
+          "type": "dimension",
+          "value": 64
+        }
+      }
+    }
+  }
+}

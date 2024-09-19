@@ -1,53 +1,37 @@
-import StyleDictionary, { Config, TransformedToken } from "style-dictionary";
+import StyleDictionary from "style-dictionary";
 import { esmFormat } from "./formats/esm";
 import { jsonFormat } from "./formats/json";
+import { cssTransforms, jsTransforms, registerTransforms } from "./registerTransforms";
 import { tsDeclarationsFormat } from "./formats/tsDeclarations";
 import { fluidClampTransform } from "./transforms/fluidClamp";
 import { pxToRemTransform } from "./transforms/pxToRem";
+import { ThemeConfig, themeDirectory } from "../types";
 
-const cssTransforms = [
-  "attribute/cti",
-  "name/cti/kebab",
-  "time/seconds",
-  "content/icon",
-  "size/rem",
-  "color/css",
-  fluidClampTransform.name,
-  pxToRemTransform.name,
-];
+const buildPath = themeDirectory + "/";
 
-const jsTransforms = [
-  "attribute/cti",
-  "name/cti/pascal",
-  "size/rem",
-  "color/hex",
-  fluidClampTransform.name,
-];
+const invalidKeys = ["font"];
 
-StyleDictionary.registerTransform(pxToRemTransform);
+const filter = (token: StyleDictionary.TransformedToken) => !invalidKeys.includes(token.path[0]);
 
-StyleDictionary.registerTransform(fluidClampTransform);
-
-const buildPath = "./themes/";
-
-const invalid = ["font", "effect"];
-
-const filter = (token: TransformedToken) => !invalid.includes(token.path[0]);
-
+/**
+ * Create a config object from tokens, transforms and formats
+ */
 export const getStyleDictionaryConfig = (
-  themeName: string,
-  tokensFromFigma: any,
-  transforms: string[] = []
-): Config => {
+  sanitizedTokensFromFigma: any,
+  themeConfig: ThemeConfig,
+  transforms: string[] = [],
+): StyleDictionary.Config => {
+  registerTransforms([pxToRemTransform, fluidClampTransform]);
+
   return {
-    tokens: tokensFromFigma,
+    tokens: sanitizedTokensFromFigma,
     platforms: {
       scss: {
         transforms: [...cssTransforms, ...transforms],
         buildPath,
         files: [
           {
-            destination: `${themeName}/tokens.scss`,
+            destination: `${themeConfig.themeName}/tokens.scss`,
             format: "scss/variables",
             filter,
           },
@@ -59,12 +43,12 @@ export const getStyleDictionaryConfig = (
         prefix: "kobber",
         files: [
           {
-            destination: `${themeName}/tokens.css`,
+            destination: `${themeConfig.themeName}/tokens.css`,
             format: "css/variables",
             filter,
             options: {
               outputReferences: true,
-              selector: `.kobber-theme-${themeName}`,
+              selector: `.kobber-theme-${themeConfig.themeName}`,
             },
           },
         ],
@@ -74,17 +58,17 @@ export const getStyleDictionaryConfig = (
         buildPath,
         files: [
           {
-            destination: `${themeName}/tokens.json`,
+            destination: `${themeConfig.themeName}/tokens.json`,
             format: jsonFormat.name,
             filter,
           },
           {
-            destination: `${themeName}/tokens.js`,
+            destination: `${themeConfig.themeName}/tokens.js`,
             format: esmFormat.name,
             filter,
           },
           {
-            destination: `${themeName}/tokens.d.ts`,
+            destination: `${themeConfig.themeName}/tokens.d.ts`,
             format: tsDeclarationsFormat.name,
             filter,
           },
