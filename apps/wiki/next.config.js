@@ -1,4 +1,4 @@
-const withLitSSR = require("@lit-labs/nextjs")();
+// const withLitSSR = require("@lit-labs/nextjs")();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -7,4 +7,5 @@ const nextConfig = {
   },
 };
 
-module.exports = withLitSSR(nextConfig);
+module.exports = nextConfig;
+// module.exports = withLitSSR(nextConfig);
