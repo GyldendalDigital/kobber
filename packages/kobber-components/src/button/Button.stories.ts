@@ -14,7 +14,14 @@ const backgroundColors: ButtonBorderColorName[] = [
   "vacation",
 ];
 
-const levels: ButtonLevel[] = ["main", "supplemental", "supplemental alt"];
+const colors = 
+{
+  brand: ["aubergine", "carmine", "rettsdata", "neutral"],
+  ui: ["success", "informative", "warning"],
+  theme: ["vacation", "fantasy", "thriller", "romance", "nature", "nostalgia"],
+};
+
+const levels: ButtonLevel[] = ["main", "supplemental"];//, "supplemental alt"];
 
 const states = ["idle", "hover", "focus", "active", "disabled"];
 
@@ -23,7 +30,7 @@ const meta: Meta = {
   tags: ["autodocs"],
   argTypes: {
     color: {
-      options: backgroundColors,
+      options: [...colors.brand,...colors.ui,...colors.theme],
       control: { type: "select" },
     },
     level: {

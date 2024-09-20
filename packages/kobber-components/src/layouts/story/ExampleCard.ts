@@ -18,7 +18,7 @@ export class ExampleCard extends LitElement {
         "heading"
         "body";
       grid-template-rows: 68% auto 1fr;
-      background-color: ${unsafeCSS(tokens.primitives.color.gray[100])};
+      background-color: ${unsafeCSS(tokens.primitives.color.nostalgia[25])};
       border-radius: 16px;
       overflow: hidden;
       font-family: Inter, "Inter Variable";
@@ -32,7 +32,7 @@ export class ExampleCard extends LitElement {
 
     .media {
       grid-area: media;
-      background-color: ${unsafeCSS(tokens.primitives.color.gray[400])};
+      background-color: ${unsafeCSS(tokens.primitives.color.nostalgia[600])};
     }
 
     .badge {
@@ -43,8 +43,8 @@ export class ExampleCard extends LitElement {
       padding: 4px 8px;
       margin: 8px;
       font-size: 11px;
-      background-color: ${unsafeCSS(tokens.primitives.color.gray[900])};
-      color: ${unsafeCSS(tokens.primitives.color.white)};
+      background-color: ${unsafeCSS(tokens.primitives.color.nostalgia[850])};
+      color: white;
     }
 
     .dimensions {
@@ -55,8 +55,8 @@ export class ExampleCard extends LitElement {
       padding: 4px 8px;
       margin: 8px;
       font-size: 11px;
-      border: solid 1px ${unsafeCSS(tokens.primitives.color.gray[900])};
-      color: ${unsafeCSS(tokens.primitives.color.gray[900])};
+      border: solid 1px ${unsafeCSS(tokens.primitives.color.nostalgia[850])};
+      color: ${unsafeCSS(tokens.primitives.color.nostalgia[850])};
     }
 
     .heading {

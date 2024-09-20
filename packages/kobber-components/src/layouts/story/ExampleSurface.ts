@@ -11,7 +11,7 @@ export class ExampleSurface extends LitElement {
       border-radius: 16px;
       padding: ${unsafeCSS(tokens.layout.gap["16-32"])};
       font-family: Inter, "Inter Variable";
-      background-color: ${unsafeCSS(tokens.primitives.color.gray[400])};
+      background-color: ${unsafeCSS(tokens.primitives.color.nostalgia[600])};
     }
 
     :host *,
