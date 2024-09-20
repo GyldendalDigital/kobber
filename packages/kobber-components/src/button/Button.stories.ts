@@ -1,8 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
+import { ButtonBorderColorName, ButtonLevel } from "./Button";
 
-const colors = ["default", "info", "positive", "negative"];
+const backgroundColors: ButtonBorderColorName[] = [
+  "aubergine",
+  "carmine",
+  "fantasy",
+  "nature",
+  "neutral",
+  "nostalgia",
+  "rettsdata",
+  "romance",
+  "thriller",
+  "vacation",
+];
 
-const levels = ["primary", "secondary", "ghost"];
+const levels: ButtonLevel[] = ["main", "supplemental", "supplemental alt"];
 
 const states = ["idle", "hover", "focus", "active", "disabled"];
 
@@ -11,7 +23,7 @@ const meta: Meta = {
   tags: ["autodocs"],
   argTypes: {
     color: {
-      options: colors,
+      options: backgroundColors,
       control: { type: "select" },
     },
     level: {
@@ -24,7 +36,7 @@ const meta: Meta = {
     <kobber-theme-context theme-id=${context.globals.theme}>
       ${Story()}
     </kobber-theme-context>
-    `
+    `,
   ],
 };
 
@@ -34,21 +46,20 @@ type Story = StoryObj;
 export const Button: Story = {
   args: {
     text: "Button text",
-    color: colors[0],
+    color: backgroundColors[0],
     level: levels[0],
   },
-  render: (args) => `
-    <kobber-button color=${args.color} level=${args.level}>${args.text}</kobber-button>
+  render: args => `
+    <kobber-button backgroundColor=${args.color} borderColor=${args.color} level=${args.level}>${args.text}</kobber-button>
   `,
 };
-
 
 export const Buttons: Story = {
   args: {
     text: "Button text",
   },
-  render: (args) => {
-    const colorRow = ["", ...colors];
+  render: args => {
+    const colorRow = ["", ...backgroundColors];
 
     return `
     <div style="display: grid; gap: 30px; grid-template-columns: repeat(${colorRow.length}, 1fr); text-align: center; margin-bottom: 10px;">
@@ -56,12 +67,23 @@ export const Buttons: Story = {
     </div>
 
     <div style="display: grid; gap: 30px; grid-template-columns: repeat(${colorRow.length}, 1fr);">
-      ${levels.map((level) => colorRow.map((color, colorIndex) =>
-      colorIndex === 0 ?
-        `<div style="display: flex; flex-direction: column; align-items: end; gap: 10px">${states.map((state, stateIndex) => `<div style="padding: 10px;">${stateIndex === 0 ? `<b>${level}</b> ${state}` : state}</div>`).join("")}</div>` :
-        `<div style="display: grid; gap: 10px; grid-template-rows: repeat(${colors.length}, 1fr); justify-content: center;">${states.map((state) =>
-          `<kobber-button color=${color} level=${level} class=${state} ${state === "disabled" ? state : ""}>${args.text}</kobber-button>`).join("")}
-        </div>`).join("")).join("")}
+      ${levels
+        .map(level =>
+          colorRow
+            .map((color, colorIndex) =>
+              colorIndex === 0
+                ? `<div style="display: flex; flex-direction: column; align-items: end; gap: 10px">${states.map((state, stateIndex) => `<div style="padding: 10px;">${stateIndex === 0 ? `<b>${level}</b> ${state}` : state}</div>`).join("")}</div>`
+                : `<div style="display: grid; gap: 10px; grid-template-rows: repeat(${states.length}, 1fr); justify-content: center;">${states
+                    .map(
+                      state =>
+                        `<kobber-button backgroundColor=${color} borderColor=${color} level=${args.level} class=${state} ${state === "disabled" ? "disabled" : ""}>${args.text}</kobber-button>`,
+                    )
+                    .join("")}
+        </div>`,
+            )
+            .join(""),
+        )
+        .join("")}
     </div>
   `;
   },
