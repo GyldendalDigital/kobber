@@ -13,9 +13,12 @@ export class Badge extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
 
-    const fontSize = `${tokens.typography.action.button.fontSize / 16}rem;`;
-    const textColor = this.getAttribute("text-color") ?? tokens.component.badge.color.foreground;
-    const backgroundColor = this.getAttribute("background-color") ?? tokens.component.badge.color.background;
+    const fontSize = `${tokens.typography.actionitems.button.fontSize / 16}rem;`;
+    const textColor =
+      this.getAttribute("text-color") ?? tokens.component.button.text.color.aubergine.main.primary.fallback;
+    const backgroundColor =
+      this.getAttribute("background-color") ??
+      tokens.component.button.background.color.primary.aubergine.main.primary.fallback;
     const circleColor = this.getAttribute("circle-color");
 
     const compliantColors = getContrastCompliantColors({
@@ -29,12 +32,12 @@ export class Badge extends HTMLElement {
           display: inline-flex;
           justify-content: center;
           align-items: center;
-          gap: ${tokens.component.badge.padding.gap}px;
-          padding: ${tokens.component.badge.padding.top}px ${tokens.component.badge.padding.right}px;
+          gap: ${tokens.component.button.container.gap}px;
+          padding: ${tokens.component.button.container.padding.block}px ${tokens.component.button.container.padding.inline}px;
           font-size: ${fontSize};
-          font-family: ${tokens.typography.action.button.fontFamily};
-          font-weight: ${tokens.typography.action.button.fontWeight};
-          border-radius: ${tokens.component.button.border.radius}px;
+          font-family: ${tokens.typography.actionitems.button.fontFamily};
+          font-weight: ${tokens.typography.actionitems.button.fontWeight};
+          border-radius: ${10}px;
           color: ${compliantColors.textColor};
           background-color: ${compliantColors.backgroundColor};
         }

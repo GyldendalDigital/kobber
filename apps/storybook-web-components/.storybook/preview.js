@@ -1,5 +1,6 @@
 import "@gyldendal/kobber-base/themes/default/tokens.css";
 import "@gyldendal/kobber-base/themes/dark/tokens.css";
+import "@gyldendal/kobber-components/web-components";
 import "./inter.css";
 
 const themes = ["kobber-theme-default", "kobber-theme-dark"];
@@ -32,8 +33,9 @@ const themes = ["kobber-theme-default", "kobber-theme-dark"];
     (Story, context) => {
       const story = Story();
       // for supporting css variables
-      if (story instanceof HTMLElement)
+      if (story instanceof HTMLElement) {
         story.classList.add(context.globals.theme || themes[0]);
+      }
       return story;
     },
   ],

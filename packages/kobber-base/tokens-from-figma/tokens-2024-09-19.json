@@ -1511,6 +1511,10 @@
             "xxsmall": {
               "type": "color",
               "value": "{semantics.mode 1.layout.element.radius.xxsmall}"
+            },
+            "xsmall": {
+              "type": "color",
+              "value": "{semantics.mode 1.layout.element.radius.xsmall}"
             }
           }
         }
@@ -3371,7 +3375,7 @@
         "border": {
           "radius": {
             "type": "color",
-            "value": "{semantics.mode 1.action.border.radius.xxsmall}"
+            "value": "{semantics.mode 1.action.container.border.radius.xxsmall}"
           },
           "width": {
             "hover": {
@@ -3627,7 +3631,7 @@
           }
         }
       },
-      "focus (heller global?)": {
+      "focus": {
         "border": {
           "filled": {
             "width": {
@@ -3637,7 +3641,7 @@
           },
           "radius": {
             "type": "color",
-            "value": "{primitives.mode 1.border.10}"
+            "value": "{semantics.mode 1.action.container.border.radius.xsmall}"
           },
           "color": {
             "primary": {
