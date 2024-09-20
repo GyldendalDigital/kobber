@@ -1,4 +1,3 @@
-export { Example } from "./example/web-component";
 export { Grid } from "./grid/Grid";
 export { GridColumn } from "./grid/GridColumn";
 export { ProgressBar } from "./progress-bar/ProgressBar";

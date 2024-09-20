@@ -1,6 +1,6 @@
 import { FeatureBoxType } from "@/types/types";
 import { FeatureBoxGridItem } from "./feature-box-grid-item";
-import { KobberGrid, KobberCardLayout, KobberCardLayoutColumnAspectRatio } from "@gyldendal/kobber-components/react";
+import { KobberCardLayout, KobberCardLayoutColumnAspectRatio } from "./kobber-ssr-loader";
 
 type FeatureBoxGridProps = {
   items: FeatureBoxType[];

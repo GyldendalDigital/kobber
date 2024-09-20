@@ -43,10 +43,9 @@ export default defineConfig(() => ({
 // Move one css file to the css directory and remove the other.
 
 const moveCss = () => {
-  fs.mkdirSync(cssDirectory);
-  fs.renameSync(
-    `${reactDirectory}/index.css`,
-    `${cssDirectory}/components.css`
-  );
-  fs.rmSync(`${webComponentsDirectory}/index.css`);
+  if (fs.existsSync(`${reactDirectory}/index.css`)) {
+    fs.mkdirSync(cssDirectory);
+    fs.renameSync(`${reactDirectory}/index.css`, `${cssDirectory}/components.css`);
+    fs.rmSync(`${webComponentsDirectory}/index.css`);
+  }
 };
