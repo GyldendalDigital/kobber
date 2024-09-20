@@ -16,5 +16,10 @@ export function FeatureBoxGrid({ items, className }: FeatureBoxGridProps) {
         </KobberCardLayoutColumnAspectRatio>
       ))}
     </KobberCardLayout>
+    // <div>
+    //   {items.map((item, index) => (
+    //     <FeatureBoxGridItem item={item} key={index} />
+    //   ))}
+    // </div>
   );
 }

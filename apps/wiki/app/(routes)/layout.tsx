@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
+import { GridLayout } from "@/components/grid-layout";
 
 const PPMori = localFont({
   src: [
@@ -29,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("bg-aubergine-25 min-h-screen  size-full antialiased transition-all", PPMori.className)}>
-        {children}
+        <GridLayout>{children}</GridLayout>
       </body>
     </html>
   );
