@@ -9,17 +9,17 @@ type FeatureBoxGridProps = {
 
 export function FeatureBoxGrid({ items, className }: FeatureBoxGridProps) {
   return (
-    <KobberCardLayout gap="5px" aspect-ratio-height="0.9">
-      {items.map((item, index) => (
-        <KobberCardLayoutColumnAspectRatio key={index}>
-          <FeatureBoxGridItem item={item} />
-        </KobberCardLayoutColumnAspectRatio>
-      ))}
-    </KobberCardLayout>
-    // <div>
+    // <KobberCardLayout gap="5px" aspect-ratio-height="0.9">
     //   {items.map((item, index) => (
-    //     <FeatureBoxGridItem item={item} key={index} />
+    //     <KobberCardLayoutColumnAspectRatio key={index}>
+    //       <FeatureBoxGridItem item={item} />
+    //     </KobberCardLayoutColumnAspectRatio>
     //   ))}
-    // </div>
+    // </KobberCardLayout>
+    <div>
+      {items.map((item, index) => (
+        <FeatureBoxGridItem item={item} key={index} />
+      ))}
+    </div>
   );
 }
