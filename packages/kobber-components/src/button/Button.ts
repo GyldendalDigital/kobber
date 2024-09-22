@@ -3,9 +3,10 @@ import { consume } from "@lit/context";
 import { customElement, property } from "lit/decorators.js";
 import { Theme, themeContext } from "../utils/theme-context";
 
-export type ButtonLevel = keyof Theme["tokens"]["component"]["button"]["background"]["color"]["primary"]["neutral"];
-export type ButtonBackgroundColorName = keyof Theme["tokens"]["component"]["button"]["background"]["color"]["primary"];
-export type ButtonBorderColorName = keyof Theme["tokens"]["component"]["button"]["container"]["border"]["color"];
+export type ButtonVariant = keyof Theme["tokens"]["component"]["button"]["background"]["color"]["primary"]["neutral"];
+export type ButtonBackgroundColor = keyof Theme["tokens"]["component"]["button"]["background"]["color"]["primary"];
+export type ButtonBorderColor = keyof Theme["tokens"]["component"]["button"]["container"]["border"]["color"];
+export type ButtonLevel = keyof Theme["tokens"]["component"]["button"]["text"]["color"]["carmine"]["main"];
 
 /**
  * TODO:
@@ -17,15 +18,19 @@ export class Button extends LitElement {
   theme?: Theme;
 
   @property()
-  level: ButtonLevel = "main";
+  color: ButtonBackgroundColor = "carmine";
 
   @property()
-  backgroundColor: ButtonBackgroundColorName = "fantasy";
+  variant: ButtonVariant = "main";
 
   @property()
-  borderColor: ButtonBorderColorName = "carmine";
+  level: ButtonLevel = "primary";
 
   render() {
+    if (!this.color) return "Color undefined";
+    if (!this.variant) return "Variant undefined";
+    if (!this.level) return "Level undefined";
+
     const themeStyles = this.themedStyles();
 
     return html`
@@ -34,17 +39,25 @@ export class Button extends LitElement {
       </style>
       <!-- TODO: set all relevant attributes -->
       <button class=${this.classList.value} ?disabled=${this.attributes.getNamedItem("disabled") ? true : false}>
-        <slot></slot>
+        <span><slot></slot></span>
       </button>
     `;
   }
 
-  levelFallback = (): Exclude<ButtonLevel, "supplemental alt"> => {
-    if (this.level == "supplemental alt") {
-      return "supplemental";
-    }
+  colorFallback = () => {
+    return this.color ?? "carmine";
+  };
 
-    return this.level;
+  variantFallback = (): Exclude<ButtonVariant, "supplemental alt"> => {
+    // if (this.variant == "supplemental alt") {
+    //   return "supplemental";
+    // }
+
+    return this.variant as Exclude<ButtonVariant, "supplemental alt">;
+  };
+
+  levelFallback = (): Exclude<ButtonLevel, "secondary"> => {
+    return this.level as Exclude<ButtonLevel, "secondary">;
   };
 
   themedStyles = () => {
@@ -56,7 +69,6 @@ export class Button extends LitElement {
 
     const component = tokens.component.button;
     const typography = tokens.typography.actionitems.button;
-
     // TODO:
     // - fix units (px vs rem)
     // - make a "withFallback"-function for states with no value and should use default
@@ -64,9 +76,11 @@ export class Button extends LitElement {
     return css`
       button {
         /* Common for all variants */
+
         border: 1px solid transparent;
         /* TODO: wait for token */
         border-radius: ${10}px;
+
         padding: ${component.container.padding.block}px
           ${component.container.padding.inline}px;
         font-size: ${typography.fontSize / 16}rem;
@@ -77,33 +91,36 @@ export class Button extends LitElement {
 
         &:focus:enabled,
         &.focus {
+        /* border-radius: ${component.focus.border.radius}px; */
+          
           outline: none;
-          box-shadow: 0 0 0 ${component.focus.border.padding}
+          /* TODO: handle secondary level transparent */
+          box-shadow: 0 0 0 ${component.focus.border.padding}px
             ${unsafeCSS(component.focus.border.color.primary.focus)};
         }
 
         &:disabled {
-          background-color: ${unsafeCSS(component.background.color.primary.neutral[this.level].primary.disabled)};
-          color: ${unsafeCSS(component.text.color.neutral[this.level].primary.disabled)};
-          /* TODO: wait for token */
-          font-style: italic;
+          background-color: ${unsafeCSS(component.background.color.primary[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled)};
+          color: ${unsafeCSS(component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled)};
         }
 
         /* Different for each variant */
-        background-color: ${unsafeCSS(
-          component.background.color.primary[this.backgroundColor][this.levelFallback()].primary.fallback,
-        )};
-        color: ${unsafeCSS(component.text.color[this.backgroundColor][this.levelFallback()].primary.fallback)};
+        background-color: ${unsafeCSS(component.background.color.primary.carmine.main.primary.fallback)};
+        background-color: ${unsafeCSS(this.level === "secondary" ? "transparent" : component.background.color.primary[this.color]?.[this.variantFallback()]?.primary.fallback)};
+        color: ${unsafeCSS(component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.fallback)};
 
-        &:hover:enabled,
-        &.hover {
-          border-color: ${unsafeCSS(this.levelFallback() === "main" ? component.container.border.color[this.borderColor].main.hover : component.container.border.color[this.borderColor][this.levelFallback()].active)};
-        }
+        transition: scale 200ms ease-in 0s;
 
         &:active:enabled,
-        &.active {
-          border-color: ${unsafeCSS(component.container.border.color[this.borderColor][this.levelFallback()].active)}
-      }
+        &.active,
+        &:hover:enabled,
+        &.hover {
+          scale: 1.1;
+          span {
+            padding-bottom:${unsafeCSS(component.container.gap)}px;
+            border-bottom: ${unsafeCSS(this.level === "secondary" ? `1px solid ${component.container.border.color[this.color as ButtonBorderColor]?.[this.variantFallback()]?.active}` : null)};
+          }
+        }
     `;
   };
 }
