@@ -28,11 +28,11 @@ export const InteractiveScreen = ({ key, children, properties, footer }: Interac
       </div>
       <div className="grid gap-[24px] py-[24px]">
         <div className="w-[251px] max-w-[251px] px-[24px] grid gap-[24px] h-fit">
-          <h4 className="text-text/color/primary/title-s text-title-s">Egenskaper</h4>
+          <h4 className="text-text/color/primary/title-s text-primary-title-s">Egenskaper</h4>
           <div className="grid gap-[16px]">{properties(mode)}</div>
         </div>
         <div className="w-[251px] max-w-[251px] px-[24px] grid gap-[12px] h-fit">
-          <h4 className="text-text/color/primary/title-s text-title-s">Visning</h4>
+          <h4 className="text-text/color/primary/title-s text-primary-title-s">Visning</h4>
           <RadioGroup defaultValue="light" className="grid gap-[16px]">
             <div className="flex items-center gap-2">
               <RadioGroupItem value="light" id={key + "light"} onClick={() => setMode("light")} />

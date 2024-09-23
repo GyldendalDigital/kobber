@@ -8,8 +8,8 @@ const ingress =
 export function InteractiveStatesSection() {
   return (
     <ContentSection heading="Interaktive stadier" ingress={ingress}>
-      <div className="w-[736px] max-w-[736px] rounded-[16px] overflow-hidden">
-        <div className="bg-white py-[40px] px-[120px] flex items-center justify-center gap-[24px]">
+      <div className="w-[736px] max-w-[736px] rounded-16 overflow-hidden">
+        <div className="bg-white py-40 px-[120px] flex items-center justify-center gap-[24px]">
           {states.map(state => (
             <KobberButton
               key={"supplemental" + state}

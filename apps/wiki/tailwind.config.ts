@@ -7,7 +7,7 @@ const typography = tokens.default.typography;
 
 const { text, color } = semantics;
 const { size } = primitives;
-const { primary } = typography;
+const { primary, secondary } = typography;
 
 const config = {
   darkMode: ["class"],
@@ -26,11 +26,40 @@ const config = {
       maxWidth: {
         "max-width": `${tokens.default.layout.maxWidth}px`,
       },
+
       minWidth: {
         "min-width": `${tokens.default.layout.minWidth}px`,
       },
 
-      // TODO: INSERT KOBBER TOKENS
+      width: {
+        "1": `${size[1]}px`,
+        "2": `${size[2]}px`,
+        "4": `${size[4]}px`,
+        "8": `${size[8]}px`,
+        "10": `${size[10]}px`,
+        "12": `${size[12]}px`,
+        "14": `${size[14]}px`,
+        "16": `${size[16]}px`,
+        "20": `${size[20]}px`,
+        "24": `${size[24]}px`,
+        "32": `${size[32]}px`,
+        "40": `${size[40]}px`,
+        "48": `${size[48]}px`,
+        "56": `${size[56]}px`,
+        "64": `${size[64]}px`,
+        "72": `${size[72]}px`,
+        "96": `${size[96]}px`,
+        "104": `${size[104]}px`,
+        "120": `${size[120]}px`,
+        "128": `${size[128]}px`,
+        "320": `${size[320]}px`,
+        "520": `${size[520]}px`,
+        "720": `${size[720]}px`,
+        "1000": `${size[1000]}px`,
+        "1280": `${size[1280]}px`,
+        "1600": `${size[1600]}px`,
+      },
+
       height: {
         "1": `${size[1]}px`,
         "2": `${size[2]}px`,
@@ -59,6 +88,7 @@ const config = {
         "1280": `${size[1280]}px`,
         "1600": `${size[1600]}px`,
       },
+
       // TODO: INSERT KOBBER TOKENS
       padding: {
         "1": `${size[1]}px`,
@@ -127,60 +157,109 @@ const config = {
       },
 
       fontSize: {
-        "display-l": [
+        "primary-display-l": [
           `${primary["display l"].fontSize}px`,
           {
             lineHeight: `${primary["display l"].lineHeight}px`,
             fontWeight: `${primary["display l"].fontWeight}`,
           },
         ],
-        "display-m": [
+        "primary-display-m": [
           `${primary["display m"].fontSize}px`,
           {
             lineHeight: `${primary["display m"].lineHeight}px`,
             fontWeight: `${primary["display m"].fontWeight}`,
           },
         ],
-        "display-s": [
+        "primary-display-s": [
           `${primary["display s"].fontSize}px`,
           {
             lineHeight: `${primary["display s"].lineHeight}px`,
             fontWeight: `${primary["display s"].fontWeight}`,
           },
         ],
-        "heading-m": [
+        "primary-heading-m": [
           `${primary["heading m"].fontSize}px`,
           {
             lineHeight: `${primary["heading m"].lineHeight}px`,
             fontWeight: `${primary["heading m"].fontWeight}`,
           },
         ],
-        "heading-s": [
+        "primary-heading-s": [
           `${primary["heading s"].fontSize}px`,
           {
             lineHeight: `${primary["heading s"].lineHeight}px`,
             fontWeight: `${primary["heading s"].fontWeight}`,
           },
         ],
-        body: [
-          `${primary.body.fontSize}px`,
+        "primary-title-m": [
+          `${primary["title m"].fontSize}px`,
           {
-            lineHeight: `${primary.body.lineHeight}px`,
-            fontWeight: `${primary.body.fontWeight}`,
+            lineHeight: `${primary["title m"].lineHeight}px`,
+            fontWeight: `${primary["title m"].fontWeight}`,
           },
         ],
-        "title-s": [
+        "primary-title-s": [
           `${primary["title s"].fontSize}px`,
           {
             lineHeight: `${primary["title s"].lineHeight}px`,
             fontWeight: `${primary["title s"].fontWeight}`,
           },
         ],
-        "title-m": [
-          `${primary["title m"].fontSize}px`,
+        "primary-body": [
+          `${primary.body.fontSize}px`,
           {
-            lineHeight: `${primary["title m"].lineHeight}px`,
-            fontWeight: `${primary["title m"].fontWeight}`,
+            lineHeight: `${primary.body.lineHeight}px`,
+            fontWeight: `${primary.body.fontWeight}`,
+          },
+        ],
+        "primary-label-m": [
+          `${primary["label m"].fontSize}px`,
+          {
+            lineHeight: `${primary["label m"].lineHeight}px`,
+            fontWeight: `${primary["label m"].fontWeight}`,
+          },
+        ],
+        "primary-label-s": [
+          `${primary["label s"].fontSize}px`,
+          {
+            lineHeight: `${primary["label s"].lineHeight}px`,
+            fontWeight: `${primary["label s"].fontWeight}`,
+          },
+        ],
+        "secondary-display-l": [
+          `${secondary["display l"].fontSize}px`,
+          {
+            lineHeight: `${secondary["display l"].lineHeight}px`,
+            fontWeight: `${secondary["display l"].fontWeight}`,
+          },
+        ],
+        "secondary-display-m": [
+          `${secondary["display m"].fontSize}px`,
+          {
+            lineHeight: `${secondary["display m"].lineHeight}px`,
+            fontWeight: `${secondary["display m"].fontWeight}`,
+          },
+        ],
+        "secondary-display-s": [
+          `${secondary["display s"].fontSize}px`,
+          {
+            lineHeight: `${secondary["display s"].lineHeight}px`,
+            fontWeight: `${secondary["display s"].fontWeight}`,
+          },
+        ],
+        "secondary-heading-m": [
+          `${secondary["heading m"].fontSize}px`,
+          {
+            lineHeight: `${secondary["heading m"].lineHeight}px`,
+            fontWeight: `${secondary["heading m"].fontWeight}`,
+          },
+        ],
+        "secondary-heading-s": [
+          `${secondary["heading s"].fontSize}px`,
+          {
+            lineHeight: `${secondary["heading s"].lineHeight}px`,
+            fontWeight: `${secondary["heading s"].fontWeight}`,
           },
         ],
       },
@@ -324,9 +403,32 @@ const config = {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        "1": `${size[1]}px`,
+        "2": `${size[2]}px`,
+        "4": `${size[4]}px`,
+        "8": `${size[8]}px`,
+        "10": `${size[10]}px`,
+        "12": `${size[12]}px`,
+        "14": `${size[14]}px`,
+        "16": `${size[16]}px`,
+        "20": `${size[20]}px`,
+        "24": `${size[24]}px`,
+        "32": `${size[32]}px`,
+        "40": `${size[40]}px`,
+        "48": `${size[48]}px`,
+        "56": `${size[56]}px`,
+        "64": `${size[64]}px`,
+        "72": `${size[72]}px`,
+        "96": `${size[96]}px`,
+        "104": `${size[104]}px`,
+        "120": `${size[120]}px`,
+        "128": `${size[128]}px`,
+        "320": `${size[320]}px`,
+        "520": `${size[520]}px`,
+        "720": `${size[720]}px`,
+        "1000": `${size[1000]}px`,
+        "1280": `${size[1280]}px`,
+        "1600": `${size[1600]}px`,
       },
       keyframes: {
         "accordion-down": {

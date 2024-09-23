@@ -20,7 +20,7 @@ export function PracticeIllustration({
         <div className="flex flex-col justify-between gap-[24px] ">
           <div className="grid grid-cols-[fit-content(50px)_1fr] gap-[8px]">
             <X className="size-5 p-0.5 text-aubergine-25 bg-red-600 rounded-full" />
-            <span className="text-body text-text/color/primary/label-m">{notAcceptedText}</span>
+            <span className="text-primary-body text-text/color/primary/label-m">{notAcceptedText}</span>
           </div>
           <div className="w-[314px] max-w-[314px] border-[1px] border-aubergine-750 bg-aubergine-25 rounded-[14px] p-[12px] flex items-center gap-[16px] justify-center">
             {notAcceptedComponent}
@@ -29,7 +29,7 @@ export function PracticeIllustration({
         <div className="flex flex-col justify-between gap-[24px]">
           <div className="grid grid-cols-[fit-content(50px)_1fr] gap-[8px]">
             <Check className="size-5 p-0.5 text-aubergine-25 bg-green-600 rounded-full" />
-            <span className="text-body text-text/color/primary/label-m">{acceptedText}</span>
+            <span className="text-primary-body text-text/color/primary/label-m">{acceptedText}</span>
           </div>
           <div className="w-[314px] max-w-[314px] border-[1px] border-aubergine-750 bg-aubergine-25 rounded-[14px] p-[12px] flex items-center gap-[16px] justify-center">
             {acceptedComponent}

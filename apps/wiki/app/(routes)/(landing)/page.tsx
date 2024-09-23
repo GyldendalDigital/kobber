@@ -43,21 +43,19 @@ const news: NewsType[] = [
 ];
 
 export default function Home() {
-  console.log(tokens);
-
   return (
-    <main className="flex flex-col gap-0 md:gap-10 pb-10">
+    <main className="flex flex-col gap-0 md:gap-56 pb-20">
       <HeroBanner image={GylImage} />
       {/* MAIN CONTENT */}
-      <div className="pt-[48px] px-[16px] md:py-0 md:px-[64px] pb-0 flex flex-col gap-14">
+      <div className="pt-48 px-16 md:py-0 md:px-64 pb-0 flex flex-col gap-14">
         <div className="grid gap-5">
-          <h2 className="text-text/color/primary/heading-s text-heading-s font-normal">Utforsk</h2>
+          <h2 className="text-text/color/primary/heading-s text-primary-heading-s font-normal">Utforsk</h2>
           <FeatureBoxGrid items={boxes} className="md:grid-cols-4" />
         </div>
 
-        <div className="grid gap-[64px] px-[16px]">
-          <div className="h-[182px] grid gap-[16px]">
-            <h3 className="text-text/color/primary/title-m text-title-m">Hva er nytt?</h3>
+        <div className="grid  px-16">
+          <div className="min-h-96 flex flex-col gap-16">
+            <h3 className="text-text/color/primary/title-m text-primary-title-m">Hva er nytt?</h3>
             {news.map((item, index) => (
               <AwardListItem key={index} award={item} />
             ))}

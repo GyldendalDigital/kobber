@@ -57,7 +57,7 @@ export default function ComponentsSection({ params }: ComponentsSectionProps) {
   return (
     <section className="max-w-full flex flex-col gap-[48px]">
       {headerImage ? (
-        <div className="relative overflow-hidden  max-w-full h-[293px] rounded-[16px]">
+        <div className="relative overflow-hidden  max-w-full h-[293px] rounded-16">
           <Image src={headerImage} fill className="object-cover" alt="Header Image" />
         </div>
       ) : null}
@@ -70,7 +70,7 @@ export default function ComponentsSection({ params }: ComponentsSectionProps) {
 
         <p className="text-[24px] leading-[33.6px] text-[#532D37]">{description}</p>
 
-        <p className="whitespace-pre-wrap text-body leading-[24px] text-[#532D37]">{text}</p>
+        <p className="whitespace-pre-wrap text-primary-body leading-[24px] text-[#532D37]">{text}</p>
       </div>
       <FeatureBoxGrid items={boxes} />
     </section>
