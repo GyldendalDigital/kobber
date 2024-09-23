@@ -22,7 +22,7 @@ export function TopMenu() {
             <li key={index}>
               <Link
                 className={cn(
-                  "text-16 leading-[16px] hover:underline underline-offset-8 decoration-text/color/action-item/button",
+                  "text-body leading-[16px] hover:underline underline-offset-8 decoration-text/color/action-item/button",
                   {
                     underline: pathName && isOnPath(pathName, route.href),
                   },

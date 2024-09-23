@@ -4,6 +4,7 @@ import GylImage from "@/public/gyl-art.png";
 import { FeatureBoxType, NewsType } from "@/types/types";
 import { AwardListItem } from "@/components/award-list-item";
 import { FeatureBoxGrid } from "@/components/feature-box-grid";
+import { tokens } from "@/lib/theme";
 
 const boxes: FeatureBoxType[] = [
   {
@@ -42,6 +43,8 @@ const news: NewsType[] = [
 ];
 
 export default function Home() {
+  console.log(tokens);
+
   return (
     <main className="flex flex-col gap-0 md:gap-10 pb-10">
       <HeroBanner image={GylImage} />

@@ -70,7 +70,7 @@ export default function ComponentsSection({ params }: ComponentsSectionProps) {
 
         <p className="text-[24px] leading-[33.6px] text-[#532D37]">{description}</p>
 
-        <p className="whitespace-pre-wrap text-16 leading-[24px] text-[#532D37]">{text}</p>
+        <p className="whitespace-pre-wrap text-body leading-[24px] text-[#532D37]">{text}</p>
       </div>
       <FeatureBoxGrid items={boxes} />
     </section>
