@@ -3143,7 +3143,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-icons@workspace:packages/kobber-icons":
+"@gyldendal/kobber-icons@npm:*, @gyldendal/kobber-icons@workspace:packages/kobber-icons":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-icons@workspace:packages/kobber-icons"
   dependencies:
@@ -20291,6 +20291,8 @@ __metadata:
   resolution: "storybook-web-components@workspace:apps/storybook-web-components"
   dependencies:
     "@gyldendal/kobber-base": "npm:*"
+    "@gyldendal/kobber-components": "npm:*"
+    "@gyldendal/kobber-icons": "npm:*"
     "@storybook/addon-a11y": "npm:^8.0.5"
     "@storybook/addon-essentials": "npm:^8.0.5"
     "@storybook/blocks": "npm:^8.0.5"
