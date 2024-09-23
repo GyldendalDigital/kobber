@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { KobberButton } from "@/components/kobber-ssr-loader";
 import { semantics } from "@gyldendal/kobber-base/themes/default/tokens";
-import type { ButtonLevel } from "@gyldendal/kobber-components/src/button/Button";
+import type { ButtonLevel } from "@gyldendal/kobber-components/src/button/Button.types";
 
 type BrandColor = Exclude<keyof typeof semantics.color.brand, "wine">;
 const brandColors = Object.keys(semantics.color.brand) as Array<BrandColor>;

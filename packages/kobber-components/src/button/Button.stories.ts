@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import { ButtonBackgroundColor, ButtonVariant } from "./Button";
+import { ButtonVariant } from "./Button.types";
 import "./Button";
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 
@@ -123,7 +123,7 @@ ${levels
   .map(
     level =>
       `<div class="wrapper-level"><h4>${level}</h4>${Object.keys(
-        tokens.component.button.background.color.primary[color as ButtonBackgroundColor] ?? [],
+        tokens.component.button.background.color.primary[color] ?? [],
       )
         .map(variant => renderVariant(color, variant, level))
         .join("")}</div>`,

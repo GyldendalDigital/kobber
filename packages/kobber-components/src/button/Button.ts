@@ -1,12 +1,9 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { consume } from "@lit/context";
 import { customElement, property } from "lit/decorators.js";
-import { Theme, themeContext } from "../utils/theme-context";
-
-export type ButtonVariant = keyof Theme["tokens"]["component"]["button"]["background"]["color"]["primary"]["neutral"];
-export type ButtonBackgroundColor = keyof Theme["tokens"]["component"]["button"]["background"]["color"]["primary"];
-export type ButtonBorderColor = keyof Theme["tokens"]["component"]["button"]["container"]["border"]["color"];
-export type ButtonLevel = keyof Theme["tokens"]["component"]["button"]["text"]["color"]["carmine"]["main"];
+import { themeContext } from "../utils/theme-context";
+import { ButtonBackgroundColor, ButtonVariant, ButtonLevel, ButtonBorderColor } from "./Button.types";
+import { Theme } from "../utils/theme-context.types";
 
 /**
  * TODO:
