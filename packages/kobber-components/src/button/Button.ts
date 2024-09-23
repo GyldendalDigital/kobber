@@ -26,6 +26,9 @@ export class Button extends LitElement {
   @property()
   level: ButtonLevel = "primary";
 
+  @property({ type: Boolean })
+  disabled = false;
+
   render() {
     if (!this.color) return "Color undefined";
     if (!this.variant) return "Variant undefined";
@@ -38,7 +41,7 @@ export class Button extends LitElement {
         ${themeStyles}
       </style>
       <!-- TODO: set all relevant attributes -->
-      <button class=${this.classList.value} ?disabled=${this.attributes.getNamedItem("disabled") ? true : false}>
+      <button class=${this.classList.value} ?disabled=${this.disabled ? true : false}>
         <span><slot></slot></span>
       </button>
     `;
