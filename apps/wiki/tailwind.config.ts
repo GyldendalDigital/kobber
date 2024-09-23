@@ -2,10 +2,9 @@ import type { Config } from "tailwindcss";
 import { tokens } from "./lib/theme";
 
 const semantics = tokens.default.semantics;
-const { text, color } = semantics;
-
 const typography = tokens.default.typography;
 
+const { text, color } = semantics;
 const { primary } = typography;
 
 const config = {
@@ -52,9 +51,48 @@ const config = {
       },
 
       fontSize: {
-        "display-s": ["48px", "60px"],
-        "heading-s": ["32px", "50px"],
-        body: [`${primary.body.fontSize}px`, `${primary.body.lineHeight}px`],
+        "display-l": [
+          `${primary["display l"].fontSize}px`,
+          {
+            lineHeight: `${primary["display l"].lineHeight}px`,
+            fontWeight: `${primary["display l"].fontWeight}`,
+          },
+        ],
+        "display-m": [
+          `${primary["display m"].fontSize}px`,
+          {
+            lineHeight: `${primary["display m"].lineHeight}px`,
+            fontWeight: `${primary["display m"].fontWeight}`,
+          },
+        ],
+        "display-s": [
+          `${primary["display s"].fontSize}px`,
+          {
+            lineHeight: `${primary["display s"].lineHeight}px`,
+            fontWeight: `${primary["display s"].fontWeight}`,
+          },
+        ],
+        "heading-m": [
+          `${primary["heading m"].fontSize}px`,
+          {
+            lineHeight: `${primary["heading m"].lineHeight}px`,
+            fontWeight: `${primary["heading m"].fontWeight}`,
+          },
+        ],
+        "heading-s": [
+          `${primary["heading s"].fontSize}px`,
+          {
+            lineHeight: `${primary["heading s"].lineHeight}px`,
+            fontWeight: `${primary["heading s"].fontWeight}`,
+          },
+        ],
+        body: [
+          `${primary.body.fontSize}px`,
+          {
+            lineHeight: `${primary.body.lineHeight}px`,
+            fontWeight: `${primary.body.fontWeight}`,
+          },
+        ],
         "title-s": ["18px", "35px"],
         "title-m": ["24px", "40px"],
       },
