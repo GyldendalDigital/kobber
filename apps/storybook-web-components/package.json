@@ -6,6 +6,8 @@
   "private": true,
   "dependencies": {
     "@gyldendal/kobber-base": "*",
+    "@gyldendal/kobber-components": "*",
+    "@gyldendal/kobber-icons": "*",
     "lit-html": "^3.1.1",
     "storybook": "^8.0.5"
   },
