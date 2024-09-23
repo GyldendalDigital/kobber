@@ -1,11 +1,12 @@
 import type { Config } from "tailwindcss";
 import { tokens } from "./lib/theme";
 
+const primitives = tokens.default.primitives;
 const semantics = tokens.default.semantics;
-const { text, color } = semantics;
-
 const typography = tokens.default.typography;
 
+const { text, color } = semantics;
+const { size } = primitives;
 const { primary } = typography;
 
 const config = {
@@ -31,16 +32,90 @@ const config = {
 
       // TODO: INSERT KOBBER TOKENS
       height: {
-        "72": `${tokens.default.primitives.size[72]}px`,
+        "1": `${size[1]}px`,
+        "2": `${size[2]}px`,
+        "4": `${size[4]}px`,
+        "8": `${size[8]}px`,
+        "10": `${size[10]}px`,
+        "12": `${size[12]}px`,
+        "14": `${size[14]}px`,
+        "16": `${size[16]}px`,
+        "20": `${size[20]}px`,
+        "24": `${size[24]}px`,
+        "32": `${size[32]}px`,
+        "40": `${size[40]}px`,
+        "48": `${size[48]}px`,
+        "56": `${size[56]}px`,
+        "64": `${size[64]}px`,
+        "72": `${size[72]}px`,
+        "96": `${size[96]}px`,
+        "104": `${size[104]}px`,
+        "120": `${size[120]}px`,
+        "128": `${size[128]}px`,
+        "320": `${size[320]}px`,
+        "520": `${size[520]}px`,
+        "720": `${size[720]}px`,
+        "1000": `${size[1000]}px`,
+        "1280": `${size[1280]}px`,
+        "1600": `${size[1600]}px`,
       },
       // TODO: INSERT KOBBER TOKENS
       padding: {
-        "16": "16px",
-        "24": "24px",
+        "1": `${size[1]}px`,
+        "2": `${size[2]}px`,
+        "4": `${size[4]}px`,
+        "8": `${size[8]}px`,
+        "10": `${size[10]}px`,
+        "12": `${size[12]}px`,
+        "14": `${size[14]}px`,
+        "16": `${size[16]}px`,
+        "20": `${size[20]}px`,
+        "24": `${size[24]}px`,
+        "32": `${size[32]}px`,
+        "40": `${size[40]}px`,
+        "48": `${size[48]}px`,
+        "56": `${size[56]}px`,
+        "64": `${size[64]}px`,
+        "72": `${size[72]}px`,
+        "96": `${size[96]}px`,
+        "104": `${size[104]}px`,
+        "120": `${size[120]}px`,
+        "128": `${size[128]}px`,
+        "320": `${size[320]}px`,
+        "520": `${size[520]}px`,
+        "720": `${size[720]}px`,
+        "1000": `${size[1000]}px`,
+        "1280": `${size[1280]}px`,
+        "1600": `${size[1600]}px`,
       },
 
       gap: {
-        "24": "24px",
+        "1": `${size[1]}px`,
+        "2": `${size[2]}px`,
+        "4": `${size[4]}px`,
+        "8": `${size[8]}px`,
+        "10": `${size[10]}px`,
+        "12": `${size[12]}px`,
+        "14": `${size[14]}px`,
+        "16": `${size[16]}px`,
+        "20": `${size[20]}px`,
+        "24": `${size[24]}px`,
+        "32": `${size[32]}px`,
+        "40": `${size[40]}px`,
+        "48": `${size[48]}px`,
+        "56": `${size[56]}px`,
+        "64": `${size[64]}px`,
+        "72": `${size[72]}px`,
+        "96": `${size[96]}px`,
+        "104": `${size[104]}px`,
+        "120": `${size[120]}px`,
+        "128": `${size[128]}px`,
+        "320": `${size[320]}px`,
+        "520": `${size[520]}px`,
+        "720": `${size[720]}px`,
+        "1000": `${size[1000]}px`,
+        "1280": `${size[1280]}px`,
+        "1600": `${size[1600]}px`,
       },
 
       fontWeight: {
@@ -52,11 +127,62 @@ const config = {
       },
 
       fontSize: {
-        "display-s": ["48px", "60px"],
-        "heading-s": ["32px", "50px"],
-        body: [`${primary.body.fontSize}px`, `${primary.body.lineHeight}px`],
-        "title-s": ["18px", "35px"],
-        "title-m": ["24px", "40px"],
+        "display-l": [
+          `${primary["display l"].fontSize}px`,
+          {
+            lineHeight: `${primary["display l"].lineHeight}px`,
+            fontWeight: `${primary["display l"].fontWeight}`,
+          },
+        ],
+        "display-m": [
+          `${primary["display m"].fontSize}px`,
+          {
+            lineHeight: `${primary["display m"].lineHeight}px`,
+            fontWeight: `${primary["display m"].fontWeight}`,
+          },
+        ],
+        "display-s": [
+          `${primary["display s"].fontSize}px`,
+          {
+            lineHeight: `${primary["display s"].lineHeight}px`,
+            fontWeight: `${primary["display s"].fontWeight}`,
+          },
+        ],
+        "heading-m": [
+          `${primary["heading m"].fontSize}px`,
+          {
+            lineHeight: `${primary["heading m"].lineHeight}px`,
+            fontWeight: `${primary["heading m"].fontWeight}`,
+          },
+        ],
+        "heading-s": [
+          `${primary["heading s"].fontSize}px`,
+          {
+            lineHeight: `${primary["heading s"].lineHeight}px`,
+            fontWeight: `${primary["heading s"].fontWeight}`,
+          },
+        ],
+        body: [
+          `${primary.body.fontSize}px`,
+          {
+            lineHeight: `${primary.body.lineHeight}px`,
+            fontWeight: `${primary.body.fontWeight}`,
+          },
+        ],
+        "title-s": [
+          `${primary["title s"].fontSize}px`,
+          {
+            lineHeight: `${primary["title s"].lineHeight}px`,
+            fontWeight: `${primary["title s"].fontWeight}`,
+          },
+        ],
+        "title-m": [
+          `${primary["title m"].fontSize}px`,
+          {
+            lineHeight: `${primary["title m"].lineHeight}px`,
+            fontWeight: `${primary["title m"].fontWeight}`,
+          },
+        ],
       },
 
       // TODO: INSERT KOBBER TOKENS
