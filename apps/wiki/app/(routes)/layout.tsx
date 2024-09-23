@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
-<<<<<<< HEAD
-import { TopMenu } from "@/components/top-menu";
-=======
-import { GridLayout } from "@/components/grid-layout";
 import { KobberThemeContext } from "@/components/kobber-ssr-loader";
->>>>>>> e07186f253b60b368f75f7de6e0908aa736c8ce3
+import { TopMenu } from "@/components/top-menu";
 
 // Moved to global.css
 // const PPMori = localFont({
@@ -34,18 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-<<<<<<< HEAD
-      <body className={cn("bg-aubergine-25 min-h-screen  size-full antialiased transition-all", PPMori.className)}>
-        <div className="max-w-[1280px]  mx-auto">
-          <TopMenu />
-          {children}
-        </div>
-=======
       <body className={cn("bg-aubergine-25 min-h-screen  size-full antialiased transition-all")}>
         <KobberThemeContext themeId="kobber-theme-default">
-          <GridLayout>{children}</GridLayout>
+          <div className="max-w-[1280px] mx-auto">
+            <TopMenu />
+            {children}
+          </div>
         </KobberThemeContext>
->>>>>>> e07186f253b60b368f75f7de6e0908aa736c8ce3
       </body>
     </html>
   );
