@@ -58,8 +58,8 @@ const render: ArgsStoryFn<WebComponentsRenderer> = args => {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: ${unsafeCSS(tokens.primitives.color.gray[700])};
-        color: ${unsafeCSS(tokens.primitives.color.white)};
+        background-color: ${unsafeCSS(tokens.primitives.color.concrete[750])};
+        color: white;
       }
     </style>
 

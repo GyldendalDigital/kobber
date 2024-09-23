@@ -2,10 +2,10 @@ import { SectionLayout } from "@/components/section-layout";
 import { TextCollection } from "@/components/text-collection";
 
 import { Metadata } from "next";
-import { PrimaryButtonSection } from "./_components/primary-button-section";
-import { SecondaryButtonSection } from "./_components/secondary-button-section";
+import { ButtonSection } from "./_components/button-section";
 import { PracticeSection } from "./_components/practice-section";
 import { InteractiveStatesSection } from "./_components/interactive-states-section";
+import { ContentSection } from "@/components/content-section";
 
 export const metadata: Metadata = {
   title: "Button | Kobber",
@@ -20,8 +20,18 @@ export default function ButtonPage() {
   return (
     <SectionLayout>
       <TextCollection heading="Button" subheading={subheading} />
-      <PrimaryButtonSection />
-      <SecondaryButtonSection />
+      <ContentSection
+        heading="Primærknapp"
+        ingress="Brukes som hovedhandling på en side. Knappen finnes i flere fargeutførelser avhengig av konteksten den brukes i. Identitetsfargen karminrød og lys aubergine er ofte brukt på både lys og mørk bakgrunn."
+      >
+        <ButtonSection level="primary" />
+      </ContentSection>
+      <ContentSection
+        heading="Sekundærknapp"
+        ingress="Brukes til mindre viktige handlinger. Står ofte sammen med primærknappen. Den finnes i flere fargeutførelser avhengig av konteksten den brukes i."
+      >
+        <ButtonSection level="secondary" />
+      </ContentSection>
       <PracticeSection />
       <InteractiveStatesSection />
     </SectionLayout>

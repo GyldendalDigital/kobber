@@ -3,6 +3,11 @@ import { consume } from "@lit/context";
 import { customElement, property } from "lit/decorators.js";
 import { Theme, themeContext } from "../utils/theme-context";
 
+export type ButtonVariant = keyof Theme["tokens"]["component"]["button"]["background"]["color"]["primary"]["neutral"];
+export type ButtonBackgroundColor = keyof Theme["tokens"]["component"]["button"]["background"]["color"]["primary"];
+export type ButtonBorderColor = keyof Theme["tokens"]["component"]["button"]["container"]["border"]["color"];
+export type ButtonLevel = keyof Theme["tokens"]["component"]["button"]["text"]["color"]["carmine"]["main"];
+
 /**
  * TODO:
  * - icons
@@ -13,12 +18,22 @@ export class Button extends LitElement {
   theme?: Theme;
 
   @property()
-  color: "default" | "info" | "positive" | "negative" = "default";
+  color: ButtonBackgroundColor = "carmine";
 
   @property()
-  level: "primary" | "secondary" = "primary";
+  variant: ButtonVariant = "main";
+
+  @property()
+  level: ButtonLevel = "primary";
+
+  @property({ type: Boolean })
+  disabled = false;
 
   render() {
+    if (!this.color) return "Color undefined";
+    if (!this.variant) return "Variant undefined";
+    if (!this.level) return "Level undefined";
+
     const themeStyles = this.themedStyles();
 
     return html`
@@ -26,11 +41,27 @@ export class Button extends LitElement {
         ${themeStyles}
       </style>
       <!-- TODO: set all relevant attributes -->
-      <button class=${this.classList.value} ?disabled=${this.attributes.getNamedItem("disabled") ? true : false}>
-        <slot></slot>
+      <button class=${this.classList.value} ?disabled=${this.disabled ? true : false}>
+        <span><slot></slot></span>
       </button>
     `;
   }
+
+  colorFallback = () => {
+    return this.color ?? "carmine";
+  };
+
+  variantFallback = (): Exclude<ButtonVariant, "supplemental alt"> => {
+    // if (this.variant == "supplemental alt") {
+    //   return "supplemental";
+    // }
+
+    return this.variant as Exclude<ButtonVariant, "supplemental alt">;
+  };
+
+  levelFallback = (): Exclude<ButtonLevel, "secondary"> => {
+    return this.level as Exclude<ButtonLevel, "secondary">;
+  };
 
   themedStyles = () => {
     const tokens = this.theme?.tokens;
@@ -39,6 +70,8 @@ export class Button extends LitElement {
       return css``;
     }
 
+    const component = tokens.component.button;
+    const typography = tokens.typography.actionitems.button;
     // TODO:
     // - fix units (px vs rem)
     // - make a "withFallback"-function for states with no value and should use default
@@ -46,46 +79,51 @@ export class Button extends LitElement {
     return css`
       button {
         /* Common for all variants */
+
         border: 1px solid transparent;
-        border-radius: ${tokens.component.button.border.radius}px;
-        padding: ${tokens.component.button.padding.block}px ${tokens.component.button.padding.inline}px;
-        font-size: ${tokens.typography.action.button.fontSize / 16}rem;
-        font-family: ${unsafeCSS(tokens.typography.action.button.fontFamily)};
-        font-weight: ${tokens.typography.action.button.fontWeight};
-        font-style: ${unsafeCSS(tokens.typography.action.button.fontStyle)};
-        font-stretch: ${unsafeCSS(tokens.typography.action.button.fontStretch)};
+        /* TODO: wait for token */
+        border-radius: ${10}px;
+
+        padding: ${component.container.padding.block}px
+          ${component.container.padding.inline}px;
+        font-size: ${typography.fontSize / 16}rem;
+        font-family: ${unsafeCSS(typography.fontFamily)};
+        font-weight: ${typography.fontWeight};
+        font-style: ${unsafeCSS(typography.fontStyle)};
+        font-stretch: ${unsafeCSS(typography.fontStretch)};
 
         &:focus:enabled,
         &.focus {
+        /* border-radius: ${component.focus.border.radius}px; */
+          
           outline: none;
-          box-shadow: 0 0 0 4px ${unsafeCSS(tokens.semantic.color.focus)};
+          /* TODO: handle secondary level transparent */
+          box-shadow: 0 0 0 ${component.focus.border.padding}px
+            ${unsafeCSS(component.focus.border.color.primary.focus)};
         }
 
         &:disabled {
-          background-color: ${unsafeCSS(tokens.component.button.color.default.disabled.background)};
-          color: ${unsafeCSS(tokens.component.button.color.default.disabled.foreground)};
-          font-style: ${unsafeCSS(tokens.typography.action.disabled.button.fontStyle)};
+          background-color: ${unsafeCSS(component.background.color.primary[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled)};
+          color: ${unsafeCSS(component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled)};
         }
 
         /* Different for each variant */
-        background-color: ${unsafeCSS(tokens.component.button.color[this.color].default.background)};
-        color: ${unsafeCSS(tokens.component.button.color[this.color].default.foreground)};
+        background-color: ${unsafeCSS(component.background.color.primary.carmine.main.primary.fallback)};
+        background-color: ${unsafeCSS(this.level === "secondary" ? "transparent" : component.background.color.primary[this.color]?.[this.variantFallback()]?.primary.fallback)};
+        color: ${unsafeCSS(component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.fallback)};
 
-        &:hover:enabled,
-        &.hover {
-          background-color: ${unsafeCSS(tokens.component.button.color[this.color].hover.background)};
-        }
+        transition: scale 200ms ease-in 0s;
 
         &:active:enabled,
-        &.active {
-          background-color: ${unsafeCSS(tokens.component.button.color[this.color].active.background)};
+        &.active,
+        &:hover:enabled,
+        &.hover {
+          scale: 1.1;
+          span {
+            padding-bottom:${unsafeCSS(component.container.gap)}px;
+            border-bottom: ${unsafeCSS(this.level === "secondary" ? `1px solid ${component.container.border.color[this.color as ButtonBorderColor]?.[this.variantFallback()]?.active}` : null)};
+          }
         }
-      }
     `;
   };
 }
-
-// color theme nivået på current er feil. varianter bør komme etter properties
-// varianter har må ha en bestemt rekkefølge på properties per komponent
-// f.eks. button må alltid ha rekkefølgen variants.level.colorTheme.state
-// og hvis en av disse mangler, fallbacker vi til button rot-nivået

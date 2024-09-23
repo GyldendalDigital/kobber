@@ -1,9 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { ContentSection } from "@/components/content-section";
 import { InteractiveScreen } from "@/components/interactive-screen";
-import { InteractiveScreenProperties } from "@/components/interactive-screen-properties";
 import { useState } from "react";
 
 import {
@@ -15,39 +13,46 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { KobberButton } from "@/components/kobber-ssr-loader";
+import { semantics } from "@gyldendal/kobber-base/themes/default/tokens";
+import type { ButtonLevel } from "@gyldendal/kobber-components/src/button/Button";
 
-export function PrimaryButtonSection() {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+type BrandColor = Exclude<keyof typeof semantics.color.brand, "wine">;
+const brandColors = Object.keys(semantics.color.brand) as Array<BrandColor>;
+const uiColors = Object.keys(semantics.color.ui);
+const themeColors = Object.keys(semantics.color.theme);
+
+const colors = [...brandColors, ...uiColors, ...themeColors];
+
+export function ButtonSection({ level }: { level: ButtonLevel }) {
   const [isLeftAligned, setIsLeftAligned] = useState<boolean>(false);
+  const [color, setColor] = useState<BrandColor>(brandColors[0]);
 
   return (
-    <ContentSection
-      heading="Primærknapp"
-      ingress="Brukes som hovedhandling på en side. Knappen finnes i flere fargeutførelser avhengig av konteksten den brukes i. Identitetsfargen karminrød og lys aubergine er ofte brukt på både lys og mørk bakgrunn. "
+    <InteractiveScreen
+      key={level}
+      properties={mode => <ButtonProperties setIsLeftAligned={setIsLeftAligned} setColor={setColor} />}
+      footer={mode => (mode === "dark" && level === "secondary" ? "supplemental" : "")}
     >
-      <InteractiveScreen
-        properties={
-          <InteractiveScreenProperties
-            setIsDarkMode={setIsDarkMode}
-            properties={<ButtonProperties setIsLeftAligned={setIsLeftAligned} />}
-          />
-        }
-      >
-        <Button variant={isDarkMode ? "primaryDark" : "primary"}>
-          {isLeftAligned && <ArrowRight className="size-5 mr-2" />}
+      {mode => (
+        <KobberButton
+          color={color}
+          variant={mode === "dark" && level === "secondary" ? "supplemental" : "main"}
+          level={level}
+        >
           Button
-          {!isLeftAligned && <ArrowRight className="size-5 ml-2" />}
-        </Button>
-      </InteractiveScreen>
-    </ContentSection>
+        </KobberButton>
+      )}
+    </InteractiveScreen>
   );
 }
 
 type ButtonPropertiesProps = {
   setIsLeftAligned: (value: boolean) => void;
+  setColor: (value: BrandColor) => void;
 };
 
-function ButtonProperties({ setIsLeftAligned }: ButtonPropertiesProps) {
+function ButtonProperties({ setIsLeftAligned, setColor }: ButtonPropertiesProps) {
   return (
     <>
       <DropdownMenu>
@@ -57,7 +62,7 @@ function ButtonProperties({ setIsLeftAligned }: ButtonPropertiesProps) {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
-          <DropdownMenuLabel>Ikon innstillinger</DropdownMenuLabel>
+          <DropdownMenuLabel>Ikon er ikke klart i komponenten</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem onClick={() => setIsLeftAligned(true)}>Venstre</DropdownMenuItem>
@@ -72,12 +77,11 @@ function ButtonProperties({ setIsLeftAligned }: ButtonPropertiesProps) {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
-          <DropdownMenuLabel>Ikon innstillinger</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuGroup>
-            <DropdownMenuItem>Venstre</DropdownMenuItem>
-            <DropdownMenuItem>Høyre</DropdownMenuItem>
-          </DropdownMenuGroup>
+          {brandColors.map(brandColor => (
+            <DropdownMenuItem key={brandColor} onClick={() => setColor(brandColor)}>
+              {brandColor}
+            </DropdownMenuItem>
+          ))}
         </DropdownMenuContent>
       </DropdownMenu>
     </>

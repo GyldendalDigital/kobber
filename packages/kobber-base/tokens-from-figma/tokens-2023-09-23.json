@@ -47,7 +47,7 @@
   },
   "font": {
     "primary": {
-      "display l": {
+      "display large": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 64,
@@ -63,7 +63,7 @@
           "textCase": "none"
         }
       },
-      "display m": {
+      "display medium": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 56,
@@ -79,7 +79,7 @@
           "textCase": "none"
         }
       },
-      "display s": {
+      "display small": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 48,
@@ -95,7 +95,7 @@
           "textCase": "none"
         }
       },
-      "heading m": {
+      "heading medium": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 40,
@@ -111,10 +111,10 @@
           "textCase": "none"
         }
       },
-      "title m": {
+      "title medium": {
         "type": "custom-fontStyle",
         "value": {
-          "fontSize": 24,
+          "fontSize": 32,
           "textDecoration": "none",
           "fontFamily": "PP Mori",
           "fontWeight": 400,
@@ -127,10 +127,10 @@
           "textCase": "none"
         }
       },
-      "heading s": {
+      "heading small": {
         "type": "custom-fontStyle",
         "value": {
-          "fontSize": 32,
+          "fontSize": 24,
           "textDecoration": "none",
           "fontFamily": "PP Mori",
           "fontWeight": 400,
@@ -143,7 +143,7 @@
           "textCase": "none"
         }
       },
-      "title s": {
+      "title small": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 20,
@@ -191,7 +191,7 @@
           "textCase": "none"
         }
       },
-      "label s": {
+      "label small": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 12,
@@ -209,7 +209,7 @@
       }
     },
     "secondary": {
-      "display l": {
+      "display large": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 64,
@@ -225,7 +225,7 @@
           "textCase": "none"
         }
       },
-      "display m": {
+      "display medium": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 56,
@@ -241,7 +241,7 @@
           "textCase": "none"
         }
       },
-      "display s": {
+      "display small": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 48,
@@ -257,7 +257,7 @@
           "textCase": "none"
         }
       },
-      "heading m": {
+      "heading medium": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 40,
@@ -273,7 +273,7 @@
           "textCase": "none"
         }
       },
-      "heading s": {
+      "heading small": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 32,
@@ -291,7 +291,7 @@
       }
     },
     "reading": {
-      "heading m": {
+      "heading medium": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 40,
@@ -307,7 +307,7 @@
           "textCase": "none"
         }
       },
-      "heading s": {
+      "heading small": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 32,
@@ -323,7 +323,7 @@
           "textCase": "none"
         }
       },
-      "title m": {
+      "title medium": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 24,
@@ -339,7 +339,7 @@
           "textCase": "none"
         }
       },
-      "title s": {
+      "title small": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 20,
@@ -371,7 +371,7 @@
           "textCase": "none"
         }
       },
-      "label m": {
+      "label medium": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 14,
@@ -387,7 +387,7 @@
           "textCase": "none"
         }
       },
-      "label s": {
+      "label small": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 12,
@@ -437,7 +437,7 @@
           "textCase": "none"
         }
       },
-      "label l": {
+      "label large": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 16,
@@ -453,7 +453,7 @@
           "textCase": "none"
         }
       },
-      "label m": {
+      "label medium": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 14,
@@ -469,7 +469,7 @@
           "textCase": "none"
         }
       },
-      "label s": {
+      "label small": {
         "type": "custom-fontStyle",
         "value": {
           "fontSize": 12,
@@ -1280,187 +1280,77 @@
     },
     "font": {
       "weight": {
-        "light": {
+        "200": {
           "type": "dimension",
           "value": 200
         },
-        "book": {
+        "300": {
           "type": "dimension",
           "value": 300
         },
-        "regular": {
+        "400": {
           "type": "dimension",
           "value": 400
         },
-        "medium": {
+        "500": {
           "type": "dimension",
           "value": 500
         },
-        "semi bold": {
+        "600": {
           "type": "dimension",
           "value": 600
         }
       },
       "family": {
-        "primary": {
-          "label-s": {
-            "type": "string",
-            "value": "pp-mori"
-          },
-          "label-m": {
-            "type": "string",
-            "value": "pp-mori"
-          },
-          "body": {
-            "type": "string",
-            "value": "pp-mori"
-          },
-          "title-s": {
-            "type": "string",
-            "value": "pp-mori"
-          },
-          "title-m": {
-            "type": "string",
-            "value": "pp-mori"
-          },
-          "heading-s": {
-            "type": "string",
-            "value": "pp-mori"
-          },
-          "heading-m": {
-            "type": "string",
-            "value": "pp-mori"
-          },
-          "display-s": {
-            "type": "string",
-            "value": "pp-mori"
-          },
-          "display-m": {
-            "type": "string",
-            "value": "pp-mori"
-          },
-          "display-l": {
-            "type": "string",
-            "value": "pp-mori"
-          }
+        "pp-mori": {
+          "type": "string",
+          "value": "pp-mori"
         },
-        "secondary": {
-          "display-l": {
-            "type": "string",
-            "value": "lyon-display"
-          },
-          "display-m": {
-            "type": "string",
-            "value": "lyon-display"
-          },
-          "display-s": {
-            "type": "string",
-            "value": "lyon-display"
-          },
-          "heading-m": {
-            "type": "string",
-            "value": "lyon-display"
-          },
-          "heading-s": {
-            "type": "string",
-            "value": "lyon-display"
-          }
+        "lyon-display": {
+          "type": "string",
+          "value": "lyon-display"
         },
-        "reading": {
-          "heading-m": {
-            "type": "string",
-            "value": "inter"
-          },
-          "heading-s": {
-            "type": "string",
-            "value": "inter"
-          },
-          "title-m": {
-            "type": "string",
-            "value": "inter"
-          },
-          "title-s": {
-            "type": "string",
-            "value": "inter"
-          },
-          "body": {
-            "type": "string",
-            "value": "inter"
-          },
-          "label-m": {
-            "type": "string",
-            "value": "inter"
-          },
-          "label-s": {
-            "type": "string",
-            "value": "inter"
-          }
-        },
-        "action-items": {
-          "input": {
-            "type": "string",
-            "value": "pp-mori"
-          },
-          "button": {
-            "type": "string",
-            "value": "pp-mori"
-          },
-          "body": {
-            "type": "string",
-            "value": "pp-mori"
-          },
-          "label-m": {
-            "type": "string",
-            "value": "pp-mori"
-          },
-          "label-s": {
-            "type": "string",
-            "value": "pp-mori"
-          }
+        "inter": {
+          "type": "string",
+          "value": "inter"
         }
       },
       "line-height": {
-        "tight": {
-          "20": {
-            "type": "dimension",
-            "value": 20
-          },
-          "25": {
-            "type": "dimension",
-            "value": 25
-          },
-          "30": {
-            "type": "dimension",
-            "value": 30
-          },
-          "35": {
-            "type": "dimension",
-            "value": 35
-          }
+        "20": {
+          "type": "dimension",
+          "value": 20
         },
-        "normal": {
-          "40": {
-            "type": "dimension",
-            "value": 40
-          },
-          "50": {
-            "type": "dimension",
-            "value": 50
-          },
-          "60": {
-            "type": "dimension",
-            "value": 60
-          }
+        "25": {
+          "type": "dimension",
+          "value": 25
         },
-        "wide": {
-          "70": {
-            "type": "dimension",
-            "value": 70
-          },
-          "80": {
-            "type": "dimension",
-            "value": 80
-          }
+        "30": {
+          "type": "dimension",
+          "value": 30
+        },
+        "35": {
+          "type": "dimension",
+          "value": 35
+        },
+        "40": {
+          "type": "dimension",
+          "value": 40
+        },
+        "50": {
+          "type": "dimension",
+          "value": 50
+        },
+        "60": {
+          "type": "dimension",
+          "value": 60
+        },
+        "70": {
+          "type": "dimension",
+          "value": 70
+        },
+        "80": {
+          "type": "dimension",
+          "value": 80
         }
       }
     }
@@ -2809,176 +2699,272 @@
       }
     },
     "text": {
-      "color": {
-        "primary": {
-          "dispaly-s": {
-            "type": "color",
-            "value": "{semantics.mode 1.color.brand.aubergine.850}"
+      "primary": {
+        "weight": {
+          "regular": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.weight.400}"
           },
-          "title-m": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.aubergine.850}"
-          },
-          "body": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.aubergine.850}"
-          },
-          "heading-s": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.aubergine.850}"
-          },
-          "title-s": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.aubergine.850}"
-          },
-          "label-m": {
-            "type": "color",
-            "value": "{semantics.mode 1.color.brand.carmine.525}"
-          },
-          "label-s": {
-            "type": "color",
-            "value": "{semantics.mode 1.color.brand.wine.600}"
+          "book": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.weight.300}"
           }
         },
-        "secondary": {
-          "dispaly-s": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.carmine.525}"
+        "font-family": {
+          "type": "string",
+          "value": "{primitives.mode 1.font.family.pp-mori}"
+        },
+        "size": {
+          "12": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.12}"
           },
-          "heading-s": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.carmine.525}"
+          "14": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.14}"
+          },
+          "16": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.16}"
+          },
+          "20": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.20}"
+          },
+          "24": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.24}"
+          },
+          "32": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.32}"
+          },
+          "40": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.40}"
+          },
+          "48": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.48}"
+          },
+          "56": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.56}"
+          },
+          "64": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.64}"
           }
         },
-        "action-item": {
-          "button": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.aubergine.850}"
-          },
-          "input": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.aubergine.850}"
-          },
-          "label-m": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.aubergine.850}"
-          },
-          "label-s": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.aubergine.850}"
-          }
-        }
-      },
-      "weight": {
-        "light": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.font.weight.light}"
-        },
-        "book": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.font.weight.book}"
-        },
-        "medium": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.font.weight.medium}"
-        },
-        "semibold": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.font.weight.semi bold}"
-        },
-        "regular": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.font.weight.regular}"
-        }
-      },
-      "line-height": {
-        "tight": {
-          "small": {
+        "line-height": {
+          "20": {
             "type": "dimension",
-            "value": "{primitives.mode 1.font.line-height.tight.20}"
+            "value": "{primitives.mode 1.font.line-height.20}"
           },
-          "medium": {
+          "25": {
             "type": "dimension",
-            "value": "{primitives.mode 1.font.line-height.tight.25}"
+            "value": "{primitives.mode 1.font.line-height.25}"
           },
-          "large": {
+          "30": {
             "type": "dimension",
-            "value": "{primitives.mode 1.font.line-height.tight.30}"
+            "value": "{primitives.mode 1.font.line-height.30}"
           },
-          "x-large": {
+          "35": {
             "type": "dimension",
-            "value": "{primitives.mode 1.font.line-height.tight.35}"
-          }
-        },
-        "normal": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.font.weight.book}",
-          "small": {
-            "type": "dimension",
-            "value": "{primitives.mode 1.font.line-height.normal.40}"
+            "value": "{primitives.mode 1.font.line-height.35}"
           },
-          "medium": {
+          "40": {
             "type": "dimension",
-            "value": "{primitives.mode 1.font.line-height.normal.50}"
+            "value": "{primitives.mode 1.font.line-height.40}"
           },
-          "large": {
+          "50": {
             "type": "dimension",
-            "value": "{primitives.mode 1.font.line-height.normal.60}"
-          }
-        },
-        "wide": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.font.weight.regular}",
-          "small": {
-            "type": "dimension",
-            "value": "{primitives.mode 1.font.line-height.wide.70}"
+            "value": "{primitives.mode 1.font.line-height.50}"
           },
-          "medium": {
+          "60": {
             "type": "dimension",
-            "value": "{primitives.mode 1.font.line-height.wide.80}"
+            "value": "{primitives.mode 1.font.line-height.60}"
+          },
+          "70": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.70}"
+          },
+          "80": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.80}"
           }
         }
       },
-      "size": {
-        "xxsmall": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.size.12}"
+      "secondary": {
+        "size": {
+          "32": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.32}"
+          },
+          "40": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.40}"
+          },
+          "48": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.48}"
+          },
+          "56": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.56}"
+          },
+          "64": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.64}"
+          }
         },
-        "xsmall": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.size.14}"
+        "line-height": {
+          "40": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.40}"
+          },
+          "50": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.50}"
+          },
+          "60": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.60}"
+          },
+          "70": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.70}"
+          },
+          "80": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.80}"
+          }
         },
-        "small": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.size.16}"
+        "weight": {
+          "light": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.weight.200}"
+          },
+          "regular": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.weight.400}"
+          }
         },
-        "s-medium": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.size.20}"
+        "font-family": {
+          "type": "string",
+          "value": "{primitives.mode 1.font.family.lyon-display}"
+        }
+      },
+      "reading": {
+        "size": {
+          "12": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.12}"
+          },
+          "14": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.14}"
+          },
+          "16": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.16}"
+          },
+          "20": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.20}"
+          },
+          "24": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.24}"
+          },
+          "32": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.32}"
+          },
+          "40": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.40}"
+          }
         },
-        "medium": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.size.24}"
+        "line-height": {
+          "20": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.20}"
+          },
+          "25": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.25}"
+          },
+          "30": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.30}"
+          },
+          "35": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.35}"
+          },
+          "40": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.40}"
+          },
+          "50": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.50}"
+          }
         },
-        "m-large": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.size.32}"
+        "weight": {
+          "medium": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.weight.500}"
+          },
+          "regular": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.weight.400}"
+          },
+          "semi-bold": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.weight.600}"
+          }
         },
-        "large": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.size.40}"
+        "font-family": {
+          "type": "string",
+          "value": "{primitives.mode 1.font.family.inter}"
+        }
+      },
+      "action": {
+        "size": {
+          "12": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.12}"
+          },
+          "14": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.14}"
+          },
+          "16": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.size.16}"
+          }
         },
-        "xlarge": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.size.48}"
+        "weight": {
+          "regular": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.weight.400}"
+          }
         },
-        "xxlarge": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.size.56}"
+        "line-height": {
+          "20": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.20}"
+          },
+          "25": {
+            "type": "dimension",
+            "value": "{primitives.mode 1.font.line-height.25}"
+          }
         },
-        "xxxlarge": {
-          "type": "dimension",
-          "value": "{primitives.mode 1.size.64}"
+        "font-family": {
+          "type": "string",
+          "value": "{primitives.mode 1.font.family.pp-mori}"
         }
       }
     }
@@ -2987,378 +2973,376 @@
     "button": {
       "background": {
         "color": {
-          "primary": {
-            "carmine": {
-              "main": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.carmine.darkest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.carmine.darkest.transparent}"
-                  }
-                }
-              },
-              "supplemental": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.carmine.lightest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.carmine.lightest.transparent}"
-                  }
+          "carmine": {
+            "main": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.carmine.darkest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.carmine.darkest.transparent}"
                 }
               }
             },
-            "aubergine": {
-              "main": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.aubergine.light.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.aubergine.light.transparent}"
-                  }
+            "supplemental": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.carmine.lightest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.carmine.lightest.transparent}"
                 }
-              },
-              "supplemental": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.aubergine.darkest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.aubergine.darkest.transparent}"
-                  }
-                }
-              },
-              "supplemental alt": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.aubergine.lightest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.aubergine.lightest.transparent}"
-                  }
+              }
+            }
+          },
+          "aubergine": {
+            "main": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.aubergine.light.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.aubergine.light.transparent}"
                 }
               }
             },
-            "neutral": {
-              "main": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{primitives.mode 1.color.concrete.50}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.neutral.light.transparent}"
-                  }
-                }
-              },
-              "supplemental": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.neutral.darkest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.neutral.darkest.transparent}"
-                  }
-                }
-              },
-              "supplemental alt": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.neutral.dark.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.neutral.dark.transparent}"
-                  }
+            "supplemental": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.aubergine.darkest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.aubergine.darkest.transparent}"
                 }
               }
             },
-            "rettsdata": {
-              "main": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.rettsdata.middle.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.rettsdata.middle.transparent}"
-                  }
+            "supplemental alt": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.aubergine.lightest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.aubergine.lightest.transparent}"
                 }
-              },
-              "supplemental": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.rettsdata.lightest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.rettsdata.lightest.transparent}"
-                  }
-                }
-              },
-              "supplemental alt": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.rettsdata.darkest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.rettsdata.darkest.disabled 3}"
-                  }
+              }
+            }
+          },
+          "neutral": {
+            "main": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{primitives.mode 1.color.concrete.50}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.neutral.light.transparent}"
                 }
               }
             },
-            "success": {
-              "main": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.success.lightest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.success.lightest.transparent}"
-                  }
-                }
-              },
-              "supplemental": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.success.darkest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.success.darkest.transparent}"
-                  }
+            "supplemental": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.neutral.darkest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.neutral.darkest.transparent}"
                 }
               }
             },
-            "informative": {
-              "main": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.informative.lightest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.informative.lightest.transparent}"
-                  }
+            "supplemental alt": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.neutral.dark.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.neutral.dark.transparent}"
                 }
-              },
-              "supplemental": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.informative.darkest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.informative.darkest.transparent}"
-                  }
+              }
+            }
+          },
+          "rettsdata": {
+            "main": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.rettsdata.middle.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.rettsdata.middle.transparent}"
                 }
               }
             },
-            "warning": {
-              "main": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.warning.lightest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.warning.lightest.transparent}"
-                  }
-                }
-              },
-              "supplemental": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.warning.darkest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.warning.darkest.transparent}"
-                  }
+            "supplemental": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.rettsdata.lightest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.rettsdata.lightest.transparent}"
                 }
               }
             },
-            "nostalgia": {
-              "main": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.nostalgia.darkest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.nostalgia.darkest.transparent}"
-                  }
+            "supplemental alt": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.rettsdata.darkest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.rettsdata.darkest.disabled 3}"
                 }
-              },
-              "supplemental": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.nostalgia.lightest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.nostalgia.lightest.transparent}"
-                  }
+              }
+            }
+          },
+          "success": {
+            "main": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.success.lightest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.success.lightest.transparent}"
                 }
               }
             },
-            "nature": {
-              "main": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.nature.darkest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.nature.darkest.transparent}"
-                  }
+            "supplemental": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.success.darkest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.success.darkest.transparent}"
                 }
-              },
-              "supplemental": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.nature.lightest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.nature.lightest.transparent}"
-                  }
+              }
+            }
+          },
+          "informative": {
+            "main": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.informative.lightest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.informative.lightest.transparent}"
                 }
               }
             },
-            "romance": {
-              "main": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.romance.darkest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.romance.darkest.transparent}"
-                  }
+            "supplemental": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.informative.darkest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.informative.darkest.transparent}"
                 }
-              },
-              "supplemental": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.romance.lightest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.romance.lightest.transparent}"
-                  }
+              }
+            }
+          },
+          "warning": {
+            "main": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.warning.lightest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.warning.lightest.transparent}"
                 }
               }
             },
-            "vacation": {
-              "main": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.vacation.darkest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.vacation.darkest.transparent}"
-                  }
+            "supplemental": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.warning.darkest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.warning.darkest.transparent}"
                 }
-              },
-              "supplemental": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.vacation.lightest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.vacation.lightest.transparent}"
-                  }
+              }
+            }
+          },
+          "nostalgia": {
+            "main": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.nostalgia.darkest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.nostalgia.darkest.transparent}"
                 }
               }
             },
-            "fantasy": {
-              "main": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.fantasy.darkest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.fantasy.darkest.transparent}"
-                  }
+            "supplemental": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.nostalgia.lightest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.nostalgia.lightest.transparent}"
                 }
-              },
-              "supplemental": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.fantasy.lightest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.fantasy.lightest.transparent}"
-                  }
+              }
+            }
+          },
+          "nature": {
+            "main": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.nature.darkest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.nature.darkest.transparent}"
                 }
               }
             },
-            "thriller": {
-              "main": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.thriller.darkest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.thriller.darkest.transparent}"
-                  }
+            "supplemental": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.nature.lightest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.nature.lightest.transparent}"
                 }
-              },
-              "supplemental": {
-                "primary": {
-                  "fallback": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.thriller.lightest.opaque}"
-                  },
-                  "disabled": {
-                    "type": "color",
-                    "value": "{semantics.mode 1.action.color.thriller.lightest.transparent}"
-                  }
+              }
+            }
+          },
+          "romance": {
+            "main": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.romance.darkest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.romance.darkest.transparent}"
+                }
+              }
+            },
+            "supplemental": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.romance.lightest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.romance.lightest.transparent}"
+                }
+              }
+            }
+          },
+          "vacation": {
+            "main": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.vacation.darkest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.vacation.darkest.transparent}"
+                }
+              }
+            },
+            "supplemental": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.vacation.lightest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.vacation.lightest.transparent}"
+                }
+              }
+            }
+          },
+          "fantasy": {
+            "main": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.fantasy.darkest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.fantasy.darkest.transparent}"
+                }
+              }
+            },
+            "supplemental": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.fantasy.lightest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.fantasy.lightest.transparent}"
+                }
+              }
+            }
+          },
+          "thriller": {
+            "main": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.thriller.darkest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.thriller.darkest.transparent}"
+                }
+              }
+            },
+            "supplemental": {
+              "primary": {
+                "fallback": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.thriller.lightest.opaque}"
+                },
+                "disabled": {
+                  "type": "color",
+                  "value": "{semantics.mode 1.action.color.thriller.lightest.transparent}"
                 }
               }
             }
@@ -3390,221 +3374,261 @@
           "color": {
             "aubergine": {
               "main": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.aubergine.dark.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.aubergine.dark.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.aubergine.dark.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.aubergine.dark.opaque}"
+                  }
                 }
               },
               "supplemental": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.aubergine.lightest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.aubergine.lightest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.aubergine.lightest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.aubergine.lightest.opaque}"
+                  }
                 }
               }
             },
             "carmine": {
               "main": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.carmine.darkest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.carmine.darkest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.carmine.darkest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.carmine.darkest.opaque}"
+                  }
                 }
               },
               "supplemental": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.carmine.lightest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.carmine.lightest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.carmine.lightest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.carmine.lightest.opaque}"
+                  }
                 }
               }
             },
             "rettsdata": {
               "main": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.middle.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.middle.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.rettsdata.middle.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.rettsdata.middle.opaque}"
+                  }
                 }
               },
               "supplemental": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.lightest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.lightest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.rettsdata.lightest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.rettsdata.lightest.opaque}"
+                  }
                 }
               }
             },
             "neutral": {
               "main": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.darkest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.darkest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.neutral.darkest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.neutral.darkest.opaque}"
+                  }
                 }
               },
               "supplemental": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.lightest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.lightest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.neutral.lightest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.neutral.lightest.opaque}"
+                  }
                 }
               }
             },
             "nostalgia": {
               "main": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nostalgia.darkest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nostalgia.darkest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.nostalgia.darkest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.nostalgia.darkest.opaque}"
+                  }
                 }
               },
               "supplemental": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nostalgia.lightest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nostalgia.lightest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.nostalgia.lightest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.nostalgia.lightest.opaque}"
+                  }
                 }
               }
             },
             "nature": {
               "main": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nature.darkest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nature.darkest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.nature.darkest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.nature.darkest.opaque}"
+                  }
                 }
               },
               "supplemental": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nature.lightest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nature.lightest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.nature.lightest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.nature.lightest.opaque}"
+                  }
                 }
               }
             },
             "romance": {
               "main": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.romance.darkest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.romance.darkest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.romance.darkest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.romance.darkest.opaque}"
+                  }
                 }
               },
               "supplemental": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.romance.lightest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.romance.lightest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.romance.lightest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.romance.lightest.opaque}"
+                  }
                 }
               }
             },
             "vacation": {
               "main": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.vacation.darkest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.vacation.darkest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.vacation.darkest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.vacation.darkest.opaque}"
+                  }
                 }
               },
               "supplemental": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.vacation.lightest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.vacation.lightest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.vacation.lightest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.vacation.lightest.opaque}"
+                  }
                 }
               }
             },
             "fantasy": {
               "main": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.fantasy.darkest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.fantasy.darkest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.fantasy.darkest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.fantasy.darkest.opaque}"
+                  }
                 }
               },
               "supplemental": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.fantasy.lightest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.fantasy.lightest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.fantasy.lightest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.fantasy.lightest.opaque}"
+                  }
                 }
               }
             },
             "thriller": {
               "main": {
-                "hover": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.thriller.darkest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.thriller.darkest.opaque}"
+                "secondary": {
+                  "hover": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.thriller.darkest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.thriller.darkest.opaque}"
+                  }
                 }
               },
               "supplemental": {
-                "fallback": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.thriller.lightest.opaque}"
-                },
-                "active": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.thriller.lightest.opaque}"
+                "secondary": {
+                  "fallback": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.thriller.lightest.opaque}"
+                  },
+                  "active": {
+                    "type": "color",
+                    "value": "{semantics.mode 1.action.color.thriller.lightest.opaque}"
+                  }
                 }
               }
             }
@@ -5339,7 +5363,7 @@
   },
   "typography": {
     "primary": {
-      "display l": {
+      "display large": {
         "fontSize": {
           "type": "dimension",
           "value": 64
@@ -5385,7 +5409,7 @@
           "value": "none"
         }
       },
-      "display m": {
+      "display medium": {
         "fontSize": {
           "type": "dimension",
           "value": 56
@@ -5431,7 +5455,7 @@
           "value": "none"
         }
       },
-      "display s": {
+      "display small": {
         "fontSize": {
           "type": "dimension",
           "value": 48
@@ -5477,7 +5501,7 @@
           "value": "none"
         }
       },
-      "heading m": {
+      "heading medium": {
         "fontSize": {
           "type": "dimension",
           "value": 40
@@ -5523,10 +5547,10 @@
           "value": "none"
         }
       },
-      "title m": {
+      "title medium": {
         "fontSize": {
           "type": "dimension",
-          "value": 24
+          "value": 32
         },
         "textDecoration": {
           "type": "string",
@@ -5569,10 +5593,10 @@
           "value": "none"
         }
       },
-      "heading s": {
+      "heading small": {
         "fontSize": {
           "type": "dimension",
-          "value": 32
+          "value": 24
         },
         "textDecoration": {
           "type": "string",
@@ -5615,7 +5639,7 @@
           "value": "none"
         }
       },
-      "title s": {
+      "title small": {
         "fontSize": {
           "type": "dimension",
           "value": 20
@@ -5753,7 +5777,7 @@
           "value": "none"
         }
       },
-      "label s": {
+      "label small": {
         "fontSize": {
           "type": "dimension",
           "value": 12
@@ -5801,7 +5825,7 @@
       }
     },
     "secondary": {
-      "display l": {
+      "display large": {
         "fontSize": {
           "type": "dimension",
           "value": 64
@@ -5847,7 +5871,7 @@
           "value": "none"
         }
       },
-      "display m": {
+      "display medium": {
         "fontSize": {
           "type": "dimension",
           "value": 56
@@ -5893,7 +5917,7 @@
           "value": "none"
         }
       },
-      "display s": {
+      "display small": {
         "fontSize": {
           "type": "dimension",
           "value": 48
@@ -5939,7 +5963,7 @@
           "value": "none"
         }
       },
-      "heading m": {
+      "heading medium": {
         "fontSize": {
           "type": "dimension",
           "value": 40
@@ -5985,7 +6009,7 @@
           "value": "none"
         }
       },
-      "heading s": {
+      "heading small": {
         "fontSize": {
           "type": "dimension",
           "value": 32
@@ -6033,7 +6057,7 @@
       }
     },
     "reading": {
-      "heading m": {
+      "heading medium": {
         "fontSize": {
           "type": "dimension",
           "value": 40
@@ -6079,7 +6103,7 @@
           "value": "none"
         }
       },
-      "heading s": {
+      "heading small": {
         "fontSize": {
           "type": "dimension",
           "value": 32
@@ -6125,7 +6149,7 @@
           "value": "none"
         }
       },
-      "title m": {
+      "title medium": {
         "fontSize": {
           "type": "dimension",
           "value": 24
@@ -6171,7 +6195,7 @@
           "value": "none"
         }
       },
-      "title s": {
+      "title small": {
         "fontSize": {
           "type": "dimension",
           "value": 20
@@ -6263,7 +6287,7 @@
           "value": "none"
         }
       },
-      "label m": {
+      "label medium": {
         "fontSize": {
           "type": "dimension",
           "value": 14
@@ -6309,7 +6333,7 @@
           "value": "none"
         }
       },
-      "label s": {
+      "label small": {
         "fontSize": {
           "type": "dimension",
           "value": 12
@@ -6449,7 +6473,7 @@
           "value": "none"
         }
       },
-      "label l": {
+      "label large": {
         "fontSize": {
           "type": "dimension",
           "value": 16
@@ -6495,7 +6519,7 @@
           "value": "none"
         }
       },
-      "label m": {
+      "label medium": {
         "fontSize": {
           "type": "dimension",
           "value": 14
@@ -6541,7 +6565,7 @@
           "value": "none"
         }
       },
-      "label s": {
+      "label small": {
         "fontSize": {
           "type": "dimension",
           "value": 12

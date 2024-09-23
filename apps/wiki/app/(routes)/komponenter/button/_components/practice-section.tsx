@@ -5,7 +5,7 @@ import { Download } from "lucide-react";
 
 export function PracticeSection() {
   return (
-    <ContentSection heading="God og dårlig praksis">
+    <ContentSection heading="God og dårlig praksis (TODO: bytt ut med bilder)">
       <PracticeIllustration
         notAcceptedText="Unngå flere likvektede valg på samme område, da det skaper forvirring for veien videre."
         acceptedText="Vektlegg viktigheten på knappene visuelt for å hjelpe brukeren dit de skal."

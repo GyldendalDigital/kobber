@@ -16,3 +16,14 @@ export const KobberCardLayoutColumnAspectRatio = dynamic(
   () => import("@gyldendal/kobber-components/react").then(x => x.KobberCardLayoutColumnAspectRatio),
   { ssr: false },
 );
+
+export const KobberButton = dynamic(() => import("@gyldendal/kobber-components/react").then(x => x.KobberButton), {
+  ssr: false,
+});
+
+export const KobberThemeContext = dynamic(
+  () => import("@gyldendal/kobber-components/react").then(x => x.KobberThemeContext),
+  {
+    ssr: false,
+  },
+);
