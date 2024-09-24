@@ -1,6 +1,7 @@
 import { ReactNode, useState } from "react";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { cn } from "@/lib/utils";
 
 type InteractiveScreenProps = {
   key: string;
@@ -13,14 +14,16 @@ type Mode = "light" | "dark";
 
 export const InteractiveScreen = ({ key, children, properties, footer }: InteractiveScreenProps) => {
   const [mode, setMode] = useState<Mode>("light");
-  const bgClass = mode === "light" ? "bg-white" : "bg-wine-750";
   return (
     <div
       className={`w-[733px] max-w-[733px] grid-cols-[389px_1fr] grid gap-24 rounded-16 p-8 bg-white shadow-sm min-h-96`}
     >
       <div className="relative rounded-16 flex items-center justify-center gap-24 bg-aubergine-25">
         <div
-          className={`${bgClass} rounded-16 py-16 max-w-[309px] w-[309px] h-104 max-h-104 flex items-center justify-center`}
+          className={cn(" rounded-16 py-16 max-w-[309px] w-[309px] h-104 max-h-104 flex items-center justify-center", {
+            "bg-white": mode === "light",
+            "bg-wine-750": mode === "dark",
+          })}
         >
           {children(mode)}
         </div>
