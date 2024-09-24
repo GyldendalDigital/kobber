@@ -17,7 +17,7 @@ export function PracticeIllustration({
   return (
     <div className="w-[733px] max-w-[733px] rounded-[24px] bg-white p-[24px] ">
       <div className="grid grid-cols-2 gap-[32px] w-full">
-        <div className="flex flex-col justify-between gap-[24px] ">
+        <div className="flex flex-col justify-between gap-24 ">
           <div className="grid grid-cols-[fit-content(50px)_1fr] gap-[8px]">
             <X className="size-5 p-0.5 text-aubergine-25 bg-red-600 rounded-full" />
             <span className="text-primary-body text-text/color/primary/label-m">{notAcceptedText}</span>
@@ -26,7 +26,7 @@ export function PracticeIllustration({
             {notAcceptedComponent}
           </div>
         </div>
-        <div className="flex flex-col justify-between gap-[24px]">
+        <div className="flex flex-col justify-between gap-24">
           <div className="grid grid-cols-[fit-content(50px)_1fr] gap-[8px]">
             <Check className="size-5 p-0.5 text-aubergine-25 bg-green-600 rounded-full" />
             <span className="text-primary-body text-text/color/primary/label-m">{acceptedText}</span>

@@ -12,7 +12,7 @@ export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
       <ContentShell>
         <SideMenuBar items={VareMerkeRoutes} />
       </ContentShell>
-      <section className="w-full md:w-[857px] pb-20">{children}</section>
+      <section className="w-full md:w-[857px] pb-96">{children}</section>
     </ContentLayout>
   );
 }

@@ -54,3 +54,5 @@ export type TypographyItemType = {
   lineHeight: number;
   display: string;
 };
+
+export type SizeType = "sm" | "md" | "lg";

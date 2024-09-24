@@ -7,7 +7,7 @@ type ColorBlockGridProps = {
 
 export function ColorBlockGrid({ colors }: ColorBlockGridProps) {
   return (
-    <div className="grid grid-cols-4 gap-[24px]">
+    <div className="grid grid-cols-4 gap-24">
       {colors.map((color, index) => (
         <ColorBlockGridItem key={index} color={color} />
       ))}

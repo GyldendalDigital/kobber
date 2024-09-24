@@ -23,23 +23,12 @@ export default function GetStartedSlugPage({ params }: GetStartedSlugPageProps) 
 
   const { description, title, headerImage, topicTitle, text } = content;
   return (
-    <div className="max-w-full flex flex-col gap-[48px]">
+    <div className="max-w-full flex flex-col gap-48">
       {headerImage ? (
-        <div className="relative overflow-hidden  max-w-full h-[293px] rounded-16">
+        <div className="relative overflow-hidden  max-w-full h-320 rounded-16">
           <Image src={headerImage} fill className="object-cover" alt="Header Image" />
         </div>
       ) : null}
-
-      <div className="flex flex-col gap-[24px]">
-        <div className="space-y-1">
-          {topicTitle ? <h1 className="leading-[57.6px] text-[48px] text-[#DC134F] font-light">{topicTitle}</h1> : null}
-          <h2 className="leading-[57.6px] text-[48px] text-[#481125]">{title}</h2>
-        </div>
-
-        <p className="text-[24px] leading-[33.6px] text-[#532D37]">{description}</p>
-
-        <p className="whitespace-pre-wrap text-primary-body leading-[24px] text-[#532D37]">{text}</p>
-      </div>
     </div>
   );
 }

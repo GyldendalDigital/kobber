@@ -57,7 +57,7 @@ function AcceptedComponenTwo() {
 function NotAcceptedComponenTwo() {
   return (
     <>
-      <Button variant={"dropdown"} className="flex-col items-center justify-center max-w-[102px] overflow-hidden ">
+      <Button variant={"dropdown"} className="flex-col items-center justify-center max-w-104 overflow-hidden ">
         <Download className="size-4 ml-2" />
         <span>Last ned innhold</span>
       </Button>

@@ -7,5 +7,5 @@ type SectionLayoutProps = {
 };
 
 export function SectionLayout({ children, className }: SectionLayoutProps) {
-  return <div className={cn("w-full md:w-[858px] grid gap-10", className)}>{children}</div>;
+  return <div className={cn("w-full md:w-[858px] grid gap-40", className)}>{children}</div>;
 }

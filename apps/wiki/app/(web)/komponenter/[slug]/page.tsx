@@ -1,7 +1,6 @@
 import { FeatureBoxGrid } from "@/components/feature-box-grid";
 import { ComponentsRoutesData } from "@/data/routes-data";
 import { FeatureBoxType } from "@/types/types";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 
 const boxes: FeatureBoxType[] = [
@@ -55,23 +54,8 @@ export default function ComponentsSection({ params }: ComponentsSectionProps) {
 
   const { description, title, headerImage, topicTitle, text } = content;
   return (
-    <section className="max-w-full flex flex-col gap-[48px]">
-      {headerImage ? (
-        <div className="relative overflow-hidden  max-w-full h-[293px] rounded-16">
-          <Image src={headerImage} fill className="object-cover" alt="Header Image" />
-        </div>
-      ) : null}
-
-      <div className="flex flex-col gap-[24px]">
-        <div className="space-y-1">
-          {topicTitle ? <h1 className="leading-[57.6px] text-[48px] text-[#DC134F] font-light">{topicTitle}</h1> : null}
-          <h2 className="leading-[57.6px] text-[48px] text-[#481125]">{title}</h2>
-        </div>
-
-        <p className="text-[24px] leading-[33.6px] text-[#532D37]">{description}</p>
-
-        <p className="whitespace-pre-wrap text-primary-body leading-[24px] text-[#532D37]">{text}</p>
-      </div>
+    <section className="max-w-full flex flex-col gap-48">
+      <h1>Empty</h1>
       <FeatureBoxGrid items={boxes} />
     </section>
   );

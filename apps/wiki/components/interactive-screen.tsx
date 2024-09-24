@@ -16,9 +16,9 @@ export const InteractiveScreen = ({ key, children, properties, footer }: Interac
   const bgClass = mode === "light" ? "bg-white" : "bg-wine-750";
   return (
     <div
-      className={`w-[733px] max-w-[733px] grid-cols-[389px_1fr] grid gap-[24px] rounded-[16px] p-[8px] bg-white shadow-sm min-h-96`}
+      className={`w-[733px] max-w-[733px] grid-cols-[389px_1fr] grid gap-24 rounded-[16px] p-[8px] bg-white shadow-sm min-h-96`}
     >
-      <div className="relative rounded-[16px] flex items-center justify-center gap-[24px] bg-aubergine-25">
+      <div className="relative rounded-[16px] flex items-center justify-center gap-24 bg-aubergine-25">
         <div
           className={`${bgClass} rounded-[16px] py-[16px] max-w-[309px] w-[309px] h-[107px] max-h-[107px] flex items-center justify-center`}
         >
@@ -26,8 +26,8 @@ export const InteractiveScreen = ({ key, children, properties, footer }: Interac
         </div>
         {footer && <div className="absolute bottom-0">{footer(mode)}</div>}
       </div>
-      <div className="grid gap-[24px] py-[24px]">
-        <div className="w-[251px] max-w-[251px] px-[24px] grid gap-[24px] h-fit">
+      <div className="grid gap-24 py-[24px]">
+        <div className="w-[251px] max-w-[251px] px-[24px] grid gap-24 h-fit">
           <h4 className="text-text/color/primary/title-s text-primary-title-s">Egenskaper</h4>
           <div className="grid gap-[16px]">{properties(mode)}</div>
         </div>

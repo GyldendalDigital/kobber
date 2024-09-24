@@ -22,15 +22,6 @@ const config = {
       },
     },
     extend: {
-      // Layout
-      maxWidth: {
-        "max-width": `${tokens.default.layout.maxWidth}px`,
-      },
-
-      minWidth: {
-        "min-width": `${tokens.default.layout.minWidth}px`,
-      },
-
       width: {
         "1": `${size[1]}px`,
         "2": `${size[2]}px`,
@@ -58,6 +49,39 @@ const config = {
         "1000": `${size[1000]}px`,
         "1280": `${size[1280]}px`,
         "1600": `${size[1600]}px`,
+      },
+      maxWidth: {
+        "max-width": `${tokens.default.layout.maxWidth}px`,
+        "1": `${size[1]}px`,
+        "2": `${size[2]}px`,
+        "4": `${size[4]}px`,
+        "8": `${size[8]}px`,
+        "10": `${size[10]}px`,
+        "12": `${size[12]}px`,
+        "14": `${size[14]}px`,
+        "16": `${size[16]}px`,
+        "20": `${size[20]}px`,
+        "24": `${size[24]}px`,
+        "32": `${size[32]}px`,
+        "40": `${size[40]}px`,
+        "48": `${size[48]}px`,
+        "56": `${size[56]}px`,
+        "64": `${size[64]}px`,
+        "72": `${size[72]}px`,
+        "96": `${size[96]}px`,
+        "104": `${size[104]}px`,
+        "120": `${size[120]}px`,
+        "128": `${size[128]}px`,
+        "320": `${size[320]}px`,
+        "520": `${size[520]}px`,
+        "720": `${size[720]}px`,
+        "1000": `${size[1000]}px`,
+        "1280": `${size[1280]}px`,
+        "1600": `${size[1600]}px`,
+      },
+
+      minWidth: {
+        "min-width": `${tokens.default.layout.minWidth}px`,
       },
 
       height: {
@@ -119,6 +143,34 @@ const config = {
         "1600": `${size[1600]}px`,
       },
 
+      space: {
+        "1": `${size[1]}px`,
+        "2": `${size[2]}px`,
+        "4": `${size[4]}px`,
+        "8": `${size[8]}px`,
+        "10": `${size[10]}px`,
+        "12": `${size[12]}px`,
+        "14": `${size[14]}px`,
+        "16": `${size[16]}px`,
+        "20": `${size[20]}px`,
+        "24": `${size[24]}px`,
+        "32": `${size[32]}px`,
+        "40": `${size[40]}px`,
+        "48": `${size[48]}px`,
+        "56": `${size[56]}px`,
+        "64": `${size[64]}px`,
+        "72": `${size[72]}px`,
+        "96": `${size[96]}px`,
+        "104": `${size[104]}px`,
+        "120": `${size[120]}px`,
+        "128": `${size[128]}px`,
+        "320": `${size[320]}px`,
+        "520": `${size[520]}px`,
+        "720": `${size[720]}px`,
+        "1000": `${size[1000]}px`,
+        "1280": `${size[1280]}px`,
+        "1600": `${size[1600]}px`,
+      },
       gap: {
         "1": `${size[1]}px`,
         "2": `${size[2]}px`,
