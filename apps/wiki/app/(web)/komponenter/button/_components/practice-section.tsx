@@ -2,6 +2,7 @@ import { ContentSection } from "@/components/content-section";
 import { PracticeIllustration } from "@/components/practice-illustration";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
+import { KobberButton } from "@/components/kobber-ssr-loader";
 
 export function PracticeSection() {
   return (
@@ -25,7 +26,9 @@ export function PracticeSection() {
 function AcceptedComponent() {
   return (
     <>
-      <Button variant={"dropdown"}>Handling 1</Button>
+      <KobberButton variant={"main"} level="primary" color="aubergine">
+        Handling 1
+      </KobberButton>
       <Button>Handling 2</Button>
     </>
   );
