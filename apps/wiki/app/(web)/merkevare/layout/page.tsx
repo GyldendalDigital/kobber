@@ -1,6 +1,7 @@
 import { FeatureBoxGrid } from "@/components/feature-box-grid";
 import { SectionLayout } from "@/components/section-layout";
 import { TextCollection } from "@/components/text-collection";
+import { placeholderImageUrl } from "@/lib/utils";
 import { FeatureBoxType } from "@/types/types";
 import { Metadata } from "next";
 
@@ -13,9 +14,9 @@ export const metadata: Metadata = {
 const url = "/merkevare/layout";
 
 const featureItems: FeatureBoxType[] = [
-  { title: "Identitetsprinsipper", href: `${url}/identitetsprinsipper` },
-  { title: "Grid og skjermstørrelser", href: `${url}/grid` },
-  { title: "Spacing", href: `${url}/spacing` },
+  { title: "Identitetsprinsipper", href: `${url}/identitetsprinsipper`, image: placeholderImageUrl({}) },
+  { title: "Grid og skjermstørrelser", href: `${url}/grid`, image: placeholderImageUrl({}) },
+  { title: "Spacing", href: `${url}/spacing`, image: placeholderImageUrl({}) },
 ];
 
 export default function LayoutPage() {

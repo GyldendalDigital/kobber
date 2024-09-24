@@ -29,6 +29,17 @@ export default function GetStartedSlugPage({ params }: GetStartedSlugPageProps) 
           <Image src={headerImage} fill className="object-cover" alt="Header Image" />
         </div>
       ) : null}
+
+      <div className="flex flex-col gap-[24px]">
+        <div className="space-y-1">
+          {topicTitle ? <h1 className="leading-[57.6px] text-[48px] text-[#481125] font-light">{topicTitle}</h1> : null}
+          <h2 className="leading-[57.6px] text-[48px] text-[#DC134F]">{title}</h2>
+        </div>
+
+        <p className="text-[24px] leading-[33.6px] text-[#532D37]">{description}</p>
+
+        <p className="whitespace-pre-wrap text-16 leading-[24px] text-[#532D37]">{text}</p>
+      </div>
     </div>
   );
 }

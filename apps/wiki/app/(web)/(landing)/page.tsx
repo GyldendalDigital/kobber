@@ -1,44 +1,48 @@
-"use client";
 import { HeroBanner } from "@/components/hero-banner";
 import GylImage from "@/public/gyl-art.png";
 import { FeatureBoxType, NewsType } from "@/types/types";
 import { AwardListItem } from "@/components/award-list-item";
 import { FeatureBoxGrid } from "@/components/feature-box-grid";
-import { tokens } from "@/lib/theme";
+import { placeholderImageUrl } from "@/lib/utils";
 
 const boxes: FeatureBoxType[] = [
   {
     title: "Er du UI/UX-designer?",
     href: "/kom-i-gang",
-    image: "",
+    image: placeholderImageUrl({ textRows: ["placeholder", "UX"] }),
   },
   {
     title: "Skriver du kode?",
-    image: "",
+    image: placeholderImageUrl({ textRows: ["placeholder", "kode"] }),
   },
   {
     title: "Lager du innhold?",
-    image: "",
+    image: placeholderImageUrl({ textRows: ["placeholder", "innhold"] }),
     href: "/komponenter",
   },
   {
-    title: "Lager du innhold?",
-    image: "",
+    title: "Markedsfører du?",
+    image: placeholderImageUrl({ textRows: ["placeholder", "markedsføring"] }),
   },
 ];
 
 const news: NewsType[] = [
   {
-    title: "Dette er nyhet nummer 1",
+    title: "Nyeste nyhet",
     date: new Date(),
   },
   {
-    title: "Dette er nyhet nummer 2",
-    date: new Date(),
+    title:
+      "Nest nyeste nyhet - denne har litt lengre tekst som kan gå langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt over maksbredde",
+    date: new Date("2023"),
   },
   {
-    title: "Dette er nyhet nummer 3",
-    date: new Date(),
+    title: "Den nest eldste nyheten - siste vises ikke fordi det bare er plass til tre",
+    date: new Date("2022"),
+  },
+  {
+    title: "Den eldste nyheten",
+    date: new Date("2021"),
   },
 ];
 
@@ -56,7 +60,7 @@ export default function Home() {
         <div className="grid  px-16">
           <div className="min-h-96 flex flex-col gap-16">
             <h3 className="text-text/color/primary/title-m text-primary-title-m">Hva er nytt?</h3>
-            {news.map((item, index) => (
+            {news.slice(0, 3).map((item, index) => (
               <AwardListItem key={index} award={item} />
             ))}
           </div>

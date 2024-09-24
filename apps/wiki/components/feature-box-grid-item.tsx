@@ -9,23 +9,21 @@ type FeatureBoxGridItemProps = {
 
 export function FeatureBoxGridItem({ item }: FeatureBoxGridItemProps) {
   return (
-    <div className="bg-[#EAE0E1] rounded-14 overflow-hidden flex p-12 justify-start items-end relative">
-      {item.image ? <Image src={item.image} fill alt="Image" className="object-cover" /> : null}
-      {item.href ? (
-        <Link href={item.href}>
-          <KobberButton level="primary" variant="supplemental alt" color="aubergine">
-            {item.title}
-          </KobberButton>
-        </Link>
-      ) : (
-        // <Link href={item.href} className={cn(buttonVariants({}))}>
-        //   {item.title}
-        // </Link>
-        <KobberButton level="primary" variant="supplemental alt" color="aubergine">
-          {item.title}
-        </KobberButton>
-        //  <Button>{item.title}</Button>
-      )}
-    </div>
+    <Link
+      href={item.href ?? "#"}
+      className="bg-[#EAE0E1] rounded-14 overflow-hidden flex p-12 justify-start items-end relative hover:scale-105 transition"
+    >
+      {/* TODO: switch with label component when it's ready */}
+      <KobberButton
+        level="primary"
+        variant="supplemental alt"
+        color="aubergine"
+        disabled
+        style={{ zIndex: 1, pointerEvents: "none" }}
+      >
+        {item.title}
+      </KobberButton>
+      {item.image ? <Image src={item.image} fill alt="" className="object-cover absolute" /> : null}
+    </Link>
   );
 }

@@ -3,6 +3,7 @@ import { FeatureBoxType } from "@/types/types";
 import { FeatureBoxGrid } from "@/components/feature-box-grid";
 import { SectionLayout } from "@/components/section-layout";
 import { Metadata } from "next";
+import { placeholderImageUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Farger | Kobber Wiki",
@@ -13,9 +14,21 @@ export const metadata: Metadata = {
 const url = "/merkevare/farger";
 
 const featureItems: FeatureBoxType[] = [
-  { title: "Identitetspalett", href: `${url}/identitetspalett` },
-  { title: "Temafarger", href: `${url}/temafarger` },
-  { title: "UI-farger", href: `${url}/ui-farger` },
+  {
+    title: "Identitetspalett",
+    href: `${url}/identitetspalett`,
+    image: placeholderImageUrl({ textRows: ["placeholder", "identitetspalett"] }),
+  },
+  {
+    title: "Temafarger",
+    href: `${url}/temafarger`,
+    image: placeholderImageUrl({ textRows: ["placeholder", "temafarger"] }),
+  },
+  {
+    title: "UI-farger",
+    href: `${url}/ui-farger`,
+    image: placeholderImageUrl({ textRows: ["placeholder", "ui-farger"] }),
+  },
 ];
 
 export default function FargerSection() {

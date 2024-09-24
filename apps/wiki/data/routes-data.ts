@@ -1,9 +1,10 @@
 import { BRANDING_URL, COMPONENTS_URL, GET_STARTED_URL } from "@/config/routes";
+import { placeholderImageUrl } from "@/lib/utils";
 import { RouteDataType } from "@/types/types";
 
 export const GetStartedRoutesData: RouteDataType[] = [
   {
-    headerImage: "",
+    headerImage: placeholderImageUrl({textRows: ["placeholder introduksjon"]}),
     topicTitle: "Designsystemet Kobber",
     title: "Et verktøy for samspill og synergier",
     href: `${GET_STARTED_URL}/introduksjon`,

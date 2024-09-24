@@ -5,7 +5,7 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return [{ slug: "test" }];
+  return [{ slug: "logo" }];
 }
 
 export default function MerkevareSlugPage({ params }: Props) {

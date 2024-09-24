@@ -1,6 +1,7 @@
 import { FeatureBoxGrid } from "@/components/feature-box-grid";
 import { SectionLayout } from "@/components/section-layout";
 import { TextCollection } from "@/components/text-collection";
+import { placeholderImageUrl } from "@/lib/utils";
 import { FeatureBoxType } from "@/types/types";
 import { Metadata } from "next";
 
@@ -13,10 +14,10 @@ export const metadata: Metadata = {
 const url = "/merkevare/typografi";
 
 const featureItems: FeatureBoxType[] = [
-  { title: "Primærfont: PP Mori", href: `${url}/pp-mori` },
-  { title: "Sekunærfont: Lyon", href: `${url}/lyon` },
-  { title: "UI Font: Inter", href: `${url}/inter` },
-  { title: "Retningslinjer", href: `${url}/retningslinjer` },
+  { title: "Primærfont: PP Mori", href: `${url}/pp-mori`, image: placeholderImageUrl({}) },
+  { title: "Sekunærfont: Lyon", href: `${url}/lyon`, image: placeholderImageUrl({}) },
+  { title: "UI Font: Inter", href: `${url}/inter`, image: placeholderImageUrl({}) },
+  { title: "Retningslinjer", href: `${url}/retningslinjer`, image: placeholderImageUrl({}) },
 ];
 
 export default function TypografiPage() {
