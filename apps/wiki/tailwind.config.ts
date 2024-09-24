@@ -398,7 +398,6 @@ const config = {
     },
 
     extend: {
-      // TODO: INSERT KOBBER TOKENS
       colors: {
         "text/color/primary/body": text.color.primary.body,
         "text/color/primary/display-s": text.color.primary["dispaly-s"],

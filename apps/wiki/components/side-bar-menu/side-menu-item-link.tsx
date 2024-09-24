@@ -20,7 +20,7 @@ export function SideMenuItemLink({ route }: SideMenuItemLinkProps) {
           "underline underline-offset-8 decoration-wine-750": isOnPath,
         })}
       >
-        <span className="text-text/color/action-item/button text-sm">{route.title}</span>
+        <span className="text-text/color/action-item/button text-primary-body">{route.title}</span>
 
         {route.isComing && <span className="text-primary-label-s text-text/color/secondary/display-s">kommer</span>}
       </Link>

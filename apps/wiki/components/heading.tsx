@@ -11,7 +11,7 @@ export function Heading({ text, size }: HeadingProps) {
     <h1
       className={cn(" text-text/color/primary/display-s", {
         " text-primary-title-m ": size === "sm",
-        "text-primary-display-s": size === "md",
+        "text-primary-display-s text-text/color/primary/display-s": size === "md",
         "text-primary-display-m": size === "lg",
       })}
     >
