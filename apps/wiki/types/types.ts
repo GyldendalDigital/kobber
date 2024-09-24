@@ -23,7 +23,7 @@ export type FeatureBoxType = {
   onClick?: () => void;
 };
 
-export type NewsType = {
+export type AwardType = {
   date: Date;
   title: string;
 };

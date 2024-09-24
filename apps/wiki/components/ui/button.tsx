@@ -22,7 +22,7 @@ const buttonVariants = cva(
         info: "text-button/text/color/informative/main/primrary/fallback",
       },
       size: {
-        default: "h-[44px] px-[14px] ",
+        default: "h-[44px] px-14 ",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",

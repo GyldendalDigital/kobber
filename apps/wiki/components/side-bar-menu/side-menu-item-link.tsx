@@ -22,7 +22,7 @@ export function SideMenuItemLink({ route }: SideMenuItemLinkProps) {
       >
         <span className="text-text/color/action-item/button text-sm">{route.title}</span>
 
-        {route.isComing && <span className="text-[12px] text-text/color/secondary/display-s">kommer</span>}
+        {route.isComing && <span className="text-primary-label-s text-text/color/secondary/display-s">kommer</span>}
       </Link>
 
       {route.subRoutes && (
