@@ -34,7 +34,7 @@ export function ColorBlockGridItem({ color, enableCopy = false }: ColorBlockGrid
         })}
         style={{ backgroundColor: color.hex }}
       ></div>
-      <div className="grid gap-[8px] w-full">
+      <div className="grid gap-8 w-full">
         <span className="text-text/color/primary/body font-normal">{color.name}</span>
         <div className="flex items-center gap-4">
           <span className="text-text/color/primary/label-s">HEX {color.hex}</span>

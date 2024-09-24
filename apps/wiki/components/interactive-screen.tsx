@@ -16,7 +16,7 @@ export const InteractiveScreen = ({ key, children, properties, footer }: Interac
   const bgClass = mode === "light" ? "bg-white" : "bg-wine-750";
   return (
     <div
-      className={`w-[733px] max-w-[733px] grid-cols-[389px_1fr] grid gap-24 rounded-[16px] p-[8px] bg-white shadow-sm min-h-96`}
+      className={`w-[733px] max-w-[733px] grid-cols-[389px_1fr] grid gap-24 rounded-[16px] p-8 bg-white shadow-sm min-h-96`}
     >
       <div className="relative rounded-[16px] flex items-center justify-center gap-24 bg-aubergine-25">
         <div

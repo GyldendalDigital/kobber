@@ -16,7 +16,7 @@ export function SideMenuItemLink({ route }: SideMenuItemLinkProps) {
     <li>
       <Link
         href={route.isComing ? "#" : route.href}
-        className={cn("p-[16px] flex items-center gap-[8px]  h-[48px]  rounded-md hover:bg-aubergine-50", {
+        className={cn("p-16 flex items-center gap-8  h-48  rounded-8 hover:bg-aubergine-50", {
           "underline underline-offset-8 decoration-wine-750": isOnPath,
         })}
       >
@@ -30,16 +30,18 @@ export function SideMenuItemLink({ route }: SideMenuItemLinkProps) {
           {route.subRoutes.map((subRoute, index) => {
             const isSubRouteOnPath = pathname && pathname === subRoute.href;
             return (
-              <li className="pl-[40px]" key={index}>
+              <li className="pl-40" key={index}>
                 <Link
                   href={subRoute.isComing ? "#" : subRoute.href}
-                  className={cn("p-[16px] flex items-center gap-[8px]  h-[48px]  rounded-md hover:bg-aubergine-50", {
+                  className={cn("p-16 flex items-center gap-8  h-48  rounded-8 hover:bg-aubergine-50", {
                     "underline underline-offset-8 decoration-wine-750": isSubRouteOnPath,
                   })}
                 >
-                  <span className="text-text/color/action-item/button text-sm">{subRoute.title}</span>
+                  <span className="text-text/color/action-item/button text-primary-body">{subRoute.title}</span>
 
-                  {subRoute.isComing && <span className="text-[12px] text-text/color/secondary/display-s">kommer</span>}
+                  {subRoute.isComing && (
+                    <span className="text-primary-label-m text-text/color/secondary/display-s">kommer</span>
+                  )}
                 </Link>
               </li>
             );

@@ -15,7 +15,7 @@ type SideMenuItemProps = {
 export function SideMenuItem({ routes, name }: SideMenuItemProps) {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   return (
-    <Collapsible className="grid gap-[8px] w-full " open={isOpen} onOpenChange={setIsOpen}>
+    <Collapsible className="grid gap-8 w-full " open={isOpen} onOpenChange={setIsOpen}>
       <CollapsibleTrigger asChild>
         <Button className="justify-between mt-2 mr-2 ">
           <span className="uppercase text-text/color/action-item/button">{name}</span>
