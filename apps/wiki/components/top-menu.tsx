@@ -13,7 +13,7 @@ export function TopMenu() {
   return (
     <div className="w-full h-72 sticky bg-aubergine-25/80 backdrop-blur-sm top-0 z-50 py-16 px-24">
       <div className="h-40 flex items-center justify-between">
-        <Link href="/" className="text-[20px] font-normal text-text/color/primary/title-s">
+        <Link href="/" className="text-primary-title-s font-normal text-text/color/primary/title-s">
           Kobber
         </Link>
 
@@ -22,7 +22,7 @@ export function TopMenu() {
             <li key={index}>
               <Link
                 className={cn(
-                  "text-primary-body leading-[16px] hover:underline underline-offset-8 decoration-text/color/action-item/button",
+                  "text-primary-body leading-16 hover:underline underline-offset-8 decoration-text/color/action-item/button",
                   {
                     underline: pathName && isOnPath(pathName, route.href),
                   },

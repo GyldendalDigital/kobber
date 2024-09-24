@@ -1,8 +1,8 @@
-import { NewsType } from "@/types/types";
+import { AwardType } from "@/types/types";
 import Link from "next/link";
 
 type AwardListItemProps = {
-  award: NewsType;
+  award: AwardType;
 };
 
 export function AwardListItem({ award }: AwardListItemProps) {

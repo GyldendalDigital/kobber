@@ -1,6 +1,6 @@
 import { HeroBanner } from "@/components/hero-banner";
 import GylImage from "@/public/gyl-art.png";
-import { FeatureBoxType, NewsType } from "@/types/types";
+import { FeatureBoxType, AwardType } from "@/types/types";
 import { AwardListItem } from "@/components/award-list-item";
 import { FeatureBoxGrid } from "@/components/feature-box-grid";
 import { placeholderImageUrl } from "@/lib/utils";
@@ -26,7 +26,7 @@ const boxes: FeatureBoxType[] = [
   },
 ];
 
-const news: NewsType[] = [
+const news: AwardType[] = [
   {
     title: "Nyeste nyhet",
     date: new Date(),
