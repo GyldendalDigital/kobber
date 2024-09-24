@@ -5,7 +5,7 @@ type ContentLayoutProps = {
 };
 
 export function ContentLayout({ children }: ContentLayoutProps) {
-  return <div className="grid grid-cols-[270px_1fr] overflow-hidden gap-5">{children}</div>;
+  return <div className="grid grid-cols-[270px_1fr] overflow-hidden gap-20">{children}</div>;
 }
 
 export function ContentShell({ children }: ContentLayoutProps) {

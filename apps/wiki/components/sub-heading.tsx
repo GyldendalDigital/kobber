@@ -6,5 +6,5 @@ type SubHeadingProps = {
 };
 
 export function SubHeading({ text: subheading, size }: SubHeadingProps) {
-  return <h2 className="text-text/color/primary/title-m text-[26px]">{subheading}</h2>;
+  return <h2 className="text-text/color/primary/title-m text-primary-title-m">{subheading}</h2>;
 }

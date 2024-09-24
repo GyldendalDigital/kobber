@@ -21,6 +21,7 @@ const config = {
         "2xl": "1400px",
       },
     },
+
     width: {
       "1": `${size[1]}px`,
       "2": `${size[2]}px`,

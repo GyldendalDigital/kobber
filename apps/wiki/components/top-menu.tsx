@@ -12,7 +12,7 @@ export function TopMenu() {
 
   return (
     <div className="w-full h-72 sticky bg-aubergine-25/80 backdrop-blur-sm top-0 z-50 py-16 px-24">
-      <div className="h-[40px] flex items-center justify-between">
+      <div className="h-40 flex items-center justify-between">
         <Link href="/" className="text-[20px] font-normal text-text/color/primary/title-s">
           Kobber
         </Link>
@@ -34,7 +34,7 @@ export function TopMenu() {
             </li>
           ))}
         </ul>
-        <Button size={"icon"} className="flex md:hidden bg-[#F9EAED]">
+        <Button size={"icon"} className="flex md:hidden bg-aubergine-25">
           <Menu className="size-5" />
         </Button>
       </div>
