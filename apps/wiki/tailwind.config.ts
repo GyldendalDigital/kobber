@@ -49,6 +49,8 @@ const config = {
       "1000": `${size[1000]}px`,
       "1280": `${size[1280]}px`,
       "1600": `${size[1600]}px`,
+      full: "100%",
+      screen: "100vw",
     },
     maxWidth: {
       "max-width": `${tokens.default.layout.maxWidth}px`,
@@ -78,9 +80,13 @@ const config = {
       "1000": `${size[1000]}px`,
       "1280": `${size[1280]}px`,
       "1600": `${size[1600]}px`,
+      full: "100%",
+      screen: "100vw",
     },
     minWidth: {
       "min-width": `${tokens.default.layout.minWidth}px`,
+      full: "100%",
+      screen: "100vw",
     },
     height: {
       "1": `${size[1]}px`,
@@ -138,6 +144,8 @@ const config = {
       "1000": `${size[1000]}px`,
       "1280": `${size[1280]}px`,
       "1600": `${size[1600]}px`,
+      full: "100%",
+      screen: "100vh",
     },
 
     space: {
