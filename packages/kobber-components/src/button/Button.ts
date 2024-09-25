@@ -92,27 +92,25 @@ export class Button extends LitElement {
         padding: ${component.container.padding.block}px ${component.container.padding.inline}px;
         cursor: pointer;
         min-height: ${component.container.size.height}px;
-        
-        /* TODO: Finne ut hvorfor vi bruker REM på dette */
-        font-size: ${typography.fontSize / 16}rem;
+        font-size: ${typography.fontSize}px;
         font-family: ${unsafeCSS(typography.fontFamily)};
         font-weight: ${typography.fontWeight};
         font-style: ${unsafeCSS(typography.fontStyle)};
         font-stretch: ${unsafeCSS(typography.fontStretch)};
+        transition: scale 200ms ease-in 0s;
+
 
         /* Different for each variant */
         background-color: ${unsafeCSS(component.background.color.primary.carmine.main.primary.fallback)};
         background-color: ${unsafeCSS(this.level === "secondary" ? "transparent" : component.background.color.primary[this.color]?.[this.variantFallback()]?.primary.fallback)};
         color: ${unsafeCSS(component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.fallback)};
 
-        transition: scale 200ms ease-in 0s;
 
 
         /* Button states */
 
-        &:focus:enabled,
-        &.focus {
-
+        &:focus-visible:enabled,
+        &.focus-visible {
           outline: none;
           /* TODO: handle secondary level transparent */
           box-shadow: 0 0 0 ${component.focus.border.padding}px
@@ -125,16 +123,22 @@ export class Button extends LitElement {
           cursor: auto; 
         }
 
-        &:active:enabled,
-        &.active,
-        &:hover:enabled,
-        &.hover {
-          scale: 1.1;
-          span {
-            padding-bottom:${unsafeCSS(component.container.gap)}px;
-            border-bottom: ${unsafeCSS(this.level === "secondary" ? `1px solid ${component.container.border.color[this.color as ButtonBorderColor]?.[this.variantFallback()]?.active}` : null)};
-          }
+        &:active:enabled {
+          scale: 1.15;
+    
         }
+
+
+        // &:active:enabled,
+        // &.active,
+        // &:hover:enabled,
+        // &.hover {
+        //   scale: 1.05;
+        //   span {
+        //     padding-bottom:${unsafeCSS(component.container.gap)}px;
+        //     border-bottom: ${unsafeCSS(this.level === "secondary" ? `1px solid ${component.container.border.color[this.color as ButtonBorderColor]?.[this.variantFallback()]?.active}` : null)};
+        //   }
+        // }
     `;
   };
 }
