@@ -1,5 +1,11 @@
 # @gyldendal/kobber-eslint
 
+## 0.3.44
+
+### Patch Changes
+
+- Update button component
+
 ## 0.3.43
 
 ### Patch Changes
