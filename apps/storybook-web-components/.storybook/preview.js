@@ -1,5 +1,6 @@
 import "@gyldendal/kobber-base/themes/default/tokens.css";
 import "@gyldendal/kobber-base/themes/dark/tokens.css";
+import "./global.css";
 import "./inter.css";
 import "./PP-mori.css";
 
