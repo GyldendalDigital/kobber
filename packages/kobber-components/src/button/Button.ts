@@ -49,6 +49,7 @@ export class Button extends LitElement {
       <!-- TODO: set all relevant attributes -->
       <button class=${this.classList.value} ?disabled=${this.disabled ? true : false}>
         <span><slot></slot></span>
+        <slot name="icon"></slot>
       </button>
     `;
   }
@@ -86,7 +87,10 @@ export class Button extends LitElement {
     return css`
       button {
         /* Common for all variants */
-
+        display: flex;
+        flex-direction: ${unsafeCSS(this.iconSettings === "right" ? "row" : "row-reverse")};
+        align-items: center;
+        gap: ${component.container.gap}px;
         border: 1px solid transparent;
         border-radius: ${component.container.border.radius}px;
         padding: ${component.container.padding.block}px ${component.container.padding.inline}px;
@@ -99,13 +103,16 @@ export class Button extends LitElement {
         font-stretch: ${unsafeCSS(typography.fontStretch)};
         transition: scale 200ms ease-in 0s;
 
-
         /* Different for each variant */
         background-color: ${unsafeCSS(component.background.color.primary.carmine.main.primary.fallback)};
-        background-color: ${unsafeCSS(this.level === "secondary" ? "transparent" : component.background.color.primary[this.color]?.[this.variantFallback()]?.primary.fallback)};
-        color: ${unsafeCSS(component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.fallback)};
-
-
+        background-color: ${unsafeCSS(
+          this.level === "secondary"
+            ? "transparent"
+            : component.background.color.primary[this.color]?.[this.variantFallback()]?.primary.fallback,
+        )};
+        color: ${unsafeCSS(
+          component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.fallback,
+        )};
 
         /* Button states */
 
@@ -113,29 +120,44 @@ export class Button extends LitElement {
         &.focus-visible {
           outline: none;
           /* TODO: handle secondary level transparent */
-          box-shadow: 0 0 0 ${component.focus.border.padding}px
-            ${unsafeCSS(component.focus.border.color.primary.focus)};
+          box-shadow: 0 0 0 ${component.focus.border.padding}px ${unsafeCSS(component.focus.border.color.primary.focus)};
         }
 
         &:disabled {
-          background-color: ${unsafeCSS(component.background.color.primary[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled)};
-          color: ${unsafeCSS(component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled)};
-          cursor: auto; 
+          background-color: ${unsafeCSS(
+            component.background.color.primary[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled,
+          )};
+          color: ${unsafeCSS(
+            component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled,
+          )};
+          cursor: auto;
         }
 
         &:active:enabled {
-        // TODO: Add ripple effect?
+          // TODO: Add ripple effect?
         }
-
 
         &:hover:enabled,
         &.hover {
           scale: 1.05;
           span {
-            padding-bottom:${unsafeCSS(component.container.gap)}px;
-            border-bottom: ${unsafeCSS(this.level === "secondary" ? `1px solid ${component.container.border.color[this.color as ButtonBorderColor]?.[this.variantFallback()]?.active}` : null)};
+            border-bottom: ${unsafeCSS(
+              this.level === "secondary"
+                ? `1px solid ${component.container.border.color[this.color as ButtonBorderColor]?.[this.variantFallback()]?.active}`
+                : null,
+            )};
           }
         }
+      }
+
+      ::slotted([slot="icon"]) {
+        display: ${unsafeCSS(this.iconSettings === "none" ? "none" : "flex")};
+        color: ${this.disabled === true
+          ? unsafeCSS(component.icon.color[this.color]?.[this.variantFallback()]?.primary.disabled)
+          : unsafeCSS(component.icon.color[this.color]?.[this.variantFallback()]?.primary.fallback)};
+        --icon-width: ${component.icon.size.width.small}px;
+        --icon-height: ${component.icon.size.height.small}px;
+      }
     `;
   };
 }

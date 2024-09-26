@@ -27,3 +27,7 @@ export const KobberThemeContext = dynamic(
     ssr: false,
   },
 );
+
+export const KobberIconArrowRight = dynamic(() => import("@gyldendal/kobber-icons/react").then(x => x.IconArrowRight), {
+  ssr: false,
+});

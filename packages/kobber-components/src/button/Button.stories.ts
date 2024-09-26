@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import { ButtonVariant } from "./Button.types";
+import { ButtonIconSettings, ButtonVariant } from "./Button.types";
 import "./Button";
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 
@@ -27,6 +27,10 @@ const meta: Meta = {
       options: levels,
       control: { type: "radio" },
     },
+    icon: {
+      options: ["none", "left", "right"],
+      control: { type: "radio" },
+    },
   },
   decorators: [
     (Story, context) => `
@@ -46,9 +50,13 @@ export const Button: Story = {
     color: meta.argTypes?.color?.options?.[0],
     variant: variants[0],
     level: levels[0],
+    icon: "right",
   },
   render: args => `
-    <kobber-button color="${args.color}" variant="${args.variant}" level="${args.level}">${args.text}</kobber-button>
+    <kobber-button color="${args.color}" variant="${args.variant}" level="${args.level}" iconSettings=${args.icon}>
+      ${args.text}
+      ${args.icon !== "none" ? `<icon-arrow_right slot="icon" />` : ""}
+    </kobber-button>
   `,
 };
 
@@ -58,8 +66,11 @@ export const Buttons: Story = {
   parameters: {
     layout: "none",
     controls: {
-      exclude: /.*/g,
+      exclude: /^(?!.*(icon)).*/g,
     },
+  },
+  args: {
+    icon: "none",
   },
   render: args => {
     return `
@@ -103,20 +114,20 @@ export const Buttons: Story = {
         }
       </style>
 
-      ${[renderTheme("Brands", brandColors), renderTheme("UI", uiColors), renderTheme("Themes", themeColors)].join("<br /><br />")}
+      ${[renderTheme("Brands", brandColors, args.icon), renderTheme("UI", uiColors, args.icon), renderTheme("Themes", themeColors, args.icon)].join("<br /><br />")}
     `;
   },
 };
 
-const renderTheme = (themeName: string, themes: string[]) => {
+const renderTheme = (themeName: string, themes: string[], iconSettings: ButtonIconSettings) => {
   return `
   <h2>${themeName}</h2>
   <div class="wrapper-theme">
-  ${themes.map(theme => renderColor(theme)).join("")}
+  ${themes.map(theme => renderColor(theme, iconSettings)).join("")}
     </div>`;
 };
 
-const renderColor = (color: string) => `
+const renderColor = (color: string, iconSettings: ButtonIconSettings) => `
 <h3>${color}</h3>
 <div class="wrapper-color">
 ${levels
@@ -125,7 +136,7 @@ ${levels
       `<div class="wrapper-level"><h4>${level}</h4>${Object.keys(
         tokens.component.button.background.color.primary[color] ?? [],
       )
-        .map(variant => renderVariant(color, variant, level))
+        .map(variant => renderVariant(color, variant, level, iconSettings))
         .join("")}</div>`,
   )
   .join("")}
@@ -136,10 +147,15 @@ const renderVariant = (
   color: string,
   variant: string,
   level: string,
+  iconSettings: ButtonIconSettings,
 ) => `<div class="wrapper-variant ${variant} ${level}">
 <span>${variant}</span>
-  ${states.map(state => renderButton(color, variant, level, state)).join("")}
+  ${states.map(state => renderButton(color, variant, level, state, iconSettings)).join("")}
 </div>`;
 
-const renderButton = (color: string, variant: string, level: string, state: string) =>
-  `<kobber-button color="${color}" variant="${variant}" level="${level}" class="${state}" ${state === "disabled" ? "disabled" : ""}>${state}</kobber-button>`;
+const renderButton = (color: string, variant: string, level: string, state: string, iconSettings: ButtonIconSettings) =>
+  `
+<kobber-button color="${color}" variant="${variant}" level="${level}" class="${state}" ${state === "disabled" ? "disabled" : ""} iconSettings=${iconSettings}>
+  ${state}
+  <icon-arrow_right slot="icon" />
+</kobber-button>`;

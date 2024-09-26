@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("bg-aubergine-25 min-h-screen  size-full antialiased transition-all")}>
+      <body className={cn("kobber-theme-default bg-aubergine-25 min-h-screen  size-full antialiased transition-all")}>
         <KobberThemeContext themeId="kobber-theme-default">
           <div className="max-w-max-width min-w-min-width mx-auto ">
             <TopMenu />

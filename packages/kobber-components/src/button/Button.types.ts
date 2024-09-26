@@ -4,4 +4,4 @@ export type ButtonVariant = keyof Theme["tokens"]["component"]["button"]["backgr
 export type ButtonBackgroundColor = keyof Theme["tokens"]["component"]["button"]["background"]["color"]["primary"];
 export type ButtonBorderColor = keyof Theme["tokens"]["component"]["button"]["container"]["border"]["color"];
 export type ButtonLevel = keyof Theme["tokens"]["component"]["button"]["text"]["color"]["carmine"]["main"];
-export type ButtonIconSettings = "left" | "right";
+export type ButtonIconSettings = "none" | "left" | "right";
