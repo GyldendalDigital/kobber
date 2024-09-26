@@ -2,7 +2,13 @@ import { LitElement, css, html, unsafeCSS } from "lit";
 import { consume } from "@lit/context";
 import { customElement, property } from "lit/decorators.js";
 import { themeContext } from "../utils/theme-context";
-import { ButtonBackgroundColor, ButtonVariant, ButtonLevel, ButtonBorderColor } from "./Button.types";
+import {
+  ButtonBackgroundColor,
+  ButtonVariant,
+  ButtonLevel,
+  ButtonBorderColor,
+  ButtonIconSettings,
+} from "./Button.types";
 import { Theme } from "../utils/theme-context.types";
 
 /**
@@ -22,6 +28,9 @@ export class Button extends LitElement {
 
   @property()
   level: ButtonLevel = "primary";
+
+  @property()
+  iconSettings: ButtonIconSettings = "right";
 
   @property({ type: Boolean })
   disabled = false;
@@ -44,6 +53,7 @@ export class Button extends LitElement {
     `;
   }
 
+  // Hva blir denne brukt til?
   colorFallback = () => {
     return this.color ?? "carmine";
   };
@@ -78,21 +88,29 @@ export class Button extends LitElement {
         /* Common for all variants */
 
         border: 1px solid transparent;
-        /* TODO: wait for token */
-        border-radius: ${10}px;
-
-        padding: ${component.container.padding.block}px
-          ${component.container.padding.inline}px;
-        font-size: ${typography.fontSize / 16}rem;
+        border-radius: ${component.container.border.radius}px;
+        padding: ${component.container.padding.block}px ${component.container.padding.inline}px;
+        cursor: pointer;
+        min-height: ${component.container.size.height}px;
+        font-size: ${typography.fontSize}px;
         font-family: ${unsafeCSS(typography.fontFamily)};
         font-weight: ${typography.fontWeight};
         font-style: ${unsafeCSS(typography.fontStyle)};
         font-stretch: ${unsafeCSS(typography.fontStretch)};
+        transition: scale 200ms ease-in 0s;
 
-        &:focus:enabled,
-        &.focus {
-        /* border-radius: ${component.focus.border.radius}px; */
-          
+
+        /* Different for each variant */
+        background-color: ${unsafeCSS(component.background.color.primary.carmine.main.primary.fallback)};
+        background-color: ${unsafeCSS(this.level === "secondary" ? "transparent" : component.background.color.primary[this.color]?.[this.variantFallback()]?.primary.fallback)};
+        color: ${unsafeCSS(component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.fallback)};
+
+
+
+        /* Button states */
+
+        &:focus-visible:enabled,
+        &.focus-visible {
           outline: none;
           /* TODO: handle secondary level transparent */
           box-shadow: 0 0 0 ${component.focus.border.padding}px
@@ -102,20 +120,17 @@ export class Button extends LitElement {
         &:disabled {
           background-color: ${unsafeCSS(component.background.color.primary[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled)};
           color: ${unsafeCSS(component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled)};
+          cursor: auto; 
         }
 
-        /* Different for each variant */
-        background-color: ${unsafeCSS(component.background.color.primary.carmine.main.primary.fallback)};
-        background-color: ${unsafeCSS(this.level === "secondary" ? "transparent" : component.background.color.primary[this.color]?.[this.variantFallback()]?.primary.fallback)};
-        color: ${unsafeCSS(component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.fallback)};
+        &:active:enabled {
+        // TODO: Add ripple effect?
+        }
 
-        transition: scale 200ms ease-in 0s;
 
-        &:active:enabled,
-        &.active,
         &:hover:enabled,
         &.hover {
-          scale: 1.1;
+          scale: 1.05;
           span {
             padding-bottom:${unsafeCSS(component.container.gap)}px;
             border-bottom: ${unsafeCSS(this.level === "secondary" ? `1px solid ${component.container.border.color[this.color as ButtonBorderColor]?.[this.variantFallback()]?.active}` : null)};
