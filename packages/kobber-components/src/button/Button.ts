@@ -124,21 +124,18 @@ export class Button extends LitElement {
         }
 
         &:active:enabled {
-          scale: 1.15;
-    
+        // TODO: Add ripple effect?
         }
 
 
-        // &:active:enabled,
-        // &.active,
-        // &:hover:enabled,
-        // &.hover {
-        //   scale: 1.05;
-        //   span {
-        //     padding-bottom:${unsafeCSS(component.container.gap)}px;
-        //     border-bottom: ${unsafeCSS(this.level === "secondary" ? `1px solid ${component.container.border.color[this.color as ButtonBorderColor]?.[this.variantFallback()]?.active}` : null)};
-        //   }
-        // }
+        &:hover:enabled,
+        &.hover {
+          scale: 1.05;
+          span {
+            padding-bottom:${unsafeCSS(component.container.gap)}px;
+            border-bottom: ${unsafeCSS(this.level === "secondary" ? `1px solid ${component.container.border.color[this.color as ButtonBorderColor]?.[this.variantFallback()]?.active}` : null)};
+          }
+        }
     `;
   };
 }
