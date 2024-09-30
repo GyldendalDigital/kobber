@@ -3143,7 +3143,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-icons@npm:*, @gyldendal/kobber-icons@workspace:packages/kobber-icons":
+"@gyldendal/kobber-icons@npm:*, @gyldendal/kobber-icons@workspace:^, @gyldendal/kobber-icons@workspace:packages/kobber-icons":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-icons@workspace:packages/kobber-icons"
   dependencies:
@@ -14756,6 +14756,7 @@ __metadata:
   resolution: "kobber@workspace:."
   dependencies:
     "@changesets/cli": "npm:latest"
+    "@gyldendal/kobber-icons": "workspace:^"
     "@typescript-eslint/eslint-plugin": "npm:^6.14.0"
     "@typescript-eslint/parser": "npm:^6.14.0"
     eslint: "npm:^8.55.0"
