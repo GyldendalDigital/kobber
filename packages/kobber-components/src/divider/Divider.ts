@@ -20,8 +20,7 @@ export class Divider extends LitElement {
     }
     .divider {
       width: 100%;
-      height: 5px;
-      background-color: #000;
+      height: 1px;
     }
   `;
 
@@ -50,8 +49,13 @@ export class Divider extends LitElement {
       .divider {
         /* common for all variants */
         width: 100%;
-        height: 5px;
-        background-color: #000;
+        height: 1px;
+      }
+      .divider.main {
+        background-color: #e5cfd3;
+      }
+      .divider.supplemental {
+        background-color: #532d37;
       }
     `;
   };
