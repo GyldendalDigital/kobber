@@ -17,7 +17,7 @@ export class ExampleCard extends LitElement {
         "media"
         "heading"
         "body";
-      grid-template-rows: 68% auto 1fr;
+      grid-template-rows: 2.5fr auto 1fr;
       background-color: ${unsafeCSS(tokens.primitives.color.nostalgia[25])};
       border-radius: 16px;
       overflow: hidden;
