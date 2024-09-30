@@ -12,6 +12,7 @@ import { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutCol
 import { BoxLayout } from "./layouts/box-layout/BoxLayout";
 import { Button } from "./button/Button";
 import { ThemeContextProvider } from "./utils/theme-context";
+import { Divider } from "./divider/Divider";
 
 export const KobberGrid = createComponent({
   tagName: "kobber-grid",
@@ -70,6 +71,12 @@ export const KobberBoxLayout = createComponent({
 export const KobberButton = createComponent({
   tagName: "kobber-button",
   elementClass: Button,
+  react: React,
+});
+
+export const KobberDivider = createComponent({
+  tagName: "kobber-divider",
+  elementClass: Divider,
   react: React,
 });
 
