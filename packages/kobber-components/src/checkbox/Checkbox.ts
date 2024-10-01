@@ -41,7 +41,7 @@ import { CheckboxColorTheme } from "./Checkbox.types";
  * @csspart form-control-help-text - The help text's wrapper.
  */
 
-const checked = html`<icon-check />`;
+const checked = html`<icon-check class="icon-check" />`;
 
 const indeterminate = html`<icon-subtract />`;
 
@@ -198,41 +198,6 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
   @property()
   colorTheme: CheckboxColorTheme = "success";
 
-  applyThemeStyles() {
-    const tokens = this.theme?.tokens;
-    if (!tokens) {
-      console.log("should never occur");
-      return css``;
-    }
-
-    const style = document.createElement("style");
-    // TODO: Wait for tokens
-    // const component = tokens.component.checkbox;
-    style.textContent = `
-    :host {
-    --kobber-component-checkbox-gap: 12px;
-      --kobber-component-input-color-disabled-foreground: #48112580;
-      --kobber-component-input-color-disabled-background: transparent;
-      --kobber-component-input-checkbox-width: 24px;
-      --kobber-component-input-checkbox-: 24px;
-      --kobber-component-input-checkbox-border-radius: 8px;
-      --kobber-component-input-color-default-border: #481125;
-      --kobber-component-input-color-default-background: transparent;
-      --kobber-component-input-checkbox-padding-block: 0.25rem;
-      --kobber-component-input-checkbox-padding-inline: 0.5rem;
-      --kobber-component-input-checkbox-hover-border-width: 2px;
-      --kobber-component-checkbox-label-color-label: #481125;
-      --kobber-component-checkbox-label-font-size: 16px;
-      --kobber-component-checkbox-label-font-style: normal;
-      --kobber-component-checkbox-label-font-weight: 300;      
-      --kobber-component-checkbox-label-checkbox-size: 1rem;
-      --kobber-component-checkbox-label-checkbox-gap: 0.5rem;
-      --kobber-component-checkbox-background-checked: #CBFBDB;
-      --kobber-component-checkbox-border-checked: #014F2D;
-    }`;
-    this.shadowRoot?.appendChild(style);
-  }
-
   render() {
     const hasHelpTextSlot = this.hasSlotController.test("help-text");
     const hasHelpText = this.helpText ? true : !!hasHelpTextSlot;
@@ -303,5 +268,39 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
         </div>
       </div>
     `;
+  }
+
+  applyThemeStyles() {
+    const tokens = this.theme?.tokens;
+    if (!tokens) {
+      console.log("should never occur");
+      return css``;
+    }
+
+    const style = document.createElement("style");
+    // TODO: Wait for tokens
+    // const component = tokens.component.checkbox;
+    style.textContent = `
+    :host {
+      --kobber-component-checkbox-gap: 12px;
+      --kobber-component-input-color-disabled-foreground: #48112580;
+      --kobber-component-input-color-disabled-background: transparent;
+      --kobber-component-input-checkbox-width: 24px;
+      --kobber-component-input-checkbox-: 24px;
+      --kobber-component-input-checkbox-border-radius: 8px;
+      --kobber-component-input-color-default-border: #481125;
+      --kobber-component-input-color-default-background: transparent;
+      --kobber-component-input-checkbox-hover-border-width: 2px;
+      --kobber-component-checkbox-label-color-label: #481125;
+      --kobber-component-checkbox-label-font-size: 16px;
+      --kobber-component-checkbox-label-font-style: normal;
+      --kobber-component-checkbox-label-font-weight: 300;      
+      --kobber-component-checkbox-label-checkbox-size: 1rem;
+      --kobber-component-checkbox-label-checkbox-gap: 0.5rem;
+      --kobber-component-checkbox-background-checked: #CBFBDB;
+      --kobber-component-checkbox-border-checked: #014F2D;
+      --checkbox-checkmark-icon-color-success: #ffffff;
+    }`;
+    this.shadowRoot?.appendChild(style);
   }
 }

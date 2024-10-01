@@ -8,14 +8,29 @@ export const checkboxBaseStyles = css`
 
   /* TODO: REMOVE ALL THE DEFAULT STYLES LATER */
 
+  .icon-check {
+    stroke-width: 3px;
+    stroke: currentColor;
+    color: var(--checkbox-checkmark-icon-color-success, #014f2d);
+  }
+
   .checkbox {
-    positiov: relative;
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
     gap: var(--kobber-component-checkbox-gap, 12px);
     cursor: pointer;
+  }
+
+  /* Focus-visible */
+  .checkbox::focus-visible .checkbox__control {
+    box-shadow: 0 0 0 3px var(--kobber-component-checkbox-focus-color, #7155f0);
+    outline: none;
+    border-width: 2px;
+    border-radius: 8px;
+    border-color: var(--kobber-component-checkbox-focus-color, #7155f0);
   }
 
   /* Disabled */
@@ -36,8 +51,10 @@ export const checkboxBaseStyles = css`
     border-radius: var(--kobber-component-input-checkbox-border-radius, 8px);
     border: 1px solid var(--kobber-component-input-color-default-border, #481125);
     background: var(--kobber-component-input-color-default-background, transparent);
-    padding: var(--kobber-component-input-checkbox-padding-block, 0.25rem)
-      var(--kobber-component-input-checkbox-padding-inline, 0.5rem);
+
+    /* Padding-top because the icons are too far aligned to the top */
+    padding-top: 3px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,6 +88,11 @@ export const checkboxBaseStyles = css`
   /* Hover */
   .checkbox:not(.checkbox--disabled):hover .checkbox__control {
     box-shadow: 0px 0px 4px 2px #cbfbdb;
+  }
+
+  /* Active */
+  .checkbox:not(.checkbox--disabled):active .checkbox__control {
+    box-shadow: 0px 0px 4px 2px #55d994;
   }
 
   /* Focus */
