@@ -4,6 +4,7 @@ import { themeContext } from "../utils/theme-context";
 import { consume } from "@lit/context";
 import { Theme } from "../utils/theme-context.types";
 import { DividerVariant } from "./Divider.types";
+import { dividerBaseStyles } from "./Divider.styles";
 
 @customElement("kobber-divider")
 export class Divider extends LitElement {
@@ -13,46 +14,30 @@ export class Divider extends LitElement {
   @property({ type: String })
   variant: DividerVariant = "main";
 
-  // This is the static style that will always be applied
-  static styles = css`
-    :host {
-      display: block;
-    }
-    .divider {
-      width: 100%;
-      height: 5px;
-      background-color: #000;
-    }
-  `;
+  // Base styles
+  static styles = [dividerBaseStyles];
 
   render() {
-    const themeStyles = this.themedStyles();
+    this.applyThemeStyles();
 
-    return html`
-      <style>
-        ${themeStyles}
-      </style>
-      <div class="divider ${this.variant}"></div>
-    `;
+    return html` <div class="divider ${this.variant}"></div> `;
   }
 
-  themedStyles = () => {
+  applyThemeStyles() {
     const tokens = this.theme?.tokens;
     if (!tokens) {
       console.log("Should never occur");
       return css``;
     }
 
-    // TODO: WAITING FOR TOKENS
-    // const component = tokens.component.divider;
-
-    return css`
-      .divider {
-        /* common for all variants */
-        width: 100%;
-        height: 5px;
-        background-color: #000;
-      }
+    const style = document.createElement("style");
+    // TODO: Wait for tokens
+    style.textContent = `
+    :host {
+        --divider-main-background-color: #e5cfd3;
+        --divider-supplemental-background-color: #532d37;
+    }
     `;
-  };
+    this.shadowRoot?.appendChild(style);
+  }
 }
