@@ -1,5 +1,11 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.45
+
+### Patch Changes
+
+- button, divider, icons
+
 ## 0.3.44
 
 ### Patch Changes

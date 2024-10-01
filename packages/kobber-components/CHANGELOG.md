@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.45
+
+### Patch Changes
+
+- button, divider, icons
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.45
+
 ## 0.3.44
 
 ### Patch Changes

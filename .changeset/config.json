@@ -7,5 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["wiki", "storybook*"]
+  "ignore": ["*wiki", "storybook*"]
 }
