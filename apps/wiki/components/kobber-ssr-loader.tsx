@@ -28,6 +28,10 @@ export const KobberThemeContext = dynamic(
   },
 );
 
+export const KobberDivider = dynamic(() => import("@gyldendal/kobber-components/react").then(x => x.KobberDivider), {
+  ssr: false,
+});
+
 export const KobberIconArrowRight = dynamic(() => import("@gyldendal/kobber-icons/react").then(x => x.IconArrowRight), {
   ssr: false,
 });
