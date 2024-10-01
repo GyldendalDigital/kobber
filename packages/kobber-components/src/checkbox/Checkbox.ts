@@ -1,9 +1,9 @@
 import { classMap } from "lit/directives/class-map.js";
-import { CSSResultGroup, html, svg } from "lit";
+import { css, CSSResultGroup, html, svg } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { live } from "lit/directives/live.js";
 import { customElement, property, query, state } from "lit/decorators.js";
-import styles from "./checkbox.styles";
+// import styles from "./checkbox.styles";
 import { defaultValue } from "../base/internal/default-value";
 import { watch } from "../base/internal/watch";
 import ShoelaceElement from "../base/internal/shoelace-element";
@@ -12,7 +12,9 @@ import { FormControlController } from "../base/internal/form";
 import formControlStyles from "../base/styles/form-control.styles";
 import componentStyles from "../base/styles/component.styles";
 import { HasSlotController } from "../base/internal/slot";
-
+import { themeContext } from "../utils/theme-context";
+import { Theme } from "../utils/theme-context.types";
+import { consume } from "@lit/context";
 /**
  * @summary Checkboxes allow the user to toggle an option on or off.
  * @documentation https://shoelace.style/components/checkbox
@@ -38,9 +40,7 @@ import { HasSlotController } from "../base/internal/slot";
  * @csspart form-control-help-text - The help text's wrapper.
  */
 
-const checked = svg`<svg class="checked-indicator" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-<path d="M11.6485 2.81742L5.31801 11.5167C4.84923 12.1611 4.08879 12.1611 3.61956 11.5167L0.351719 7.02544C-0.11724 6.38108 -0.11724 5.3359 0.351719 4.69142C0.820766 4.04681 1.58114 4.04681 2.04998 4.69117L4.46904 8.01569L9.94997 0.483271C10.419 -0.161335 11.1795 -0.160846 11.6483 0.483271C12.1172 1.12775 12.1172 2.17257 11.6485 2.81742Z" fill="currentColor"/>
-</svg>`;
+const checked = html`<icon-check />`;
 
 const indeterminate = svg`<svg class="indeterminate-indicator" xmlns="http://www.w3.org/2000/svg" width="12" height="3" viewBox="0 0 12 3" fill="none">
 <rect width="12" height="3" rx="1.5" fill="currentColor"/>
@@ -48,7 +48,7 @@ const indeterminate = svg`<svg class="indeterminate-indicator" xmlns="http://www
 
 @customElement("kobber-checkbox")
 export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
-  static styles: CSSResultGroup = [componentStyles, formControlStyles, styles];
+  // static styles: CSSResultGroup = [componentStyles, formControlStyles, styles];
   // static dependencies = { "sl-icon": SlIcon };
 
   private readonly formControlController = new FormControlController(this, {
@@ -64,6 +64,9 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
   private readonly hasSlotController = new HasSlotController(this, "help-text");
 
   @query('input[type="checkbox"]') input!: HTMLInputElement;
+
+  @consume({ context: themeContext, subscribe: true })
+  theme?: Theme;
 
   @state() private hasFocus = false;
 
@@ -194,16 +197,38 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
     this.formControlController.updateValidity();
   }
 
+  // Static CSS that applies to all all instances of this component
+  static styles = css`
+    :host {
+      display: flex;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .checkbox {
+      positiov: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+  `;
+
   render() {
     const hasHelpTextSlot = this.hasSlotController.test("help-text");
     const hasHelpText = this.helpText ? true : !!hasHelpTextSlot;
 
+    const themeStyles = this.themedStyles();
     //
     // NOTE: we use a <div> around the label slot because of this Chrome bug.
     //
     // https://bugs.chromium.org/p/chromium/issues/detail?id=1413733
     //
     return html`
+      <style>
+        ${themeStyles}}
+      </style>
       <div
         class=${classMap({
           "form-control": true,
@@ -264,4 +289,17 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
       </div>
     `;
   }
+
+  themedStyles = () => {
+    const tokens = this.theme?.tokens;
+    if (!tokens) {
+      console.log("should never occur");
+      return css``;
+    }
+
+    // TODO: Wait for tokens
+    // const component = tokens.component.checkbox;
+
+    return css``;
+  };
 }
