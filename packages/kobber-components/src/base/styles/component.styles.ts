@@ -1,6 +1,6 @@
 import { css } from "lit";
 
-export default css`
+export const componentStyles = css`
   :host {
     box-sizing: border-box;
   }

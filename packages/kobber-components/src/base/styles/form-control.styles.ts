@@ -1,6 +1,6 @@
 import { css } from "lit";
 
-export default css`
+export const formControlStyles = css`
   .form-control .form-control__label {
     display: none;
   }

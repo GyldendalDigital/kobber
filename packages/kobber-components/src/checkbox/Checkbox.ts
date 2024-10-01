@@ -3,18 +3,19 @@ import { css, CSSResultGroup, html, svg } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { live } from "lit/directives/live.js";
 import { customElement, property, query, state } from "lit/decorators.js";
-// import styles from "./checkbox.styles";
 import { defaultValue } from "../base/internal/default-value";
 import { watch } from "../base/internal/watch";
 import ShoelaceElement from "../base/internal/shoelace-element";
 import type { ShoelaceFormControl } from "../base/internal/shoelace-element";
 import { FormControlController } from "../base/internal/form";
-import formControlStyles from "../base/styles/form-control.styles";
-import componentStyles from "../base/styles/component.styles";
 import { HasSlotController } from "../base/internal/slot";
 import { themeContext } from "../utils/theme-context";
 import { Theme } from "../utils/theme-context.types";
 import { consume } from "@lit/context";
+import { checkboxBaseStyles } from "./checkbox.styles";
+import { formControlStyles } from "../base/styles/form-control.styles";
+import { componentStyles } from "../base/styles/component.styles";
+import { CheckboxColorTheme } from "./Checkbox.types";
 /**
  * @summary Checkboxes allow the user to toggle an option on or off.
  * @documentation https://shoelace.style/components/checkbox
@@ -42,14 +43,12 @@ import { consume } from "@lit/context";
 
 const checked = html`<icon-check />`;
 
-const indeterminate = svg`<svg class="indeterminate-indicator" xmlns="http://www.w3.org/2000/svg" width="12" height="3" viewBox="0 0 12 3" fill="none">
-<rect width="12" height="3" rx="1.5" fill="currentColor"/>
-</svg>`;
+const indeterminate = html`<icon-subtract />`;
 
 @customElement("kobber-checkbox")
 export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
-  // static styles: CSSResultGroup = [componentStyles, formControlStyles, styles];
-  // static dependencies = { "sl-icon": SlIcon };
+  @consume({ context: themeContext, subscribe: true })
+  theme?: Theme;
 
   private readonly formControlController = new FormControlController(this, {
     value: (control: ShoelaceFormControl) => (control.checked ? control.value || "on" : undefined),
@@ -65,8 +64,7 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
 
   @query('input[type="checkbox"]') input!: HTMLInputElement;
 
-  @consume({ context: themeContext, subscribe: true })
-  theme?: Theme;
+  static styles: CSSResultGroup = [checkboxBaseStyles, formControlStyles, componentStyles];
 
   @state() private hasFocus = false;
 
@@ -197,38 +195,55 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
     this.formControlController.updateValidity();
   }
 
-  // Static CSS that applies to all all instances of this component
-  static styles = css`
+  @property()
+  colorTheme: CheckboxColorTheme = "success";
+
+  applyThemeStyles() {
+    const tokens = this.theme?.tokens;
+    if (!tokens) {
+      console.log("should never occur");
+      return css``;
+    }
+
+    const style = document.createElement("style");
+    // TODO: Wait for tokens
+    // const component = tokens.component.checkbox;
+    style.textContent = `
     :host {
-      display: flex;
-      align-items: flex-start;
-      gap: 4px;
-    }
-    .checkbox {
-      positiov: relative;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 10px;
-      cursor: pointer;
-    }
-  `;
+    --kobber-component-checkbox-gap: 12px;
+      --kobber-component-input-color-disabled-foreground: #48112580;
+      --kobber-component-input-color-disabled-background: transparent;
+      --kobber-component-input-checkbox-width: 24px;
+      --kobber-component-input-checkbox-: 24px;
+      --kobber-component-input-checkbox-border-radius: 8px;
+      --kobber-component-input-color-default-border: #481125;
+      --kobber-component-input-color-default-background: transparent;
+      --kobber-component-input-checkbox-padding-block: 0.25rem;
+      --kobber-component-input-checkbox-padding-inline: 0.5rem;
+      --kobber-component-input-checkbox-hover-border-width: 2px;
+      --kobber-component-checkbox-label-color-label: #481125;
+      --kobber-component-checkbox-label-font-size: 16px;
+      --kobber-component-checkbox-label-font-style: normal;
+      --kobber-component-checkbox-label-font-weight: 300;      
+      --kobber-component-checkbox-label-checkbox-size: 1rem;
+      --kobber-component-checkbox-label-checkbox-gap: 0.5rem;
+      --kobber-component-checkbox-background-checked: #CBFBDB;
+      --kobber-component-checkbox-border-checked: #014F2D;
+    }`;
+    this.shadowRoot?.appendChild(style);
+  }
 
   render() {
     const hasHelpTextSlot = this.hasSlotController.test("help-text");
     const hasHelpText = this.helpText ? true : !!hasHelpTextSlot;
+    this.applyThemeStyles();
 
-    const themeStyles = this.themedStyles();
     //
     // NOTE: we use a <div> around the label slot because of this Chrome bug.
     //
     // https://bugs.chromium.org/p/chromium/issues/detail?id=1413733
     //
     return html`
-      <style>
-        ${themeStyles}}
-      </style>
       <div
         class=${classMap({
           "form-control": true,
@@ -289,17 +304,4 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
       </div>
     `;
   }
-
-  themedStyles = () => {
-    const tokens = this.theme?.tokens;
-    if (!tokens) {
-      console.log("should never occur");
-      return css``;
-    }
-
-    // TODO: Wait for tokens
-    // const component = tokens.component.checkbox;
-
-    return css``;
-  };
 }

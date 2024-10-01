@@ -1,19 +1,20 @@
 import { css } from "lit";
 
-export default css`
+export const checkboxBaseStyles = css`
   :host {
     display: flex;
     align-items: flex-start;
-    gap: var(--kobber-component-input-checkbox-gap);
   }
 
+  /* TODO: REMOVE ALL THE DEFAULT STYLES LATER */
+
   .checkbox {
-    position: relative;
+    positiov: relative;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    gap: var(--kobber-component-input-checkbox-gap);
+    gap: var(--kobber-component-checkbox-gap, 12px);
     cursor: pointer;
   }
 
@@ -21,21 +22,22 @@ export default css`
   .checkbox--disabled .checkbox__control,
   .checkbox--disabled .checkbox__label {
     cursor: not-allowed;
-    color: var(--kobber-component-input-color-disabled-foreground);
+    color: var(--kobber-component-input-color-disabled-foreground, #48112580);
   }
 
   .checkbox--disabled .checkbox__control {
-    background: var(--kobber-component-input-color-disabled-background);
+    background: var(--kobber-component-input-color-disabled-background, transparent);
   }
 
   .checkbox__control {
-    box-sizing: border-box;
-    width: var(--kobber-component-input-checkbox-size);
-    height: var(--kobber-component-input-checkbox-size);
-    border-radius: var(--kobber-component-input-checkbox-border-radius);
-    border: 1px solid var(--kobber-component-input-color-default-foreground);
-    background: var(--kobber-component-input-color-default-background);
-    padding: var(--kobber-component-input-checkbox-padding-block) var(--kobber-component-input-checkbox-padding-inline);
+    box-zising: border-box;
+    width: var(--kobber-component-input-checkbox-width, 24px);
+    height: var(--kobber-component-input-checkbox-height, 24px);
+    border-radius: var(--kobber-component-input-checkbox-border-radius, 8px);
+    border: 1px solid var(--kobber-component-input-color-default-border, #481125);
+    background: var(--kobber-component-input-color-default-background, transparent);
+    padding: var(--kobber-component-input-checkbox-padding-block, 0.25rem)
+      var(--kobber-component-input-checkbox-padding-inline, 0.5rem);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,7 +61,7 @@ export default css`
   .checkbox__indeterminate-icon {
     align-self: center;
     justify-self: center;
-    fill: var(--kobber-component-input-color-default-foreground);
+    fill: transparent;
     opacity: 0;
     display: none;
     width: 100%;
@@ -67,14 +69,20 @@ export default css`
   }
 
   /* Hover */
-  .checkbox:not(.checkbox--disabled) .checkbox__control:hover {
-    border-width: 2px;
+  .checkbox:not(.checkbox--disabled):hover .checkbox__control {
+    box-shadow: 0px 0px 4px 2px #cbfbdb;
   }
 
   /* Focus */
   .checkbox:not(.checkbox--checked):not(.checkbox--disabled) .checkbox__input:focus-visible ~ .checkbox__control {
-    box-shadow: 0px 0px 0px 3px var(--kobber-semantic-color-focus);
+    box-shadow: 0px 10px 0px 100px var(kobber-semantic-color-focus, #ff0000);
     outline-offset: 0px;
+  }
+
+  /* Checked */
+  .checkbox.checkbox--checked .checkbox__control {
+    background: var(--kobber-component-checkbox-background-checked, #cbfbdb);
+    border-color: var(--kobber-component-checkbox-border-checked, #014f2d);
   }
 
   /* Checked/indeterminate + focus */
@@ -90,11 +98,11 @@ export default css`
     justify-content: center;
     flex: 1 0 0;
     align-self: stretch;
-    color: var(--kobber-component-input-color-default-foreground);
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
+    color: var(--kobber-component-checkbox-label-color-label, #481125);
+    font-family: var(--kobber-component-checkbox-label-font-family, "Inter");
+    font-size: var(--kobber-component-checkbox-label-font-size, 16px);
+    font-style: var(--kobber-component-checkbox-label-font-style, normal);
+    font-weight: var(--kobber-component-checkbox-label-font-weight, 300);
   }
 
   .form-control__help-text {
