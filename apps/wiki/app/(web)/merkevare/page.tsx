@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function BrandingPage() {
-  return redirect(BrandingRoutesData[3].href);
+  return redirect(BrandingRoutesData[3].slug);
 }

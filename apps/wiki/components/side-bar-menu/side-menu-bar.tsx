@@ -1,9 +1,10 @@
 import { SideMenuBarType } from "@/types/types";
 import { SideMenuItem } from "./side-menu-item";
 import { KobberDivider } from "../kobber-ssr-loader";
+import { WikiRoute } from "@/config/routes";
 
 type SideMenuBarProps = {
-  items: SideMenuBarType[];
+  items: WikiRoute[];
 };
 
 export function SideMenuBar({ items }: SideMenuBarProps) {

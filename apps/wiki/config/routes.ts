@@ -1,25 +1,110 @@
+import merkevare from "@/app/(web)/merkevare/merkevare.route";
+import { placeholderImageUrl } from "@/lib/utils";
 import { RouteType, SideMenuBarType } from "@/types/types";
 
 export const GET_STARTED_URL = "/kom-i-gang";
 export const COMPONENTS_URL = "/komponenter";
 export const BRANDING_URL = "/merkevare";
 
+export type WikiRoute = {
+  [slug: string]: {
+    title: string;
+    image?: string;
+    status?: "kommer" | "nyhet";
+    children?: WikiRoute;
+  };
+};
+
+export const getRouteChildren = (parentRoute: WikiRoute): WikiRoute[] => {
+  return Object.entries(parentRoute)
+    .map(([, route]) => route.children)
+    .filter(route => route !== undefined);
+};
+
+export const routes = {
+  "kom-i-gang": {
+    title: "Kom i gang",
+    children: {
+      introduksjon: {
+        title: "Introduksjon",
+      },
+      grensesnitt: {
+        title: "Lager du grensesnitt?",
+      },
+    },
+  },
+  ...merkevare,
+  // merkevare: {
+  //   title: "Merkevare",
+  //   children: {
+  //     introduksjon: {
+  //       title: "Introduksjon",
+  //       children: {},
+  //     },
+  //     ...farger
+  //     // farger: {
+  //     //   title: "Farger",
+  //     //   children: {
+  //     //     identitetspalett: {
+  //     //       title: "Identitetspalett",
+  //     //       image: placeholderImageUrl({ textRows: ["placeholder", "identitetspalett"] }),
+  //     //     },
+  //     //     temafarger: {
+  //     //       title: "Temafarger",
+  //     //       image: placeholderImageUrl({ textRows: ["placeholder", "temafarger"] }),
+  //     //     },
+  //     //     "ui-farger": {
+  //     //       title: "UI-farger",
+  //     //       image: placeholderImageUrl({ textRows: ["placeholder", "ui-farger"] }),
+  //     //     },
+  //     //   },
+  //     // },
+  //   },
+  // },
+} satisfies WikiRoute;
+
+export const getStartedRoutes: RouteType[] = [
+  {
+    title: "Introduksjon",
+    slug: `${GET_STARTED_URL}/introduksjon`,
+  },
+  {
+    title: "Lager du grensesnitt?",
+    slug: `${GET_STARTED_URL}/grensesnitt`,
+  },
+  {
+    title: "Skriver du kode?",
+    slug: `${GET_STARTED_URL}/kode`,
+  },
+  {
+    title: "Lager du innhold?",
+    slug: `${GET_STARTED_URL}/innhold`,
+  },
+  {
+    title: "Markedsføring",
+    slug: `${GET_STARTED_URL}/markedsforing`,
+  },
+  {
+    title: "Tilgjengelighet",
+    slug: `${GET_STARTED_URL}/tilgjengelighet`,
+  },
+];
 export const mainRoutes: RouteType[] = [
   {
     title: "Kom i gang",
-    href: `${GET_STARTED_URL}/introduksjon`,
+    slug: `${GET_STARTED_URL}/introduksjon`,
   },
   {
     title: "Merkevare",
-    href: BRANDING_URL,
+    slug: BRANDING_URL,
   },
   {
     title: "Komponenter",
-    href: `${COMPONENTS_URL}/button`,
+    slug: `${COMPONENTS_URL}/button`,
   },
   {
     title: "Kontakt",
-    href: "/kontakt",
+    slug: "/kontakt",
   },
 ];
 
@@ -29,16 +114,16 @@ export const ComponentsRoutes: SideMenuBarType[] = [
     routes: [
       {
         title: "Breadcrumb",
-        href: `${COMPONENTS_URL}/breadcrumb`,
+        slug: `${COMPONENTS_URL}/breadcrumb`,
         isComing: true,
       },
       {
         title: "Button",
-        href: `${COMPONENTS_URL}/button`,
+        slug: `${COMPONENTS_URL}/button`,
       },
       {
         title: "Footer",
-        href: `${COMPONENTS_URL}/footer`,
+        slug: `${COMPONENTS_URL}/footer`,
         isComing: true,
       },
     ],
@@ -48,20 +133,20 @@ export const ComponentsRoutes: SideMenuBarType[] = [
     routes: [
       {
         title: "Checkbox",
-        href: `${COMPONENTS_URL}/checkbox`,
+        slug: `${COMPONENTS_URL}/checkbox`,
       },
       {
         title: "Radiobutton",
-        href: `${COMPONENTS_URL}/radiobutton`,
+        slug: `${COMPONENTS_URL}/radiobutton`,
       },
       {
         title: "Switch",
-        href: `${COMPONENTS_URL}/switch`,
+        slug: `${COMPONENTS_URL}/switch`,
       },
 
       {
         title: "Text field",
-        href: `${COMPONENTS_URL}/text-field`,
+        slug: `${COMPONENTS_URL}/text-field`,
       },
     ],
   },
@@ -70,24 +155,24 @@ export const ComponentsRoutes: SideMenuBarType[] = [
     routes: [
       {
         title: "Alert",
-        href: `${COMPONENTS_URL}/alert`,
+        slug: `${COMPONENTS_URL}/alert`,
       },
       {
         title: "Labels",
-        href: `${COMPONENTS_URL}/labels`,
+        slug: `${COMPONENTS_URL}/labels`,
       },
       {
         title: "Loader",
-        href: `${COMPONENTS_URL}/loader`,
+        slug: `${COMPONENTS_URL}/loader`,
         isComing: true,
       },
       {
         title: "Progressbar",
-        href: `${COMPONENTS_URL}/progressbar`,
+        slug: `${COMPONENTS_URL}/progressbar`,
       },
       {
         title: "Tooltip",
-        href: `${COMPONENTS_URL}/tooltip`,
+        slug: `${COMPONENTS_URL}/tooltip`,
       },
     ],
   },
@@ -96,32 +181,32 @@ export const ComponentsRoutes: SideMenuBarType[] = [
     routes: [
       {
         title: "Accordion",
-        href: `${COMPONENTS_URL}/accordion`,
+        slug: `${COMPONENTS_URL}/accordion`,
         isComing: true,
       },
       {
         title: "Card",
-        href: `${COMPONENTS_URL}/card`,
+        slug: `${COMPONENTS_URL}/card`,
         isComing: true,
       },
       {
         title: "Carousel",
-        href: `${COMPONENTS_URL}/carousel`,
+        slug: `${COMPONENTS_URL}/carousel`,
         isComing: true,
       },
       {
         title: "List item",
-        href: `${COMPONENTS_URL}/list-item`,
+        slug: `${COMPONENTS_URL}/list-item`,
         isComing: true,
       },
       {
         title: "Modal",
-        href: `${COMPONENTS_URL}/modal`,
+        slug: `${COMPONENTS_URL}/modal`,
         isComing: true,
       },
       {
         title: "Search",
-        href: `${COMPONENTS_URL}/search`,
+        slug: `${COMPONENTS_URL}/search`,
         isComing: true,
       },
     ],
@@ -134,17 +219,17 @@ export const VareMerkeRoutes: SideMenuBarType[] = [
     routes: [
       {
         title: "Våre verdier",
-        href: `${BRANDING_URL}/vaare-verdier`,
+        slug: `${BRANDING_URL}/vaare-verdier`,
         isComing: true,
       },
       {
         title: "Merkevarehierarki",
-        href: `${BRANDING_URL}/merkevarehierarki`,
+        slug: `${BRANDING_URL}/merkevarehierarki`,
         isComing: true,
       },
       {
         title: "Designprinsipper",
-        href: `${BRANDING_URL}/designprinsipper`,
+        slug: `${BRANDING_URL}/designprinsipper`,
         isComing: true,
       },
     ],
@@ -154,67 +239,67 @@ export const VareMerkeRoutes: SideMenuBarType[] = [
     routes: [
       {
         title: "Logo",
-        href: `${BRANDING_URL}/logo`,
+        slug: `${BRANDING_URL}/logo`,
       },
       {
         title: "Farger",
-        href: `${BRANDING_URL}/farger`,
+        slug: `${BRANDING_URL}/farger`,
         subRoutes: [
           {
             title: "Identitetspalett",
-            href: `${BRANDING_URL}/farger/identitetspalett`,
+            slug: `${BRANDING_URL}/farger/identitetspalett`,
           },
           {
             title: "Temafarger",
-            href: `${BRANDING_URL}/farger/temafarger`,
+            slug: `${BRANDING_URL}/farger/temafarger`,
           },
           {
             title: "UI-farger",
-            href: `${BRANDING_URL}/farger/ui-farger`,
+            slug: `${BRANDING_URL}/farger/ui-farger`,
           },
         ],
       },
       {
         title: "Typografi",
-        href: `${BRANDING_URL}/typografi`,
+        slug: `${BRANDING_URL}/typografi`,
         subRoutes: [
           {
             title: "PP-Mori",
-            href: `${BRANDING_URL}/typografi/pp-mori`,
+            slug: `${BRANDING_URL}/typografi/pp-mori`,
           },
           {
             title: "Lyon",
-            href: `${BRANDING_URL}/typografi/lyon`,
+            slug: `${BRANDING_URL}/typografi/lyon`,
           },
           {
             title: "Inter",
-            href: `${BRANDING_URL}/typografi/inter`,
+            slug: `${BRANDING_URL}/typografi/inter`,
           },
           {
             title: "Retningslinjer",
-            href: `${BRANDING_URL}/typografi/retningslinjer`,
+            slug: `${BRANDING_URL}/typografi/retningslinjer`,
           },
         ],
       },
       {
         title: "Ikoner",
-        href: `${BRANDING_URL}/ikoner`,
+        slug: `${BRANDING_URL}/ikoner`,
       },
       {
         title: "Layout",
-        href: `${BRANDING_URL}/layout`,
+        slug: `${BRANDING_URL}/layout`,
         subRoutes: [
           {
             title: "Grid",
-            href: `${BRANDING_URL}/layout/grid`,
+            slug: `${BRANDING_URL}/layout/grid`,
           },
           {
             title: "Spacing",
-            href: `${BRANDING_URL}/layout/spacing`,
+            slug: `${BRANDING_URL}/layout/spacing`,
           },
           {
             title: "Identitetsprinsipper",
-            href: `${BRANDING_URL}/layout/identitetsprinsipper`,
+            slug: `${BRANDING_URL}/layout/identitetsprinsipper`,
           },
         ],
       },
@@ -225,54 +310,28 @@ export const VareMerkeRoutes: SideMenuBarType[] = [
     routes: [
       {
         title: "Powerpoint",
-        href: `${BRANDING_URL}/powerpoint`,
+        slug: `${BRANDING_URL}/powerpoint`,
       },
       {
         title: "Word",
-        href: `${BRANDING_URL}/word`,
+        slug: `${BRANDING_URL}/word`,
       },
       {
         title: "E-post signatur",
-        href: `${BRANDING_URL}/e-post-signatur`,
+        slug: `${BRANDING_URL}/e-post-signatur`,
       },
       {
         title: "Visitkort",
-        href: `${BRANDING_URL}/visitkort`,
+        slug: `${BRANDING_URL}/visitkort`,
       },
       {
         title: "Nyhetsbrev",
-        href: `${BRANDING_URL}/nyhetsbrev`,
+        slug: `${BRANDING_URL}/nyhetsbrev`,
       },
     ],
   },
 ];
 
-export const getStartedRoutes: RouteType[] = [
-  {
-    title: "Introduksjon",
-    href: `${GET_STARTED_URL}/introduksjon`,
-  },
-  {
-    title: "Lager du grensesnitt?",
-    href: `${GET_STARTED_URL}/grensesnitt`,
-  },
-  {
-    title: "Skriver du kode?",
-    href: `${GET_STARTED_URL}/kode`,
-  },
-  {
-    title: "Lager du innhold?",
-    href: `${GET_STARTED_URL}/innhold`,
-  },
-  {
-    title: "Markedsføring",
-    href: `${GET_STARTED_URL}/markedsforing`,
-  },
-  {
-    title: "Tilgjengelighet",
-    href: `${GET_STARTED_URL}/tilgjengelighet`,
-  },
-];
 // export const componentsRoutes: RouteType[] = [
 // 	{
 // 		title: "Introduksjon",

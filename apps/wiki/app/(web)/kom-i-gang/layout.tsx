@@ -1,5 +1,6 @@
-import { SideBar } from "@/components/side-bar";
-import { LogoSVG } from "@/components/svg";
+import { ContentLayout, ContentShell } from "@/components/content-layout";
+import { SideMenu } from "@/components/menu/side-menu";
+import { SideMenuItemLink } from "@/components/menu/side-menu-item-link";
 import { GetStartedRoutesData } from "@/data/routes-data";
 
 type GetStartedLayoutProps = {
@@ -8,12 +9,19 @@ type GetStartedLayoutProps = {
 
 export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
   return (
-    <div className="grid grid-cols-[270px_1fr] overflow-hidden gap-5">
-      <div className="w-full md:w-128 rounded-8 space-y-96 ">
-        <SideBar routes={GetStartedRoutesData} />
-        <LogoSVG />
-      </div>
-      <div className="w-full pb-20">{children}</div>
-    </div>
+    <ContentLayout>
+      <ContentShell>
+        <SideMenu>
+          <ul className="mx-2">
+            {GetStartedRoutesData.map(({ slug, hrefTitle }) => (
+              <li key={slug}>
+                <SideMenuItemLink slug={slug} title={hrefTitle} />
+              </li>
+            ))}
+          </ul>
+        </SideMenu>
+      </ContentShell>
+      <div className="w-full pb-24 pr-24">{children}</div>
+    </ContentLayout>
   );
 }

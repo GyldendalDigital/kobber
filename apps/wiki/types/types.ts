@@ -1,6 +1,6 @@
 export type RouteType = {
   title: string;
-  href: string;
+  slug: string;
   disabled?: boolean;
   isComing?: boolean;
   subRoutes?: RouteType[];
@@ -12,7 +12,7 @@ export type RouteDataType = {
   title: string;
   description: string;
   text: string;
-  href: string;
+  slug: string;
   hrefTitle: string;
 };
 

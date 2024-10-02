@@ -18,9 +18,9 @@ export function SideBar({ routes }: SideBarProps) {
       {routes.map((route, index) => (
         <li key={index}>
           <Link
-            href={route.href}
+            href={route.slug}
             className={cn(buttonVariants({ variant: "menu", size: "sm", className: "w-full justify-start" }), {
-              " underline": pathName && isOnPath(pathName, route.href),
+              " underline": pathName && isOnPath(pathName, route.slug),
             })}
           >
             {route.hrefTitle}

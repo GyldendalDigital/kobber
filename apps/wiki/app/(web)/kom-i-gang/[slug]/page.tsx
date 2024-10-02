@@ -9,13 +9,13 @@ type GetStartedSlugPageProps = {
 };
 
 export async function generateStaticParams() {
-  return GetStartedRoutesData.map(x => ({ slug: x.href.split("/").reverse()[0] }));
+  return GetStartedRoutesData.map(x => ({ slug: x.slug.split("/").reverse()[0] }));
 }
 
 export default function GetStartedSlugPage({ params }: GetStartedSlugPageProps) {
   const { slug } = params;
 
-  const [content] = GetStartedRoutesData.filter(route => route.href.includes(slug));
+  const [content] = GetStartedRoutesData.filter(route => route.slug.includes(slug));
 
   if (!content) {
     return notFound();

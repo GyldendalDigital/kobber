@@ -10,12 +10,12 @@ type SideMenuItemLinkProps = {
 
 export function SideMenuItemLink({ route }: SideMenuItemLinkProps) {
   const pathname = usePathname();
-  const isOnPath = pathname && pathname == route.href;
+  const isOnPath = pathname && pathname == route.slug;
 
   return (
     <li>
       <Link
-        href={route.isComing ? "#" : route.href}
+        href={route.isComing ? "#" : route.slug}
         className={cn("p-16 flex items-center gap-8  h-48  rounded-8 hover:bg-aubergine-50", {
           "underline underline-offset-8 decoration-wine-750": isOnPath,
         })}
@@ -28,11 +28,11 @@ export function SideMenuItemLink({ route }: SideMenuItemLinkProps) {
       {route.subRoutes && (
         <ul>
           {route.subRoutes.map((subRoute, index) => {
-            const isSubRouteOnPath = pathname && pathname === subRoute.href;
+            const isSubRouteOnPath = pathname && pathname === subRoute.slug;
             return (
               <li className="pl-40" key={index}>
                 <Link
-                  href={subRoute.isComing ? "#" : subRoute.href}
+                  href={subRoute.isComing ? "#" : subRoute.slug}
                   className={cn("p-16 flex items-center gap-8  h-48  rounded-8 hover:bg-aubergine-50", {
                     "underline underline-offset-8 decoration-wine-750": isSubRouteOnPath,
                   })}

@@ -1,5 +1,5 @@
 "use client";
-import { mainRoutes } from "@/config/routes";
+import { routes } from "@/config/routes";
 import { cn } from "@/lib/utils";
 import { isOnPath } from "@/utils/is-on-path";
 import Link from "next/link";
@@ -18,18 +18,18 @@ export function TopMenu() {
         </Link>
 
         <ul className=" text-text/color/action-item/button   items-center gap-24 hidden md:flex">
-          {mainRoutes.map((route, index) => (
-            <li key={index}>
+          {Object.entries(routes).map(([slug, { title }]) => (
+            <li key={slug}>
               <Link
                 className={cn(
                   "text-primary-body leading-16 hover:underline underline-offset-8 decoration-text/color/action-item/button",
                   {
-                    underline: pathName && isOnPath(pathName, route.href),
+                    underline: pathName && isOnPath(pathName, slug),
                   },
                 )}
-                href={route.href}
+                href={"/" + slug}
               >
-                {route.title}
+                {title}
               </Link>
             </li>
           ))}
