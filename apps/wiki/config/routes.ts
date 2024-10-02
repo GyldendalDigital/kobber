@@ -203,6 +203,20 @@ export const VareMerkeRoutes: SideMenuBarType[] = [
       {
         title: "Layout",
         href: `${BRANDING_URL}/layout`,
+        subRoutes: [
+          {
+            title: "Grid",
+            href: `${BRANDING_URL}/layout/grid`,
+          },
+          {
+            title: "Spacing",
+            href: `${BRANDING_URL}/layout/spacing`,
+          },
+          {
+            title: "Identitetsprinsipper",
+            href: `${BRANDING_URL}/layout/identitetsprinsipper`,
+          },
+        ],
       },
     ],
   },

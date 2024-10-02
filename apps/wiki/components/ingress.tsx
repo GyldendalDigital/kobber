@@ -3,10 +3,10 @@ import { SizeType } from "@/types/types";
 
 type IngressProps = {
   text: string;
-  size: SizeType;
+  size?: SizeType;
 };
 
-export function Ingress({ text, size }: IngressProps) {
+export function Ingress({ text, size = "md" }: IngressProps) {
   return (
     <p
       className={cn("text-text/color/primary/body text-primary-body whitespace-pre-wrap    ", {
