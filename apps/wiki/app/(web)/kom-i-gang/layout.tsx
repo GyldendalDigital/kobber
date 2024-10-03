@@ -1,7 +1,7 @@
 import { ContentLayout, ContentShell } from "@/components/content-layout";
 import { SideMenu } from "@/components/menu/side-menu";
 import { SideMenuItemLink } from "@/components/menu/side-menu-item-link";
-import { GetStartedRoutesData } from "@/data/routes-data";
+import { GetStartedRoutesData } from "./routes-data";
 
 type GetStartedLayoutProps = {
   children: React.ReactNode;
@@ -13,9 +13,9 @@ export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
       <ContentShell>
         <SideMenu>
           <ul className="mx-2">
-            {GetStartedRoutesData.map(({ slug, hrefTitle }) => (
-              <li key={slug}>
-                <SideMenuItemLink slug={slug} title={hrefTitle} />
+            {GetStartedRoutesData.map(({ href, hrefTitle }) => (
+              <li key={href}>
+                <SideMenuItemLink href={href} title={hrefTitle} />
               </li>
             ))}
           </ul>

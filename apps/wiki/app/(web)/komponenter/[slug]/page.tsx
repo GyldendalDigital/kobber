@@ -40,13 +40,13 @@ type ComponentsSectionProps = {
 };
 
 export async function generateStaticParams() {
-  return ComponentsRoutesData.map(x => ({ slug: x.slug.split("/").reverse()[0] }));
+  return ComponentsRoutesData.map(x => ({ slug: x.href.split("/").reverse()[0] }));
 }
 
 export default function ComponentsSection({ params }: ComponentsSectionProps) {
   const { slug } = params;
 
-  const [content] = ComponentsRoutesData.filter(route => route.slug.includes(slug));
+  const [content] = ComponentsRoutesData.filter(route => route.href.includes(slug));
 
   if (!content) {
     return notFound();

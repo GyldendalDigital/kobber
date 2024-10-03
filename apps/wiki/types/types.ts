@@ -1,3 +1,11 @@
+export type PageDetails = {
+  href: string;
+  title: string;
+  image?: string;
+  status?: "kommer" | "nyhet";
+  children?: PageDetails[];
+};
+
 export type RouteType = {
   title: string;
   slug: string;
@@ -12,7 +20,7 @@ export type RouteDataType = {
   title: string;
   description: string;
   text: string;
-  slug: string;
+  href: string;
   hrefTitle: string;
 };
 

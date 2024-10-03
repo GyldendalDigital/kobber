@@ -1,4 +1,3 @@
-import merkevare from "@/app/(web)/merkevare/merkevare.route";
 import { placeholderImageUrl } from "@/lib/utils";
 import { RouteType, SideMenuBarType } from "@/types/types";
 
@@ -20,48 +19,6 @@ export const getRouteChildren = (parentRoute: WikiRoute): WikiRoute[] => {
     .map(([, route]) => route.children)
     .filter(route => route !== undefined);
 };
-
-export const routes = {
-  "kom-i-gang": {
-    title: "Kom i gang",
-    children: {
-      introduksjon: {
-        title: "Introduksjon",
-      },
-      grensesnitt: {
-        title: "Lager du grensesnitt?",
-      },
-    },
-  },
-  ...merkevare,
-  // merkevare: {
-  //   title: "Merkevare",
-  //   children: {
-  //     introduksjon: {
-  //       title: "Introduksjon",
-  //       children: {},
-  //     },
-  //     ...farger
-  //     // farger: {
-  //     //   title: "Farger",
-  //     //   children: {
-  //     //     identitetspalett: {
-  //     //       title: "Identitetspalett",
-  //     //       image: placeholderImageUrl({ textRows: ["placeholder", "identitetspalett"] }),
-  //     //     },
-  //     //     temafarger: {
-  //     //       title: "Temafarger",
-  //     //       image: placeholderImageUrl({ textRows: ["placeholder", "temafarger"] }),
-  //     //     },
-  //     //     "ui-farger": {
-  //     //       title: "UI-farger",
-  //     //       image: placeholderImageUrl({ textRows: ["placeholder", "ui-farger"] }),
-  //     //     },
-  //     //   },
-  //     // },
-  //   },
-  // },
-} satisfies WikiRoute;
 
 export const getStartedRoutes: RouteType[] = [
   {

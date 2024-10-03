@@ -1,13 +1,14 @@
 import { BRANDING_URL, COMPONENTS_URL, GET_STARTED_URL } from "@/config/routes";
 import { placeholderImageUrl } from "@/lib/utils";
 import { RouteDataType } from "@/types/types";
+import { pageDetailsKomigang } from "./page";
 
 export const GetStartedRoutesData: RouteDataType[] = [
   {
     headerImage: placeholderImageUrl({ textRows: ["placeholder introduksjon"] }),
     topicTitle: "Designsystemet Kobber",
     title: "Et verktøy for samspill og synergier",
-    slug: `introduksjon`,
+    href: `${pageDetailsKomigang.href}/introduksjon`,
     hrefTitle: "Introduksjon",
     description:
       "For å sikre konsistent og god brukeropplevelse på tvers av nettsider, publikasjoner, kommunikasjon og løsninger i Gyldendal har vi laget designsystemet Kobber.",
@@ -30,7 +31,7 @@ Sammen skaper vi en levende profil!`,
     topicTitle: "Test",
     description: "Test",
     text: "Test",
-    slug: `grensesnitt`,
+    href: `${pageDetailsKomigang.href}/grensesnitt`,
     hrefTitle: "Grensesnitt",
   },
   {
@@ -38,7 +39,7 @@ Sammen skaper vi en levende profil!`,
     topicTitle: "Test",
     description: "Test",
     text: "Test",
-    slug: `kode`,
+    href: `${pageDetailsKomigang.href}/kode`,
     hrefTitle: "Kode",
   },
   {
@@ -46,7 +47,7 @@ Sammen skaper vi en levende profil!`,
     topicTitle: "Test",
     description: "Test",
     text: "Test",
-    slug: `innhold`,
+    href: `${pageDetailsKomigang.href}/innhold`,
     hrefTitle: "Innhold",
   },
   {
@@ -54,7 +55,7 @@ Sammen skaper vi en levende profil!`,
     topicTitle: "Test",
     description: "Test",
     text: "Test",
-    slug: `markedsforing`,
+    href: `${pageDetailsKomigang.href}/markedsforing`,
     hrefTitle: "Markedsføring",
   },
   {
@@ -62,7 +63,7 @@ Sammen skaper vi en levende profil!`,
     topicTitle: "Test",
     description: "Test",
     text: "Test",
-    slug: `tilgjengelighet`,
+    href: `${pageDetailsKomigang.href}/tilgjengelighet`,
     hrefTitle: "Tilgjengelighet",
   },
 ];
@@ -73,28 +74,28 @@ export const ComponentsRoutesData: RouteDataType[] = [
     title: "Introduksjon",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
-    slug: `${COMPONENTS_URL}/introduksjon`,
+    href: `${COMPONENTS_URL}/introduksjon`,
     hrefTitle: "Introduksjon",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. ",
   },
   {
     title: "Knapper",
     description: "Test",
-    slug: `${COMPONENTS_URL}/knapper`,
+    href: `${COMPONENTS_URL}/knapper`,
     hrefTitle: "Knapper",
     text: "Knapper",
   },
   {
     title: "Check box",
     description: "Test",
-    slug: `${COMPONENTS_URL}/check-box`,
+    href: `${COMPONENTS_URL}/check-box`,
     hrefTitle: "Check box",
     text: "Check box",
   },
   {
     title: "Corner box",
     description: "Test",
-    slug: `${COMPONENTS_URL}/corner-box`,
+    href: `${COMPONENTS_URL}/corner-box`,
     hrefTitle: "Corner-box",
     text: "Corner-box",
   },
@@ -106,7 +107,7 @@ export const BrandingRoutesData: RouteDataType[] = [
     title: "Vår kjernehistorie",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
-    slug: `${BRANDING_URL}/vaar-kjernehistorie`,
+    href: `${BRANDING_URL}/vaar-kjernehistorie`,
     hrefTitle: "Vår kjernehistorie",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. ",
   },
@@ -115,7 +116,7 @@ export const BrandingRoutesData: RouteDataType[] = [
     title: "Våre verdier",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
-    slug: `${BRANDING_URL}/vaare-verdier`,
+    href: `${BRANDING_URL}/vaare-verdier`,
     hrefTitle: "Våre verider",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. ",
   },
@@ -124,7 +125,7 @@ export const BrandingRoutesData: RouteDataType[] = [
     title: "Designprinsipper",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
-    slug: `${BRANDING_URL}/design-prinsipper`,
+    href: `${BRANDING_URL}/design-prinsipper`,
     hrefTitle: "Designprinsipper",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. ",
   },
@@ -133,7 +134,7 @@ export const BrandingRoutesData: RouteDataType[] = [
     title: "Farger",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
-    slug: `${BRANDING_URL}/farger`,
+    href: `${BRANDING_URL}/farger`,
     hrefTitle: "Farger",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. ",
   },
@@ -142,7 +143,7 @@ export const BrandingRoutesData: RouteDataType[] = [
     title: "Typografi",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
-    slug: `${BRANDING_URL}/typografi`,
+    href: `${BRANDING_URL}/typografi`,
     hrefTitle: "Typografi",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. ",
   },
@@ -151,7 +152,7 @@ export const BrandingRoutesData: RouteDataType[] = [
     title: "Ikoner",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
-    slug: `${BRANDING_URL}/ikoner`,
+    href: `${BRANDING_URL}/ikoner`,
     hrefTitle: "Ikoner",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. ",
   },
@@ -160,7 +161,7 @@ export const BrandingRoutesData: RouteDataType[] = [
     title: "Layout",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
-    slug: `${BRANDING_URL}/layout`,
+    href: `${BRANDING_URL}/layout`,
     hrefTitle: "Layout",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. ",
   },
@@ -169,7 +170,7 @@ export const BrandingRoutesData: RouteDataType[] = [
     title: "Spacing",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
-    slug: `${BRANDING_URL}/spacing`,
+    href: `${BRANDING_URL}/spacing`,
     hrefTitle: "Spacing",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. ",
   },
@@ -178,7 +179,7 @@ export const BrandingRoutesData: RouteDataType[] = [
     title: "Bilder",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
-    slug: `${BRANDING_URL}/bilder`,
+    href: `${BRANDING_URL}/bilder`,
     hrefTitle: "Bilder",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. ",
   },
@@ -187,7 +188,7 @@ export const BrandingRoutesData: RouteDataType[] = [
     title: "Animasjon",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
-    slug: `${BRANDING_URL}/animasjon`,
+    href: `${BRANDING_URL}/animasjon`,
     hrefTitle: "Animasjon",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. ",
   },

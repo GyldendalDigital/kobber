@@ -3,10 +3,18 @@ import { ContentSection } from "@/components/content-section";
 import { SectionLayout } from "@/components/section-layout";
 import { TextCollection } from "@/components/text-collection";
 import { UIColors } from "@/data/color-palettes";
+import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils";
+import { PageDetails } from "@/types/types";
 import { Metadata } from "next";
 
+export const pageDetailsUi: PageDetails = {
+  href: pagePathname(import.meta.url),
+  title: "UI-farger",
+  image: placeholderImageUrl({}),
+};
+
 export const metadata: Metadata = {
-  title: "UI-farger | Kobber Wiki",
+  title: documentTitle(pageDetailsUi.title),
   description:
     "Vi har noen farger som er forbeholdt digitale grensesnitt. Dette inkluderer farger som skal kommunisere til sluttbrukeren om suksess, informasjon og advarsler, samt en nøytral palett.",
 };

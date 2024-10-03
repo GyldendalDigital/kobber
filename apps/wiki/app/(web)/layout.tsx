@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import { KobberThemeContext } from "@/components/kobber-ssr-loader";
-import { TopMenu } from "@/components/top-menu";
+import { TopMenu } from "@/components/menu/top-menu";
 
 // Moved to global.css
 // const PPMori = localFont({

@@ -4,9 +4,17 @@ import { ColorBlockGrid } from "@/components/color-block-grid";
 import { ThemeColors } from "@/data/color-palettes";
 import { SectionLayout } from "@/components/section-layout";
 import { Metadata } from "next";
+import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils";
+import { PageDetails } from "@/types/types";
+
+export const pageDetailsTema: PageDetails = {
+  href: pagePathname(import.meta.url),
+  title: "Temafarger",
+  image: placeholderImageUrl({}),
+};
 
 export const metadata: Metadata = {
-  title: "Temafarger | Kobber Wiki",
+  title: documentTitle(pageDetailsTema.title),
   description:
     "Temafarger kan benyttes i avgrensede område for å sette stemning rundt et tema, en enkeltutgivelse eller en kolleksjon av utgivelser. Det er ikke tillatt å bruke disse palettene på et helt brukergrensesnitt eller for å kategorisere produkt-spesifikt innhold.",
 };

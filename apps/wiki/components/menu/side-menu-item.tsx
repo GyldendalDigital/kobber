@@ -1,19 +1,17 @@
-import { WikiRoute } from "@/config/routes";
+"use client";
 import { SideMenuItemLink } from "./side-menu-item-link";
+import { usePathname } from "next/navigation";
+import { PageDetails } from "@/types/types";
 
-type Props = {
-  slug: string;
-  route: WikiRoute[0];
-};
-
-export const SideMenuItem = ({ slug, route }: Props) => {
+export const SideMenuItem = (item: PageDetails) => {
+  const pathname = usePathname();
   return (
     <li>
-      <SideMenuItemLink slug={slug} {...route} />
-      {route.children && (
+      <SideMenuItemLink {...item} />
+      {pathname?.includes(item.href) && item.children && (
         <ul className="pl-40">
-          {Object.entries(route.children).map(([childSlug, childRoute]) => (
-            <SideMenuItem key={childSlug} slug={childSlug} route={childRoute} />
+          {item.children.map(item => (
+            <SideMenuItem key={item.href} {...item} />
           ))}
         </ul>
       )}
