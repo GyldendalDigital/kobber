@@ -68,7 +68,7 @@ interface Props {
   type?: "px";
 }
 
-export const UnitFormatter: FunctionComponent<Props> = ({ children, type = "px" }) => {
+const UnitFormatter: FunctionComponent<Props> = ({ children, type = "px" }) => {
   if (children && type === "px") {
     const pixels = children;
     return (

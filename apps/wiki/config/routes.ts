@@ -1,24 +1,8 @@
-import { placeholderImageUrl } from "@/lib/utils";
 import { RouteType, SideMenuBarType } from "@/types/types";
 
 export const GET_STARTED_URL = "/kom-i-gang";
 export const COMPONENTS_URL = "/komponenter";
 export const BRANDING_URL = "/merkevare";
-
-export type WikiRoute = {
-  [slug: string]: {
-    title: string;
-    image?: string;
-    status?: "kommer" | "nyhet";
-    children?: WikiRoute;
-  };
-};
-
-export const getRouteChildren = (parentRoute: WikiRoute): WikiRoute[] => {
-  return Object.entries(parentRoute)
-    .map(([, route]) => route.children)
-    .filter(route => route !== undefined);
-};
 
 export const getStartedRoutes: RouteType[] = [
   {
