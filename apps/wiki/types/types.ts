@@ -1,6 +1,14 @@
+export type PageDetails = {
+  href: string;
+  title: string;
+  image?: string;
+  status?: "kommer" | "nyhet";
+  children?: PageDetails[];
+};
+
 export type RouteType = {
   title: string;
-  href: string;
+  slug: string;
   disabled?: boolean;
   isComing?: boolean;
   subRoutes?: RouteType[];

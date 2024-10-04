@@ -14,7 +14,7 @@ type TextCollectionProps = {
 export function TextCollection({ heading, subheading, ingress, size = "md" }: TextCollectionProps) {
   return (
     <div
-      className={cn("w-full md:w-[857px]  grid", {
+      className={cn("w-full px-main md:w-[857px]  grid", {
         "gap-32": size === "sm",
         "gap-48": size === "md",
         "gap-56": size === "lg",

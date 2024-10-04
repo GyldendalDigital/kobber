@@ -6,8 +6,8 @@ type ContentPageProps = {
 
 export function HeroBanner({ image }: ContentPageProps) {
   return (
-    <div className="w-full rounded-16 h-full md:h-[491px]   gap-8  flex items-center justify-center bg-aubergine-50 py-32 px-16  md:py-[74px] md:px-[64px]">
-      <div className="w-full h-full flex-col flex md:flex-row items-center gap-[72px] md:gap-[182px]">
+    <div className="w-full h-full md:h-[491px]   gap-8  flex items-center justify-center bg-aubergine-50 px-main py-32 md:py-[74px]">
+      <div className="w-full h-full flex-col flex md:flex-row items-center gap-y-[50px]">
         <div className="w-[275px] h-[270px] relative mx-auto block md:hidden">
           <Image src={image} alt="Bilde" fill className="object-contain" />
         </div>
@@ -25,8 +25,8 @@ export function HeroBanner({ image }: ContentPageProps) {
             </span>
           </div>
         </div>
-        <div className="w-[275px] h-[270px] relative hidden md:grid">
-          <Image src={image} alt="Bilde" fill />
+        <div className="w-[275px] h-[270px] flex justify-center items-center grow relative hidden md:grid">
+          <Image src={image} alt="Bilde" />
         </div>
       </div>
     </div>

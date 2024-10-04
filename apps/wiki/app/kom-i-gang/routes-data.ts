@@ -1,13 +1,14 @@
 import { BRANDING_URL, COMPONENTS_URL, GET_STARTED_URL } from "@/config/routes";
 import { placeholderImageUrl } from "@/lib/utils";
-import { RouteDataType } from "@/types/types";
+import { PageDetails, RouteDataType } from "@/types/types";
+import { pageDetailsKomigang } from "./page";
 
-export const GetStartedRoutesData: RouteDataType[] = [
+export const GetStartedRoutesData: (RouteDataType & PageDetails)[] = [
   {
     headerImage: placeholderImageUrl({ textRows: ["placeholder introduksjon"] }),
     topicTitle: "Designsystemet Kobber",
     title: "Et verktøy for samspill og synergier",
-    href: `introduksjon`,
+    href: `${pageDetailsKomigang.href}/introduksjon`,
     hrefTitle: "Introduksjon",
     description:
       "For å sikre konsistent og god brukeropplevelse på tvers av nettsider, publikasjoner, kommunikasjon og løsninger i Gyldendal har vi laget designsystemet Kobber.",
@@ -30,40 +31,45 @@ Sammen skaper vi en levende profil!`,
     topicTitle: "Test",
     description: "Test",
     text: "Test",
-    href: `grensesnitt`,
+    href: `${pageDetailsKomigang.href}/grensesnitt`,
     hrefTitle: "Grensesnitt",
+    status: "kommer",
   },
   {
     title: "Skriver du kode?",
     topicTitle: "Test",
     description: "Test",
     text: "Test",
-    href: `kode`,
+    href: `${pageDetailsKomigang.href}/kode`,
     hrefTitle: "Kode",
+    status: "kommer",
   },
   {
     title: "Lager du innhold?",
     topicTitle: "Test",
     description: "Test",
     text: "Test",
-    href: `innhold`,
+    href: `${pageDetailsKomigang.href}/innhold`,
     hrefTitle: "Innhold",
+    status: "kommer",
   },
   {
     title: "Markedsføring?",
     topicTitle: "Test",
     description: "Test",
     text: "Test",
-    href: `markedsforing`,
+    href: `${pageDetailsKomigang.href}/markedsforing`,
     hrefTitle: "Markedsføring",
+    status: "kommer",
   },
   {
     title: "Tilgjengelighet",
     topicTitle: "Test",
     description: "Test",
     text: "Test",
-    href: `tilgjengelighet`,
+    href: `${pageDetailsKomigang.href}/tilgjengelighet`,
     hrefTitle: "Tilgjengelighet",
+    status: "kommer",
   },
 ];
 
