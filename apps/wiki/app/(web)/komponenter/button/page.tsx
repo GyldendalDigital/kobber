@@ -6,9 +6,17 @@ import { ButtonSection } from "./_components/button-section";
 import { PracticeSection } from "./_components/practice-section";
 import { InteractiveStatesSection } from "./_components/interactive-states-section";
 import { ContentSection } from "@/components/content-section";
+import { pagePathname, placeholderImageUrl, documentTitle } from "@/lib/utils";
+import { PageDetails } from "@/types/types";
+
+export const pageDetailsButton: PageDetails = {
+  href: pagePathname(import.meta.url),
+  title: "Button",
+  image: placeholderImageUrl({}),
+};
 
 export const metadata: Metadata = {
-  title: "Button | Kobber",
+  title: documentTitle(pageDetailsButton.title),
   description:
     "En knappkomponent brukes for å utføre en bestemt handling eller trigge en hendelse. Teksten på knappen må tydelig beskrive hva som vil skje når den trykkes på.",
 };

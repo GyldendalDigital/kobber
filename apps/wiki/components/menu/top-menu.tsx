@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { pageDetailsMerkevare } from "@/app/(web)/merkevare/page";
 import { Button } from "../ui/button";
 import { TopMenuItem } from "./top-menu-item";
 import { pageDetailsKomigang } from "@/app/(web)/kom-i-gang/page";
+import { pageDetailsKomponenter } from "@/app/(web)/komponenter/page";
 
 export function TopMenu() {
   return (
@@ -15,7 +15,7 @@ export function TopMenu() {
         </Link>
 
         <ul className=" text-text/color/action-item/button   items-center gap-24 hidden md:flex">
-          {[pageDetailsKomigang, pageDetailsMerkevare].map(item => (
+          {[pageDetailsKomigang, pageDetailsMerkevare, pageDetailsKomponenter].map(item => (
             <TopMenuItem key={item.href} {...item} />
           ))}
         </ul>
