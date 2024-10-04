@@ -22,6 +22,6 @@ export const placeholderImageUrl = ({
   `https://placehold.co/600x400/${backgroundColor}/${textColor}?text=${textRows.join("%5Cn")}`;
 
 /** Get page pathname based on file location */
-export const pagePathname = (metaUrl: string) => metaUrl.split("(web)")[1].replace("/page.tsx", "");
+export const pagePathname = (metaUrl: string) => metaUrl.split("apps/wiki/app")[1].replace("/page.tsx", "");
 
 export const documentTitle = (pageTitle: string) => pageTitle + " | " + APP_NAME;

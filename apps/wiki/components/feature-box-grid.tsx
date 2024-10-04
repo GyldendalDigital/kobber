@@ -4,10 +4,9 @@ import { KobberCardLayout, KobberCardLayoutColumnAspectRatio } from "./kobber-ss
 
 type FeatureBoxGridProps = {
   items: FeatureBoxType[];
-  className?: string;
 };
 
-export function FeatureBoxGrid({ items, className }: FeatureBoxGridProps) {
+export function FeatureBoxGrid({ items }: FeatureBoxGridProps) {
   return (
     <KobberCardLayout gap="5px" aspect-ratio-height="0.9">
       {items.map((item, index) => (

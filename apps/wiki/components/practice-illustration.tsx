@@ -15,6 +15,7 @@ export function PracticeIllustration({
   notAcceptedComponent,
 }: PracticeIllustrationProps) {
   return (
+    <div className="px-main">
     <div className="w-[733px] max-w-[733px] rounded-24 bg-white p-24 ">
       <div className="grid grid-cols-2 gap-[32px] w-full">
         <div className="flex flex-col justify-between gap-24 ">
@@ -36,6 +37,6 @@ export function PracticeIllustration({
           </div>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 }

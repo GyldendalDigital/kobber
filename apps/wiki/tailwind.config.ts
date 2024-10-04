@@ -146,6 +146,7 @@ const config = {
       "1600": `${size[1600]}px`,
       full: "100%",
       screen: "100vh",
+      main: tokens.default.layout.gap["16-32"],
     },
 
     space: {
@@ -406,6 +407,9 @@ const config = {
     },
 
     extend: {
+      margin: {
+        main: tokens.default.layout.gap["16-32"],
+      },
       colors: {
         "text/color/primary/body": text.color.primary.body,
         "text/color/primary/display-s": text.color.primary["dispaly-s"],
