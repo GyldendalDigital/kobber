@@ -14,7 +14,7 @@
             record: "Record",
             recordMore: "Record more",
             delete: "Delete",
-            deletePrompt: "Are you sure you want to delete the recording?",
+            deletePrompt: "Delete the recording?",
             yes: "Yes",
             no: "No"
         },
@@ -25,7 +25,7 @@
             record: "Ta opp",
             recordMore: "Ta opp mer",
             delete: "Slett",
-            deletePrompt: "Er du sikker på at du vil slette opptaket?",
+            deletePrompt: "Vil du slette opptaket?",
             yes: "Ja",
             no: "Nei"
         },
@@ -36,7 +36,7 @@
             record: "Ta opp",
             recordMore: "Ta opp meir",
             delete: "Slett",
-            deletePrompt: "Er du sikker på at du vil slette opptaket?",
+            deletePrompt: "Vil du slette opptaket?",
             yes: "Ja",
             no: "Nei"
         }
@@ -105,6 +105,7 @@
     let currentAudioIndex = 0;
     let currentTimePercentage = "0%";
     let recordedSeconds = 0;
+    $: isExpanded = recData.length > 0 || audioArray.length > 0 || isRecording;
 
     function roundWithDecimals(num, decimals){
         return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
@@ -273,23 +274,25 @@
         if((nodes.length > 0)) {
             for (let i = 0; i < nodes.length; i++) {
                 let adjustment = 0;
+                const baseValue = 128 / nodes.length;
+                const tinyValue = baseValue / 8;
 
                 if (i >= nodes.length / 2) {
                     let reverse = (nodes.length - 1) - i
-                    adjustment = 1/4 * (reverse + 1)
+                    adjustment = 1/6 * (nodes.length/2 - reverse)
                 } else {
-                    adjustment = 1/4 * (i + 1);
+                    adjustment = 1/6 * (nodes.length/2 - i);
                 }
                 nodes[i].setAttribute("d", `
-                    M ${(i * 16) + 2} 16
+                    M ${(i * baseValue) + tinyValue} 16
                     v ${volume / 2 * adjustment}
-                    a 2,2 1 0 0 2,2
-                    h 8
-                    a 2,2 1 0 0 2,-2
+                    a ${tinyValue},${tinyValue} ${tinyValue / 2} 0 0 ${tinyValue},${tinyValue}
+                    h ${baseValue / 2}
+                    a ${tinyValue},${tinyValue} ${tinyValue / 2} 0 0 ${tinyValue},-${tinyValue}
                     v -${volume * adjustment}
-                    a 2,2 1 0 0 -2,-2
-                    h -8
-                    a 2,2 1 0 0 -2,2
+                    a ${tinyValue},${tinyValue} ${tinyValue / 2} 0 0 -${tinyValue},-${tinyValue}
+                    h -${baseValue / 2}
+                    a ${tinyValue},${tinyValue} ${tinyValue / 2} 0 0 -${tinyValue},${tinyValue}
                     Z`);
             }
         }
@@ -392,7 +395,7 @@
 </script>
 
 <div id={".audio-recorder-" + uniqueId}
-     class="kbr-ar-grid-container"
+     class={"kbr-ar-grid-container"}
      style="
         --background-color: {backgroundColor};
         --record-color: {recordColor};
@@ -401,6 +404,7 @@
         --text-color: {textColor};
         --current-time-percentage: {currentTimePercentage};
         --current-width: {currentWidth};
+        --rows: {isExpanded ? 19 : 11}
      "
 >
     <span class="kbr-ar-aspect" />
@@ -418,16 +422,16 @@
                     <path d="M14 2L14 24" stroke={recordIconColor} stroke-width="4" stroke-linecap="round"/>
                 </svg>
             {:else}
-                {#if timeTotal === 0}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="75%" height="75%" viewBox="0 0 24 24" fill="none">
-                        <path d="M10.5 17.25C8.432 17.25 6.75 15.568 6.75 13.5V3.75C6.75 1.682 8.432 0 10.5 0H13.5C15.568 0 17.25 1.682 17.25 3.75V13.5C17.25 15.568 15.568 17.25 13.5 17.25H10.5ZM10.5 1.5C9.259 1.5 8.25 2.509 8.25 3.75V13.5C8.25 14.741 9.259 15.75 10.5 15.75H13.5C14.741 15.75 15.75 14.741 15.75 13.5V3.75C15.75 2.509 14.741 1.5 13.5 1.5H10.5Z" fill={recordIconColor}/>
-                        <path d="M12 24C11.586 24 11.25 23.664 11.25 23.25V20.216C7.016 19.835 3.75 16.293 3.75 12V9.75C3.75 9.336 4.086 9 4.5 9C4.914 9 5.25 9.336 5.25 9.75V12C5.25 15.722 8.278 18.75 12 18.75C15.722 18.75 18.75 15.722 18.75 12V9.75C18.75 9.336 19.086 9 19.5 9C19.914 9 20.25 9.336 20.25 9.75V12C20.25 16.293 16.984 19.835 12.75 20.216V23.25C12.75 23.664 12.414 24 12 24Z" fill={recordIconColor}/>
-                    </svg>
-                {:else}
+                {#if timeTotal !== 0 || recData.length > 0}
                     <svg width="75%" height="75%" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.75 19.25C6.682 19.25 5 17.568 5 15.5V5.75C5 3.682 6.682 2 8.75 2H11.75C13.818 2 15.5 3.682 15.5 5.75V15.5C15.5 17.568 13.818 19.25 11.75 19.25H8.75ZM8.75 3.5C7.509 3.5 6.5 4.509 6.5 5.75V15.5C6.5 16.741 7.509 17.75 8.75 17.75H11.75C12.991 17.75 14 16.741 14 15.5V5.75C14 4.509 12.991 3.5 11.75 3.5H8.75Z" fill={recordIconColor}/>
                         <path d="M10.25 26C9.836 26 9.5 25.664 9.5 25.25V22.216C5.266 21.835 2 18.293 2 14V11.75C2 11.336 2.336 11 2.75 11C3.164 11 3.5 11.336 3.5 11.75V14C3.5 17.722 6.528 20.75 10.25 20.75C13.972 20.75 17 17.722 17 14V11.75C17 11.336 17.336 11 17.75 11C18.164 11 18.5 11.336 18.5 11.75V14C18.5 18.293 15.234 21.835 11 22.216V25.25C11 25.664 10.664 26 10.25 26Z" fill={recordIconColor}/>
                         <path d="M14.25 25.5H21.25M17.75 22V29" stroke={recordIconColor} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                {:else}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="75%" height="75%" viewBox="0 0 24 24" fill="none">
+                        <path d="M10.5 17.25C8.432 17.25 6.75 15.568 6.75 13.5V3.75C6.75 1.682 8.432 0 10.5 0H13.5C15.568 0 17.25 1.682 17.25 3.75V13.5C17.25 15.568 15.568 17.25 13.5 17.25H10.5ZM10.5 1.5C9.259 1.5 8.25 2.509 8.25 3.75V13.5C8.25 14.741 9.259 15.75 10.5 15.75H13.5C14.741 15.75 15.75 14.741 15.75 13.5V3.75C15.75 2.509 14.741 1.5 13.5 1.5H10.5Z" fill={recordIconColor}/>
+                        <path d="M12 24C11.586 24 11.25 23.664 11.25 23.25V20.216C7.016 19.835 3.75 16.293 3.75 12V9.75C3.75 9.336 4.086 9 4.5 9C4.914 9 5.25 9.336 5.25 9.75V12C5.25 15.722 8.278 18.75 12 18.75C15.722 18.75 18.75 15.722 18.75 12V9.75C18.75 9.336 19.086 9 19.5 9C19.914 9 20.25 9.336 20.25 9.75V12C20.25 16.293 16.984 19.835 12.75 20.216V23.25C12.75 23.664 12.414 24 12 24Z" fill={recordIconColor}/>
                     </svg>
                 {/if}
             {/if}
@@ -435,18 +439,18 @@
                 {
                 isRecording
                     ? translations[lang].pause
-                    : timeTotal === 0
-                        ? translations[lang].record
-                        : translations[lang].recordMore
+                    : timeTotal !== 0 || recData.length > 0
+                        ? translations[lang].recordMore
+                        : translations[lang].record
                 }
             </label>
         </button>
     </span>
+    {#if isExpanded}
     <button class="kbr-ar-play-button"
             on:mousedown={playAudio}
             on:click={playAudio}
-            disabled={isRecording || timeTotal === 0}
-            style={confirmDelete ? "display: none;" : ""}
+            style={confirmDelete || isRecording ? "display: none;" : ""}
     >
         {#if isPlaying}
             <svg xmlns="http://www.w3.org/2000/svg" width="50%" height="50%" viewBox="0 0 16 26" fill="none">
@@ -463,25 +467,9 @@
             {isPlaying ? translations[lang].stop : translations[lang].play}
         </label>
     </button>
-    <div class="kbr-ar-sound-container"
+    <div class="kbr-ar-slider-container"
          style={confirmDelete ? "display: none;" : ""}
     >
-        <svg style={isRecording ? "display: block;" : "display: none;"}
-             id={".kbr-ar-svg-" + uniqueId}
-             class="kbr-ar-svg"
-             viewBox="0 0 128 32"
-             width="100%"
-             height="100%"
-        >
-            <path />
-            <path />
-            <path />
-            <path />
-            <path />
-            <path />
-            <path />
-            <path />
-        </svg>
         <input
                 style={isRecording ? "display: none;" : "display: block;"}
                 class="kbr-ar-slider"
@@ -498,11 +486,36 @@
                 aria-label={currentTimeGlobal.toString()}
         />
     </div>
+    <div class="kbr-feedback-container">
+        <svg style={isRecording ? "display: block;" : "display: none;"}
+             id={".kbr-ar-svg-" + uniqueId}
+             class="kbr-ar-svg"
+             viewBox="0 0 128 32"
+             width="100%"
+             height="100%"
+        >
+            <path />
+            <path />
+            <path />
+            <path />
+            <path />
+            <path />
+            <path />
+            <path />
+            <path />
+            <path />
+            <path />
+            <path />
+            <path />
+            <path />
+            <path />
+            <path />
+        </svg>
+    </div>
     <button class="kbr-ar-delete-button"
             on:mousedown={() => confirmDelete = !confirmDelete}
             on:click={() => confirmDelete = !confirmDelete}
-            disabled={isRecording || timeTotal === 0}
-            style={confirmDelete ? "display: none;" : ""}
+            style={confirmDelete || isRecording ? "display: none;" : ""}
     >
         <svg xmlns="http://www.w3.org/2000/svg" width="75%" height="75%" viewBox="0 0 20 20" fill="none">
             <g clip-path="url(#clip0_710_817)">
@@ -519,10 +532,12 @@
         </label>
     </button>
     <span class="kbr-ar-time"
-          style={confirmDelete ? "display: none;" : ""}
+          style={confirmDelete ? "display: none;" : "" }
     >
         {#if isRecording}
-            {new Date(recordedSeconds * 1000).toISOString().substring(14, 19)}
+            <span style={`color: ${recordColor};`}>
+                {new Date(recordedSeconds * 1000).toISOString().substring(14, 19)}
+            </span>
         {:else}
             {
                 new Date(roundWithDecimals(currentTimeGlobal, 0)*1000).toISOString().substring(14, 19)
@@ -550,11 +565,7 @@
     >
         {translations[lang].no}
     </button>
-
-<!--<div class="kbr-ar-text" style="position: absolute">-->
-<!--    <p>{"Global: " + roundWithDecimals(currentTimeGlobal, 1) + ". Current index: " + currentAudioIndex}</p>-->
-<!--    <p>{"array: " + audioDurationArray + " - Total: " + roundWithDecimals(timeTotal, 2)}</p>-->
-<!--</div>-->
+    {/if}
 </div>
 
 <style lang="scss">
@@ -565,7 +576,7 @@
         height: 100%;
         min-width: 128px;
         grid-template-columns: repeat(32, 1fr);
-        grid-template-rows: repeat(19, 1fr);
+        grid-template-rows: repeat(var(--rows), 1fr);
         border-radius: 5% / 10%;
         background-color: var(--background-color);
         color: var(--text-color);
@@ -605,12 +616,18 @@
         justify-content: center;
         align-items: center;
     }
-    .kbr-ar-sound-container {
+    .kbr-ar-slider-container {
         grid-row: 13 / span 4;
         grid-column: 9 / span 16;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .kbr-feedback-container {
+      grid-row: 11 / span 8;
+      grid-column: 2 / span 30;
+      width: 100%;
+      height: 100%;
     }
     .kbr-ar-time {
         grid-row: 17 / span 2;
@@ -629,9 +646,10 @@
     .kbr-ar-svg {
         width: 100%;
         fill: var(--record-color);
-        background-color: var(--item-primary-color);
-        box-shadow: inset 0 0.125em 0.25em -0.05em;
-        border-radius: 10% / 50%;
+        //fill-opacity: 50%;
+        //background-color: var(--item-primary-color);
+        //box-shadow: inset 0 0.125em 0.25em -0.05em;
+        //border-radius: 10% / 50%;
     }
     .kbr-ar-text {
         grid-row: 1;
