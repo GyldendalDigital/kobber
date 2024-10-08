@@ -104,6 +104,6 @@ export class ExampleCard extends LitElement {
     <div class="badge">${this.badge}</div>
     <div class="dimensions">${this._renderDimensions()}</div>
     <div class="heading">${this.heading}</div>
-    ${this.body && html`<div class="body">${this.body}</div>`}
+    ${this.body && html`<div class="body">${this.body}<slot></slot></div>`}
   `;
 }
