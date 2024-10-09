@@ -79,7 +79,8 @@ export class Button extends LitElement {
     }
 
     const component = tokens.component.button;
-    const typography = tokens.typography.actionitems.button;
+    const typography = tokens.typography.ui.button;
+
     // TODO:
     // - fix units (px vs rem)
     // - make a "withFallback"-function for states with no value and should use default
@@ -104,11 +105,11 @@ export class Button extends LitElement {
         transition: scale 200ms ease-in 0s;
 
         /* Different for each variant */
-        background-color: ${unsafeCSS(component.background.color.primary.carmine.main.primary.fallback)};
+        background-color: ${unsafeCSS(component.background.color.carmine.main.primary.fallback)};
         background-color: ${unsafeCSS(
           this.level === "secondary"
             ? "transparent"
-            : component.background.color.primary[this.color]?.[this.variantFallback()]?.primary.fallback,
+            : component.background.color[this.color]?.[this.variantFallback()]?.primary.fallback,
         )};
         color: ${unsafeCSS(
           component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.fallback,
@@ -120,12 +121,12 @@ export class Button extends LitElement {
         &.focus-visible {
           outline: none;
           /* TODO: handle secondary level transparent */
-          box-shadow: 0 0 0 ${component.focus.border.padding}px ${unsafeCSS(component.focus.border.color.primary.focus)};
+          box-shadow: 0 0 0 ${tokens.global.focus.border.width}px ${unsafeCSS(tokens.global.focus.color)};
         }
 
         &:disabled {
           background-color: ${unsafeCSS(
-            component.background.color.primary[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled,
+            component.background.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled,
           )};
           color: ${unsafeCSS(
             component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled,
@@ -143,7 +144,7 @@ export class Button extends LitElement {
           span {
             border-bottom: ${unsafeCSS(
               this.level === "secondary"
-                ? `1px solid ${component.container.border.color[this.color as ButtonBorderColor]?.[this.variantFallback()]?.active}`
+                ? `1px solid ${component.container.border.color[this.color as ButtonBorderColor]?.[this.variantFallback()]?.secondary.active}`
                 : null,
             )};
           }

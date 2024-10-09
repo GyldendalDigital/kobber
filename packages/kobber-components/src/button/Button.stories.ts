@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import { ButtonIconSettings, ButtonVariant } from "./Button.types";
+import { ButtonBackgroundColor, ButtonIconSettings, ButtonVariant } from "./Button.types";
 import "./Button";
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 
-const brandColors = Object.keys(tokens.semantics.color.brand);
-const uiColors = Object.keys(tokens.semantics.color.ui);
-const themeColors = Object.keys(tokens.semantics.color.theme);
+const brandColors = Object.keys(tokens.semantics.color.brand) as ButtonBackgroundColor[];
+const uiColors = Object.keys(tokens.semantics.color.ui) as ButtonBackgroundColor[];
+const themeColors = Object.keys(tokens.semantics.color.theme) as ButtonBackgroundColor[];
 
 const colors = [...brandColors, ...uiColors, ...themeColors];
 const variants: ButtonVariant[] = ["main", "supplemental"]; //, "supplemental alt"];
@@ -119,7 +119,7 @@ export const Buttons: Story = {
   },
 };
 
-const renderTheme = (themeName: string, themes: string[], iconSettings: ButtonIconSettings) => {
+const renderTheme = (themeName: string, themes: ButtonBackgroundColor[], iconSettings: ButtonIconSettings) => {
   return `
   <h2>${themeName}</h2>
   <div class="wrapper-theme">
@@ -127,15 +127,13 @@ const renderTheme = (themeName: string, themes: string[], iconSettings: ButtonIc
     </div>`;
 };
 
-const renderColor = (color: string, iconSettings: ButtonIconSettings) => `
+const renderColor = (color: ButtonBackgroundColor, iconSettings: ButtonIconSettings) => `
 <h3>${color}</h3>
 <div class="wrapper-color">
 ${levels
   .map(
     level =>
-      `<div class="wrapper-level"><h4>${level}</h4>${Object.keys(
-        tokens.component.button.background.color.primary[color] ?? [],
-      )
+      `<div class="wrapper-level"><h4>${level}</h4>${Object.keys(tokens.component.button.background.color[color] ?? [])
         .map(variant => renderVariant(color, variant, level, iconSettings))
         .join("")}</div>`,
   )

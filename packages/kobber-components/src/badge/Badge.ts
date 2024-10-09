@@ -13,12 +13,11 @@ export class Badge extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
 
-    const fontSize = `${tokens.typography.actionitems.button.fontSize / 16}rem;`;
+    const fontSize = `${tokens.typography.ui.button.fontSize / 16}rem;`;
     const textColor =
       this.getAttribute("text-color") ?? tokens.component.button.text.color.aubergine.main.primary.fallback;
     const backgroundColor =
-      this.getAttribute("background-color") ??
-      tokens.component.button.background.color.primary.aubergine.main.primary.fallback;
+      this.getAttribute("background-color") ?? tokens.component.button.background.color.aubergine.main.primary.fallback;
     const circleColor = this.getAttribute("circle-color");
 
     const compliantColors = getContrastCompliantColors({
@@ -35,8 +34,8 @@ export class Badge extends HTMLElement {
           gap: ${tokens.component.button.container.gap}px;
           padding: ${tokens.component.button.container.padding.block}px ${tokens.component.button.container.padding.inline}px;
           font-size: ${fontSize};
-          font-family: ${tokens.typography.actionitems.button.fontFamily};
-          font-weight: ${tokens.typography.actionitems.button.fontWeight};
+          font-family: ${tokens.typography.ui.button.fontFamily};
+          font-weight: ${tokens.typography.ui.button.fontWeight};
           border-radius: ${10}px;
           color: ${compliantColors.textColor};
           background-color: ${compliantColors.backgroundColor};
