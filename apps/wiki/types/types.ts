@@ -64,3 +64,7 @@ export type TypographyItemType = {
 };
 
 export type SizeType = "sm" | "md" | "lg";
+
+export type TeamType = {
+  name: string;
+};

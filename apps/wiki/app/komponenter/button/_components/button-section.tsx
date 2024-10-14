@@ -11,9 +11,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { KobberButton, KobberIconArrowRight } from "@/components/kobber-ssr-loader";
+import {
+  KobberButton,
+  KobberIconArrowRight,
+} from "@/components/kobber-ssr-loader";
 import { semantics } from "@gyldendal/kobber-base/themes/default/tokens";
-import type { ButtonLevel, ButtonIconSettings } from "@gyldendal/kobber-components/src/button/Button.types";
+import type {
+  ButtonLevel,
+  ButtonIconSettings,
+} from "@gyldendal/kobber-components/src/button/Button.types";
 
 type BrandColor = Exclude<keyof typeof semantics.color.brand, "wine">;
 const brandColors = Object.keys(semantics.color.brand) as Array<BrandColor>;
@@ -25,13 +31,19 @@ export function ButtonSection({ level }: { level: ButtonLevel }) {
   return (
     <InteractiveScreen
       key={level}
-      properties={mode => <ButtonProperties setIconOptions={setIconOptions} setColor={setColor} />}
-      footer={mode => (mode === "dark" && level === "secondary" ? "supplemental" : "")}
+      properties={(mode) => (
+        <ButtonProperties setIconOptions={setIconOptions} setColor={setColor} />
+      )}
+      footer={(mode) =>
+        mode === "dark" && level === "secondary" ? "supplemental" : ""
+      }
     >
-      {mode => (
+      {(mode) => (
         <KobberButton
           color={color}
-          variant={mode === "dark" && level === "secondary" ? "supplemental" : "main"}
+          variant={
+            mode === "dark" && level === "secondary" ? "supplemental" : "main"
+          }
           iconSettings={iconOptions === "left" ? "left" : "right"}
           level={level}
         >
@@ -59,9 +71,15 @@ function ButtonProperties({ setIconOptions, setColor }: ButtonPropertiesProps) {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
           <DropdownMenuGroup>
-            <DropdownMenuItem onClick={() => setIconOptions("none")}>Ingen</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setIconOptions("left")}>Venstre</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setIconOptions("right")}>Høyre</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setIconOptions("none")}>
+              Ingen
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setIconOptions("left")}>
+              Venstre
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => setIconOptions("right")}>
+              Høyre
+            </DropdownMenuItem>
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -72,8 +90,11 @@ function ButtonProperties({ setIconOptions, setColor }: ButtonPropertiesProps) {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
-          {brandColors.map(brandColor => (
-            <DropdownMenuItem key={brandColor} onClick={() => setColor(brandColor)}>
+          {brandColors.map((brandColor) => (
+            <DropdownMenuItem
+              key={brandColor}
+              onClick={() => setColor(brandColor)}
+            >
               {brandColor}
             </DropdownMenuItem>
           ))}

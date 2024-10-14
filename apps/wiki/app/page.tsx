@@ -13,13 +13,17 @@ export default function Home() {
         <HeroBanner image={GylImage} />
         <div className="pt-48 md:py-0 pb-0 flex flex-col gap-14">
           <div className="grid gap-5">
-            <h2 className="text-text/color/primary/heading-s text-primary-heading-s font-normal px-main ">Utforsk</h2>
+            <h2 className="text-text/color/primary/heading-s text-primary-heading-s font-normal px-main ">
+              Utforsk
+            </h2>
             <FeatureBoxGrid items={boxes()} />
           </div>
 
           <div className="grid px-main ">
             <div className="min-h-96 flex flex-col gap-16">
-              <h3 className="text-text/color/primary/title-m text-primary-title-m">Hva er nytt?</h3>
+              <h3 className="text-text/color/primary/title-m text-primary-title-m">
+                Hva er nytt?
+              </h3>
               {news()
                 .slice(0, 3)
                 .map((item, index) => (
@@ -66,7 +70,8 @@ const news = (): AwardType[] => [
     date: new Date("2023"),
   },
   {
-    title: "Den nest eldste nyheten - siste vises ikke fordi det bare er plass til tre",
+    title:
+      "Den nest eldste nyheten - siste vises ikke fordi det bare er plass til tre",
     date: new Date("2022"),
   },
   {

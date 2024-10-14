@@ -1,6 +1,5 @@
 import { SectionLayout } from "@/components/section-layout";
 import { TextCollection } from "@/components/text-collection";
-
 import { Metadata } from "next";
 import { ButtonSection } from "./_components/button-section";
 import { PracticeSection } from "./_components/practice-section";
