@@ -4,7 +4,11 @@ import s from "@/assets/brand/Layout/layout_grid.svg";
 import Image from "next/image";
 import { Ingress } from "@/components/ingress";
 import { SubHeading } from "@/components/sub-heading";
-import { semantics, grid, mediaQuery } from "@gyldendal/kobber-base/themes/default/tokens";
+import {
+  semantics,
+  grid,
+  mediaQuery,
+} from "@gyldendal/kobber-base/themes/default/tokens";
 import { FunctionComponent } from "react";
 import { Metadata } from "next";
 import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils";
@@ -46,9 +50,10 @@ export default function GridPage() {
             <td>Marginer</td>
             <td>Maksbredde</td>
           </thead>
-          {Object.entries(semantics.layout.page.breakpoint).map(([sizeName, sizeValue]) =>
-            BreakpointRow(sizeName as BreakpointName, sizeValue),
-          )}
+          {/* {Object.entries(semantics.layout.page.breakpoint).map(
+            ([sizeName, sizeValue]) =>
+              BreakpointRow(sizeName as BreakpointName, sizeValue),
+          )} */}
         </table>
       </div>
       <SubHeading text="Bruk av grid" />
@@ -64,19 +69,26 @@ Container er rammen rundt innholdet som vises. På små skjermer brukes kun én,
 
 type BreakpointName = keyof typeof semantics.layout.page.breakpoint;
 
-const BreakpointRow = (name: BreakpointName, value: number) => (
-  <tr key={name} className="border-b-2 border-grey-200 border-spacing-0">
-    <td className="capitalize p-8">{name}</td>
-    <td>
-      <UnitFormatter>{value}</UnitFormatter>
-    </td>
-    {/* TODO: add missing tokens */}
-    <td>{name === "xsmall" ? null : grid[name].count}</td>
-    <td>{name === "xsmall" ? null : grid[name].gutterSize}</td>
-    <td>{name === "xsmall" ? null : grid[name].offset}</td>
-    <td>{name === "xsmall" || name === "expanded" ? null : mediaQuery[name]}</td>
-  </tr>
-);
+// const BreakpointRow = (name: BreakpointName, value: number) => (
+//   <tr key={name} className="border-b-2 border-grey-200 border-spacing-0">
+//     <td className="capitalize p-8">{name}</td>
+//     <td>
+//       <UnitFormatter>{value}</UnitFormatter>
+//     </td>
+//     {/* TODO: add missing tokens */}
+//     <td>{name === "mobile" ? null : grid[name].count}</td>
+//     <td>{name === "tablet" ? null : grid[name].gutterSize}</td>
+//     <td>{name === "laptop" ? null : grid[name].offset}</td>
+//     <td>
+//       {name === "desktop" || name === "expanded" ? null : mediaQuery[name]}
+//     </td>
+//     <td>
+//       {name === "large-desktop" || name === "expanded"
+//         ? null
+//         : mediaQuery[name]}
+//     </td>
+//   </tr>
+// );
 
 interface Props {
   children?: number;

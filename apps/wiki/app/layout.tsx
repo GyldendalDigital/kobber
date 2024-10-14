@@ -4,11 +4,13 @@ import { cn } from "@/lib/utils";
 import { KobberThemeContext } from "@/components/kobber-ssr-loader";
 import { TopMenu } from "@/components/menu/top-menu";
 import { APP_NAME } from "@/lib/constants";
+import Footer from "@/components/footer";
 
 /** Fallback for all pages */
 export const metadata: Metadata = {
   title: `${APP_NAME} - Gyldendals designsystem`,
-  description: "Byggesteiner Gyldendal bruker til å lage solide, sammenhengende og universelt tilgjengelige produkter.",
+  description:
+    "Byggesteiner Gyldendal bruker til å lage solide, sammenhengende og universelt tilgjengelige produkter.",
 };
 
 export default function RootLayout({
@@ -20,12 +22,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "kobber-theme-default bg-aubergine-25 min-h-screen  size-full antialiased transition-all max-w-max-width mx-auto",
+          "kobber-theme-default bg-aubergine-25    antialiased transition-all ",
         )}
       >
         <KobberThemeContext themeId="kobber-theme-default">
-          <TopMenu />
-          {children}
+          <div className="min-h-screen flex flex-col gap-[48px] justify-between max-w-max-width mx-auto">
+            <TopMenu />
+            {children}
+            <Footer />
+          </div>
         </KobberThemeContext>
       </body>
     </html>

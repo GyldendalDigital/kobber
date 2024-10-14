@@ -17,15 +17,18 @@ export function HeroBanner({ image }: ContentPageProps) {
               Velkommen til Kobber
               <br />
             </h1>
-            <h1 className=" text-text/color/secondary/display-s">Gyldendals designsystem</h1>
+            <h1 className=" text-text/color/secondary/display-s">
+              Gyldendals designsystem
+            </h1>
           </div>
           <div className="w-[30ch] h-56">
             <span className="text-text/color/primary/title-s text-base leading-normal">
-              Design, bygg og skap gode og helhetlige løsninger med Gyldendals designsystem.
+              Design, bygg og skap gode og helhetlige løsninger med Gyldendals
+              designsystem.
             </span>
           </div>
         </div>
-        <div className="w-[275px] h-[270px] flex justify-center items-center grow relative hidden md:grid">
+        <div className="w-[275px] h-[270px]  justify-center items-center grow relative hidden md:grid">
           <Image src={image} alt="Bilde" />
         </div>
       </div>
