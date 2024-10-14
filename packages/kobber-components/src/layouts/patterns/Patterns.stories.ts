@@ -60,7 +60,13 @@ const render: ArgsStoryFn<WebComponentsRenderer, Args> = args => {
       <div class="space-for-indicators"></div>
       ${cardLayoutExample}
       <kobber-box-layout max-width="content">Carousel</kobber-box-layout>
-      <kobber-carousel> ${args.carouselHasManyItems ? carouselExampleRegular : carouselExampleMini} </kobber-carousel>
+      ${args.carouselClickMovesFullWidth
+        ? html` <kobber-carousel click-moves-full-width>
+            ${args.carouselHasManyItems ? carouselExampleRegular : carouselExampleMini}
+          </kobber-carousel>`
+        : html`<kobber-carousel>
+            ${args.carouselHasManyItems ? carouselExampleRegular : carouselExampleMini}
+          </kobber-carousel> `}
       <kobber-box-layout max-width="content">More content</kobber-box-layout>
       ${cardLayoutExample}
     </div>
