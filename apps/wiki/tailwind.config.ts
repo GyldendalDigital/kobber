@@ -4,8 +4,9 @@ import { tokens } from "./lib/theme";
 const primitives = tokens.default.primitives;
 const semantics = tokens.default.semantics;
 const typography = tokens.default.typography;
+const component = tokens.default.component;
 
-const { text, color } = semantics;
+const { typography: text, color } = semantics;
 const { size } = primitives;
 const { primary, secondary } = typography;
 
@@ -267,57 +268,57 @@ const config = {
       book: `${text.weight.book}`,
       regular: `${text.weight.regular}`,
       medium: `${text.weight.medium}`,
-      semibold: `${text.weight.semibold}`,
+      semibold: `${text.weight["semi-bold"]}`,
     },
 
     fontSize: {
       "primary-display-l": [
-        `${primary["display l"].fontSize}px`,
+        `${primary["display large"].fontSize}px`,
         {
-          lineHeight: `${primary["display l"].lineHeight}px`,
-          fontWeight: `${primary["display l"].fontWeight}`,
+          lineHeight: `${primary["display large"].lineHeight}px`,
+          fontWeight: `${primary["display large"].fontWeight}`,
         },
       ],
       "primary-display-m": [
-        `${primary["display m"].fontSize}px`,
+        `${primary["display medium"].fontSize}px`,
         {
-          lineHeight: `${primary["display m"].lineHeight}px`,
-          fontWeight: `${primary["display m"].fontWeight}`,
+          lineHeight: `${primary["display medium"].lineHeight}px`,
+          fontWeight: `${primary["display medium"].fontWeight}`,
         },
       ],
       "primary-display-s": [
-        `${primary["display s"].fontSize}px`,
+        `${primary["display small"].fontSize}px`,
         {
-          lineHeight: `${primary["display s"].lineHeight}px`,
-          fontWeight: `${primary["display s"].fontWeight}`,
+          lineHeight: `${primary["display small"].lineHeight}px`,
+          fontWeight: `${primary["display small"].fontWeight}`,
         },
       ],
       "primary-heading-m": [
-        `${primary["heading m"].fontSize}px`,
+        `${primary["heading medium"].fontSize}px`,
         {
-          lineHeight: `${primary["heading m"].lineHeight}px`,
-          fontWeight: `${primary["heading m"].fontWeight}`,
+          lineHeight: `${primary["heading medium"].lineHeight}px`,
+          fontWeight: `${primary["heading medium"].fontWeight}`,
         },
       ],
       "primary-heading-s": [
-        `${primary["heading s"].fontSize}px`,
+        `${primary["heading small"].fontSize}px`,
         {
-          lineHeight: `${primary["heading s"].lineHeight}px`,
-          fontWeight: `${primary["heading s"].fontWeight}`,
+          lineHeight: `${primary["heading small"].lineHeight}px`,
+          fontWeight: `${primary["heading small"].fontWeight}`,
         },
       ],
       "primary-title-m": [
-        `${primary["title m"].fontSize}px`,
+        `${primary["title medium"].fontSize}px`,
         {
-          lineHeight: `${primary["title m"].lineHeight}px`,
-          fontWeight: `${primary["title m"].fontWeight}`,
+          lineHeight: `${primary["title medium"].lineHeight}px`,
+          fontWeight: `${primary["title medium"].fontWeight}`,
         },
       ],
       "primary-title-s": [
-        `${primary["title s"].fontSize}px`,
+        `${primary["title small"].fontSize}px`,
         {
-          lineHeight: `${primary["title s"].lineHeight}px`,
-          fontWeight: `${primary["title s"].fontWeight}`,
+          lineHeight: `${primary["title small"].lineHeight}px`,
+          fontWeight: `${primary["title small"].fontWeight}`,
         },
       ],
       "primary-body": [
@@ -328,52 +329,52 @@ const config = {
         },
       ],
       "primary-label-m": [
-        `${primary["label m"].fontSize}px`,
+        `${primary["label medium"].fontSize}px`,
         {
-          lineHeight: `${primary["label m"].lineHeight}px`,
-          fontWeight: `${primary["label m"].fontWeight}`,
+          lineHeight: `${primary["label medium"].lineHeight}px`,
+          fontWeight: `${primary["label medium"].fontWeight}`,
         },
       ],
       "primary-label-s": [
-        `${primary["label s"].fontSize}px`,
+        `${primary["label small"].fontSize}px`,
         {
-          lineHeight: `${primary["label s"].lineHeight}px`,
-          fontWeight: `${primary["label s"].fontWeight}`,
+          lineHeight: `${primary["label small"].lineHeight}px`,
+          fontWeight: `${primary["label small"].fontWeight}`,
         },
       ],
       "secondary-display-l": [
-        `${secondary["display l"].fontSize}px`,
+        `${secondary["display large"].fontSize}px`,
         {
-          lineHeight: `${secondary["display l"].lineHeight}px`,
-          fontWeight: `${secondary["display l"].fontWeight}`,
+          lineHeight: `${secondary["display large"].lineHeight}px`,
+          fontWeight: `${secondary["display large"].fontWeight}`,
         },
       ],
       "secondary-display-m": [
-        `${secondary["display m"].fontSize}px`,
+        `${secondary["display medium"].fontSize}px`,
         {
-          lineHeight: `${secondary["display m"].lineHeight}px`,
-          fontWeight: `${secondary["display m"].fontWeight}`,
+          lineHeight: `${secondary["display medium"].lineHeight}px`,
+          fontWeight: `${secondary["display medium"].fontWeight}`,
         },
       ],
       "secondary-display-s": [
-        `${secondary["display s"].fontSize}px`,
+        `${secondary["display small"].fontSize}px`,
         {
-          lineHeight: `${secondary["display s"].lineHeight}px`,
-          fontWeight: `${secondary["display s"].fontWeight}`,
+          lineHeight: `${secondary["display small"].lineHeight}px`,
+          fontWeight: `${secondary["display small"].fontWeight}`,
         },
       ],
       "secondary-heading-m": [
-        `${secondary["heading m"].fontSize}px`,
+        `${secondary["heading medium"].fontSize}px`,
         {
-          lineHeight: `${secondary["heading m"].lineHeight}px`,
-          fontWeight: `${secondary["heading m"].fontWeight}`,
+          lineHeight: `${secondary["heading medium"].lineHeight}px`,
+          fontWeight: `${secondary["heading medium"].fontWeight}`,
         },
       ],
       "secondary-heading-s": [
-        `${secondary["heading s"].fontSize}px`,
+        `${secondary["heading small"].fontSize}px`,
         {
-          lineHeight: `${secondary["heading s"].lineHeight}px`,
-          fontWeight: `${secondary["heading s"].fontWeight}`,
+          lineHeight: `${secondary["heading small"].lineHeight}px`,
+          fontWeight: `${secondary["heading small"].fontWeight}`,
         },
       ],
     },
@@ -411,21 +412,22 @@ const config = {
         main: tokens.default.layout.gap["16-32"],
       },
       colors: {
-        "text/color/primary/body": text.color.primary.body,
-        "text/color/primary/display-s": text.color.primary["dispaly-s"],
-        "text/color/primary/heading-s": text.color.primary["heading-s"],
-        "text/color/primary/label-m": text.color.primary["label-m"],
-        "text/color/primary/label-s": text.color.primary["label-s"],
-        "text/color/primary/title-m": text.color.primary["title-m"],
-        "text/color/primary/title-s": text.color.primary["title-s"],
+        // TODO: text color tokens are removed. Create heading/body text component tokens
+        "text/color/primary/body": component["wiki-list-item"].text.color,
+        "text/color/primary/display-s": component["wiki-list-item"].text.color,
+        "text/color/primary/heading-s": component["wiki-list-item"].text.color,
+        "text/color/primary/label-m": component["wiki-list-item"].text.color,
+        "text/color/primary/label-s": component["wiki-list-item"].text.color,
+        "text/color/primary/title-m": component["wiki-list-item"].text.color,
+        "text/color/primary/title-s": component["wiki-list-item"].text.color,
 
-        "text/color/action-item/button": text.color["action-item"].button,
-        "text/color/action-item/input": text.color["action-item"].input,
-        "text/color/action-item/label-m": text.color["action-item"]["label-m"],
-        "text/color/action-item/label-s": text.color["action-item"]["label-s"],
+        "text/color/action-item/button": component["wiki-list-item"].text.color,
+        "text/color/action-item/input": component["wiki-list-item"].text.color,
+        "text/color/action-item/label-m": component["wiki-list-item"].text.color,
+        "text/color/action-item/label-s": component["wiki-list-item"].text.color,
 
-        "text/color/secondary/display-s": text.color.secondary["dispaly-s"],
-        "text/color/secondary/heading-s": text.color.secondary["heading-s"],
+        "text/color/secondary/display-s": component["button"].text.color.carmine.main.secondary.fallback,
+        "text/color/secondary/heading-s": component["button"].text.color.carmine.main.secondary.fallback,
 
         // Brand colors
         "carmine-25": color.brand.carmine["25"],
