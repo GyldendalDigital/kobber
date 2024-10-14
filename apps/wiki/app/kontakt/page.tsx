@@ -50,7 +50,7 @@ const team: InformationCardType[] = [
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-col gap-48 ">
+    <div className="flex flex-col gap-48 max-w-max-width mx-auto ">
       <div className="flex flex-col gap-[24px]  w-full md:w-[806px]">
         <div className="space-y-1">
           <h1 className="leading-[57.6px] text-[48px] text-[#481125] font-light">

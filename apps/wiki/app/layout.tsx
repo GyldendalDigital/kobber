@@ -26,7 +26,7 @@ export default function RootLayout({
         )}
       >
         <KobberThemeContext themeId="kobber-theme-default">
-          <div className="min-h-screen flex flex-col gap-[48px] justify-between max-w-max-width mx-auto px-main md:px-0">
+          <div className="min-h-screen flex flex-col gap-[48px] justify-between  mx-auto px-main md:px-0">
             <TopMenu />
             {children}
             <Footer />
