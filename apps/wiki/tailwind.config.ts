@@ -12,7 +12,12 @@ const { primary, secondary } = typography;
 
 const config = {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -422,11 +427,15 @@ const config = {
 
         "text/color/action-item/button": component["wiki-list-item"].text.color,
         "text/color/action-item/input": component["wiki-list-item"].text.color,
-        "text/color/action-item/label-m": component["wiki-list-item"].text.color,
-        "text/color/action-item/label-s": component["wiki-list-item"].text.color,
+        "text/color/action-item/label-m":
+          component["wiki-list-item"].text.color,
+        "text/color/action-item/label-s":
+          component["wiki-list-item"].text.color,
 
-        "text/color/secondary/display-s": component["button"].text.color.carmine.main.secondary.fallback,
-        "text/color/secondary/heading-s": component["button"].text.color.carmine.main.secondary.fallback,
+        "text/color/secondary/display-s":
+          component["button"].text.color.carmine.main.secondary.fallback,
+        "text/color/secondary/heading-s":
+          component["button"].text.color.carmine.main.secondary.fallback,
 
         // Brand colors
         "carmine-25": color.brand.carmine["25"],

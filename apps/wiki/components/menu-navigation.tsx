@@ -6,13 +6,17 @@ import { pageDetailsKomponenter } from "@/app/komponenter/page";
 import { pageDetailsKontakt } from "@/app/kontakt/page";
 import { TopMenuItem } from "./menu/top-menu-item";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import Link from "next/link";
 
 export function MenuNavigation() {
   return (
     <>
       <ul className=" text-text/color/action-item/button   items-center gap-24 hidden md:flex">
-        {[pageDetailsKomigang, pageDetailsMerkevare, pageDetailsKomponenter, pageDetailsKontakt].map(item => (
+        {[
+          pageDetailsKomigang,
+          pageDetailsMerkevare,
+          pageDetailsKomponenter,
+          pageDetailsKontakt,
+        ].map((item) => (
           <TopMenuItem key={item.href} {...item} />
         ))}
       </ul>
@@ -23,13 +27,18 @@ export function MenuNavigation() {
             <Menu className="size-5" />
           </Button>
         </SheetTrigger>
-        <SheetContent side={"right"} className="p-0">
-          <ul>
-            <li>
-              <SheetTrigger asChild>
-                <Link href="#"></Link>
+        <SheetContent side={"right"} className="">
+          <ul className=" text-text/color/action-item/button  flex flex-col gap-2   ">
+            {[
+              pageDetailsKomigang,
+              pageDetailsMerkevare,
+              pageDetailsKomponenter,
+              pageDetailsKontakt,
+            ].map((item) => (
+              <SheetTrigger key={item.href} asChild>
+                <TopMenuItem {...item} />
               </SheetTrigger>
-            </li>
+            ))}
           </ul>
         </SheetContent>
       </Sheet>

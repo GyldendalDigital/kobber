@@ -32,8 +32,6 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@gyldendal/kobber-eslint": "workspace:^",
-    "@gyldendal/kobber-stylelint": "workspace:^",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@tailwindcss/typography": "^0.5.14",
     "@types/node": "^20",
