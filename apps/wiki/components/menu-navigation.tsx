@@ -50,8 +50,8 @@ export function MenuNavigation({ pages }: MenuNavigationProps) {
           </Button>
         </SheetTrigger>
         <SheetContent
-          side={"bottom"}
-          className="w-screen  h-[calc(100vh-72px)] bg-aubergine-25 border-none"
+          side={"top"}
+          className="w-screen mt-[72px]   h-[calc(100vh-72px)] bg-aubergine-25 border-none "
         >
           <ul className=" text-text/color/action-item/button  flex flex-col gap-[56px] text-center ">
             {pages.map((item) => (
