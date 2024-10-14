@@ -1,12 +1,7 @@
 import Link from "next/link";
-import { Menu } from "lucide-react";
-import { pageDetailsMerkevare } from "@/app/merkevare/page";
-import { Button } from "@/components/ui/button";
-import { TopMenuItem } from "./top-menu-item";
-import { pageDetailsKomigang } from "@/app/kom-i-gang/page";
-import { pageDetailsKomponenter } from "@/app/komponenter/page";
-import { pageDetailsKontakt } from "@/app/kontakt/page";
+
 import { APP_NAME } from "@/lib/constants";
+import { MenuNavigation } from "../menu-navigation";
 
 export function TopMenu() {
   return (
@@ -16,14 +11,7 @@ export function TopMenu() {
           {APP_NAME}
         </Link>
 
-        <ul className=" text-text/color/action-item/button   items-center gap-24 hidden md:flex">
-          {[pageDetailsKomigang, pageDetailsMerkevare, pageDetailsKomponenter, pageDetailsKontakt].map(item => (
-            <TopMenuItem key={item.href} {...item} />
-          ))}
-        </ul>
-        <Button size={"icon"} className="flex md:hidden bg-aubergine-25">
-          <Menu className="size-5" />
-        </Button>
+        <MenuNavigation />
       </div>
     </div>
   );

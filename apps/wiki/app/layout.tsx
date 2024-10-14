@@ -7,7 +7,7 @@ import { APP_NAME } from "@/lib/constants";
 
 /** Fallback for all pages */
 export const metadata: Metadata = {
-  title: APP_NAME + " - Gyldendals designsystem",
+  title: `${APP_NAME} - Gyldendals designsystem`,
   description: "Byggesteiner Gyldendal bruker til å lage solide, sammenhengende og universelt tilgjengelige produkter.",
 };
 
