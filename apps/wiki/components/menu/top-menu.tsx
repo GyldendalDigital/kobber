@@ -17,7 +17,7 @@ export function TopMenu() {
   return (
     <div
       className={cn(
-        "w-full h-72 sticky bg-inherit backdrop-blur-sm top-0 z-50 flex items-center ",
+        "w-full h-72 sticky bg-inherit backdrop-blur-sm top-0 z-50 flex items-center px-main md:px-0 ",
       )}
     >
       <MenuNavigation pages={pageDetailsArray} />

@@ -15,7 +15,7 @@ export function Banner({ image, children, className }: ContentPageProps) {
         className,
       )}
     >
-      <div className="relative w-[300px] h-[322px] mx-auto">
+      <div className="relative w-[200px] md:w-[300px] h-[322px] mx-auto">
         <Image src={"./hero-svg.svg"} fill alt="logo" />
       </div>
       {children}

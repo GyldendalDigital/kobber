@@ -1,20 +1,21 @@
 import { Banner } from "@/components/banner";
 import GylImage from "@/public/gyl-art.png";
-import { FeatureBoxType, AwardType } from "@/types/types";
-import { AwardListItem } from "@/components/award-list-item";
+import { FeatureBoxType } from "@/types/types";
 import { FeatureBoxGrid } from "@/components/feature-box-grid";
 import { Container } from "@/components/container";
+import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-0 md:gap-48 pb-20 ">
+    <main className="flex flex-col gap-48 pb-20 ">
       <Banner
         image={GylImage}
-        className="-mt-72 pt-[150px] md:h-[calc(900px+72px)]"
+        className="-mt-72 pt-[175px] md:pt-[150px] h-[calc(700px+72px)] md:h-[calc(900px+72px)]"
       >
         <Container />
       </Banner>
-      <div className="pt-48 md:py-0 pb-0 flex flex-col gap-14 mx-auto max-w-max-width">
+      <div className="pt-48 md:py-0 pb-0 flex flex-col gap-48 mx-auto max-w-max-width">
         <div className="grid gap-24">
           <h4 className="text-text/color/primary/heading-s text-primary-heading-s font-normal px-main ">
             Kom i gang
@@ -24,13 +25,22 @@ export default function Home() {
         <div className="grid px-main ">
           <div className="min-h-96 flex flex-col gap-16">
             <h3 className="text-text/color/primary/title-m text-primary-title-m">
-              Hva er nytt?
+              Nyttige ressurser
             </h3>
-            {news()
-              .slice(0, 3)
-              .map((item, index) => (
-                <AwardListItem key={index} award={item} />
+            <ul className="flex items-center flex-wrap gap-16">
+              {links.map((item, index) => (
+                <li key={index}>
+                  <Link
+                    href={item.title}
+                    className="flex items-center hover:underline gap-8 text-[14px]"
+                  >
+                    {item.title}
+
+                    <ExternalLink className="size-[16px]" />
+                  </Link>
+                </li>
               ))}
+            </ul>
           </div>
         </div>
       </div>
@@ -65,23 +75,21 @@ const boxes: FeatureBoxType[] = [
   },
 ];
 
-const news = (): AwardType[] => [
+const links = [
   {
-    title: "Nyeste nyhet",
-    date: new Date(),
+    title: "Github",
+    href: "#",
   },
   {
-    title:
-      "Nest nyeste nyhet - denne har litt lengre tekst som kan gå langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt langt over maksbredde",
-    date: new Date("2023"),
+    title: "Figma",
+    href: "#",
   },
   {
-    title:
-      "Den nest eldste nyheten - siste vises ikke fordi det bare er plass til tre",
-    date: new Date("2022"),
+    title: "DAM",
+    href: "#",
   },
   {
-    title: "Den eldste nyheten",
-    date: new Date("2021"),
+    title: "Teams",
+    href: "#",
   },
 ];
