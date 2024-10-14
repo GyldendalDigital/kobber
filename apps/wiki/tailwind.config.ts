@@ -437,6 +437,11 @@ const config = {
         "text/color/secondary/heading-s":
           component["button"].text.color.carmine.main.secondary.fallback,
 
+        "button/background/color/aubergine/main/primary/fallback":
+          component["button"].background.color.aubergine.main.primary.fallback,
+        "button/background/color/carmine/main/primary/fallback":
+          component["button"].background.color.carmine.main.primary.fallback,
+
         // Brand colors
         "carmine-25": color.brand.carmine["25"],
         "carmine-50": color.brand.carmine["50"],

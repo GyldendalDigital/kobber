@@ -5,7 +5,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PageDetails } from "@/types/types";
 
-export function TopMenuItem({ href, title }: PageDetails) {
+type TopMenuItemProps = {
+  className?: string;
+  page: PageDetails;
+};
+
+export function TopMenuItem({
+  className,
+  page: { title, href },
+}: TopMenuItemProps) {
   const pathName = usePathname();
 
   return (
@@ -13,6 +21,7 @@ export function TopMenuItem({ href, title }: PageDetails) {
       <Link
         className={cn(
           "text-primary-body leading-16 hover:underline underline-offset-8 decoration-text/color/action-item/button",
+          className,
           {
             underline: pathName && isOnPath(pathName, href),
           },

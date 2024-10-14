@@ -1,43 +1,61 @@
-import { Menu } from "lucide-react";
-import { pageDetailsMerkevare } from "@/app/merkevare/page";
+"use client";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { pageDetailsKomigang } from "@/app/kom-i-gang/page";
-import { pageDetailsKomponenter } from "@/app/komponenter/page";
-import { pageDetailsKontakt } from "@/app/kontakt/page";
+
 import { TopMenuItem } from "./menu/top-menu-item";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { PageDetails } from "@/types/types";
+import { cn } from "@/lib/utils";
 
-export function MenuNavigation() {
+type MenuNavigationProps = {
+  pages: PageDetails[];
+};
+
+export function MenuNavigation({ pages }: MenuNavigationProps) {
+  const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  // To close the sheet on every route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   return (
     <>
       <ul className=" text-text/color/action-item/button   items-center gap-24 hidden md:flex">
-        {[
-          pageDetailsKomigang,
-          pageDetailsMerkevare,
-          pageDetailsKomponenter,
-          pageDetailsKontakt,
-        ].map((item) => (
-          <TopMenuItem key={item.href} {...item} />
+        {pages.map((item) => (
+          <TopMenuItem key={item.href} page={item} />
         ))}
       </ul>
 
-      <Sheet modal={false}>
+      <Sheet modal={false} open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
-          <Button size={"icon"} className="flex md:hidden bg-aubergine-25">
-            <Menu className="size-5" />
+          <Button
+            size={"icon"}
+            className={cn(
+              "flex md:hidden  bg-button/background/color/aubergine/main/primary/fallback",
+              {
+                "hover:bg-button/background/color/carmine/main/primary/fallback bg-button/background/color/carmine/main/primary/fallback":
+                  isOpen,
+              },
+            )}
+          >
+            {!isOpen ? (
+              <Menu className="size-5" />
+            ) : (
+              <X className="size-5 text-white" />
+            )}
           </Button>
         </SheetTrigger>
-        <SheetContent side={"right"} className="">
-          <ul className=" text-text/color/action-item/button  flex flex-col gap-2   ">
-            {[
-              pageDetailsKomigang,
-              pageDetailsMerkevare,
-              pageDetailsKomponenter,
-              pageDetailsKontakt,
-            ].map((item) => (
-              <SheetTrigger key={item.href} asChild>
-                <TopMenuItem {...item} />
-              </SheetTrigger>
+        <SheetContent
+          side={"bottom"}
+          className="w-screen  h-[calc(100vh-72px)] bg-aubergine-25 border-none"
+        >
+          <ul className=" text-text/color/action-item/button  flex flex-col gap-[56px] text-center ">
+            {pages.map((item) => (
+              <TopMenuItem page={item} className="text-[16px] text-center" />
             ))}
           </ul>
         </SheetContent>
