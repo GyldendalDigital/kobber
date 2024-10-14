@@ -1,29 +1,21 @@
-import { BRANDING_URL, COMPONENTS_URL, GET_STARTED_URL } from "@/config/routes";
-import { placeholderImageUrl } from "@/lib/utils";
+import { BRANDING_URL, COMPONENTS_URL } from "@/config/routes";
 import { RouteDataType } from "@/types/types";
 
 export const GetStartedRoutesData: RouteDataType[] = [
   {
-    headerImage: placeholderImageUrl({ textRows: ["placeholder introduksjon"] }),
+    headerImage:
+      "https://s3-alpha-sig.figma.com/img/5505/f80c/a2b510e6702b688d6bbec374cd0d646b?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=CKwSx4EIekhNavOBDeH3GVxWRK6FnthBXBvui9tyT3ThPj3trkdd5iXdcXD~Locy3AyrXbdLH3w5WidkJvpeIaov-0zCTRzAhQwfYQqvdgt3EDa7yCYo06qi~zU0Cerv~HZ3vlmKkLu-YLWhhBE~1QAO0UIoLZb1kFzCyIS7pc2b3u8rjR2VVCFUBnXWI~2cHq7KEUmGe9u0KiKA7ejdCDB~er5Tv-C9ijza4o3CCMyv1ZPwkDjh1uZQlx3uK5p6FcqDGtqA3MCcqUMwX0W~C-DlIuWnhQsGaFk2GME-iQMsba0~CqkGKjlNYEJejSBrqJR339pmvMsqTGU5yWoX7A__",
     topicTitle: "Designsystemet Kobber",
     title: "Et verktøy for samspill og synergier",
     href: `introduksjon`,
     hrefTitle: "Introduksjon",
     description:
-      "For å sikre konsistent og god brukeropplevelse på tvers av nettsider, publikasjoner, kommunikasjon og løsninger i Gyldendal har vi laget designsystemet Kobber.",
+      "Designsystemet vårt sikrer konsistent og god brukeropplevelse på tvers av nettsider, publikasjoner, kommunikasjon og løsninger i Gyldendal.",
     text: `Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem bestående av gjenbrukbare, adaptive ressurser som komponenter, malverk, retningslinjer og kode. Dette systemet muliggjør en raskere og mer effektiv praksis for konsistent merkevarebygging, brukergrensesnitt og kommunikasjon til våre sluttbrukere.
 
-Kobber skaper en tydeligere retning for både markedsføring og produktutvikling. Det bidrar til økt kjennskap til og gjenkjennelighet av mormerket Gyldendal, samtidig som det styrker fellesskapsfølelsen blant medarbeidere på tvers av hele konsernet. Merkevaren vår skal formidle en forent forståelse av hva Gyldendal står for.
+Dette består av mer enn en logo – dette representerer våre verdier og de opplevelsene vi har som mål å tilby våre sluttbrukere. Dette settes i system i flere formater og denne nettsiden er en del av det. Den er ment for internt bruk og har som mål å gi en klar forståelse av Kobber.
 
-Kobber legger til rette for bedre samarbeid, transparens, synergier og deling av kompetanse og metoder på tvers av fagfelt, avdelinger og produkter. Dette gjør oss mer effektive og gir en tydelig felles retning og ramme rundt alt vi skaper.
-
-Navnet «Kobber» er inspirert av kobberdøra, portalen inn til Gyldendalhuset, som symboliserer det tradisjonsrike i kombinasjon med modernisering og fremtid. Kobber er et stabilt og lett bearbeidbart metall som leder strøm, og representerer dermed både våre fysiske produkter og digitale løsninger.
-
-Gyldendals merkevare er mer enn en logo – den representerer våre verdier og de opplevelsene vi har som mål å tilby våre sluttbrukere. Dette settes i system i flere formater og denne nettsiden er en del av det. Den er ment for internt bruk og har som mål å gi en klar forståelse av Gyldendals merkevare. 
-
-Det er viktig å sette seg inn i nettsiden for å opprettholde merkevarens integritet og styrke over tid. Vi anbefaler å følge disse retningslinjene og komme med tilbakemelding og forslag til oppdatering og forbedring. 
-
-Sammen skaper vi en levende profil!`,
+Det er viktig å sette seg inn i nettsiden for å opprettholde merkevarens integritet og styrke over tid. Følg retningslinjene og kom gjerne med tilbakemeldinger og forslag til oppdateringer og forbedringer. Sammen skaper vi en levende profil!`,
   },
   {
     title: "Lager du grensesnitt?",

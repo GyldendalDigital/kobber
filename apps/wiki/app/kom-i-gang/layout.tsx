@@ -15,7 +15,11 @@ export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
           <ul>
             {GetStartedRoutesData.map(({ href, hrefTitle, status }) => (
               <li key={href}>
-                <SideMenuItemLink href={href} title={hrefTitle} status={status} />
+                <SideMenuItemLink
+                  href={href}
+                  title={hrefTitle}
+                  status={status}
+                />
               </li>
             ))}
           </ul>
