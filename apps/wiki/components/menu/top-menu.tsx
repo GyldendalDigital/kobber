@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { pageDetailsMerkevare } from "@/app/merkevare/page";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import { TopMenuItem } from "./top-menu-item";
 import { pageDetailsKomigang } from "@/app/kom-i-gang/page";
 import { pageDetailsKomponenter } from "@/app/komponenter/page";

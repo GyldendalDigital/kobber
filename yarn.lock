@@ -3113,7 +3113,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-eslint@npm:*, @gyldendal/kobber-eslint@workspace:packages/kobber-eslint":
+"@gyldendal/kobber-eslint@npm:*, @gyldendal/kobber-eslint@workspace:^, @gyldendal/kobber-eslint@workspace:packages/kobber-eslint":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-eslint@workspace:packages/kobber-eslint"
   dependencies:
@@ -3209,7 +3209,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-stylelint@npm:*, @gyldendal/kobber-stylelint@workspace:packages/kobber-stylelint":
+"@gyldendal/kobber-stylelint@npm:*, @gyldendal/kobber-stylelint@workspace:^, @gyldendal/kobber-stylelint@workspace:packages/kobber-stylelint":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-stylelint@workspace:packages/kobber-stylelint"
   dependencies:
@@ -14713,7 +14713,9 @@ __metadata:
   dependencies:
     "@gyldendal/kobber-base": "npm:*"
     "@gyldendal/kobber-components": "npm:*"
+    "@gyldendal/kobber-eslint": "workspace:^"
     "@gyldendal/kobber-icons": "npm:*"
+    "@gyldendal/kobber-stylelint": "workspace:^"
     "@ianvs/prettier-plugin-sort-imports": "npm:^4.3.1"
     "@radix-ui/react-checkbox": "npm:^1.1.1"
     "@radix-ui/react-collapsible": "npm:^1.1.0"
