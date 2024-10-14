@@ -3,11 +3,17 @@ import GylImage from "@/public/gyl-art.png";
 import { FeatureBoxType, AwardType } from "@/types/types";
 import { AwardListItem } from "@/components/award-list-item";
 import { FeatureBoxGrid } from "@/components/feature-box-grid";
+import { Container } from "@/components/container";
 
 export default function Home() {
   return (
     <main className="flex flex-col gap-0 md:gap-48 pb-20 ">
-      <Banner image={GylImage} className="-mt-72 md:h-[calc(617px+72px)]" />
+      <Banner
+        image={GylImage}
+        className="-mt-72 pt-[150px] md:h-[calc(900px+72px)]"
+      >
+        <Container />
+      </Banner>
       <div className="pt-48 md:py-0 pb-0 flex flex-col gap-14 mx-auto max-w-max-width">
         <div className="grid gap-24">
           <h4 className="text-text/color/primary/heading-s text-primary-heading-s font-normal px-main ">
