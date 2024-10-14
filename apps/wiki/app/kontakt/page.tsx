@@ -1,7 +1,6 @@
-import { FeatureBoxGrid } from "@/components/feature-box-grid";
 import { InformationCard } from "@/components/information-card";
 import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils";
-import { PageDetails, TeamType } from "@/types/types";
+import { PageDetails, InformationCardType } from "@/types/types";
 import { Metadata } from "next";
 
 export const pageDetailsKontakt: PageDetails = {
@@ -14,24 +13,38 @@ export const metadata: Metadata = {
   title: documentTitle(pageDetailsKontakt.title),
 };
 
-const team: TeamType[] = [
+const team: InformationCardType[] = [
   {
-    name: "Irén Andresen",
+    title: "Irén Andresen",
+    text: `Senior designer
+    ansvarlig for Kobber - merkevare
+    iren.andresen@gyldednal.no`,
   },
   {
-    name: "Izelin Tujunen",
+    title: "Izelin Tujunen",
+    text: `Senior Designer
+    ansvarlig for Kobber - designssytem
+    iren.andresen@gyldendal.no
+    `,
   },
   {
-    name: "Dagfinn Reitan",
+    title: "Dagfinn Reitan",
+    text: `Senior utvikler
+    ansvarlig for teknisk utvikling
+    dagfinn.reitan@gyldendal.no`,
   },
   {
-    name: "Dag Von Krogh Munkholt",
+    title: "Dag Von Krogh Munkholt",
+    text: "Designer",
   },
   {
-    name: "Kevin Minh Nguyen",
+    title: "Kevin Minh Nguyen",
+    text: "Utvikler",
   },
   {
-    name: "Karen Keiserud",
+    title: "Karen Keiserud",
+    text: `Direktør for kommunikasjon,
+    merkevarer og samfunnskontakt`,
   },
 ];
 
@@ -62,10 +75,12 @@ export default function ContactPage() {
         </p>
       </div>
       <div className="grid gap-24">
-        <h3 className="text-[#532D37] text-[24px]">Vi i Kobber teamet</h3>
-        <div className="grid grid-cols-4 gap-24">
+        <h3 className="text-[#532D37] text-[24px] md:text-left text-center">
+          Vi i Kobber teamet
+        </h3>
+        <div className="grid grid-cols-1 items-center justify-center md:grid-cols-2 lg:grid-cols-4 gap-56 md:gap-24">
           {team.map((person) => (
-            <InformationCard key={person.name} />
+            <InformationCard key={person.title} item={person} />
           ))}
         </div>
       </div>
