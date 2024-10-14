@@ -15,22 +15,37 @@ export default function ComponentsLayout({ children }: ComponentsLayoutProps) {
         <SideMenu>
           <SideMenuGroup
             title="Navigasjon"
-            items={[temporaryItem("Breadcrumb"), pageDetailsButton, temporaryItem("Footer")]}
+            items={[
+              temporaryItem("Breadcrumb"),
+              pageDetailsButton,
+              temporaryItem("Footer"),
+            ]}
             isOpenInitially
           />
           <SideMenuGroup
             title="Skjema"
-            items={["Checkbox", "Radiobutton", "Switch", "Text field"].map(temporaryItem)}
+            items={["Checkbox", "Radiobutton", "Switch", "Text field"].map(
+              temporaryItem,
+            )}
             isOpenInitially
           />
           <SideMenuGroup
             title="Feedback"
-            items={["Alert", "Labels", "Loader", "Progressbar", "Tooltip"].map(temporaryItem)}
+            items={["Alert", "Labels", "Loader", "Progressbar", "Tooltip"].map(
+              temporaryItem,
+            )}
             isOpenInitially
           />
           <SideMenuGroup
             title="Layout"
-            items={["Accordion", "Card", "Carousel", "List", "Modal", "Search"].map(temporaryItem)}
+            items={[
+              "Accordion",
+              "Card",
+              "Carousel",
+              "List",
+              "Modal",
+              "Search",
+            ].map(temporaryItem)}
             isOpenInitially
           />
         </SideMenu>
@@ -40,4 +55,8 @@ export default function ComponentsLayout({ children }: ComponentsLayoutProps) {
   );
 }
 
-const temporaryItem = (title: string): PageDetails => ({ href: "#", title, status: "kommer" });
+const temporaryItem = (title: string): PageDetails => ({
+  href: "#",
+  title,
+  status: "kommer",
+});
