@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.46
+
+### Patch Changes
+
+- audio-recorder design tweaks and updates
+
 ## 0.3.45
 
 ### Patch Changes
