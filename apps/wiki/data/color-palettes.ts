@@ -1,4 +1,4 @@
-import { ColorThemeType } from "@/types/types";
+import { ColorThemeType } from "@/types/types"
 
 export const UIColors: ColorThemeType[] = [
   {
@@ -31,7 +31,7 @@ export const UIColors: ColorThemeType[] = [
       { name: "Warning 700", hex: "#623A0E", rgb: "()" },
     ],
   },
-];
+]
 
 export const ThemeColors: ColorThemeType[] = [
   {
@@ -82,13 +82,13 @@ export const ThemeColors: ColorThemeType[] = [
       { name: "Romanse 750", hex: "#6a1830", rgb: "(106, 24, 48)" },
     ],
   },
-];
+]
 
 export const IdentityColors: ColorThemeType[] = [
   {
     title: "Aubergine",
     description:
-      "Auberginepaletten brukes aktivt i identiteten, til både tekstfarger og bakgrunnsfarger i henholdsvis mørkt eller lyst utrykk. Midttonen brukes til stikktitler, skillestreker og metatekster. Aubergine 25 brukes istedenfor helt hvitt og Aubergine 1000 erstatter helt svart.",
+      "Auberginepaletten brukes aktivt i identiteten, til både tekstfarger og bakgrunnsfarger i henholdsvis mørkt eller lyst utrykk. Midttonene skal ikke brukes som bakgrunnsfarger, men brukes til stikktitler, skillestreker og metatekster. Aubergine 25 brukes istedenfor helt hvitt og Aubergine 1000 erstatter helt svart.",
     colors: [
       { name: "Aubergine 25", hex: "#FDF9F9", rgb: "(253, 249, 249)", hasBorder: true },
       { name: "Aubergine 50", hex: "#F9EAED", rgb: "(249, 234, 237)" },
@@ -102,11 +102,12 @@ export const IdentityColors: ColorThemeType[] = [
   },
   {
     title: "Vin",
-    description: "Vin brukes i inaktive knapper, skillestreker, ingresser og metatekster, både i lyst og mørkt utrykk.",
+    description:
+      "Vin brukes i inaktive knapper, skillestreker, ingresser og metatekster, både i lyst og mørkt utrykk.",
     colors: [
       { name: "Wine 150", hex: "#E5CFD3", rgb: "(229, 207, 211)" },
       { name: "Wine 525", hex: "#A35E70", rgb: "(163, 94, 112)" },
       { name: "Wine 600", hex: "#884D5D", rgb: "(136, 77, 93)" },
     ],
   },
-];
+]

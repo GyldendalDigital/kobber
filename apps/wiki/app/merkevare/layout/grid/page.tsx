@@ -1,30 +1,26 @@
-import { SectionLayout } from "@/components/section-layout";
-import { TextCollection } from "@/components/text-collection";
-import s from "@/assets/brand/Layout/layout_grid.svg";
-import Image from "next/image";
-import { Ingress } from "@/components/ingress";
-import { SubHeading } from "@/components/sub-heading";
-import {
-  semantics,
-  grid,
-  mediaQuery,
-} from "@gyldendal/kobber-base/themes/default/tokens";
-import { FunctionComponent } from "react";
-import { Metadata } from "next";
-import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils";
-import { PageDetails } from "@/types/types";
+import { FunctionComponent } from "react"
+import { Metadata } from "next"
+import Image from "next/image"
+import s from "@/assets/brand/Layout/layout_grid.svg"
+import { semantics } from "@gyldendal/kobber-base/themes/default/tokens"
+import { PageDetails } from "@/types/types"
+import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { Ingress } from "@/components/ingress"
+import { SectionLayout } from "@/components/section-layout"
+import { SubHeading } from "@/components/sub-heading"
+import { TextCollection } from "@/components/text-collection"
 
 export const pageDetailsGrid: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Grid",
   image: placeholderImageUrl({}),
-};
+}
 
 export const metadata: Metadata = {
   title: documentTitle(pageDetailsGrid.title),
   description:
     "Vi har definert en layout grid slik at våre løsninger skal fungere godt på alle skjermbredder og ha et helhetlig oppsett. Griden følger reglene for riktig spacing for å plassere elementer med jevn rytme, riktig hierarki og med god bruk av luft.",
-};
+}
 
 export default function GridPage() {
   return (
@@ -64,10 +60,10 @@ export default function GridPage() {
 Container er rammen rundt innholdet som vises. På små skjermer brukes kun én, på større skjermer kan det være plass til to, kanskje tre, avhengig av behov."
       />
     </SectionLayout>
-  );
+  )
 }
 
-type BreakpointName = keyof typeof semantics.layout.page.breakpoint;
+type BreakpointName = keyof typeof semantics.layout.page.breakpoint
 
 // const BreakpointRow = (name: BreakpointName, value: number) => (
 //   <tr key={name} className="border-b-2 border-grey-200 border-spacing-0">
@@ -91,18 +87,18 @@ type BreakpointName = keyof typeof semantics.layout.page.breakpoint;
 // );
 
 interface Props {
-  children?: number;
-  type?: "px";
+  children?: number
+  type?: "px"
 }
 
 const UnitFormatter: FunctionComponent<Props> = ({ children, type = "px" }) => {
   if (children && type === "px") {
-    const pixels = children;
+    const pixels = children
     return (
       <>
         {pixels}px ({pixels / 16}rem)
       </>
-    );
+    )
   }
-  return null;
-};
+  return null
+}
