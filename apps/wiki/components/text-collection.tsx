@@ -20,10 +20,14 @@ export function TextCollection({
         "gap-56": size === "lg",
       })}
     >
-      <div className="grid">
-        {label && <label className="text-[24px] text-carmine-525">{label}</label>}
-        {heading && <Heading text={heading} size={size} />}
-      </div>
+      {heading && (
+        <>
+          <div className="grid">
+            {label && <label className="text-[24px] text-carmine-525">{label}</label>}
+            {heading && <Heading text={heading} size={size} />}
+          </div>
+        </>
+      )}
       {subheading && <SubHeading text={subheading} size={size} />}
       {ingress && <Ingress text={ingress} size={size} />}
       {text && (

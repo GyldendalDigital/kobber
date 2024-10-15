@@ -1,6 +1,5 @@
 import { Metadata } from "next"
 import Image from "next/image"
-
 import { PageDetails } from "@/types/types"
 import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { BodyText } from "@/components/body-text"
@@ -35,8 +34,10 @@ export default function Page() {
       />
 
       <ContentSection
-        heading="Primærlogo"
-        ingress="Gyldendals primærlogo skal brukes i de fleste tilfeller. "
+        textCollection={{
+          heading: "Primærlogo",
+          ingress: "Gyldendals primærlogo skal brukes i de fleste tilfeller. ",
+        }}
       >
         <BodyText>
           Den består av logosymbolet som er basert på en norsk gran, samt navnet skrevet i små
@@ -53,8 +54,11 @@ export default function Page() {
       </ContentSection>
 
       <ContentSection
-        heading="Fargevarianter"
-        ingress="Gyldendals primærlogo kan brukes i en positiv og en negativ variant. Den positive varianten brukes på lys bakgrunn og den negative brukes på mørk bakgrunn."
+        textCollection={{
+          heading: "Fargevarianter",
+          ingress:
+            "Gyldendals primærlogo kan brukes i en positiv og en negativ variant. Den positive varianten brukes på lys bakgrunn og den negative brukes på mørk bakgrunn.",
+        }}
       >
         <BodyText>
           En monoversjon av primærlogoen brukes der det ikke er mulig å bruke logoen i farge, og på
@@ -68,8 +72,11 @@ export default function Page() {
       </ContentSection>
 
       <ContentSection
-        heading="Emblemvariant"
-        ingress="Emblemversjonen av logoen brukes kun når Gyldendal selv er hovedfokuset i et budskap. Den er best egnet når den står helt for seg selv på en flate, og skal generelt ikke brukes på produkter. Den finnes også i fargevariantene positiv, negativ og monoversjon."
+        textCollection={{
+          heading: "Emblemvariant",
+          ingress:
+            "Emblemversjonen av logoen brukes kun når Gyldendal selv er hovedfokuset i et budskap. Den er best egnet når den står helt for seg selv på en flate, og skal generelt ikke brukes på produkter. Den finnes også i fargevariantene positiv, negativ og monoversjon.",
+        }}
       >
         <BodyText>
           Se kontaktsiden om du er usikker på om du bør bruke primær- eller sekundærlogo i en viss
@@ -82,8 +89,11 @@ export default function Page() {
       </ContentSection>
 
       <ContentSection
-        heading="Luft og størrelse"
-        ingress="Logoen må ha tilstrekkelig rom rundt seg for å kunne stå ut. Om du skal plassere logoen utenom et malverk, skal andre objekter plasseres utenfor klaringen som vist ved siden av. For digitale flater vil det finnes faste størrelsesenheter for luft som skal benyttes tilgjengelig via designverktøy og kode."
+        textCollection={{
+          heading: "Luft og størrelse",
+          ingress:
+            "Logoen må ha tilstrekkelig rom rundt seg for å kunne stå ut. Om du skal plassere logoen utenom et malverk, skal andre objekter plasseres utenfor klaringen som vist ved siden av. For digitale flater vil det finnes faste størrelsesenheter for luft som skal benyttes tilgjengelig via designverktøy og kode.",
+        }}
       >
         <BodyText>
           Logoen skal alltid være leselig og synlig. Derfor skal den ikke brukes i mindre størrelse
@@ -96,8 +106,11 @@ export default function Page() {
       </ContentSection>
 
       <ContentSection
-        heading="Logoikon"
-        ingress="Ikonet brukes alene kun i tilfeller der det ikke er plass til hele logoen, slik som i profilbilde på sosiale medier-kontoer eller som favorittikon i nettleser. "
+        textCollection={{
+          heading: "Logoikon",
+          ingress:
+            "Ikonet brukes alene kun i tilfeller der det ikke er plass til hele logoen, slik som i profilbilde på sosiale medier-kontoer eller som favorittikon i nettleser. ",
+        }}
       >
         <BodyText>
           Ikonet er tilgjengelig for å fungere både i sirkel og kvadrat. Det skal ikke lages opp
@@ -110,7 +123,7 @@ export default function Page() {
         </div>
       </ContentSection>
 
-      <ContentSection heading="Unngå dette">
+      <ContentSection textCollection={{ heading: "Unngå dette" }}>
         <div className="relative h-320 max-w-full overflow-hidden rounded-16">
           <Image src={placeholderImageUrl({})} fill className="object-cover" alt="Logo" />
         </div>
