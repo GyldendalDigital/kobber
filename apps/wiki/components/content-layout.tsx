@@ -1,17 +1,17 @@
-import { ReactNode } from "react";
+import { ReactNode } from "react"
 
 type ContentLayoutProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 export function ContentLayout({ children }: ContentLayoutProps) {
   return (
-    <div className="grid grid-cols-[50px_1fr] md:grid-cols-[270px_1fr] w-full overflow-hidden gap-20 max-w-max-width mx-auto">
+    <div className="mx-auto grid w-full max-w-max-width grid-cols-[50px_1fr] gap-24 overflow-hidden md:grid-cols-[270px_1fr]">
       {children}
     </div>
-  );
+  )
 }
 
 export function ContentShell({ children }: ContentLayoutProps) {
-  return <div className="w-full md:w-[270px]  ">{children}</div>;
+  return <div className="w-full md:w-[270px]">{children}</div>
 }

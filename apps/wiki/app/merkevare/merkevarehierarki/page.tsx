@@ -1,24 +1,22 @@
 import { Metadata } from "next"
-import Image from "next/image"
 import { PageDetails } from "@/types/types"
 import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils"
-import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { ContentSection } from "@/components/content-section"
+import { Illustration } from "@/components/illustration"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 
-export const pageDetailsMerkevareHierarki: PageDetails = {
-  href: pagePathname(import.meta.url),
-  title: "Typografi",
-  image: placeholderImageUrl({}),
-  children: [],
-}
+// export const pageDetailsMerkevareHierarki: PageDetails = {
+//   href: pagePathname(import.meta.url),
+//   title: "Merkevarehierarki",
+//   image: placeholderImageUrl({}),
+// }
 
-export const metadata: Metadata = {
-  title: documentTitle(pageDetailsMerkevareHierarki.title),
-  description:
-    "Typografien skal sikre gjenkjennelighet for merkevaren og stå seg like godt på det analoge som på det digitale. Kombinasjonen av en leken og moderne primærfont i PP Mori, og en moderne tolkning av en klassisk serif i Lyon Display, gjør at vi forener tradisjon og innovasjon på en varm og uhøytidelig måte.",
-}
+// export const metadata: Metadata = {
+//   title: documentTitle(pageDetailsMerkevareHierarki.title),
+//   description:
+//     "Merkevarehierarki skal sikre gjenkjennelighet for merkevaren og stå seg like godt på det analoge som på det digitale. Kombinasjonen av en leken og moderne primærfont i PP Mori, og en moderne tolkning av en klassisk serif i Lyon Display, gjør at vi forener tradisjon og innovasjon på en varm og uhøytidelig måte.",
+// }
 
 export default function MerkevareHeriarkiPage() {
   return (
@@ -35,18 +33,11 @@ export default function MerkevareHeriarkiPage() {
 På grunnlag av dette har vi fire nivåer i Gyldendals merkevarehierarki: mormerke, støttede utgivelser og verk, støttede identiteter og frittstående identiteter. Disse forklares mer i detalj på denne siden.`,
         }}
       >
-        <div className="relative w-[673px] overflow-hidden rounded-24">
-          <AspectRatio ratio={16 / 9} className="rounded-24 bg-white">
-            <Image
-              src={
-                "https://s3-alpha-sig.figma.com/img/b1a0/f34d/889536d0ac047899333d20aa45a622fd?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DoV54DNpsmp4vmpA44-E0cbiqhvSj8eVt5jZaC30XGE1QxUZGkNYkXRzY4jkLCfedvXRAT9rBfT-1RBdKQwIvqGg6OaSMdhKFJXcUms794cxxA9ZL6KRxl0u-897~AJ08SiddNIKAjKKq1n2y3x05LbVOrLzTAKB0IZ64aixswGa39gP62aSvuDfk8GlqckqV27qu1wvZp4oTRVzYz1eu9FfIAeZpCY0UwF-SpCCclwB703gHQYlg5mgDlYmff68JNfgnMR0V~WMu18--CRojSDzXOdKRrwDBhamvwLkiCQLYeXNxR5o-qqAuFZuaSo0RENf89E5wEW8d~sIulvKTQ__"
-              }
-              fill
-              alt="Illustration"
-              className="object-contain p-24"
-            />
-          </AspectRatio>
-        </div>
+        <Illustration
+          src={
+            "https://s3-alpha-sig.figma.com/img/b1a0/f34d/889536d0ac047899333d20aa45a622fd?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DoV54DNpsmp4vmpA44-E0cbiqhvSj8eVt5jZaC30XGE1QxUZGkNYkXRzY4jkLCfedvXRAT9rBfT-1RBdKQwIvqGg6OaSMdhKFJXcUms794cxxA9ZL6KRxl0u-897~AJ08SiddNIKAjKKq1n2y3x05LbVOrLzTAKB0IZ64aixswGa39gP62aSvuDfk8GlqckqV27qu1wvZp4oTRVzYz1eu9FfIAeZpCY0UwF-SpCCclwB703gHQYlg5mgDlYmff68JNfgnMR0V~WMu18--CRojSDzXOdKRrwDBhamvwLkiCQLYeXNxR5o-qqAuFZuaSo0RENf89E5wEW8d~sIulvKTQ__"
+          }
+        />
       </ContentSection>
 
       <ContentSection

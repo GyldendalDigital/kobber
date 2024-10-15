@@ -1,5 +1,4 @@
 import { TextCollectionProps } from "@/types/types"
-import { cn } from "@/lib/utils"
 import { Heading } from "./heading"
 import { Ingress } from "./ingress"
 import { SubHeading } from "./sub-heading"
@@ -13,21 +12,14 @@ export function TextCollection({
   text,
 }: TextCollectionProps) {
   return (
-    <div
-      className={cn("grid w-full px-main md:w-[857px]", {
-        "gap-32": size === "sm",
-        "gap-48": size === "md",
-        "gap-56": size === "lg",
-      })}
-    >
-      {heading && (
-        <>
-          <div className="grid">
-            {label && <label className="text-[24px] text-carmine-525">{label}</label>}
-            {heading && <Heading text={heading} size={size} />}
-          </div>
-        </>
+    <div className="grid w-full gap-24 px-main md:w-[857px]">
+      {label && heading && (
+        <div className="grid">
+          <label className="text-[24px] text-carmine-525">{label}</label>
+          <Heading text={heading} size={size} />
+        </div>
       )}
+      {!label && heading && <Heading text={heading} size={size} />}
       {subheading && <SubHeading text={subheading} size={size} />}
       {ingress && <Ingress text={ingress} size={size} />}
       {text && (
