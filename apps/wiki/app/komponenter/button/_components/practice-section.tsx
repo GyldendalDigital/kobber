@@ -1,12 +1,14 @@
-import { ContentSection } from "@/components/content-section";
-import { PracticeIllustration } from "@/components/practice-illustration";
-import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
-import { KobberButton } from "@/components/kobber-ssr-loader";
+import { Download } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { ContentSection } from "@/components/content-section"
+import { KobberButton } from "@/components/kobber-ssr-loader"
+import { PracticeIllustration } from "@/components/practice-illustration"
 
 export function PracticeSection() {
   return (
-    <ContentSection heading="God og dårlig praksis (TODO: bytt ut med bilder)">
+    <ContentSection
+      textCollection={{ heading: "God og dårlig praksis (TODO: bytt ut med bilder)" }}
+    >
       <PracticeIllustration
         notAcceptedText="Unngå flere likvektede valg på samme område, da det skaper forvirring for veien videre."
         acceptedText="Vektlegg viktigheten på knappene visuelt for å hjelpe brukeren dit de skal."
@@ -20,7 +22,7 @@ export function PracticeSection() {
         notAcceptedComponent={<NotAcceptedComponenTwo />}
       />
     </ContentSection>
-  );
+  )
 }
 
 function AcceptedComponent() {
@@ -31,7 +33,7 @@ function AcceptedComponent() {
       </KobberButton>
       <Button>Handling 2</Button>
     </>
-  );
+  )
 }
 
 function NotAcceptedComponent() {
@@ -41,26 +43,29 @@ function NotAcceptedComponent() {
       <Button variant={"dropdown"}>Valg 2</Button>
       <Button variant={"dropdown"}>Valg 3</Button>
     </>
-  );
+  )
 }
 
 function AcceptedComponenTwo() {
   return (
     <>
       <Button variant={"dropdown"}>
-        Last ned <Download className="size-4 ml-2" />
+        Last ned <Download className="ml-2 size-4" />
       </Button>
     </>
-  );
+  )
 }
 
 function NotAcceptedComponenTwo() {
   return (
     <>
-      <Button variant={"dropdown"} className="flex-col items-center justify-center max-w-104 overflow-hidden ">
-        <Download className="size-4 ml-2" />
+      <Button
+        variant={"dropdown"}
+        className="max-w-104 flex-col items-center justify-center overflow-hidden"
+      >
+        <Download className="ml-2 size-4" />
         <span>Last ned innhold</span>
       </Button>
     </>
-  );
+  )
 }

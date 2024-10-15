@@ -69,3 +69,12 @@ export type InformationCardType = {
   title: string
   text?: string
 }
+
+export type TextCollectionProps = {
+  heading?: string
+  label?: string
+  subheading?: string
+  ingress?: string
+  size?: SizeType
+  text?: string
+}

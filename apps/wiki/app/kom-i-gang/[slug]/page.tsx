@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation"
 import { GetStartedRoutesData } from "@/data/routes-data"
 import { HeroImage } from "@/components/hero-image"
+import { SectionLayout } from "@/components/section-layout"
 
 type GetStartedSlugPageProps = {
   params: {
@@ -25,7 +26,7 @@ export default function GetStartedSlugPage({ params }: GetStartedSlugPageProps) 
 
   const { description, title, heroImage, topicTitle, text } = content
   return (
-    <div className="flex flex-col gap-48">
+    <SectionLayout>
       {heroImage ? <HeroImage src={heroImage} /> : null}
 
       <div className="flex flex-col gap-[24px]">
@@ -42,6 +43,6 @@ export default function GetStartedSlugPage({ params }: GetStartedSlugPageProps) 
           {text}
         </p>
       </div>
-    </div>
+    </SectionLayout>
   )
 }

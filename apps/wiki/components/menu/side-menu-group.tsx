@@ -1,25 +1,30 @@
-"use client";
-import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@radix-ui/react-collapsible";
-import { ChevronUp, ChevronDown } from "lucide-react";
-import { useState } from "react";
-import { Button } from "../ui/button";
-import { KobberDivider } from "../kobber-ssr-loader";
-import { SideMenuItem } from "./side-menu-item";
-import { PageDetails } from "@/types/types";
+"use client"
+
+import { useState } from "react"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@radix-ui/react-collapsible"
+import { ChevronDown, ChevronUp } from "lucide-react"
+import { PageDetails } from "@/types/types"
+import { KobberDivider } from "../kobber-ssr-loader"
+import { Button } from "../ui/button"
+import { SideMenuItem } from "./side-menu-item"
 
 type Props = {
-  title: string;
-  items: PageDetails[];
-  isOpenInitially?: boolean;
-};
+  title: string
+  items: PageDetails[]
+  isOpenInitially?: boolean
+}
 
 export const SideMenuGroup = ({ title, items, isOpenInitially = false }: Props) => {
-  const [isOpen, setIsOpen] = useState<boolean>(isOpenInitially);
+  const [isOpen, setIsOpen] = useState<boolean>(isOpenInitially)
   return (
     <>
-      <Collapsible className="grid gap-8 w-full " open={isOpen} onOpenChange={() => setIsOpen(!isOpen)}>
+      <Collapsible
+        className="grid w-full gap-8"
+        open={isOpen}
+        onOpenChange={() => setIsOpen(!isOpen)}
+      >
         <CollapsibleTrigger asChild>
-          <Button className="justify-between mt-2 mr-2 ">
+          <Button className="mr-2 mt-2 justify-between">
             <span className="uppercase text-text/color/action-item/button">{title}</span>
             {isOpen ? <ChevronUp className="size-6" /> : <ChevronDown className="size-6" />}
           </Button>
@@ -27,7 +32,7 @@ export const SideMenuGroup = ({ title, items, isOpenInitially = false }: Props) 
 
         <CollapsibleContent className="mr-2">
           <ul>
-            {items.map(item => (
+            {items.map((item) => (
               <SideMenuItem key={item.href} {...item} />
             ))}
           </ul>
@@ -35,5 +40,5 @@ export const SideMenuGroup = ({ title, items, isOpenInitially = false }: Props) 
       </Collapsible>
       <KobberDivider />
     </>
-  );
-};
+  )
+}

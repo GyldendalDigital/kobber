@@ -1,11 +1,11 @@
-import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+import { ReactNode } from "react"
+import { cn } from "@/lib/utils"
 
 type SectionLayoutProps = {
-  children: ReactNode;
-  className?: string;
-};
+  children: ReactNode
+  className?: string
+}
 
 export function SectionLayout({ children, className }: SectionLayoutProps) {
-  return <div className={cn("w-full md:w-[858px] grid gap-40", className)}>{children}</div>;
+  return <div className={cn("grid w-full gap-48", className)}>{children}</div>
 }
