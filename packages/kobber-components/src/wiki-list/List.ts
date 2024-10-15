@@ -25,9 +25,8 @@ export class List extends LitElement {
   }
 
   render() {
-    const c = this.themedStyles();
     return html` <style>
-        ${c}
+        ${this.themedStyles()}
       </style>
       <slot></slot>`;
   }
