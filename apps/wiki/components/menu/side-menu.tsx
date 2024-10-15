@@ -12,7 +12,7 @@ export const SideMenu = ({ children }: SideMenuProps) => {
   const isMobile = useIsMobile();
 
   return (
-    <aside className="h-fit border-r pb-1.5 border-wine-150 flex flex-col gap-y-8 px-main">
+    <aside className="h-fit border-r pb-1.5 border-wine-150 flex flex-col gap-y-8 pr-10">
       {isMobile ? (
         <Sheet modal={false}>
           <SheetTrigger asChild>

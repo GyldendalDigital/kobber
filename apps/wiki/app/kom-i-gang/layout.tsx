@@ -12,7 +12,7 @@ export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
     <ContentLayout>
       <ContentShell>
         <SideMenu>
-          <ul>
+          <ul className="grid divide-y divide-wine-150 gap-y-2">
             {GetStartedRoutesData.map(({ href, hrefTitle, status }) => (
               <li key={href}>
                 <SideMenuItemLink
