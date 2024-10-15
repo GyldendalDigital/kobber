@@ -1,11 +1,11 @@
-import { BRANDING_URL, COMPONENTS_URL, GET_STARTED_URL } from "@/config/routes";
-import { placeholderImageUrl } from "@/lib/utils";
-import { PageDetails, RouteDataType } from "@/types/types";
-import { pageDetailsKomigang } from "./page";
+import { PageDetails, RouteDataType } from "@/types/types"
+import { BRANDING_URL, COMPONENTS_URL, GET_STARTED_URL } from "@/config/routes"
+import { placeholderImageUrl } from "@/lib/utils"
+import { pageDetailsKomigang } from "./page"
 
 export const GetStartedRoutesData: (RouteDataType & PageDetails)[] = [
   {
-    headerImage: placeholderImageUrl({ textRows: ["placeholder introduksjon"] }),
+    heroImage: placeholderImageUrl({ textRows: ["placeholder introduksjon"] }),
     topicTitle: "Designsystemet Kobber",
     title: "Et verktøy for samspill og synergier",
     href: `${pageDetailsKomigang.href}/introduksjon`,
@@ -71,7 +71,7 @@ Sammen skaper vi en levende profil!`,
     hrefTitle: "Tilgjengelighet",
     status: "kommer",
   },
-];
+]
 
 export const ComponentsRoutesData: RouteDataType[] = [
   {
@@ -104,7 +104,7 @@ export const ComponentsRoutesData: RouteDataType[] = [
     hrefTitle: "Corner-box",
     text: "Corner-box",
   },
-];
+]
 
 export const BrandingRoutesData: RouteDataType[] = [
   {
@@ -197,4 +197,4 @@ export const BrandingRoutesData: RouteDataType[] = [
     hrefTitle: "Animasjon",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. ",
   },
-];
+]

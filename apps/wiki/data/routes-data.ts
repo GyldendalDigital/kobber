@@ -1,9 +1,9 @@
-import { BRANDING_URL, COMPONENTS_URL } from "@/config/routes";
-import { RouteDataType } from "@/types/types";
+import { RouteDataType } from "@/types/types"
+import { BRANDING_URL, COMPONENTS_URL } from "@/config/routes"
 
 export const GetStartedRoutesData: RouteDataType[] = [
   {
-    headerImage:
+    heroImage:
       "https://s3-alpha-sig.figma.com/img/5505/f80c/a2b510e6702b688d6bbec374cd0d646b?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=CKwSx4EIekhNavOBDeH3GVxWRK6FnthBXBvui9tyT3ThPj3trkdd5iXdcXD~Locy3AyrXbdLH3w5WidkJvpeIaov-0zCTRzAhQwfYQqvdgt3EDa7yCYo06qi~zU0Cerv~HZ3vlmKkLu-YLWhhBE~1QAO0UIoLZb1kFzCyIS7pc2b3u8rjR2VVCFUBnXWI~2cHq7KEUmGe9u0KiKA7ejdCDB~er5Tv-C9ijza4o3CCMyv1ZPwkDjh1uZQlx3uK5p6FcqDGtqA3MCcqUMwX0W~C-DlIuWnhQsGaFk2GME-iQMsba0~CqkGKjlNYEJejSBrqJR339pmvMsqTGU5yWoX7A__",
     topicTitle: "Designsystemet Kobber",
     title: "Et verktøy for samspill og synergier",
@@ -57,7 +57,7 @@ Det er viktig å sette seg inn i nettsiden for å opprettholde merkevarens integ
     href: `tilgjengelighet`,
     hrefTitle: "Tilgjengelighet",
   },
-];
+]
 
 export const ComponentsRoutesData: RouteDataType[] = [
   {
@@ -90,7 +90,7 @@ export const ComponentsRoutesData: RouteDataType[] = [
     hrefTitle: "Corner-box",
     text: "Corner-box",
   },
-];
+]
 
 export const BrandingRoutesData: RouteDataType[] = [
   {
@@ -183,4 +183,4 @@ export const BrandingRoutesData: RouteDataType[] = [
     hrefTitle: "Animasjon",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. ",
   },
-];
+]

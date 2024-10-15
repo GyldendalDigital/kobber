@@ -4021,6 +4021,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-aspect-ratio@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@radix-ui/react-aspect-ratio@npm:1.1.0"
+  dependencies:
+    "@radix-ui/react-primitive": "npm:2.0.0"
+  peerDependencies:
+    "@types/react": "*"
+    "@types/react-dom": "*"
+    react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    "@types/react-dom":
+      optional: true
+  checksum: 10c0/06ff86be238936bb7448896fcf1dd154ca543d5e13312eb7e7cf56aa141e13c9c41f2781b1e138b47b8b4a4f0b403de57498b1be94d1f286203d420e2e4dacb2
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-checkbox@npm:^1.1.1":
   version: 1.1.1
   resolution: "@radix-ui/react-checkbox@npm:1.1.1"
@@ -14836,6 +14855,7 @@ __metadata:
     "@gyldendal/kobber-components": "npm:*"
     "@gyldendal/kobber-icons": "npm:*"
     "@ianvs/prettier-plugin-sort-imports": "npm:^4.3.1"
+    "@radix-ui/react-aspect-ratio": "npm:^1.1.0"
     "@radix-ui/react-checkbox": "npm:^1.1.1"
     "@radix-ui/react-collapsible": "npm:^1.1.0"
     "@radix-ui/react-dialog": "npm:^1.1.2"
