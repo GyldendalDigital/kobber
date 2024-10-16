@@ -16,7 +16,9 @@ export const SideMenuItemLink = ({ href, title, status }: PageDetails) => {
         "opacity-50": isComing,
       })}
     >
-      <span className="mx-4 text-primary-body text-text/color/action-item/button">{title}</span>
+      <span className="mx-4 text-primary-body text-text/color/action-item/button">
+        {title as string}
+      </span>
       {status && (
         <span className="text-primary-label-s text-text/color/secondary/display-s">{status}</span>
       )}

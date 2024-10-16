@@ -13,5 +13,5 @@ export const metadata: PageDetails = {
 }
 
 export default function BrandingPage() {
-  return redirect(metadata.href)
+  redirect(metadata.href)
 }
