@@ -12,7 +12,7 @@ export const customElementName = "kobber-wiki-accordion";
  * Show or hide list items
  */
 @customElement(customElementName)
-export class List extends LitElement {
+export class Accordion extends LitElement {
   @consume({ context: themeContext, subscribe: true })
   theme?: Theme;
 
@@ -38,6 +38,7 @@ export class List extends LitElement {
 
       <div class="accordion" tabindex="0" @keypress="${this.handleKeyDown}">
         <kobber-wiki-list-item
+          class="accordion-toggle-button"
           role="button"
           aria-expanded="${this.expanded}"
           aria-controls="content-${this.id}"
@@ -67,6 +68,10 @@ export class List extends LitElement {
       .accordion {
         --icon-width: 16px;
         border-radius: ${component.container.border.radius}px;
+      }
+
+      .accordion-toggle-button {
+        width: unset;
       }
 
       .accordion-content {
