@@ -383,10 +383,10 @@
     onMount(() => {
         const observer = new ResizeObserver((entries) => {
             if (entries[0].contentBoxSize[0]?.inlineSize) {
-                entries[0].target.style.fontSize = entries[0].contentBoxSize[0].inlineSize / 24 / 16 + "em";
+                entries[0].target.style.fontSize = entries[0].contentBoxSize[0].inlineSize / 20 / 16 + "em";
             } else {
                 entries[0].target.style.fontSize =
-                    document.getElementById(".audio-recorder-" + uniqueId)?.getBoundingClientRect().width / 24 / 16 + "em";
+                    document.getElementById(".audio-recorder-" + uniqueId)?.getBoundingClientRect().width / 20 / 16 + "em";
             }
         });
         observer.observe(document.getElementById(".audio-recorder-" + uniqueId));
@@ -404,7 +404,7 @@
         --text-color: {textColor};
         --current-time-percentage: {currentTimePercentage};
         --current-width: {currentWidth};
-        --rows: {isExpanded ? 19 : 11}
+        --rows: {isExpanded ? 19 : 12}
      "
 >
     <span class="kbr-ar-aspect" />
@@ -486,8 +486,8 @@
                 aria-label={currentTimeGlobal.toString()}
         />
     </div>
-    <div class="kbr-feedback-container">
-        <svg style={isRecording ? "display: block;" : "display: none;"}
+    <div class="kbr-feedback-container" style={isRecording ? "display: block;" : "display: none;"}>
+        <svg
              id={".kbr-ar-svg-" + uniqueId}
              class="kbr-ar-svg"
              viewBox="0 0 128 32"
@@ -630,7 +630,7 @@
       height: 100%;
     }
     .kbr-ar-time {
-        grid-row: 17 / span 2;
+        grid-row: 17 / span 3;
         grid-column: 9 / span 16;
         height: 100%;
         width: 100%;
@@ -769,7 +769,7 @@
     }
     label {
       position: absolute;
-      bottom: -1.25em;
+      bottom: -1.5em;
       white-space: nowrap;
       font-size: inherit;
     }
