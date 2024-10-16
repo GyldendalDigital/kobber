@@ -15,7 +15,7 @@ type GetStartedLayoutProps = {
 export default function MerkevareLayout({ children }: GetStartedLayoutProps) {
   return (
     <ContentLayout>
-      {/* <ContentShell>
+      <ContentShell>
         <SideMenu>
           <SideMenuGroup title="Introduksjon" items={temporaryIntroRoutes} isOpenInitially />
           <SideMenuGroup
@@ -32,22 +32,21 @@ export default function MerkevareLayout({ children }: GetStartedLayoutProps) {
           <SideMenuGroup title="Maler" items={temporaryTemplateRoutes} isOpenInitially />
         </SideMenu>
       </ContentShell>
-      <section className="w-full pb-96 md:w-[857px]">{children}</section> */}
-      <div>asdasdasd</div>
+      <section className="w-full pb-96 md:w-[857px]">{children}</section>
     </ContentLayout>
   )
 }
 
-// const temporaryIntroRoutes: PageDetails[] = [
-//   { href: "/merkevare/merkevarehierarki", title: "Merkevarehierarki" },
-//   { href: "#", title: "Våre verdier", status: "kommer" },
-//   { href: "#", title: "Designprinsipper", status: "kommer" },
-// ]
+const temporaryIntroRoutes: PageDetails[] = [
+  { href: "/merkevare/merkevarehierarki", title: "Merkevarehierarki" },
+  { href: "#", title: "Våre verdier", status: "kommer" },
+  { href: "#", title: "Designprinsipper", status: "kommer" },
+]
 
-// const temporaryTemplateRoutes: PageDetails[] = [
-//   { href: "#", title: "Powerpoint", status: "kommer" },
-//   { href: "#", title: "Word", status: "kommer" },
-//   { href: "#", title: "E-post signatur", status: "kommer" },
-//   { href: "#", title: "Visittkort", status: "kommer" },
-//   { href: "#", title: "Nyhetsbrev", status: "kommer" },
-// ]
+const temporaryTemplateRoutes: PageDetails[] = [
+  { href: "#", title: "Powerpoint", status: "kommer" },
+  { href: "#", title: "Word", status: "kommer" },
+  { href: "#", title: "E-post signatur", status: "kommer" },
+  { href: "#", title: "Visittkort", status: "kommer" },
+  { href: "#", title: "Nyhetsbrev", status: "kommer" },
+]
