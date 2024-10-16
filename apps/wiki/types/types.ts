@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { TemplateString } from "next/dist/lib/metadata/types/metadata-types"
 
 export type RouteType = {
   title: string
@@ -19,10 +20,9 @@ export type RouteDataType = {
 }
 
 export type FeatureBoxType = {
-  title: string
+  title?: null | string | TemplateString
   image?: string
   href?: string
-  onClick?: () => void
 }
 
 export type AwardType = {

@@ -18,6 +18,7 @@ export const SideMenuGroup = ({ title, items, isOpenInitially = false }: Props) 
   const [isOpen, setIsOpen] = useState<boolean>(isOpenInitially)
 
   if (!items) return null
+
   return (
     <>
       <Collapsible

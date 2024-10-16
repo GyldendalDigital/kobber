@@ -26,7 +26,7 @@ export default function FargerSection() {
         digitale tjenester. Mangfold er en av Gyldendals viktigste verdier, og det skal derfor være lett å lage
         fargekombinasjoner som oppfyller kravene til universell utforming."
       />
-      <FeatureBoxGrid items={metadata.children! as any} />
+      <FeatureBoxGrid items={metadata.children ?? []} />
     </SectionLayout>
   )
 }
