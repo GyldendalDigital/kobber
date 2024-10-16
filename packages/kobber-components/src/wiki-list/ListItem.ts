@@ -17,7 +17,7 @@ export const customElementName = "kobber-wiki-list-item";
 export class ListItem extends LitElement {
   @consume({ context: themeContext, subscribe: true })
   theme?: Theme;
-  
+
   public override connectedCallback(): void {
     super.connectedCallback();
     this.setAttribute("role", this.role ?? "menuitem");
@@ -43,7 +43,7 @@ export class ListItem extends LitElement {
 
     const component = tokens.component["wiki-list-item"];
     const typography = tokens.typography.ui;
-    const temporaryMinWidth = 200;
+    const temporaryMinWidth = 150;
 
     return css`
       :host {
@@ -58,6 +58,7 @@ export class ListItem extends LitElement {
         color: ${unsafeCSS(component.text.color)};
         font-size: ${typography["label large - single line"].fontSize}px;
         min-width: ${temporaryMinWidth}px;
+        width: 100%;
 
         .text {
           align-self: center;
