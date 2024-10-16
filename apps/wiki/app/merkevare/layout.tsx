@@ -2,11 +2,11 @@ import { PageDetails } from "@/types/types"
 import { ContentLayout, ContentShell } from "@/components/content-layout"
 import { SideMenu } from "@/components/menu/side-menu"
 import { SideMenuGroup } from "@/components/menu/side-menu-group"
-import { pageDetailsFarge } from "./farger/page"
-import { pageDetailsIkoner } from "./ikoner/page"
-import { pageDetailsLayout } from "./layout/page"
-import { pageDetailsLogo } from "./logo/page"
-import { pageDetailsTypografi } from "./typografi/page"
+import { metadata as fargerPage } from "./farger/page"
+import { metadata as merkevareIkonerPage } from "./ikoner/page"
+import { metadata as merkevareLayoutPage } from "./layout/page"
+import { metadata as merkevareLogoPage } from "./logo/page"
+import { metadata as typografiPage } from "./typografi/page"
 
 type GetStartedLayoutProps = {
   children: React.ReactNode
@@ -21,11 +21,11 @@ export default function MerkevareLayout({ children }: GetStartedLayoutProps) {
           <SideMenuGroup
             title="Verktøykassa"
             items={[
-              pageDetailsLogo,
-              pageDetailsFarge,
-              pageDetailsTypografi,
-              pageDetailsIkoner,
-              pageDetailsLayout,
+              merkevareLogoPage,
+              fargerPage,
+              typografiPage,
+              merkevareIkonerPage,
+              merkevareLayoutPage,
             ]}
             isOpenInitially
           />

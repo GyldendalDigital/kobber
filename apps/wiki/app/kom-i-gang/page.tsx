@@ -1,18 +1,13 @@
-import { pagePathname, placeholderImageUrl, documentTitle } from "@/lib/utils";
-import { PageDetails } from "@/types/types";
-import { Metadata } from "next";
-import { redirect } from "next/navigation";
+import { redirect } from "next/navigation"
+import { PageDetails } from "@/types/types"
+import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 
-export const pageDetailsKomigang: PageDetails = {
+export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Kom i gang",
   image: placeholderImageUrl({}),
-};
-
-export const metadata: Metadata = {
-  title: documentTitle(pageDetailsKomigang.title),
-};
+}
 
 export default function GetStartedPage() {
-  return redirect(`${pageDetailsKomigang.href}/introduksjon`);
+  return redirect(`${metadata.href}/introduksjon`)
 }

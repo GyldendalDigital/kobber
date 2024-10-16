@@ -1,18 +1,13 @@
-import { pagePathname, placeholderImageUrl, documentTitle } from "@/lib/utils";
-import { PageDetails } from "@/types/types";
-import { Metadata } from "next";
-import { redirect } from "next/navigation";
+import { redirect } from "next/navigation"
+import { PageDetails } from "@/types/types"
+import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 
-export const pageDetailsKomponenter: PageDetails = {
+export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Komponenter",
   image: placeholderImageUrl({}),
-};
-
-export const metadata: Metadata = {
-  title: documentTitle(pageDetailsKomponenter.title),
-};
+}
 
 export default function ComponentsPage() {
-  return redirect(`${pageDetailsKomponenter.href}/button`);
+  return redirect(`${metadata.href}/button`)
 }

@@ -1,10 +1,4 @@
-export type PageDetails = {
-  href: string
-  title: string
-  image?: string
-  status?: "kommer" | "nyhet"
-  children?: PageDetails[]
-}
+import { Metadata } from "next"
 
 export type RouteType = {
   title: string
@@ -77,4 +71,11 @@ export type TextCollectionProps = {
   ingress?: string
   size?: SizeType
   text?: string
+}
+
+export interface PageDetails extends Metadata {
+  href: string
+  image?: string
+  status?: "kommer" | "nyhet"
+  children?: PageDetails[]
 }

@@ -1,16 +1,11 @@
-import { Metadata } from "next"
 import { InformationCardType, PageDetails } from "@/types/types"
-import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { InformationCard } from "@/components/information-card"
 
-export const pageDetailsKontakt: PageDetails = {
+export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Kontakt",
   image: placeholderImageUrl({}),
-}
-
-export const metadata: Metadata = {
-  title: documentTitle(pageDetailsKontakt.title),
 }
 
 const team: InformationCardType[] = [
