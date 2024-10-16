@@ -1,5 +1,5 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import "./ListItem";
 import { consume } from "@lit/context";
 import { Theme } from "../utils/theme-context.types";
@@ -17,6 +17,7 @@ export class List extends LitElement {
   @consume({ context: themeContext, subscribe: true })
   theme?: Theme;
 
+  @property()
   direction: ListDirection = "vertical";
 
   public override connectedCallback(): void {
@@ -48,7 +49,7 @@ export class List extends LitElement {
         list-style-type: none;
         flex-direction: ${unsafeCSS(this.direction === "vertical" ? "column" : "row")};
         gap: ${component.container.gap}px;
-        padding: ${component.container.padding}px;
+        width: 100%;
       }
     `;
   };
