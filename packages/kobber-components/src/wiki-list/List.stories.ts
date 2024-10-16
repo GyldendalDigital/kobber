@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components";
 import { customElementName } from "./List";
 
 export default {
+  title: "wiki/list",
   component: customElementName,
   argTypes: {
     direction: {
@@ -47,4 +48,4 @@ export const List: StoryObj = {
 };
 
 const getNamedSlot = (icon: string) =>
-  icon === "lock" ? `<icon-lock_locked slot="icon" />` : icon === "label" ? `<small slot="icon">kommer</small>` : "";
+  icon === "lock" ? `<icon-lock_locked slot="icon" />` : icon === "label" ? `<small slot="icon" style="color:red;font-size:10px">kommer</small>` : "";
