@@ -1,22 +1,17 @@
-import { Metadata } from "next"
 import { PageDetails } from "@/types/types"
-import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
 import { Illustration } from "@/components/illustration"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 
-// export const pageDetailsMerkevareHierarki: PageDetails = {
-//   href: pagePathname(import.meta.url),
-//   title: "Merkevarehierarki",
-//   image: placeholderImageUrl({}),
-// }
-
-// export const metadata: Metadata = {
-//   title: documentTitle(pageDetailsMerkevareHierarki.title),
-//   description:
-//     "Merkevarehierarki skal sikre gjenkjennelighet for merkevaren og stå seg like godt på det analoge som på det digitale. Kombinasjonen av en leken og moderne primærfont i PP Mori, og en moderne tolkning av en klassisk serif i Lyon Display, gjør at vi forener tradisjon og innovasjon på en varm og uhøytidelig måte.",
-// }
+export const metadata: PageDetails = {
+  href: pagePathname(import.meta.url),
+  title: "Merkevarehierarki",
+  image: placeholderImageUrl({}),
+  description:
+    "Merkevarehierarki skal sikre gjenkjennelighet for merkevaren og stå seg like godt på det analoge som på det digitale. Kombinasjonen av en leken og moderne primærfont i PP Mori, og en moderne tolkning av en klassisk serif i Lyon Display, gjør at vi forener tradisjon og innovasjon på en varm og uhøytidelig måte.",
+}
 
 export default function MerkevareHeriarkiPage() {
   return (

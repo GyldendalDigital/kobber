@@ -1,6 +1,5 @@
-import { Metadata } from "next"
 import { PageDetails } from "@/types/types"
-import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
@@ -8,14 +7,10 @@ import { ButtonSection } from "./_components/button-section"
 import { InteractiveStatesSection } from "./_components/interactive-states-section"
 import { PracticeSection } from "./_components/practice-section"
 
-export const pageDetailsButton: PageDetails = {
+export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Button",
   image: placeholderImageUrl({}),
-}
-
-export const metadata: Metadata = {
-  title: documentTitle(pageDetailsButton.title),
   description:
     "En knappkomponent brukes for å utføre en bestemt handling eller trigge en hendelse. Teksten på knappen må tydelig beskrive hva som vil skje når den trykkes på.",
 }

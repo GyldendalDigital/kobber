@@ -1,17 +1,10 @@
-import { Metadata } from "next"
 import Image from "next/image"
 import { PageDetails } from "@/types/types"
-import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { BodyText } from "@/components/body-text"
 import { ContentSection } from "@/components/content-section"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
-
-export const pageDetailsLogo: PageDetails = {
-  href: pagePathname(import.meta.url),
-  title: "Logo",
-  image: placeholderImageUrl({}),
-}
 
 const gyldendalLogo =
   "https://s3-alpha-sig.figma.com/img/995f/2000/434978cf1eb4828e211090b46cf349ff?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=UYQy2rC9YVbjitRFdr736gTCsVu9bBcJZqwj5fo7LvGr06EyYxUYk7hhZIZjO2qfJB1D9ESqn09lV3JIkHmz~vTslHvlWBKAfjVZRc0BPjSBQ0DRgHkNN2SRKRgd7rnEjKjZ4uXxQrTkwhNAJj4iMDBx9Zc2MHqgQnJkyakSL4XWG9rfVuq8PKe3qhgW4Q1uAJzFFzyJlGbRkTC967aAe2X5Ss9~lMYsT1oXK3c6MnmS9fEjwkggMyfW5fRtySPNnkiZPtO4YZtnotT6Ns08OFaJ0K4xkchxKxMwV0JSTAqy2w5JQr3qfbJiGuGW2hS55tIqTKbS-XUTHJ4XvEYr-w__"
@@ -19,8 +12,10 @@ const gyldendalLogo =
 const fourGyldendalLogos =
   "https://s3-alpha-sig.figma.com/img/b7e8/cee9/e0da053d9ddfd63ffd5972cf37ec8501?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TNO~MlokOcKmPd7~fDHahGwHiV5NCN5APvQ47HJzTsYmFAYHtBIbHUb-Oe8GPmS5EqV4ZZNHG54TYNRfW4MmHhMwfn6VShEGh5ObbxPNH1ZLfMEYeguE0THa7ff-V3sLPWqY4aVnmp-glE2qtOYPWq4AX4FNpULLct3CynfrBvRYy9WNAoaxhWlSmSV2ejeLizu2ovIIgqmYUHAN23x-S-TGQCwiLhp0S3mcu6efBOrzX4QFx-QY5AyxQ1H0dGJkXEuiX7LuO0Qtw~SeP1j-stK0obPNXSP8YQYMUd~KowM0LZ23Oij-JdX2rgJ13dXR69HR3Vhfrn4RsRFdwlCmOw__"
 
-export const metadata: Metadata = {
-  title: documentTitle(pageDetailsLogo.title),
+export const metadata: PageDetails = {
+  href: pagePathname(import.meta.url),
+  title: "Logo",
+  image: placeholderImageUrl({}),
   description:
     "Logo er et viktig element i Gyldendal sin profil og er med på å danne kjennskap til merkevaren. Nivåene i merkevarearkitekturen reflekteres i logostrukturen. Å følge prinsippene og retningslinjene for logobruk er nødvendig for å beholde integriteten til logoene i alle typer kontekster.",
 }
@@ -29,7 +24,7 @@ export default function Page() {
   return (
     <SectionLayout>
       <TextCollection
-        heading={pageDetailsLogo.title}
+        heading={metadata.title as string}
         ingress="Logo er et viktig element i Gyldendal sin profil og er med på å danne kjennskap til merkevaren. Nivåene i merkevarearkitekturen reflekteres i logostrukturen. Å følge prinsippene og retningslinjene for logobruk er nødvendig for å beholde integriteten til logoene i alle typer kontekster."
       />
 

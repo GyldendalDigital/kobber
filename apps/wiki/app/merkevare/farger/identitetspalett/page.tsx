@@ -1,7 +1,6 @@
-import { Metadata } from "next"
 import { IdentityColors } from "@/data/color-palettes"
 import { PageDetails } from "@/types/types"
-import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ColorBlockGridItem } from "@/components/color-block-grid-item"
 import { ContentSection } from "@/components/content-section"
@@ -9,14 +8,11 @@ import { Illustration } from "@/components/illustration"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 
-export const pageDetailsIdentitet: PageDetails = {
+export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Identitetspalett",
-  image: placeholderImageUrl({}),
-}
-
-export const metadata: Metadata = {
-  title: documentTitle(pageDetailsIdentitet.title),
+  image:
+    "https://s3-alpha-sig.figma.com/img/0279/ca05/b7605ba9a77fb36d5104c4066cccadcb?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=a7rQ5SsaI5oh6M7k2vP7jdNVnzFn5DSdgL~FUQCOLyR0lZXRlc8fociOk6xrfLogZiRYUxgqR9uerOBpU5LzhEsuP1RH~3mUw5yoxj3Uhcfl3Hrsf2YNaoQzVYFguaeKfhnAzpvhXCwnuj1j575mI3WCrQOYqT~WkxO0gUvLqoEgOf3b5aGZnPpyE-Anp55MJcoHjBAhCTc8NgNNQEzUXncmHvBjPyBG5cGvJNy6DGz8pMvNp0cUdbSg0rBvwIt57eMJVcXPJQG5GJKIErP70Qo1ipRGjCUDxhyf0CVpgXOsmoJ1Ff97Mmadygu0z7uFoL7xzETKC3GBBz9LMtQ8~Q__",
   description:
     "Dette er vår identitetspalett, som består av de mest brukte fargene for å etablere Gyldendals stiluttrykk. Markedsføring forholder seg alltid til denne paletten, samtidig som utvidede paletter er tilgjengelige for designere av brukergrensesnitt og bokmalverk.",
 }

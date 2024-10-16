@@ -1,23 +1,18 @@
 import { FunctionComponent } from "react"
-import { Metadata } from "next"
 import Image from "next/image"
 import s from "@/assets/brand/Layout/layout_grid.svg"
 import { semantics } from "@gyldendal/kobber-base/themes/default/tokens"
 import { PageDetails } from "@/types/types"
-import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { Ingress } from "@/components/ingress"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
 import { TextCollection } from "@/components/text-collection"
 
-export const pageDetailsGrid: PageDetails = {
+export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Grid",
   image: placeholderImageUrl({}),
-}
-
-export const metadata: Metadata = {
-  title: documentTitle(pageDetailsGrid.title),
   description:
     "Vi har definert en layout grid slik at våre løsninger skal fungere godt på alle skjermbredder og ha et helhetlig oppsett. Griden følger reglene for riktig spacing for å plassere elementer med jevn rytme, riktig hierarki og med god bruk av luft.",
 }
