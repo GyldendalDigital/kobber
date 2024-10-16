@@ -17,10 +17,10 @@ export const customElementName = "kobber-wiki-list-item";
 export class ListItem extends LitElement {
   @consume({ context: themeContext, subscribe: true })
   theme?: Theme;
-
+  
   public override connectedCallback(): void {
     super.connectedCallback();
-    this.setAttribute("role", "menuitem");
+    this.setAttribute("role", this.role ?? "menuitem");
     this.setAttribute("direction", this.parentElement?.getAttribute("direction") ?? "vertical");
   }
 

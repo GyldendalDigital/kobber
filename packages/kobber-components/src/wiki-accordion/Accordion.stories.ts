@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components";
 import { customElementName } from "./Accordion";
 
 export default {
+  title: "wiki/accordion",
   component: customElementName,
   argTypes: {
     title: {
@@ -27,6 +28,9 @@ export default {
 } satisfies Meta;
 
 export const Accordion: StoryObj = {
+  parameters: {
+    layout: "none",
+  },
   args: {
     title: "Title",
     itemTextPrefix: "Item",
@@ -46,4 +50,8 @@ export const Accordion: StoryObj = {
 };
 
 const getNamedSlot = (icon: string) =>
-  icon === "lock" ? `<icon-lock_locked slot="icon" />` : icon === "label" ? `<small slot="icon">kommer</small>` : "";
+  icon === "lock"
+    ? `<icon-lock_locked slot="icon" />`
+    : icon === "label"
+      ? `<small slot="icon" style="color:red">kommer</small>`
+      : "";
