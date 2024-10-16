@@ -1,5 +1,5 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import "../list/List";
 import "../list/ListItem";
 import { consume } from "@lit/context";
@@ -16,36 +16,42 @@ export class List extends LitElement {
   @consume({ context: themeContext, subscribe: true })
   theme?: Theme;
 
+  @property()
   expanded = false;
 
-  public override connectedCallback(): void {
-    super.connectedCallback();
-    this.setAttribute("role", "menu");
-  }
-
   toggle() {
-    console.log(this.shadowRoot);
-    const listElement = this.shadowRoot.querySelector("kobber-wiki-list");
-    if (!listElement) {
-      console.debug("no list found");
-      return;
-    }
-
-    listElement.classList.toggle("open");
-    console.log(listElement);
+    this.expanded = !this.expanded;
   }
 
-  render() {
-    return html` <style>
+  handleKeyDown(event: KeyboardEvent) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      this.toggle();
+    }
+  }
+
+  override render() {
+    return html`
+      <style>
         ${this.themedStyles()}
       </style>
-      <div class="accordion-container">
-        /*bruk wiki item som toggle?*/
-        <div class="accordion-toggle" @click=${this.toggle}>${this.title}</div>
-        <kobber-wiki-list>
+
+      <div class="accordion" tabindex="0" @keypress="${this.handleKeyDown}">
+        <kobber-wiki-list-item
+          role="button"
+          aria-expanded="${this.expanded}"
+          aria-controls="content-${this.id}"
+          @click="${this.toggle}"
+          >${this.title}
+          ${this.expanded
+            ? html`<icon-chevron_up slot="icon" />`
+            : html`<icon-chevron_down slot="icon" />`}</kobber-wiki-list-item
+        >
+        <div id="content-${this.id}" class="accordion-content" aria-hidden="${!this.expanded}">
           <slot></slot>
-        </kobber-wiki-list>
-      </div>`;
+        </div>
+      </div>
+    `;
   }
 
   themedStyles = () => {
@@ -55,22 +61,27 @@ export class List extends LitElement {
       return css``;
     }
 
-    const component = tokens.component["wiki-side-menu"];
+    const component = tokens.component["wiki-list-item"];
 
     return css`
-      .accordion-container {
-        display: flex;
-        flex-direction: row;
-        cursor: pointer;
-        gap: ${component.container.gap}px;
-        padding: ${component.container.padding}px;
+      .accordion {
+        --icon-width: 16px;
+        border-radius: ${component.container.border.radius}px;
       }
 
-      kobber-wiki-list {
-        display: none;
+      .accordion-content {
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        max-height: 1000px;
       }
-      kobber-wiki-list.open {
-        display: block;
+
+      .accordion-content[aria-hidden="true"] {
+        max-height: 0;
+      }
+
+      .accordion:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 ${tokens.global.focus.border.width}px ${unsafeCSS(tokens.global.focus.color)};
       }
     `;
   };
