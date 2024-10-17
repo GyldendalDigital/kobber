@@ -9,7 +9,6 @@ import { exampleIrregular, exampleRegular, miniExample } from "./story/example";
 
 interface Args {
   hasManyItems: boolean;
-  clickMovesFullWidth: boolean;
 }
 
 const meta: Meta<Args> = {
@@ -17,7 +16,6 @@ const meta: Meta<Args> = {
   tags: ["autodocs"],
   args: {
     hasManyItems: true,
-    clickMovesFullWidth: true,
   },
   decorators: [(story, storyContext) => html`<div class="${storyContext.globals.theme}">${story()}</div>`],
 };
@@ -38,11 +36,7 @@ export const CarouselStory: StoryObj<Args> = {
   render: args => html`
     ${styles}
     <div class="demo">
-      ${args.clickMovesFullWidth
-        ? html`<kobber-carousel click-moves-full-width>
-            ${args.hasManyItems ? exampleRegular : miniExample}
-          </kobber-carousel>`
-        : html`<kobber-carousel> ${args.hasManyItems ? exampleRegular : miniExample} </kobber-carousel>`}
+      <kobber-carousel> ${args.hasManyItems ? exampleRegular : miniExample} </kobber-carousel>
     </div>
   `,
   decorators: [story => html`${globalStyles}${story()}`],
@@ -54,11 +48,7 @@ export const IrregularCarouselStory: StoryObj<Args> = {
   render: args => html`
     ${styles}
     <div class="demo">
-      ${args.clickMovesFullWidth
-        ? html`<kobber-carousel click-moves-full-width>
-            ${args.hasManyItems ? exampleIrregular : miniExample}
-          </kobber-carousel>`
-        : html`<kobber-carousel> ${args.hasManyItems ? exampleIrregular : miniExample} </kobber-carousel>`}
+      <kobber-carousel> ${args.hasManyItems ? exampleIrregular : miniExample} </kobber-carousel>
     </div>
   `,
   decorators: [story => html`${globalStyles}${story()}`],

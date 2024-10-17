@@ -10,10 +10,6 @@ export class Carousel extends StyledLitElement {
   @property({ attribute: "aria-role-description" })
   ariaRoleDescription = "Karusell";
 
-  /** Whether to move items one by one, or full width. */
-  @property({ type: Boolean, attribute: "click-moves-full-width" })
-  clickMovesFullWidth = false;
-
   @state()
   private _previousButtonDisabled = true;
 
@@ -40,9 +36,6 @@ export class Carousel extends StyledLitElement {
 
   @state()
   private _getItemShrinkWidthCalcBase = () => (this._getTooFewItems() ? "50%" : "78%");
-
-  @state()
-  private _currentlyIntersecting: IntersectionObserverEntry[] = [];
 
   @queryAssignedElements() _elementsContainer!: Array<HTMLElement>;
 
@@ -80,14 +73,7 @@ export class Carousel extends StyledLitElement {
     const allItemsObserver = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
-          let indexInList;
-          if (!this.clickMovesFullWidth) {
-            indexInList = Array.from(elementList).indexOf(entry.target);
-          }
           if (entry.isIntersecting) {
-            if (!this.clickMovesFullWidth && indexInList) {
-              this._currentlyIntersecting[indexInList] = entry;
-            }
             entry.target.classList.add("active");
             entry.target.setAttribute("aria-hidden", "false");
             entry.target.removeAttribute("tabindex");
