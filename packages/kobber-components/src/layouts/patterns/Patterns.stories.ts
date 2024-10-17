@@ -5,7 +5,7 @@ import { html } from "lit";
 import "../box-layout/BoxLayout";
 import { example as cardLayoutExample } from "../card-layout/story/example";
 import "../story/ExampleSurface";
-import { globalStyles } from "../story/globalStyles";
+import { globalStyles } from "../../story/globalStyles";
 
 interface Args {}
 
