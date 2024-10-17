@@ -10,7 +10,7 @@ import { example } from "./story/example";
 import { example6columns } from "./story/example6columns";
 import { renderIndicators } from "./story/renderIndicators";
 import Wiki from "./CardLayoutWiki.mdx";
-import { globalStyles } from "../story/globalStyles";
+import { globalStyles } from "../../story/globalStyles";
 
 interface Args {
   overrideContainerWidth: boolean;

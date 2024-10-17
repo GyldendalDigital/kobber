@@ -11,6 +11,7 @@ interface Args {}
 
 const meta: Meta<Args> = {
   component: "Patterns",
+  decorators: [(story, storyContext) => html`<div class="${storyContext.globals.theme}">${story()}</div>`],
 };
 
 export default meta;
