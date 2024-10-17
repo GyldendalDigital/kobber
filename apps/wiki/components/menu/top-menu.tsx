@@ -2,17 +2,10 @@ import { cn } from "@/lib/utils"
 import { metadata as komigangPage } from "@/app/kom-i-gang/page"
 import { metadata as komponenterPage } from "@/app/komponenter/page"
 import { metadata as kontaktPage } from "@/app/kontakt/page"
-import { metadata as merkevarehierarkiPage } from "@/app/merkevare/merkevarehierarki/page"
 import { metadata as merkevarePage } from "@/app/merkevare/page"
 import { MenuNavigation } from "../menu-navigation"
 
-const pageDetailsArray = [
-  komigangPage,
-  merkevarehierarkiPage,
-  merkevarePage,
-  komponenterPage,
-  kontaktPage,
-]
+const pageDetailsArray = [komigangPage, merkevarePage, komponenterPage, kontaktPage]
 
 export function TopMenu() {
   return (

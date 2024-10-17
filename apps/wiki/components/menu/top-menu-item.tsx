@@ -11,7 +11,7 @@ type TopMenuItemProps = {
   page: PageDetails
 }
 
-export function TopMenuItem({ className, page: { title, href } }: TopMenuItemProps) {
+export function TopMenuItem({ className, page: { title, href, disabled } }: TopMenuItemProps) {
   const pathName = usePathname()
 
   return (
@@ -22,9 +22,10 @@ export function TopMenuItem({ className, page: { title, href } }: TopMenuItemPro
           className,
           {
             underline: pathName && isOnPath(pathName, href),
+            "cursor-not-allowed opacity-50 hover:no-underline": disabled,
           }
         )}
-        href={href}
+        href={disabled ? "#" : href}
       >
         {title as string}
       </Link>

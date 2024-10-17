@@ -47,6 +47,4 @@ const temporaryTemplateRoutes: PageDetails[] = [
   { href: "#", title: "Powerpoint", status: "kommer" },
   { href: "#", title: "Word", status: "kommer" },
   { href: "#", title: "E-post signatur", status: "kommer" },
-  { href: "#", title: "Visittkort", status: "kommer" },
-  { href: "#", title: "Nyhetsbrev", status: "kommer" },
 ]

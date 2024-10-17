@@ -32,7 +32,7 @@ export function MenuNavigation({ pages }: MenuNavigationProps) {
       <Link
         href="/"
         className={cn("text-primary-title-s font-medium text-text/color/primary/title-s", {
-          "text-white": isLandingPage,
+          "text-white hover:decoration-white": isLandingPage,
         })}
       >
         {APP_NAME}

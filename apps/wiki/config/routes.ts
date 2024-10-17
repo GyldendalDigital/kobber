@@ -1,8 +1,8 @@
-import { RouteType, SideMenuBarType } from "@/types/types";
+import { RouteType, SideMenuBarType } from "@/types/types"
 
-export const GET_STARTED_URL = "/kom-i-gang";
-export const COMPONENTS_URL = "/komponenter";
-export const BRANDING_URL = "/merkevare";
+export const GET_STARTED_URL = "/kom-i-gang"
+export const COMPONENTS_URL = "/komponenter"
+export const BRANDING_URL = "/merkevare"
 
 export const getStartedRoutes: RouteType[] = [
   {
@@ -29,7 +29,7 @@ export const getStartedRoutes: RouteType[] = [
     title: "Tilgjengelighet",
     slug: `${GET_STARTED_URL}/tilgjengelighet`,
   },
-];
+]
 export const mainRoutes: RouteType[] = [
   {
     title: "Kom i gang",
@@ -47,7 +47,7 @@ export const mainRoutes: RouteType[] = [
     title: "Kontakt",
     slug: "/kontakt",
   },
-];
+]
 
 export const ComponentsRoutes: SideMenuBarType[] = [
   {
@@ -152,7 +152,7 @@ export const ComponentsRoutes: SideMenuBarType[] = [
       },
     ],
   },
-];
+]
 
 export const VareMerkeRoutes: SideMenuBarType[] = [
   {
@@ -261,17 +261,9 @@ export const VareMerkeRoutes: SideMenuBarType[] = [
         title: "E-post signatur",
         slug: `${BRANDING_URL}/e-post-signatur`,
       },
-      {
-        title: "Visitkort",
-        slug: `${BRANDING_URL}/visitkort`,
-      },
-      {
-        title: "Nyhetsbrev",
-        slug: `${BRANDING_URL}/nyhetsbrev`,
-      },
     ],
   },
-];
+]
 
 // export const componentsRoutes: RouteType[] = [
 // 	{
