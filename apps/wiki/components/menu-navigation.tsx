@@ -32,7 +32,7 @@ export function MenuNavigation({ pages }: MenuNavigationProps) {
       <Link
         href="/"
         className={cn("text-primary-title-s font-medium text-text/color/primary/title-s", {
-          "text-white hover:decoration-white": isLandingPage,
+          "text-white": isLandingPage,
         })}
       >
         {APP_NAME}
@@ -44,7 +44,7 @@ export function MenuNavigation({ pages }: MenuNavigationProps) {
           })}
         >
           {pages.map((item) => (
-            <TopMenuItem key={item.href} page={item} />
+            <TopMenuItem key={item.href} page={item} isLandingPage={isLandingPage} />
           ))}
         </ul>
 
