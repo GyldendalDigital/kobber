@@ -16,6 +16,9 @@ export class HorizontalLayout extends StyledLitElement {
       --padding: 1rem;
       display: flex;
       justify-content: start; /* Applicable when one or few items */
+      position: relative; /* For positioning on prev/next click */
+      left: var(--scrolled-to-left);
+      transition: left 0.5s;
     }
 
     ::slotted(kobber-horizontal-layout-column) {
