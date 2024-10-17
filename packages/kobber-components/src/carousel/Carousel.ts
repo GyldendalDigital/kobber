@@ -1,13 +1,29 @@
 import { ResizeController } from "@lit-labs/observers/resize-controller.js";
 import { css, html, unsafeCSS } from "lit";
-import { customElement, property, queryAssignedElements } from "lit/decorators.js";
+import { customElement, property, queryAssignedElements, state } from "lit/decorators.js";
 import { gap, minCardWidth } from "./config";
 import { StyledLitElement } from "../utils/StyledLitElement";
+import "./NavigationButtons";
 
 @customElement("kobber-carousel")
 export class Carousel extends StyledLitElement {
   @property({ attribute: "aria-role-description" })
   ariaRoleDescription = "Karusell";
+
+  @state()
+  private _previousButtonDisabled = true;
+
+  @state()
+  private _nextButtonDisabled = true;
+
+  @state()
+  private _scrolledToLeft = 0;
+
+  @state()
+  private _widthToScroll = 0;
+
+  @state()
+  private _carouselFullWidth = 0;
 
   @state()
   private _numberOfChildren: number;
@@ -21,6 +37,9 @@ export class Carousel extends StyledLitElement {
   @state()
   private _getItemShrinkWidthCalcBase = () => (this._getTooFewItems() ? "50%" : "78%");
 
+  @state()
+  private _currentlyIntersecting: IntersectionObserverEntry[] = [];
+
   @queryAssignedElements() _elementsContainer!: Array<HTMLElement>;
 
   private _resizeController = new ResizeController(this, {
@@ -28,7 +47,27 @@ export class Carousel extends StyledLitElement {
   });
 
   firstUpdated() {
+    const body = document.querySelector("body");
+    if (body) {
+      body.style.overflowX = "hidden";
+    }
+
+    this._widthToScroll = this._getHostWidth();
+
     this._observeAllItemsForTeaserWidth();
+
+    this._observeSingleItemWithCallback(this._elementsContainer[0].children[0], () => {
+      this._previousButtonDisabled = true;
+      this._nextButtonDisabled = false;
+    });
+
+    this._observeSingleItemWithCallback(
+      this._elementsContainer[0].children[this._elementsContainer[0].children.length - 1],
+      () => {
+        this._previousButtonDisabled = false;
+        this._nextButtonDisabled = true;
+      },
+    );
   }
 
   private _observeAllItemsForTeaserWidth = () => {
@@ -54,6 +93,21 @@ export class Carousel extends StyledLitElement {
     for (let i = 0; i < elementList.length; i++) {
       allItemsObserver.observe(elementList[i]);
     }
+  };
+
+  private _observeSingleItemWithCallback = (item: Element, callback: () => void) => {
+    const io = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.intersectionRatio === 1) {
+            callback();
+          }
+        });
+      },
+      { threshold: 1 },
+    );
+
+    io.observe(item);
   };
 
   private _getHostWidth = () => {
@@ -93,6 +147,36 @@ export class Carousel extends StyledLitElement {
     return 6;
   };
 
+  private _handlePreviousClick = () => {
+    const newScrolledToLeftValue = this._scrolledToLeft - this._widthToScroll;
+    const minMovedToLeftValue = 0;
+    if (newScrolledToLeftValue < minMovedToLeftValue) {
+      this._scrolledToLeft = minMovedToLeftValue;
+    } else {
+      this._scrolledToLeft = newScrolledToLeftValue;
+    }
+    this._nextButtonDisabled = false;
+  };
+
+  private _handleNextClick = () => {
+    const maxScrolledToLeftValue = this._carouselFullWidth - this._widthToScroll;
+    const newScrolledToLeftValue = this._scrolledToLeft + this._widthToScroll;
+
+    if (newScrolledToLeftValue > maxScrolledToLeftValue) {
+      this._scrolledToLeft = maxScrolledToLeftValue;
+    } else {
+      this._scrolledToLeft = newScrolledToLeftValue;
+    }
+    this._previousButtonDisabled = false;
+  };
+
+  private _handleSlotchange = (e: { target: { assignedElements: () => any } }) => {
+    const childNodes = e.target.assignedElements();
+    this._numberOfChildren = childNodes[0].children.length;
+    const carousel = this.shadowRoot?.querySelector(".carousel");
+    this._carouselFullWidth = carousel!.scrollWidth;
+  };
+
   static styles = css`
     :host {
       box-sizing: border-box;
@@ -117,6 +201,28 @@ export class Carousel extends StyledLitElement {
       min-width: calc(${minCardWidth / 16}rem + (2 * ${unsafeCSS(gap)}));
       max-width: 86rem;
     }
+
+    .carousel:before {
+      position: absolute;
+      z-index: 1; /* More than 0 to show, less than 2 to let previous button be clickable. */
+      top: 0;
+      right: 100%;
+      bottom: -1em;
+      left: -100%;
+      content: "";
+      backdrop-filter: grayscale(1);
+    }
+
+    .carousel:after {
+      position: absolute;
+      z-index: 0; /* More than -1 to show, less than 1 to let previous button be clickable. */
+      top: 0;
+      right: -100%;
+      bottom: 0;
+      left: 100%;
+      content: "";
+      backdrop-filter: grayscale(1);
+    }
   `;
 
   render = () => html`
@@ -129,9 +235,19 @@ export class Carousel extends StyledLitElement {
           --horizontal-layout-column-shrink: ${this._getItemShrinkValue()};
           --horizontal-layout-column-width-calc-base: ${this._getItemShrinkWidthCalcBase()};
           --max-span: ${this._getMaxSpans()}; 
+          --scrolled-to-left: -${this._scrolledToLeft}px;
         "
       >
-        <slot></slot>
+        <slot @slotchange=${this._handleSlotchange}></slot>
+        ${this._getTooFewItems()
+          ? html``
+          : html`<kobber-carousel-navigation-buttons
+              previous-button-disabled="${this._previousButtonDisabled}"
+              .handlePreviousClick="${this._handlePreviousClick}"
+              next-button-disabled="${this._nextButtonDisabled}"
+              .handleNextClick="${this._handleNextClick}"
+            >
+            </kobber-carousel-navigation-buttons>`}
       </div>
     </div>
   `;
