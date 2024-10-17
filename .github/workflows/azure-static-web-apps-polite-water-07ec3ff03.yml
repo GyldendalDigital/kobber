@@ -19,10 +19,13 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
     steps:
+      - name: test
+        run: echo ${{ vars.TURBO_TEAM }}
+
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup
+      - name: Setup install
         run: corepack enable
 
       - name: Install
@@ -31,6 +34,9 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Setup test
+        run: npx playwright install --with-deps chromium
+
       - name: Test
         run: yarn test
 
@@ -38,7 +44,7 @@ jobs:
     # removed PR feature branch deploy: || (github.event_name == 'pull_request' && github.event.action != 'closed')
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
+    name: Build and deploy
     steps:
       - uses: actions/checkout@v3
         with:
