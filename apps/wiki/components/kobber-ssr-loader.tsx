@@ -1,7 +1,6 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { ChevronDown, ChevronUp } from "@gyldendal/kobber-icons/web-components"
 
 /**
  * Gave up trying to use web components on the server, after many failed attempts.
@@ -70,11 +69,4 @@ export const KobberListItem = dynamic(
 )
 
 /** Why isn't this happening automatically in kobber-icons? */
-var ChevronDownName = "icon-chevron_down"
-if (!customElements.get(ChevronDownName)) {
-  customElements.define(ChevronDownName, ChevronDown)
-}
-var ChevronUpName = "icon-chevron_up"
-if (!customElements.get(ChevronUpName)) {
-  customElements.define(ChevronUpName, ChevronUp)
-}
+export const defineCustomElementIcons = () => import("@gyldendal/kobber-icons/web-components")
