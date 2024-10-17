@@ -9,9 +9,14 @@ import { cn } from "@/lib/utils"
 type TopMenuItemProps = {
   className?: string
   page: PageDetails
+  isLandingPage?: boolean
 }
 
-export function TopMenuItem({ className, page: { title, href, disabled } }: TopMenuItemProps) {
+export function TopMenuItem({
+  isLandingPage,
+  className,
+  page: { title, href, disabled },
+}: TopMenuItemProps) {
   const pathName = usePathname()
 
   return (
@@ -23,6 +28,7 @@ export function TopMenuItem({ className, page: { title, href, disabled } }: TopM
           {
             underline: pathName && isOnPath(pathName, href),
             "cursor-not-allowed opacity-50 hover:no-underline": disabled,
+            "decoration-white": isLandingPage,
           }
         )}
         href={disabled ? "#" : href}
