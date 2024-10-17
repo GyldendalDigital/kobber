@@ -1,7 +1,13 @@
 "use client"
 
+import { useEffect } from "react"
 import { PageDetails } from "@/types/types"
-import { KobberAccordion, KobberDivider, KobberList } from "../kobber-ssr-loader"
+import {
+  defineCustomElementIcons,
+  KobberAccordion,
+  KobberDivider,
+  KobberList,
+} from "../kobber-ssr-loader"
 import { SideMenuItem } from "./side-menu-item"
 
 type Props = {
@@ -11,14 +17,19 @@ type Props = {
 }
 
 export const SideMenuGroup = ({ title, items, isOpenInitially = false }: Props) => {
+  useEffect(() => {
+    // needed for chevrons inside accordion component
+    defineCustomElementIcons()
+  }, [])
+
   if (!items) return null
 
   return (
     <>
       <KobberAccordion title={title} expanded={isOpenInitially}>
         <KobberList direction="vertical">
-          {items.map((item) => (
-            <SideMenuItem key={item.href} {...item} />
+          {items.map((item, i) => (
+            <SideMenuItem key={item.href + i} {...item} />
           ))}
         </KobberList>
       </KobberAccordion>

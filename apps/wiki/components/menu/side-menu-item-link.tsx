@@ -11,7 +11,12 @@ export const SideMenuItemLink = (item: PageDetails) => {
 
   return (
     <Link role="menuitem" href={item.status !== "kommer" && item.href ? item.href : "#"}>
-      <KobberListItem disabled={item.status === "kommer"} active={item.href === pathname}>
+      <KobberListItem
+        {...{
+          disabled: item.status === "kommer" ? "" : undefined,
+          active: item.href === pathname ? "" : undefined,
+        }}
+      >
         {item.title as string}
 
         {/* Temporary label */}
