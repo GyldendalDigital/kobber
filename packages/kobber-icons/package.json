@@ -15,7 +15,7 @@
     "lint:css": "stylelint ./src/**/*.css",
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
-    "test": "web-test-runner",
+    "test": "node ./src/icons.test.js",
     "svg": "svg-sprite --config svg-sprite-config.json src/assets/svgs/**/*.svg",
     "build": "yarn svg && tsup"
   },
@@ -33,7 +33,6 @@
     "@types/react": "18.3.6",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
-    "@web/dev-server-esbuild": "^1.0.2",
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-turbo": "^1.11.1",
