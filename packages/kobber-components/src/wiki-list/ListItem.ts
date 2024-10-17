@@ -1,5 +1,5 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import { consume } from "@lit/context";
 import { Theme } from "../utils/theme-context.types";
 import { themeContext } from "../utils/theme-context";
@@ -10,18 +10,30 @@ export const customElementName = "kobber-wiki-list-item";
  * Used as a child of the `kobber-list` component.
  *
  * Inherits the `direction` attribute from the parent.
- *
- * @todo handle disabled state
  */
 @customElement(customElementName)
 export class ListItem extends LitElement {
   @consume({ context: themeContext, subscribe: true })
   theme?: Theme;
 
+  @property()
+  active: boolean;
+
+  @property()
+  disabled: boolean;
+
   public override connectedCallback(): void {
     super.connectedCallback();
-    this.setAttribute("role", this.role ?? "menuitem");
-    this.setAttribute("direction", this.parentElement?.getAttribute("direction") ?? "vertical");
+
+    const role = this.role ?? (this.parentElement?.getAttribute("role") === "menu" ? "menuitem" : null);
+    if (role) {
+      this.setAttribute("role", role);
+    }
+
+    const direction = this.parentElement?.getAttribute("direction");
+    if (direction) {
+      this.setAttribute("direction", direction);
+    }
   }
 
   render() {
@@ -43,7 +55,6 @@ export class ListItem extends LitElement {
 
     const component = tokens.component["wiki-list-item"];
     const typography = tokens.typography.ui;
-    const temporaryMinWidth = 150;
 
     return css`
       :host {
@@ -57,8 +68,6 @@ export class ListItem extends LitElement {
         border-radius: ${component.container.border.radius}px;
         color: ${unsafeCSS(component.text.color)};
         font-size: ${typography["label large - single line"].fontSize}px;
-        min-width: ${temporaryMinWidth}px;
-        width: 100%;
 
         .text {
           align-self: center;
@@ -66,15 +75,24 @@ export class ListItem extends LitElement {
         }
       }
 
+      :host([active]) {
+        .text {
+          box-shadow: 0 ${component["border-bottom"].width.active}px 0 0
+            ${unsafeCSS(component["border-bottom"].color.active)};
+        }
+      }
+
+      :host([disabled]) {
+        pointer-events: none;
+        opacity: 0.7;
+      }
+
       :host(:hover) {
         background-color: ${unsafeCSS(component.background.color.hover)};
       }
 
       :host(:active) {
-        .text {
-          box-shadow: 0 ${component["border-bottom"].width.active}px 0 0
-            ${unsafeCSS(component["border-bottom"].color.active)};
-        }
+        /* on click effect? */
       }
 
       :host(:focus-visible) {
@@ -84,7 +102,7 @@ export class ListItem extends LitElement {
 
       ::slotted([slot="icon"]) {
         color: ${unsafeCSS(component.icon.color)};
-        --icon-width: 16px;
+        --icon-width: ${typography["label large - single line"].fontSize}px;
       }
     `;
   }

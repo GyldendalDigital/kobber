@@ -1,7 +1,7 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import "../list/List";
-import "../list/ListItem";
+import "../wiki-list/List";
+import "../wiki-list/ListItem";
 import { consume } from "@lit/context";
 import { Theme } from "../utils/theme-context.types";
 import { themeContext } from "../utils/theme-context";
@@ -31,6 +31,7 @@ export class Accordion extends LitElement {
   }
 
   override render() {
+    const dateNowAsElementId = new Date().toISOString();
     return html`
       <style>
         ${this.themedStyles()}
@@ -41,14 +42,14 @@ export class Accordion extends LitElement {
           class="accordion-toggle-button"
           role="button"
           aria-expanded="${this.expanded}"
-          aria-controls="content-${this.id}"
+          aria-controls="content-${dateNowAsElementId}"
           @click="${this.toggle}"
           >${this.title}
           ${this.expanded
             ? html`<icon-chevron_up slot="icon" />`
             : html`<icon-chevron_down slot="icon" />`}</kobber-wiki-list-item
         >
-        <div id="content-${this.id}" class="accordion-content" aria-hidden="${!this.expanded}">
+        <div id="content-${dateNowAsElementId}" class="accordion-content" aria-hidden="${!this.expanded}">
           <slot></slot>
         </div>
       </div>

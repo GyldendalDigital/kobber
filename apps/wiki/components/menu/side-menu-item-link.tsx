@@ -2,31 +2,28 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { isOnPath } from "@/utils/is-on-path"
 import { PageDetails } from "@/types/types"
 import { cn } from "@/lib/utils"
+import { KobberListItem } from "../kobber-ssr-loader"
 
-export const SideMenuItemLink = ({ href, title, status }: PageDetails) => {
+export const SideMenuItemLink = (item: PageDetails) => {
   const pathname = usePathname()
-  const isComing = status === "kommer"
 
   return (
-    <Link
-      href={isComing ? "#" : href}
-      className={cn(
-        "line-clamp-1 flex h-48 max-w-[250px] items-center justify-between gap-8 overflow-hidden rounded-8 hover:bg-aubergine-50",
-        {
-          "underline decoration-wine-750 underline-offset-4": pathname && isOnPath(pathname, href),
-          "opacity-50 hover:bg-transparent": isComing,
-        }
-      )}
-    >
-      <span className="mx-4 line-clamp-1 text-primary-body text-text/color/action-item/button">
-        {title as string}
-      </span>
-      {status && (
-        <span className="text-primary-label-s text-text/color/secondary/display-s">{status}</span>
-      )}
+    <Link role="menuitem" href={item.status !== "kommer" && item.href ? item.href : "#"}>
+      <KobberListItem disabled={item.status === "kommer"} active={item.href === pathname}>
+        {item.title as string}
+
+        {/* Temporary label */}
+        {item.status ? (
+          <small
+            slot="icon"
+            className={cn("text-button/background/color/carmine/main/primary/fallback")}
+          >
+            {item.status}
+          </small>
+        ) : null}
+      </KobberListItem>
     </Link>
   )
 }

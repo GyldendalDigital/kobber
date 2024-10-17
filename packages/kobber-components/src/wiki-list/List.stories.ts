@@ -19,6 +19,12 @@ export default {
       options: ["none", "lock", "label"],
       control: { type: "select" },
     },
+    active: {
+      control: { type: "boolean" },
+    },
+    disabled: {
+      control: { type: "boolean" },
+    },
   },
   decorators: [
     (Story, context) => `
@@ -34,18 +40,26 @@ export const List: StoryObj = {
     itemTextPrefix: "Item",
     itemCount: 3,
     icon: "none",
+    active: false,
+    disabled: false,
   },
   render: args => `
-    <kobber-wiki-list direction=${args.direction}>
-      ${[...Array(args.itemCount).keys()]
-        .map(
-          i =>
-            `<kobber-wiki-list-item>${args.itemTextPrefix} ${i + 1} ${getNamedSlot(args.icon)}</kobber-wiki-list-item>`,
-        )
-        .join("")}
-    </kobber-wiki-list>
+    <div style="width: 200px">
+      <kobber-wiki-list direction=${args.direction}>
+        ${[...Array(args.itemCount).keys()]
+          .map(
+            i =>
+              `<kobber-wiki-list-item ${args.active ? "active" : ""} ${args.disabled ? "disabled" : ""}>${args.itemTextPrefix} ${i + 1} ${getNamedSlot(args.icon)}</kobber-wiki-list-item>`,
+          )
+          .join("")}
+      </kobber-wiki-list>
+    </div>
   `,
 };
 
 const getNamedSlot = (icon: string) =>
-  icon === "lock" ? `<icon-lock_locked slot="icon" />` : icon === "label" ? `<small slot="icon" style="color:red;font-size:10px">kommer</small>` : "";
+  icon === "lock"
+    ? `<icon-lock_locked slot="icon" />`
+    : icon === "label"
+      ? `<small slot="icon" style="color:red;font-size:10px">kommer</small>`
+      : "";

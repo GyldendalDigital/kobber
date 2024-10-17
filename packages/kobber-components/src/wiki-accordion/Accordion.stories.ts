@@ -32,13 +32,21 @@ export const Accordion: StoryObj = {
     layout: "none",
   },
   args: {
-    title: "Title",
+    title: "Trekkspilltittel",
     itemTextPrefix: "Item",
     itemCount: 3,
     icon: "none",
   },
   render: args => `
     <kobber-wiki-accordion title="${args.title}">
+      ${[...Array(args.itemCount).keys()]
+        .map(
+          i =>
+            `<kobber-wiki-list-item>${args.itemTextPrefix} ${i + 1} ${getNamedSlot(args.icon)}</kobber-wiki-list-item>`,
+        )
+        .join("")}
+    </kobber-wiki-accordion>
+    <kobber-wiki-accordion title="${args.title} 2">
       ${[...Array(args.itemCount).keys()]
         .map(
           i =>
