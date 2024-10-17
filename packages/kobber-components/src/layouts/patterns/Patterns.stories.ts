@@ -13,14 +13,12 @@ import { globalStyles } from "../../story/globalStyles";
 
 interface Args {
   carouselHasManyItems: boolean;
-  carouselClickMovesFullWidth: boolean;
 }
 
 const meta: Meta<Args> = {
   component: "Patterns",
   args: {
     carouselHasManyItems: true,
-    carouselClickMovesFullWidth: true,
   },
   decorators: [(story, storyContext) => html`<div class="${storyContext.globals.theme}">${story()}</div>`],
 };
@@ -60,13 +58,7 @@ const render: ArgsStoryFn<WebComponentsRenderer, Args> = args => {
       <div class="space-for-indicators"></div>
       ${cardLayoutExample}
       <kobber-box-layout max-width="content">Carousel</kobber-box-layout>
-      ${args.carouselClickMovesFullWidth
-        ? html` <kobber-carousel click-moves-full-width>
-            ${args.carouselHasManyItems ? carouselExampleRegular : carouselExampleMini}
-          </kobber-carousel>`
-        : html`<kobber-carousel>
-            ${args.carouselHasManyItems ? carouselExampleRegular : carouselExampleMini}
-          </kobber-carousel> `}
+      <kobber-carousel> ${args.carouselHasManyItems ? carouselExampleRegular : carouselExampleMini} </kobber-carousel>
       <kobber-box-layout max-width="content">More content</kobber-box-layout>
       ${cardLayoutExample}
     </div>
