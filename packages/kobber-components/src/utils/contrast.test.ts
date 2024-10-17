@@ -8,7 +8,7 @@ const getContrastCases = [
   { color1: "#000000", color2: "#000000", expected: 1 },
   { color1: "#000000", color2: "transparent", expected: 1 },
   { color1: "transparent", color2: "#000000", expected: 1 },
-  { color1: primitives.color.green[100], color2: primitives.color.red[100], expected: 1.15 },
+  { color1: primitives.color.aubergine[25], color2: primitives.color.carmine[150], expected: 1.42 },
 ];
 
 it("getContrast", () => {
