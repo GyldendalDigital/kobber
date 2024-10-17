@@ -1,7 +1,7 @@
-import { css, html, unsafeCSS } from "lit";
+import { css, html } from "lit";
 import { customElement } from "lit/decorators.js";
 import { StyledLitElement } from "../../utils/StyledLitElement";
-import { carouselTeaserWidth } from "./config";
+import { minCardWidth } from "./config";
 
 @customElement("kobber-horizontal-layout")
 export class HorizontalLayout extends StyledLitElement {
@@ -19,9 +19,11 @@ export class HorizontalLayout extends StyledLitElement {
     }
 
     ::slotted(kobber-horizontal-layout-column) {
-      --teaser-width: ${unsafeCSS(carouselTeaserWidth)};
-      width: calc(((100% / var(--max-span)) * var(--span)) - var(--teaser-width));
-      flex-shrink: 0;
+      width: max(
+        calc(((var(--horizontal-layout-column-width-calc-base) / var(--max-span)) * var(--span))),
+        ${minCardWidth}
+      );
+      flex-shrink: var(--horizontal-layout-column-shrink, 0);
     }
 
     :host {

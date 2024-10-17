@@ -3074,6 +3074,7 @@ __metadata:
     "@esm-bundle/chai": "npm:4.3.4-fix.0"
     "@gyldendal/kobber-base": "npm:*"
     "@gyldendal/kobber-eslint": "npm:*"
+    "@gyldendal/kobber-icons": "npm:*"
     "@gyldendal/kobber-stylelint": "npm:*"
     "@lit-labs/observers": "npm:^2.0.2"
     "@lit/react": "npm:^1.0.5"

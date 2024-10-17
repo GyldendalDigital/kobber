@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@gyldendal/kobber-base": "*",
+    "@gyldendal/kobber-icons": "*",
     "@lit-labs/observers": "^2.0.2",
     "@lit/react": "^1.0.5",
     "@shoelace-style/shoelace": "^2.14.0",
