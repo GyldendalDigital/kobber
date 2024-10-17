@@ -78,4 +78,5 @@ export interface PageDetails extends Metadata {
   image?: string
   status?: "kommer" | "nyhet"
   children?: PageDetails[]
+  disabled?: boolean
 }

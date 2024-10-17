@@ -6,6 +6,7 @@ export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Komponenter",
   image: placeholderImageUrl({}),
+  disabled: true,
 }
 
 export default function ComponentsPage() {
