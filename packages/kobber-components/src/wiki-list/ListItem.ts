@@ -16,11 +16,11 @@ export class ListItem extends LitElement {
   @consume({ context: themeContext, subscribe: true })
   theme?: Theme;
 
-  @property()
-  active: boolean;
+  @property({ reflect: true })
+  active?: boolean;
 
-  @property()
-  disabled: boolean;
+  @property({ reflect: true })
+  disabled?: boolean;
 
   public override connectedCallback(): void {
     super.connectedCallback();
