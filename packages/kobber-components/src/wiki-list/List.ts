@@ -43,9 +43,8 @@ export class List extends LitElement {
 
     return css`
       :host {
-        display: inline-flex;
-        align-items: flex-start;
-        align-content: flex-start;
+        display: flex;
+        align-items: stretch;
         list-style-type: none;
         flex-direction: ${unsafeCSS(this.direction === "vertical" ? "column" : "row")};
         gap: ${component.container.gap}px;
