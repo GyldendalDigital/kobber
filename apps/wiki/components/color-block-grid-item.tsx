@@ -28,7 +28,7 @@ export function ColorBlockGridItem({ color, enableCopy = false }: ColorBlockGrid
   }
 
   return (
-    <div className="grid w-fit gap-16 px-main">
+    <div className="grid w-fit gap-16">
       <div
         className={cn("size-[180px] rounded-16", {
           "border border-wine-150": color.hasBorder,
