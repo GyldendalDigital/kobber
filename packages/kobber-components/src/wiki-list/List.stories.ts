@@ -5,7 +5,7 @@ export default {
   title: "wiki/list",
   component: customElementName,
   argTypes: {
-    direction: {
+    orientation: {
       options: ["vertical", "horizontal"],
       control: { type: "select" },
     },
@@ -36,7 +36,7 @@ export default {
 
 export const List: StoryObj = {
   args: {
-    direction: "vertical",
+    orientation: "vertical",
     itemTextPrefix: "Item",
     itemCount: 3,
     icon: "none",
@@ -45,7 +45,7 @@ export const List: StoryObj = {
   },
   render: args => `
     <div style="width: 200px">
-      <kobber-wiki-list direction=${args.direction}>
+      <kobber-wiki-list orientation=${args.orientation}>
         ${[...Array(args.itemCount).keys()]
           .map(
             i =>

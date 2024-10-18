@@ -1,4 +1,4 @@
-import { LitElement, css, html, unsafeCSS } from "lit";
+import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import "./ListItem";
 import { consume } from "@lit/context";
@@ -7,7 +7,7 @@ import { themeContext } from "../utils/theme-context";
 
 export const customElementName = "kobber-wiki-list";
 
-type ListDirection = "vertical" | "horizontal";
+type ListOrientation = "vertical" | "horizontal" | undefined;
 
 /**
  * Vertical or horizontal display of elements.
@@ -18,11 +18,14 @@ export class List extends LitElement {
   theme?: Theme;
 
   @property()
-  direction: ListDirection = "vertical";
+  orientation?: ListOrientation;
 
   public override connectedCallback(): void {
     super.connectedCallback();
-    this.setAttribute("role", "menu");
+    this.setAttribute("role", this.role ?? "menubar");
+    if (this.orientation) {
+      this.setAttribute("aria-orientation", this.orientation);
+    }
   }
 
   render() {
@@ -44,11 +47,15 @@ export class List extends LitElement {
     return css`
       :host {
         display: flex;
+        flex-direction: column;
         align-items: stretch;
         list-style-type: none;
-        flex-direction: ${unsafeCSS(this.direction === "vertical" ? "column" : "row")};
         gap: ${component.container.gap}px;
         width: 100%;
+      }
+
+      :host([aria-orientation="horizontal"]) {
+        flex-direction: row;
       }
     `;
   };
