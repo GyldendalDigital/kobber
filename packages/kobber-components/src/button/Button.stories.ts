@@ -34,6 +34,7 @@ const meta: Meta = {
   },
   decorators: [
     (Story, context) => `
+    <script>const clickHandler = () => console.log('clicked')</script>
     <kobber-theme-context theme-id=${context.globals.theme}>
       ${Story()}
     </kobber-theme-context>
@@ -53,7 +54,7 @@ export const Button: Story = {
     icon: "right",
   },
   render: args => `
-    <kobber-button color="${args.color}" variant="${args.variant}" level="${args.level}" iconSettings=${args.icon}>
+    <kobber-button color="${args.color}" variant="${args.variant}" level="${args.level}" iconSettings=${args.icon} onclick="clickHandler()">
       ${args.text}
       ${args.icon !== "none" ? `<icon-arrow_right slot="icon" />` : ""}
     </kobber-button>
@@ -153,7 +154,7 @@ const renderVariant = (
 
 const renderButton = (color: string, variant: string, level: string, state: string, iconSettings: ButtonIconSettings) =>
   `
-<kobber-button color="${color}" variant="${variant}" level="${level}" class="${state}" ${state === "disabled" ? "disabled" : ""} iconSettings=${iconSettings}>
+<kobber-button color="${color}" variant="${variant}" level="${level}" class="${state}" ${state === "disabled" ? "disabled" : ""} iconSettings=${iconSettings} onclick="clickHandler()">
   ${state}
   <icon-arrow_right slot="icon" />
 </kobber-button>`;
