@@ -22,10 +22,7 @@ export class HorizontalLayout extends StyledLitElement {
     }
 
     ::slotted(kobber-horizontal-layout-column) {
-      width: max(
-        calc(((var(--horizontal-layout-column-width-calc-base) / var(--max-span)) * var(--span))),
-        ${minCardWidth}
-      );
+      width: max(calc(var(--horizontal-layout-column-width-calc-base) / var(--max-span)), ${minCardWidth}px);
       flex-shrink: var(--horizontal-layout-column-shrink, 0);
     }
 

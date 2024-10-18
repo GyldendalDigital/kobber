@@ -126,19 +126,20 @@ export class Carousel extends StyledLitElement {
 
   private _getMaxSpans = () => {
     const hostWidth = this._getHostWidth();
-    if (hostWidth < minCardWidth * 2 * 3) {
+    const gapWidth = 20;
+    if (hostWidth < minCardWidth * 2 + gapWidth * 3) {
       return 1;
     }
-    if (hostWidth < minCardWidth * 3 * 4) {
+    if (hostWidth < minCardWidth * 3 + gapWidth * 4) {
       return 2;
     }
-    if (hostWidth < minCardWidth * 4 * 5) {
+    if (hostWidth < minCardWidth * 4 + gapWidth * 5) {
       return 3;
     }
-    if (hostWidth < minCardWidth * 5 * 6) {
+    if (hostWidth < minCardWidth * 5 + gapWidth * 6) {
       return 4;
     }
-    if (hostWidth < minCardWidth * 6 * 7) {
+    if (hostWidth < minCardWidth * 6 + gapWidth * 7) {
       return 5;
     }
     return 6;

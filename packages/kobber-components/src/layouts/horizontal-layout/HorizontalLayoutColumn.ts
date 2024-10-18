@@ -10,12 +10,6 @@ export class HorizontalLayoutColumn extends LitElement {
   @property({ attribute: "aria-role-description" })
   ariaRoleDescription = "Kort";
 
-  private _getSpanCssVariable = () => css`
-    :host {
-      --span: ${unsafeCSS(this.span ? this.span.toString() : "1")};
-    }
-  `;
-
   static styles: CSSResultGroup = css`
     :host {
       box-sizing: border-box;
@@ -30,9 +24,6 @@ export class HorizontalLayoutColumn extends LitElement {
   `;
 
   render = () => html`
-    <style>
-      ${this._getSpanCssVariable()}
-    </style>
     <div class="item" role="group" aria-roledescription="${this.ariaRoleDescription}">
       <slot />
     </div>
