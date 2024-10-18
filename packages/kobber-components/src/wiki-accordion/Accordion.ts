@@ -1,5 +1,5 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, query } from "lit/decorators.js";
 import "../wiki-list/List";
 import "../wiki-list/ListItem";
 import { consume } from "@lit/context";
@@ -19,8 +19,12 @@ export class Accordion extends LitElement {
   @property()
   expanded = false;
 
+  @query(".accordion-content")
+  contentElement!: HTMLElement;
+
   toggle() {
     this.expanded = !this.expanded;
+    this.contentElement.toggleAttribute("inert", !this.expanded);
   }
 
   handleKeyDown(event: KeyboardEvent) {
@@ -49,6 +53,7 @@ export class Accordion extends LitElement {
             ? html`<icon-chevron_up slot="icon" />`
             : html`<icon-chevron_down slot="icon" />`}</kobber-wiki-list-item
         >
+
         <div id="content-${dateNowAsElementId}" class="accordion-content" aria-hidden="${!this.expanded}">
           <slot></slot>
         </div>
