@@ -1,4 +1,4 @@
-import { LitElement, css, html, unsafeCSS } from "lit";
+import { LitElement, css, html } from "lit";
 import { customElement, property, query } from "lit/decorators.js";
 import "../wiki-list/List";
 import "../wiki-list/ListItem";
@@ -41,12 +41,14 @@ export class Accordion extends LitElement {
         ${this.themedStyles()}
       </style>
 
-      <div class="accordion" tabindex="0" @keypress="${this.handleKeyDown}">
+      <div class="accordion" tabindex="-1">
         <kobber-wiki-list-item
           class="accordion-toggle-button"
           role="button"
           aria-expanded="${this.expanded}"
           aria-controls="content-${dateNowAsElementId}"
+          tabindex="0"
+          @keypress="${this.handleKeyDown}"
           @click="${this.toggle}"
           >${this.title}
           ${this.expanded
@@ -72,12 +74,7 @@ export class Accordion extends LitElement {
 
     return css`
       .accordion {
-        --icon-width: 16px;
         border-radius: ${component.container.border.radius}px;
-      }
-
-      .accordion-toggle-button {
-        width: unset;
       }
 
       .accordion-content {
@@ -88,11 +85,6 @@ export class Accordion extends LitElement {
 
       .accordion-content[aria-hidden="true"] {
         max-height: 0;
-      }
-
-      .accordion:focus-visible {
-        outline: none;
-        box-shadow: 0 0 0 ${tokens.global.focus.border.width}px ${unsafeCSS(tokens.global.focus.color)};
       }
     `;
   };

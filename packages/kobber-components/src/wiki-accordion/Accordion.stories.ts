@@ -12,8 +12,12 @@ export default {
     accordionCount: {
       control: { type: "range", min: 1, max: 10 },
     },
-    itemTextPrefix: {
+    itemText: {
       control: { type: "text" },
+    },
+    itemElementType: {
+      options: ["none", "link", "button"],
+      control: { type: "select" },
     },
     itemCount: {
       control: { type: "range", min: 0, max: 20 },
@@ -22,13 +26,10 @@ export default {
       options: ["none", "lock", "label"],
       control: { type: "select" },
     },
-    elementType: {
-      options: ["none", "link", "button"],
-      control: { type: "select" },
-    },
   },
   decorators: [
     (Story, context) => `
+    <script>const clickHandler = () => console.log('clicked')</script>
     <kobber-theme-context theme-id=${context.globals.theme}>
       ${Story()}
     </kobber-theme-context>`,
@@ -42,10 +43,10 @@ export const Accordion: StoryObj = {
   args: {
     title: "Accordion",
     accordionCount: 2,
-    itemTextPrefix: "Item",
+    itemText: "Item",
+    itemElementType: "link",
     itemCount: 3,
     icon: "none",
-    elementType: "link",
   },
   render: args => [...Array(args.accordionCount).keys()].map((_, i) => getAccordion(args, i)).join(""),
 };
@@ -61,21 +62,21 @@ const getAccordion = (args: StoryObj["args"], i: number) =>
 const getSlot = (args: StoryObj["args"], i: number) => {
   if (!args) return "";
 
-  if (args.elementType === "link") {
+  if (args.itemElementType === "link") {
     return (
       args &&
-      `<kobber-wiki-list-item><a href="#">${args.itemTextPrefix} ${i + 1} ${getNamedSlot(args.icon)}</a></kobber-wiki-list-item>`
+      `<kobber-wiki-list-item><a href="#">${args.itemText} ${i + 1} ${getNamedSlot(args.icon)}</a></kobber-wiki-list-item>`
     );
   }
 
-  if (args.elementType === "button") {
+  if (args.itemElementType === "button") {
     return (
       args &&
-      `<kobber-wiki-list-item><kobber-button>${args.itemTextPrefix} ${i + 1} ${getNamedSlot(args.icon)}</kobber-button></kobber-wiki-list-item>`
+      `<kobber-wiki-list-item><kobber-button onclick="clickHandler()">${args.itemText} ${i + 1} ${getNamedSlot(args.icon)}</kobber-button></kobber-wiki-list-item>`
     );
   }
 
-  return `<p>${args.itemTextPrefix} ${i + 1} ${getNamedSlot(args.icon)}</p>`;
+  return `<p>${args.itemText} ${i + 1} ${getNamedSlot(args.icon)}</p>`;
 };
 
 const getNamedSlot = (icon: string) =>
