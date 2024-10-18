@@ -25,14 +25,9 @@ export class ListItem extends LitElement {
   public override connectedCallback(): void {
     super.connectedCallback();
 
-    const role = this.role ?? (this.parentElement?.getAttribute("role") === "menu" ? "menuitem" : null);
+    const role = this.role ?? (this.parentElement?.getAttribute("role")?.includes("menu") ? "menuitem" : null);
     if (role) {
       this.setAttribute("role", role);
-    }
-
-    const direction = this.parentElement?.getAttribute("direction");
-    if (direction) {
-      this.setAttribute("direction", direction);
     }
   }
 
