@@ -9,6 +9,7 @@
   "scripts": {
     "clean": "turbo clean && rm -rf .turbo node_modules",
     "lint": "turbo lint",
+    "test": "turbo test",
     "dev": "turbo dev",
     "build": "turbo build",
     "tokens": "turbo tokens",

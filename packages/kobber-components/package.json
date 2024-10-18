@@ -25,6 +25,7 @@
     "@lit-labs/observers": "^2.0.2",
     "@lit/react": "^1.0.5",
     "@shoelace-style/shoelace": "^2.14.0",
+    "@web/test-runner-playwright": "^0.11.0",
     "lit": "^3.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
