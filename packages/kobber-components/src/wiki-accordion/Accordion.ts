@@ -8,6 +8,8 @@ import { themeContext } from "../utils/theme-context";
 
 export const customElementName = "kobber-wiki-accordion";
 
+type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
+
 /**
  * Show or hide list items
  */
@@ -18,6 +20,9 @@ export class Accordion extends LitElement {
 
   @property()
   expanded = false;
+
+  @property()
+  headingLevel: HeadingLevel = 2;
 
   @query(".accordion-content")
   contentElement!: HTMLElement;
@@ -42,19 +47,21 @@ export class Accordion extends LitElement {
       </style>
 
       <div class="accordion" tabindex="-1">
-        <kobber-wiki-list-item
-          class="accordion-toggle-button"
-          role="button"
-          aria-expanded="${this.expanded}"
-          aria-controls="content-${dateNowAsElementId}"
-          tabindex="0"
-          @keypress="${this.handleKeyDown}"
-          @click="${this.toggle}"
-          >${this.title}
-          ${this.expanded
-            ? html`<icon-chevron_up slot="icon" />`
-            : html`<icon-chevron_down slot="icon" />`}</kobber-wiki-list-item
-        >
+        <div role="heading" aria-level="${this.headingLevel}">
+          <kobber-wiki-list-item
+            class="accordion-toggle-button"
+            role="button"
+            aria-expanded="${this.expanded}"
+            aria-controls="content-${dateNowAsElementId}"
+            tabindex="0"
+            @keypress="${this.handleKeyDown}"
+            @click="${this.toggle}"
+            >${this.title}
+            ${this.expanded
+              ? html`<icon-chevron_up slot="icon" />`
+              : html`<icon-chevron_down slot="icon" />`}</kobber-wiki-list-item
+          >
+        </div>
 
         <div id="content-${dateNowAsElementId}" class="accordion-content" aria-hidden="${!this.expanded}">
           <slot></slot>
