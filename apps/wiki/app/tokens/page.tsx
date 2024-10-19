@@ -1,11 +1,11 @@
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens"
 import { getContrastCompliantColors } from "@gyldendal/kobber-components/src/utils/contrast"
 import { PageDetails } from "@/types/types"
-import { cn, pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
 import { SectionLayout } from "@/components/section-layout"
-import { Table, Td } from "@/components/table/Table"
 import { TextCollection } from "@/components/text-collection"
+import { FluidDiagram } from "./FluidDiagram"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
@@ -134,6 +134,10 @@ export default function TokensPage() {
             </span>
           ))}
         </div>
+      </ContentSection>
+
+      <ContentSection textCollection={{ subheading: "Nivåer" }}>
+        <FluidDiagram fluidTokens={tokens.layout.gap} />
       </ContentSection>
     </SectionLayout>
   )
