@@ -11,7 +11,9 @@ export const customElementName = "kobber-wiki-accordion";
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
 /**
- * Show or hide list items
+ * Show or hide list items.
+ *
+ * @todo Add "exclusive" option which makes sure only one accordion is open at a time. See {@link https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions/#using_details_name_to_create_exclusive_accordions|example}.
  */
 @customElement(customElementName)
 export class Accordion extends LitElement {
