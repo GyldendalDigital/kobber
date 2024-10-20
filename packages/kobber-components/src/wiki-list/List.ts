@@ -11,6 +11,18 @@ type ListOrientation = "vertical" | "horizontal" | undefined;
 
 /**
  * Vertical or horizontal display of elements.
+ *
+ * @param role menubar is default because a list is usually visually persistant. See {@link https://www.w3.org/WAI/ARIA/apg/patterns/menubar|docs}.
+ * 
+ * @param orientation sets aria-orientation vertical/horizontal and flex-direction column/row.
+ * 
+ * @param ariaLabel should be set if ariaLabeledBy is not set. See {@link https://www.w3.org/WAI/ARIA/apg/patterns/menubar/#wai-ariaroles,states,andproperties|docs}:
+ *
+ * An element with role menu either has:
+  - aria-labelledby set to a value that refers to the menuitem or button that controls its display.
+  - A label provided by aria-label.
+
+  If a menubar has a visible label, the element with role menubar has aria-labelledby set to a value that refers to the labelling element. Otherwise, the menubar element has a label provided by aria-label.
  */
 @customElement(customElementName)
 export class List extends LitElement {
