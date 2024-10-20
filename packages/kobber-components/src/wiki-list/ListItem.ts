@@ -62,7 +62,7 @@ export class ListItem extends LitElement {
         padding: ${component.container.padding.bottom}px;
         border-radius: ${component.container.border.radius}px;
         color: ${unsafeCSS(component.text.color)};
-        font-size: ${typography["label large - single line"].fontSize}px;
+        font-size: ${typography["label large - single line"].fontSize / 16}rem;
 
         .text {
           align-self: center;
@@ -97,7 +97,7 @@ export class ListItem extends LitElement {
 
       ::slotted([slot="icon"]) {
         color: ${unsafeCSS(component.icon.color)};
-        --icon-width: ${typography["label large - single line"].fontSize}px;
+        --icon-width: ${typography["label large - single line"].fontSize / 16}rem;
       }
     `;
   }
