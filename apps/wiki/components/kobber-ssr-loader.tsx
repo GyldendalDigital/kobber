@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect } from "react"
 import dynamic from "next/dynamic"
 
 /**
@@ -68,5 +69,11 @@ export const KobberListItem = dynamic(
   }
 )
 
-/** Why isn't this happening automatically in kobber-icons? */
-export const defineCustomElementIcons = () => import("@gyldendal/kobber-icons/web-components")
+/** Required for showing web component icons */
+export const KobberIconLoader = () => {
+  useEffect(() => {
+    import("@gyldendal/kobber-icons/web-components")
+  }, [])
+
+  return null
+}
