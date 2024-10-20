@@ -3,6 +3,7 @@ import "./Dialog";
 import { html } from "lit";
 
 const meta: Meta = {
+  title: "In development 🧪/Dialog",
   component: "kobber-dialog",
   tags: ["autodocs"],
   argTypes: {},

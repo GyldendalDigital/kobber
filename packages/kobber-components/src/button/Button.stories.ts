@@ -12,6 +12,7 @@ const variants: ButtonVariant[] = ["main", "supplemental"]; //, "supplemental al
 const levels = ["primary", "secondary"];
 
 const meta: Meta = {
+  title: "In development 🧪/Button",
   component: "kobber-button",
   tags: ["autodocs"],
   argTypes: {
