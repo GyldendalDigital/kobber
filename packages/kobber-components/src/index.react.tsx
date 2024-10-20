@@ -13,6 +13,9 @@ import { BoxLayout } from "./layouts/box-layout/BoxLayout";
 import { Button } from "./button/Button";
 import { ThemeContextProvider } from "./utils/theme-context";
 import { Divider } from "./divider/Divider";
+import { customElementName as wikiAccordionName, Accordion } from "./wiki-accordion/Accordion";
+import { customElementName as wikiListName, List } from "./wiki-list/List";
+import { customElementName as wikiListItemName, ListItem } from "./wiki-list/ListItem";
 
 export const KobberGrid = createComponent({
   tagName: "kobber-grid",
@@ -83,5 +86,23 @@ export const KobberDivider = createComponent({
 export const KobberThemeContext = createComponent({
   tagName: "kobber-theme-context",
   elementClass: ThemeContextProvider,
+  react: React,
+});
+
+export const KobberList = createComponent({
+  tagName: wikiListName,
+  elementClass: List,
+  react: React,
+});
+
+export const KobberListItem = createComponent({
+  tagName: wikiListItemName,
+  elementClass: ListItem,
+  react: React,
+});
+
+export const KobberAccordion = createComponent({
+  tagName: wikiAccordionName,
+  elementClass: Accordion,
   react: React,
 });

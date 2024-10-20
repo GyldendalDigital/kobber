@@ -10,7 +10,7 @@
     "test": {},
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", "themes/**", "out/**"]
     },
     "tokens": {
       "cache": false
