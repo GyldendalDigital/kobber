@@ -1,7 +1,0 @@
-.content {
-  padding: calc(
-      var(--kobber-primitives-size-40) + var(--kobber-primitives-size-32)
-    )
-    var(--kobber-primitives-size-32);
-  color: var(--kobber-semantic-color-surface-page-foreground);
-}
