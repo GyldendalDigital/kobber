@@ -12,7 +12,7 @@ export const SideMenuItem = (item: PageDetails) => {
       <SideMenuItemLink {...item} />
 
       {pathname?.includes(item.href) && item.children && (
-        <KobberList direction="vertical" className="pl-20">
+        <KobberList orientation="vertical" className="pl-20">
           {item.children.map((item) => (
             <SideMenuItem key={item.href} {...item} />
           ))}

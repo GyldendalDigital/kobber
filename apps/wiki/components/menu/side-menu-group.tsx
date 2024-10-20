@@ -16,7 +16,7 @@ export const SideMenuGroup = ({ title, items, isOpenInitially = false }: Props) 
   return (
     <>
       <KobberAccordion title={title} expanded={isOpenInitially}>
-        <KobberList direction="vertical">
+        <KobberList orientation="vertical">
           {items.map((item, i) => (
             <SideMenuItem key={item.href + i} {...item} />
           ))}
