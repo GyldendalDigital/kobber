@@ -45,17 +45,21 @@ export class NavigationButtons extends StyledLitElement {
   render = () => html`
     <div class="nav">
       ${this.previousButtonDisabled === "true"
-        ? html`<kobber-button class="button button--previous" @click="${this.handlePreviousClick}" disabled
+        ? html`<kobber-button
+            class="button button--previous"
+            @click="${this.handlePreviousClick}"
+            disabled
+            color="neutral"
             ><icon-arrow_left slot="icon"
           /></kobber-button>`
-        : html`<kobber-button class="button button--previous" @click="${this.handlePreviousClick}"
+        : html`<kobber-button class="button button--previous" @click="${this.handlePreviousClick}" color="neutral"
             ><icon-arrow_left slot="icon"
           /></kobber-button>`}
       ${this.nextButtonDisabled === "true"
-        ? html`<kobber-button class="button button--next" @click="${this.handleNextClick}" disabled
+        ? html`<kobber-button class="button button--next" @click="${this.handleNextClick}" disabled color="neutral"
             ><icon-arrow_right slot="icon"
           /></kobber-button>`
-        : html`<kobber-button class="button button--next" @click="${this.handleNextClick}"
+        : html`<kobber-button class="button button--next" @click="${this.handleNextClick}" color="neutral"
             ><icon-arrow_right slot="icon"
           /></kobber-button>`}
     </div>

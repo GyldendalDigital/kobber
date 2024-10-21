@@ -54,7 +54,7 @@ export const Accordion: StoryObj = {
 const getAccordion = (args: StoryObj["args"], i: number) =>
   args &&
   `
-<kobber-wiki-accordion title="${args.title + " " + (i + 1)}">
+    <kobber-wiki-accordion title="${args.title + " " + (i + 1)}">
       ${[...Array(args.itemCount).keys()].map(i => getSlot(args, i)).join("")}
     </kobber-wiki-accordion>
 `;
@@ -65,7 +65,7 @@ const getSlot = (args: StoryObj["args"], i: number) => {
   if (args.itemElementType === "link") {
     return (
       args &&
-      `<kobber-wiki-list-item><a href="#">${args.itemText} ${i + 1} ${getNamedSlot(args.icon)}</a></kobber-wiki-list-item>`
+      `<kobber-wiki-list-item><a href="#" style="text-decoration:none;color:#481125ff">${args.itemText} ${i + 1} ${getNamedSlot(args.icon)}</a></kobber-wiki-list-item>`
     );
   }
 
@@ -76,7 +76,7 @@ const getSlot = (args: StoryObj["args"], i: number) => {
     );
   }
 
-  return `<p>${args.itemText} ${i + 1} ${getNamedSlot(args.icon)}</p>`;
+  return `${args.itemText} ${i + 1} ${getNamedSlot(args.icon)}`;
 };
 
 const getNamedSlot = (icon: string) =>

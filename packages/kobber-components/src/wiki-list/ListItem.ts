@@ -7,9 +7,10 @@ import { themeContext } from "../utils/theme-context";
 export const customElementName = "kobber-wiki-list-item";
 
 /**
- * Used as a child of the `kobber-list` component.
+ * Used as a child of the `kobber-list` and `kobber-accordion` components.
  *
- * Inherits the `direction` attribute from the parent.
+ * Deduces `role` from the parent:
+ * @example parent role="menubar" => item role="menuitem"
  */
 @customElement(customElementName)
 export class ListItem extends LitElement {
@@ -98,6 +99,9 @@ export class ListItem extends LitElement {
       ::slotted([slot="icon"]) {
         color: ${unsafeCSS(component.icon.color)};
         --icon-width: ${typography["label large - single line"].fontSize / 16}rem;
+        --icon-height: ${typography["label large - single line"].fontSize / 16}rem;
+        width: ${typography["label large - single line"].fontSize / 16}rem;
+        height: ${typography["label large - single line"].fontSize / 16}rem;
       }
     `;
   }
