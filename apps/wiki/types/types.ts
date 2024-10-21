@@ -80,3 +80,10 @@ export interface PageDetails extends Metadata {
   children?: PageDetails[]
   disabled?: boolean
 }
+
+export type IllustrationType = {
+  src: string
+  alt?: string
+  height: number
+  width: number
+}

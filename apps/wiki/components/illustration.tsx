@@ -1,29 +1,31 @@
 import Image from "next/image"
+import { IllustrationType } from "@/types/types"
 import { cn } from "@/lib/utils"
-import { AspectRatio } from "./ui/aspect-ratio"
 
-type IllustrationProps = {
-  src: string
+type IllustrationsProps = {
+  illustrations: IllustrationType[]
   className?: string
   illuClassName?: string
 }
 
-export function Illustration({ src, className, illuClassName }: IllustrationProps) {
+export function Illustrations({ illustrations, className, illuClassName }: IllustrationsProps) {
   return (
     <div
       className={cn(
-        "relative flex w-[673px] items-center justify-center overflow-hidden rounded-24",
+        "relative flex w-[707px] flex-col items-center justify-center gap-8 overflow-hidden rounded-24 bg-white p-24",
         className
       )}
     >
-      <AspectRatio ratio={16 / 9} className="rounded-24 bg-white">
+      {illustrations.map((illustration, index) => (
         <Image
-          src={src}
-          fill
-          alt="Illustration"
-          className={cn("object-contain p-24", illuClassName)}
+          key={index}
+          src={illustration.src}
+          height={illustration.height}
+          width={illustration.width}
+          alt={illustration.alt ?? "Illustration"}
+          className={cn("object-fit mx-auto", illuClassName)}
         />
-      </AspectRatio>
+      ))}
     </div>
   )
 }

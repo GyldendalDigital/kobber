@@ -7,7 +7,7 @@ import { FeatureBoxGrid } from "@/components/feature-box-grid"
 export default function Home() {
   return (
     <main className="mx-auto flex max-w-max-width flex-col gap-48 pb-20">
-      <header className="mx-auto w-[288px] overflow-hidden rounded-[24px] bg-aubergine-50 px-[16px] py-[32px] md:w-full md:p-[64px]">
+      <header className="mx-auto w-[95%] overflow-hidden rounded-[24px] bg-aubergine-50 px-[16px] py-[32px] md:w-full md:p-[64px]">
         <div className="flex flex-col items-center justify-between gap-[32px] md:flex-row md:gap-[182px]">
           <Image
             src={"./hero-svg.svg"}
@@ -41,7 +41,7 @@ export default function Home() {
       </header>
       <div className="flex flex-col gap-48 pb-0 pt-48 md:py-0">
         <div className="grid gap-[24px]">
-          <h4 className="px-main text-primary-heading-s font-normal text-text/color/primary/heading-s">
+          <h4 className="text-primary-heading-s font-normal text-text/color/primary/heading-s">
             Kom i gang
           </h4>
           <FeatureBoxGrid items={boxes} />
