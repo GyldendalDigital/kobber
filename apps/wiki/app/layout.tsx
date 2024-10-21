@@ -30,7 +30,7 @@ export default function RootLayout({
       >
         <KobberThemeContext themeId="kobber-theme-default">
           <KobberIconLoader />
-          <div className="mx-auto flex min-h-screen flex-col justify-between gap-96 md:px-0">
+          <div className="mx-auto flex min-h-screen flex-col justify-between gap-96 px-0 md:px-main">
             <div className="grid gap-24">
               <TopMenu />
               {children}
