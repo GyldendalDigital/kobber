@@ -20,6 +20,9 @@ export class ListItem extends LitElement {
   @property({ reflect: true })
   active?: boolean;
 
+  @property({ reflect: true })
+  disabled?: boolean;
+
   public override connectedCallback(): void {
     super.connectedCallback();
 
