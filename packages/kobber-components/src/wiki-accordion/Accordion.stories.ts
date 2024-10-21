@@ -3,7 +3,7 @@ import { customElementName } from "./Accordion";
 import "../button/Button";
 
 export default {
-  title: "wiki/accordion",
+  title: "wiki/Accordion",
   component: customElementName,
   argTypes: {
     title: {
