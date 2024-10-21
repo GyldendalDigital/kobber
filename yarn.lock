@@ -2637,7 +2637,7 @@ __metadata:
     "@types/node": "npm:20.9.0"
     style-dictionary: "npm:^3.9.0"
     tsx: "npm:^4.6.2"
-    typescript: "npm:^5.2.2"
+    typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
 
@@ -2685,7 +2685,7 @@ __metadata:
     typedoc: "npm:^0.25.12"
     typedoc-github-wiki-theme: "npm:^1.1.0"
     typedoc-plugin-markdown: "npm:^3.17.1"
-    typescript: "npm:^5.2.2"
+    typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
 
@@ -2756,7 +2756,7 @@ __metadata:
     typedoc: "npm:^0.25.12"
     typedoc-github-wiki-theme: "npm:^1.1.0"
     typedoc-plugin-markdown: "npm:^3.17.1"
-    typescript: "npm:^5.2.2"
+    typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
 
@@ -2780,7 +2780,7 @@ __metadata:
     lit: "npm:^3.2.0"
     onchange: "npm:^7.1.0"
     tsup: "npm:^7.2.0"
-    typescript: "npm:^5.2.2"
+    typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
 
@@ -13555,7 +13555,7 @@ __metadata:
     tailwind-merge: "npm:^2.5.2"
     tailwindcss: "npm:^3.4.1"
     tailwindcss-animate: "npm:^1.0.7"
-    typescript: "npm:^5"
+    typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
 
@@ -13579,8 +13579,8 @@ __metadata:
     stylelint: "npm:^16.0.2"
     stylelint-config-standard: "npm:^35.0.0"
     stylelint-order: "npm:^6.0.4"
-    turbo: "npm:^2.1.2"
-    typescript: "npm:^5.2.2"
+    turbo: "npm:^2.2.1"
+    typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
 
@@ -17982,7 +17982,7 @@ __metadata:
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     storybook: "npm:^7.6.17"
-    typescript: "npm:^5.2.2"
+    typescript: "npm:^5.6.3"
     vite: "npm:^5.1.5"
   languageName: unknown
   linkType: soft
@@ -18002,7 +18002,7 @@ __metadata:
     "@storybook/web-components-vite": "npm:^8.3.2"
     lit-html: "npm:^3.1.1"
     storybook: "npm:^8.3.2"
-    typescript: "npm:^5.2.2"
+    typescript: "npm:^5.6.3"
     vite: "npm:^5.1.5"
   languageName: unknown
   linkType: soft
@@ -19059,58 +19059,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "turbo-darwin-64@npm:2.1.2"
+"turbo-darwin-64@npm:2.2.1":
+  version: 2.2.1
+  resolution: "turbo-darwin-64@npm:2.2.1"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "turbo-darwin-arm64@npm:2.1.2"
+"turbo-darwin-arm64@npm:2.2.1":
+  version: 2.2.1
+  resolution: "turbo-darwin-arm64@npm:2.2.1"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "turbo-linux-64@npm:2.1.2"
+"turbo-linux-64@npm:2.2.1":
+  version: 2.2.1
+  resolution: "turbo-linux-64@npm:2.2.1"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "turbo-linux-arm64@npm:2.1.2"
+"turbo-linux-arm64@npm:2.2.1":
+  version: 2.2.1
+  resolution: "turbo-linux-arm64@npm:2.2.1"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "turbo-windows-64@npm:2.1.2"
+"turbo-windows-64@npm:2.2.1":
+  version: 2.2.1
+  resolution: "turbo-windows-64@npm:2.2.1"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:2.1.2":
-  version: 2.1.2
-  resolution: "turbo-windows-arm64@npm:2.1.2"
+"turbo-windows-arm64@npm:2.2.1":
+  version: 2.2.1
+  resolution: "turbo-windows-arm64@npm:2.2.1"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "turbo@npm:2.1.2"
+"turbo@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "turbo@npm:2.2.1"
   dependencies:
-    turbo-darwin-64: "npm:2.1.2"
-    turbo-darwin-arm64: "npm:2.1.2"
-    turbo-linux-64: "npm:2.1.2"
-    turbo-linux-arm64: "npm:2.1.2"
-    turbo-windows-64: "npm:2.1.2"
-    turbo-windows-arm64: "npm:2.1.2"
+    turbo-darwin-64: "npm:2.2.1"
+    turbo-darwin-arm64: "npm:2.2.1"
+    turbo-linux-64: "npm:2.2.1"
+    turbo-linux-arm64: "npm:2.2.1"
+    turbo-windows-64: "npm:2.2.1"
+    turbo-windows-arm64: "npm:2.2.1"
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -19126,7 +19126,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 10c0/826b1a43d9d22a4fe2263cd52ee9e4f04356cf7ae939e50e237b2ad726cc2080b1c2284d39aeee3ae9930063af0f641a98edb42ee101930910f17eb1906c7a4b
+  checksum: 10c0/66232d9b147fa09a79f42246063de327cf2075a04d56abbfbb19609b199bb077e52800c938d7a4081e1f1875c2373b0aea5a5fdc673b52bba5824abe7e6b49ed
   languageName: node
   linkType: hard
 
@@ -19294,17 +19294,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5":
-  version: 5.6.2
-  resolution: "typescript@npm:5.6.2"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 10c0/3ed8297a8c7c56b7fec282532503d1ac795239d06e7c4966b42d4330c6cf433a170b53bcf93a130a7f14ccc5235de5560df4f1045eb7f3550b46ebed16d3c5e5
-  languageName: node
-  linkType: hard
-
-"typescript@npm:^5.2.2, typescript@npm:^5.3.3":
+"typescript@npm:^5.3.3":
   version: 5.5.4
   resolution: "typescript@npm:5.5.4"
   bin:
@@ -19314,23 +19304,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5#optional!builtin<compat/typescript>":
-  version: 5.6.2
-  resolution: "typescript@patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=8c6c40"
+"typescript@npm:^5.6.3":
+  version: 5.6.3
+  resolution: "typescript@npm:5.6.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/94eb47e130d3edd964b76da85975601dcb3604b0c848a36f63ac448d0104e93819d94c8bdf6b07c00120f2ce9c05256b8b6092d23cf5cf1c6fa911159e4d572f
+  checksum: 10c0/44f61d3fb15c35359bc60399cb8127c30bae554cd555b8e2b46d68fa79d680354b83320ad419ff1b81a0bdf324197b29affe6cc28988cd6a74d4ac60c94f9799
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.2.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>":
   version: 5.5.4
   resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 10c0/73409d7b9196a5a1217b3aaad929bf76294d3ce7d6e9766dd880ece296ee91cf7d7db6b16c6c6c630ee5096eccde726c0ef17c7dfa52b01a243e57ae1f09ef07
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>":
+  version: 5.6.3
+  resolution: "typescript@patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10c0/7c9d2e07c81226d60435939618c91ec2ff0b75fbfa106eec3430f0fcf93a584bc6c73176676f532d78c3594fe28a54b36eb40b3d75593071a7ec91301533ace7
   languageName: node
   linkType: hard
 
