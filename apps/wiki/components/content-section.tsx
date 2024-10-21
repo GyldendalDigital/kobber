@@ -17,7 +17,7 @@ export function ContentSection({
   chilClassName,
 }: ContentSectionProps) {
   return (
-    <div className={cn("grid gap-16", className)}>
+    <div className={cn("grid gap-[24px]", className)}>
       <TextCollection
         heading={heading}
         ingress={ingress}
@@ -26,7 +26,7 @@ export function ContentSection({
         subheading={subheading}
         text={text}
       />
-      <div className={cn("grid gap-16 px-main", chilClassName)}>{children}</div>
+      <div className={cn("grid gap-16", chilClassName)}>{children}</div>
     </div>
   )
 }
