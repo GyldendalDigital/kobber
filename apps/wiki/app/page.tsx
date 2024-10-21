@@ -7,21 +7,36 @@ import { FeatureBoxGrid } from "@/components/feature-box-grid"
 export default function Home() {
   return (
     <main className="mx-auto flex max-w-max-width flex-col gap-48 pb-20">
-      <header className="rounded-[24px] bg-aubergine-50 p-[64px]">
-        <div className="flex items-center justify-between gap-[182px]">
-          <div className="grid gap-[24px]">
-            <div className="flex flex-col gap-[8px] leading-[60px]">
-              <h1 className="text-[48px] text-aubergine-850">Velkommen til Kobber</h1>
-              <h2 className="text-[48px] text-text/color/secondary/display-s">
+      <header className="mx-auto w-[288px] overflow-hidden rounded-[24px] bg-aubergine-50 px-[16px] py-[32px] md:w-full md:p-[64px]">
+        <div className="flex flex-col items-center justify-between gap-[32px] md:flex-row md:gap-[182px]">
+          <Image
+            src={"./hero-svg.svg"}
+            width={188}
+            height={184}
+            alt="Gyldendal Art"
+            className="block md:hidden"
+          />
+          <div className="grid gap-[24px] text-center md:text-left">
+            <div className="flex flex-col gap-[8px] leading-[40px] md:leading-[60px]">
+              <h1 className="text-[20px] text-aubergine-850 md:text-[48px]">
+                Velkommen til Kobber
+              </h1>
+              <h2 className="text-[32px] text-text/color/secondary/display-s md:text-[48px]">
                 Gyldendals designsystem
               </h2>
             </div>
-            <p className="max-w-[40ch] text-[20px] leading-[35px] text-text/color/primary/title-s">
+            <p className="max-w-[40ch] text-[16px] leading-[35px] text-text/color/primary/title-s md:text-[20px]">
               Design, bygg og skap gode og helhetlige løsninger med Gyldendals designsystem.
             </p>
           </div>
 
-          <Image src={"./hero-svg.svg"} width={351} height={343} alt="Gyldendal Art" />
+          <Image
+            src={"./hero-svg.svg"}
+            width={351}
+            height={343}
+            alt="Gyldendal Art"
+            className="hidden md:block"
+          />
         </div>
       </header>
       <div className="flex flex-col gap-48 pb-0 pt-48 md:py-0">
