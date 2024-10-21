@@ -12,7 +12,7 @@ export const SideMenuItem = (item: PageDetails) => {
       <SideMenuItemLink {...item} />
 
       {pathname?.includes(item.href) && item.children && (
-        <List orientation="vertical" className="pl-20">
+        <List orientation="vertical" className="pl-[20px]">
           {item.children.map((item) => (
             <SideMenuItem key={item.href} {...item} />
           ))}
