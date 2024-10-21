@@ -1,4 +1,4 @@
-import { css, html, LitElement } from "lit";
+import { css, CSSResultGroup, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { themeContext } from "../utils/theme-context";
 import { consume } from "@lit/context";
@@ -15,11 +15,10 @@ export class Divider extends LitElement {
   variant: DividerVariant = "main";
 
   // Base styles
-  static styles = [dividerBaseStyles];
+  static styles: CSSResultGroup = [dividerBaseStyles];
 
   render() {
     this.applyThemeStyles();
-
     return html` <div class="divider ${this.variant}"></div> `;
   }
 
