@@ -14,5 +14,5 @@ export const metadata: PageDetails = {
 
 export default function BrandingPage() {
   return <div></div>
-  redirect(metadata.href) // This causes a loop bug
+  // redirect(metadata.href) // This causes a loop bug
 }

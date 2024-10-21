@@ -12,21 +12,17 @@ const team: InformationCardType[] = [
   {
     title: "Irén Andresen",
     text: `Senior designer
-    ansvarlig for Kobber - merkevare
-`,
+    ansvarlig for Kobber - merkevare`,
   },
   {
     title: "Izelin Tujunen",
     text: `Senior Designer
-    ansvarlig for Kobber - designssytem
-
-    `,
+    ansvarlig for Kobber - designssytem`,
   },
   {
     title: "Dagfinn Reitan",
     text: `Senior utvikler
-    ansvarlig for teknisk utvikling
-`,
+    ansvarlig for teknisk utvikling`,
   },
   {
     title: "Dag Von Krogh Munkholt",
