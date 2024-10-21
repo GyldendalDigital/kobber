@@ -8,7 +8,10 @@ import { TopMenu } from "@/components/menu/top-menu"
 
 /** Fallback for all pages */
 export const metadata: Metadata = {
-  title: `${APP_NAME} - Gyldendals designsystem`,
+  title: {
+    template: `%s | ${APP_NAME}`,
+    default: APP_NAME,
+  },
   description:
     "Byggesteiner Gyldendal bruker til å lage solide, sammenhengende og universelt tilgjengelige produkter.",
 }

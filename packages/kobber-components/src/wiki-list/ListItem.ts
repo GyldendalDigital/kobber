@@ -20,11 +20,12 @@ export class ListItem extends LitElement {
   @property({ reflect: true })
   active?: boolean;
 
-  @property({ reflect: true })
-  disabled?: boolean;
-
   public override connectedCallback(): void {
     super.connectedCallback();
+
+    if (this.hasAttribute("disabled")) {
+      this.toggleAttribute("inert");
+    }
 
     const role = this.role ?? (this.parentElement?.getAttribute("role")?.includes("menu") ? "menuitem" : null);
     if (role) {
@@ -100,7 +101,6 @@ export class ListItem extends LitElement {
         color: ${unsafeCSS(component.icon.color)};
         --icon-width: ${typography["label large - single line"].fontSize / 16}rem;
         --icon-height: ${typography["label large - single line"].fontSize / 16}rem;
-        width: ${typography["label large - single line"].fontSize / 16}rem;
         height: ${typography["label large - single line"].fontSize / 16}rem;
       }
     `;
