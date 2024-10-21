@@ -25,7 +25,7 @@ export default function Home() {
         </div>
       </header>
       <div className="flex flex-col gap-48 pb-0 pt-48 md:py-0">
-        <div className="grid gap-24">
+        <div className="grid gap-[24px]">
           <h4 className="px-main text-primary-heading-s font-normal text-text/color/primary/heading-s">
             Kom i gang
           </h4>

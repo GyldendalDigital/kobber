@@ -27,7 +27,7 @@ export default function RootLayout({
       >
         <KobberThemeContext themeId="kobber-theme-default">
           <div className="mx-auto flex min-h-screen flex-col justify-between gap-96 md:px-0">
-            <div className="grid gap-48">
+            <div className="grid gap-24">
               <TopMenu />
               {children}
             </div>
