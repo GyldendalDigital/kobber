@@ -1,16 +1,14 @@
-import { LogoSVG } from "./svg";
+import { LogoSVG } from "./svg"
 
 export default function Footer() {
   return (
-    <div className="w-full  h-[168px] px-main md:px-0 ">
-      <div className="flex md:flex-row flex-col items-center md:justify-between max-w-max-width w-full mx-auto gap-16">
-        <div className="relative h-32 w-120 ">
+    <div className="h-[168px] w-full px-main md:px-0">
+      <div className="mx-auto flex w-full max-w-max-width flex-col items-center gap-16 md:flex-row md:justify-between">
+        <div className="relative h-32 w-120">
           <LogoSVG />
         </div>
-        <span className="text-[12px] text-wine-525">
-          {new Date().getFullYear()} Gyldednal AS
-        </span>
+        <span className="text-[12px] text-wine-525">{new Date().getFullYear()} Gyldendal AS</span>
       </div>
     </div>
-  );
+  )
 }

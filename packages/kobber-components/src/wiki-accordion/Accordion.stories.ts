@@ -65,14 +65,14 @@ const getSlot = (args: StoryObj["args"], i: number) => {
   if (args.itemElementType === "link") {
     return (
       args &&
-      `<kobber-wiki-list-item><a href="#" style="text-decoration:none;color:#481125ff">${args.itemText} ${i + 1} ${getNamedSlot(args.icon)}</a></kobber-wiki-list-item>`
+      `<kobber-wiki-list-item><a href="#" style="text-decoration:none;color:#481125ff">${args.itemText} ${i + 1}</a>${getNamedSlot(args.icon)}</kobber-wiki-list-item>`
     );
   }
 
   if (args.itemElementType === "button") {
     return (
       args &&
-      `<kobber-wiki-list-item><kobber-button onclick="clickHandler()">${args.itemText} ${i + 1} ${getNamedSlot(args.icon)}</kobber-button></kobber-wiki-list-item>`
+      `<kobber-wiki-list-item><kobber-button onclick="clickHandler()">${args.itemText} ${i + 1}</kobber-button>${getNamedSlot(args.icon)}</kobber-wiki-list-item>`
     );
   }
 
