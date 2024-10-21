@@ -24,8 +24,13 @@ export default function UiFarger() {
       />
 
       {UIColors.map((theme, index) => (
-        <ContentSection textCollection={{ heading: theme.title }} key={index}>
-          <ColorBlockGrid colors={theme.colors} />
+        <ContentSection
+          key={index}
+          textCollection={{ heading: theme.title, ingress: theme.description }}
+          chilClassName="px-0"
+          className="gap-32"
+        >
+          <ColorBlockGrid colors={theme.colors} enableCopy />
         </ContentSection>
       ))}
     </SectionLayout>

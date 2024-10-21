@@ -86,4 +86,5 @@ export type IllustrationType = {
   alt?: string
   height: number
   width: number
+  fill?: boolean
 }

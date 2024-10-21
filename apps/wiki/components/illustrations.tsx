@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { IllustrationType } from "@/types/types"
 import { cn } from "@/lib/utils"
+import { Skeleton } from "./ui/skeleton"
 
 type IllustrationsProps = {
   illustrations: IllustrationType[]
@@ -20,12 +21,17 @@ export function Illustrations({ illustrations, className, illuClassName }: Illus
         <Image
           key={index}
           src={illustration.src}
-          height={illustration.height}
-          width={illustration.width}
+          height={illustration.fill ? undefined : illustration.height}
+          width={illustration.fill ? undefined : illustration.width}
+          fill={illustration.fill}
           alt={illustration.alt ?? "Illustration"}
-          className={cn("object-fit mx-auto", illuClassName)}
+          className={cn("mx-auto object-contain", illuClassName)}
         />
       ))}
     </div>
   )
+}
+
+export function IllustrationsSkeleton() {
+  return <Skeleton className="h-[300px] w-[707px]" />
 }

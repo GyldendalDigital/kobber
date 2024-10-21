@@ -1,7 +1,7 @@
 import { IllustrationType, PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
-import { Illustrations } from "@/components/illustration"
+import { Illustrations } from "@/components/illustrations"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 

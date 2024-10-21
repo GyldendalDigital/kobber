@@ -22,9 +22,15 @@ export default function Temafarger() {
         heading="Temafarger"
         ingress="Temafarger kan benyttes i avgrensede område for å sette stemning rundt et tema, en enkeltutgivelse eller en kolleksjon av utgivelser. Det er ikke tillatt å bruke disse palettene på et helt brukergrensesnitt eller for å kategorisere produkt-spesifikt innhold."
       />
+
       {ThemeColors.map((theme, index) => (
-        <ContentSection key={index} textCollection={{ heading: theme.title }}>
-          <ColorBlockGrid colors={theme.colors} />
+        <ContentSection
+          key={index}
+          textCollection={{ heading: theme.title, ingress: theme.description }}
+          chilClassName="px-0"
+          className="gap-32"
+        >
+          <ColorBlockGrid colors={theme.colors} enableCopy />
         </ContentSection>
       ))}
     </SectionLayout>
