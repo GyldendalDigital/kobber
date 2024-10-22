@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="added translations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +31,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "audio-recorder-readme-comments-cleanup",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/solve.selander/WebstormProjects/kobber/packages/kobber-audio/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
