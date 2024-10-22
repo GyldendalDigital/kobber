@@ -1,23 +1,17 @@
-import { Metadata } from "next"
 import { FeatureBoxType, PageDetails } from "@/types/types"
-import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
-import { pageDetailsInter } from "./inter/page"
-import { pageDetailsLyon } from "./lyon/page"
-import { pageDetailsPP } from "./pp-mori/page"
-import { pageDetailsRetningslinjer } from "./retningslinjer/page"
+import { metadata as merkevareTypografiInterPage } from "./inter/page"
+import { metadata as merkevareTypografiLyonPage } from "./lyon/page"
+import { metadata as merkevareTyopgrafiPPMoriPage } from "./pp-mori/page"
 
-export const pageDetailsTypografi: PageDetails = {
+export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Typografi",
   image: placeholderImageUrl({}),
-  children: [pageDetailsPP, pageDetailsLyon, pageDetailsInter, pageDetailsRetningslinjer],
-}
-
-export const metadata: Metadata = {
-  title: documentTitle(pageDetailsTypografi.title),
+  children: [merkevareTyopgrafiPPMoriPage, merkevareTypografiLyonPage, merkevareTypografiInterPage],
   description:
     "Typografien skal sikre gjenkjennelighet for merkevaren og stå seg like godt på det analoge som på det digitale. Kombinasjonen av en leken og moderne primærfont i PP Mori, og en moderne tolkning av en klassisk serif i Lyon Display, gjør at vi forener tradisjon og innovasjon på en varm og uhøytidelig måte.",
 }

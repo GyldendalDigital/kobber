@@ -1,6 +1,6 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { consume } from "@lit/context";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, query, state } from "lit/decorators.js";
 import { themeContext } from "../utils/theme-context";
 import {
   ButtonBackgroundColor,
@@ -12,8 +12,11 @@ import {
 import { Theme } from "../utils/theme-context.types";
 
 /**
- * TODO:
- * - icons
+ * Button with icon
+ *
+ * @param ariaLabel required when using icon only
+ *
+ * Figma: https://www.figma.com/design/zMcbm8ujSMldgS1VB70IMP/Styles-%26-komponenter?node-id=111-158&node-type=canvas&m=dev
  */
 @customElement("kobber-button")
 export class Button extends LitElement {
@@ -35,6 +38,28 @@ export class Button extends LitElement {
   @property({ type: Boolean })
   disabled = false;
 
+  @state()
+  private _isIconButton = false;
+
+  @state()
+  private _label?: string | null;
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    // used for special icon only styling
+    const textContent = this.shadowRoot?.host.textContent?.trim();
+    const iconContent = this.shadowRoot?.host.querySelector("[slot=icon]");
+    this._isIconButton = textContent === "" && iconContent !== null;
+
+    // aria-label moved from host to button
+    this._label = this.getAttribute("aria-label");
+    this.removeAttribute("aria-label");
+    if (this._isIconButton && !this._label) {
+      console.warn("aria-label is required for icon only buttons");
+    }
+  }
+
   render() {
     if (!this.color) return "Color undefined";
     if (!this.variant) return "Variant undefined";
@@ -47,7 +72,7 @@ export class Button extends LitElement {
         ${themeStyles}
       </style>
       <!-- TODO: set all relevant attributes -->
-      <button class=${this.classList.value} ?disabled=${this.disabled ? true : false}>
+      <button class=${this.classList.value} ?disabled=${this.disabled} aria-label="${this._label}">
         <span><slot></slot></span>
         <slot name="icon"></slot>
       </button>
@@ -74,7 +99,7 @@ export class Button extends LitElement {
   themedStyles = () => {
     const tokens = this.theme?.tokens;
     if (!tokens) {
-      console.log("should never occur");
+      console.error("theme context not provided");
       return css``;
     }
 
@@ -82,7 +107,7 @@ export class Button extends LitElement {
     const typography = tokens.typography.ui.button;
 
     // TODO:
-    // - fix units (px vs rem)
+    // - icon only tokens: padding
     // - make a "withFallback"-function for states with no value and should use default
     //   (like button disabled values, which are the same for all colors)
     return css`
@@ -91,13 +116,14 @@ export class Button extends LitElement {
         display: flex;
         flex-direction: ${unsafeCSS(this.iconSettings === "right" ? "row" : "row-reverse")};
         align-items: center;
-        gap: ${component.container.gap}px;
-        border: 1px solid transparent;
+        gap: ${this._isIconButton ? 0 : component.container.gap}px;
+        padding-block: ${this._isIconButton ? 12 : component.container.padding.block}px;
+        padding-inline: ${this._isIconButton ? 12 : component.container.padding.inline}px;
         border-radius: ${component.container.border.radius}px;
-        padding: ${component.container.padding.block}px ${component.container.padding.inline}px;
+        border: 2px solid transparent;
         cursor: pointer;
         min-height: ${component.container.size.height}px;
-        font-size: ${typography.fontSize}px;
+        font-size: ${typography.fontSize / 16}rem;
         font-family: ${unsafeCSS(typography.fontFamily)};
         font-weight: ${typography.fontWeight};
         font-style: ${unsafeCSS(typography.fontStyle)};

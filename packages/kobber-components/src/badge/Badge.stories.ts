@@ -20,6 +20,7 @@ const backgroundColors = brandColors.map(({ color }) => color);
 const circleColors = brandColors.map(({ color }) => color);
 
 const meta: Meta = {
+  title: "In development 🧪/Badge",
   component: customElementName,
   tags: ["autodocs"],
   argTypes: {

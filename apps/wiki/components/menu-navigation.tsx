@@ -19,9 +19,6 @@ export function MenuNavigation({ pages }: MenuNavigationProps) {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  // TODO: Find a smarter way to do this
-  const isLandingPage = pathname === "/"
-
   // To close the sheet on every route change
   useEffect(() => {
     setIsOpen(false)
@@ -29,20 +26,11 @@ export function MenuNavigation({ pages }: MenuNavigationProps) {
 
   return (
     <div className="mx-auto flex h-40 w-full max-w-max-width items-center justify-between">
-      <Link
-        href="/"
-        className={cn("text-primary-title-s font-medium text-text/color/primary/title-s", {
-          "text-white": isLandingPage,
-        })}
-      >
+      <Link href="/" className="text-primary-title-s font-medium text-text/color/primary/title-s">
         {APP_NAME}
       </Link>
       <div>
-        <ul
-          className={cn("hidden items-center gap-24 text-text/color/action-item/button md:flex", {
-            "text-white": isLandingPage,
-          })}
-        >
+        <ul className="hidden items-center gap-24 text-text/color/action-item/button md:flex">
           {pages.map((item) => (
             <TopMenuItem key={item.href} page={item} />
           ))}
@@ -57,7 +45,6 @@ export function MenuNavigation({ pages }: MenuNavigationProps) {
                 {
                   "bg-button/background/color/carmine/main/primary/fallback hover:bg-button/background/color/carmine/main/primary/fallback":
                     isOpen,
-                  "bg-carmine-1000": isLandingPage,
                 }
               )}
             >
@@ -66,18 +53,11 @@ export function MenuNavigation({ pages }: MenuNavigationProps) {
           </SheetTrigger>
           <SheetContent
             side={"top"}
-            className={cn("mt-[72px] h-[calc(100vh-72px)] w-screen border-none bg-aubergine-25", {
-              "bg-aubergine-1000": isLandingPage,
-            })}
+            className="mt-[72px] h-[calc(100vh-72px)] w-screen border-none bg-aubergine-25"
           >
             <ul className="flex flex-col gap-[56px] text-center text-text/color/action-item/button">
               {pages.map((item) => (
-                <TopMenuItem
-                  page={item}
-                  className={cn("text-center text-[16px]", {
-                    "text-white": isLandingPage,
-                  })}
-                />
+                <TopMenuItem page={item} className={cn("text-center text-[16px]", {})} />
               ))}
             </ul>
           </SheetContent>

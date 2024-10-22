@@ -1,14 +1,13 @@
-import { TypographyItemType } from "@/types/types";
+import { TypographyItemType } from "@/types/types"
 
 type TypographyListItemProps = {
-  typography: TypographyItemType;
-};
+  typography: TypographyItemType
+}
 
 export function TypographyListItem({ typography }: TypographyListItemProps) {
   return (
-    <div className="rounded-16 w-full py-4 grid grid-cols-[130px_150px_1fr] gap-7 items-center">
-      <span className="text-text/color/primary/title-m text-primary-title-m">{typography.name}</span>
-      <div className="grid gap-8 text-text/color/primary/body text-primary-body ">
+    <div className="flex w-full flex-row items-center gap-[24px] rounded-16 py-4">
+      <div className="grid w-[116px] gap-[8px] text-[12px] text-wine-525">
         <span>Weight: {typography.weight}</span>
         <span>
           Size: {typography.rem.toLocaleString("no-NO")}rem / {typography.px}px
@@ -16,7 +15,7 @@ export function TypographyListItem({ typography }: TypographyListItemProps) {
         <span>Line height: {typography.lineHeight}px</span>
       </div>
       <span
-        className="text-text/color/primary/title-m"
+        className="text-aubergine-850"
         style={{
           fontSize: `${typography.rem}rem`,
           lineHeight: `${typography.lineHeight}px`,
@@ -26,5 +25,5 @@ export function TypographyListItem({ typography }: TypographyListItemProps) {
         {typography.display}
       </span>
     </div>
-  );
+  )
 }

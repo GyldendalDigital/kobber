@@ -1,22 +1,18 @@
-import { Metadata } from "next";
-import { redirect } from "next/navigation";
-import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils";
-import { PageDetails } from "@/types/types";
-import { pageDetailsFarge } from "./farger/page";
+import { redirect } from "next/navigation"
+import { PageDetails } from "@/types/types"
+import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { metadata as fargerPage } from "./farger/page"
 
-export const pageDetailsMerkevare: PageDetails = {
+export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Merkevare",
   image: placeholderImageUrl({}),
-  children: [pageDetailsFarge],
-};
-
-export const metadata: Metadata = {
-  title: documentTitle(pageDetailsMerkevare.title),
+  children: [fargerPage],
   description:
     "Merkevare er en samling av designelementer som sammen skaper en helhetlig opplevelse for brukeren. Dette inkluderer farger, fonter, ikoner og illustrasjoner.",
-};
+}
 
 export default function BrandingPage() {
-  return redirect(pageDetailsFarge.href);
+  return <div></div>
+  // redirect(metadata.href) // This causes a loop bug
 }

@@ -3,12 +3,15 @@ import "@/styles/globals.css"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import Footer from "@/components/footer"
-import { KobberThemeContext } from "@/components/kobber-ssr-loader"
+import { KobberIconLoader, KobberThemeContext } from "@/components/kobber-ssr-loader"
 import { TopMenu } from "@/components/menu/top-menu"
 
 /** Fallback for all pages */
 export const metadata: Metadata = {
-  title: `${APP_NAME} - Gyldendals designsystem`,
+  title: {
+    template: `%s | ${APP_NAME}`,
+    default: APP_NAME,
+  },
   description:
     "Byggesteiner Gyldendal bruker til å lage solide, sammenhengende og universelt tilgjengelige produkter.",
 }
@@ -26,8 +29,9 @@ export default function RootLayout({
         )}
       >
         <KobberThemeContext themeId="kobber-theme-default">
-          <div className="mx-auto flex min-h-screen flex-col justify-between gap-96 md:px-0">
-            <div className="grid gap-48">
+          <KobberIconLoader />
+          <div className="mx-auto flex min-h-screen flex-col justify-between gap-96 px-0 md:px-main">
+            <div className="grid gap-24">
               <TopMenu />
               {children}
             </div>

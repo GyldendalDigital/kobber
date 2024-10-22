@@ -4,18 +4,28 @@ import { WebComponentsRenderer } from "@storybook/web-components";
 import { html } from "lit";
 import "../box-layout/BoxLayout";
 import { example as cardLayoutExample } from "../card-layout/story/example";
+import {
+  exampleRegular as carouselExampleRegular,
+  miniExample as carouselExampleMini,
+} from "../../carousel/story/example";
 import "../story/ExampleSurface";
-import { globalStyles } from "../story/globalStyles";
+import { globalStyles } from "../../story/globalStyles";
 
-interface Args {}
+interface Args {
+  carouselHasManyItems: boolean;
+}
 
 const meta: Meta<Args> = {
   component: "Patterns",
+  args: {
+    carouselHasManyItems: true,
+  },
+  decorators: [(story, storyContext) => html`<div class="${storyContext.globals.theme}">${story()}</div>`],
 };
 
 export default meta;
 
-const render: ArgsStoryFn<WebComponentsRenderer, Args> = () => {
+const render: ArgsStoryFn<WebComponentsRenderer, Args> = args => {
   return html`
     <style>
       html {
@@ -34,8 +44,10 @@ const render: ArgsStoryFn<WebComponentsRenderer, Args> = () => {
 
       .demo {
         display: grid;
-        width: 100%;
+        width: 80%;
         justify-items: center;
+        grid-template-columns: 100%;
+        margin: auto;
       }
     </style>
     <div class="demo">
@@ -44,6 +56,10 @@ const render: ArgsStoryFn<WebComponentsRenderer, Args> = () => {
       </kobber-box-layout>
       <kobber-box-layout max-width="content">Content</kobber-box-layout>
       <div class="space-for-indicators"></div>
+      ${cardLayoutExample}
+      <kobber-box-layout max-width="content">Carousel</kobber-box-layout>
+      <kobber-carousel> ${args.carouselHasManyItems ? carouselExampleRegular : carouselExampleMini} </kobber-carousel>
+      <kobber-box-layout max-width="content">More content</kobber-box-layout>
       ${cardLayoutExample}
     </div>
   `;

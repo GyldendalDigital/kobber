@@ -1,37 +1,28 @@
-import { Metadata } from "next"
 import { InformationCardType, PageDetails } from "@/types/types"
-import { documentTitle, pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { InformationCard } from "@/components/information-card"
 
-export const pageDetailsKontakt: PageDetails = {
+export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Kontakt",
   image: placeholderImageUrl({}),
-}
-
-export const metadata: Metadata = {
-  title: documentTitle(pageDetailsKontakt.title),
 }
 
 const team: InformationCardType[] = [
   {
     title: "Irén Andresen",
     text: `Senior designer
-    ansvarlig for Kobber - merkevare
-    iren.andresen@gyldednal.no`,
+    ansvarlig for Kobber - merkevare`,
   },
   {
     title: "Izelin Tujunen",
     text: `Senior Designer
-    ansvarlig for Kobber - designssytem
-    iren.andresen@gyldendal.no
-    `,
+    ansvarlig for Kobber - designssytem`,
   },
   {
     title: "Dagfinn Reitan",
     text: `Senior utvikler
-    ansvarlig for teknisk utvikling
-    dagfinn.reitan@gyldendal.no`,
+    ansvarlig for teknisk utvikling`,
   },
   {
     title: "Dag Von Krogh Munkholt",
@@ -50,7 +41,7 @@ const team: InformationCardType[] = [
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto flex max-w-max-width flex-col gap-48 px-main md:px-0">
+    <div className="mx-auto flex w-full max-w-max-width flex-col gap-48 px-main md:px-0">
       <div className="flex w-full flex-col gap-48 md:w-[806px]">
         <div className="grid gap-24">
           <h1 className="text-[48px] font-light leading-[57.6px] text-[#481125]">

@@ -7,9 +7,10 @@
       "persistent": true
     },
     "lint": {},
+    "test": {},
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", "themes/**", "out/**", "react/**", "web-components/**", "chunks/**"]
     },
     "tokens": {
       "cache": false

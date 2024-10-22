@@ -1,38 +1,62 @@
-import { Banner } from "@/components/banner";
-import GylImage from "@/public/gyl-art.png";
-import { FeatureBoxType } from "@/types/types";
-import { FeatureBoxGrid } from "@/components/feature-box-grid";
-import { Container } from "@/components/container";
-import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import Image from "next/image"
+import Link from "next/link"
+import { ExternalLink } from "lucide-react"
+import { FeatureBoxType } from "@/types/types"
+import { FeatureBoxGrid } from "@/components/feature-box-grid"
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-48 pb-20 ">
-      <Banner
-        image={GylImage}
-        className="-mt-72 pt-[175px] md:pt-[150px] h-[calc(700px+72px)] md:h-[calc(900px+72px)]"
-      >
-        <Container />
-      </Banner>
-      <div className="pt-48 md:py-0 pb-0 flex flex-col gap-48 mx-auto max-w-max-width">
-        <div className="grid gap-24">
-          <h4 className="text-text/color/primary/heading-s text-primary-heading-s font-normal px-main ">
+    <main className="mx-auto flex max-w-max-width flex-col gap-48 pb-20">
+      <header className="mx-auto w-[95%] overflow-hidden rounded-[24px] bg-aubergine-50 px-[16px] py-[32px] md:w-full md:p-[64px]">
+        <div className="flex flex-col items-center justify-between gap-[32px] md:flex-row md:gap-[182px]">
+          <Image
+            src={"./hero-svg.svg"}
+            width={188}
+            height={184}
+            alt="Gyldendal Art"
+            className="block md:hidden"
+          />
+          <div className="grid gap-[24px] text-center md:text-left">
+            <div className="flex flex-col gap-[8px] leading-[40px] md:leading-[60px]">
+              <h1 className="text-[20px] text-aubergine-850 md:text-[48px]">
+                Velkommen til Kobber
+              </h1>
+              <h2 className="text-[32px] text-text/color/secondary/display-s md:text-[48px]">
+                Gyldendals designsystem
+              </h2>
+            </div>
+            <p className="max-w-[40ch] text-[16px] leading-[35px] text-text/color/primary/title-s md:text-[20px]">
+              Design, bygg og skap gode og helhetlige løsninger med Gyldendals designsystem.
+            </p>
+          </div>
+
+          <Image
+            src={"./hero-svg.svg"}
+            width={351}
+            height={343}
+            alt="Gyldendal Art"
+            className="hidden md:block"
+          />
+        </div>
+      </header>
+      <div className="flex flex-col gap-48 pb-0 pt-48 md:py-0">
+        <div className="grid gap-[24px]">
+          <h4 className="text-primary-heading-s font-normal text-text/color/primary/heading-s">
             Kom i gang
           </h4>
           <FeatureBoxGrid items={boxes} />
         </div>
-        <div className="grid px-main ">
-          <div className="min-h-96 flex flex-col gap-16">
-            <h3 className="text-text/color/primary/title-m text-primary-title-m">
+        <div className="grid px-main">
+          <div className="flex min-h-96 flex-col gap-16">
+            <h3 className="text-primary-title-m text-text/color/primary/title-m">
               Nyttige ressurser
             </h3>
-            <ul className="flex items-center flex-wrap gap-16">
+            <ul className="flex flex-wrap items-center gap-16">
               {links.map((item, index) => (
                 <li key={index}>
                   <Link
                     href={item.title}
-                    className="flex items-center hover:underline gap-8 text-[14px]"
+                    className="flex items-center gap-8 text-[14px] hover:underline"
                   >
                     {item.title}
 
@@ -45,7 +69,7 @@ export default function Home() {
         </div>
       </div>
     </main>
-  );
+  )
 }
 
 const boxes: FeatureBoxType[] = [
@@ -73,7 +97,7 @@ const boxes: FeatureBoxType[] = [
       "https://s3-alpha-sig.figma.com/img/a0e5/4630/c63cadc25209a28c4fd849d7d2656026?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QKWGK~GBCPz6-~TeTUQXc3yViL~dxU86A~K2iP6Nqy0eOVqIC0KtwI7B5NSM~7W1H4STJ4Nd4uZl051ree65HtEUZG3qnqMm78oFM3tHPqw90O4g-90~MFe0WXaRkqaMUHENipdzuIVth~AFaCAly3Pg2u4XA~5TrPWMkLZzHCf6IugR~nY7uzJ04e3dF2Svfkmy5KBWgSuLLvMDKWWU3-CgmyQ6QHjwqZvWmOczFj0zSXcprU~qR6~9eFJ~qOj3271JhMFzcTeA0rs2C8GIcZxj8rZcvoMlauF5FE2cQ13NP00Fg746PwKF3IWwTpkalCZhmZ4pH3JN0BVC4mHnCA__",
     href: "/merkevare/typografi",
   },
-];
+]
 
 const links = [
   {
@@ -92,4 +116,4 @@ const links = [
     title: "Teams",
     href: "#",
   },
-];
+]
