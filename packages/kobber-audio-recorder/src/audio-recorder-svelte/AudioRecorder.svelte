@@ -412,6 +412,7 @@
           style={confirmDelete ? "display: none;" : ""}
     >
         <button class="kbr-ar-record-button"
+                id={"record-button-" + uniqueId}
                 on:mousedown={toggleRecord}
                 on:click={toggleRecord}
                 disabled={isPlaying}
@@ -435,7 +436,7 @@
                     </svg>
                 {/if}
             {/if}
-            <label>
+            <label for={"record-button-" + uniqueId}>
                 {
                 isRecording
                     ? translations[lang].pause
@@ -448,6 +449,7 @@
     </span>
     {#if isExpanded}
     <button class="kbr-ar-play-button"
+            id={"play-button-" + uniqueId}
             on:mousedown={playAudio}
             on:click={playAudio}
             style={confirmDelete || isRecording ? "display: none;" : ""}
@@ -462,7 +464,7 @@
                 <path d="M15 7.26795C16.3333 8.03775 16.3333 9.96225 15 10.7321L3 17.6603C1.66667 18.4301 1.01267e-06 17.4678 1.07997e-06 15.9282L1.68565e-06 2.0718C1.75295e-06 0.532196 1.66667 -0.430055 3 0.339746L15 7.26795Z"/>
             </svg>
         {/if}
-        <label>
+        <label for={"play-button-" + uniqueId}>
             <!-- svelte-ignore a11y-label-has-associated-control -->
             {isPlaying ? translations[lang].stop : translations[lang].play}
         </label>
@@ -513,6 +515,7 @@
         </svg>
     </div>
     <button class="kbr-ar-delete-button"
+            id={"delete-button-" + uniqueId}
             on:mousedown={() => confirmDelete = !confirmDelete}
             on:click={() => confirmDelete = !confirmDelete}
             style={confirmDelete || isRecording ? "display: none;" : ""}
@@ -527,7 +530,7 @@
                 </clipPath>
             </defs>
         </svg>
-        <label>
+        <label for={"delete-button-" + uniqueId}>
             {translations[lang].delete}
         </label>
     </button>
@@ -646,14 +649,6 @@
     .kbr-ar-svg {
         width: 100%;
         fill: var(--record-color);
-        //fill-opacity: 50%;
-        //background-color: var(--item-primary-color);
-        //box-shadow: inset 0 0.125em 0.25em -0.05em;
-        //border-radius: 10% / 50%;
-    }
-    .kbr-ar-text {
-        grid-row: 1;
-        grid-column: 1 / span 4;
     }
 
     .kbr-ar-confirm-delete-text {
