@@ -1577,30 +1577,18 @@
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.identity.base.aubergine-50}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.identity.base.aubergine-50-50%}"
             }
           },
           "darkest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.identity.base.aubergine-1000}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.identity.base.aubergine-1000-50%}"
             }
           },
           "brightest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.identity.base.aubergine-25}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.identity.base.aubergine-25-50%}"
             }
           }
         },
@@ -1609,40 +1597,24 @@
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.identity.neutral.concrete-50}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.identity.neutral.concrete-50-50%}"
             }
           },
           "darkest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.identity.neutral.concrete-900}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.identity.neutral.concrete-900-50%}"
             }
           },
           "dark": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.identity.neutral.concrete-525}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.identity.neutral.concrete-525-50%}"
             }
           },
           "brightest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.identity.neutral.concrete-25}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.identity.neutral.concrete-25-50%}"
             }
           }
         },
@@ -1651,20 +1623,12 @@
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.identity.brand.carmine-525}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.identity.brand.carmine-525-50%}"
             }
           },
           "brightest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.identity.extended.carmine-25}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.identity.extended.carmine-25-50%}"
             }
           }
         },
@@ -1673,30 +1637,18 @@
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.identity.rettsdata.rettsdata-60}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.identity.rettsdata.rettsdata-60-50%}"
             }
           },
           "brightest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.identity.rettsdata.rettsdata-20}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.identity.rettsdata.rettsdata-20-50%}"
             }
           },
           "darkest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.identity.rettsdata.rettsdata-90}"
-            },
-            "disabled 3": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.identity.rettsdata.rettsdata-90-50%}"
             }
           }
         },
@@ -1705,10 +1657,6 @@
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.ui.success.success-75}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.ui.success.success-75-50%}"
             }
           },
           "midtone": {
@@ -1721,10 +1669,6 @@
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.ui.success.success-700}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.ui.success.success-700-50%}"
             }
           }
         },
@@ -1733,20 +1677,12 @@
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.ui.informative.informative-25}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.ui.informative.informative-25-50%}"
             }
           },
           "darkest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.ui.informative.informative-700}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.ui.informative.informative-700-50%}"
             }
           }
         },
@@ -1755,20 +1691,12 @@
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.ui.warning.warning-75}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{primitives.mode 1.color.orange.75-50%}"
             }
           },
           "darkest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.ui.warning.warning-700}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.ui.warning.warning-700-50%}"
             }
           }
         },
@@ -1777,20 +1705,12 @@
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.theme.nostalgia.nostalgia-850}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.theme.nostalgia.nostalgia-850-50%}"
             }
           },
           "brightest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.theme.nostalgia.nostalgia-25}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.theme.nostalgia.nostalgia-25-50%}"
             }
           }
         },
@@ -1799,20 +1719,12 @@
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.theme.vacation.vacation-150}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.theme.vacation.150-50%}"
             }
           },
           "brightest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.theme.vacation.vacation-25}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.theme.vacation.vacation-25-50%}"
             }
           }
         },
@@ -1821,20 +1733,12 @@
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.theme.nature.nature-750}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.theme.nature.750-50%}"
             }
           },
           "brightest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.theme.nature.nature-25}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.theme.nature.nature-25-50%}"
             }
           }
         },
@@ -1843,20 +1747,12 @@
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.theme.romance.romance-750}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.theme.romance.750-50%}"
             }
           },
           "brightest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.theme.romance.romance-50}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.theme.romance.romance-25-50%}"
             }
           }
         },
@@ -1865,20 +1761,12 @@
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.theme.fantasy.fantasy-850}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{primitives.mode 1.color.fantasy.850-50%}"
             }
           },
           "brightest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.theme.fantasy.fantasy-250}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.theme.fantasy.fantasy-250-50%}"
             }
           }
         },
@@ -1887,31 +1775,19 @@
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.theme.thriller.thriller-900}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.theme.thriller.thriller-900-50%}"
             }
           },
           "brightest": {
             "opaque": {
               "type": "color",
               "value": "{semantics.mode 1.color.theme.thriller.thriller-250}"
-            },
-            "transparent": {
-              "type": "color",
-              "value": "{semantics.mode 1.color.theme.thriller.thriller-250-50%}"
             }
           }
         },
         "wine": {
           "opaque": {
             "type": "color",
-            "value": "{semantics.mode 1.color.identity.extended.wine-525-50%}"
-          },
-          "transparent": {
-            "type": "color",
-            "value": "{semantics.mode 1.color.identity.extended.wine-525-50%}"
+            "value": "{semantics.mode 1.color.identity.extended.wine-600}"
           }
         }
       },
@@ -2122,25 +1998,9 @@
           "success-700": {
             "type": "color",
             "value": "{primitives.mode 1.color.green.700}"
-          },
-          "success-75-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.green.75-50%}"
-          },
-          "success-700-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.green.700-50%}"
-          },
-          "success-175-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.green.175-50%}"
           }
         },
         "warning": {
-          "warning-75-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.orange.75-50%}"
-          },
           "warning-125": {
             "type": "color",
             "value": "{primitives.mode 1.color.orange.125}"
@@ -2160,10 +2020,6 @@
           "warning-75": {
             "type": "color",
             "value": "{primitives.mode 1.color.orange.75}"
-          },
-          "warning-700-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.orange.700-50%}"
           }
         },
         "informative": {
@@ -2186,14 +2042,6 @@
           "informative-700": {
             "type": "color",
             "value": "{primitives.mode 1.color.purple.700}"
-          },
-          "informative-700-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.purple.700-50%}"
-          },
-          "informative-25-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.purple.25-50%}"
           }
         }
       },
@@ -2310,14 +2158,6 @@
           "nostalgia-850": {
             "type": "color",
             "value": "{primitives.mode 1.color.nostalgia.850}"
-          },
-          "nostalgia-25-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.nostalgia.25-50%}"
-          },
-          "nostalgia-850-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.nostalgia.850-50%}"
           }
         },
         "nature": {
@@ -2332,14 +2172,6 @@
           "nature-750": {
             "type": "color",
             "value": "{primitives.mode 1.color.nature.750}"
-          },
-          "nature-25-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.nature.25-50%}"
-          },
-          "750-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.nature.750-50%}"
           }
         },
         "romance": {
@@ -2354,14 +2186,6 @@
           "romance-750": {
             "type": "color",
             "value": "{primitives.mode 1.color.romance.750}"
-          },
-          "romance-25-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.romance.25-50%}"
-          },
-          "750-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.romance.750-50%}"
           }
         },
         "vacation": {
@@ -2376,14 +2200,6 @@
           "vacation-150": {
             "type": "color",
             "value": "{primitives.mode 1.color.vacation.150}"
-          },
-          "vacation-25-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.vacation.25-50%}"
-          },
-          "150-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.vacation.150-50%}"
           }
         },
         "fantasy": {
@@ -2398,14 +2214,6 @@
           "fantasy-850": {
             "type": "color",
             "value": "{primitives.mode 1.color.fantasy.850}"
-          },
-          "fantasy-250-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.fantasy.250-50%}"
-          },
-          "fantasy-850-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.fantasy.850-50%}"
           }
         },
         "thriller": {
@@ -2420,14 +2228,6 @@
           "thriller-900": {
             "type": "color",
             "value": "{primitives.mode 1.color.thriller.900}"
-          },
-          "thriller-250-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.thriller.250-50%}"
-          },
-          "thriller-900-50%": {
-            "type": "color",
-            "value": "{primitives.mode 1.color.thriller.900-50%}"
           }
         }
       }
@@ -2492,16 +2292,6 @@
                   "type": "color",
                   "value": "{semantics.mode 1.color.identity.base.aubergine-50}"
                 }
-              },
-              "transparent": {
-                "success": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.color.ui.success.success-75-50%}"
-                },
-                "aubergine": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.color.identity.base.aubergine-25}"
-                }
               }
             },
             "midtone": {
@@ -2513,12 +2303,6 @@
                 "success": {
                   "type": "color",
                   "value": "{semantics.mode 1.color.ui.success.success-175}"
-                }
-              },
-              "transparent": {
-                "success": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.color.ui.success.success-175-50%}"
                 }
               }
             }
@@ -2861,10 +2645,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.aubergine.bright.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.aubergine.bright.transparent}"
                 }
               }
             },
@@ -2873,10 +2653,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.aubergine.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.aubergine.darkest.transparent}"
                 }
               }
             },
@@ -2885,10 +2661,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.aubergine.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.aubergine.brightest.transparent}"
                 }
               }
             }
@@ -2899,10 +2671,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{primitives.mode 1.color.concrete.50}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.bright.transparent}"
                 }
               }
             },
@@ -2911,10 +2679,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.neutral.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.darkest.transparent}"
                 }
               }
             },
@@ -2923,10 +2687,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.neutral.dark.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.dark.transparent}"
                 }
               }
             }
@@ -2937,10 +2697,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.rettsdata.midtone.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.midtone.transparent}"
                 }
               }
             },
@@ -2949,10 +2705,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.rettsdata.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.brightest.transparent}"
                 }
               }
             },
@@ -2961,10 +2713,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.rettsdata.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.darkest.disabled 3}"
                 }
               }
             }
@@ -2975,10 +2723,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.success.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.success.brightest.transparent}"
                 }
               }
             },
@@ -2987,10 +2731,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.success.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.success.darkest.transparent}"
                 }
               }
             }
@@ -3001,10 +2741,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.informative.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.informative.brightest.transparent}"
                 }
               }
             },
@@ -3013,10 +2749,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.informative.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.informative.darkest.transparent}"
                 }
               }
             }
@@ -3027,10 +2759,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.warning.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.warning.brightest.transparent}"
                 }
               }
             },
@@ -3039,10 +2767,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.warning.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.warning.darkest.transparent}"
                 }
               }
             }
@@ -3053,10 +2777,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nostalgia.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nostalgia.darkest.transparent}"
                 }
               }
             },
@@ -3065,10 +2785,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nostalgia.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nostalgia.brightest.transparent}"
                 }
               }
             }
@@ -3079,10 +2795,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nature.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nature.darkest.transparent}"
                 }
               }
             },
@@ -3091,10 +2803,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nature.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nature.brightest.transparent}"
                 }
               }
             }
@@ -3105,10 +2813,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.romance.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.romance.darkest.transparent}"
                 }
               }
             },
@@ -3117,10 +2821,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.romance.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.romance.brightest.transparent}"
                 }
               }
             }
@@ -3131,10 +2831,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.vacation.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.vacation.darkest.transparent}"
                 }
               }
             },
@@ -3143,10 +2839,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.vacation.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.vacation.brightest.transparent}"
                 }
               }
             }
@@ -3157,10 +2849,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.fantasy.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.fantasy.darkest.transparent}"
                 }
               }
             },
@@ -3169,10 +2857,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.fantasy.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.fantasy.brightest.transparent}"
                 }
               }
             }
@@ -3183,10 +2867,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.thriller.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.thriller.darkest.transparent}"
                 }
               }
             },
@@ -3195,10 +2875,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.thriller.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.thriller.brightest.transparent}"
                 }
               }
             }
@@ -3521,20 +3197,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.carmine.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.carmine.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.carmine.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.carmine.darkest.transparent}"
                 }
               }
             },
@@ -3543,20 +3211,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.carmine.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.carmine.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.carmine.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.carmine.brightest.transparent}"
                 }
               }
             }
@@ -3581,20 +3241,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.aubergine.bright.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.aubergine.bright.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.aubergine.bright.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.aubergine.bright.transparent}"
                 }
               }
             },
@@ -3603,10 +3255,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.aubergine.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.aubergine.darkest.transparent}"
                 }
               }
             }
@@ -3617,20 +3265,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.neutral.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.neutral.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.darkest.transparent}"
                 }
               }
             },
@@ -3639,20 +3279,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.neutral.bright.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.bright.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.neutral.bright.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.bright.transparent}"
                 }
               }
             },
@@ -3661,10 +3293,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.neutral.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.brightest.transparent}"
                 }
               }
             }
@@ -3675,20 +3303,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.rettsdata.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.rettsdata.midtone.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.midtone.transparent}"
                 }
               }
             },
@@ -3697,20 +3317,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.rettsdata.midtone.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.midtone.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.rettsdata.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.brightest.transparent}"
                 }
               }
             },
@@ -3719,10 +3331,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.rettsdata.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.brightest.transparent}"
                 }
               }
             }
@@ -3733,10 +3341,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.success.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.success.darkest.transparent}"
                 }
               }
             },
@@ -3745,10 +3349,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.success.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.success.brightest.transparent}"
                 }
               }
             }
@@ -3759,10 +3359,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.informative.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.informative.darkest.transparent}"
                 }
               }
             },
@@ -3771,10 +3367,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.informative.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.informative.brightest.transparent}"
                 }
               }
             }
@@ -3785,10 +3377,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.warning.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.warning.darkest.transparent}"
                 }
               }
             },
@@ -3797,10 +3385,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.warning.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.warning.brightest.transparent}"
                 }
               }
             }
@@ -3811,20 +3395,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nostalgia.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nostalgia.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nostalgia.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nostalgia.darkest.transparent}"
                 }
               }
             },
@@ -3833,20 +3409,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nostalgia.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nostalgia.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nostalgia.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nostalgia.brightest.transparent}"
                 }
               }
             }
@@ -3857,20 +3425,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nature.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nature.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nature.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nature.darkest.transparent}"
                 }
               }
             },
@@ -3879,20 +3439,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nature.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nature.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nature.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nature.brightest.transparent}"
                 }
               }
             }
@@ -3903,20 +3455,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.romance.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.romance.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.romance.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.romance.darkest.transparent}"
                 }
               }
             },
@@ -3925,20 +3469,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.romance.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.romance.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.romance.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.romance.brightest.transparent}"
                 }
               }
             }
@@ -3949,20 +3485,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.vacation.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.vacation.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.vacation.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.vacation.darkest.transparent}"
                 }
               }
             },
@@ -3971,20 +3499,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.vacation.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.vacation.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.vacation.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.vacation.brightest.transparent}"
                 }
               }
             }
@@ -3995,20 +3515,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.fantasy.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.fantasy.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.fantasy.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.fantasy.darkest.transparent}"
                 }
               }
             },
@@ -4017,20 +3529,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.fantasy.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.fantasy.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.fantasy.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.fantasy.brightest.transparent}"
                 }
               }
             }
@@ -4041,20 +3545,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.thriller.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.thriller.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.thriller.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.thriller.darkest.transparent}"
                 }
               }
             },
@@ -4063,20 +3559,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.thriller.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.thriller.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.thriller.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.thriller.brightest.transparent}"
                 }
               }
             }
@@ -4113,20 +3601,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.carmine.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.carmine.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.carmine.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.carmine.darkest.transparent}"
                 }
               }
             },
@@ -4135,20 +3615,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.carmine.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.carmine.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.carmine.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.carmine.brightest.transparent}"
                 }
               }
             }
@@ -4173,20 +3645,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.aubergine.bright.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.aubergine.bright.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.aubergine.bright.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.aubergine.bright.transparent}"
                 }
               }
             },
@@ -4195,10 +3659,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.aubergine.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.aubergine.darkest.transparent}"
                 }
               }
             }
@@ -4209,20 +3669,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.rettsdata.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.rettsdata.midtone.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.midtone.transparent}"
                 }
               }
             },
@@ -4231,20 +3683,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.rettsdata.midtone.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.midtone.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.rettsdata.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.brightest.transparent}"
                 }
               }
             },
@@ -4253,10 +3697,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.rettsdata.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.rettsdata.brightest.transparent}"
                 }
               }
             }
@@ -4267,20 +3707,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.neutral.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.neutral.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.darkest.transparent}"
                 }
               }
             },
@@ -4289,20 +3721,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.neutral.bright.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.bright.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.neutral.bright.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.bright.transparent}"
                 }
               }
             },
@@ -4311,10 +3735,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.neutral.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.neutral.brightest.transparent}"
                 }
               }
             }
@@ -4325,10 +3745,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.success.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.success.darkest.transparent}"
                 }
               }
             },
@@ -4337,10 +3753,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.success.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.success.brightest.transparent}"
                 }
               }
             }
@@ -4351,10 +3763,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.informative.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.informative.darkest.transparent}"
                 }
               }
             },
@@ -4363,10 +3771,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.informative.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.informative.brightest.transparent}"
                 }
               }
             }
@@ -4377,10 +3781,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.warning.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.warning.darkest.transparent}"
                 }
               }
             },
@@ -4389,10 +3789,6 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.warning.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.warning.brightest.transparent}"
                 }
               }
             }
@@ -4403,20 +3799,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nostalgia.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nostalgia.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nostalgia.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nostalgia.darkest.transparent}"
                 }
               }
             },
@@ -4425,20 +3813,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nostalgia.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nostalgia.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nostalgia.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nostalgia.brightest.transparent}"
                 }
               }
             }
@@ -4449,20 +3829,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nature.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nature.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nature.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nature.darkest.transparent}"
                 }
               }
             },
@@ -4471,20 +3843,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nature.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nature.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.nature.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.nature.brightest.transparent}"
                 }
               }
             }
@@ -4495,20 +3859,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.romance.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.romance.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.romance.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.romance.darkest.transparent}"
                 }
               }
             },
@@ -4517,20 +3873,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.romance.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.romance.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.romance.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.romance.brightest.transparent}"
                 }
               }
             }
@@ -4541,20 +3889,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.thriller.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.thriller.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.thriller.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.thriller.darkest.transparent}"
                 }
               }
             },
@@ -4563,20 +3903,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.thriller.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.thriller.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.thriller.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.thriller.brightest.transparent}"
                 }
               }
             }
@@ -4587,20 +3919,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.fantasy.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.fantasy.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.fantasy.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.fantasy.darkest.transparent}"
                 }
               }
             },
@@ -4609,20 +3933,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.fantasy.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.fantasy.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.fantasy.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.fantasy.brightest.transparent}"
                 }
               }
             }
@@ -4633,20 +3949,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.vacation.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.vacation.brightest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.vacation.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.vacation.darkest.transparent}"
                 }
               }
             },
@@ -4655,20 +3963,12 @@
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.vacation.darkest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.vacation.darkest.transparent}"
                 }
               },
               "secondary": {
                 "fallback": {
                   "type": "color",
                   "value": "{semantics.mode 1.action.color.vacation.brightest.opaque}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.action.color.vacation.brightest.transparent}"
                 }
               }
             }
@@ -5063,10 +4363,6 @@
                 "idle": {
                   "type": "color",
                   "value": "{semantics.mode 1.form.selection.indicator.color.brightest.opaque.aubergine}"
-                },
-                "disabled": {
-                  "type": "color",
-                  "value": "{semantics.mode 1.form.selection.indicator.color.brightest.transparent.aubergine}"
                 }
               }
             }
