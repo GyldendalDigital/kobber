@@ -152,10 +152,10 @@ export class Button extends LitElement {
 
         &:disabled {
           background-color: ${unsafeCSS(
-            component.background.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled,
+            component.background.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.fallback,
           )};
           color: ${unsafeCSS(
-            component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.disabled,
+            component.text.color[this.color]?.[this.variantFallback()]?.[this.levelFallback()]?.fallback,
           )};
           cursor: auto;
         }
@@ -180,7 +180,7 @@ export class Button extends LitElement {
       ::slotted([slot="icon"]) {
         display: ${unsafeCSS(this.iconSettings === "none" ? "none" : "flex")};
         color: ${this.disabled === true
-          ? unsafeCSS(component.icon.color[this.color]?.[this.variantFallback()]?.primary.disabled)
+          ? unsafeCSS(component.icon.color[this.color]?.[this.variantFallback()]?.primary.fallback)
           : unsafeCSS(component.icon.color[this.color]?.[this.variantFallback()]?.primary.fallback)};
         --icon-width: ${component.icon.size.width.small}px;
         --icon-height: ${component.icon.size.height.small}px;
