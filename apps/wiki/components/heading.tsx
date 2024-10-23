@@ -1,5 +1,5 @@
-import clsx from "clsx"
 import { SizeType } from "@/types/types"
+import { cn } from "@/lib/utils"
 
 type HeadingProps = {
   text: string
@@ -12,11 +12,15 @@ export function Heading({ text, size = "display/small", children, className }: H
   return (
     <div className="flex flex-col gap-[8px]">
       <h1
-        className={clsx("truncate text-[#481125]", className, {
-          "text-text/primary/size/display/small": size === "display/small",
-          "text-primary-display-s": size === "md",
-          "text-primary-display-m": size === "lg",
-        })}
+        className={cn(
+          "truncate text-[#481125]",
+          {
+            "text-text/primary/size/display/small": size === "display/small",
+            "": size === "md",
+            "text-primary-display-m": size === "lg",
+          },
+          className
+        )}
       >
         {text}
       </h1>

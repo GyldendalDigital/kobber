@@ -8,14 +8,14 @@ import { PageDetails } from "@/types/types"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { TopMenuItem } from "./menu/top-menu-item"
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
+import { WikiHeaderItem } from "./wiki-header-item"
 
-type MenuNavigationProps = {
+type WikiNavbarContainerProps = {
   pages: PageDetails[]
 }
 
-export function MenuNavigation({ pages }: MenuNavigationProps) {
+export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
@@ -25,39 +25,42 @@ export function MenuNavigation({ pages }: MenuNavigationProps) {
   }, [pathname])
 
   return (
-    <div className="mx-auto flex h-40 w-full max-w-max-width items-center justify-between">
-      <Link href="/" className="text-primary-title-s font-medium text-text/color/primary/title-s">
+    <div className="mx-auto flex h-full w-full items-center justify-between">
+      <Link href="/" className="text-primary-title-s font-medium text-[#481125]">
         {APP_NAME}
       </Link>
       <div>
-        <ul className="hidden items-center gap-24 text-text/color/action-item/button md:flex">
+        <ul className="hidden items-center gap-[24px] text-text/color/action-item/button md:flex">
           {pages.map((item) => (
-            <TopMenuItem key={item.href} page={item} />
+            <WikiHeaderItem key={item.href} page={item} />
           ))}
         </ul>
 
         <Sheet modal={false} open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button
-              size={"icon"}
               className={cn(
-                "flex bg-button/background/color/aubergine/main/primary/fallback md:hidden",
+                "flex size-[40px] rounded-[8px] bg-button/background/color/aubergine/main/primary/fallback p-0 md:hidden",
                 {
                   "bg-button/background/color/carmine/main/primary/fallback hover:bg-button/background/color/carmine/main/primary/fallback":
                     isOpen,
                 }
               )}
             >
-              {!isOpen ? <Menu className="size-5" /> : <X className="size-5 text-white" />}
+              {!isOpen ? (
+                <Menu className="size-[15px]" />
+              ) : (
+                <X className="size-[15px] text-white" />
+              )}
             </Button>
           </SheetTrigger>
           <SheetContent
             side={"top"}
-            className="mt-[72px] h-[calc(100vh-72px)] w-screen border-none bg-aubergine-25"
+            className="bg-aubergine-25 mt-[72px] h-[calc(100vh-72px)] w-screen border-none"
           >
             <ul className="flex flex-col gap-[56px] text-center text-text/color/action-item/button">
               {pages.map((item) => (
-                <TopMenuItem page={item} className={cn("text-center text-[16px]", {})} />
+                <WikiHeaderItem page={item} className={cn("text-center text-[16px]", {})} />
               ))}
             </ul>
           </SheetContent>

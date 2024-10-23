@@ -8,7 +8,7 @@ type FeatureBoxGridProps = {
 
 export function FeatureBoxGrid({ items }: FeatureBoxGridProps) {
   return (
-    <KobberCardLayout gap="5px" aspect-ratio-height="0.9" className="p-0">
+    <KobberCardLayout aspect-ratio-height="0.9" className="p-0">
       {items.map((item, index) => (
         <KobberCardLayoutColumnAspectRatio key={index}>
           <FeatureBoxGridItem item={item} />

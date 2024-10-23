@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 import { ExternalLink } from "lucide-react"
 import { FeatureBoxType } from "@/types/types"
@@ -7,37 +6,32 @@ import { HeroBanner } from "@/components/hero-banner"
 
 export default function Home() {
   return (
-    <main className="mx-auto flex max-w-max-width flex-col gap-48 pb-20">
+    <main className="gap-y-content/gap/horizontal mx-auto flex w-full flex-col">
       <HeroBanner src={"./hero-svg.svg"} alt="Gyldendal Art" width={188} height={184} />
-      <div className="flex flex-col gap-48 pb-0 pt-48 md:py-0">
-        <div className="grid gap-[24px]">
-          <h4 className="text-primary-heading-s font-normal text-text/color/primary/heading-s">
-            Kom i gang
-          </h4>
-          <FeatureBoxGrid items={boxes} />
-        </div>
-        <div className="grid px-main">
-          <div className="flex min-h-96 flex-col gap-16">
-            <h3 className="text-primary-title-m text-text/color/primary/title-m">
-              Nyttige ressurser
-            </h3>
-            <ul className="flex flex-wrap items-center gap-16">
-              {links.map((item, index) => (
-                <li key={index}>
-                  <Link
-                    href={item.title}
-                    className="flex items-center gap-8 text-[14px] hover:underline"
-                  >
-                    {item.title}
+      <section className="gap-y-section/gap/horizontal grid">
+        <h4 className="text-primary-heading-s font-normal text-text/color/primary/heading-s">
+          Kom i gang
+        </h4>
+        <FeatureBoxGrid items={boxes} />
+      </section>
 
-                    <ExternalLink className="size-[16px]" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
+      <section className="gap-y-section/gap/horizontal grid">
+        <h3 className="text-primary-title-m text-[#481120]">Nyttige ressurser</h3>
+        <ul className="flex flex-wrap items-center gap-[16px]">
+          {links.map((item, index) => (
+            <li key={index}>
+              <Link
+                href={item.title}
+                className="flex items-center gap-8 text-[14px] hover:underline"
+              >
+                {item.title}
+
+                <ExternalLink className="size-[16px]" />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
     </main>
   )
 }
