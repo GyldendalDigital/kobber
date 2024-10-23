@@ -295,7 +295,7 @@ const config = {
             fontWeight: `${primary["display medium"].fontWeight}`,
           },
         ],
-        "primary-display-s": [
+        "text/primary/size/display/small": [
           `${primary["display small"].fontSize}px`,
           {
             lineHeight: `${primary["display small"].lineHeight}px`,
@@ -441,7 +441,6 @@ const config = {
           component["button"].background.color.carmine.main.primary.fallback,
 
         // Brand colors
-        // TODO: remove when all uses of these classes are removed
         // "carmine-25": color.brand.carmine["25"],
         // "carmine-50": color.brand.carmine["50"],
         // "carmine-150": color.brand.carmine["150"],

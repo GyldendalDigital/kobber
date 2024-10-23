@@ -21,7 +21,7 @@ export function ContentSection({
       <TextCollection
         heading={heading}
         ingress={ingress}
-        size="sm"
+        size="display/small"
         label={label}
         subheading={subheading}
         text={text}
