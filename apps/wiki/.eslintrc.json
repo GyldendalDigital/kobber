@@ -1,20 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/eslintrc",
   "root": true,
-  "extends": [
-    "next/core-web-vitals",
-    "prettier",
-    "plugin:tailwindcss/recommended",
-    "plugin:react-hooks/recommended"
-  ],
-  "plugins": ["tailwindcss"],
+  "extends": ["next/core-web-vitals", "prettier", "next/typescript"],
+  "plugins": [],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
       "parser": "@typescript-eslint/parser"
     }
   ],
-
   "settings": {
     "tailwindcss": {
       "callees": ["cn"],
@@ -30,9 +24,11 @@
     "no-console": "error",
     "no-alert": "error",
     "quotes": ["warn", "double"],
-    "@next/next/no-html-link-for-pages": "off",
+    "@next/next/no-html-link-for-pages": "warn",
     "react/jsx-key": "off",
-    "tailwindcss/no-custom-classname": "off",
-    "tailwindcss/classnames-order": "off"
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-empty-object-type": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-require-imports": "warn"
   }
 }

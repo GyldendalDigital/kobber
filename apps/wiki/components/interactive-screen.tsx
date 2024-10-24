@@ -1,32 +1,37 @@
-import { ReactNode, useState } from "react";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { cn } from "@/lib/utils";
+import { ReactNode, useState } from "react"
+import { cn } from "@/lib/utils"
+import { Label } from "@/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 
 type InteractiveScreenProps = {
-  key: string;
-  children: (mode: Mode) => ReactNode;
-  properties: (mode: Mode) => ReactNode;
-  footer?: (mode: Mode) => ReactNode;
-};
+  key: string
+  children: (mode: Mode) => ReactNode
+  properties: (mode: Mode) => ReactNode
+  footer?: (mode: Mode) => ReactNode
+}
 
-type Mode = "light" | "dark";
+type Mode = "light" | "dark"
 
-export const InteractiveScreen = ({ key, children, properties, footer }: InteractiveScreenProps) => {
-  const [mode, setMode] = useState<Mode>("light");
+export const InteractiveScreen = ({
+  key,
+  children,
+  properties,
+  footer,
+}: InteractiveScreenProps) => {
+  const [mode, setMode] = useState<Mode>("light")
   return (
     <div className="p-main">
       <div
-        className={`w-[733px] max-w-[733px] grid-cols-[389px_1fr] grid gap-24 p-8 rounded-16 bg-white shadow min-h-96`}
+        className={`rounded-16 grid min-h-96 w-[733px] max-w-[733px] grid-cols-[389px_1fr] gap-24 bg-white p-8 shadow`}
       >
-        <div className="relative rounded-16 flex items-center justify-center gap-24 bg-aubergine-25">
+        <div className="rounded-16 relative flex items-center justify-center gap-24 bg-[#FDF9F9]">
           <div
             className={cn(
-              " rounded-16 py-16 max-w-[309px] w-[309px] h-104 max-h-104 flex items-center justify-center",
+              "rounded-16 h-104 max-h-104 flex w-[309px] max-w-[309px] items-center justify-center py-16",
               {
                 "bg-white": mode === "light",
-                "bg-wine-750": mode === "dark",
-              },
+                "bg-[#884D5D]": mode === "dark",
+              }
             )}
           >
             {children(mode)}
@@ -34,12 +39,12 @@ export const InteractiveScreen = ({ key, children, properties, footer }: Interac
           {footer && <div className="absolute bottom-0">{footer(mode)}</div>}
         </div>
         <div className="grid gap-24 py-24">
-          <div className="w-[251px] max-w-[251px] px-24 grid gap-24 h-fit">
-            <h4 className="text-text/color/primary/title-s text-primary-title-s">Egenskaper</h4>
+          <div className="grid h-fit w-[251px] max-w-[251px] gap-24 px-24">
+            <h4 className="text-primary-title-s text-text/color/primary/title-s">Egenskaper</h4>
             <div className="grid gap-16">{properties(mode)}</div>
           </div>
-          <div className="w-[251px] max-w-[251px] px-24 grid gap-12 h-fit">
-            <h4 className="text-text/color/primary/title-s text-primary-title-s">Visning</h4>
+          <div className="grid h-fit w-[251px] max-w-[251px] gap-12 px-24">
+            <h4 className="text-primary-title-s text-text/color/primary/title-s">Visning</h4>
             <RadioGroup defaultValue="light" className="grid gap-16">
               <div className="flex items-center gap-2">
                 <RadioGroupItem value="light" id={key + "light"} onClick={() => setMode("light")} />
@@ -54,5 +59,5 @@ export const InteractiveScreen = ({ key, children, properties, footer }: Interac
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
