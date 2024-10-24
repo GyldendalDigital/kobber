@@ -28,7 +28,7 @@ export default function Temafarger() {
           key={index}
           textCollection={{ heading: theme.title, ingress: theme.description }}
           chilClassName="px-0"
-          className="gap-32"
+          className="gap-[32px]"
         >
           <ColorBlockGrid colors={theme.colors} enableCopy />
         </ContentSection>
