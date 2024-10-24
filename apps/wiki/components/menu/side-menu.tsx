@@ -2,7 +2,7 @@
 
 import { Sidebar } from "lucide-react"
 import { useIsMobile } from "@/hooks/use-is-mobile"
-import { KobberThemeContext } from "../kobber-ssr-loader"
+import { ThemeContext } from "../kobber-components"
 import { Button } from "../ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 
@@ -23,7 +23,7 @@ export const SideMenu = ({ children }: SideMenuProps) => {
             </Button>
           </SheetTrigger>
           <SheetContent side={"left"} className="pt-72">
-            <KobberThemeContext themeId="kobber-theme-default">{children}</KobberThemeContext>
+            <ThemeContext themeId="kobber-theme-default">{children}</ThemeContext>
           </SheetContent>
         </Sheet>
       ) : (

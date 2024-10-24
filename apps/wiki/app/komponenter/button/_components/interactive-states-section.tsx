@@ -1,5 +1,5 @@
 import { ContentSection } from "@/components/content-section"
-import { KobberButton } from "@/components/kobber-ssr-loader"
+import { Button } from "@/components/kobber-components"
 
 const states = ["idle", "hover", "active", "focus", "disabled"]
 const ingress =
@@ -12,7 +12,7 @@ export function InteractiveStatesSection() {
         <div className="rounded-16 w-[736px] max-w-[736px] overflow-hidden">
           <div className="px-120 flex items-center justify-center gap-24 bg-white py-40">
             {states.map((state) => (
-              <KobberButton
+              <Button
                 key={"supplemental" + state}
                 color="carmine"
                 variant="supplemental"
@@ -21,12 +21,12 @@ export function InteractiveStatesSection() {
                 disabled={state === "disabled"}
               >
                 <span className="capitalize">{state}</span>
-              </KobberButton>
+              </Button>
             ))}
           </div>
           <div className="px-120 flex items-center justify-center gap-24 bg-[#330314] py-40">
             {states.map((state) => (
-              <KobberButton
+              <Button
                 key={"main" + state}
                 color="carmine"
                 variant="main"
@@ -35,7 +35,7 @@ export function InteractiveStatesSection() {
                 disabled={state === "disabled"}
               >
                 <span className="capitalize">{state}</span>
-              </KobberButton>
+              </Button>
             ))}
           </div>
         </div>
