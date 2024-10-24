@@ -60,7 +60,11 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
           >
             <ul className="flex flex-col gap-[56px] text-center text-text/color/action-item/button">
               {pages.map((item) => (
-                <WikiHeaderItem page={item} className={cn("text-center text-[16px]", {})} />
+                <WikiHeaderItem
+                  key={item.href}
+                  page={item}
+                  className={cn("text-center text-[16px]", {})}
+                />
               ))}
             </ul>
           </SheetContent>

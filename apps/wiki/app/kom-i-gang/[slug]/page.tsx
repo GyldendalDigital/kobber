@@ -4,9 +4,9 @@ import { HeroImage } from "@/components/hero-image"
 import { SectionLayout } from "@/components/section-layout"
 
 type GetStartedSlugPageProps = {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
@@ -15,7 +15,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function GetStartedSlugPage({ params }: GetStartedSlugPageProps) {
+export default async function GetStartedSlugPage(props: GetStartedSlugPageProps) {
+  const params = await props.params;
   const { slug } = params
 
   const [content] = GetStartedRoutesData.filter((route) => route.href.includes(slug))

@@ -21,13 +21,14 @@ export default function TokensPage() {
       <ContentSection textCollection={{ subheading: "Farger primitives" }}>
         {Object.entries(tokens.primitives.color).map(([colorCategory, color]) => {
           return (
-            <div>
+            <div key={colorCategory}>
               {colorCategory}
               <div className="grid grid-cols-[6rem_1fr]">
                 {Object.entries(color).map(([colorName, colorValue]) => (
                   <>
-                    <div>{colorName}</div>
+                    <div key={colorName}>{colorName}</div>
                     <div
+                      key={colorValue}
                       style={{
                         backgroundColor: colorValue,
                         color: getContrastCompliantColors({

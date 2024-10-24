@@ -10,60 +10,78 @@ import dynamic from "next/dynamic"
  */
 
 export const KobberCardLayout = dynamic(
-  () => import("@gyldendal/kobber-components/react").then((x) => x.KobberCardLayout),
+  () => import("@gyldendal/kobber-components/react").then((x) => ({
+    default: x.KobberCardLayout
+  })),
   { ssr: false }
 )
 
 export const KobberCardLayoutColumnAspectRatio = dynamic(
   () =>
-    import("@gyldendal/kobber-components/react").then((x) => x.KobberCardLayoutColumnAspectRatio),
+    import("@gyldendal/kobber-components/react").then((x) => ({
+      default: x.KobberCardLayoutColumnAspectRatio
+    })),
   { ssr: false }
 )
 
 export const KobberButton = dynamic(
-  () => import("@gyldendal/kobber-components/react").then((x) => x.KobberButton),
+  () => import("@gyldendal/kobber-components/react").then((x) => ({
+    default: x.KobberButton
+  })),
   {
     ssr: false,
   }
 )
 
 export const KobberThemeContext = dynamic(
-  () => import("@gyldendal/kobber-components/react").then((x) => x.KobberThemeContext),
+  () => import("@gyldendal/kobber-components/react").then((x) => ({
+    default: x.KobberThemeContext
+  })),
   {
     ssr: false,
   }
 )
 
 export const KobberDivider = dynamic(
-  () => import("@gyldendal/kobber-components/react").then((x) => x.KobberDivider),
+  () => import("@gyldendal/kobber-components/react").then((x) => ({
+    default: x.KobberDivider
+  })),
   {
     ssr: false,
   }
 )
 
 export const KobberIconArrowRight = dynamic(
-  () => import("@gyldendal/kobber-icons/react").then((x) => x.IconArrowRight),
+  () => import("@gyldendal/kobber-icons/react").then((x) => ({
+    default: x.IconArrowRight
+  })),
   {
     ssr: false,
   }
 )
 
 export const KobberAccordion = dynamic(
-  () => import("@gyldendal/kobber-components/react").then((x) => x.KobberAccordion),
+  () => import("@gyldendal/kobber-components/react").then((x) => ({
+    default: x.KobberAccordion
+  })),
   {
     ssr: false,
   }
 )
 
 export const KobberList = dynamic(
-  () => import("@gyldendal/kobber-components/react").then((x) => x.KobberList),
+  () => import("@gyldendal/kobber-components/react").then((x) => ({
+    default: x.KobberList
+  })),
   {
     ssr: false,
   }
 )
 
 export const KobberListItem = dynamic(
-  () => import("@gyldendal/kobber-components/react").then((x) => x.KobberListItem),
+  () => import("@gyldendal/kobber-components/react").then((x) => ({
+    default: x.KobberListItem
+  })),
   {
     ssr: false,
   }
