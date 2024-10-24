@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 }
 
 export default async function GetStartedSlugPage(props: GetStartedSlugPageProps) {
-  const params = await props.params;
+  const params = await props.params
   const { slug } = params
 
   const [content] = GetStartedRoutesData.filter((route) => route.href.includes(slug))
@@ -29,9 +29,8 @@ export default async function GetStartedSlugPage(props: GetStartedSlugPageProps)
   return (
     <SectionLayout>
       {heroImage ? <HeroImage src={heroImage} /> : null}
-
-      <div className="grid gap-[24px]">
-        <div className="grid gap-[8px]">
+      <div className="grid gap-section/gap/horizontal">
+        <div className="gap-y-text-section/gap/header/horizontal grid">
           {topicTitle ? (
             <h1 className="text-[48px] font-light leading-[57.6px] text-[#481125]">{topicTitle}</h1>
           ) : null}

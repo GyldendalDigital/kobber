@@ -6,7 +6,7 @@ type ContentLayoutProps = {
 
 export function ContentLayout({ children }: ContentLayoutProps) {
   return (
-    <div className="mx-auto grid w-full grid-cols-[50px_1fr] gap-[24px] overflow-hidden md:grid-cols-[270px_1fr]">
+    <div className="gap-x-main/gap/vertical mx-auto grid w-full grid-cols-[50px_1fr] overflow-hidden md:grid-cols-[270px_1fr]">
       {children}
     </div>
   )

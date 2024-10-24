@@ -30,7 +30,7 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
         {APP_NAME}
       </Link>
       <div>
-        <ul className="hidden items-center gap-[24px] text-text/color/action-item/button md:flex">
+        <ul className="hidden items-center gap-[24px] text-[#481125ff] md:flex">
           {pages.map((item) => (
             <WikiHeaderItem key={item.href} page={item} />
           ))}
@@ -39,13 +39,9 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
         <Sheet modal={false} open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button
-              className={cn(
-                "flex size-[40px] rounded-[8px] bg-button/background/color/aubergine/main/primary/fallback p-0 md:hidden",
-                {
-                  "bg-button/background/color/carmine/main/primary/fallback hover:bg-button/background/color/carmine/main/primary/fallback":
-                    isOpen,
-                }
-              )}
+              className={cn("flex size-[40px] rounded-[8px] bg-[#f9eaedff] p-0 md:hidden", {
+                "bg-[#dc134fff] hover:bg-[#dc134fff]": isOpen,
+              })}
             >
               {!isOpen ? (
                 <Menu className="size-[15px]" />
@@ -58,7 +54,7 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
             side={"top"}
             className="mt-[72px] h-[calc(100vh-72px)] w-screen border-none bg-[#FDF9F9]"
           >
-            <ul className="flex flex-col gap-[56px] text-center text-text/color/action-item/button">
+            <ul className="flex flex-col gap-[56px] text-center text-[#481125ff]">
               {pages.map((item) => (
                 <WikiHeaderItem
                   key={item.href}

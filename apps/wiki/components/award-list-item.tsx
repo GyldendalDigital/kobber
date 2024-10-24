@@ -17,9 +17,7 @@ export function AwardListItem({ award }: AwardListItemProps) {
             day: "numeric",
           })}
         </span>
-        <span className="col-span-4 line-clamp-1 text-sm text-text/color/primary/body">
-          {award.title}
-        </span>
+        <span className="col-span-4 line-clamp-1 text-sm text-[#481125ff]">{award.title}</span>
       </div>
     </Link>
   )

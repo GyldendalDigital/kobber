@@ -55,7 +55,7 @@ export default function IdentitetsPalett() {
             "Karmin er primær identitetsfarge, og brukes i logoer, aktive knapper og for å fremheve deler av tekst. Den skal ikke overbrukes, men heller brukes der den gir effekt og skaper kontrast.",
         }}
         chilClassName="px-0"
-        className="gap-[32px]"
+        className="gap-y-section/gap/horizontal"
       >
         <ColorBlockGridItem
           color={{ name: "Karmin 525", hex: "#DC134F", rgb: "(220, 19, 79)" }}
@@ -68,7 +68,7 @@ export default function IdentitetsPalett() {
           key={index}
           textCollection={{ heading: theme.title, ingress: theme.description }}
           chilClassName="px-0"
-          className="gap-[32px]"
+          className="gap-y-section/gap/horizontal"
         >
           <ColorBlockGrid colors={theme.colors} enableCopy />
         </ContentSection>

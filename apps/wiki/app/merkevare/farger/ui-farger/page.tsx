@@ -28,7 +28,7 @@ export default function UiFarger() {
           key={index}
           textCollection={{ heading: theme.title, ingress: theme.description }}
           chilClassName="px-0"
-          className="gap-[32px]"
+          className="gap-y-section/gap/horizontal"
         >
           <ColorBlockGrid colors={theme.colors} enableCopy />
         </ContentSection>

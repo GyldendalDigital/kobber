@@ -9,9 +9,7 @@ export default function Home() {
     <main className="mx-auto flex w-full flex-col gap-y-content/gap/horizontal">
       <HeroBanner src={"./hero-svg.svg"} alt="Gyldendal Art" width={188} height={184} />
       <section className="grid gap-y-section/gap/horizontal">
-        <h4 className="text-primary-heading-s font-normal text-text/color/primary/heading-s">
-          Kom i gang
-        </h4>
+        <h4 className="text-primary-heading-s font-normal text-[#481125ff]">Kom i gang</h4>
         <FeatureBoxGrid items={boxes} />
       </section>
 

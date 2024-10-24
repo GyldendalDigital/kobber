@@ -41,8 +41,8 @@ const team: InformationCardType[] = [
 
 export default function ContactPage() {
   return (
-    <main className="gap-y-content/gap/horizontal mx-auto flex w-full flex-col">
-      <section className="flex w-full flex-col gap-[24px] md:w-[858px]">
+    <main className="mx-auto flex w-full flex-col gap-y-content/gap/horizontal">
+      <section className="gap-y-text-section/gap/header-ingress-body/horizontal flex w-full flex-col md:w-[858px]">
         <h1 className="text-[48px] font-light leading-[57.6px] text-[#481125]">
           Trenger du hjelp?
         </h1>
@@ -61,9 +61,9 @@ export default function ContactPage() {
           utfordringen sammen!
         </p>
       </section>
-      <section className="gap-y-section/gap/horizontal grid">
+      <section className="grid gap-y-section/gap/horizontal">
         <h3 className="text-center text-[24px] text-[#532D37] md:text-left">Vi i Kobber teamet</h3>
-        <div className="md:gap-x-section/gap/vertical grid grid-cols-1 items-center justify-center gap-[56px] md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 items-center justify-center gap-x-section/gap/vertical md:grid-cols-2 lg:grid-cols-4">
           {team.map((person) => (
             <InformationCard key={person.title} item={person} />
           ))}

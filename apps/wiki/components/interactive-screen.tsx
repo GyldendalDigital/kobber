@@ -40,11 +40,11 @@ export const InteractiveScreen = ({
         </div>
         <div className="grid gap-24 py-24">
           <div className="grid h-fit w-[251px] max-w-[251px] gap-24 px-24">
-            <h4 className="text-primary-title-s text-text/color/primary/title-s">Egenskaper</h4>
+            <h4 className="text-primary-title-s text-[#481125ff]">Egenskaper</h4>
             <div className="grid gap-16">{properties(mode)}</div>
           </div>
           <div className="grid h-fit w-[251px] max-w-[251px] gap-12 px-24">
-            <h4 className="text-primary-title-s text-text/color/primary/title-s">Visning</h4>
+            <h4 className="text-primary-title-s text-[#481125ff]">Visning</h4>
             <RadioGroup defaultValue="light" className="grid gap-16">
               <div className="flex items-center gap-2">
                 <RadioGroupItem value="light" id={key + "light"} onClick={() => setMode("light")} />

@@ -23,9 +23,7 @@ export function TextCollection({
       {subheading && <SubHeading text={subheading} size={size} />}
       {ingress && <Ingress text={ingress} size={size} />}
       {text && (
-        <p className="whitespace-pre-wrap text-[16px] leading-[25px] text-text/color/primary/body">
-          {text}
-        </p>
+        <p className="whitespace-pre-wrap text-[16px] leading-[25px] text-[#481125ff]">{text}</p>
       )}
     </div>
   )

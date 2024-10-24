@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "kobber-theme-default bg-[#FDF9F9] text-text/color/primary/body antialiased transition-all"
+          "kobber-theme-default bg-[#FDF9F9] text-[#481125ff] antialiased transition-all"
         )}
       >
         <ThemeContext themeId="kobber-theme-default">

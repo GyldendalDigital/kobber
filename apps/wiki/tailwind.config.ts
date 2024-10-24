@@ -1,24 +1,24 @@
 import type { Config } from "tailwindcss"
 import { tokens } from "./lib/theme"
 
-const primitives = tokens.default.primitives
 const semantics = tokens.default.semantics
 const typography = tokens.default.typography
-const component = tokens.default.component
 
 const page = tokens.default.template.page
 const section = tokens.default.template.section
 const content = tokens.default.template.content
-const layout = tokens.default.layout
+const main = tokens.default.template.main
+const textSection = tokens.default.template["text-section"]
 
 const global = tokens.default.global.text
 
 const { typography: text } = semantics
 const { primary, secondary } = typography
-const { gap: pageGap, grid, padding } = page
+const { gap: pageGap, padding } = page
 const { gap: sectionGap } = section
 const { gap: contentGap } = content
-const { gap: layoutGap } = layout
+const { gap: textSectionGap } = textSection
+const { gap: mainGap } = main
 
 const { ui } = global
 
@@ -62,11 +62,12 @@ const config = {
         "section/gap/horizontal": `${sectionGap.horizontal}px`,
         "section/gap/vertical": `${sectionGap.vertical}px`,
         "content/gap/horizontal": `${contentGap.horizontal}px`,
-        // "layout/page/space/xsmall": `${layoutGap}px`,
+        "text-section/gap/header/horizontal": `${textSectionGap.header.horizontal}px`,
+        "text-section/gap/header-ingress-body/horizontal": `${textSectionGap["header-ingress-body"].horizontal}px`,
+        "main/gap/vertical": `${mainGap.vertical}px`,
       },
       maxHeight: {},
       minHeight: {},
-
       fontWeight: {
         light: `${text.weight.light}`,
         book: `${text.weight.book}`,
@@ -74,7 +75,6 @@ const config = {
         medium: `${text.weight.medium}`,
         semibold: `${text.weight["semi-bold"]}`,
       },
-
       fontSize: {
         "text/ui/size/button": [`${ui.size.button}px`, {}],
         "primary-display-l": [
@@ -185,30 +185,6 @@ const config = {
       },
       borderRadius: {},
       colors: {
-        // TODO: text color tokens are removed. Create heading/body text component tokens
-        "text/color/primary/body": component["wiki-list-item"].text.color,
-        "text/color/primary/display-s": component["wiki-list-item"].text.color,
-        "text/color/primary/heading-s": component["wiki-list-item"].text.color,
-        "text/color/primary/label-m": component["wiki-list-item"].text.color,
-        "text/color/primary/label-s": component["wiki-list-item"].text.color,
-        "text/color/primary/title-m": component["wiki-list-item"].text.color,
-        "text/color/primary/title-s": component["wiki-list-item"].text.color,
-
-        "text/color/action-item/button": component["wiki-list-item"].text.color,
-        "text/color/action-item/input": component["wiki-list-item"].text.color,
-        "text/color/action-item/label-m": component["wiki-list-item"].text.color,
-        "text/color/action-item/label-s": component["wiki-list-item"].text.color,
-
-        "text/color/secondary/display-s":
-          component["button"].text.color.carmine.main.secondary.fallback,
-        "text/color/secondary/heading-s":
-          component["button"].text.color.carmine.main.secondary.fallback,
-
-        "button/background/color/aubergine/main/primary/fallback":
-          component["button"].background.color.aubergine.main.primary.fallback,
-        "button/background/color/carmine/main/primary/fallback":
-          component["button"].background.color.carmine.main.primary.fallback,
-
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

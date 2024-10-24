@@ -17,7 +17,7 @@ export function ContentSection({
   chilClassName,
 }: ContentSectionProps) {
   return (
-    <div className={cn("grid gap-[24px]", className)}>
+    <div className={cn("gap-y-section/gap/horizontal] flex flex-col", className)}>
       <TextCollection
         heading={heading}
         ingress={ingress}
@@ -26,7 +26,7 @@ export function ContentSection({
         subheading={subheading}
         text={text}
       />
-      <div className={cn("grid gap-[16px]", chilClassName)}>{children}</div>
+      <div className={cn("flex flex-col", chilClassName)}>{children}</div>
     </div>
   )
 }
