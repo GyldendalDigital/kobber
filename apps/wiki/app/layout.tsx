@@ -25,12 +25,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "kobber-theme-default bg-aubergine-25 text-text/color/primary/body antialiased transition-all"
+          "kobber-theme-default bg-[#FDF9F9] text-text/color/primary/body antialiased transition-all"
         )}
       >
         <KobberThemeContext themeId="kobber-theme-default">
           <KobberIconLoader />
-          <div className="gap-y-page/gap/horizontal/small px-page/padding/inline/xsmall md:px-page/padding/inline/large mx-auto flex min-h-screen flex-col justify-between">
+          <div className="gap-y-page/gap/horizontal/small px-page/padding/inline/xsmall md:px-page/padding/inline/large mx-auto flex min-h-screen max-w-max-width flex-col">
             <WikiNavbar />
             {children}
             <Footer />

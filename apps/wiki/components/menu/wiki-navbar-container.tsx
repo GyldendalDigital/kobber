@@ -56,7 +56,7 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
           </SheetTrigger>
           <SheetContent
             side={"top"}
-            className="bg-aubergine-25 mt-[72px] h-[calc(100vh-72px)] w-screen border-none"
+            className="mt-[72px] h-[calc(100vh-72px)] w-screen border-none bg-[#FDF9F9]"
           >
             <ul className="flex flex-col gap-[56px] text-center text-text/color/action-item/button">
               {pages.map((item) => (

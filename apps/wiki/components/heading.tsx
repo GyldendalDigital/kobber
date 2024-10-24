@@ -15,6 +15,7 @@ export function Heading({ text, size = "display/small", children, className }: H
         className={cn(
           "truncate text-[#481125]",
           {
+            "text-[24px]": size === "xs",
             "text-text/primary/size/display/small": size === "display/small",
             "": size === "md",
             "text-primary-display-m": size === "lg",

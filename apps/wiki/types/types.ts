@@ -57,7 +57,7 @@ export type TypographyItemType = {
   display: string
 }
 
-export type SizeType = "display/small" | "md" | "lg"
+export type SizeType = "xs" | "display/small" | "md" | "lg"
 
 export type InformationCardType = {
   title: string

@@ -28,19 +28,19 @@ export function ColorBlockGridItem({ color, enableCopy = false }: ColorBlockGrid
   }
 
   return (
-    <div className="grid w-fit gap-16">
+    <div className="grid w-fit gap-[16px]">
       <div
-        className={cn("size-[180px] rounded-16", {
-          "border border-wine-150": color.hasBorder,
+        className={cn("size-[180px] rounded-[16px]", {
+          "border border-[#E5CFD3]": color.hasBorder,
         })}
         style={{ backgroundColor: color.hex }}
       ></div>
-      <div className="grid w-full gap-8">
+      <div className="grid w-full gap-[8px]">
         <span className="text-[15px] font-normal text-text/color/primary/title-s">
           {color.name}
         </span>
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-[11px] text-wine-525">HEX {color.hex}</span>
+        <div className="flex items-center justify-between gap-[4px]">
+          <span className="text-[11px] text-[#A35E70]">HEX {color.hex}</span>
           {enableCopy && (
             <Button
               variant={"info"}
@@ -58,8 +58,8 @@ export function ColorBlockGridItem({ color, enableCopy = false }: ColorBlockGrid
             </Button>
           )}
         </div>
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-[11px] text-wine-525">RGB {color.rgb}</span>
+        <div className="flex items-center justify-between gap-[4px]">
+          <span className="text-[11px] text-[#A35E70]">RGB {color.rgb}</span>
           {enableCopy && (
             <Button
               variant={"info"}

@@ -29,16 +29,14 @@ export default function GetStartedSlugPage({ params }: GetStartedSlugPageProps) 
     <SectionLayout>
       {heroImage ? <HeroImage src={heroImage} /> : null}
 
-      <div className="flex flex-col gap-[24px]">
-        <div className="grid gap-8">
+      <div className="grid gap-[24px]">
+        <div className="grid gap-[8px]">
           {topicTitle ? (
             <h1 className="text-[48px] font-light leading-[57.6px] text-[#481125]">{topicTitle}</h1>
           ) : null}
           <h2 className="text-[48px] leading-[57.6px] text-[#DC134F]">{title}</h2>
         </div>
-
         <p className="max-w-[712px] text-[24px] leading-[33.6px] text-[#532D37]">{description}</p>
-
         <p className="text-16 max-w-[712px] whitespace-pre-wrap leading-[24px] text-[#532D37]">
           {text}
         </p>

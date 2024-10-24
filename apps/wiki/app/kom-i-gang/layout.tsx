@@ -12,7 +12,7 @@ export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
     <ContentLayout>
       <ContentShell>
         <SideMenu>
-          <ul className="grid gap-y-2 divide-y divide-wine-150">
+          <ul className="divide-wine-150 grid gap-y-2 divide-y">
             {GetStartedRoutesData.map(({ href, hrefTitle, status }) => (
               <li key={href}>
                 <SideMenuItemLink href={href} title={hrefTitle} status={status} />
@@ -21,7 +21,7 @@ export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
           </ul>
         </SideMenu>
       </ContentShell>
-      <div className="w-full pb-24">{children}</div>
+      <div className="w-full">{children}</div>
     </ContentLayout>
   )
 }

@@ -61,6 +61,7 @@ const config = {
       gap: {
         "page/gap/horizontal/small": `${pageGap.horizontal.small}px`,
         "section/gap/horizontal": `${sectionGap.horizontal}px`,
+        "section/gap/vertical": `${sectionGap.vertical}px`,
         "content/gap/horizontal": `${contentGap.horizontal}px`,
         // "layout/page/space/xsmall": `${layoutGap}px`,
       },

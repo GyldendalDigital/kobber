@@ -21,12 +21,12 @@ export function ContentSection({
       <TextCollection
         heading={heading}
         ingress={ingress}
-        size="display/small"
+        size="xs"
         label={label}
         subheading={subheading}
         text={text}
       />
-      <div className={cn("grid gap-16", chilClassName)}>{children}</div>
+      <div className={cn("grid gap-[16px]", chilClassName)}>{children}</div>
     </div>
   )
 }

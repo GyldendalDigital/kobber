@@ -10,7 +10,7 @@ type ColorBlockGridProps = {
 export function ColorBlockGrid({ colors, enableCopy = false }: ColorBlockGridProps) {
   return (
     <div
-      className={cn("grid w-full grid-cols-4 items-start gap-24", {
+      className={cn("grid w-full grid-cols-4 items-start gap-[24px]", {
         "flex flex-row": colors.length === 3,
       })}
     >
