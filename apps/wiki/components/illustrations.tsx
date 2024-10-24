@@ -13,7 +13,7 @@ export function Illustrations({ illustrations, className, illuClassName }: Illus
   return (
     <div
       className={cn(
-        "relative flex w-[707px] flex-col items-center justify-center gap-8 overflow-hidden rounded-24 bg-white p-24",
+        "relative flex w-[707px] flex-col items-center justify-center gap-[8px] overflow-hidden rounded-[24px] bg-white p-[24px]",
         className
       )}
     >

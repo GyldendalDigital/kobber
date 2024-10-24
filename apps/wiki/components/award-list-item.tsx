@@ -1,15 +1,15 @@
-import { AwardType } from "@/types/types";
-import Link from "next/link";
+import Link from "next/link"
+import { AwardType } from "@/types/types"
 
 type AwardListItemProps = {
-  award: AwardType;
-};
+  award: AwardType
+}
 
 export function AwardListItem({ award }: AwardListItemProps) {
   return (
     <Link href={"/"}>
-      <div className="h-40 border-b-[1px] border-wine-150 py-8 grid grid-cols-5">
-        <span className="text-carmine-525 text-sm line-clamp-1">
+      <div className="grid h-40 grid-cols-5 border-b-[1px] border-[#E5CFD3] py-8">
+        <span className="line-clamp-1 text-sm text-[#DC134F]">
           {award.date.toLocaleDateString(undefined, {
             weekday: "long",
             year: "numeric",
@@ -17,8 +17,8 @@ export function AwardListItem({ award }: AwardListItemProps) {
             day: "numeric",
           })}
         </span>
-        <span className="text-sm text-text/color/primary/body line-clamp-1 col-span-4">{award.title}</span>
+        <span className="col-span-4 line-clamp-1 text-sm text-[#481125ff]">{award.title}</span>
       </div>
     </Link>
-  );
+  )
 }

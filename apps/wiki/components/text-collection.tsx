@@ -8,14 +8,14 @@ export function TextCollection({
   heading,
   subheading,
   ingress,
-  size = "md",
+  size = "display/small",
   text,
 }: TextCollectionProps) {
   return (
     <div className="grid w-full gap-[24px] md:w-[711px]">
       {label && heading && (
         <div className="grid">
-          <label className="text-[24px] text-carmine-525">{label}</label>
+          <label className="text-[24px] text-[#DC134F]">{label}</label>
           <Heading text={heading} size={size} />
         </div>
       )}
@@ -23,9 +23,7 @@ export function TextCollection({
       {subheading && <SubHeading text={subheading} size={size} />}
       {ingress && <Ingress text={ingress} size={size} />}
       {text && (
-        <p className="whitespace-pre-wrap text-[16px] leading-[25px] text-text/color/primary/body">
-          {text}
-        </p>
+        <p className="whitespace-pre-wrap text-[16px] leading-[25px] text-[#481125ff]">{text}</p>
       )}
     </div>
   )

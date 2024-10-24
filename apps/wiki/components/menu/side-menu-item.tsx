@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation"
 import { PageDetails } from "@/types/types"
-import { KobberList } from "../kobber-ssr-loader"
+import { List } from "../kobber-components"
 import { SideMenuItemLink } from "./side-menu-item-link"
 
 export const SideMenuItem = (item: PageDetails) => {
@@ -12,11 +12,11 @@ export const SideMenuItem = (item: PageDetails) => {
       <SideMenuItemLink {...item} />
 
       {pathname?.includes(item.href) && item.children && (
-        <KobberList orientation="vertical" className="pl-20">
+        <List orientation="vertical" className="pl-20">
           {item.children.map((item) => (
             <SideMenuItem key={item.href} {...item} />
           ))}
-        </KobberList>
+        </List>
       )}
     </>
   )

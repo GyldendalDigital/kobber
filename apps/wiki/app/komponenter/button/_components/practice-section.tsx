@@ -1,7 +1,7 @@
 import { Download } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button as RadixButton } from "@/components/ui/button"
 import { ContentSection } from "@/components/content-section"
-import { KobberButton } from "@/components/kobber-ssr-loader"
+import { Button } from "@/components/kobber-components"
 import { PracticeIllustration } from "@/components/practice-illustration"
 
 export function PracticeSection() {
@@ -28,10 +28,10 @@ export function PracticeSection() {
 function AcceptedComponent() {
   return (
     <>
-      <KobberButton variant={"main"} level="primary" color="aubergine">
+      <Button variant={"main"} level="primary" color="aubergine">
         Handling 1
-      </KobberButton>
-      <Button>Handling 2</Button>
+      </Button>
+      <RadixButton>Handling 2</RadixButton>
     </>
   )
 }
@@ -39,9 +39,9 @@ function AcceptedComponent() {
 function NotAcceptedComponent() {
   return (
     <>
-      <Button variant={"dropdown"}>Valg 1</Button>
-      <Button variant={"dropdown"}>Valg 2</Button>
-      <Button variant={"dropdown"}>Valg 3</Button>
+      <RadixButton variant={"dropdown"}>Valg 1</RadixButton>
+      <RadixButton variant={"dropdown"}>Valg 2</RadixButton>
+      <RadixButton variant={"dropdown"}>Valg 3</RadixButton>
     </>
   )
 }
@@ -49,9 +49,9 @@ function NotAcceptedComponent() {
 function AcceptedComponenTwo() {
   return (
     <>
-      <Button variant={"dropdown"}>
+      <RadixButton variant={"dropdown"}>
         Last ned <Download className="ml-2 size-4" />
-      </Button>
+      </RadixButton>
     </>
   )
 }
@@ -59,13 +59,13 @@ function AcceptedComponenTwo() {
 function NotAcceptedComponenTwo() {
   return (
     <>
-      <Button
+      <RadixButton
         variant={"dropdown"}
         className="max-w-104 flex-col items-center justify-center overflow-hidden"
       >
         <Download className="ml-2 size-4" />
         <span>Last ned innhold</span>
-      </Button>
+      </RadixButton>
     </>
   )
 }

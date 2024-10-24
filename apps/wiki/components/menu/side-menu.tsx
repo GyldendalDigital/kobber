@@ -2,7 +2,7 @@
 
 import { Sidebar } from "lucide-react"
 import { useIsMobile } from "@/hooks/use-is-mobile"
-import { KobberThemeContext } from "../kobber-ssr-loader"
+import { ThemeContext } from "../kobber-components"
 import { Button } from "../ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 
@@ -14,7 +14,7 @@ export const SideMenu = ({ children }: SideMenuProps) => {
   const isMobile = useIsMobile()
 
   return (
-    <aside className="flex h-fit flex-col gap-y-8 border-r border-wine-150 pb-1.5 pr-10">
+    <aside className="flex h-fit flex-col gap-y-8 border-r border-[#E5CFD3] pb-1.5 pr-10">
       {isMobile ? (
         <Sheet modal={false}>
           <SheetTrigger asChild>
@@ -23,7 +23,7 @@ export const SideMenu = ({ children }: SideMenuProps) => {
             </Button>
           </SheetTrigger>
           <SheetContent side={"left"} className="pt-72">
-            <KobberThemeContext themeId="kobber-theme-default">{children}</KobberThemeContext>
+            <ThemeContext themeId="kobber-theme-default">{children}</ThemeContext>
           </SheetContent>
         </Sheet>
       ) : (
