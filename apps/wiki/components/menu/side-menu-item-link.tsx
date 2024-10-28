@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { PageDetails } from "@/types/types"
-import { ListItem } from "../kobber-components"
+import { ListItem } from "@/components/kobber-ssr-loader"
 
 export const SideMenuItemLink = (item: PageDetails) => {
   const pathname = usePathname()
@@ -18,7 +18,7 @@ export const SideMenuItemLink = (item: PageDetails) => {
 
         {/* Temporary label */}
         {item.status ? (
-          <small slot="icon" className="#dc134fff">
+          <small slot="icon" className="text-[#dc134fff]">
             {item.status}
           </small>
         ) : null}

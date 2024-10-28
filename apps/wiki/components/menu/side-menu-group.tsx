@@ -1,7 +1,7 @@
 "use client"
 
 import { PageDetails } from "@/types/types"
-import { Accordion, Divider, List } from "../kobber-components"
+import { Accordion, Divider, List } from "@/components/kobber-ssr-loader"
 import { SideMenuItem } from "./side-menu-item"
 
 type Props = {

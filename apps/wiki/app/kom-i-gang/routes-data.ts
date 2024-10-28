@@ -7,7 +7,7 @@ export const GetStartedRoutesData: (RouteDataType & PageDetails)[] = [
   {
     heroImage: placeholderImageUrl({ textRows: ["placeholder introduksjon"] }),
     topicTitle: "Designsystemet Kobber",
-    title: "Et verktøy for samspill og synergier",
+    title: "Introduksjon",
     href: `${metadata.href}/introduksjon`,
     hrefTitle: "Introduksjon",
     description:

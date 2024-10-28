@@ -1,6 +1,7 @@
 import { ContentLayout, ContentShell } from "@/components/content-layout"
+import { List } from "@/components/kobber-ssr-loader"
 import { SideMenu } from "@/components/menu/side-menu"
-import { SideMenuItemLink } from "@/components/menu/side-menu-item-link"
+import { SideMenuItem } from "@/components/menu/side-menu-item"
 import { GetStartedRoutesData } from "./routes-data"
 
 type GetStartedLayoutProps = {
@@ -12,13 +13,11 @@ export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
     <ContentLayout>
       <ContentShell>
         <SideMenu>
-          <ul className="grid gap-y-2 divide-y divide-[#E5CFD3]">
-            {GetStartedRoutesData.map(({ href, hrefTitle, status }) => (
-              <li key={href}>
-                <SideMenuItemLink href={href} title={hrefTitle} status={status} />
-              </li>
+          <List orientation="vertical" className="divide-y divide-[#E4CFD3]">
+            {GetStartedRoutesData.map((item, i) => (
+              <SideMenuItem key={item.href + i} {...item} />
             ))}
-          </ul>
+          </List>
         </SideMenu>
       </ContentShell>
       <div className="w-full">{children}</div>
