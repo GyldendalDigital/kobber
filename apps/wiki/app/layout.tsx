@@ -24,14 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "kobber-theme-default bg-[#FDF9F9] text-[#481125ff] antialiased transition-all"
-        )}
-      >
+      <body className={cn("bg-[#FDF9F9] text-[#481125ff] antialiased transition-all")}>
         <ThemeContext themeId="kobber-theme-default">
           <KobberIconLoader />
-          <div className="mx-auto flex min-h-screen max-w-max-width flex-col gap-y-page/gap/horizontal/small px-page/padding/inline/xsmall md:px-page/padding/inline/large">
+          <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal/small px-page/padding/inline/xsmall md:px-page/padding/inline/large">
             <WikiNavbar />
             {children}
             <Footer />

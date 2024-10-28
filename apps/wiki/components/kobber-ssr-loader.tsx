@@ -25,15 +25,15 @@ import dynamic from "next/dynamic"
 //   { ssr: false }
 // )
 
-// export const KobberButton = dynamic(
-//   () =>
-//     import("@gyldendal/kobber-components/react").then((x) => ({
-//       default: x.KobberButton,
-//     })),
-//   {
-//     ssr: false,
-//   }
-// )
+export const Button = dynamic(
+  () =>
+    import("@gyldendal/kobber-components/react").then((x) => ({
+      default: x.KobberButton,
+    })),
+  {
+    ssr: false,
+  }
+)
 
 // export const KobberThemeContext = dynamic(
 //   () =>

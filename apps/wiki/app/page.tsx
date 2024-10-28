@@ -20,10 +20,9 @@ export default function Home() {
             <li key={index}>
               <Link
                 href={item.title}
-                className="flex items-center gap-8 text-[14px] hover:underline"
+                className="flex items-center gap-[8px] text-[14px] hover:underline"
               >
                 {item.title}
-
                 <ExternalLink className="size-[16px]" />
               </Link>
             </li>

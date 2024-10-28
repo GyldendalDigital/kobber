@@ -8,11 +8,11 @@ type InformationCardProps = {
   item: InformationCardType
 }
 
-export function InformationCard({ item: { title, text } }: InformationCardProps) {
+export function InformationCard({ item: { title, text, image } }: InformationCardProps) {
   return (
     <div className="grid min-h-[375px] w-full items-center justify-center gap-[24px] md:w-[270px]">
-      <div className="rounded-16 relative size-[274px] overflow-hidden">
-        <Image src={placeholderImg} alt="Bilde" fill className="rounded-[16px] object-cover" />
+      <div className="relative size-[274px] overflow-hidden rounded-[16px]">
+        <Image src={placeholderImg} alt="Bilde" fill className="object-cover" />
       </div>
 
       <div className="flex min-h-[120px] flex-col items-start justify-start gap-[16px]">

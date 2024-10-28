@@ -13,6 +13,8 @@ const team: InformationCardType[] = [
     title: "Irén Andresen",
     text: `Senior designer
     ansvarlig for Kobber - merkevare`,
+    image:
+      "https://dam-p-gyldendal.pqcloud.eu/authkey/BZ2zmb-rPF/thumbnail/A-NV_1GZKAT8aR98O8Vu38/*/Kobber_088_thumb.jpg?_=1",
   },
   {
     title: "Izelin Tujunen",
