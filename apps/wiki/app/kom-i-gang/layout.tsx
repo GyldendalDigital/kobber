@@ -1,6 +1,7 @@
 import { ContentLayout, ContentShell } from "@/components/content-layout"
+import { List } from "@/components/kobber-ssr-loader"
 import { SideMenu } from "@/components/menu/side-menu"
-import { SideMenuGroup } from "@/components/menu/side-menu-group"
+import { SideMenuItem } from "@/components/menu/side-menu-item"
 import { GetStartedRoutesData } from "./routes-data"
 
 type GetStartedLayoutProps = {
@@ -12,7 +13,11 @@ export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
     <ContentLayout>
       <ContentShell>
         <SideMenu>
-          <SideMenuGroup title="Introduksjon" items={GetStartedRoutesData} isOpenInitially />
+          <List orientation="vertical" className="divide-y divide-[#E4CFD3]">
+            {GetStartedRoutesData.map((item, i) => (
+              <SideMenuItem key={item.href + i} {...item} />
+            ))}
+          </List>
         </SideMenu>
       </ContentShell>
       <div className="w-full">{children}</div>
