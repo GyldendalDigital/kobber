@@ -2,7 +2,7 @@
 
 import { Sidebar } from "lucide-react"
 import { useIsMobile } from "@/hooks/use-is-mobile"
-import { ThemeContext } from "../kobber-components"
+import { ThemeContext } from "@/components/kobber-ssr-loader"
 import { Button } from "../ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 

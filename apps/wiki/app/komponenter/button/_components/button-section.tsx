@@ -16,7 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { InteractiveScreen } from "@/components/interactive-screen"
-import { Button, IconArrowRight } from "@/components/kobber-components"
+import { Button, IconArrowRight } from "@/components/kobber-ssr-loader"
 
 type BrandColor = keyof typeof component.button.background.color
 const brandColors = Object.keys(primitives.color) as Array<BrandColor>
