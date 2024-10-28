@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { PageDetails } from "@/types/types"
+import { cn } from "@/lib/utils"
 import { ListItem } from "../kobber-components"
 
 export const SideMenuItemLink = (item: PageDetails) => {
@@ -18,7 +19,7 @@ export const SideMenuItemLink = (item: PageDetails) => {
 
         {/* Temporary label */}
         {item.status ? (
-          <small slot="icon" className="#dc134fff">
+          <small slot="icon" className="text-[#dc134fff]">
             {item.status}
           </small>
         ) : null}
