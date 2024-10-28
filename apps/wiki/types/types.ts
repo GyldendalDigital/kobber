@@ -57,11 +57,12 @@ export type TypographyItemType = {
   display: string
 }
 
-export type SizeType = "sm" | "md" | "lg"
+export type SizeType = "xs" | "display/small" | "md" | "lg"
 
 export type InformationCardType = {
   title: string
   text?: string
+  image?: string
 }
 
 export type TextCollectionProps = {

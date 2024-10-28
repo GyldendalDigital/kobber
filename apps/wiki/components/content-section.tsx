@@ -17,16 +17,16 @@ export function ContentSection({
   chilClassName,
 }: ContentSectionProps) {
   return (
-    <div className={cn("grid gap-[24px]", className)}>
+    <div className={cn("gap-y-section/gap/horizontal] flex flex-col", className)}>
       <TextCollection
         heading={heading}
         ingress={ingress}
-        size="sm"
+        size="xs"
         label={label}
         subheading={subheading}
         text={text}
       />
-      <div className={cn("grid gap-16", chilClassName)}>{children}</div>
+      <div className={cn("flex flex-col", chilClassName)}>{children}</div>
     </div>
   )
 }

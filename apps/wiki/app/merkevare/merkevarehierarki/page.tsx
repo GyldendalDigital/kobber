@@ -15,7 +15,7 @@ export const metadata: PageDetails = {
 
 const merkevareIllustration: IllustrationType[] = [
   {
-    src: "https://s3-alpha-sig.figma.com/img/b1a0/f34d/889536d0ac047899333d20aa45a622fd?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DoV54DNpsmp4vmpA44-E0cbiqhvSj8eVt5jZaC30XGE1QxUZGkNYkXRzY4jkLCfedvXRAT9rBfT-1RBdKQwIvqGg6OaSMdhKFJXcUms794cxxA9ZL6KRxl0u-897~AJ08SiddNIKAjKKq1n2y3x05LbVOrLzTAKB0IZ64aixswGa39gP62aSvuDfk8GlqckqV27qu1wvZp4oTRVzYz1eu9FfIAeZpCY0UwF-SpCCclwB703gHQYlg5mgDlYmff68JNfgnMR0V~WMu18--CRojSDzXOdKRrwDBhamvwLkiCQLYeXNxR5o-qqAuFZuaSo0RENf89E5wEW8d~sIulvKTQ__",
+    src: "https://s3-alpha-sig.figma.com/img/b1a0/f34d/889536d0ac047899333d20aa45a622fd?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=e1fUuR8lU8ZxeY8W5-d8jEb-kxmY9uvJxxNkDY9oxmkmmQ6Xz29k4ajbtvZA6MsXHOWW627Y-jJ81Ncy73rVwrwxSwBXj33pOvz1HDdvyl-6hFlPmwLZueKMPPiomJ4YE6vqLTYsqAnrFZecjeediOt6IAH4IaW9nwB2j1qgBDNBTaTwlDJ9UXx-BhCM2FuCINaPIN6KyoPi-uF7hzRG-WEEzRNd6mBQ8t~XJ6m1Rvlu2lp5AhEHD~tysdS4etUZItBkGXA~5Mbmf6aAkJa6uCoAdThwt9GTZmyjvIfxumo0rhKjhVEyUwWuOLPec0UNFryVjbWGqdrb3Oxy3twSUA__",
     alt: "",
     width: 370,
     height: 243,

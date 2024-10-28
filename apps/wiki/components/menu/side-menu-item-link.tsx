@@ -3,15 +3,14 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { PageDetails } from "@/types/types"
-import { cn } from "@/lib/utils"
-import { KobberListItem } from "../kobber-ssr-loader"
+import { ListItem } from "../kobber-components"
 
 export const SideMenuItemLink = (item: PageDetails) => {
   const pathname = usePathname()
 
   return (
     <Link role="menuitem" href={item.status !== "kommer" && item.href ? item.href : "#"}>
-      <KobberListItem
+      <ListItem
         disabled={item.status === "kommer" ? true : undefined}
         active={item.href === pathname ? true : undefined}
       >
@@ -19,14 +18,11 @@ export const SideMenuItemLink = (item: PageDetails) => {
 
         {/* Temporary label */}
         {item.status ? (
-          <small
-            slot="icon"
-            className={cn("text-button/background/color/carmine/main/primary/fallback")}
-          >
+          <small slot="icon" className="#dc134fff">
             {item.status}
           </small>
         ) : null}
-      </KobberListItem>
+      </ListItem>
     </Link>
   )
 }

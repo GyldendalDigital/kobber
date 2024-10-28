@@ -1,21 +1,21 @@
-import { cn } from "@/lib/utils";
-import { SizeType } from "@/types/types";
+import { SizeType } from "@/types/types"
+import { cn } from "@/lib/utils"
 
 type IngressProps = {
-  text: string;
-  size?: SizeType;
-};
+  text: string
+  size?: SizeType
+}
 
 export function Ingress({ text, size = "md" }: IngressProps) {
   return (
     <p
-      className={cn("text-text/color/primary/body text-primary-body whitespace-pre-wrap    ", {
-        "text-primary-body w-[67.5ch]": size === "sm",
-        "text-primary-title-s w-[60ch]": size === "md",
-        "text-primary-title-m w-[40ch]": size === "lg",
+      className={cn("whitespace-pre-wrap text-primary-body text-[#481125ff]", {
+        "w-[67.5ch] text-primary-body": size === "display/small",
+        "w-[60ch] text-primary-title-s": size === "md",
+        "w-[40ch] text-primary-title-m": size === "lg",
       })}
     >
       {text}
     </p>
-  );
+  )
 }
