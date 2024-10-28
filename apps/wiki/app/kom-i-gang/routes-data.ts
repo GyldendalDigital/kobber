@@ -1,5 +1,5 @@
 import { PageDetails, RouteDataType } from "@/types/types"
-import { BRANDING_URL, COMPONENTS_URL, GET_STARTED_URL } from "@/config/routes"
+import { BRANDING_URL, COMPONENTS_URL } from "@/config/routes"
 import { placeholderImageUrl } from "@/lib/utils"
 import { metadata } from "./page"
 
@@ -27,50 +27,50 @@ Det er viktig å sette seg inn i nettsiden for å opprettholde merkevarens integ
 Sammen skaper vi en levende profil!`,
   },
   {
-    title: "Lager du grensesnitt?",
-    topicTitle: "Test",
-    description: "Test",
-    text: "Test",
-    href: `${metadata.href}/grensesnitt`,
-    hrefTitle: "Grensesnitt",
+    title: "Hvordan bruke kobber",
+    topicTitle: "Hvordan bruke kobber",
+    description: "Hovrdan bruke kobber",
+    text: "Hvordan bruke kobber",
+    href: `${metadata.href}/hvordan-bruke-kobber`,
+    hrefTitle: "Hvordan bruke kobber",
     status: "kommer",
   },
-  {
-    title: "Skriver du kode?",
-    topicTitle: "Test",
-    description: "Test",
-    text: "Test",
-    href: `${metadata.href}/kode`,
-    hrefTitle: "Kode",
-    status: "kommer",
-  },
-  {
-    title: "Lager du innhold?",
-    topicTitle: "Test",
-    description: "Test",
-    text: "Test",
-    href: `${metadata.href}/innhold`,
-    hrefTitle: "Innhold",
-    status: "kommer",
-  },
-  {
-    title: "Markedsføring?",
-    topicTitle: "Test",
-    description: "Test",
-    text: "Test",
-    href: `${metadata.href}/markedsforing`,
-    hrefTitle: "Markedsføring",
-    status: "kommer",
-  },
-  {
-    title: "Tilgjengelighet",
-    topicTitle: "Test",
-    description: "Test",
-    text: "Test",
-    href: `${metadata.href}/tilgjengelighet`,
-    hrefTitle: "Tilgjengelighet",
-    status: "kommer",
-  },
+  // {
+  //   title: "Skriver du kode?",
+  //   topicTitle: "Test",
+  //   description: "Test",
+  //   text: "Test",
+  //   href: `${metadata.href}/kode`,
+  //   hrefTitle: "Kode",
+  //   status: "kommer",
+  // },
+  // {
+  //   title: "Lager du innhold?",
+  //   topicTitle: "Test",
+  //   description: "Test",
+  //   text: "Test",
+  //   href: `${metadata.href}/innhold`,
+  //   hrefTitle: "Innhold",
+  //   status: "kommer",
+  // },
+  // {
+  //   title: "Markedsføring?",
+  //   topicTitle: "Test",
+  //   description: "Test",
+  //   text: "Test",
+  //   href: `${metadata.href}/markedsforing`,
+  //   hrefTitle: "Markedsføring",
+  //   status: "kommer",
+  // },
+  // {
+  //   title: "Tilgjengelighet",
+  //   topicTitle: "Test",
+  //   description: "Test",
+  //   text: "Test",
+  //   href: `${metadata.href}/tilgjengelighet`,
+  //   hrefTitle: "Tilgjengelighet",
+  //   status: "kommer",
+  // },
 ]
 
 export const ComponentsRoutesData: RouteDataType[] = [

@@ -13,6 +13,7 @@ export const metadata: PageDetails = {
 }
 
 export default function BrandingPage() {
+  redirect("/merkevare/merkevarehierarki")
   return <div></div>
   // redirect(metadata.href) // This causes a loop bug
 }
