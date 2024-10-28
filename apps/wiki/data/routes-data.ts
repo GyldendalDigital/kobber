@@ -4,10 +4,10 @@ import { BRANDING_URL, COMPONENTS_URL } from "@/config/routes"
 export const GetStartedRoutesData: RouteDataType[] = [
   {
     heroImage:
-      "https://s3-alpha-sig.figma.com/img/5505/f80c/a2b510e6702b688d6bbec374cd0d646b?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=CKwSx4EIekhNavOBDeH3GVxWRK6FnthBXBvui9tyT3ThPj3trkdd5iXdcXD~Locy3AyrXbdLH3w5WidkJvpeIaov-0zCTRzAhQwfYQqvdgt3EDa7yCYo06qi~zU0Cerv~HZ3vlmKkLu-YLWhhBE~1QAO0UIoLZb1kFzCyIS7pc2b3u8rjR2VVCFUBnXWI~2cHq7KEUmGe9u0KiKA7ejdCDB~er5Tv-C9ijza4o3CCMyv1ZPwkDjh1uZQlx3uK5p6FcqDGtqA3MCcqUMwX0W~C-DlIuWnhQsGaFk2GME-iQMsba0~CqkGKjlNYEJejSBrqJR339pmvMsqTGU5yWoX7A__",
+      "https://s3-alpha-sig.figma.com/img/5505/f80c/a2b510e6702b688d6bbec374cd0d646b?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=f15EYzOIvgaQ3YpGcLlm~Nzby2cvmMDH3Co7dUyZbOZO5GAAl7CixnzHTcat9NWxA1XMRpN8D43sCVzgSGVa6p3bfQC79mZSvMxKdgQwCBZiW3nM6wHrZOBRTCkDdvJEeLqQxUq6o9u37XHk-Uglppse8IM0n-K5IsAkTt6or3kd3OdOkSc~beWrK7JJEnecQt6L~aqP0JIaaFy83XkcO~V1Mylppu8zEIfkVKuoIxAB0ciY66nyg14yH1vSIZibN0XxmEbvQiy6JpGzxKdQOaRcoPpbnQDXEy2v~2OYY92ubiHK24FqeWnteEqQVjtll88yyiwX9N~qcbSveo2M2A__",
     topicTitle: "Designsystemet Kobber",
     title: "Et verktøy for samspill og synergier",
-    href: `introduksjon`,
+    href: "introduksjon",
     hrefTitle: "Introduksjon",
     description:
       "Designsystemet vårt sikrer konsistent og god brukeropplevelse på tvers av nettsider, publikasjoner, kommunikasjon og løsninger i Gyldendal.",
