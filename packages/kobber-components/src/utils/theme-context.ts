@@ -1,6 +1,6 @@
 import { createContext, provide } from "@lit/context";
-import * as defaultTokens from "@gyldendal/kobber-base/themes/default/tokens.js";
-import * as darkTokens from "@gyldendal/kobber-base/themes/dark/tokens.js";
+import * as defaultTokens from "@gyldendal/kobber-base/themes/default/tokens";
+import * as darkTokens from "@gyldendal/kobber-base/themes/dark/tokens";
 import { customElement, property } from "lit/decorators.js";
 import { LitElement, PropertyValueMap, html } from "lit";
 import { Theme } from "./theme-context.types";
