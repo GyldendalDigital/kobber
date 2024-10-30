@@ -8,7 +8,7 @@ const page = tokens.default.template.page
 const section = tokens.default.template.section
 const content = tokens.default.template.content
 const main = tokens.default.template.main
-const textSection = tokens.default.template["text-section"]
+const textSection = tokens.default.template.section
 
 const global = tokens.default.global.text
 
@@ -52,8 +52,8 @@ const config = {
       height: {},
 
       padding: {
-        "page/padding/inline/large": `${padding.inline.large}px`,
-        "page/padding/inline/xsmall": `${padding.inline.xsmall}px`,
+        "page/padding/inline/large": `${padding.inline["max-screen-1280"]}px`,
+        "page/padding/inline/xsmall": `${padding.inline["max-screen-520"]}px`,
       },
 
       space: {},
@@ -62,8 +62,8 @@ const config = {
         "section/gap/horizontal": `${sectionGap.horizontal}px`,
         "section/gap/vertical": `${sectionGap.vertical}px`,
         "content/gap/horizontal": `${contentGap.horizontal}px`,
-        "text-section/gap/header/horizontal": `${textSectionGap.header.horizontal}px`,
-        "text-section/gap/header-ingress-body/horizontal": `${textSectionGap["header-ingress-body"].horizontal}px`,
+        "text-section/gap/header/horizontal": `${textSectionGap.horizontal}px`,
+        "text-section/gap/header-ingress-body/horizontal": `${textSectionGap.horizontal}px`,
         "main/gap/vertical": `${mainGap.vertical}px`,
       },
       maxHeight: {},
