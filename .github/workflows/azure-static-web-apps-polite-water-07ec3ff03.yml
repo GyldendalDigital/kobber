@@ -37,9 +37,6 @@ jobs:
       - name: Test
         run: yarn test
 
-      - name: Build storybook
-        run: yarn build-storybook-web-components
-
   deploy_wiki_job:
     # removed PR feature branch deploy: || (github.event_name == 'pull_request' && github.event.action != 'closed')
     if: github.event_name == 'push'
@@ -86,7 +83,7 @@ jobs:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ vars.TURBO_TEAM }}
           PRE_BUILD_COMMAND: corepack enable && yarn
-          CUSTOM_BUILD_COMMAND: yarn build-storybook-web-components
+          CUSTOM_BUILD_COMMAND: yarn build --filter storybook-web-components
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ICY_MUSHROOM_056F9B703 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
