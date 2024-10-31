@@ -10,6 +10,12 @@ export class Carousel extends StyledLitElement {
   @property({ attribute: "aria-role-description" })
   ariaRoleDescription = "Karusell";
 
+  @property({ attribute: "previous-button-aria-label" })
+  previousButtonAriaLabel = "Forrige";
+
+  @property({ attribute: "next-button-aria-label" })
+  nextButtonAriaLabel = "Neste";
+
   @state()
   private _previousButtonDisabled = true;
 
@@ -45,8 +51,15 @@ export class Carousel extends StyledLitElement {
 
   firstUpdated() {
     const body = document.querySelector("body");
+    const storybookRoot: HTMLElement | null = document.querySelector("#storybook-root");
+
     if (body) {
       body.style.overflowX = "hidden";
+    }
+
+    // Necessary for storybook in iOS 16:
+    if (storybookRoot) {
+      storybookRoot.style.overflowX = "hidden";
     }
 
     this._widthToScroll = this._getHostWidth();
@@ -84,7 +97,7 @@ export class Carousel extends StyledLitElement {
           }
         });
       },
-      { threshold: 0.1 },
+      { root: document, threshold: 0.1 }, // root: document must be specified for iOS 16.
     );
 
     for (let i = 0; i < elementList.length; i++) {
@@ -101,7 +114,7 @@ export class Carousel extends StyledLitElement {
           }
         });
       },
-      { threshold: 1 },
+      { root: document, threshold: 1 }, // root: document must be specified for iOS 16.
     );
 
     io.observe(item);
@@ -241,8 +254,10 @@ export class Carousel extends StyledLitElement {
           ? html``
           : html`<kobber-carousel-navigation-buttons
               previous-button-disabled="${this._previousButtonDisabled}"
+              previous-button-aria-label="${this.previousButtonAriaLabel}"
               .handlePreviousClick="${this._handlePreviousClick}"
               next-button-disabled="${this._nextButtonDisabled}"
+              next-button-aria-label="${this.nextButtonAriaLabel}"
               .handleNextClick="${this._handleNextClick}"
             >
             </kobber-carousel-navigation-buttons>`}
