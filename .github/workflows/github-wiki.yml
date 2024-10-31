@@ -1,4 +1,4 @@
-name: Publish wiki
+name: Publish Github wiki
 on:
   workflow_dispatch:
   push:
