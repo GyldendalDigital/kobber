@@ -10,6 +10,12 @@ export class Carousel extends StyledLitElement {
   @property({ attribute: "aria-role-description" })
   ariaRoleDescription = "Karusell";
 
+  @property({ attribute: "previous-button-aria-label" })
+  previousButtonAriaLabel = "Forrige";
+
+  @property({ attribute: "next-button-aria-label" })
+  nextButtonAriaLabel = "Neste";
+
   @state()
   private _previousButtonDisabled = true;
 
@@ -248,8 +254,10 @@ export class Carousel extends StyledLitElement {
           ? html``
           : html`<kobber-carousel-navigation-buttons
               previous-button-disabled="${this._previousButtonDisabled}"
+              previous-button-aria-label="${this.previousButtonAriaLabel}"
               .handlePreviousClick="${this._handlePreviousClick}"
               next-button-disabled="${this._nextButtonDisabled}"
+              next-button-aria-label="${this.nextButtonAriaLabel}"
               .handleNextClick="${this._handleNextClick}"
             >
             </kobber-carousel-navigation-buttons>`}

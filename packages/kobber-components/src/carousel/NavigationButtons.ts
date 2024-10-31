@@ -46,20 +46,34 @@ export class NavigationButtons extends StyledLitElement {
     <div class="nav">
       ${this.previousButtonDisabled === "true"
         ? html`<kobber-button
+            aria-label="${this.getAttribute("previous-button-aria-label")}"
             class="button button--previous"
             @click="${this.handlePreviousClick}"
             disabled
             color="neutral"
             ><icon-arrow_left slot="icon"
           /></kobber-button>`
-        : html`<kobber-button class="button button--previous" @click="${this.handlePreviousClick}" color="neutral"
+        : html`<kobber-button
+            aria-label="${this.getAttribute("previous-button-aria-label")}"
+            class="button button--previous"
+            @click="${this.handlePreviousClick}"
+            color="neutral"
             ><icon-arrow_left slot="icon"
           /></kobber-button>`}
       ${this.nextButtonDisabled === "true"
-        ? html`<kobber-button class="button button--next" @click="${this.handleNextClick}" disabled color="neutral"
+        ? html`<kobber-button
+            aria-label="${this.getAttribute("next-button-aria-label")}"
+            class="button button--next"
+            @click="${this.handleNextClick}"
+            disabled
+            color="neutral"
             ><icon-arrow_right slot="icon"
           /></kobber-button>`
-        : html`<kobber-button class="button button--next" @click="${this.handleNextClick}" color="neutral"
+        : html`<kobber-button
+            aria-label="${this.getAttribute("next-button-aria-label")}"
+            class="button button--next"
+            @click="${this.handleNextClick}"
+            color="neutral"
             ><icon-arrow_right slot="icon"
           /></kobber-button>`}
     </div>
