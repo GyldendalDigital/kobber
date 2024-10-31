@@ -20,7 +20,10 @@ const meta: Meta<Args> = {
   args: {
     carouselHasManyItems: true,
   },
-  decorators: [(story, storyContext) => html`<div class="${storyContext.globals.theme}">${story()}</div>`],
+  decorators: [
+    (Story, storyContext) =>
+      html`<kobber-theme-context theme-id=${storyContext.globals.theme}>${Story()}</kobber-theme-context>`,
+  ],
 };
 
 export default meta;
