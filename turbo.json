@@ -1,7 +1,9 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
-    "clean": { "cache": false },
+    "clean": {
+      "cache": false
+    },
     "dev": {
       "cache": false,
       "persistent": true
@@ -9,8 +11,19 @@
     "lint": {},
     "test": {},
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", "themes/**", "out/**", "react/**", "web-components/**", "chunks/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        "themes/**",
+        "out/**",
+        "react/**",
+        "web-components/**",
+        "chunks/**",
+        "src/icon/icons/**",
+        "storybook-static/**"
+      ]
     },
     "tokens": {
       "cache": false
@@ -21,10 +34,6 @@
     "storybook": {
       "cache": false,
       "persistent": true
-    },
-    "build-storybook-web-components": {
-      "dependsOn": ["^build"],
-      "outputs": ["storybook-static/**"]
     }
   }
 }

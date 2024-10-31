@@ -3,13 +3,10 @@ import { ButtonBackgroundColor, ButtonIconSettings, ButtonVariant } from "./Butt
 import "./Button";
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 
-const brandColors = Object.keys(tokens.semantics.color.brand) as ButtonBackgroundColor[];
-const uiColors = Object.keys(tokens.semantics.color.ui) as ButtonBackgroundColor[];
-const themeColors = Object.keys(tokens.semantics.color.theme) as ButtonBackgroundColor[];
-
-const colors = [...brandColors, ...uiColors, ...themeColors];
+const colors = Object.keys(tokens.component.button.background.color) as ButtonBackgroundColor[];
 const variants: ButtonVariant[] = ["main", "supplemental"]; //, "supplemental alt"];
 const levels = ["primary", "secondary"];
+const states = ["idle", "hover", "active", "focus", "disabled"];
 
 const meta: Meta = {
   title: "In development 🧪/Button",
@@ -27,6 +24,10 @@ const meta: Meta = {
     level: {
       options: levels,
       control: { type: "radio" },
+    },
+    state: {
+      options: states,
+      control: { type: "select" },
     },
     icon: {
       options: ["none", "left", "right"],
@@ -52,17 +53,11 @@ export const Button: Story = {
     color: meta.argTypes?.color?.options?.[0],
     variant: variants[0],
     level: levels[0],
+    state: states[0],
     icon: "right",
   },
-  render: args => `
-    <kobber-button color="${args.color}" variant="${args.variant}" level="${args.level}" iconSettings=${args.icon} onclick="clickHandler()" aria-label="button label">
-      ${args.text}
-      ${args.icon !== "none" ? `<icon-arrow_right slot="icon" />` : ""}
-    </kobber-button>
-  `,
+  render: args => renderButton(args.color, args.variant, args.level, args.state, args.icon, args.text),
 };
-
-const states = ["idle", "hover", "active", "focus", "disabled"];
 
 export const Buttons: Story = {
   parameters: {
@@ -116,7 +111,7 @@ export const Buttons: Story = {
         }
       </style>
 
-      ${[renderTheme("Brands", brandColors, args.icon), renderTheme("UI", uiColors, args.icon), renderTheme("Themes", themeColors, args.icon)].join("<br /><br />")}
+      ${[renderTheme("Button themes", colors, args.icon)].join("<br /><br />")}
     `;
   },
 };
@@ -153,9 +148,20 @@ const renderVariant = (
   ${states.map(state => renderButton(color, variant, level, state, iconSettings)).join("")}
 </div>`;
 
-const renderButton = (color: string, variant: string, level: string, state: string, iconSettings: ButtonIconSettings) =>
-  `
-<kobber-button color="${color}" variant="${variant}" level="${level}" class="${state}" ${state === "disabled" ? "disabled" : ""} iconSettings=${iconSettings} onclick="clickHandler()" aria-label="button label">
-  ${state}
+const renderButton = (
+  color: string,
+  variant: string,
+  level: string,
+  state: string,
+  iconSettings: ButtonIconSettings,
+  text?: string,
+) => {
+  console.log({ color, variant, level, state, iconSettings });
+  return `
+<kobber-button color="${color}" variant="${variant}" level="${level}" class="${state}" ${state === "disabled" ? "disabled" : ""} 
+  iconSettings=${iconSettings} onclick="clickHandler()" aria-label="button label">
+  ${text ?? state}
   <icon-arrow_right slot="icon" />
-</kobber-button>`;
+</kobber-button>
+`;
+};

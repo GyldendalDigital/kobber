@@ -1,6 +1,6 @@
 import { createContext, provide } from "@lit/context";
-import * as defaultTokens from "@gyldendal/kobber-base/themes/default/tokens.js";
-import * as darkTokens from "@gyldendal/kobber-base/themes/dark/tokens.js";
+import * as tokensDefault from "@gyldendal/kobber-base/themes/default/tokens";
+// import * as tokensDark from "@gyldendal/kobber-base/themes/dark/tokens"; // TODO: this breaks the CI build somehow
 import { customElement, property } from "lit/decorators.js";
 import { LitElement, PropertyValueMap, html } from "lit";
 import { Theme } from "./theme-context.types";
@@ -10,8 +10,8 @@ export const themeContext = createContext<Theme>("kobber-theme");
 @customElement("kobber-theme-context")
 export class ThemeContextProvider extends LitElement {
   private themes: Theme[] = [
-    { id: "kobber-theme-default", tokens: defaultTokens },
-    { id: "kobber-theme-dark", tokens: darkTokens },
+    { id: "kobber-theme-default", tokens: tokensDefault },
+    { id: "kobber-theme-dark", tokens: tokensDefault },
   ];
 
   @property({ type: String, attribute: "theme-id" })
