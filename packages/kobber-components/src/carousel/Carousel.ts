@@ -45,8 +45,15 @@ export class Carousel extends StyledLitElement {
 
   firstUpdated() {
     const body = document.querySelector("body");
+    const storybookRoot: HTMLElement | null = document.querySelector("#storybook-root");
+
     if (body) {
       body.style.overflowX = "hidden";
+    }
+
+    // Necessary for storybook in iOS 16:
+    if (storybookRoot) {
+      storybookRoot.style.overflowX = "hidden";
     }
 
     this._widthToScroll = this._getHostWidth();
@@ -84,7 +91,7 @@ export class Carousel extends StyledLitElement {
           }
         });
       },
-      { threshold: 0.1 },
+      { root: document, threshold: 0.1 }, // root: document must be specified for iOS 16.
     );
 
     for (let i = 0; i < elementList.length; i++) {
@@ -101,7 +108,7 @@ export class Carousel extends StyledLitElement {
           }
         });
       },
-      { threshold: 1 },
+      { root: document, threshold: 1 }, // root: document must be specified for iOS 16.
     );
 
     io.observe(item);
