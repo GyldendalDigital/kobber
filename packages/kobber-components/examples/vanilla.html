@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      /* prevents FOUC (native browser button while js is loading) */
+      :not(:defined) {
+        display: none;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "@gyldendal/kobber-components/": "https://esm.run/@gyldendal/kobber-components/"
+        }
+      }
+    </script>
+    <script type="module">
+      import { Button } from "@gyldendal/kobber-components/web-components";
+    </script>
+    <title>Kobber web component example</title>
+  </head>
+  <body>
+    <!-- Context is needed to provide tokens to components -->
+    <kobber-theme-context theme-id="kobber-theme-default">
+      <!-- All button variants can be found in Storybook:
+       https://kobber-storybook.gyldendaldigital.no/?path=/story/in-development-%F0%9F%A7%AA-button--buttons -->
+      <kobber-button color="romance" onclick="alert('hello')">Click me</kobber-button>
+    </kobber-theme-context>
+  </body>
+</html>
