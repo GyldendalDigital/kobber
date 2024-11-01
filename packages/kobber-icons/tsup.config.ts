@@ -105,7 +105,8 @@ const makeIconComponents = () => {
     let iconGalleryMainImportsString = "import {";
     let iconGalleryString = "";
     const iconGalleryFirstImportString = 'import { Meta, Title, IconGallery, IconItem } from "@storybook/blocks";\n';
-    const iconGalleryMetaString = '<Meta title="Icon/All" />\n\n# All icons\n\n<IconGallery>\n';
+    const iconGalleryMetaString =
+      '<Meta title="Icon/All" />\n\n# All icons\n\n<IconGallery style={{"--icon-width": "1rem"}}>\n';
     symbols.forEach(symbol => {
       const iconName = getIconNames(symbol.id);
 
