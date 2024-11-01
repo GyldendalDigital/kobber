@@ -30,16 +30,15 @@ export default {
   decorators: [
     (Story, context) => `
     <script>const clickHandler = () => console.log('clicked')</script>
-    <kobber-theme-context theme-id=${context.globals.theme}>
-      ${Story()}
-    </kobber-theme-context>`,
+    <div style="height: 100vh;">
+      <kobber-theme-context theme-id=${context.globals.theme}>
+        ${Story()}
+      </kobber-theme-context>
+    </div>`,
   ],
 } satisfies Meta;
 
 export const Accordion: StoryObj = {
-  parameters: {
-    layout: "none",
-  },
   args: {
     title: "Accordion",
     accordionCount: 2,

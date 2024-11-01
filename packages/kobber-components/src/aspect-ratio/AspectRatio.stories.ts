@@ -7,7 +7,7 @@ import { defaultAspectRatio } from "./AspectRatio";
 import AspectRatioWiki from "./AspectRatioWiki.mdx";
 
 const meta: Meta = {
-  title: "Utilities 🛠/AspectRatio",
+  title: "Utilities 🔧/AspectRatio",
   component: "kobber-aspect-ratio",
   tags: ["autodocs"],
   parameters: {

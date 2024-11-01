@@ -319,7 +319,7 @@ export default class Dialog extends ShoelaceElement {
                       label=${this.localize.term("close")}
                       library="system"
                       @click="${() => this.requestClose("close-button")}"
-                      >Lukk</sl-icon-button
+                      >${this.localize.term("close")}</sl-icon-button
                     >
                   </div>
                 </header>
