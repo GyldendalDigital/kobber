@@ -2,6 +2,11 @@ import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import "../button/Button";
 
+/**
+ * Dropdown (also referred to as a select) allows choosing a value from a fixed list of available options
+ *
+ * @deprecated Will be reimplented in a future version.
+ */
 @customElement("kobber-dropdown")
 export class Dropdown extends LitElement {
   static styled = css`

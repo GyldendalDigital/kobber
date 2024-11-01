@@ -5,15 +5,7 @@ import { html } from "lit";
 const meta: Meta = {
   title: "In development 🧪/Dialog",
   component: "kobber-dialog",
-  tags: ["autodocs"],
   argTypes: {},
-  // decorators: [
-  //   (Story, context) => `
-  //   <kobber-theme-context theme-id=${context.globals.theme}>
-  //     ${Story()}
-  //   </kobber-theme-context>
-  //   `,
-  // ],
 };
 
 export default meta;

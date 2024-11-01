@@ -16,6 +16,11 @@ const themes = ["kobber-theme-default", "kobber-theme-dark"];
       },
     },
     layout: "centered",
+    options: {
+      storySort: {
+        order: ["*", "In development 🧪"],
+      },
+    },
   },
   // theme addon 👇
   globalTypes: {
