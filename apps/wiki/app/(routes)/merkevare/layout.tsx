@@ -21,7 +21,7 @@ export default async function MerkevareLayout({ children }: GetStartedLayoutProp
           <SideMenu>
             <SideMenuGroup title="Introduksjon" items={temporaryIntroRoutes} isOpenInitially />
             <SideMenuGroup
-              title="Verktøykassa"
+              title="Identitetselementer"
               items={[
                 merkevareLogoPage,
                 fargerPage,
