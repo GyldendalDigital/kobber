@@ -7,7 +7,6 @@ const typography = tokens.default.typography
 const page = tokens.default.template.page
 const section = tokens.default.template.section
 const content = tokens.default.template.content
-const main = tokens.default.template.main
 const textSection = tokens.default.template.section
 
 const global = tokens.default.global.text
@@ -18,7 +17,6 @@ const { gap: pageGap, padding } = page
 const { gap: sectionGap } = section
 const { gap: contentGap } = content
 const { gap: textSectionGap } = textSection
-const { gap: mainGap } = main
 
 const { ui } = global
 
@@ -58,13 +56,13 @@ const config = {
 
       space: {},
       gap: {
-        "page/gap/horizontal/small": `${pageGap.horizontal.small}px`,
+        "page/gap/horizontal": `${pageGap.horizontal}px`,
         "section/gap/horizontal": `${sectionGap.horizontal}px`,
         "section/gap/vertical": `${sectionGap.vertical}px`,
         "content/gap/horizontal": `${contentGap.horizontal}px`,
         "text-section/gap/header/horizontal": `${textSectionGap.horizontal}px`,
         "text-section/gap/header-ingress-body/horizontal": `${textSectionGap.horizontal}px`,
-        "main/gap/vertical": `${mainGap.vertical}px`,
+        "main/gap/vertical": `${sectionGap.vertical}px`,
       },
       maxHeight: {},
       minHeight: {},
