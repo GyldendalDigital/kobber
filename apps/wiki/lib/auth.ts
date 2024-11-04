@@ -2,7 +2,7 @@ import { db } from "@/drizzle/drizzle"
 import { accounts, users, verificationTokens } from "@/drizzle/schema"
 import { DrizzleAdapter } from "@auth/drizzle-adapter"
 import NextAuth from "next-auth"
-import AzureADProvider from "next-auth/providers/azure-ad"
+import MicrosoftEntraID from "next-auth/providers/microsoft-entra-id"
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
   adapter: DrizzleAdapter(db, {
@@ -12,11 +12,10 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   }),
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
-    AzureADProvider({
-      clientId: process.env.AZURE_AD_CLIENT_ID as string,
-      clientSecret: process.env.AZURE_AD_CLIENT_SECRET as string,
-      // tenantId: process.env.AZURE_AD_TENANT_ID as string,
-      authorization: { params: { scope: "openid profile user.Read email" } },
+    MicrosoftEntraID({
+      clientId: process.env.AUTH_MICROSOFT_ENTRA_ID_ID,
+      clientSecret: process.env.AUTH_MICROSOFT_ENTRA_ID_SECRET,
+      issuer: process.env.AUTH_MICROSOFT_ENTRA_ID_ISSUER,
     }),
   ],
 })

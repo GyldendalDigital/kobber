@@ -9,7 +9,7 @@ type InformationCardProps = {
 export function InformationCard({ item: { title, text, image } }: InformationCardProps) {
   return (
     <div className="grid min-h-[375px] w-full items-center justify-center gap-[24px] md:w-[270px]">
-      <div className="relative size-[274px] overflow-hidden rounded-[16px]">
+      <div className="relative size-[274px] overflow-hidden rounded-[16px] bg-muted">
         <Image src={placeholderImageUrl({})} alt="Bilde" fill className="object-cover" />
       </div>
 
