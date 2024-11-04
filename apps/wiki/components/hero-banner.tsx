@@ -32,7 +32,7 @@ export function HeroBanner({ src, alt, width, height, className }: HeroBannerPro
               Velkommen til kobber
             </h1>
             <h2 className="text-[32px] font-medium text-[#DC134F] md:text-[48px]">
-              Gyldendals designssytem
+              Gyldendals designsystem
             </h2>
           </div>
           <p className="max-w-[390px] text-center text-[16px] text-[#481125] md:text-left md:text-[20px]">
