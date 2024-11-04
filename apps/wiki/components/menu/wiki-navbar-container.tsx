@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import { LogOut, Menu, X } from "lucide-react"
 import { signOut, useSession } from "next-auth/react"
 import { PageDetails } from "@/types/types"
 import { APP_NAME } from "@/lib/constants"
@@ -42,8 +42,9 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
           ))}
 
           {session && (
-            <li>
+            <li className="flex items-center gap-2">
               <button onClick={handleLogout}>Logg ut</button>
+              <LogOut className="size-4" />
             </li>
           )}
         </ul>

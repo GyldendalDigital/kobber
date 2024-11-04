@@ -12,6 +12,12 @@ const nextConfig = {
         hostname: "placehold.co",
         pathname: "**",
       },
+
+      {
+        protocol: "https",
+        hostname: "dam-p-gyldendal.pqcloud.eu",
+        pathname: "**",
+      },
     ],
   },
 }
