@@ -76,7 +76,7 @@ export type TextCollectionProps = {
 
 export interface PageDetails extends Metadata {
   href: string
-  image?: string
+  image: string | null
   status?: "kommer" | "nyhet"
   children?: PageDetails[]
   disabled?: boolean

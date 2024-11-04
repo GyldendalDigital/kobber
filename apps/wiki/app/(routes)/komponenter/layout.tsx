@@ -44,4 +44,5 @@ const temporaryItem = (title: string): PageDetails => ({
   href: "#",
   title,
   status: "kommer",
+  image: null,
 })
