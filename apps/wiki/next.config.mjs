@@ -1,10 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
+  // output: "export",
+  // images: {
+  //   // Azure does not support optimized images
+  //   unoptimized: true,
+  // },
   images: {
-    // Azure does not support optimized images
-    unoptimized: true,
-  },
-};
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+        pathname: "**",
+      },
 
-export default nextConfig;
+      {
+        protocol: "https",
+        hostname: "dam-p-gyldendal.pqcloud.eu",
+        pathname: "**",
+      },
+    ],
+  },
+}
+
+export default nextConfig

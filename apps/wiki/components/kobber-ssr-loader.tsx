@@ -2,6 +2,7 @@
 
 import { useEffect } from "react"
 import dynamic from "next/dynamic"
+import { FeatureBoxGridSkeleton } from "./feature-box-grid"
 
 /**
  * Gave up trying to use web components on the server, after many failed attempts.
@@ -14,7 +15,17 @@ export const CardLayout = dynamic(
     import("@gyldendal/kobber-components/react").then((x) => ({
       default: x.KobberCardLayout,
     })),
-  { ssr: false }
+  {
+    loading: () => (
+      <div className="flex items-center justify-between gap-4">
+        <FeatureBoxGridSkeleton />
+        <FeatureBoxGridSkeleton />
+        <FeatureBoxGridSkeleton />
+        <FeatureBoxGridSkeleton />
+      </div>
+    ),
+    ssr: false,
+  }
 )
 
 export const CardLayoutToColumnAspectRatio = dynamic(
@@ -22,7 +33,9 @@ export const CardLayoutToColumnAspectRatio = dynamic(
     import("@gyldendal/kobber-components/react").then((x) => ({
       default: x.KobberCardLayoutColumnAspectRatio,
     })),
-  { ssr: false }
+  {
+    ssr: false,
+  }
 )
 
 export const CardLayoutColumnAspectRatio = dynamic(
@@ -67,6 +80,15 @@ export const IconArrowRight = dynamic(
   () =>
     import("@gyldendal/kobber-icons/react").then((x) => ({
       default: x.IconArrowRight,
+    })),
+  {
+    ssr: false,
+  }
+)
+export const LogoutIcon = dynamic(
+  () =>
+    import("@gyldendal/kobber-icons/react").then((x) => ({
+      default: x.IconLogout,
     })),
   {
     ssr: false,

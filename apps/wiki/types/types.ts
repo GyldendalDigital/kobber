@@ -21,7 +21,7 @@ export type RouteDataType = {
 
 export type FeatureBoxType = {
   title?: null | string | TemplateString
-  image?: string
+  image: string | null
   href?: string
 }
 
@@ -83,7 +83,7 @@ export interface PageDetails extends Metadata {
 }
 
 export type IllustrationType = {
-  src: string
+  src: string | null
   alt?: string
   height: number
   width: number

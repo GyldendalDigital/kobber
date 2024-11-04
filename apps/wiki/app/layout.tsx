@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import "@/styles/globals.css"
+import { SessionProvider } from "next-auth/react"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import Footer from "@/components/footer"
@@ -24,14 +25,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("bg-[#FDF9F9] text-[#481125ff] antialiased transition-all")}>
-        <ThemeContext themeId="kobber-theme-default">
-          <IconLoader />
-          <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal/small px-page/padding/inline/xsmall md:px-page/padding/inline/large">
-            <WikiNavbar />
-            {children}
-            <Footer />
-          </div>
-        </ThemeContext>
+        <SessionProvider>
+          <ThemeContext themeId="kobber-theme-default">
+            <IconLoader />
+            <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal/small px-page/padding/inline/xsmall md:px-page/padding/inline/large">
+              <WikiNavbar />
+              {children}
+              <Footer />
+            </div>
+          </ThemeContext>
+        </SessionProvider>
       </body>
     </html>
   )
