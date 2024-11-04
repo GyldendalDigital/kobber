@@ -83,7 +83,7 @@ export interface PageDetails extends Metadata {
 }
 
 export type IllustrationType = {
-  src: string
+  src: string | null
   alt?: string
   height: number
   width: number

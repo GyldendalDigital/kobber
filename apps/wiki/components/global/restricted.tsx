@@ -1,14 +1,17 @@
 "use client"
 
+import { usePathname } from "next/navigation"
 import { signIn } from "next-auth/react"
 import { FaMicrosoft } from "react-icons/fa"
 import { Button } from "../ui/button"
 
 export function Restricted() {
+  const pathname = usePathname()
+
   const handleLogin = () => {
     signIn("microsoft-entra-id", {
       // redirect: true,
-      // redirectTo: "/",
+      // redirectTo: pathname,
     })
   }
 

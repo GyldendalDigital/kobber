@@ -15,7 +15,7 @@ export const metadata: PageDetails = {
 
 const merkevareIllustration: IllustrationType[] = [
   {
-    src: "https://s3-alpha-sig.figma.com/img/b1a0/f34d/889536d0ac047899333d20aa45a622fd?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=e1fUuR8lU8ZxeY8W5-d8jEb-kxmY9uvJxxNkDY9oxmkmmQ6Xz29k4ajbtvZA6MsXHOWW627Y-jJ81Ncy73rVwrwxSwBXj33pOvz1HDdvyl-6hFlPmwLZueKMPPiomJ4YE6vqLTYsqAnrFZecjeediOt6IAH4IaW9nwB2j1qgBDNBTaTwlDJ9UXx-BhCM2FuCINaPIN6KyoPi-uF7hzRG-WEEzRNd6mBQ8t~XJ6m1Rvlu2lp5AhEHD~tysdS4etUZItBkGXA~5Mbmf6aAkJa6uCoAdThwt9GTZmyjvIfxumo0rhKjhVEyUwWuOLPec0UNFryVjbWGqdrb3Oxy3twSUA__",
+    src: null,
     alt: "",
     width: 370,
     height: 243,
@@ -24,7 +24,7 @@ const merkevareIllustration: IllustrationType[] = [
 
 const levelOneIllustrations: IllustrationType[] = [
   {
-    src: "https://s3-alpha-sig.figma.com/img/c41a/8436/1687aad9fea2dc2061f6a65f43ef7b01?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=i1u4DKFd~LM1useaeBeXi4bCQ~kA48pz8SYkU~D7ZzVpZdnk1D1Y7TyzLO3Pr7TUFQ4PUcPXm87cD9nwOpqkxHyeT~SB9R9SvG-LISRgCRMJvdXW56jpvuR0QYy9eRKRPx53-Vor0zfupcQIMbeHn9WYuhqO9N8C3Lcm9-1UY2NYayv5urcMEKCGaulnWa9HXj9rfO9bJMpT27T6qjH~SW3r0CQmkhbQgXu3WvPDWWDbb2JdFa98N86fQ9Q8dz~cpf2BIvrXI5dckZvpTXMlpLb~8H2KdRq-tiJBdjTdwX5ot5v0-XnLSQiumUUrX7mNHZQWoZN3cB5RQk7qQzuaEg__",
+    src: null,
     alt: "",
     width: 373,
     height: 300,
@@ -33,12 +33,12 @@ const levelOneIllustrations: IllustrationType[] = [
 
 const levelTwoIllustrations: IllustrationType[] = [
   {
-    src: "https://s3-alpha-sig.figma.com/img/25c5/f67b/7ab92d45fdedf446e85697eeb9179b2c?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=C93Xotb6GZtw92zOE3LvIdkndZ-kxt4Ug41f0H0gQ6Yw0h~2BQv6hgRXCPjmmqPb9YF-CzuHL5xRNzDYfR-HOvxQOcH6CVhPjMCujhvYi7UmNLWFPcOa1vdA~yNM~0LAoGhF0tQ5q6ap5A8lQHmnsTYsCAgYDEWdGoeIvv9TQ5iGFkZkahcwCQJXi6ekxd7VmFt2krgOhvNBkzM94Ca0fODd2x8S2qO9qeWKU0~7ik9YeIKSpNT1tcuNls-CvF6JAOLpS3GMwcsFiq6eOSbYzFsPTdtdA~eYrIMKXj0vtFKm0VLn~eWFL8HMhvASmQIY1L8AL-~dA0xtGO1sOerDDw__",
+    src: null,
     width: 503,
     height: 221,
   },
   {
-    src: "https://s3-alpha-sig.figma.com/img/98a8/0e8f/94bc111003b4891bcff5380992289885?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jniF0xOnHk4fftZV-zlPrKDAOsBYAF8Jg1uwJdhzb6DUmg4yYvVs2xn0sHe4ifTv-ELp8URPiMX0JewXbFZNHNDnqvTS4ahZpyWY5NGPdWzUNZRYQZz~BMF5Sp9QI2CjMWR8MfgBF4jKdmbCt~IZ58a-wwcs71VXW75pK1g2v0jvZH~pPKeu9Mu6WOkAANlQ9R67WETMhHQw1TKPEI4IOuticMpzBSBsYycHJ5Md27~O00sfWrxLm-eJW1yjymDQ403PmFAop1Zxg3AROcYBI8-mVrmtYpW-qXvN~wS~yF6o5Kao2w4sYro7CUm-HuB7Q~ckkjX8VU621pCxYN-i5Q__",
+    src: null,
     width: 503,
     height: 298,
   },
@@ -46,7 +46,7 @@ const levelTwoIllustrations: IllustrationType[] = [
 
 const levelThreeIllustrations: IllustrationType[] = [
   {
-    src: "https://s3-alpha-sig.figma.com/img/9fda/4e29/fa7e02fd677f6364343d409c64b9e92e?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Mnyvpo~M16a-UbNzURlLVvgAyaqu~apxZw6nk3NVCp01iBOCsElpeZ0DQoM6CXx9BjFC25hMWxk0nRm-haZ8Z92gZ~b1of-bOwk7B1hPsomAsmZhu8PyPVJ3vPLbFNzLqiZu6WVpl1PzTY98~XyhgrpBqEFaiLInVZ5SnpJGtZr3N8lokJVIhRwEzeypCDo7oeLMtyF~6qx2OhVQQOOZiDQDZb~DMr2uNYKlsckZe~XVjYxEsQifyyCSTL-w~KCJnZ~akdH33tyulRMhqp4lOU80pZOyAuj1MOgccWSlLkKWreRGWFCxRK5v8wEiBuQ9PpIVWRC7aPCzinaPdwzZLQ__",
+    src: null,
     width: 435,
     height: 334,
   },
@@ -54,7 +54,7 @@ const levelThreeIllustrations: IllustrationType[] = [
 
 const levelFourIllustrations: IllustrationType[] = [
   {
-    src: "https://s3-alpha-sig.figma.com/img/a340/b22c/991b9328727356c086c35ec9aa51eed6?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=KDl-6GJkU5PMvri3I7IgM5BytYyuxn7aX0C1S-807BcX3Ps3Hun8JKWXRVLRr6K6Jch8f6TRS2otDn1gTj8Vn22lmHFJEsYUnJ7I8ueOB74E6boRWc6gPsgmUjVTYUzgdjaQe~h7DvmZL~1EJr0ulul71~nJf5FpdgZ4h0elS~zpuc7RvPSnz4884quWtBA0eNGWGPG-06ZYRPwWFFEn~3UbVZVzb2Gv5VdSk5lQuvYPgWS3OEyjcLKGJoArIHXQTjMCJ6d~OAMI9u2xab6wb-lS8rbvsGk3ESHTnbpXgPqMfOdclYkqhefj6SDjIxF~GiBh77o-n0qVylgiS5wxbQ__",
+    src: null,
     width: 400,
     height: 315,
   },

@@ -3,8 +3,7 @@ import { BRANDING_URL, COMPONENTS_URL } from "@/config/routes"
 
 export const GetStartedRoutesData: RouteDataType[] = [
   {
-    heroImage:
-      "https://s3-alpha-sig.figma.com/img/5505/f80c/a2b510e6702b688d6bbec374cd0d646b?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=f15EYzOIvgaQ3YpGcLlm~Nzby2cvmMDH3Co7dUyZbOZO5GAAl7CixnzHTcat9NWxA1XMRpN8D43sCVzgSGVa6p3bfQC79mZSvMxKdgQwCBZiW3nM6wHrZOBRTCkDdvJEeLqQxUq6o9u37XHk-Uglppse8IM0n-K5IsAkTt6or3kd3OdOkSc~beWrK7JJEnecQt6L~aqP0JIaaFy83XkcO~V1Mylppu8zEIfkVKuoIxAB0ciY66nyg14yH1vSIZibN0XxmEbvQiy6JpGzxKdQOaRcoPpbnQDXEy2v~2OYY92ubiHK24FqeWnteEqQVjtll88yyiwX9N~qcbSveo2M2A__",
+    // heroImage: null,
     topicTitle: "Designsystemet Kobber",
     title: "Et verktøy for samspill og synergier",
     href: "introduksjon",
