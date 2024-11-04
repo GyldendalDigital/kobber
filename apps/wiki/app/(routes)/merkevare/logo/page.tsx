@@ -14,7 +14,8 @@ const fourGyldendalLogos =
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Logo",
-  image: placeholderImageUrl({}),
+  image:
+    "https://dam-p-gyldendal.pqcloud.eu/authkey/SQNi-PWIBu/preview/CtM-1DQEapL98pVi_5S64C/previews/maxWidth_1600_maxHeight_1600.jpg/*/Gyldendal%20logo_preview.jpg?_=1",
   description:
     "Logo er et viktig element i Gyldendal sin profil og er med på å danne kjennskap til merkevaren. Nivåene i merkevarearkitekturen reflekteres i logostrukturen. Å følge prinsippene og retningslinjene for logobruk er nødvendig for å beholde integriteten til logoene i alle typer kontekster.",
 }

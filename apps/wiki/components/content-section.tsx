@@ -17,7 +17,7 @@ export function ContentSection({
   chilClassName,
 }: ContentSectionProps) {
   return (
-    <div className={cn("gap-y-section/gap/horizontal] flex flex-col", className)}>
+    <div className={cn("gap-y-section/gap/horizontal] flex flex-col gap-4", className)}>
       <TextCollection
         heading={heading}
         ingress={ingress}
