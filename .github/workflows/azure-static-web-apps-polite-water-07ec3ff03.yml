@@ -1,6 +1,7 @@
 name: Kobber wiki
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -19,6 +20,11 @@ jobs:
 
       - name: Install
         run: yarn
+
+      - name: Add secrets to .env
+        run: |
+          touch ./apps/wiki/.env
+          echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> ./apps/wiki/.env
 
       - name: Build And Deploy
         id: builddeploy
