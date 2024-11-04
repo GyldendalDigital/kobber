@@ -3,8 +3,8 @@ import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
-import { metadata as iconsetPage } from "@/app/merkevare/ikoner/ikonsett/page"
-import { metadata as guidelinesPage } from "@/app/merkevare/ikoner/retningslinjer/page"
+import { metadata as iconsetPage } from "@/app/(routes)/merkevare/ikoner/ikonsett/page"
+import { metadata as guidelinesPage } from "@/app/(routes)/merkevare/ikoner/retningslinjer/page"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),

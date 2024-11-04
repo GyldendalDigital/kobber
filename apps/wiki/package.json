@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/drizzle-adapter": "^1.7.2",
     "@gyldendal/kobber-base": "*",
     "@gyldendal/kobber-components": "*",
     "@gyldendal/kobber-icons": "*",
@@ -25,8 +26,10 @@
     "@radix-ui/react-tooltip": "^1.1.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "drizzle-orm": "^0.36.0",
     "lucide-react": "^0.429.0",
     "next": "14.2.5",
+    "next-auth": "^4.24.10",
     "react": "18.3.1",
     "react-dom": "^18",
     "tailwind-merge": "^2.5.2",
@@ -34,12 +37,14 @@
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+    "@neondatabase/serverless": "^0.10.1",
     "@tailwindcss/typography": "^0.5.14",
     "@types/node": "^20",
     "@types/react": "18.3.6",
     "@types/react-dom": "18.3.0",
     "@typescript-eslint/parser": "^8.2.0",
     "autoprefixer": "^10.4.20",
+    "drizzle-kit": "^0.27.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "eslint-config-prettier": "^9.1.0",
