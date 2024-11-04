@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { KobberButton } from "@gyldendal/kobber-components/react"
@@ -10,8 +9,9 @@ import { signOut, useSession } from "next-auth/react"
 import { PageDetails } from "@/types/types"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
+import { ssoSignIn } from "@/hooks/use-sso-sign-in"
 import { Button } from "@/components/ui/button"
-import { LogoutIcon } from "../kobber-ssr-loader"
+import { LoginIcon, LogoutIcon } from "../kobber-ssr-loader"
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 import { WikiHeaderItem } from "./wiki-header-item"
 
@@ -26,6 +26,14 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
 
   const handleLogout = () => {
     signOut()
+  }
+
+  const handleAuth = () => {
+    if (session?.user) {
+      handleLogout()
+    } else {
+      ssoSignIn({ redirectUrl: pathname })
+    }
   }
 
   // To close the sheet on every route change
@@ -44,26 +52,16 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
             <WikiHeaderItem key={item.href} page={item} />
           ))}
 
-          {session && (
-            <li className="flex items-center gap-2">
-              <KobberButton
-                color="aubergine"
-                className="m-0 flex w-fit items-center p-0"
-                onClick={handleLogout}
-                variant="main"
-              >
-                Logg ut
+          <li className="ml-[56px] flex items-center gap-2">
+            <KobberButton color="aubergine" onClick={handleAuth} variant="supplemental alt">
+              Logg {session?.user ? "ut" : "inn"}
+              {session?.user ? (
                 <LogoutIcon className="size-4" slot="icon" />
-              </KobberButton>
-              <Image
-                src={session.user.image}
-                width={30}
-                height={30}
-                alt="logo"
-                className="pointer-events-none rounded-full"
-              />
-            </li>
-          )}
+              ) : (
+                <LoginIcon className="size-4" slot="icon" />
+              )}
+            </KobberButton>
+          </li>
         </ul>
 
         <Sheet modal={false} open={isOpen} onOpenChange={setIsOpen}>

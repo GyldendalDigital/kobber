@@ -2,7 +2,9 @@
 
 import { useEffect } from "react"
 import dynamic from "next/dynamic"
+import { Loader2 } from "lucide-react"
 import { FeatureBoxGridSkeleton } from "./feature-box-grid"
+import { Skeleton } from "./ui/skeleton"
 
 /**
  * Gave up trying to use web components on the server, after many failed attempts.
@@ -34,6 +36,7 @@ export const CardLayoutToColumnAspectRatio = dynamic(
       default: x.KobberCardLayoutColumnAspectRatio,
     })),
   {
+    loading: () => <Loader2 className="size-4 animate-spin" />,
     ssr: false,
   }
 )
@@ -43,7 +46,10 @@ export const CardLayoutColumnAspectRatio = dynamic(
     import("@gyldendal/kobber-components/react").then((x) => ({
       default: x.KobberCardLayoutColumnAspectRatio,
     })),
-  { ssr: false }
+  {
+    loading: () => <Loader2 className="size-4 animate-spin" />,
+    ssr: false,
+  }
 )
 
 export const Button = dynamic(
@@ -52,6 +58,7 @@ export const Button = dynamic(
       default: x.KobberButton,
     })),
   {
+    loading: () => <Loader2 className="size-4 animate-spin" />,
     ssr: false,
   }
 )
@@ -62,6 +69,11 @@ export const ThemeContext = dynamic(
       default: x.KobberThemeContext,
     })),
   {
+    loading: () => (
+      <div className="flex h-screen w-full items-center justify-center">
+        Loading theme... <Loader2 className="ml-2 size-4 animate-spin" />
+      </div>
+    ),
     ssr: false,
   }
 )
@@ -71,9 +83,7 @@ export const Divider = dynamic(
     import("@gyldendal/kobber-components/react").then((x) => ({
       default: x.KobberDivider,
     })),
-  {
-    ssr: false,
-  }
+  { loading: () => <Loader2 className="size-4 animate-spin" />, ssr: false }
 )
 
 export const IconArrowRight = dynamic(
@@ -81,18 +91,21 @@ export const IconArrowRight = dynamic(
     import("@gyldendal/kobber-icons/react").then((x) => ({
       default: x.IconArrowRight,
     })),
-  {
-    ssr: false,
-  }
+  { loading: () => <Loader2 className="size-4 animate-spin" />, ssr: false }
 )
 export const LogoutIcon = dynamic(
   () =>
     import("@gyldendal/kobber-icons/react").then((x) => ({
       default: x.IconLogout,
     })),
-  {
-    ssr: false,
-  }
+  { loading: () => <Loader2 className="size-4 animate-spin" />, ssr: false }
+)
+export const LoginIcon = dynamic(
+  () =>
+    import("@gyldendal/kobber-icons/react").then((x) => ({
+      default: x.IconLogin,
+    })),
+  { loading: () => <Loader2 className="size-4 animate-spin" />, ssr: false }
 )
 
 export const Accordion = dynamic(
@@ -101,6 +114,8 @@ export const Accordion = dynamic(
       default: x.KobberAccordion,
     })),
   {
+    loading: () => <Skeleton className="h-9 w-36" />,
+
     ssr: false,
   }
 )
@@ -110,9 +125,7 @@ export const List = dynamic(
     import("@gyldendal/kobber-components/react").then((x) => ({
       default: x.KobberList,
     })),
-  {
-    ssr: false,
-  }
+  { loading: () => <Loader2 className="size-4 animate-spin" />, ssr: false }
 )
 
 export const ListItem = dynamic(
@@ -120,9 +133,7 @@ export const ListItem = dynamic(
     import("@gyldendal/kobber-components/react").then((x) => ({
       default: x.KobberListItem,
     })),
-  {
-    ssr: false,
-  }
+  { loading: () => <Skeleton className="h-9 w-36" />, ssr: false }
 )
 
 /** Required for showing web component icons */
