@@ -26,6 +26,11 @@ jobs:
       - name: Install
         run: yarn
 
+      - name: Add secrets to .env
+        run: |
+          touch ./apps/wiki/.env
+          echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> ./apps/wiki/.env
+
       - name: Build
         run: yarn build
 
