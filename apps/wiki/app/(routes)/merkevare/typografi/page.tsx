@@ -22,7 +22,6 @@ const featureItems: FeatureBoxType[] = [
   { title: "Primærfont: PP Mori", href: `${url}/pp-mori`, image: placeholderImageUrl({}) },
   { title: "Sekunærfont: Lyon", href: `${url}/lyon`, image: placeholderImageUrl({}) },
   { title: "UI Font: Inter", href: `${url}/inter`, image: placeholderImageUrl({}) },
-  { title: "Retningslinjer", href: `${url}/retningslinjer`, image: placeholderImageUrl({}) },
 ]
 
 export default function TypografiPage() {

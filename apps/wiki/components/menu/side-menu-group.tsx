@@ -15,8 +15,8 @@ export const SideMenuGroup = ({ title, items, isOpenInitially = false }: Props) 
 
   return (
     <>
-      <Accordion title={title} expanded={isOpenInitially}>
-        <List orientation="vertical">
+      <Accordion title={title} expanded={isOpenInitially} className="uppercase">
+        <List orientation="vertical" className="capitalize">
           {items.map((item, i) => (
             <SideMenuItem key={item.href + i} {...item} />
           ))}
