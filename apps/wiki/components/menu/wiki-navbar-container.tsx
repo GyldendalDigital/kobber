@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
+import { signOut, useSession } from "next-auth/react"
 import { PageDetails } from "@/types/types"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
@@ -18,6 +19,11 @@ type WikiNavbarContainerProps = {
 export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const { data: session } = useSession()
+
+  const handleLogout = () => {
+    signOut()
+  }
 
   // To close the sheet on every route change
   useEffect(() => {
@@ -34,6 +40,12 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
           {pages.map((item) => (
             <WikiHeaderItem key={item.href} page={item} />
           ))}
+
+          {session && (
+            <li>
+              <button onClick={handleLogout}>Logg ut</button>
+            </li>
+          )}
         </ul>
 
         <Sheet modal={false} open={isOpen} onOpenChange={setIsOpen}>
