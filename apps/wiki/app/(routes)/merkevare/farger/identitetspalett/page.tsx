@@ -1,6 +1,6 @@
 import { IdentityColors } from "@/data/color-palettes"
 import { IllustrationType, PageDetails } from "@/types/types"
-import { pagePathname } from "@/lib/utils"
+import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ColorBlockGridItem } from "@/components/color-block-grid-item"
 import { ContentSection } from "@/components/content-section"
@@ -11,15 +11,14 @@ import { TextCollection } from "@/components/text-collection"
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Identitetspalett",
-  image:
-    "https://s3-alpha-sig.figma.com/img/0279/ca05/b7605ba9a77fb36d5104c4066cccadcb?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=a7rQ5SsaI5oh6M7k2vP7jdNVnzFn5DSdgL~FUQCOLyR0lZXRlc8fociOk6xrfLogZiRYUxgqR9uerOBpU5LzhEsuP1RH~3mUw5yoxj3Uhcfl3Hrsf2YNaoQzVYFguaeKfhnAzpvhXCwnuj1j575mI3WCrQOYqT~WkxO0gUvLqoEgOf3b5aGZnPpyE-Anp55MJcoHjBAhCTc8NgNNQEzUXncmHvBjPyBG5cGvJNy6DGz8pMvNp0cUdbSg0rBvwIt57eMJVcXPJQG5GJKIErP70Qo1ipRGjCUDxhyf0CVpgXOsmoJ1Ff97Mmadygu0z7uFoL7xzETKC3GBBz9LMtQ8~Q__",
+  image: placeholderImageUrl({}),
   description:
     "Dette er vår identitetspalett, som består av de mest brukte fargene for å etablere Gyldendals stiluttrykk. Markedsføring forholder seg alltid til denne paletten, samtidig som utvidede paletter er tilgjengelige for designere av brukergrensesnitt og bokmalverk.",
 }
 
 const illusrations: IllustrationType[] = [
   {
-    src: "https://s3-alpha-sig.figma.com/img/7ae2/c1ce/72fd696f1e19bc73eeb3d90d9ac93d60?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lPXCQx5iXsFc01PXBFAqh2bb4QbA3npilGt~BBu6dCAnXyDfJLCpkjks-68di7TGUcLD96RmCKd1-PuBmKCRhU-g~CEzFsF08QAuajONS3xifTehduafr3Vu66qRAsCu4d9FqN4GDopT3HSm58~sdb1WO6ptC4~nygZAxmTZwCgoznaEi0q9PzvRPsiWZWdStxl4qlNqVYTguek1cqJDnBxBcUGvGC1vV2pxWtxYGftfKS8oJRRXy0fxebkhyFs0mW7dWuh8X~cncpjIm7nwXlIqUTNP4jagmuAsaXf~03KaAhaltIxh3jIfolJsZ7yKFo8KYg~r3PtlWSGl03SqhA__",
+    src: placeholderImageUrl({}),
     width: 771,
     height: 296,
     fill: true,

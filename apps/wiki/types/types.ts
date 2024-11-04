@@ -21,7 +21,7 @@ export type RouteDataType = {
 
 export type FeatureBoxType = {
   title?: null | string | TemplateString
-  image?: string
+  image: string | null
   href?: string
 }
 

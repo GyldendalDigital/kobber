@@ -15,7 +15,8 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     AzureADProvider({
       clientId: process.env.AZURE_AD_CLIENT_ID as string,
       clientSecret: process.env.AZURE_AD_CLIENT_SECRET as string,
-      tenantId: process.env.AZURE_AD_TENANT_ID,
+      // tenantId: process.env.AZURE_AD_TENANT_ID as string,
+      authorization: { params: { scope: "openid profile user.Read email" } },
     }),
   ],
 })
