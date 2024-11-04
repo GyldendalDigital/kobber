@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.47
+
+### Patch Changes
+
+- bugfixes for audio-recorder
+
 ## 0.3.46
 
 ### Patch Changes
