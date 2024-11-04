@@ -1,13 +1,17 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { KobberButton } from "@gyldendal/kobber-components/react"
 import { Menu, X } from "lucide-react"
+import { signOut, useSession } from "next-auth/react"
 import { PageDetails } from "@/types/types"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { LogoutIcon } from "../kobber-ssr-loader"
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 import { WikiHeaderItem } from "./wiki-header-item"
 
@@ -18,6 +22,11 @@ type WikiNavbarContainerProps = {
 export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const { data: session } = useSession()
+
+  const handleLogout = () => {
+    signOut()
+  }
 
   // To close the sheet on every route change
   useEffect(() => {
@@ -34,6 +43,27 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
           {pages.map((item) => (
             <WikiHeaderItem key={item.href} page={item} />
           ))}
+
+          {session && (
+            <li className="flex items-center gap-2">
+              <KobberButton
+                color="aubergine"
+                className="m-0 flex w-fit items-center p-0"
+                onClick={handleLogout}
+                variant="main"
+              >
+                Logg ut
+                <LogoutIcon className="size-4" slot="icon" />
+              </KobberButton>
+              <Image
+                src={session.user.image}
+                width={30}
+                height={30}
+                alt="logo"
+                className="pointer-events-none rounded-full"
+              />
+            </li>
+          )}
         </ul>
 
         <Sheet modal={false} open={isOpen} onOpenChange={setIsOpen}>

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { IllustrationType } from "@/types/types"
-import { cn } from "@/lib/utils"
+import { cn, placeholderImageUrl } from "@/lib/utils"
 import { Skeleton } from "./ui/skeleton"
 
 type IllustrationsProps = {
@@ -20,7 +20,7 @@ export function Illustrations({ illustrations, className, illuClassName }: Illus
       {illustrations.map((illustration, index) => (
         <Image
           key={index}
-          src={illustration.src}
+          src={illustration.src ?? placeholderImageUrl({})}
           height={illustration.fill ? undefined : illustration.height}
           width={illustration.fill ? undefined : illustration.width}
           fill={illustration.fill}

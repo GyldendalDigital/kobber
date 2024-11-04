@@ -1,4 +1,4 @@
-import latest from "./tokens-2024-10-29.json"; // Set this this when updating tokens
+import latest from "./tokens-2024-11-04.json"; // Set this this when updating tokens
 
 /**
  * Points to the latest Figma export.
