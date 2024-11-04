@@ -28,7 +28,7 @@ export default function RootLayout({
         <SessionProvider>
           <ThemeContext themeId="kobber-theme-default">
             <IconLoader />
-            <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal/small px-page/padding/inline/xsmall md:px-page/padding/inline/large">
+            <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal px-page/padding/inline/xsmall md:px-page/padding/inline/large">
               <WikiNavbar />
               {children}
               <Footer />
