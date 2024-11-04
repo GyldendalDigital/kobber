@@ -1,31 +1,22 @@
 "use client"
 
 import { usePathname } from "next/navigation"
-import { signIn } from "next-auth/react"
-import { FaMicrosoft } from "react-icons/fa"
-import { Button } from "../ui/button"
+import { KobberButton } from "@gyldendal/kobber-components/react"
+import { ssoSignIn } from "@/hooks/use-sso-sign-in"
+import { TextCollection } from "../text-collection"
 
 export function Restricted() {
   const pathname = usePathname()
 
-  const handleLogin = () => {
-    signIn("microsoft-entra-id", {
-      redirect: true,
-      redirectTo: pathname,
-    })
-  }
-
   return (
-    <div className="flex h-[60vh] w-full flex-col items-center justify-center gap-2">
-      <h1 className="text-2xl">Vennligst logg inn</h1>
-      <Button
-        onClick={handleLogin}
-        className="flex h-10 items-center gap-2 rounded-md bg-white p-2 px-8"
-        variant={"outline"}
-      >
-        <FaMicrosoft className="size-4" />
+    <div className="flex h-[60vh] w-full flex-col items-start justify-center gap-content/gap/horizontal">
+      <TextCollection
+        heading="Merkevare"
+        ingress="Gyldendals merkevare består av kjernehistorien om Gyldendal, et felles verdigrunnlag, posisjonsbeskrivelse og et sett med felles designprinsipper. Her finnes også retningslinjer for vår merkevarearkitektur, samt retningslinjer for logo, farger, typografi, ikoner og layout. "
+      />
+      <KobberButton onClick={() => ssoSignIn({ redirectUrl: pathname })}>
         Logg inn med SSO
-      </Button>
+      </KobberButton>
     </div>
   )
 }

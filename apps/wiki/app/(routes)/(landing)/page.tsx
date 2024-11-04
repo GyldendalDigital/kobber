@@ -37,21 +37,25 @@ const boxes: FeatureBoxType[] = [
   {
     title: "Introduksjon av Kobber",
     href: "/kom-i-gang",
-    image: null,
+    image:
+      "https://dam-p-gyldendal.pqcloud.eu/authkey/1AwlfRxdpz/preview/2bULAP2gabp9rC4A1CbQSB/previews/maxWidth_1600_maxHeight_1600.jpg/*/_DX_2016_preview.jpg?_=1",
   },
   {
     title: "Vår nye Gyldendal-logo",
-    image: null,
+    image:
+      "https://dam-p-gyldendal.pqcloud.eu/authkey/SQNi-PWIBu/preview/CtM-1DQEapL98pVi_5S64C/previews/maxWidth_1600_maxHeight_1600.jpg/*/Gyldendal%20logo_preview.jpg?_=1",
     href: "/merkevare/logo",
   },
   {
     title: "Vår nye fargepalett",
-    image: null,
+    image:
+      "https://dam-p-gyldendal.pqcloud.eu/authkey/W73B6GH3DM/preview/BkRpubsF45_8o0iVkKSQod/previews/maxWidth_1600_maxHeight_1600.jpg/*/identitet_preview.jpg?_=1",
     href: "/merkevare/farger",
   },
   {
     title: "Fonter",
-    image: null,
+    image:
+      "https://dam-p-gyldendal.pqcloud.eu/authkey/7hatoDCOhD/preview/Frg1nstAKYsA0hKXNk3z5x/previews/maxWidth_1600_maxHeight_1600.jpg/*/Retningslinjer_preview.jpg?_=1",
     href: "/merkevare/typografi",
   },
 ]
