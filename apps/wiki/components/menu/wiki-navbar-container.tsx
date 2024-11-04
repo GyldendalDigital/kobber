@@ -1,14 +1,17 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LogOut, Menu, X } from "lucide-react"
+import { KobberButton } from "@gyldendal/kobber-components/react"
+import { Menu, X } from "lucide-react"
 import { signOut, useSession } from "next-auth/react"
 import { PageDetails } from "@/types/types"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { LogoutIcon } from "../kobber-ssr-loader"
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 import { WikiHeaderItem } from "./wiki-header-item"
 
@@ -43,8 +46,22 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
 
           {session && (
             <li className="flex items-center gap-2">
-              <button onClick={handleLogout}>Logg ut</button>
-              <LogOut className="size-4" />
+              <KobberButton
+                color="aubergine"
+                className="m-0 flex w-fit items-center p-0"
+                onClick={handleLogout}
+                variant="main"
+              >
+                Logg ut
+                <LogoutIcon className="size-4" slot="icon" />
+              </KobberButton>
+              <Image
+                src={session.user.image}
+                width={30}
+                height={30}
+                alt="logo"
+                className="pointer-events-none rounded-full"
+              />
             </li>
           )}
         </ul>

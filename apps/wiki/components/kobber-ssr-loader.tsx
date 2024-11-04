@@ -85,6 +85,15 @@ export const IconArrowRight = dynamic(
     ssr: false,
   }
 )
+export const LogoutIcon = dynamic(
+  () =>
+    import("@gyldendal/kobber-icons/react").then((x) => ({
+      default: x.IconLogout,
+    })),
+  {
+    ssr: false,
+  }
+)
 
 export const Accordion = dynamic(
   () =>

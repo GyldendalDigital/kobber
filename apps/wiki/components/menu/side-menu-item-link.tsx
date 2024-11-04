@@ -9,7 +9,11 @@ export const SideMenuItemLink = (item: PageDetails) => {
   const pathname = usePathname()
 
   return (
-    <Link role="menuitem" href={item.status !== "kommer" && item.href ? item.href : "#"}>
+    <Link
+      role="menuitem"
+      href={item.status !== "kommer" && item.href ? item.href : "#"}
+      className="cursor-default"
+    >
       <ListItem
         disabled={item.status === "kommer" ? true : undefined}
         active={item.href === pathname ? true : undefined}

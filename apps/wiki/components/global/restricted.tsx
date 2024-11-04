@@ -10,8 +10,8 @@ export function Restricted() {
 
   const handleLogin = () => {
     signIn("microsoft-entra-id", {
-      // redirect: true,
-      // redirectTo: pathname,
+      redirect: true,
+      redirectTo: pathname,
     })
   }
 
