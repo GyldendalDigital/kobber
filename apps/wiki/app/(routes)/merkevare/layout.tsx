@@ -41,13 +41,13 @@ export default async function MerkevareLayout({ children }: GetStartedLayoutProp
 }
 
 const temporaryIntroRoutes: PageDetails[] = [
-  { href: "/merkevare/merkevarehierarki", title: "Merkevarehierarki" },
-  { href: "#", title: "Våre verdier", status: "kommer" },
-  { href: "#", title: "Designprinsipper", status: "kommer" },
+  { href: "/merkevare/merkevarehierarki", title: "Merkevarehierarki", image: null },
+  { href: "#", title: "Våre verdier", status: "kommer", image: null },
+  { href: "#", title: "Designprinsipper", status: "kommer", image: null },
 ]
 
 const temporaryTemplateRoutes: PageDetails[] = [
-  { href: "#", title: "Powerpoint", status: "kommer" },
-  { href: "#", title: "Word", status: "kommer" },
-  { href: "#", title: "E-post signatur", status: "kommer" },
+  { href: "#", title: "Powerpoint", status: "kommer", image: null },
+  { href: "#", title: "Word", status: "kommer", image: null },
+  { href: "#", title: "E-post signatur", status: "kommer", image: null },
 ]
