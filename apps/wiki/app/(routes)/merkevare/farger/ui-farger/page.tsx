@@ -1,6 +1,6 @@
 import { UIColors } from "@/data/color-palettes"
 import { PageDetails } from "@/types/types"
-import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pagePathname } from "@/lib/utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ContentSection } from "@/components/content-section"
 import { SectionLayout } from "@/components/section-layout"
