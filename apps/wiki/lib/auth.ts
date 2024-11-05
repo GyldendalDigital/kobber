@@ -13,7 +13,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     usersTable: users,
     verificationTokensTable: verificationTokens,
   }),
-  // trustHost: true, // makes the NEXTAUTH_URL env variable obsolete
+  trustHost: true, // makes the NEXTAUTH_URL env variable obsolete
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     MicrosoftEntraID({
