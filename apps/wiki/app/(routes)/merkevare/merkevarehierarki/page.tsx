@@ -133,11 +133,9 @@ Nivå 2.3 er for skjønnlitteratur, sakprosa og lignende som benytter Gyldendals
         textCollection={{
           label: "Nivå 3",
           heading: "Støttet identitet",
-          text: `Når man skal støtte seg til Gyldendal-merkevaren som avsender i produkter og tjenester, må man bygge en støttet identitet som benytter Gyldendals typografi, logostruktur og identitetselementer. Dette skal sikre at alle som benytter seg av Gyldendals profil også bidrar til å bevare, styrke og videreføre den.
+          text: `Støttede identiteter brukes av digitale tjenester som utvikles av Gyldendal og derfor har Gyldendal som del av sin logo. Disse har egne logosymboler, men følger Gyldendals regler for farger, komposisjon og typografisk oppsett.
 
-I noen tilfeller kan en støttet identitet avvike fra Gyldendals fargepalett, for eksempel hvis en direkte konkurrent bruker lignende farger.  Unntak må søkes om.
-
-Støttede identiteter brukes av digitale tjenester som utvikles av Gyldendal og derfor har Gyldendal som del av sin logo. Disse har egne logosymboler, men følger Gyldendals regler for farger, komposisjon og typografisk oppsett.`,
+Alle tjenester som benytter seg av Gyldendal-navnet skal benytte seg av samme logostruktur. Vi ønsker å unngå fargedifferensiering på tjenester, men unntak gjøres i tilfeller hvor det gir mening i konkurransebildet. Slike unntak må søkes om; se kontaktsiden.`,
         }}
       >
         <Image
@@ -153,11 +151,7 @@ Støttede identiteter brukes av digitale tjenester som utvikles av Gyldendal og 
         textCollection={{
           label: "Nivå 4",
           heading: "Frittstående identitet",
-          text: `Om en merkevare ikke ønsker å benytte seg av assosiasjonene til Gyldendal ut mot eksterne målgrupper, skal man bygge identiteter som fremstår helt frittstående. Det betyr at fonter, farger og identitetselementer fra Gyldendals designmanual ikke skal benyttes.
-
-Grunner for å gjøre dette kan være at helt andre assosiasjoner kreves mot eksterne målgrupper, eller at man bygger en merkevare som skal posisjoneres som en utfordrer - noe som er i strid med Gyldendals overordnede posisjon som en leder. 
-
-Merk at man uansett ikke kan bygge undermerkevarer som er i strid med verdiene i Gyldendals overordnede merkevareplattform.`,
+          text: "Frittstående identiteter er selvstendige merkevarer og tjenester som, av strategiske grunner, kommuniserer uten å fremheve tilknytningen til Gyldendal. Dette kan være nødvendig for å bygge unike assosiasjoner, nå en spesifikk målgruppe, eller ta en uavhengig posisjon i markedet. Disse merkevarene opererer helt selvstendig og benytter ikke designsystemet Kobber.",
         }}
       >
         <Image
