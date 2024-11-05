@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation"
 import { PageDetails } from "@/types/types"
-import { List } from "@/components/kobber-ssr-loader"
+import { List } from "@/components/kobber-components"
 import { SideMenuItemLink } from "./side-menu-item-link"
 
 export const SideMenuItem = (item: PageDetails) => {

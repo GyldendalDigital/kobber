@@ -1,6 +1,6 @@
 import { PageDetails } from "@/types/types"
 import { ContentLayout, ContentShell } from "@/components/content-layout"
-import { List } from "@/components/kobber-ssr-loader"
+import { List } from "@/components/kobber-components"
 import { SideMenu } from "@/components/menu/side-menu"
 import { SideMenuItem } from "@/components/menu/side-menu-item"
 import { metadata as howToUsePage } from "@/app/(routes)/kom-i-gang/hvordan-bruke-kobber/page"

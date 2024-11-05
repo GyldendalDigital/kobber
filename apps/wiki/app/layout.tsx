@@ -4,7 +4,8 @@ import { SessionProvider } from "next-auth/react"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import Footer from "@/components/footer"
-import { IconLoader, ThemeContext } from "@/components/kobber-ssr-loader"
+import { IconLoader } from "@/components/kobber-icons"
+import { ThemeContext } from "@/components/kobber-ssr-loader"
 import { WikiNavbar } from "@/components/menu/wiki-navbar"
 
 /** Fallback for all pages */
@@ -28,7 +29,7 @@ export default function RootLayout({
         <SessionProvider>
           <ThemeContext themeId="kobber-theme-default">
             <IconLoader />
-            <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal px-page/padding/inline/xsmall md:px-page/padding/inline/large">
+            <div className="gap-y-page/gap/horizontal md:px-page/padding/inline/large mx-auto flex min-h-screen w-full max-w-max-width flex-col px-page/padding/inline/xsmall">
               <WikiNavbar />
               {children}
               <Footer />

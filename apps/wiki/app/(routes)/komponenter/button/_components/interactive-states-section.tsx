@@ -1,5 +1,5 @@
 import { ContentSection } from "@/components/content-section"
-import { Button } from "@/components/kobber-ssr-loader"
+import { Button } from "@/components/kobber-components"
 
 const states = ["idle", "hover", "active", "focus", "disabled"]
 const ingress =

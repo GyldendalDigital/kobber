@@ -11,7 +11,7 @@ import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import { ssoSignIn } from "@/hooks/use-sso-sign-in"
 import { Button } from "@/components/ui/button"
-import { LoginIcon, LogoutIcon } from "../kobber-ssr-loader"
+import { IconLogin, IconLogout } from "@/components/kobber-icons"
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 import { WikiHeaderItem } from "./wiki-header-item"
 
@@ -47,7 +47,7 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
         {APP_NAME}
       </Link>
       <div>
-        <ul className="hidden items-center gap-[24px] text-[#481125ff] md:flex">
+        <ul className="md:flex hidden items-center gap-[24px] text-[#481125ff]">
           {pages.map((item) => (
             <WikiHeaderItem key={item.href} page={item} />
           ))}
@@ -56,9 +56,9 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
             <KobberButton color="aubergine" onClick={handleAuth} variant="supplemental alt">
               Logg {session?.user ? "ut" : "inn"}
               {session?.user ? (
-                <LogoutIcon className="size-4" slot="icon" />
+                <IconLogout className="size-4" slot="icon" />
               ) : (
-                <LoginIcon className="size-4" slot="icon" />
+                <IconLogin className="size-4" slot="icon" />
               )}
             </KobberButton>
           </li>
@@ -67,7 +67,7 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
         <Sheet modal={false} open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button
-              className={cn("flex size-[40px] rounded-[8px] bg-[#f9eaedff] p-0 md:hidden", {
+              className={cn("md:hidden flex size-[40px] rounded-[8px] bg-[#f9eaedff] p-0", {
                 "bg-[#dc134fff] hover:bg-[#dc134fff]": isOpen,
               })}
             >

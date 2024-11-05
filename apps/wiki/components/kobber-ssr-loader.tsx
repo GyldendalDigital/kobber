@@ -1,10 +1,9 @@
 "use client"
 
-import { useEffect } from "react"
 import dynamic from "next/dynamic"
 import { Loader2 } from "lucide-react"
-import { FeatureBoxGridSkeleton } from "./feature-box-grid"
 import { Skeleton } from "./ui/skeleton"
+import { FeatureBoxGridSkeleton } from "./feature-box-grid-skeleton"
 
 /**
  * Gave up trying to use web components on the server, after many failed attempts.
@@ -135,12 +134,3 @@ export const ListItem = dynamic(
     })),
   { loading: () => <Skeleton className="h-9 w-36" />, ssr: false }
 )
-
-/** Required for showing web component icons */
-export const IconLoader = () => {
-  useEffect(() => {
-    import("@gyldendal/kobber-icons/web-components")
-  }, [])
-
-  return null
-}

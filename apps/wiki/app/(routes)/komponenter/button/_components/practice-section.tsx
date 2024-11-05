@@ -1,7 +1,7 @@
 import { Download } from "lucide-react"
 import { Button as RadixButton } from "@/components/ui/button"
 import { ContentSection } from "@/components/content-section"
-import { Button } from "@/components/kobber-ssr-loader"
+import { Button } from "@/components/kobber-components"
 import { PracticeIllustration } from "@/components/practice-illustration"
 
 export function PracticeSection() {
