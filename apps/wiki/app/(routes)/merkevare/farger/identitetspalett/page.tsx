@@ -19,7 +19,7 @@ export const metadata: PageDetails = {
 
 const illusrations: IllustrationType[] = [
   {
-    src: "https://dam-p-gyldendal.pqcloud.eu/authkey/W73B6GH3DM/preview/BkRpubsF45_8o0iVkKSQod/previews/maxWidth_1600_maxHeight_1600.jpg/*/identitet_preview.jpg?_=1",
+    src: "https://dam-p-gyldendal.pqcloud.eu/authkey/jugH6p_77o/preview/FVgHrlJXKR1AoxS-CeWwzK/previews/maxWidth_1600_maxHeight_1600.jpg/*/illustration_preview.jpg?_=1",
     width: 771,
     height: 296,
     fill: true,
@@ -42,8 +42,8 @@ export default function IdentitetsPalett() {
         }}
       >
         <Illustrations
-          className="h-[300px]"
-          illuClassName="rotate-90 p-0"
+          className="h-[300px] rounded-none"
+          illuClassName=" p-0"
           illustrations={illusrations}
         />
       </ContentSection>
