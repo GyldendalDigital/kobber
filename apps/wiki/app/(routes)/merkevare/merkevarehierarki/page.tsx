@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { IllustrationType, PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
@@ -15,7 +16,7 @@ export const metadata: PageDetails = {
 
 const merkevareIllustration: IllustrationType[] = [
   {
-    src: null,
+    src: "https://dam-p-gyldendal.pqcloud.eu/authkey/p7tO9lQwG8/preview/4WYa-6IgqHmAdCdw9SxjB3/previews/maxWidth_1600_maxHeight_1600.jpg/*/Merkevarehierarki_preview.jpg?_=1",
     alt: "",
     width: 370,
     height: 243,
@@ -65,7 +66,7 @@ export default function MerkevareHeriarkiPage() {
     <SectionLayout>
       <TextCollection
         heading="Merkevarehierarki"
-        ingress="Merkevarehierarkiets formål er å gi en klar struktur over merkevaren vår og hvordan produktene og løsningene våre henger sammen. Hierarkiet skal fremme relasjonene til våre eksterne målgrupper og sette oss i stand til å nå våre mål. Når strukturen følges, gir det oss rom til å fokusere mer på de verdiene vi skaper."
+        ingress="Merkevarearkitekturens formål er å gi en klar struktur over merkevaren vår og hvordan produktene og løsningene våre henger sammen. Arkitekturen skal sørge for at vi snakker med konsistent visuell stemme, slik at vi styrker kommunikasjonen med og relasjonene til alle våre målgrupper. Dette vil gi større kraft til merkevaren Gyldendal, og gi oss bedre muligheter til å skape større verdi og nå våre mål."
       />
 
       <ContentSection
@@ -75,7 +76,14 @@ export default function MerkevareHeriarkiPage() {
 På grunnlag av dette har vi fire nivåer i Gyldendals merkevarehierarki: mormerke, støttede utgivelser og verk, støttede identiteter og frittstående identiteter. Disse forklares mer i detalj på denne siden.`,
         }}
       >
-        <Illustrations illustrations={merkevareIllustration} />
+        <Image
+          src={
+            "https://dam-p-gyldendal.pqcloud.eu/authkey/p7tO9lQwG8/preview/4WYa-6IgqHmAdCdw9SxjB3/previews/maxWidth_1600_maxHeight_1600.jpg/*/Merkevarehierarki_preview.jpg?_=1"
+          }
+          width={711}
+          height={294}
+          alt="Illustrasjon"
+        />
       </ContentSection>
 
       <ContentSection
@@ -89,7 +97,15 @@ Nivå 1.2 består av primærlogoen kombinert med en undertittel. Denne brukes ut
 Nivå 1.2 brukes aldri som avsender på bøker, arrangementer eller annen markedsgrafikk. Det skal heller aldri lagres som en logovariant, og undernivået skrives kun ut som tekst på digitale flater.`,
         }}
       >
-        <Illustrations illustrations={levelOneIllustrations} />
+        <Image
+          src={
+            "https://dam-p-gyldendal.pqcloud.eu/authkey/p7tO9lQwG8/preview/7bPjxwM9Kw2BLLWhKGBQJ2/previews/maxWidth_1600_maxHeight_1600.jpg/*/Niva%CC%8A1_preview.jpg?_=1"
+          }
+          width={711}
+          height={294}
+          alt="Illustrasjon"
+        />
+        {/* <Illustrations illustrations={levelOneIllustrations} /> */}
       </ContentSection>
       <ContentSection
         textCollection={{
@@ -104,33 +120,48 @@ Nivå 2.2 er enkeltutgivelser som ikke ses på som en serie, fra for eksempel un
 Nivå 2.3 er for skjønnlitteratur, sakprosa og lignende som benytter Gyldendals mormerke som avsender.`,
         }}
       >
-        <Illustrations illustrations={levelTwoIllustrations} />
+        <Image
+          src={
+            "https://dam-p-gyldendal.pqcloud.eu/authkey/p7tO9lQwG8/preview/3TCYMdT8qra86ZHBhPp9FE/previews/maxWidth_1600_maxHeight_1600.jpg/*/Niva%CC%8A2_preview.jpg?_=1"
+          }
+          width={711}
+          height={294}
+          alt="Illustrasjon"
+        />
       </ContentSection>
       <ContentSection
         textCollection={{
           label: "Nivå 3",
           heading: "Støttet identitet",
-          text: `Når man skal støtte seg til Gyldendal-merkevaren som avsender i produkter og tjenester, må man bygge en støttet identitet som benytter Gyldendals typografi, logostruktur og identitetselementer. Dette skal sikre at alle som benytter seg av Gyldendals profil også bidrar til å bevare, styrke og videreføre den.
+          text: `Støttede identiteter brukes av digitale tjenester som utvikles av Gyldendal og derfor har Gyldendal som del av sin logo. Disse har egne logosymboler, men følger Gyldendals regler for farger, komposisjon og typografisk oppsett.
 
-I noen tilfeller kan en støttet identitet avvike fra Gyldendals fargepalett, for eksempel hvis en direkte konkurrent bruker lignende farger.  Unntak må søkes om.
-
-Støttede identiteter brukes av digitale tjenester som utvikles av Gyldendal og derfor har Gyldendal som del av sin logo. Disse har egne logosymboler, men følger Gyldendals regler for farger, komposisjon og typografisk oppsett.`,
+Alle tjenester som benytter seg av Gyldendal-navnet skal benytte seg av samme logostruktur. Vi ønsker å unngå fargedifferensiering på tjenester, men unntak gjøres i tilfeller hvor det gir mening i konkurransebildet. Slike unntak må søkes om; se kontaktsiden.`,
         }}
       >
-        <Illustrations illustrations={levelThreeIllustrations} />
+        <Image
+          src={
+            "https://dam-p-gyldendal.pqcloud.eu/authkey/p7tO9lQwG8/preview/CJ8mJ2oVaqu8ww95BaQW3A/previews/maxWidth_1600_maxHeight_1600.jpg/*/Niva%CC%8A3_preview.jpg?_=1"
+          }
+          width={711}
+          height={294}
+          alt="Illustrasjon"
+        />
       </ContentSection>
       <ContentSection
         textCollection={{
           label: "Nivå 4",
           heading: "Frittstående identitet",
-          text: `Om en merkevare ikke ønsker å benytte seg av assosiasjonene til Gyldendal ut mot eksterne målgrupper, skal man bygge identiteter som fremstår helt frittstående. Det betyr at fonter, farger og identitetselementer fra Gyldendals designmanual ikke skal benyttes.
-
-Grunner for å gjøre dette kan være at helt andre assosiasjoner kreves mot eksterne målgrupper, eller at man bygger en merkevare som skal posisjoneres som en utfordrer - noe som er i strid med Gyldendals overordnede posisjon som en leder. 
-
-Merk at man uansett ikke kan bygge undermerkevarer som er i strid med verdiene i Gyldendals overordnede merkevareplattform.`,
+          text: "Frittstående identiteter er selvstendige merkevarer og tjenester som, av strategiske grunner, kommuniserer uten å fremheve tilknytningen til Gyldendal. Dette kan være nødvendig for å bygge unike assosiasjoner, nå en spesifikk målgruppe, eller ta en uavhengig posisjon i markedet. Disse merkevarene opererer helt selvstendig og benytter ikke designsystemet Kobber.",
         }}
       >
-        <Illustrations illustrations={levelFourIllustrations} />
+        <Image
+          src={
+            "https://dam-p-gyldendal.pqcloud.eu/authkey/p7tO9lQwG8/preview/6EPS5_bUKpC8avwgVMLz1C/previews/maxWidth_1600_maxHeight_1600.jpg/*/Niva%CC%8A4_preview.jpg?_=1"
+          }
+          width={711}
+          height={294}
+          alt="Illustrasjon"
+        />
       </ContentSection>
     </SectionLayout>
   )
