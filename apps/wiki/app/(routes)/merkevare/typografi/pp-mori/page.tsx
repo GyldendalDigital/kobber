@@ -1,14 +1,15 @@
 import { PPMoriTypography } from "@/data/typography"
 import { PageDetails } from "@/types/types"
-import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pagePathname } from "@/lib/utils"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 import { TypographyList } from "@/components/typography-list"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
-  title: "PP Mori",
-  image: placeholderImageUrl({}),
+  title: "Primærfont: PP Mori",
+  image:
+    "https://dam-p-gyldendal.pqcloud.eu/authkey/xD6Ek5kB61/preview/2EyeCFedaTx9HKSLc9MOEL/previews/maxWidth_1600_maxHeight_1600.jpg/*/PPMori_preview.jpg?_=1",
   description:
     "PP Mori er Gyldendals identitetsbærende hovedskrift og benyttes i Gyldendal på alle nivåer i vår kommunikasjon - fra logoer til overskrifter, brødtekst og fotnoter.",
 }
