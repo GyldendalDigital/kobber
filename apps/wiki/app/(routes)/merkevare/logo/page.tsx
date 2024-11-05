@@ -6,11 +6,6 @@ import { ContentSection } from "@/components/content-section"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 
-const gyldendalLogo = placeholderImageUrl({})
-
-const fourGyldendalLogos =
-  "https://s3-alpha-sig.figma.com/img/b7e8/cee9/e0da053d9ddfd63ffd5972cf37ec8501?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TNO~MlokOcKmPd7~fDHahGwHiV5NCN5APvQ47HJzTsYmFAYHtBIbHUb-Oe8GPmS5EqV4ZZNHG54TYNRfW4MmHhMwfn6VShEGh5ObbxPNH1ZLfMEYeguE0THa7ff-V3sLPWqY4aVnmp-glE2qtOYPWq4AX4FNpULLct3CynfrBvRYy9WNAoaxhWlSmSV2ejeLizu2ovIIgqmYUHAN23x-S-TGQCwiLhp0S3mcu6efBOrzX4QFx-QY5AyxQ1H0dGJkXEuiX7LuO0Qtw~SeP1j-stK0obPNXSP8YQYMUd~KowM0LZ23Oij-JdX2rgJ13dXR69HR3Vhfrn4RsRFdwlCmOw__"
-
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Logo",
@@ -33,6 +28,8 @@ export default function Page() {
           heading: "Primærlogo",
           ingress: "Gyldendals primærlogo skal brukes i de fleste tilfeller. ",
         }}
+        chilClassName="gap-4"
+        className="max-w-[711px]"
       >
         <BodyText>
           Den består av logosymbolet som er basert på en norsk gran, samt navnet skrevet i små
@@ -43,9 +40,15 @@ export default function Page() {
           vennlig.
         </BodyText>
 
-        <div className="h-320 rounded-16 relative max-w-full overflow-hidden">
-          <Image src={gyldendalLogo} fill className="object-cover" alt="Logo" />
-        </div>
+        <Image
+          src={
+            "https://dam-p-gyldendal.pqcloud.eu/authkey/chjI47R7Ug/preview/7QMhG4Do4FMAPwZw2hsz8W/previews/maxWidth_1600_maxHeight_1600.jpg/*/Prim%C3%A6rlogo_preview.jpg?_=1"
+          }
+          width={711}
+          height={355}
+          className="object-contain"
+          alt="Logo"
+        />
       </ContentSection>
 
       <ContentSection
@@ -54,6 +57,8 @@ export default function Page() {
           ingress:
             "Gyldendals primærlogo kan brukes i en positiv og en negativ variant. Den positive varianten brukes på lys bakgrunn og den negative brukes på mørk bakgrunn.",
         }}
+        chilClassName="gap-4"
+        className="max-w-[711px]"
       >
         <BodyText>
           En monoversjon av primærlogoen brukes der det ikke er mulig å bruke logoen i farge, og på
@@ -62,25 +67,41 @@ export default function Page() {
           typisk på bokomslag.
         </BodyText>
 
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={fourGyldendalLogos} alt="Logoer" />
+        <Image
+          src={
+            "https://dam-p-gyldendal.pqcloud.eu/authkey/1SPXN8IAAG/preview/BssOkfJ8qo8BPiPoPP7Xdf/previews/maxWidth_1600_maxHeight_1600.jpg/*/Logovarianter_preview.jpg?_=1"
+          }
+          width={711}
+          height={355}
+          className="object-contain"
+          alt="Logo"
+        />
       </ContentSection>
 
       <ContentSection
         textCollection={{
           heading: "Emblemvariant",
           ingress:
-            "Emblemversjonen av logoen brukes kun når Gyldendal selv er hovedfokuset i et budskap. Den er best egnet når den står helt for seg selv på en flate, og skal generelt ikke brukes på produkter. Den finnes også i fargevariantene positiv, negativ og monoversjon.",
+            "Emblemversjonen av logoen brukes kun når Gyldendal selv er hovedfokuset i et budskap. Den er best egnet når den står helt for seg selv på en flate. ",
         }}
+        chilClassName="gap-4"
+        className="max-w-[711px]"
       >
         <BodyText>
-          Se kontaktsiden om du er usikker på om du bør bruke primær- eller sekundærlogo i en viss
-          kontekst.
+          Dette er en sekundærlogo og skal generelt ikke brukes på produkter. Den finnes også i
+          fargevariantene  positiv, negativ og monoversjon. Se kontaktsiden om du er usikker på om
+          du bør bruke primær- eller sekundærlogo i en viss kontekst.
         </BodyText>
 
-        <div className="h-320 rounded-16 relative max-w-full overflow-hidden">
-          <Image src={gyldendalLogo} fill className="object-cover" alt="Logo" />
-        </div>
+        <Image
+          src={
+            "https://dam-p-gyldendal.pqcloud.eu/authkey/1SPXN8IAAG/preview/EDeopuWia6SBwPNXiUwGfd/previews/maxWidth_1600_maxHeight_1600.jpg/*/Emblemvarianter_preview.jpg?_=1"
+          }
+          width={711}
+          height={355}
+          className="object-contain"
+          alt="Logo"
+        />
       </ContentSection>
 
       <ContentSection
@@ -89,15 +110,23 @@ export default function Page() {
           ingress:
             "Logoen må ha tilstrekkelig rom rundt seg for å kunne stå ut. Om du skal plassere logoen utenom et malverk, skal andre objekter plasseres utenfor klaringen som vist ved siden av. For digitale flater vil det finnes faste størrelsesenheter for luft som skal benyttes tilgjengelig via designverktøy og kode.",
         }}
+        chilClassName="gap-4"
+        className="max-w-[711px]"
       >
         <BodyText>
           Logoen skal alltid være leselig og synlig. Derfor skal den ikke brukes i mindre størrelse
           enn det som er definert under.
         </BodyText>
 
-        <div className="h-320 rounded-16 relative max-w-full overflow-hidden">
-          <Image src={gyldendalLogo} fill className="object-cover" alt="Logo" />
-        </div>
+        <Image
+          src={
+            "https://dam-p-gyldendal.pqcloud.eu/authkey/chjI47R7Ug/preview/7QMhG4Do4FMAPwZw2hsz8W/previews/maxWidth_1600_maxHeight_1600.jpg/*/Prim%C3%A6rlogo_preview.jpg?_=1"
+          }
+          width={711}
+          height={355}
+          className="object-contain"
+          alt="Logo"
+        />
       </ContentSection>
 
       <ContentSection
@@ -106,6 +135,8 @@ export default function Page() {
           ingress:
             "Ikonet brukes alene kun i tilfeller der det ikke er plass til hele logoen, slik som i profilbilde på sosiale medier-kontoer eller som favorittikon i nettleser. ",
         }}
+        chilClassName="gap-4"
+        className="max-w-[711px]"
       >
         <BodyText>
           Ikonet er tilgjengelig for å fungere både i sirkel og kvadrat. Det skal ikke lages opp
@@ -113,9 +144,15 @@ export default function Page() {
           kontoer for å sikre et helhetlig utrykk.
         </BodyText>
 
-        <div className="h-320 rounded-16 relative max-w-full overflow-hidden">
-          <Image src={gyldendalLogo} fill className="object-cover" alt="Logo" />
-        </div>
+        <Image
+          src={
+            "https://dam-p-gyldendal.pqcloud.eu/authkey/chjI47R7Ug/preview/7QMhG4Do4FMAPwZw2hsz8W/previews/maxWidth_1600_maxHeight_1600.jpg/*/Prim%C3%A6rlogo_preview.jpg?_=1"
+          }
+          width={711}
+          height={355}
+          className="object-contain"
+          alt="Logo"
+        />
       </ContentSection>
 
       <ContentSection textCollection={{ heading: "Unngå dette" }}>
