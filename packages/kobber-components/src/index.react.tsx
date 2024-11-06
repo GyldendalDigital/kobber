@@ -17,6 +17,7 @@ import { customElementName as wikiAccordionName, Accordion } from "./wiki-accord
 import { customElementName as wikiListName, List } from "./wiki-list/List";
 import { customElementName as wikiListItemName, ListItem } from "./wiki-list/ListItem";
 import { ArticleLayout } from "./article-layout/ArticleLayout";
+import { Body } from "./body/Body";
 
 export const KobberGrid = createComponent({
   tagName: "kobber-grid",
@@ -63,6 +64,11 @@ export const KobberCardLayout = createComponent({
 export const KobberArticleLayout = createComponent({
   tagName: "kobber-article-layout",
   elementClass: ArticleLayout,
+  react: React,
+});
+export const KobberBody = createComponent({
+  tagName: "kobber-body",
+  elementClass: Body,
   react: React,
 });
 
