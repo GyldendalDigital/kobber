@@ -3,6 +3,7 @@ import { IllustrationType, PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
 import { Illustrations } from "@/components/illustrations"
+import { ArticleLayout } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 
@@ -14,56 +15,9 @@ export const metadata: PageDetails = {
     "Merkevarehierarki skal sikre gjenkjennelighet for merkevaren og stå seg like godt på det analoge som på det digitale. Kombinasjonen av en leken og moderne primærfont i PP Mori, og en moderne tolkning av en klassisk serif i Lyon Display, gjør at vi forener tradisjon og innovasjon på en varm og uhøytidelig måte.",
 }
 
-const merkevareIllustration: IllustrationType[] = [
-  {
-    src: "https://dam-p-gyldendal.pqcloud.eu/authkey/p7tO9lQwG8/preview/4WYa-6IgqHmAdCdw9SxjB3/previews/maxWidth_1600_maxHeight_1600.jpg/*/Merkevarehierarki_preview.jpg?_=1",
-    alt: "",
-    width: 370,
-    height: 243,
-  },
-]
-
-const levelOneIllustrations: IllustrationType[] = [
-  {
-    src: null,
-    alt: "",
-    width: 373,
-    height: 300,
-  },
-]
-
-const levelTwoIllustrations: IllustrationType[] = [
-  {
-    src: null,
-    width: 503,
-    height: 221,
-  },
-  {
-    src: null,
-    width: 503,
-    height: 298,
-  },
-]
-
-const levelThreeIllustrations: IllustrationType[] = [
-  {
-    src: null,
-    width: 435,
-    height: 334,
-  },
-]
-
-const levelFourIllustrations: IllustrationType[] = [
-  {
-    src: null,
-    width: 400,
-    height: 315,
-  },
-]
-
 export default function MerkevareHeriarkiPage() {
   return (
-    <SectionLayout>
+    <ArticleLayout className="200">
       <TextCollection
         heading="Merkevarehierarki"
         ingress="Merkevarearkitekturens formål er å gi en klar struktur over merkevaren vår og hvordan produktene og løsningene våre henger sammen. Arkitekturen skal sørge for at vi snakker med konsistent visuell stemme, slik at vi styrker kommunikasjonen med og relasjonene til alle våre målgrupper. Dette vil gi større kraft til merkevaren Gyldendal, og gi oss bedre muligheter til å skape større verdi og nå våre mål."
@@ -163,6 +117,6 @@ Alle tjenester som benytter seg av Gyldendal-navnet skal benytte seg av samme lo
           alt="Illustrasjon"
         />
       </ContentSection>
-    </SectionLayout>
+    </ArticleLayout>
   )
 }

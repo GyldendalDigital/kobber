@@ -16,6 +16,7 @@ import { Divider } from "./divider/Divider";
 import { customElementName as wikiAccordionName, Accordion } from "./wiki-accordion/Accordion";
 import { customElementName as wikiListName, List } from "./wiki-list/List";
 import { customElementName as wikiListItemName, ListItem } from "./wiki-list/ListItem";
+import { ArticleLayout } from "./article-layout/ArticleLayout";
 
 export const KobberGrid = createComponent({
   tagName: "kobber-grid",
@@ -56,6 +57,12 @@ export const KobberProgressBarItem = createComponent({
 export const KobberCardLayout = createComponent({
   tagName: "kobber-card-layout",
   elementClass: CardLayout,
+  react: React,
+});
+
+export const KobberArticleLayout = createComponent({
+  tagName: "kobber-article-layout",
+  elementClass: ArticleLayout,
   react: React,
 });
 

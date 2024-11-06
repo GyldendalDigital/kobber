@@ -1,4 +1,8 @@
-// "use client"
+"use client"
+
+import { KobberArticleLayout } from "@gyldendal/kobber-components/react"
+
+export { KobberArticleLayout as ArticleLayout }
 
 // import {
 //   KobberAccordion,
