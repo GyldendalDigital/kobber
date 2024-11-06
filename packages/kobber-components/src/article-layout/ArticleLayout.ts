@@ -13,7 +13,6 @@ export class ArticleLayout extends LitElement {
     :host {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: var(--article-layout-gap);
     }
   `;
