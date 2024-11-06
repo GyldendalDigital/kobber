@@ -1,5 +1,11 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.48
+
+### Patch Changes
+
+- Add Carousel exports
+
 ## 0.3.47
 
 ### Patch Changes
