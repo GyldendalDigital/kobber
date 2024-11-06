@@ -14,14 +14,6 @@ export class ArticleLayout extends LitElement {
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: auto;
-      padding-top: 150px;
-      padding-bottom: 150px;
-      padding-right: var(--article-layout-right);
-      padding-left: var(--article-layout-left);
-    }
-    ,
-    .article-content {
       gap: var(--article-layout-gap);
     }
   `;
@@ -34,9 +26,7 @@ export class ArticleLayout extends LitElement {
         ${themeStyles}
       </style>
       <div class="article-layout">
-        <main class="article-content">
-          <slot></slot>
-        </main>
+        <slot></slot>
       </div>
     `;
   }
@@ -49,13 +39,10 @@ export class ArticleLayout extends LitElement {
     }
 
     const article = tokens.template["article-layout"];
-    const page = tokens.template.page;
 
     return css`
       :host {
         --article-layout-gap: ${article.gap.horizontal};
-        --article-layout-right: 64px;
-        --article-layout-left: 64px;
       }
     `;
   };
