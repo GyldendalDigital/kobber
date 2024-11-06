@@ -16,6 +16,9 @@ import { Divider } from "./divider/Divider";
 import { customElementName as wikiAccordionName, Accordion } from "./wiki-accordion/Accordion";
 import { customElementName as wikiListName, List } from "./wiki-list/List";
 import { customElementName as wikiListItemName, ListItem } from "./wiki-list/ListItem";
+import { Carousel } from "./carousel/Carousel";
+import { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
+import { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
 
 export const KobberGrid = createComponent({
   tagName: "kobber-grid",
@@ -104,5 +107,23 @@ export const KobberListItem = createComponent({
 export const KobberAccordion = createComponent({
   tagName: wikiAccordionName,
   elementClass: Accordion,
+  react: React,
+});
+
+export const KobberCarousel = createComponent({
+  tagName: "kobber-carousel",
+  elementClass: Carousel,
+  react: React,
+});
+
+export const KobberHorizontalLayout = createComponent({
+  tagName: "kobber-horizontal-layout",
+  elementClass: HorizontalLayout,
+  react: React,
+});
+
+export const KobberHorizontalLayoutColumn = createComponent({
+  tagName: "kobber-horizontal-layout-column",
+  elementClass: HorizontalLayoutColumn,
   react: React,
 });

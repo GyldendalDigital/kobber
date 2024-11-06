@@ -88,5 +88,10 @@ html { box-sizing: border-box; }
 
 We recommend using [normalize.css](https://github.com/necolas/normalize.css/) or something similar to normalize browser styles.
 
+## Development
 
+After making a new component, do the following steps to expose it to the world:
 
+1. Export it from src/index.react.tsx and src/index.web-components.ts.
+2. Run `yarn build`.
+3. Commit changes, and publish according to [changeset](../../.changeset/README.md).
