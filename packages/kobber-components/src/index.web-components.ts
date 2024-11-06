@@ -9,3 +9,6 @@ export { Checkbox } from "./checkbox/Checkbox";
 export { CardLayout } from "./layouts/card-layout/CardLayout";
 export { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
 export { BoxLayout } from "./layouts/box-layout/BoxLayout";
+export { Carousel } from "./carousel/Carousel";
+export { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
+export { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
