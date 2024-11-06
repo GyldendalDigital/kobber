@@ -18,6 +18,7 @@ import { customElementName as wikiListName, List } from "./wiki-list/List";
 import { customElementName as wikiListItemName, ListItem } from "./wiki-list/ListItem";
 import { ArticleLayout } from "./article-layout/ArticleLayout";
 import { Body } from "./body/Body";
+import { Ingress } from "./ingress/Ingress";
 
 export const KobberGrid = createComponent({
   tagName: "kobber-grid",
@@ -66,9 +67,16 @@ export const KobberArticleLayout = createComponent({
   elementClass: ArticleLayout,
   react: React,
 });
+
 export const KobberBody = createComponent({
   tagName: "kobber-body",
   elementClass: Body,
+  react: React,
+});
+
+export const KobberIngress = createComponent({
+  tagName: "kobber-ingress",
+  elementClass: Ingress,
   react: React,
 });
 

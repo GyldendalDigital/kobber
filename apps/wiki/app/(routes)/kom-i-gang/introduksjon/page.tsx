@@ -3,6 +3,7 @@ import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { HeroImage } from "@/components/hero-image"
 import { ArticleLayout, Body } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
+import { Ingress } from "../../../../components/kobber-components"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
@@ -28,12 +29,11 @@ export default function Introduksjon() {
             Et verktøy for samspill og synergier
           </h2>
 
-          <h4 className="max-w-[712px] text-[24px] leading-[33.6px] text-[#532D37]">
+          <Ingress className="max-w-[712px]">
             Designsystemet vårt sikrer konsistent og god brukeropplevelse på tvers av nettsider,
             publikasjoner, kommunikasjon og løsninger i Gyldendal.
-          </h4>
+          </Ingress>
         </ArticleLayout>
-
         <SectionLayout className="max-w-[712px]">
           <Body>
             Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem

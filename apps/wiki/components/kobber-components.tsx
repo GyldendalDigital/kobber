@@ -1,8 +1,8 @@
 "use client"
 
-import { KobberArticleLayout, KobberBody } from "@gyldendal/kobber-components/react"
+import { KobberArticleLayout, KobberBody, KobberIngress } from "@gyldendal/kobber-components/react"
 
-export { KobberArticleLayout as ArticleLayout, KobberBody as Body }
+export { KobberArticleLayout as ArticleLayout, KobberBody as Body, KobberIngress as Ingress }
 
 // import {
 //   KobberAccordion,

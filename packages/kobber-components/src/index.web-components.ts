@@ -11,3 +11,4 @@ export { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutCol
 export { BoxLayout } from "./layouts/box-layout/BoxLayout";
 export { ArticleLayout } from "./article-layout/ArticleLayout";
 export { Body } from "./body/Body";
+export { Ingress } from "./ingress/Ingress";
