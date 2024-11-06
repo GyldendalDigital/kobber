@@ -9,14 +9,6 @@ export class ArticleLayout extends LitElement {
   @consume({ context: themeContext, subscribe: true })
   theme?: Theme;
 
-  static styles = css`
-    :host {
-      display: flex;
-      flex-direction: column;
-      gap: var(--article-layout-gap);
-    }
-  `;
-
   render() {
     const themeStyles = this.themedStyles();
 
@@ -24,7 +16,7 @@ export class ArticleLayout extends LitElement {
       <style>
         ${themeStyles}
       </style>
-      <div class="article-layout">
+      <div class=${this.classList.value}>
         <slot></slot>
       </div>
     `;
@@ -40,8 +32,10 @@ export class ArticleLayout extends LitElement {
     const article = tokens.template["article-layout"];
 
     return css`
-      :host {
-        --article-layout-gap: ${article.gap.horizontal};
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: ${article.gap.horizontal}px;
       }
     `;
   };

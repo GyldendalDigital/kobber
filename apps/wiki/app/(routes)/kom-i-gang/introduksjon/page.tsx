@@ -1,6 +1,7 @@
 import { PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { HeroImage } from "@/components/hero-image"
+import { ArticleLayout } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 
 export const metadata: PageDetails = {
@@ -17,7 +18,7 @@ export default function Introduksjon() {
           "https://dam-p-gyldendal.pqcloud.eu/authkey/1AwlfRxdpz/preview/2bULAP2gabp9rC4A1CbQSB/previews/maxWidth_1600_maxHeight_1600.jpg/*/_DX_2016_preview.jpg?_=1"
         }
       />
-      <div className="grid gap-section/gap/horizontal">
+      <ArticleLayout>
         <div className="grid gap-y-text-section/gap/header/horizontal">
           <h1 className="text-[48px] font-light leading-[57.6px] text-[#481125]">
             Designsystemet Kobber
@@ -64,7 +65,7 @@ export default function Introduksjon() {
           komme med tilbakemelding og forslag til oppdatering og forbedring. Sammen skaper vi en
           levende profil!
         </p>
-      </div>
+      </ArticleLayout>
     </SectionLayout>
   )
 }

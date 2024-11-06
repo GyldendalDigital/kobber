@@ -1,8 +1,7 @@
 import Image from "next/image"
-import { IllustrationType, PageDetails } from "@/types/types"
+import { PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
-import { Illustrations } from "@/components/illustrations"
 import { ArticleLayout } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
@@ -17,7 +16,7 @@ export const metadata: PageDetails = {
 
 export default function MerkevareHeriarkiPage() {
   return (
-    <ArticleLayout className="200">
+    <SectionLayout>
       <TextCollection
         heading="Merkevarehierarki"
         ingress="Merkevarearkitekturens formål er å gi en klar struktur over merkevaren vår og hvordan produktene og løsningene våre henger sammen. Arkitekturen skal sørge for at vi snakker med konsistent visuell stemme, slik at vi styrker kommunikasjonen med og relasjonene til alle våre målgrupper. Dette vil gi større kraft til merkevaren Gyldendal, og gi oss bedre muligheter til å skape større verdi og nå våre mål."
@@ -117,6 +116,6 @@ Alle tjenester som benytter seg av Gyldendal-navnet skal benytte seg av samme lo
           alt="Illustrasjon"
         />
       </ContentSection>
-    </ArticleLayout>
+    </SectionLayout>
   )
 }
