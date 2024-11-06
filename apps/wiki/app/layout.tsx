@@ -5,7 +5,6 @@ import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import Footer from "@/components/footer"
 import { IconLoader } from "@/components/kobber-icons"
-import { ThemeContext } from "@/components/kobber-ssr-loader"
 import { WikiNavbar } from "@/components/menu/wiki-navbar"
 
 /** Fallback for all pages */
@@ -27,14 +26,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={cn("bg-[#FDF9F9] text-[#481125ff] antialiased transition-all")}>
         <SessionProvider>
-          <ThemeContext themeId="kobber-theme-default">
-            <IconLoader />
-            <div className="gap-y-page/gap/horizontal md:px-page/padding/inline/large mx-auto flex min-h-screen w-full max-w-max-width flex-col px-page/padding/inline/xsmall">
-              <WikiNavbar />
-              {children}
-              <Footer />
-            </div>
-          </ThemeContext>
+          <IconLoader />
+          <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal px-page/padding/inline/xsmall md:px-page/padding/inline/large">
+            <WikiNavbar />
+            {children}
+            <Footer />
+          </div>
         </SessionProvider>
       </body>
     </html>

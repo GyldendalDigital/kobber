@@ -3,14 +3,13 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { KobberButton } from "@gyldendal/kobber-components/react"
 import { Menu, X } from "lucide-react"
 import { signOut, useSession } from "next-auth/react"
 import { PageDetails } from "@/types/types"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import { ssoSignIn } from "@/hooks/use-sso-sign-in"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/kobber-components"
 import { IconLogin, IconLogout } from "@/components/kobber-icons"
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 import { WikiHeaderItem } from "./wiki-header-item"
@@ -47,27 +46,27 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
         {APP_NAME}
       </Link>
       <div>
-        <ul className="md:flex hidden items-center gap-[24px] text-[#481125ff]">
+        <ul className="hidden items-center gap-[24px] text-[#481125ff] md:flex">
           {pages.map((item) => (
             <WikiHeaderItem key={item.href} page={item} />
           ))}
 
           <li className="ml-[56px] flex items-center gap-2">
-            <KobberButton color="aubergine" onClick={handleAuth} variant="supplemental alt">
+            <Button color="aubergine" onClick={handleAuth} variant="supplemental alt">
               Logg {session?.user ? "ut" : "inn"}
               {session?.user ? (
                 <IconLogout className="size-4" slot="icon" />
               ) : (
                 <IconLogin className="size-4" slot="icon" />
               )}
-            </KobberButton>
+            </Button>
           </li>
         </ul>
 
         <Sheet modal={false} open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button
-              className={cn("md:hidden flex size-[40px] rounded-[8px] bg-[#f9eaedff] p-0", {
+              className={cn("flex size-[40px] rounded-[8px] bg-[#f9eaedff] p-0 md:hidden", {
                 "bg-[#dc134fff] hover:bg-[#dc134fff]": isOpen,
               })}
             >
