@@ -28,11 +28,13 @@ export class ArticleLayout extends LitElement {
       return css``;
     }
 
+    const article = tokens.template["article-layout"];
+
     return css`
       :host {
         display: flex;
         align-items: flex-center;
-        gap: 48px;
+        gap: ${article.gap.horizontal}px;
       }
     `;
   };
