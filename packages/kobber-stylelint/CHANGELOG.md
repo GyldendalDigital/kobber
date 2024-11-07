@@ -1,5 +1,11 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.49
+
+### Patch Changes
+
+- audio-recorder bugs and design improvements
+
 ## 0.3.48
 
 ### Patch Changes
