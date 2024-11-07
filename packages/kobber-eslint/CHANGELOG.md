@@ -1,5 +1,11 @@
 # @gyldendal/kobber-eslint
 
+## 0.3.49
+
+### Patch Changes
+
+- Carousel css corrections
+
 ## 0.3.48
 
 ### Patch Changes
