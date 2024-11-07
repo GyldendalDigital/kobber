@@ -35,10 +35,10 @@ export class NavigationButtons extends StyledLitElement {
     }
 
     .button--previous {
-      left: calc(var(--button-width) * 3);
+      left: var(--button-width);
     }
     .button--next {
-      right: calc(var(--button-width) * 3);
+      right: var(--button-width);
     }
   `;
 

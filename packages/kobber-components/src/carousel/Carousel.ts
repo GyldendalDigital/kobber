@@ -213,7 +213,7 @@ export class Carousel extends StyledLitElement {
       max-width: 86rem;
     }
 
-    .carousel:before {
+    .carousel.has-previous-items:before {
       position: absolute;
       z-index: 1; /* More than 0 to show, less than 2 to let previous button be clickable. */
       top: 0;
@@ -224,7 +224,7 @@ export class Carousel extends StyledLitElement {
       backdrop-filter: grayscale(1);
     }
 
-    .carousel:after {
+    .carousel.has-next-items:after {
       position: absolute;
       z-index: 0; /* More than -1 to show, less than 1 to let previous button be clickable. */
       top: 0;
@@ -239,7 +239,9 @@ export class Carousel extends StyledLitElement {
   render = () => html`
     <div class="wrapper">
       <div
-        class="carousel"
+        class="carousel ${this._previousButtonDisabled ? "" : "has-previous-items"}  ${this._nextButtonDisabled
+          ? ""
+          : "has-next-items"}"
         role="group"
         aria-roledescription="${this.ariaRoleDescription}"
         style="
