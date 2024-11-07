@@ -105,7 +105,7 @@
     let currentAudioIndex = 0;
     let currentTimePercentage = "0%";
     let recordedSeconds = 0;
-    $: isExpanded = recData.length > 0 || audioArray.length > 0 || isRecording;
+    $: isExpanded = recData.length > 0 || audioArray.length > 0 || isRecording || audioData;
 
     function roundWithDecimals(num, decimals){
         return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
@@ -404,7 +404,8 @@
         --text-color: {textColor};
         --current-time-percentage: {currentTimePercentage};
         --current-width: {currentWidth};
-        --rows: {isExpanded ? 19 : 12}
+        --rows: {isExpanded ? 20 : 10};
+        --percentage-adjustment: {isExpanded ? `8` : `16`}%;
      "
 >
     <span class="kbr-ar-aspect" />
@@ -413,7 +414,6 @@
     >
         <button class="kbr-ar-record-button"
                 id={"record-button-" + uniqueId}
-                on:mousedown={toggleRecord}
                 on:click={toggleRecord}
                 disabled={isPlaying}
         >
@@ -424,13 +424,13 @@
                 </svg>
             {:else}
                 {#if timeTotal !== 0 || recData.length > 0}
-                    <svg width="75%" height="75%" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="60%" height="60%" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.75 19.25C6.682 19.25 5 17.568 5 15.5V5.75C5 3.682 6.682 2 8.75 2H11.75C13.818 2 15.5 3.682 15.5 5.75V15.5C15.5 17.568 13.818 19.25 11.75 19.25H8.75ZM8.75 3.5C7.509 3.5 6.5 4.509 6.5 5.75V15.5C6.5 16.741 7.509 17.75 8.75 17.75H11.75C12.991 17.75 14 16.741 14 15.5V5.75C14 4.509 12.991 3.5 11.75 3.5H8.75Z" fill={recordIconColor}/>
                         <path d="M10.25 26C9.836 26 9.5 25.664 9.5 25.25V22.216C5.266 21.835 2 18.293 2 14V11.75C2 11.336 2.336 11 2.75 11C3.164 11 3.5 11.336 3.5 11.75V14C3.5 17.722 6.528 20.75 10.25 20.75C13.972 20.75 17 17.722 17 14V11.75C17 11.336 17.336 11 17.75 11C18.164 11 18.5 11.336 18.5 11.75V14C18.5 18.293 15.234 21.835 11 22.216V25.25C11 25.664 10.664 26 10.25 26Z" fill={recordIconColor}/>
                         <path d="M14.25 25.5H21.25M17.75 22V29" stroke={recordIconColor} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 {:else}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="75%" height="75%" viewBox="0 0 24 24" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60%" height="60%" viewBox="0 0 24 24" fill="none">
                         <path d="M10.5 17.25C8.432 17.25 6.75 15.568 6.75 13.5V3.75C6.75 1.682 8.432 0 10.5 0H13.5C15.568 0 17.25 1.682 17.25 3.75V13.5C17.25 15.568 15.568 17.25 13.5 17.25H10.5ZM10.5 1.5C9.259 1.5 8.25 2.509 8.25 3.75V13.5C8.25 14.741 9.259 15.75 10.5 15.75H13.5C14.741 15.75 15.75 14.741 15.75 13.5V3.75C15.75 2.509 14.741 1.5 13.5 1.5H10.5Z" fill={recordIconColor}/>
                         <path d="M12 24C11.586 24 11.25 23.664 11.25 23.25V20.216C7.016 19.835 3.75 16.293 3.75 12V9.75C3.75 9.336 4.086 9 4.5 9C4.914 9 5.25 9.336 5.25 9.75V12C5.25 15.722 8.278 18.75 12 18.75C15.722 18.75 18.75 15.722 18.75 12V9.75C18.75 9.336 19.086 9 19.5 9C19.914 9 20.25 9.336 20.25 9.75V12C20.25 16.293 16.984 19.835 12.75 20.216V23.25C12.75 23.664 12.414 24 12 24Z" fill={recordIconColor}/>
                     </svg>
@@ -450,7 +450,6 @@
     {#if isExpanded}
     <button class="kbr-ar-play-button"
             id={"play-button-" + uniqueId}
-            on:mousedown={playAudio}
             on:click={playAudio}
             style={confirmDelete || isRecording ? "display: none;" : ""}
     >
@@ -460,7 +459,7 @@
                 <path d="M14 2L14 24" stroke={textColor} stroke-width="4" stroke-linecap="round"/>
             </svg>
         {:else}
-            <svg xmlns="http://www.w3.org/2000/svg" width="75%" height="75%" viewBox="-3 0 20 18" fill={textColor}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="60%" height="60%" viewBox="-3 0 20 18" fill={textColor}>
                 <path d="M15 7.26795C16.3333 8.03775 16.3333 9.96225 15 10.7321L3 17.6603C1.66667 18.4301 1.01267e-06 17.4678 1.07997e-06 15.9282L1.68565e-06 2.0718C1.75295e-06 0.532196 1.66667 -0.430055 3 0.339746L15 7.26795Z"/>
             </svg>
         {/if}
@@ -516,11 +515,10 @@
     </div>
     <button class="kbr-ar-delete-button"
             id={"delete-button-" + uniqueId}
-            on:mousedown={() => confirmDelete = !confirmDelete}
             on:click={() => confirmDelete = !confirmDelete}
             style={confirmDelete || isRecording ? "display: none;" : ""}
     >
-        <svg xmlns="http://www.w3.org/2000/svg" width="75%" height="75%" viewBox="0 0 20 20" fill="none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60%" height="60%" viewBox="0 0 20 20" fill="none">
             <g clip-path="url(#clip0_710_817)">
                 <path d="M1.25 3.75H18.75M8.125 14.375V8.125M11.875 14.375V8.125M11.875 1.25H8.125C7.79348 1.25 7.47554 1.3817 7.24112 1.61612C7.0067 1.85054 6.875 2.16848 6.875 2.5V3.75H13.125V2.5C13.125 2.16848 12.9933 1.85054 12.7589 1.61612C12.5245 1.3817 12.2065 1.25 11.875 1.25ZM15.7208 17.6033C15.6949 17.9159 15.5524 18.2073 15.3216 18.4197C15.0909 18.6321 14.7887 18.75 14.475 18.75H5.52583C5.21218 18.75 4.90998 18.6321 4.6792 18.4197C4.44842 18.2073 4.30593 17.9159 4.28 17.6033L3.125 3.75H16.875L15.7208 17.6033Z" stroke={textColor} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </g>
@@ -556,14 +554,12 @@
     </span>
     <button class="kbr-ar-confirm-delete-yes"
             style={confirmDelete ? "" : "display: none;"}
-            on:mousedown={deleteRecording}
             on:click={deleteRecording}
     >
         {translations[lang].yes}
     </button>
     <button class="kbr-ar-confirm-delete-no"
             style={confirmDelete ? "" : "display: none;"}
-            on:mousedown={() => confirmDelete = !confirmDelete}
             on:click={() => confirmDelete = !confirmDelete}
     >
         {translations[lang].no}
@@ -580,10 +576,10 @@
         min-width: 128px;
         grid-template-columns: repeat(32, 1fr);
         grid-template-rows: repeat(var(--rows), 1fr);
-        border-radius: 5% / 10%;
+        border-radius: 5% / var(--percentage-adjustment);
         background-color: var(--background-color);
         color: var(--text-color);
-        box-shadow: inset 0 0 1em -0.75em;
+        //box-shadow: inset 0 0 1em -0.75em;
     }
     .kbr-ar-aspect {
       padding: 50%;
@@ -591,8 +587,8 @@
       grid-column: 1;
     }
     .kbr-ar-grid-record {
-        grid-row: 2 / span 8;
-        grid-column: 13 / span 8;
+        grid-row: 2 / span 6;
+        grid-column: 14 / span 6;
         width: 100%;
         height: 100%;
     }
@@ -603,24 +599,25 @@
         width: 100%;
         height: 100%;
         background-color: var(--record-color);
-
+        outline: var(--item-primary-color) solid 0.25em;
+        outline-offset: -0.2em;
     }
     .kbr-ar-play-button {
-        grid-row: 13 / span 4;
-        grid-column: 3 / span 4;
+        grid-row: 12 / span 5;
+        grid-column: 3 / span 5;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     .kbr-ar-delete-button {
-        grid-row: 13 / span 4;
-        grid-column: 27 / span 4;
+        grid-row: 12 / span 5;
+        grid-column: 26 / span 5;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     .kbr-ar-slider-container {
-        grid-row: 13 / span 4;
+        grid-row: 12 / span 5;
         grid-column: 9 / span 16;
         display: flex;
         justify-content: center;
@@ -652,7 +649,7 @@
     }
 
     .kbr-ar-confirm-delete-text {
-      grid-row: 8 / span 2;
+      grid-row: 7 / span 3;
       grid-column: 2 / span 30;
       height: 100%;
       width: 100%;
@@ -660,18 +657,21 @@
       justify-content: center;
       align-items: center;
       white-space: nowrap;
+      font-size: 1.2em;
     }
 
     .kbr-ar-confirm-delete-yes {
-      grid-row: 12 / span 2;
-      grid-column: 8 / span 8;
-      border-radius: 10% / 50%;
+      grid-row: 12 / span 5;
+      grid-column: 6 / span 10;
+      border-radius: 25% / 50%;
+      font-size: 1.2em;
     }
 
     .kbr-ar-confirm-delete-no {
-      grid-row: 12 / span 2;
-      grid-column: 18 / span 8;
-      border-radius: 10% / 50%;
+      grid-row: 12 / span 5;
+      grid-column: 18 / span 10;
+      border-radius: 25% / 50%;
+      font-size: 1.2em;
     }
 
     input[type="range"] {
@@ -679,12 +679,13 @@
       -moz-appearance: none;
       outline: 0;
       background: transparent;
-      height: 100%;
+      height: 80%;
     }
     input[type="range"]::-webkit-slider-runnable-track {
       height: 25%;
       border-radius: 1em;
-      box-shadow: inset 0 0.1em 0.1em -0.1em;
+      //box-shadow: inset 0 0.1em 0.1em -0.1em;
+      transition: background 5ms;
       background: linear-gradient(
                       to right,
                       var(--item-secondary-color) 0%,
@@ -700,17 +701,17 @@
       border-radius: 50%;
       height: 200%;
       width: 12.5%;
-      box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
+      //box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
     }
     input[type="range"]:enabled::-webkit-slider-thumb:hover {
       transition: transform 100ms, box-shadow 100ms;
       transform: scale(1.1, 1.1);
-      box-shadow: 0 0.5em 0.5em -0.5em rgba(0,0,0,0.375);
+      //box-shadow: 0 0.5em 0.5em -0.5em rgba(0,0,0,0.375);
     }
     input[type="range"]::-moz-range-track {
       height: 25%;
       border-radius: 1em;
-      box-shadow: inset 0 0.1em 0.1em -0.1em;
+      //box-shadow: inset 0 0.1em 0.1em -0.1em;
       background: linear-gradient(
                       to right,
                       var(--item-secondary-color) 0%,
@@ -724,12 +725,12 @@
       border-radius: 50%;
       height: 50%;
       width: 12.5%;
-      box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
+      //box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
     }
     input[type="range"]:enabled::-moz-range-thumb:hover {
       transition: transform 100ms, box-shadow 100ms;
       transform: scale(1.1, 1.1);
-      box-shadow: 0 0.5em 0.5em -0.5em rgba(0,0,0,0.375);
+      //box-shadow: 0 0.5em 0.5em -0.5em rgba(0,0,0,0.375);
     }
     input[type="range"]:focus-visible {
       outline: 0.25em solid var(--item-secondary-color);
@@ -744,18 +745,18 @@
       background-color: var(--item-primary-color);
       color: var(--text-color);
       padding: 0;
-      box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
+      //box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
       font-size: inherit;
     }
     button:hover:enabled {
       transition: transform 100ms, box-shadow 100ms;
       transform: scale(1.0375, 1.0375);
-      box-shadow: 0 0.5em 0.5em -0.5em rgba(0,0,0,0.375);
+      //box-shadow: 0 0.5em 0.5em -0.5em rgba(0,0,0,0.375);
     }
     button:active:enabled {
       transition: transform 100ms, box-shadow 100ms;
       transform: scale(1, 1);
-      box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
+      //box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
     }
     button:disabled {
       transition: opacity 100ms, box-shadow 100ms;
