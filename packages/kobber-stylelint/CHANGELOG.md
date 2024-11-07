@@ -1,5 +1,11 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.51
+
+### Patch Changes
+
+- Yet more carousel styling corrections
+
 ## 0.3.50
 
 ### Patch Changes
