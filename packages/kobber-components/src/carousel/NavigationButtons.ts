@@ -20,7 +20,7 @@ export class NavigationButtons extends StyledLitElement {
 
   static styles = css`
     :host {
-      z-index: 1;
+      z-index: 2;
     }
     .nav {
       --button-width: 1em;
@@ -35,10 +35,10 @@ export class NavigationButtons extends StyledLitElement {
     }
 
     .button--previous {
-      left: calc(var(--button-width) * -4);
+      left: calc(var(--button-width) * 3);
     }
     .button--next {
-      right: calc(var(--button-width) * -4);
+      right: calc(var(--button-width) * 3);
     }
   `;
 
@@ -50,14 +50,14 @@ export class NavigationButtons extends StyledLitElement {
             class="button button--previous"
             @click="${this.handlePreviousClick}"
             disabled
-            color="neutral"
+            color="thriller"
             ><icon-arrow_left slot="icon"
           /></kobber-button>`
         : html`<kobber-button
             aria-label="${this.getAttribute("previous-button-aria-label")}"
             class="button button--previous"
             @click="${this.handlePreviousClick}"
-            color="neutral"
+            color="thriller"
             ><icon-arrow_left slot="icon"
           /></kobber-button>`}
       ${this.nextButtonDisabled === "true"
@@ -66,14 +66,14 @@ export class NavigationButtons extends StyledLitElement {
             class="button button--next"
             @click="${this.handleNextClick}"
             disabled
-            color="neutral"
+            color="thriller"
             ><icon-arrow_right slot="icon"
           /></kobber-button>`
         : html`<kobber-button
             aria-label="${this.getAttribute("next-button-aria-label")}"
             class="button button--next"
             @click="${this.handleNextClick}"
-            color="neutral"
+            color="thriller"
             ><icon-arrow_right slot="icon"
           /></kobber-button>`}
     </div>
