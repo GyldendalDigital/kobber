@@ -1,5 +1,11 @@
 # @gyldendal/kobber-base
 
+## 0.3.50
+
+### Patch Changes
+
+- Carousel CSS fixes
+
 ## 0.3.49
 
 ### Patch Changes

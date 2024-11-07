@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.3.50
+
+### Patch Changes
+
+- Carousel CSS fixes
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.50
+  - @gyldendal/kobber-icons@0.3.50
+
 ## 0.3.49
 
 ### Patch Changes
