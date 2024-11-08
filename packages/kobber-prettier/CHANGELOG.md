@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.52
+
+### Patch Changes
+
+- Bump
+
 ## 0.3.51
 
 ### Patch Changes

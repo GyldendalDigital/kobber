@@ -50,8 +50,8 @@ const config = {
       height: {},
 
       padding: {
-        "page/padding/inline/large": `${padding.inline["max-screen-1280"]}px`,
-        "page/padding/inline/xsmall": `${padding.inline["max-screen-520"]}px`,
+        "page/padding/inline/large": `${padding.inline["min-screen-1280"]}px`,
+        "page/padding/inline/xsmall": `${padding.inline["min-screen-520"]}px`,
       },
 
       space: {},
