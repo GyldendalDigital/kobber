@@ -8,9 +8,10 @@ type FeatureBoxGridProps = {
   items: FeatureBoxType[]
 }
 
+/** TODO: remove padding and scaling hack when root layout padding is replaced by box layout */
 export function FeatureBoxGrid({ items }: FeatureBoxGridProps) {
   return (
-    <CardLayout aspect-ratio-height="0.9" className="p-0">
+    <CardLayout aspect-ratio-height="0.86" className="scale-[1.03] p-0">
       {items.map((item, index) => (
         <CardLayoutColumnAspectRatio key={index}>
           <FeatureBoxGridItem item={item} />

@@ -1,5 +1,5 @@
 import { PageDetails } from "@/types/types"
-import { ContentLayout, ContentShell } from "@/components/content-layout"
+import { ContentLayout } from "@/components/content-layout"
 import { SideMenu } from "@/components/menu/side-menu"
 import { SideMenuGroup } from "@/components/menu/side-menu-group"
 import { SessionProvider } from "@/components/providers/session-provider"
@@ -17,23 +17,21 @@ export default async function MerkevareLayout({ children }: GetStartedLayoutProp
   return (
     <SessionProvider>
       <ContentLayout>
-        <ContentShell>
-          <SideMenu>
-            <SideMenuGroup title="Introduksjon" items={temporaryIntroRoutes} isOpenInitially />
-            <SideMenuGroup
-              title="Identitetselementer"
-              items={[
-                merkevareLogoPage,
-                fargerPage,
-                typografiPage,
-                merkevareIkonerPage,
-                merkevareLayoutPage,
-              ]}
-              isOpenInitially
-            />
-            <SideMenuGroup title="Maler" items={temporaryTemplateRoutes} isOpenInitially />
-          </SideMenu>
-        </ContentShell>
+        <SideMenu>
+          <SideMenuGroup title="Introduksjon" items={temporaryIntroRoutes} isOpenInitially />
+          <SideMenuGroup
+            title="Identitetselementer"
+            items={[
+              merkevareLogoPage,
+              fargerPage,
+              typografiPage,
+              merkevareIkonerPage,
+              merkevareLayoutPage,
+            ]}
+            isOpenInitially
+          />
+          <SideMenuGroup title="Maler" items={temporaryTemplateRoutes} isOpenInitially />
+        </SideMenu>
         <section className="w-full md:w-[857px]">{children}</section>
       </ContentLayout>
     </SessionProvider>

@@ -65,6 +65,10 @@
   :not(:defined) {
     display: none;
   }
+
+  html {
+    scrollbar-gutter: stable;
+  }
 }
 
 @layer base {

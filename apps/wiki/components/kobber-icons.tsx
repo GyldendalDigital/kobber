@@ -1,36 +1,22 @@
-"use client"
+// import {
+//   IconArrowRight,
+//   IconExternalLink,
+//   IconLogin,
+//   IconLogout,
+// } from "@gyldendal/kobber-icons/react"
 
-import { useEffect } from "react"
-import dynamic from "next/dynamic"
-import { Loader2 } from "lucide-react"
+// export { IconArrowRight, IconLogout, IconLogin, IconExternalLink }
 
-export const IconArrowRight = dynamic(
-  () =>
-    import("@gyldendal/kobber-icons/react").then((x) => ({
-      default: x.IconArrowRight,
-    })),
-  { loading: () => <Loader2 className="size-4 animate-spin" />, ssr: false }
-)
-export const IconLogout = dynamic(
-  () =>
-    import("@gyldendal/kobber-icons/react").then((x) => ({
-      default: x.IconLogout,
-    })),
-  { loading: () => <Loader2 className="size-4 animate-spin" />, ssr: false }
-)
-export const IconLogin = dynamic(
-  () =>
-    import("@gyldendal/kobber-icons/react").then((x) => ({
-      default: x.IconLogin,
-    })),
-  { loading: () => <Loader2 className="size-4 animate-spin" />, ssr: false }
-)
+/**
+ * Kobber icons are exposing HTMLElement, and crashes when used in Next.js, even with "use client".
+ *
+ * Using other icons for now.
+ */
+import { ArrowRight, ExternalLink, LogIn, LogOut } from "lucide-react"
 
-/** Required for showing web component icons */
-export const IconLoader = () => {
-  useEffect(() => {
-    import("@gyldendal/kobber-icons/web-components")
-  }, [])
-
-  return null
+export {
+  ArrowRight as IconArrowRight,
+  LogOut as IconLogout,
+  LogIn as IconLogin,
+  ExternalLink as IconExternalLink,
 }

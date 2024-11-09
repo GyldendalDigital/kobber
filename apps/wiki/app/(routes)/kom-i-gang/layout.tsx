@@ -1,5 +1,5 @@
 import { PageDetails } from "@/types/types"
-import { ContentLayout, ContentShell } from "@/components/content-layout"
+import { ContentLayout } from "@/components/content-layout"
 import { Divider, List } from "@/components/kobber-components"
 import { SideMenu } from "@/components/menu/side-menu"
 import { SideMenuItem } from "@/components/menu/side-menu-item"
@@ -15,18 +15,16 @@ const GetStartedRoutes: PageDetails[] = [introductionPage, howToUsePage]
 export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
   return (
     <ContentLayout>
-      <ContentShell>
-        <SideMenu>
-          <List orientation="vertical">
-            {GetStartedRoutes.map((item, i) => (
-              <>
-                <SideMenuItem key={item.href + i} {...item} />
-                {i !== GetStartedRoutes.length - 1 && <Divider />}
-              </>
-            ))}
-          </List>
-        </SideMenu>
-      </ContentShell>
+      <SideMenu>
+        <List orientation="vertical">
+          {GetStartedRoutes.map((item, i) => (
+            <>
+              <SideMenuItem key={item.href + i} {...item} />
+              {i !== GetStartedRoutes.length - 1 && <Divider />}
+            </>
+          ))}
+        </List>
+      </SideMenu>
       <div className="w-full">{children}</div>
     </ContentLayout>
   )

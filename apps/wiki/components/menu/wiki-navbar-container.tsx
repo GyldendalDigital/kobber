@@ -54,11 +54,13 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
           <li className="ml-[56px] flex items-center gap-2">
             <Button onClick={handleAuth}>
               Logg {session?.user ? "ut" : "inn"}
-              {session?.user ? (
-                <IconLogout className="size-4" slot="icon" />
-              ) : (
-                <IconLogin className="size-4" slot="icon" />
-              )}
+              <span slot="icon">
+                {session?.user ? (
+                  <IconLogout className="size-4" />
+                ) : (
+                  <IconLogin className="size-4" />
+                )}
+              </span>
             </Button>
           </li>
         </ul>

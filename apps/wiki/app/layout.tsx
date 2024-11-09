@@ -4,7 +4,7 @@ import { SessionProvider } from "next-auth/react"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import Footer from "@/components/footer"
-import { IconLoader } from "@/components/kobber-icons"
+import { IconLoader } from "@/components/kobber-icons-loader"
 import { WikiNavbar } from "@/components/menu/wiki-navbar"
 
 /** Fallback for all pages */
@@ -23,11 +23,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="no" suppressHydrationWarning>
       <body className={cn("bg-[#FDF9F9] text-[#481125ff] antialiased transition-all")}>
         <SessionProvider>
           <IconLoader />
-          <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal px-page/padding/inline/xsmall md:px-page/padding/inline/large">
+          <div className="sm:px-page/padding/inline/small md:px-page/padding/inline/medium mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal px-page/padding/inline/xsmall xl:px-page/padding/inline/large">
             <WikiNavbar />
             {children}
             <Footer />

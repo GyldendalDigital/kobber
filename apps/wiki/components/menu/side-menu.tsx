@@ -12,8 +12,9 @@ type SideMenuProps = {
 export const SideMenu = ({ children }: SideMenuProps) => {
   const isMobile = useIsMobile()
 
+  // top-[96px] is the height of the navbar + gap
   return (
-    <aside className="flex h-fit flex-col gap-y-[8px] border-r border-[#E5CFD3] pb-1.5 pr-2">
+    <aside className="sticky top-[96px] flex flex-col gap-y-[8px] border-r border-[#E5CFD3] pb-1.5 pr-2">
       {isMobile ? (
         <Sheet modal={false}>
           <SheetTrigger asChild>
@@ -21,7 +22,7 @@ export const SideMenu = ({ children }: SideMenuProps) => {
               <Sidebar className="size-[16px]" />
             </Button>
           </SheetTrigger>
-          <SheetContent side={"left"} className="pt-72">
+          <SheetContent side={"left"} className="pt-[72px]">
             {children}
           </SheetContent>
         </Sheet>

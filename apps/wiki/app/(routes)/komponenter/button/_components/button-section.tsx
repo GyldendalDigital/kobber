@@ -42,7 +42,11 @@ export function ButtonSection({ level }: { level: ButtonLevel }) {
           level={level}
         >
           Button
-          {iconOptions !== "none" && <IconArrowRight slot="icon" />}
+          {iconOptions !== "none" && (
+            <span slot="icon">
+              <IconArrowRight />
+            </span>
+          )}
         </Button>
       )}
     </InteractiveScreen>
