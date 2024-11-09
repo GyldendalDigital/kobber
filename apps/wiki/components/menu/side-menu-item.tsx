@@ -11,7 +11,7 @@ export const SideMenuItem = (item: PageDetails) => {
     <>
       <SideMenuItemLink {...item} />
 
-      {pathname?.includes(item.href) && item.children && (
+      {pathname?.includes(item.href) && item.children && item.children.length !== 0 && (
         <List orientation="vertical" className="pl-[20px]">
           {item.children.map((item) => (
             <SideMenuItem key={item.href} {...item} />

@@ -16,7 +16,7 @@ export const Button = styled.button`
 @import "~@gyldendal/kobber-base/themes/default/tokens.css";
 
 .button {
-    background-color: var(--kobber-component-button-color-background);
+  background-color: var(--kobber-component-button-color-background);
 }
 ```
 
@@ -24,14 +24,16 @@ export const Button = styled.button`
 @use "~@gyldendal/kobber-base/themes/default/tokens.scss" as tokens;
 
 .button {
-    background-color: tokens.$component-button-color-background;
+  background-color: tokens.$component-button-color-background;
 }
 ```
 
 Typography can be applied directly to HTML using CSS classes or by using `composes` in css modules:
 
 ```html
-<style>@import "~@gyldendal/kobber-base/themes/default/typography.css";</style>
+<style>
+  @import "~@gyldendal/kobber-base/themes/default/typography.css";
+</style>
 
 <h1 class="kobber-typography-heading-xl">Heading</h1>
 ```
@@ -52,15 +54,6 @@ import { ThemeProvider, Typography } from "~@gyldendal/kobber-base/react";
 </TheThemeProviderme>
 ```
 
-
-## ⚡ Quick how to: update tokens
-
-1. In Figma, make sure "reference mode in variables" is enabled for the design tokens plugin
-2. Export json from Figma
-3. Replace json in `tokens-from-figma.json`
-4. Run `yarn build`
-5. Commit changes
-
 ## 🧱 Token folder structure
 
 ```
@@ -69,13 +62,15 @@ import { ThemeProvider, Typography } from "~@gyldendal/kobber-base/react";
 │   ├── tokens.css
 │   ├── tokens.scss
 │   └── token.json
-├── build-tokens.ts
-├── config.ts
-└── tokens-from-figma.json
+├── tokens-from-figma/
+│   ├── index.ts
+│   └── tokens-YYYY-MM-DD.json
+├── build.ts
+└── buildConfig.ts
 ```
 
-We use [style-dictionary](https://github.com/amzn/style-dictionary) to transform and format the tokens in `./tokens-from-figma.json`.
-
-In `./config.ts` we decide which formats we want (css, scss, js and more), and in `./build-tokens.ts` we can create formatters and use other utilities to change the output how we want.
+Using [style-dictionary](https://github.com/amzn/style-dictionary) to transform and format the tokens from Figma.
 
 The files in `./themes` are auto generated and should never be edited manually.
+
+[How to update tokens](./tokens-from-figma/README.md)

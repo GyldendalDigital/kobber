@@ -52,7 +52,7 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
           ))}
 
           <li className="ml-[56px] flex items-center gap-2">
-            <Button color="aubergine" onClick={handleAuth} variant="supplemental alt">
+            <Button onClick={handleAuth}>
               Logg {session?.user ? "ut" : "inn"}
               {session?.user ? (
                 <IconLogout className="size-4" slot="icon" />
@@ -66,6 +66,7 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
         <Sheet modal={false} open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button
+              color="carmine"
               className={cn("flex size-[40px] rounded-[8px] bg-[#f9eaedff] p-0 md:hidden", {
                 "bg-[#dc134fff] hover:bg-[#dc134fff]": isOpen,
               })}
