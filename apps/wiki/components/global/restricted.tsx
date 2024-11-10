@@ -14,7 +14,7 @@ export function Restricted() {
         heading="Merkevare"
         ingress="Gyldendals merkevare består av kjernehistorien om Gyldendal, et felles verdigrunnlag, posisjonsbeskrivelse og et sett med felles designprinsipper. Her finnes også retningslinjer for vår merkevarearkitektur, samt retningslinjer for logo, farger, typografi, ikoner og layout. "
       />
-      <Button onClick={() => ssoSignIn({ redirectUrl: pathname })}>Logg inn med SSO</Button>
+      <Button variant="supplemental" onClick={() => ssoSignIn({ redirectUrl: pathname })}>Logg inn med SSO</Button>
     </div>
   )
 }

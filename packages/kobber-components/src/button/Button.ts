@@ -99,7 +99,7 @@ export class Button extends KobberElement {
         /* Common for all variants */
         display: flex;
         flex-direction: ${unsafeCSS(this.iconSettings === "right" ? "row" : "row-reverse")};
-        align-items: center;
+        align-items: end;
         gap: ${this._isIconButton ? 0 : component.container.gap}px;
         padding-block: ${this._isIconButton ? 12 : component.container.padding.block}px;
         padding-inline: ${this._isIconButton ? 12 : component.container.padding.inline}px;

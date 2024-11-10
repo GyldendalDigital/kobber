@@ -2,7 +2,7 @@ import { css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { StyledLitElement } from "../utils/StyledLitElement";
 import "../button/Button";
-// import "@gyldendal/kobber-icons/web-components"; // TODO: fix SSR issue
+// import "@gyldendal/kobber-icons/web-components"; // TODO: fix SSR issue // import kobber icons manually on client instead
 
 @customElement("kobber-carousel-navigation-buttons")
 export class NavigationButtons extends StyledLitElement {
