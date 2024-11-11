@@ -23,7 +23,6 @@ import { Carousel } from "./carousel/Carousel";
 import { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 import { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
 
-
 export const KobberGrid = createComponent({
   tagName: "kobber-grid",
   elementClass: Grid,
