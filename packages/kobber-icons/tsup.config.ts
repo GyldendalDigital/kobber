@@ -66,7 +66,7 @@ const makeIconComponents = () => {
     symbols.forEach(symbol => {
       const iconName = getIconNames(symbol.id);
 
-      const constructor = `\n\tconstructor() {\n\t\tsuper();\n\t\tthis.attachShadow({ mode: "open" });\n\t\tthis.heightValueFallback = "var(--kobber-semantics-visual-icon-size-height-small)";\n\t\tthis.widthValueFallback = "var(--kobber-semantics-visual-icon-size-width-small)";\n\t}\n\t`;
+      const constructor = `\n\tconstructor() {\n\t\tsuper();\n\t\tthis.attachShadow({ mode: "open" });\n\t\tthis.heightValueFallback = "var(--kobber-semantics-visual-icon-size-small)";\n\t\tthis.widthValueFallback = "var(--kobber-semantics-visual-icon-size-small)";\n\t}\n\t`;
       const attributes = `\n\t\tconst ariaLabel =
       this.getAttribute("aria-label") || ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */\n\t\tconst ariaHidden = ariaLabel === "";\n\t\tconst role = ariaHidden ? "presentation" : "img";`;
       const styles =
@@ -105,8 +105,7 @@ const makeIconComponents = () => {
     let iconGalleryMainImportsString = "import {";
     let iconGalleryString = "";
     const iconGalleryFirstImportString = 'import { Meta, Title, IconGallery, IconItem } from "@storybook/blocks";\n';
-    const iconGalleryMetaString =
-      '<Meta title="Icon/All" />\n\n# All icons\n\n<IconGallery style={{"--icon-width": "1rem"}}>\n';
+    const iconGalleryMetaString = '<Meta title="Icon/All" />\n\n# All icons\n\n<IconGallery>\n';
     symbols.forEach(symbol => {
       const iconName = getIconNames(symbol.id);
 
