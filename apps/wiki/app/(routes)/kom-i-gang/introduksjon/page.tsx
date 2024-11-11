@@ -1,7 +1,7 @@
 import { PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { HeroImage } from "@/components/hero-image"
-import { ArticleLayout, Body } from "@/components/kobber-components"
+import { ArticleWrapper, Body } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { Ingress } from "../../../../components/kobber-components"
 
@@ -20,7 +20,7 @@ export default function Introduksjon() {
         }
       />
       <div className="grid gap-page/gap/horizontal">
-        <ArticleLayout className="grid gap-y-text-section/gap/header/horizontal">
+        <ArticleWrapper className="grid gap-y-text-section/gap/header/horizontal">
           <h1 className="text-[48px] font-light leading-[57.6px] text-[#481125]">
             Designsystemet Kobber
           </h1>
@@ -33,7 +33,7 @@ export default function Introduksjon() {
             Designsystemet vårt sikrer konsistent og god brukeropplevelse på tvers av nettsider,
             publikasjoner, kommunikasjon og løsninger i Gyldendal.
           </Ingress>
-        </ArticleLayout>
+        </ArticleWrapper>
         <SectionLayout className="max-w-[712px]">
           <Body>
             Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem

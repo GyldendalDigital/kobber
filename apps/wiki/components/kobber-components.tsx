@@ -2,7 +2,7 @@
 
 import {
   KobberAccordion,
-  KobberArticleLayout,
+  KobberArticleWrapper,
   KobberBody,
   KobberButton,
   KobberCardLayout,
@@ -26,7 +26,7 @@ export {
   KobberList as List,
   KobberListItem as ListItem,
   KobberGrid as Grid,
-  KobberArticleLayout as ArticleLayout,
+  KobberArticleWrapper as ArticleWrapper,
   KobberBody as Body,
   KobberIngress as Ingress,
 }

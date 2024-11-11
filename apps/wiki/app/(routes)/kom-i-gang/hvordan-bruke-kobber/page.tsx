@@ -1,7 +1,7 @@
 import { PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { Heading } from "@/components/heading"
-import { ArticleLayout, Body, Ingress } from "@/components/kobber-components"
+import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
@@ -12,7 +12,7 @@ export const metadata: PageDetails = {
 
 export default function HvordanBrukeKobber() {
   return (
-    <ArticleLayout>
+    <ArticleWrapper>
       <Heading text="Hvordan bruke Kobber" />
       <Ingress>
         Merkevaren vår består av en merkevareplattform med strategi og kjerneverdier for Gyldendals
@@ -24,6 +24,6 @@ export default function HvordanBrukeKobber() {
         produkter, som skal skape en felles forståelse for Gyldendals verdier og gi en tydelig
         retning for markedsføring og utvikling.
       </Body>
-    </ArticleLayout>
+    </ArticleWrapper>
   )
 }
