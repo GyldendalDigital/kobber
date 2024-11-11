@@ -32,7 +32,7 @@ export default async function MerkevareLayout({ children }: GetStartedLayoutProp
           />
           <SideMenuGroup title="Maler" items={temporaryTemplateRoutes} isOpenInitially />
         </SideMenu>
-        <section className="w-full md:w-[857px]">{children}</section>
+        <section className="w-full">{children}</section>
       </ContentLayout>
     </SessionProvider>
   )

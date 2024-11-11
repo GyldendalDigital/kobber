@@ -1,14 +1,9 @@
-import { css, CSSResultGroup, html, LitElement, unsafeCSS } from "lit";
+import { css, html, unsafeCSS } from "lit";
 import { customElement } from "lit/decorators.js";
-import { themeContext } from "../utils/theme-context";
-import { Theme } from "../utils/theme-context.types";
-import { consume } from "@lit/context";
+import KobberElement from "../base/kobber-element";
 
 @customElement("kobber-ingress")
-export class Ingress extends LitElement {
-  @consume({ context: themeContext, subscribe: true })
-  theme?: Theme;
-
+export class Ingress extends KobberElement {
   render() {
     const themeStyles = this.themedStyles();
 
@@ -16,26 +11,17 @@ export class Ingress extends LitElement {
       <style>
         ${themeStyles}
       </style>
-      <div>
-        <slot></slot>
-      </div>
+      <slot></slot>
     `;
   }
 
   themedStyles = () => {
-    const tokens = this.theme?.tokens;
-    if (!tokens) {
-      console.log("theme context not provided");
-      return css``;
-    }
-
-    const text = tokens.global.text.primary;
-
-    const highlightColor = tokens.component.article.ingress.text.color.highlight;
-    const baseColor = tokens.component.article.ingress.text.color.base;
+    const text = this.tokens().global.text.primary;
+    const highlightColor = this.tokens().component.article.ingress.text.color.highlight;
+    const baseColor = this.tokens().component.article.ingress.text.color.base;
 
     return css`
-      div {
+      :host {
         font-weight: ${text.weight.title.medium.medium};
         font-size: ${text.size.title.medium}px;
         line-height: ${text["line-height"].title.medium}px;

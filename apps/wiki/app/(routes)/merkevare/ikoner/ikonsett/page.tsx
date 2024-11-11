@@ -1,5 +1,6 @@
 import { PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { ArticleWrapper, BoxLayout, Ingress } from "@/components/kobber-components"
 import { IconGrid } from "./icon-grid"
 
 export const metadata: PageDetails = {
@@ -12,8 +13,25 @@ export const metadata: PageDetails = {
 
 export default function IkonSett() {
   return (
-    <div>
+    <ArticleWrapper>
+      <BoxLayout className="py-0">
+        <h1 className="text-[48px] font-light leading-[57.6px] text-[#481125]">
+          {metadata.title as string}
+        </h1>
+      </BoxLayout>
+
+      <BoxLayout className="py-0">
+        <Ingress className="max-w-[712px]">
+          Våre ikoner kommer fra Streamline-biblioteket, og vi har et forhåndsdefinert sett med
+          ikoner som brukes i Gyldendals digitale produkter. Streamline er en grafisk harmonisk
+          ikonbank med flere unike kolleksjoner som kan kombineres etter behov. Vi benytter
+          «Streamline Regular», et enkelt og konsistent formspråk som tydelig kommuniserer
+          handlinger og informasjon til brukeren.
+        </Ingress>
+      </BoxLayout>
+
+      <br />
       <IconGrid />
-    </div>
+    </ArticleWrapper>
   )
 }

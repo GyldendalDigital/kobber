@@ -1,14 +1,9 @@
-import { css, html, LitElement } from "lit";
+import { css, html } from "lit";
 import { customElement } from "lit/decorators.js";
-import { themeContext } from "../utils/theme-context";
-import { Theme } from "../utils/theme-context.types";
-import { consume } from "@lit/context";
+import KobberElement from "../base/kobber-element";
 
 @customElement("kobber-article-wrapper")
-export class ArticleWrapper extends LitElement {
-  @consume({ context: themeContext, subscribe: true })
-  theme?: Theme;
-
+export class ArticleWrapper extends KobberElement {
   render() {
     const themeStyles = this.themedStyles();
 
@@ -16,23 +11,15 @@ export class ArticleWrapper extends LitElement {
       <style>
         ${themeStyles}
       </style>
-      <div class=${this.classList.value}>
-        <slot></slot>
-      </div>
+      <slot></slot>
     `;
   }
 
   themedStyles = () => {
-    const tokens = this.theme?.tokens;
-    if (!tokens) {
-      console.log("theme context not provided");
-      return css``;
-    }
-
-    const article = tokens.template["article-wrapper"];
+    const article = this.tokens().template["article-wrapper"];
 
     return css`
-      div {
+      :host {
         display: flex;
         flex-direction: column;
         gap: ${article.gap.horizontal}px;
