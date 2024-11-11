@@ -4,7 +4,6 @@ import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
-import { TextCollection } from "@/components/text-collection"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
@@ -16,10 +15,10 @@ export const metadata: PageDetails = {
 
 export default function MerkevareHeriarkiPage() {
   return (
-    <SectionLayout>
+    <SectionLayout className="max-w-[711px]">
       <ArticleWrapper>
         {/* TODO CHANGE TO HEADING */}
-        <h2 className="text-[48px]">Merkevarehierarki</h2>
+        <h2 className="text-[48px] text-[#691837]">Merkevarehierarki</h2>
         <Ingress>
           Merkevarearkitekturens formål er å gi en klar struktur over merkevaren vår og hvordan
           produktene og løsningene våre henger sammen. Arkitekturen skal sørge for at vi snakker med

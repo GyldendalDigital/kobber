@@ -13,7 +13,7 @@ export const metadata: PageDetails = {
 }
 export default function Introduksjon() {
   return (
-    <SectionLayout>
+    <SectionLayout className="max-w-[858px]">
       <HeroImage
         src={
           "https://dam-p-gyldendal.pqcloud.eu/authkey/1AwlfRxdpz/preview/2bULAP2gabp9rC4A1CbQSB/previews/maxWidth_1600_maxHeight_1600.jpg/*/_DX_2016_preview.jpg?_=1"

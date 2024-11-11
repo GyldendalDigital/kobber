@@ -2,9 +2,8 @@ import { UIColors } from "@/data/color-palettes"
 import { PageDetails } from "@/types/types"
 import { pagePathname } from "@/lib/utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
-import { ContentSection } from "@/components/content-section"
+import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
-import { TextCollection } from "@/components/text-collection"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
@@ -18,20 +17,21 @@ export const metadata: PageDetails = {
 export default function UiFarger() {
   return (
     <SectionLayout>
-      <TextCollection
-        heading="UI-farger"
-        ingress="Vi har noen farger som er forbeholdt digitale grensesnitt. Dette inkluderer farger som skal kommunisere til sluttbrukeren om suksess, informasjon og advarsler, samt en nøytral palett."
-      />
+      <ArticleWrapper>
+        <h2 className="text-[48px] text-[#691837]">{metadata.title as string}</h2>
+        <Ingress>
+          Vi har noen farger som er forbeholdt digitale grensesnitt. Dette inkluderer farger som
+          skal kommunisere til sluttbrukeren om suksess, informasjon og advarsler, samt en nøytral
+          palett.
+        </Ingress>
+      </ArticleWrapper>
 
       {UIColors.map((theme, index) => (
-        <ContentSection
-          key={index}
-          textCollection={{ heading: theme.title, ingress: theme.description }}
-          chilClassName="px-0"
-          className="gap-y-section/gap/horizontal"
-        >
+        <ArticleWrapper key={index}>
+          <h5 className="text-[24px] text-[#481125]">{theme.title}</h5>
+          <Body>{theme.description}</Body>
           <ColorBlockGrid colors={theme.colors} enableCopy />
-        </ContentSection>
+        </ArticleWrapper>
       ))}
     </SectionLayout>
   )

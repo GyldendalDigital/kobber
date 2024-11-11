@@ -3,10 +3,9 @@ import { IllustrationType, PageDetails } from "@/types/types"
 import { pagePathname } from "@/lib/utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ColorBlockGridItem } from "@/components/color-block-grid-item"
-import { ContentSection } from "@/components/content-section"
 import { Illustrations, IllustrationsSkeleton } from "@/components/illustrations"
+import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
-import { TextCollection } from "@/components/text-collection"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
@@ -28,69 +27,72 @@ const illusrations: IllustrationType[] = [
 
 export default function IdentitetsPalett() {
   return (
-    <SectionLayout>
-      <TextCollection
-        heading="Identitetspalett"
-        ingress="Dette er vår identitetspalett, som består av de mest brukte fargene for å etablere Gyldendals stiluttrykk. Markedsføring forholder seg alltid til denne paletten, samtidig som utvidede paletter er tilgjengelige for designere av brukergrensesnitt og bokmalverk."
-      />
+    <SectionLayout className="max-w-[711px]">
+      <ArticleWrapper>
+        <h2 className="text-[48px] text-[#691837]">{metadata.title as string}</h2>
+        <Ingress>
+          Dette er vår identitetspalett, som består av de mest brukte fargene for å etablere
+          Gyldendals stiluttrykk. Markedsføring forholder seg alltid til denne paletten, samtidig
+          som utvidede paletter er tilgjengelige for designere av brukergrensesnitt og bokmalverk.
+        </Ingress>
+      </ArticleWrapper>
 
-      <ContentSection
-        textCollection={{
-          heading: "Full fargepalett",
-          ingress:
-            "Gyldendals fulle fargepaletter består av fargene Karmin, Aubergin, Vin og Betong. Fargepalettene er laget for å alltid kunne fungere i kombinasjon med hverandre for å skape dynamikk og kontrast, uavhengig av om man ønsker et lyst eller et mørkt uttrykk.",
-        }}
-      >
+      <ArticleWrapper>
+        <h5 className="text-[24px] text-[#481125]">Full fargepalett</h5>
+        <Body>
+          Gyldendals fulle fargepaletter består av fargene Karmin, Aubergin, Vin og Betong.
+          Fargepalettene er laget for å alltid kunne fungere i kombinasjon med hverandre for å skape
+          dynamikk og kontrast, uavhengig av om man ønsker et lyst eller et mørkt uttrykk.
+        </Body>
         <Illustrations
           className="h-[300px] rounded-none"
           illuClassName=" p-0"
           illustrations={illusrations}
         />
-      </ContentSection>
+      </ArticleWrapper>
 
-      <ContentSection
-        textCollection={{
-          heading: "Karmin",
-          ingress:
-            "Karmin er primær identitetsfarge, og brukes i logoer, aktive knapper og for å fremheve deler av tekst. Den skal ikke overbrukes, men heller brukes der den gir effekt og skaper kontrast.",
-        }}
-        chilClassName="px-0"
-        className="gap-y-section/gap/horizontal"
-      >
+      <ArticleWrapper>
+        <h5 className="text-[24px] text-[#481125]">Karmin</h5>
+        <Body>
+          Karmin er primær identitetsfarge, og brukes i logoer, aktive knapper og for å fremheve
+          deler av tekst. Den skal ikke overbrukes, men heller brukes der den gir effekt og skaper
+          kontrast.
+        </Body>
         <ColorBlockGridItem
           color={{ name: "Karmin 525", hex: "#DC134F", rgb: "(220, 19, 79)" }}
           enableCopy
         />
-      </ContentSection>
+      </ArticleWrapper>
 
       {IdentityColors.map((theme, index) => (
-        <ContentSection
-          key={index}
-          textCollection={{ heading: theme.title, ingress: theme.description }}
-          chilClassName="px-0"
-          className="gap-y-section/gap/horizontal"
-        >
+        <ArticleWrapper key={index}>
+          <h5 className="text-[24px] text-[#481125]">{theme.title}</h5>
+          <Body>{theme.description}</Body>
           <ColorBlockGrid colors={theme.colors} enableCopy />
-        </ContentSection>
+        </ArticleWrapper>
       ))}
 
-      <ContentSection
-        textCollection={{
-          heading: "Fargekombinasjoner",
-          text: `Til ulike stemninger og kontekster kan det varieres mellom de tre fargekombinasjoner vi bygger identitet rundt. Det lyse og mørke uttrykket skal brukes i størst grad, og karminrød skal ikke overbrukes. Kombinasjonen av de mørkeste tonene av aubergin sammen med signalfargen Karmin 525 gjør det lett å skape et moderne digitalt uttrykk som fremstår varmt og emosjonelt.`,
-        }}
-      >
+      <ArticleWrapper>
+        <h5 className="text-[24px] text-[#481125]">Fargekombinasjoner</h5>
+        <Body>
+          Til ulike stemninger og kontekster kan det varieres mellom de tre fargekombinasjoner vi
+          bygger identitet rundt. Det lyse og mørke uttrykket skal brukes i størst grad, og
+          karminrød skal ikke overbrukes. Kombinasjonen av de mørkeste tonene av aubergin sammen med
+          signalfargen Karmin 525 gjør det lett å skape et moderne digitalt uttrykk som fremstår
+          varmt og emosjonelt.
+        </Body>
         <IllustrationsSkeleton />
-        {/* <Illustrations illustrations={levelFourIllustrations} /> */}
-      </ContentSection>
-      <ContentSection
-        textCollection={{
-          heading: "Unngå dette",
-          text: `Det er viktig at bruken av fargepaletten forblir konsistent som en del av et helhetlig utrykk og for å sikre nok kontrast. Fargene skal derfor ikke justeres og det skal ikke lages egne fargekombinasjoner utenfor det som er definert.`,
-        }}
-      >
+      </ArticleWrapper>
+
+      <ArticleWrapper>
+        <h5 className="text-[24px] text-[#481125]">Unngå dette</h5>
+        <Body>
+          Det er viktig at bruken av fargepaletten forblir konsistent som en del av et helhetlig
+          utrykk og for å sikre nok kontrast. Fargene skal derfor ikke justeres og det skal ikke
+          lages egne fargekombinasjoner utenfor det som er definert.
+        </Body>
         <IllustrationsSkeleton />
-      </ContentSection>
+      </ArticleWrapper>
     </SectionLayout>
   )
 }

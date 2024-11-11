@@ -2,9 +2,8 @@ import { ThemeColors } from "@/data/color-palettes"
 import { PageDetails } from "@/types/types"
 import { pagePathname } from "@/lib/utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
-import { ContentSection } from "@/components/content-section"
+import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
-import { TextCollection } from "@/components/text-collection"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
@@ -18,20 +17,21 @@ export const metadata: PageDetails = {
 export default function Temafarger() {
   return (
     <SectionLayout>
-      <TextCollection
-        heading="Temafarger"
-        ingress="Temafarger kan benyttes i avgrensede område for å sette stemning rundt et tema, en enkeltutgivelse eller en kolleksjon av utgivelser. Det er ikke tillatt å bruke disse palettene på et helt brukergrensesnitt eller for å kategorisere produkt-spesifikt innhold."
-      />
+      <ArticleWrapper>
+        <h2 className="text-[48px] text-[#691837]">{metadata.title as string}</h2>
+        <Ingress>
+          Temafarger kan benyttes i avgrensede område for å sette stemning rundt et tema, en
+          enkeltutgivelse eller en kolleksjon av utgivelser. Det er ikke tillatt å bruke disse
+          palettene på et helt brukergrensesnitt eller for å kategorisere produkt-spesifikt innhold.
+        </Ingress>
+      </ArticleWrapper>
 
       {ThemeColors.map((theme, index) => (
-        <ContentSection
-          key={index}
-          textCollection={{ heading: theme.title, ingress: theme.description }}
-          chilClassName="px-0"
-          className="gap-y-section/gap/horizontal"
-        >
+        <ArticleWrapper key={index}>
+          <h5 className="text-[24px] text-[#481125]">{theme.title}</h5>
+          <Body>{theme.description}</Body>
           <ColorBlockGrid colors={theme.colors} enableCopy />
-        </ContentSection>
+        </ArticleWrapper>
       ))}
     </SectionLayout>
   )
