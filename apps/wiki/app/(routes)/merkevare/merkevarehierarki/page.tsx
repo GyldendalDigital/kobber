@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { PageDetails } from "@/types/types"
+import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
@@ -41,9 +42,7 @@ export default function MerkevareHeriarkiPage() {
         </Body>
 
         <Image
-          src={
-            "https://dam-p-gyldendal.pqcloud.eu/authkey/p7tO9lQwG8/preview/4WYa-6IgqHmAdCdw9SxjB3/previews/maxWidth_1600_maxHeight_1600.jpg/*/Merkevarehierarki_preview.jpg?_=1"
-          }
+          src={damImageUrl("4WYa-6IgqHmAdCdw9SxjB3")}
           width={711}
           height={294}
           alt="Illustrasjon"
@@ -62,9 +61,7 @@ Nivå 1.2 brukes aldri som avsender på bøker, arrangementer eller annen marked
         }}
       >
         <Image
-          src={
-            "https://dam-p-gyldendal.pqcloud.eu/authkey/p7tO9lQwG8/preview/7bPjxwM9Kw2BLLWhKGBQJ2/previews/maxWidth_1600_maxHeight_1600.jpg/*/Niva%CC%8A1_preview.jpg?_=1"
-          }
+          src={damImageUrl("7bPjxwM9Kw2BLLWhKGBQJ2")}
           width={711}
           height={294}
           alt="Illustrasjon"
@@ -85,9 +82,7 @@ Nivå 2.3 er for skjønnlitteratur, sakprosa og lignende som benytter Gyldendals
         }}
       >
         <Image
-          src={
-            "https://dam-p-gyldendal.pqcloud.eu/authkey/p7tO9lQwG8/preview/3TCYMdT8qra86ZHBhPp9FE/previews/maxWidth_1600_maxHeight_1600.jpg/*/Niva%CC%8A2_preview.jpg?_=1"
-          }
+          src={damImageUrl("3TCYMdT8qra86ZHBhPp9FE")}
           width={711}
           height={294}
           alt="Illustrasjon"
@@ -103,9 +98,7 @@ Alle tjenester som benytter seg av Gyldendal-navnet skal benytte seg av samme lo
         }}
       >
         <Image
-          src={
-            "https://dam-p-gyldendal.pqcloud.eu/authkey/p7tO9lQwG8/preview/CJ8mJ2oVaqu8ww95BaQW3A/previews/maxWidth_1600_maxHeight_1600.jpg/*/Niva%CC%8A3_preview.jpg?_=1"
-          }
+          src={damImageUrl("CJ8mJ2oVaqu8ww95BaQW3A")}
           width={711}
           height={294}
           alt="Illustrasjon"
@@ -119,9 +112,7 @@ Alle tjenester som benytter seg av Gyldendal-navnet skal benytte seg av samme lo
         }}
       >
         <Image
-          src={
-            "https://dam-p-gyldendal.pqcloud.eu/authkey/p7tO9lQwG8/preview/6EPS5_bUKpC8avwgVMLz1C/previews/maxWidth_1600_maxHeight_1600.jpg/*/Niva%CC%8A4_preview.jpg?_=1"
-          }
+          src={damImageUrl("6EPS5_bUKpC8avwgVMLz1C")}
           width={711}
           height={294}
           alt="Illustrasjon"

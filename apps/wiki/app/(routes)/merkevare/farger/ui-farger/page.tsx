@@ -4,12 +4,12 @@ import { pagePathname } from "@/lib/utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
+import { damImageUrl } from "@/lib/damImageLoader"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "UI-farger",
-  image:
-    "https://dam-p-gyldendal.pqcloud.eu/authkey/46Srf1n-yb/preview/0B8KFix1aoOBfZrSchmiFk/previews/maxWidth_1600_maxHeight_1600.jpg/*/UI_preview.jpg?_=1",
+  image: damImageUrl("0B8KFix1aoOBfZrSchmiFk"),
   description:
     "Vi har noen farger som er forbeholdt digitale grensesnitt. Dette inkluderer farger som skal kommunisere til sluttbrukeren om suksess, informasjon og advarsler, samt en nøytral palett.",
 }

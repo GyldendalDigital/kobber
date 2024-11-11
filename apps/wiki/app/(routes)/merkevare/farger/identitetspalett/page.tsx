@@ -1,5 +1,6 @@
 import { IdentityColors } from "@/data/color-palettes"
 import { IllustrationType, PageDetails } from "@/types/types"
+import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname } from "@/lib/utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ColorBlockGridItem } from "@/components/color-block-grid-item"
@@ -10,15 +11,14 @@ import { SectionLayout } from "@/components/section-layout"
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Identitetspalett",
-  image:
-    "https://dam-p-gyldendal.pqcloud.eu/authkey/W73B6GH3DM/preview/BkRpubsF45_8o0iVkKSQod/previews/maxWidth_1600_maxHeight_1600.jpg/*/identitet_preview.jpg?_=1",
+  image: damImageUrl("BkRpubsF45_8o0iVkKSQod"),
   description:
     "Dette er vår identitetspalett, som består av de mest brukte fargene for å etablere Gyldendals stiluttrykk. Markedsføring forholder seg alltid til denne paletten, samtidig som utvidede paletter er tilgjengelige for designere av brukergrensesnitt og bokmalverk.",
 }
 
 const illusrations: IllustrationType[] = [
   {
-    src: "https://dam-p-gyldendal.pqcloud.eu/authkey/jugH6p_77o/preview/FVgHrlJXKR1AoxS-CeWwzK/previews/maxWidth_1600_maxHeight_1600.jpg/*/illustration_preview.jpg?_=1",
+    src: damImageUrl("FVgHrlJXKR1AoxS-CeWwzK"),
     width: 771,
     height: 296,
     fill: true,

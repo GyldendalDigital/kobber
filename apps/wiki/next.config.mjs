@@ -9,6 +9,8 @@ const nextConfig = {
     dangerouslyAllowSVG: true, // ERROR (source: placeHolderImage (utils)):  The requested resource "https://placehold.co/600x400/eae0e1/691837?text=placeholder%5Cnimage" has type "image/svg+xml; charset=utf-8" but dangerouslyAllowSVG is disabled
   },
   images: {
+    loader: "custom",
+    loaderFile: "./lib/damImageLoader.ts",
     remotePatterns: [
       {
         protocol: "https",

@@ -1,14 +1,19 @@
 import { PageDetails } from "@/types/types"
+import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname } from "@/lib/utils"
+import { HeroImage } from "@/components/hero-image"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Arial",
-  image:
-    "https://dam-p-gyldendal.pqcloud.eu/authkey/xD6Ek5kB61/preview/CVfEZzAPqUGASn21lmiGDZ/previews/maxWidth_1600_maxHeight_1600.jpg/*/Inter_preview.jpg?_=1",
-  description: "",
+  status: "kommer",
+  image: damImageUrl("2ORx4_83KjR9VhrWckk2iZ", ".svg"),
 }
 
 export default function arialPage() {
-  return <div>arialPage</div>
+  return (
+    <div>
+      <HeroImage src={metadata.image} />
+    </div>
+  )
 }

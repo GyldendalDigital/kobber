@@ -1,6 +1,8 @@
 import { InterTypography } from "@/data/typography"
 import { PageDetails } from "@/types/types"
+import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname } from "@/lib/utils"
+import { HeroImage } from "@/components/hero-image"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 import { TypographyList } from "@/components/typography-list"
@@ -8,8 +10,7 @@ import { TypographyList } from "@/components/typography-list"
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Inter",
-  image:
-    "https://dam-p-gyldendal.pqcloud.eu/authkey/xD6Ek5kB61/preview/CVfEZzAPqUGASn21lmiGDZ/previews/maxWidth_1600_maxHeight_1600.jpg/*/Inter_preview.jpg?_=1",
+  image: damImageUrl("CVfEZzAPqUGASn21lmiGDZ", ".svg"),
   description:
     "Inter er en open source-font som brukes på komponenter i brukergrensesnitt, og i digitale tekster hvor det finnes pedagogiske behov for ulike varianter av bokstaver og tegn.",
 }
@@ -23,6 +24,7 @@ Inter brukes aldri brukes på markedsflater.`
 export default function InterPage() {
   return (
     <SectionLayout>
+      <HeroImage src={metadata.image} />
       <TextCollection heading={metadata.title as string} ingress={ingress} />
       <TypographyList items={InterTypography} />
     </SectionLayout>
