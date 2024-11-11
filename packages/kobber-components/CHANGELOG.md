@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.3.53
+
+### Patch Changes
+
+- Remove icon import from carousel
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.53
+  - @gyldendal/kobber-icons@0.3.53
+
 ## 0.3.52
 
 ### Patch Changes
