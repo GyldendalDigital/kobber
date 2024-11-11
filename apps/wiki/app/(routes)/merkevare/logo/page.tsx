@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { PageDetails } from "@/types/types"
+import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname } from "@/lib/utils"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
@@ -7,8 +8,7 @@ import { SectionLayout } from "@/components/section-layout"
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Logo",
-  image:
-    "https://dam-p-gyldendal.pqcloud.eu/authkey/SQNi-PWIBu/preview/CtM-1DQEapL98pVi_5S64C/previews/maxWidth_1600_maxHeight_1600.jpg/*/Gyldendal%20logo_preview.jpg?_=1",
+  image: damImageUrl("CtM-1DQEapL98pVi_5S64C"),
   description:
     "Logo er et viktig element i Gyldendal sin profil og er med på å danne kjennskap til merkevaren. Nivåene i merkevarearkitekturen reflekteres i logostrukturen. Å følge prinsippene og retningslinjene for logobruk er nødvendig for å beholde integriteten til logoene i alle typer kontekster.",
 }
@@ -40,9 +40,7 @@ export default function Page() {
           vennlig.
         </Body>
         <Image
-          src={
-            "https://dam-p-gyldendal.pqcloud.eu/authkey/chjI47R7Ug/preview/7QMhG4Do4FMAPwZw2hsz8W/previews/maxWidth_1600_maxHeight_1600.jpg/*/Prim%C3%A6rlogo_preview.jpg?_=1"
-          }
+          src={damImageUrl("7QMhG4Do4FMAPwZw2hsz8W")}
           width={711}
           height={355}
           className="object-contain"
@@ -63,9 +61,7 @@ export default function Page() {
         </Body>
 
         <Image
-          src={
-            "https://dam-p-gyldendal.pqcloud.eu/authkey/1SPXN8IAAG/preview/BssOkfJ8qo8BPiPoPP7Xdf/previews/maxWidth_1600_maxHeight_1600.jpg/*/Logovarianter_preview.jpg?_=1"
-          }
+          src={damImageUrl("BssOkfJ8qo8BPiPoPP7Xdf")}
           width={711}
           height={355}
           className="object-contain"
@@ -85,9 +81,7 @@ export default function Page() {
         </Body>
 
         <Image
-          src={
-            "https://dam-p-gyldendal.pqcloud.eu/authkey/1SPXN8IAAG/preview/EDeopuWia6SBwPNXiUwGfd/previews/maxWidth_1600_maxHeight_1600.jpg/*/Emblemvarianter_preview.jpg?_=1"
-          }
+          src={damImageUrl("EDeopuWia6SBwPNXiUwGfd")}
           width={711}
           height={355}
           className="object-contain"
@@ -103,9 +97,7 @@ export default function Page() {
         </Body>
 
         <Image
-          src={
-            "https://dam-p-gyldendal.pqcloud.eu/authkey/1SPXN8IAAG/preview/EDeopuWia6SBwPNXiUwGfd/previews/maxWidth_1600_maxHeight_1600.jpg/*/Emblemvarianter_preview.jpg?_=1"
-          }
+          src={damImageUrl("7QMhG4Do4FMAPwZw2hsz8W")}
           width={711}
           height={355}
           className="object-contain"
@@ -123,9 +115,7 @@ export default function Page() {
         </Body>
 
         <Image
-          src={
-            "https://dam-p-gyldendal.pqcloud.eu/authkey/1SPXN8IAAG/preview/EDeopuWia6SBwPNXiUwGfd/previews/maxWidth_1600_maxHeight_1600.jpg/*/Emblemvarianter_preview.jpg?_=1"
-          }
+          src={damImageUrl("7QMhG4Do4FMAPwZw2hsz8W")}
           width={711}
           height={355}
           className="object-contain"
@@ -146,9 +136,7 @@ export default function Page() {
         </Body>
 
         <Image
-          src={
-            "https://dam-p-gyldendal.pqcloud.eu/authkey/1SPXN8IAAG/preview/EDeopuWia6SBwPNXiUwGfd/previews/maxWidth_1600_maxHeight_1600.jpg/*/Emblemvarianter_preview.jpg?_=1"
-          }
+          src={damImageUrl("7QMhG4Do4FMAPwZw2hsz8W")}
           width={711}
           height={355}
           className="object-contain"
@@ -159,9 +147,7 @@ export default function Page() {
         <h5 className="text-[24px] text-[#481125]">Unngå dette</h5>
 
         <Image
-          src={
-            "https://dam-p-gyldendal.pqcloud.eu/authkey/1SPXN8IAAG/preview/EDeopuWia6SBwPNXiUwGfd/previews/maxWidth_1600_maxHeight_1600.jpg/*/Emblemvarianter_preview.jpg?_=1"
-          }
+          src={damImageUrl("EDeopuWia6SBwPNXiUwGfd")}
           width={711}
           height={355}
           className="object-contain"

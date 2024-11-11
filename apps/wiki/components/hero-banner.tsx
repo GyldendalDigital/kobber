@@ -19,7 +19,7 @@ export function HeroBanner({ src, alt, width, height, className }: HeroBannerPro
     >
       <div className="flex flex-col items-center justify-between gap-[32px] md:grid md:grid-cols-[1fr_351px]">
         <Image
-          src={"./hero-svg.svg"}
+          src={src}
           width={width}
           height={height}
           alt="Gyldendal Art"

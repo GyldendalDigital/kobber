@@ -1,4 +1,5 @@
 import { InformationCardType, PageDetails } from "@/types/types"
+import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { InformationCard } from "@/components/information-card"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
@@ -14,35 +15,35 @@ const team: InformationCardType[] = [
     title: "Irén Andresen",
     text: `Designer,
     ansvar for Kobber, merkevare`,
-    image:
-      "https://dam-p-gyldendal.pqcloud.eu/authkey/BZ2zmb-rPF/thumbnail/A-NV_1GZKAT8aR98O8Vu38/*/Kobber_088_thumb.jpg?_=1",
+    image: damImageUrl("4LatcGmH4DcAKVvCXfuSPK"),
   },
   {
     title: "Izelin Tujunen",
     text: `Designer,
     ansvar for Kobber, digital`,
-    image:
-      "https://dam-p-gyldendal.pqcloud.eu/authkey/BZ2zmb-rPF/thumbnail/A-NV_1GZKAT8aR98O8Vu38/*/Kobber_088_thumb.jpg?_=1",
+    image: damImageUrl("4LatcGmH4DcAKVvCXfuSPK"),
   },
   {
     title: "Karen Keiserud",
     text: `Direktør for kommunikasjon,
     merkevarer og samfunnskontakt`,
-    image:
-      "https://dam-p-gyldendal.pqcloud.eu/authkey/BZ2zmb-rPF/thumbnail/A-NV_1GZKAT8aR98O8Vu38/*/Kobber_088_thumb.jpg?_=1",
+    image: damImageUrl("4LatcGmH4DcAKVvCXfuSPK"),
   },
   {
     title: "Dagfinn Reitan",
     text: `Utvikler,
     ansvar for teknologi`,
+    image: damImageUrl("4LatcGmH4DcAKVvCXfuSPK"),
   },
   {
     title: "Dag Von Krogh Munkholt",
     text: "Designer",
+    image: damImageUrl("4LatcGmH4DcAKVvCXfuSPK"),
   },
   {
     title: "Kevin Minh Nguyen",
     text: "Utvikler",
+    image: damImageUrl("4LatcGmH4DcAKVvCXfuSPK"),
   },
 ]
 

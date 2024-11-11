@@ -1,5 +1,6 @@
 import { ThemeColors } from "@/data/color-palettes"
 import { PageDetails } from "@/types/types"
+import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname } from "@/lib/utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
@@ -8,8 +9,7 @@ import { SectionLayout } from "@/components/section-layout"
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Temafarger",
-  image:
-    "https://dam-p-gyldendal.pqcloud.eu/authkey/46Srf1n-yb/preview/7zxDRnQoKdQ9TOZHgE5wur/previews/maxWidth_1600_maxHeight_1600.jpg/*/tema_preview.jpg?_=1",
+  image: damImageUrl("7zxDRnQoKdQ9TOZHgE5wur"),
   description:
     "Temafarger kan benyttes i avgrensede område for å sette stemning rundt et tema, en enkeltutgivelse eller en kolleksjon av utgivelser. Det er ikke tillatt å bruke disse palettene på et helt brukergrensesnitt eller for å kategorisere produkt-spesifikt innhold.",
 }
