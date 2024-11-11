@@ -1,8 +1,8 @@
 import Link from "next/link"
-import { ExternalLink } from "lucide-react"
 import { FeatureBoxType } from "@/types/types"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { HeroBanner } from "@/components/hero-banner"
+import { IconExternalLink } from "@/components/kobber-icons"
 
 export default function Home() {
   return (
@@ -19,11 +19,11 @@ export default function Home() {
           {links.map((item, index) => (
             <li key={index}>
               <Link
-                href={item.title}
-                className="flex items-center gap-[8px] text-[14px] hover:underline"
+                href={item.href}
+                className="text-link flex items-center gap-[8px] text-[16px] hover:underline"
               >
                 {item.title}
-                <ExternalLink className="size-[16px]" />
+                <IconExternalLink style={{ "--icon-width": "12px" } as React.CSSProperties} />
               </Link>
             </li>
           ))}
@@ -63,15 +63,15 @@ const boxes: FeatureBoxType[] = [
 const links = [
   {
     title: "Github",
-    href: "#",
+    href: "https://github.com/GyldendalDigital/kobber",
   },
   {
     title: "Figma",
-    href: "#",
+    href: "https://www.figma.com/design/Ok3TVIMuuMH33Ka3spj5H8/Dokumentasjon",
   },
   {
     title: "DAM",
-    href: "#",
+    href: "https://dam-p-gyldendal.pqcloud.eu/app/#/search///?path=%22%5CKobber%5CDokumentasjon%22&enableAssetsOfCollections=false&showAssetsOfSubfolders=true&showSubCollections=false",
   },
   {
     title: "Teams",

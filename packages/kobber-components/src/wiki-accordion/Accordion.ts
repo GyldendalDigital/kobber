@@ -5,6 +5,7 @@ import "../wiki-list/ListItem";
 import { consume } from "@lit/context";
 import { Theme } from "../utils/theme-context.types";
 import { themeContext } from "../utils/theme-context";
+import KobberElement from "../base/kobber-element";
 
 export const customElementName = "kobber-wiki-accordion";
 
@@ -16,7 +17,7 @@ type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
  * @todo Add "exclusive" option which makes sure only one accordion is open at a time. See {@link https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions/#using_details_name_to_create_exclusive_accordions|example}.
  */
 @customElement(customElementName)
-export class Accordion extends LitElement {
+export class Accordion extends KobberElement {
   @consume({ context: themeContext, subscribe: true })
   theme?: Theme;
 
@@ -27,7 +28,7 @@ export class Accordion extends LitElement {
   headingLevel: HeadingLevel = 2;
 
   @query(".accordion-content")
-  contentElement!: HTMLElement;
+  contentElement!: any; // HTMLElement; // TODO: fix SSR issue
 
   toggle() {
     this.expanded = !this.expanded;
@@ -73,13 +74,7 @@ export class Accordion extends LitElement {
   }
 
   themedStyles = () => {
-    const tokens = this.theme?.tokens;
-    if (!tokens) {
-      console.debug("theme context not found");
-      return css``;
-    }
-
-    const component = tokens.component["wiki-list-item"];
+    const component = this.tokens().component["wiki-list-item"];
 
     return css`
       .accordion {

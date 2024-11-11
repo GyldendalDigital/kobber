@@ -3,6 +3,7 @@ import "./Checkbox";
 import { html } from "lit";
 
 const meta: Meta = {
+  title: "In development 🧪/Checkbox",
   component: "kobber-checkbox",
   tags: ["autodocs"],
   decorators: [(story, storyContext) => html` <div class="${storyContext.globals.theme}">${story()}</div>`],

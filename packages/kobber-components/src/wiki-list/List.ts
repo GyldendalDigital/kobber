@@ -1,9 +1,7 @@
-import { LitElement, css, html } from "lit";
+import { css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import "./ListItem";
-import { consume } from "@lit/context";
-import { Theme } from "../utils/theme-context.types";
-import { themeContext } from "../utils/theme-context";
+import KobberElement from "../base/kobber-element";
 
 export const customElementName = "kobber-wiki-list";
 
@@ -25,10 +23,7 @@ type ListOrientation = "vertical" | "horizontal" | undefined;
   If a menubar has a visible label, the element with role menubar has aria-labelledby set to a value that refers to the labelling element. Otherwise, the menubar element has a label provided by aria-label.
  */
 @customElement(customElementName)
-export class List extends LitElement {
-  @consume({ context: themeContext, subscribe: true })
-  theme?: Theme;
-
+export class List extends KobberElement {
   @property()
   orientation?: ListOrientation;
 
@@ -41,20 +36,16 @@ export class List extends LitElement {
   }
 
   render() {
-    return html` <style>
+    return html`
+      <style>
         ${this.themedStyles()}
       </style>
-      <slot></slot>`;
+      <slot></slot>
+    `;
   }
 
   themedStyles = () => {
-    const tokens = this.theme?.tokens;
-    if (!tokens) {
-      console.debug("theme context not found");
-      return css``;
-    }
-
-    const component = tokens.component["wiki-side-menu"];
+    const component = this.tokens().component["wiki-side-menu"];
 
     return css`
       :host {

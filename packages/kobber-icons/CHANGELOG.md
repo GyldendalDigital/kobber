@@ -1,5 +1,45 @@
 # @gyldendal/kobber-components
 
+## 0.3.52
+
+### Patch Changes
+
+- Bump
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.52
+
+## 0.3.51
+
+### Patch Changes
+
+- Yet more carousel styling corrections
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.51
+
+## 0.3.50
+
+### Patch Changes
+
+- Carousel CSS fixes
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.50
+
+## 0.3.49
+
+### Patch Changes
+
+- audio-recorder bugs and design improvements
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.49
+
+## 0.3.48
+
+### Patch Changes
+
+- Add Carousel exports
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.48
+
 ## 0.3.47
 
 ### Patch Changes

@@ -13,7 +13,7 @@ export function HeroBanner({ src, alt, width, height, className }: HeroBannerPro
   return (
     <header
       className={cn(
-        "mx-auto w-[95%] overflow-hidden rounded-[24px] bg-[#F9EAED] px-[16px] py-[32px] md:w-full md:p-[64px]",
+        "overflow-hidden rounded-[24px] bg-[#F9EAED] px-[16px] py-[32px] md:w-full md:p-[64px]",
         className
       )}
     >
@@ -26,7 +26,7 @@ export function HeroBanner({ src, alt, width, height, className }: HeroBannerPro
           className="block md:hidden"
         />
 
-        <div className="flex w-full flex-col gap-y-[24px]">
+        <div className="flex w-full flex-col items-center gap-y-[24px] md:items-start">
           <div className="grid w-full gap-[16px] text-center md:gap-[8px] md:text-left">
             <h1 className="text[#481125] text-[20px] md:text-[48px] md:text-text/primary/size/display/small">
               Velkommen til kobber

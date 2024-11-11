@@ -1,24 +1,22 @@
+"use client"
+
 import { FeatureBoxType } from "@/types/types"
-import { CardLayout, CardLayoutToColumnAspectRatio } from "@/components/kobber-ssr-loader"
+import { CardLayout, CardLayoutColumnAspectRatio } from "@/components/kobber-components"
 import { FeatureBoxGridItem } from "./feature-box-grid-item"
-import { Skeleton } from "./ui/skeleton"
 
 type FeatureBoxGridProps = {
   items: FeatureBoxType[]
 }
 
+/** TODO: remove padding and scaling hack when root layout padding is replaced by box layout */
 export function FeatureBoxGrid({ items }: FeatureBoxGridProps) {
   return (
-    <CardLayout aspect-ratio-height="0.9" className="p-0">
+    <CardLayout aspect-ratio-height="0.86" className="scale-[1.03] p-0">
       {items.map((item, index) => (
-        <CardLayoutToColumnAspectRatio key={index}>
+        <CardLayoutColumnAspectRatio key={index}>
           <FeatureBoxGridItem item={item} />
-        </CardLayoutToColumnAspectRatio>
+        </CardLayoutColumnAspectRatio>
       ))}
     </CardLayout>
   )
-}
-
-export function FeatureBoxGridSkeleton() {
-  return <Skeleton className="h-[270px] w-[256px] rounded-md" />
 }

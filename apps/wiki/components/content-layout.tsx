@@ -4,14 +4,11 @@ type ContentLayoutProps = {
   children: ReactNode
 }
 
+/** Wraps side menu and content. Sets fixed size for sidebar when screen >= md */
 export function ContentLayout({ children }: ContentLayoutProps) {
   return (
-    <div className="gap-x-main/gap/vertical mx-auto grid w-full grid-cols-[50px_1fr] overflow-hidden md:grid-cols-[270px_1fr]">
+    <div className="mx-auto grid w-full grid-cols-[auto_1fr] gap-x-main/gap/vertical md:grid-cols-[270px_1fr]">
       {children}
     </div>
   )
-}
-
-export function ContentShell({ children }: ContentLayoutProps) {
-  return <div className="w-full md:w-[270px]">{children}</div>
 }

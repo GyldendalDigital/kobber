@@ -2,14 +2,13 @@ name: PR close
 
 on:
   pull_request:
-    types: [closed]
+    types: [closed, synchronize, reopened]
     branches:
-      - main
+      - "*"
 
 jobs:
   close_pull_request_job:
     runs-on: ubuntu-latest
-    name: Remove storybook preview env
     steps:
       - name: Remove storybook preview env
         id: closepullrequest

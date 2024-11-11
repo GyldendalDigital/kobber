@@ -1,8 +1,8 @@
-import latest from "./tokens-2024-11-04.json"; // Set this this when updating tokens
+import tokensFromFigma from "./tokens-2024-11-07.json" assert { type: "json" };
 
 /**
  * Points to the latest Figma export.
  *
  * Used when building and testing tokens.
  */
-export default latest;
+export { tokensFromFigma };

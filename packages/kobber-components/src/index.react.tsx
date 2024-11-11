@@ -4,8 +4,6 @@ import * as React from "react";
 import { Grid } from "./grid/Grid";
 import { GridColumn } from "./grid/GridColumn";
 import { Checkbox } from "./checkbox/Checkbox";
-import { ProgressBar } from "./progress-bar/ProgressBar";
-import { ProgressBarItem } from "./progress-bar/ProgressBarItem";
 import { GridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
 import { CardLayout } from "./layouts/card-layout/CardLayout";
 import { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
@@ -16,9 +14,15 @@ import { Divider } from "./divider/Divider";
 import { customElementName as wikiAccordionName, Accordion } from "./wiki-accordion/Accordion";
 import { customElementName as wikiListName, List } from "./wiki-list/List";
 import { customElementName as wikiListItemName, ListItem } from "./wiki-list/ListItem";
+
 import { ArticleLayout } from "./article-layout/ArticleLayout";
 import { Body } from "./body/Body";
 import { Ingress } from "./ingress/Ingress";
+
+import { Carousel } from "./carousel/Carousel";
+import { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
+import { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
+
 
 export const KobberGrid = createComponent({
   tagName: "kobber-grid",
@@ -44,17 +48,19 @@ export const KobberCheckbox = createComponent({
   react: React,
 });
 
-export const KobberProgressBar = createComponent({
-  tagName: "kobber-progress-bar",
-  elementClass: ProgressBar,
-  react: React,
-});
-
-export const KobberProgressBarItem = createComponent({
-  tagName: "kobber-progress-bar-item",
-  elementClass: ProgressBarItem,
-  react: React,
-});
+// removed for SSR compatibility
+//
+// export const KobberProgressBar = createComponent({
+//   tagName: "kobber-progress-bar",
+//   elementClass: ProgressBar,
+//   react: React,
+// });
+//
+// export const KobberProgressBarItem = createComponent({
+//   tagName: "kobber-progress-bar-item",
+//   elementClass: ProgressBarItem,
+//   react: React,
+// });
 
 export const KobberCardLayout = createComponent({
   tagName: "kobber-card-layout",
@@ -125,5 +131,23 @@ export const KobberListItem = createComponent({
 export const KobberAccordion = createComponent({
   tagName: wikiAccordionName,
   elementClass: Accordion,
+  react: React,
+});
+
+export const KobberCarousel = createComponent({
+  tagName: "kobber-carousel",
+  elementClass: Carousel,
+  react: React,
+});
+
+export const KobberHorizontalLayout = createComponent({
+  tagName: "kobber-horizontal-layout",
+  elementClass: HorizontalLayout,
+  react: React,
+});
+
+export const KobberHorizontalLayoutColumn = createComponent({
+  tagName: "kobber-horizontal-layout-column",
+  elementClass: HorizontalLayoutColumn,
   react: React,
 });

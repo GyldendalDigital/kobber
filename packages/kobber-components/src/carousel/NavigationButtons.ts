@@ -2,7 +2,7 @@ import { css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { StyledLitElement } from "../utils/StyledLitElement";
 import "../button/Button";
-import "@gyldendal/kobber-icons/web-components";
+// import "@gyldendal/kobber-icons/web-components"; // TODO: fix SSR issue // import kobber icons manually on client instead
 
 @customElement("kobber-carousel-navigation-buttons")
 export class NavigationButtons extends StyledLitElement {
@@ -20,7 +20,7 @@ export class NavigationButtons extends StyledLitElement {
 
   static styles = css`
     :host {
-      z-index: 1;
+      z-index: 2;
     }
     .nav {
       --button-width: 1em;
@@ -35,10 +35,10 @@ export class NavigationButtons extends StyledLitElement {
     }
 
     .button--previous {
-      left: calc(var(--button-width) * -4);
+      left: var(--button-width);
     }
     .button--next {
-      right: calc(var(--button-width) * -4);
+      right: var(--button-width);
     }
   `;
 
@@ -50,14 +50,14 @@ export class NavigationButtons extends StyledLitElement {
             class="button button--previous"
             @click="${this.handlePreviousClick}"
             disabled
-            color="neutral"
+            color="thriller"
             ><icon-arrow_left slot="icon"
           /></kobber-button>`
         : html`<kobber-button
             aria-label="${this.getAttribute("previous-button-aria-label")}"
             class="button button--previous"
             @click="${this.handlePreviousClick}"
-            color="neutral"
+            color="thriller"
             ><icon-arrow_left slot="icon"
           /></kobber-button>`}
       ${this.nextButtonDisabled === "true"
@@ -66,14 +66,14 @@ export class NavigationButtons extends StyledLitElement {
             class="button button--next"
             @click="${this.handleNextClick}"
             disabled
-            color="neutral"
+            color="thriller"
             ><icon-arrow_right slot="icon"
           /></kobber-button>`
         : html`<kobber-button
             aria-label="${this.getAttribute("next-button-aria-label")}"
             class="button button--next"
             @click="${this.handleNextClick}"
-            color="neutral"
+            color="thriller"
             ><icon-arrow_right slot="icon"
           /></kobber-button>`}
     </div>

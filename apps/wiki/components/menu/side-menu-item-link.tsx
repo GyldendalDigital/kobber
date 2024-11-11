@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { PageDetails } from "@/types/types"
-import { ListItem } from "@/components/kobber-ssr-loader"
+import { ListItem } from "@/components/kobber-components"
 
 export const SideMenuItemLink = (item: PageDetails) => {
   const pathname = usePathname()

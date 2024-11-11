@@ -3,6 +3,7 @@ import { tokens } from "./lib/theme"
 
 const semantics = tokens.default.semantics
 const typography = tokens.default.typography
+const component = tokens.default.component
 
 const page = tokens.default.template.page
 const section = tokens.default.template.section
@@ -50,8 +51,10 @@ const config = {
       height: {},
 
       padding: {
-        "page/padding/inline/large": `${padding.inline["max-screen-1280"]}px`,
-        "page/padding/inline/xsmall": `${padding.inline["max-screen-520"]}px`,
+        "page/padding/inline/large": `${padding.inline["min-screen-1280"]}px`,
+        "page/padding/inline/medium": `${padding.inline["min-screen-720"]}px`,
+        "page/padding/inline/small": `${padding.inline["min-screen-520"]}px`,
+        "page/padding/inline/xsmall": `${padding.inline["min-screen-320"]}px`,
       },
 
       space: {},
@@ -185,6 +188,7 @@ const config = {
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
+        link: component.link.text.color,
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

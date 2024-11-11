@@ -60,6 +60,15 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+
+  /* prevents FOUC */
+  :not(:defined) {
+    display: none;
+  }
+
+  html {
+    scrollbar-gutter: stable;
+  }
 }
 
 @layer base {

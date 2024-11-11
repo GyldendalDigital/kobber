@@ -1,5 +1,35 @@
 ## 0.0.1
 
+## 0.3.52
+
+### Patch Changes
+
+- Bump
+
+## 0.3.51
+
+### Patch Changes
+
+- Yet more carousel styling corrections
+
+## 0.3.50
+
+### Patch Changes
+
+- Carousel CSS fixes
+
+## 0.3.49
+
+### Patch Changes
+
+- audio-recorder bugs and design improvements
+
+## 0.3.48
+
+### Patch Changes
+
+- Add Carousel exports
+
 ## 0.3.47
 
 ### Patch Changes

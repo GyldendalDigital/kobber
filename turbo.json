@@ -18,6 +18,7 @@
         "dist/**",
         "themes/**",
         "out/**",
+        ".next/**",
         "react/**",
         "web-components/**",
         "chunks/**",
