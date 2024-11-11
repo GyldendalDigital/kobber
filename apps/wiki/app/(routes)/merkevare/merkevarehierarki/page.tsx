@@ -2,7 +2,6 @@ import Image from "next/image"
 import { PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
-import { ArticleLayout } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 

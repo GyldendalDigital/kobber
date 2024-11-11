@@ -2,14 +2,16 @@
 
 import {
   KobberAccordion,
+  KobberArticleLayout,
+  KobberBody,
   KobberButton,
   KobberCardLayout,
   KobberCardLayoutColumnAspectRatio,
   KobberDivider,
   KobberGrid,
+  KobberIngress,
   KobberList,
   KobberListItem,
-    KobberArticleLayout, KobberBody, KobberIngress
 } from "@gyldendal/kobber-components/react"
 
 /**
@@ -24,5 +26,7 @@ export {
   KobberList as List,
   KobberListItem as ListItem,
   KobberGrid as Grid,
-    KobberArticleLayout as ArticleLayout, KobberBody as Body, KobberIngress as Ingress 
+  KobberArticleLayout as ArticleLayout,
+  KobberBody as Body,
+  KobberIngress as Ingress,
 }

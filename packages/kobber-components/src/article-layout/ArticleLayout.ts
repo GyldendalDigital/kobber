@@ -29,7 +29,7 @@ export class ArticleLayout extends LitElement {
       return css``;
     }
 
-    const article = tokens.template["article-layout"];
+    const article = tokens.template["article-wrapper"];
 
     return css`
       div {

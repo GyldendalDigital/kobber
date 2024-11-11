@@ -17,4 +17,3 @@ export { Ingress } from "./ingress/Ingress";
 export { Carousel } from "./carousel/Carousel";
 export { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 export { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
-
