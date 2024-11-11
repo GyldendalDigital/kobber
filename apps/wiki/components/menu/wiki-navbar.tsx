@@ -1,10 +1,9 @@
 import { metadata as komigangPage } from "@/app/(routes)/kom-i-gang/page"
 import { metadata as komponenterPage } from "@/app/(routes)/komponenter/page"
-import { metadata as kontaktPage } from "@/app/(routes)/kontakt/page"
 import { metadata as merkevarePage } from "@/app/(routes)/merkevare/page"
 import { WikiNavbarContainer } from "./wiki-navbar-container"
 
-const pageDetailsArray = [komigangPage, merkevarePage, komponenterPage, kontaktPage]
+const pageDetailsArray = [komigangPage, merkevarePage, komponenterPage]
 
 export function WikiNavbar() {
   return (

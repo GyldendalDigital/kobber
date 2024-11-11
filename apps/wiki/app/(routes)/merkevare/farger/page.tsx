@@ -2,7 +2,7 @@ import { PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { Heading } from "@/components/heading"
-import { Ingress } from "@/components/kobber-components"
+import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { metadata as merkevareFargerPage } from "./identitetspalett/page"
 import { metadata as merkevareTemafargerPage } from "./temafarger/page"
@@ -20,7 +20,7 @@ export const metadata: PageDetails = {
 export default function FargerSection() {
   return (
     <SectionLayout>
-      <div>
+      <ArticleWrapper>
         <Heading text={metadata.title as string} />
         <Ingress>
           Gyldendals fargepalett er laget for å balansere det funksjonelle og det emosjonelle, og
@@ -29,7 +29,7 @@ export default function FargerSection() {
           av Gyldendals viktigste verdier, og det skal derfor være lett å lage fargekombinasjoner
           som oppfyller kravene til universell utforming.
         </Ingress>
-      </div>
+      </ArticleWrapper>
 
       <FeatureBoxGrid items={metadata.children ?? []} />
     </SectionLayout>

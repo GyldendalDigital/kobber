@@ -10,10 +10,10 @@ type HeadingProps = {
 
 export function Heading({ text, size = "display/small", children, className }: HeadingProps) {
   return (
-    <div className="flex flex-col gap-[8px]">
+    <div className="flex w-full flex-col gap-[8px]">
       <h1
         className={cn(
-          "truncate text-[#481125]",
+          "truncate text-[#691837]",
           {
             "text-[24px]": size === "xs",
             "text-text/primary/size/display/small": size === "display/small",

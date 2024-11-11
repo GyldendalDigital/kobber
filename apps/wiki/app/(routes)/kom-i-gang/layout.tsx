@@ -5,12 +5,13 @@ import { SideMenu } from "@/components/menu/side-menu"
 import { SideMenuItem } from "@/components/menu/side-menu-item"
 import { metadata as howToUsePage } from "@/app/(routes)/kom-i-gang/hvordan-bruke-kobber/page"
 import { metadata as introductionPage } from "@/app/(routes)/kom-i-gang/introduksjon/page"
+import { metadata as contactPage } from "@/app/(routes)/kom-i-gang/kontakt/page"
 
 type GetStartedLayoutProps = {
   children: React.ReactNode
 }
 
-const GetStartedRoutes: PageDetails[] = [introductionPage, howToUsePage]
+const GetStartedRoutes: PageDetails[] = [introductionPage, howToUsePage, contactPage]
 
 export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
   return (

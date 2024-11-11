@@ -2,8 +2,8 @@ import Image from "next/image"
 import { PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
+import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
-import { TextCollection } from "@/components/text-collection"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
@@ -15,19 +15,31 @@ export const metadata: PageDetails = {
 
 export default function MerkevareHeriarkiPage() {
   return (
-    <SectionLayout>
-      <TextCollection
-        heading="Merkevarehierarki"
-        ingress="Merkevarearkitekturens formål er å gi en klar struktur over merkevaren vår og hvordan produktene og løsningene våre henger sammen. Arkitekturen skal sørge for at vi snakker med konsistent visuell stemme, slik at vi styrker kommunikasjonen med og relasjonene til alle våre målgrupper. Dette vil gi større kraft til merkevaren Gyldendal, og gi oss bedre muligheter til å skape større verdi og nå våre mål."
-      />
+    <SectionLayout className="max-w-[711px]">
+      <ArticleWrapper>
+        {/* TODO CHANGE TO HEADING */}
+        <h2 className="text-[48px] text-[#691837]">Merkevarehierarki</h2>
+        <Ingress>
+          Merkevarearkitekturens formål er å gi en klar struktur over merkevaren vår og hvordan
+          produktene og løsningene våre henger sammen. Arkitekturen skal sørge for at vi snakker med
+          konsistent visuell stemme, slik at vi styrker kommunikasjonen med og relasjonene til alle
+          våre målgrupper. Dette vil gi større kraft til merkevaren Gyldendal, og gi oss bedre
+          muligheter til å skape større verdi og nå våre mål.
+        </Ingress>
+      </ArticleWrapper>
 
-      <ContentSection
-        textCollection={{
-          text: `Gyldendal benytter seg av et hybridhierarki med et overordnet mormerke. Dette betyr at under-merkevarer skal enten være veldig tett knyttet til Gyldendal, eller fremstå fullstendig adskilt. 
+      <div className="grid gap-[24px]">
+        <Body>
+          Gyldendal benytter seg av et hybridhierarki med et overordnet mormerke. Dette betyr at
+          under-merkevarer skal enten være veldig tett knyttet til Gyldendal, eller fremstå
+          fullstendig adskilt. 
+          <br />
+          <br />
+          På grunnlag av dette har vi fire nivåer i Gyldendals merkevarehierarki: mormerke, støttede
+          utgivelser og verk, støttede identiteter og frittstående identiteter. Disse forklares mer
+          i detalj på denne siden.
+        </Body>
 
-På grunnlag av dette har vi fire nivåer i Gyldendals merkevarehierarki: mormerke, støttede utgivelser og verk, støttede identiteter og frittstående identiteter. Disse forklares mer i detalj på denne siden.`,
-        }}
-      >
         <Image
           src={
             "https://dam-p-gyldendal.pqcloud.eu/authkey/p7tO9lQwG8/preview/4WYa-6IgqHmAdCdw9SxjB3/previews/maxWidth_1600_maxHeight_1600.jpg/*/Merkevarehierarki_preview.jpg?_=1"
@@ -36,7 +48,7 @@ På grunnlag av dette har vi fire nivåer i Gyldendals merkevarehierarki: mormer
           height={294}
           alt="Illustrasjon"
         />
-      </ContentSection>
+      </div>
 
       <ContentSection
         textCollection={{
