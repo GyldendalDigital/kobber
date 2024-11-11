@@ -1,8 +1,9 @@
 import { PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
+import { Heading } from "@/components/heading"
+import { Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
-import { TextCollection } from "@/components/text-collection"
 import { metadata as iconsetPage } from "@/app/(routes)/merkevare/ikoner/ikonsett/page"
 import { metadata as guidelinesPage } from "@/app/(routes)/merkevare/ikoner/retningslinjer/page"
 
@@ -18,10 +19,13 @@ export const metadata: PageDetails = {
 export default function IkonerPage() {
   return (
     <SectionLayout>
-      <TextCollection
-        heading={metadata.title as string}
-        subheading="Vi bruker ikoner for å gjøre det enklere for brukerne å forstå innhold, elementer og oppgaver. Et effektivt ikon formidler et konsept på en måte som er intuitivt for brukerne."
-      />
+      <div>
+        <Heading text={metadata.title as string} />
+        <Ingress>
+          Vi bruker ikoner for å gjøre det enklere for brukerne å forstå innhold, elementer og
+          oppgaver. Et effektivt ikon formidler et konsept på en måte som er intuitivt for brukerne.
+        </Ingress>
+      </div>
       <FeatureBoxGrid items={metadata.children ?? []} />
     </SectionLayout>
   )

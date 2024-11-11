@@ -14,9 +14,15 @@ import { Divider } from "./divider/Divider";
 import { customElementName as wikiAccordionName, Accordion } from "./wiki-accordion/Accordion";
 import { customElementName as wikiListName, List } from "./wiki-list/List";
 import { customElementName as wikiListItemName, ListItem } from "./wiki-list/ListItem";
+
+import { ArticleLayout } from "./article-layout/ArticleLayout";
+import { Body } from "./body/Body";
+import { Ingress } from "./ingress/Ingress";
+
 import { Carousel } from "./carousel/Carousel";
 import { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 import { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
+
 
 export const KobberGrid = createComponent({
   tagName: "kobber-grid",
@@ -59,6 +65,24 @@ export const KobberCheckbox = createComponent({
 export const KobberCardLayout = createComponent({
   tagName: "kobber-card-layout",
   elementClass: CardLayout,
+  react: React,
+});
+
+export const KobberArticleLayout = createComponent({
+  tagName: "kobber-article-layout",
+  elementClass: ArticleLayout,
+  react: React,
+});
+
+export const KobberBody = createComponent({
+  tagName: "kobber-body",
+  elementClass: Body,
+  react: React,
+});
+
+export const KobberIngress = createComponent({
+  tagName: "kobber-ingress",
+  elementClass: Ingress,
   react: React,
 });
 

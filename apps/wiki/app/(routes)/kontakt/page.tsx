@@ -1,6 +1,7 @@
 import { InformationCardType, PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { InformationCard } from "@/components/information-card"
+import { Body, Ingress } from "@/components/kobber-components"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
@@ -49,12 +50,13 @@ export default function ContactPage() {
         <h1 className="text-[48px] font-light leading-[57.6px] text-[#481125]">
           Trenger du hjelp?
         </h1>
-        <p className="text-[24px] leading-[33.6px] text-[#532D37]">
+
+        <Ingress>
           Ikke nøl med å ta kontakt om det er noe som er uklart, om du syns noe mangler eller om du
           har en generell tilbakemelding.
-        </p>
+        </Ingress>
 
-        <p className="text-16 whitespace-pre-wrap leading-[24px] text-[#532D37]">
+        <Body>
           Kobber eies av kommunikasjonsavdelingen i konsern. Det er foreløpig ikke et eget definert
           team, men vi er en arbeidsgruppe fra ulike deler av konsern.
           <br />
@@ -63,7 +65,7 @@ export default function ContactPage() {
           direkte kontakt med Irén eller Izelin ved forespørsel om nyutvikling som for eksempel
           utvikling av ny løsning, komponenter, logo, nytt materiell eller ved spørsmål om mulige
           unntak.
-        </p>
+        </Body>
       </section>
       <section className="grid grid-cols-1 items-center justify-center gap-x-section/gap/vertical md:grid-cols-2 lg:grid-cols-3">
         {team.map((person) => (

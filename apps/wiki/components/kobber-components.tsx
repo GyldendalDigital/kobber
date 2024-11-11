@@ -9,6 +9,7 @@ import {
   KobberGrid,
   KobberList,
   KobberListItem,
+    KobberArticleLayout, KobberBody, KobberIngress
 } from "@gyldendal/kobber-components/react"
 
 /**
@@ -23,4 +24,5 @@ export {
   KobberList as List,
   KobberListItem as ListItem,
   KobberGrid as Grid,
+    KobberArticleLayout as ArticleLayout, KobberBody as Body, KobberIngress as Ingress 
 }

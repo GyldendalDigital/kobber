@@ -1,8 +1,8 @@
 import Image from "next/image"
-import { IllustrationType, PageDetails } from "@/types/types"
+import { PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
-import { Illustrations } from "@/components/illustrations"
+import { ArticleLayout } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 
@@ -13,53 +13,6 @@ export const metadata: PageDetails = {
   description:
     "Merkevarehierarki skal sikre gjenkjennelighet for merkevaren og stå seg like godt på det analoge som på det digitale. Kombinasjonen av en leken og moderne primærfont i PP Mori, og en moderne tolkning av en klassisk serif i Lyon Display, gjør at vi forener tradisjon og innovasjon på en varm og uhøytidelig måte.",
 }
-
-const merkevareIllustration: IllustrationType[] = [
-  {
-    src: "https://dam-p-gyldendal.pqcloud.eu/authkey/p7tO9lQwG8/preview/4WYa-6IgqHmAdCdw9SxjB3/previews/maxWidth_1600_maxHeight_1600.jpg/*/Merkevarehierarki_preview.jpg?_=1",
-    alt: "",
-    width: 370,
-    height: 243,
-  },
-]
-
-const levelOneIllustrations: IllustrationType[] = [
-  {
-    src: null,
-    alt: "",
-    width: 373,
-    height: 300,
-  },
-]
-
-const levelTwoIllustrations: IllustrationType[] = [
-  {
-    src: null,
-    width: 503,
-    height: 221,
-  },
-  {
-    src: null,
-    width: 503,
-    height: 298,
-  },
-]
-
-const levelThreeIllustrations: IllustrationType[] = [
-  {
-    src: null,
-    width: 435,
-    height: 334,
-  },
-]
-
-const levelFourIllustrations: IllustrationType[] = [
-  {
-    src: null,
-    width: 400,
-    height: 315,
-  },
-]
 
 export default function MerkevareHeriarkiPage() {
   return (
