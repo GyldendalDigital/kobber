@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.53
+
+### Patch Changes
+
+- Remove icon import from carousel
+
 ## 0.3.52
 
 ### Patch Changes
