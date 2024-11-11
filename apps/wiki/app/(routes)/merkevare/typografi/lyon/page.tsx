@@ -7,7 +7,7 @@ import { TypographyList } from "@/components/typography-list"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
-  title: "Lyon",
+  title: "Lyon Display",
   image:
     "https://dam-p-gyldendal.pqcloud.eu/authkey/xD6Ek5kB61/preview/DthsF6rXaovA8F7r_pJR0x/previews/maxWidth_1600_maxHeight_1600.jpg/*/LyonDisplay_preview.jpg?_=1",
   description:
