@@ -1,5 +1,6 @@
 import { PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { IconGrid } from "./icon-grid"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
@@ -10,5 +11,9 @@ export const metadata: PageDetails = {
 }
 
 export default function IkonSett() {
-  return <div>IkonSett</div>
+  return (
+    <div>
+      <IconGrid />
+    </div>
+  )
 }
