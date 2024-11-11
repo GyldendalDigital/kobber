@@ -30,8 +30,10 @@ export default function Introduksjon() {
           </h2>
 
           <Ingress className="max-w-[712px]">
-            Designsystemet vårt sikrer konsistent og god brukeropplevelse på tvers av nettsider,
-            publikasjoner, kommunikasjon og løsninger i Gyldendal.
+            Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem
+            bestående av gjenbrukbare, fleksible ressurser slik som digitale komponenter, malverk,
+            retningslinjer og kode. Samtidig tydeliggjør det vår merkevarestrategi, våre felles
+            verdier og de opplevelsene vi har som mål å tilby våre sluttbrukere.
           </Ingress>
         </ArticleWrapper>
         <SectionLayout className="max-w-[712px]">
