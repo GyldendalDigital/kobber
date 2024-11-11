@@ -7,7 +7,7 @@ import { TypographyList } from "@/components/typography-list"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
-  title: "UI-font: Inter",
+  title: "Inter",
   image:
     "https://dam-p-gyldendal.pqcloud.eu/authkey/xD6Ek5kB61/preview/CVfEZzAPqUGASn21lmiGDZ/previews/maxWidth_1600_maxHeight_1600.jpg/*/Inter_preview.jpg?_=1",
   description:
