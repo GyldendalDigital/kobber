@@ -23,6 +23,7 @@ export class ArticleWrapper extends KobberElement {
         display: flex;
         flex-direction: column;
         gap: ${article.gap.horizontal}px;
+        overflow: hidden;
       }
     `;
   };

@@ -2,6 +2,7 @@ import { PPMoriTypography } from "@/data/typography"
 import { PageDetails } from "@/types/types"
 import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname } from "@/lib/utils"
+import { HeroImage } from "@/components/hero-image"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 import { TypographyList } from "@/components/typography-list"
@@ -9,7 +10,7 @@ import { TypographyList } from "@/components/typography-list"
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "PP Mori",
-  image: damImageUrl("2EyeCFedaTx9HKSLc9MOEL"),
+  image: damImageUrl("2EyeCFedaTx9HKSLc9MOEL", ".svg"),
   description:
     "PP Mori er Gyldendals identitetsbærende hovedskrift og benyttes i Gyldendal på alle nivåer i vår kommunikasjon - fra logoer til overskrifter, brødtekst og fotnoter.",
 }
@@ -23,6 +24,7 @@ I vanlig typografisk bruk er det lov å benytte seg av vektene fra Light til Bol
 export default function PPMoriPage() {
   return (
     <SectionLayout>
+      <HeroImage src={metadata.image} />
       <TextCollection heading={metadata.title as string} ingress={ingress} />
       <TypographyList items={PPMoriTypography} />
     </SectionLayout>

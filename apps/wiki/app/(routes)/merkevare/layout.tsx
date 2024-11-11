@@ -5,7 +5,7 @@ import { SideMenuGroup } from "@/components/menu/side-menu-group"
 import { SessionProvider } from "@/components/providers/session-provider"
 import { metadata as fargerPage } from "./farger/page"
 import { metadata as merkevareIkonerPage } from "./ikoner/page"
-import { metadata as merkevareLayoutPage } from "./layout/page"
+// import { metadata as merkevareLayoutPage } from "./layout/page"
 import { metadata as merkevareLogoPage } from "./logo/page"
 import { metadata as typografiPage } from "./typografi/page"
 
@@ -26,7 +26,8 @@ export default async function MerkevareLayout({ children }: GetStartedLayoutProp
               fargerPage,
               typografiPage,
               merkevareIkonerPage,
-              merkevareLayoutPage,
+              // merkevareLayoutPage, // removed until further notice
+              // see https://gyldendal.slack.com/archives/C07HL681DV3/p1731334837774659
             ]}
             isOpenInitially
           />

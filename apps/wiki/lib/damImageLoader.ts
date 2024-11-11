@@ -1,7 +1,9 @@
 import type { ImageLoaderProps } from "next/image"
 
+const separator = "|||"
+
 export const damImageUrl = (assetId: string, extension: FileExtension = ".png") =>
-  [assetId, extension].join("|")
+  [assetId, extension].join(separator)
 
 /**
  * @param src - should include the dam asset id and mime type, in this format: `assetId/mimeType`
@@ -11,11 +13,11 @@ export const damImageUrl = (assetId: string, extension: FileExtension = ".png") 
  * @see {@link https://helpcenter.woodwing.com/hc/en-us/articles/115002690026-Elvis-6-API-Previews | DAM preview docs}.
  */
 export default function damImageLoader({ src, width, quality }: ImageLoaderProps) {
-  const [assetId, extension] = src.split("|")
-
-  if (!assetId) {
+  if (!src?.includes(separator)) {
     return src
   }
+
+  const [assetId, extension] = src.split(separator)
 
   /**
    * Preview endpoint doesn't support SVGs.

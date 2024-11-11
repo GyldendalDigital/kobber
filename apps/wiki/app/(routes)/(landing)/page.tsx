@@ -43,21 +43,21 @@ const boxes: FeatureBoxType[] = [
   {
     title: "Introduksjon av Kobber",
     href: "/kom-i-gang",
-    image: damImageUrl("2bULAP2gabp9rC4A1CbQSB"),
+    image: damImageUrl("2bULAP2gabp9rC4A1CbQSB", ".jpg"),
   },
   {
     title: "Vår nye Gyldendal-logo",
-    image: damImageUrl("CtM-1DQEapL98pVi_5S64C"),
+    image: damImageUrl("CtM-1DQEapL98pVi_5S64C", ".svg"),
     href: "/merkevare/logo",
   },
   {
     title: "Vår nye fargepalett",
-    image: damImageUrl("BkRpubsF45_8o0iVkKSQod"),
+    image: damImageUrl("BkRpubsF45_8o0iVkKSQod", ".svg"),
     href: "/merkevare/farger",
   },
   {
     title: "Fonter",
-    image: damImageUrl("Frg1nstAKYsA0hKXNk3z5x"),
+    image: damImageUrl("Frg1nstAKYsA0hKXNk3z5x", ".svg"),
     href: "/merkevare/typografi",
   },
 ]
