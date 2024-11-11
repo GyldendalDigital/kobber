@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 
 const meta: Meta = {
-  title: "In development 🧪/ArticleLayout",
-  component: "kobber-article-layout",
+  title: "In development 🧪/ArticleWrapper",
+  component: "kobber-article-wrapper",
   tags: ["autodocs"],
   decorators: [
     (Story, context) => `
@@ -17,6 +17,6 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-export const ArticleLayout: Story = {
+export const ArticleWrapper: Story = {
   args: {},
 };

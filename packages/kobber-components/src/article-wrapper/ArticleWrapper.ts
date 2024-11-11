@@ -4,8 +4,8 @@ import { themeContext } from "../utils/theme-context";
 import { Theme } from "../utils/theme-context.types";
 import { consume } from "@lit/context";
 
-@customElement("kobber-article-layout")
-export class ArticleLayout extends LitElement {
+@customElement("kobber-article-wrapper")
+export class ArticleWrapper extends LitElement {
   @consume({ context: themeContext, subscribe: true })
   theme?: Theme;
 
