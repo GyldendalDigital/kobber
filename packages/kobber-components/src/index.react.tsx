@@ -4,8 +4,6 @@ import * as React from "react";
 import { Grid } from "./grid/Grid";
 import { GridColumn } from "./grid/GridColumn";
 import { Checkbox } from "./checkbox/Checkbox";
-import { ProgressBar } from "./progress-bar/ProgressBar";
-import { ProgressBarItem } from "./progress-bar/ProgressBarItem";
 import { GridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
 import { CardLayout } from "./layouts/card-layout/CardLayout";
 import { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
@@ -44,17 +42,19 @@ export const KobberCheckbox = createComponent({
   react: React,
 });
 
-export const KobberProgressBar = createComponent({
-  tagName: "kobber-progress-bar",
-  elementClass: ProgressBar,
-  react: React,
-});
-
-export const KobberProgressBarItem = createComponent({
-  tagName: "kobber-progress-bar-item",
-  elementClass: ProgressBarItem,
-  react: React,
-});
+// removed for SSR compatibility
+//
+// export const KobberProgressBar = createComponent({
+//   tagName: "kobber-progress-bar",
+//   elementClass: ProgressBar,
+//   react: React,
+// });
+//
+// export const KobberProgressBarItem = createComponent({
+//   tagName: "kobber-progress-bar-item",
+//   elementClass: ProgressBarItem,
+//   react: React,
+// });
 
 export const KobberCardLayout = createComponent({
   tagName: "kobber-card-layout",

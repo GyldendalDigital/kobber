@@ -1,8 +1,6 @@
-import { LitElement, css, html, unsafeCSS } from "lit";
+import { css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { consume } from "@lit/context";
-import { Theme } from "../utils/theme-context.types";
-import { themeContext } from "../utils/theme-context";
+import KobberElement from "../base/kobber-element";
 
 export const customElementName = "kobber-wiki-list-item";
 
@@ -13,10 +11,7 @@ export const customElementName = "kobber-wiki-list-item";
  * @example parent role="menubar" => item role="menuitem"
  */
 @customElement(customElementName)
-export class ListItem extends LitElement {
-  @consume({ context: themeContext, subscribe: true })
-  theme?: Theme;
-
+export class ListItem extends KobberElement {
   @property({ reflect: true })
   active?: boolean;
 
@@ -47,14 +42,9 @@ export class ListItem extends LitElement {
   }
 
   themedStyles() {
-    const tokens = this.theme?.tokens;
-    if (!tokens) {
-      console.log("should never occur");
-      return css``;
-    }
-
-    const component = tokens.component["wiki-list-item"];
-    const typography = tokens.typography.ui;
+    const component = this.tokens().component["wiki-list-item"];
+    const typography = this.tokens().typography.ui;
+    const global = this.tokens().global;
 
     return css`
       :host {
@@ -97,7 +87,7 @@ export class ListItem extends LitElement {
 
       :host(:focus-visible) {
         outline: none;
-        box-shadow: 0 0 0 ${tokens.global.focus.border.width}px ${unsafeCSS(tokens.global.focus.color)};
+        box-shadow: 0 0 0 ${global.focus.border.width}px ${unsafeCSS(global.focus.color)};
       }
 
       ::slotted([slot="icon"]) {

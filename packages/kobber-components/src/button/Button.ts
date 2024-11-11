@@ -1,7 +1,5 @@
-import { LitElement, css, html, unsafeCSS } from "lit";
-import { consume } from "@lit/context";
-import { customElement, property, query, state } from "lit/decorators.js";
-import { themeContext } from "../utils/theme-context";
+import { css, html, unsafeCSS } from "lit";
+import { customElement, property, state } from "lit/decorators.js";
 import {
   ButtonBackgroundColor,
   ButtonVariant,
@@ -9,7 +7,7 @@ import {
   ButtonBorderColor,
   ButtonIconSettings,
 } from "./Button.types";
-import { Theme } from "../utils/theme-context.types";
+import KobberElement from "../base/kobber-element";
 
 /**
  * Button with icon
@@ -19,15 +17,12 @@ import { Theme } from "../utils/theme-context.types";
  * Figma: https://www.figma.com/design/zMcbm8ujSMldgS1VB70IMP/Styles-%26-komponenter?node-id=111-158&node-type=canvas&m=dev
  */
 @customElement("kobber-button")
-export class Button extends LitElement {
-  @consume({ context: themeContext, subscribe: true })
-  theme?: Theme;
+export class Button extends KobberElement {
+  @property()
+  color: ButtonBackgroundColor = "aubergine";
 
   @property()
-  color: ButtonBackgroundColor = "carmine";
-
-  @property()
-  variant: ButtonVariant = "main";
+  variant: ButtonVariant = "supplemental alt";
 
   @property()
   level: ButtonLevel = "primary";
@@ -61,28 +56,19 @@ export class Button extends LitElement {
   }
 
   render() {
-    if (!this.color) return "Color undefined";
-    if (!this.variant) return "Variant undefined";
-    if (!this.level) return "Level undefined";
-
     const themeStyles = this.themedStyles();
+    if (!themeStyles) return null;
 
     return html`
       <style>
         ${themeStyles}
       </style>
-      <!-- TODO: set all relevant attributes -->
       <button class=${this.classList.value} ?disabled=${this.disabled} aria-label="${this._label}">
         <span><slot></slot></span>
         <slot name="icon"></slot>
       </button>
     `;
   }
-
-  // Hva blir denne brukt til?
-  colorFallback = () => {
-    return this.color ?? "carmine";
-  };
 
   variantFallback = (): Exclude<ButtonVariant, "supplemental alt"> => {
     // if (this.variant == "supplemental alt") {
@@ -96,15 +82,13 @@ export class Button extends LitElement {
     return this.level as Exclude<ButtonLevel, "secondary">;
   };
 
+  /** Use default tokens if no theme is provided */
   themedStyles = () => {
-    const tokens = this.theme?.tokens;
-    if (!tokens) {
-      console.error("theme context not provided");
-      return css``;
-    }
+    if (!this.color || !this.variant || !this.level) return null;
 
-    const component = tokens.component.button;
-    const typography = tokens.typography.ui.button;
+    const component = this.tokens().component.button;
+    const typography = this.tokens().typography.ui.button;
+    const global = this.tokens().global;
 
     // TODO:
     // - icon only tokens: padding
@@ -115,7 +99,7 @@ export class Button extends LitElement {
         /* Common for all variants */
         display: flex;
         flex-direction: ${unsafeCSS(this.iconSettings === "right" ? "row" : "row-reverse")};
-        align-items: center;
+        align-items: end;
         gap: ${this._isIconButton ? 0 : component.container.gap}px;
         padding-block: ${this._isIconButton ? 12 : component.container.padding.block}px;
         padding-inline: ${this._isIconButton ? 12 : component.container.padding.inline}px;
@@ -131,7 +115,6 @@ export class Button extends LitElement {
         transition: scale 200ms ease-in 0s;
 
         /* Different for each variant */
-        background-color: ${unsafeCSS(component.background.color.carmine.main.primary.fallback)};
         background-color: ${unsafeCSS(
           this.level === "secondary"
             ? "transparent"
@@ -147,7 +130,7 @@ export class Button extends LitElement {
         &.focus-visible {
           outline: none;
           /* TODO: handle secondary level transparent */
-          box-shadow: 0 0 0 ${tokens.global.focus.border.width}px ${unsafeCSS(tokens.global.focus.color)};
+          box-shadow: 0 0 0 ${global.focus.border.width}px ${unsafeCSS(global.focus.color)};
         }
 
         &:disabled {

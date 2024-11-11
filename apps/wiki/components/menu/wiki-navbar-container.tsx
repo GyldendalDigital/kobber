@@ -3,15 +3,14 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { KobberButton } from "@gyldendal/kobber-components/react"
 import { Menu, X } from "lucide-react"
 import { signOut, useSession } from "next-auth/react"
 import { PageDetails } from "@/types/types"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import { ssoSignIn } from "@/hooks/use-sso-sign-in"
-import { Button } from "@/components/ui/button"
-import { LoginIcon, LogoutIcon } from "../kobber-ssr-loader"
+import { Button } from "@/components/kobber-components"
+import { IconLogin, IconLogout } from "@/components/kobber-icons"
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 import { WikiHeaderItem } from "./wiki-header-item"
 
@@ -53,20 +52,23 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
           ))}
 
           <li className="ml-[56px] flex items-center gap-2">
-            <KobberButton color="aubergine" onClick={handleAuth} variant="supplemental alt">
+            <Button onClick={handleAuth}>
               Logg {session?.user ? "ut" : "inn"}
-              {session?.user ? (
-                <LogoutIcon className="size-4" slot="icon" />
-              ) : (
-                <LoginIcon className="size-4" slot="icon" />
-              )}
-            </KobberButton>
+              <span slot="icon">
+                {session?.user ? (
+                  <IconLogout className="size-4" />
+                ) : (
+                  <IconLogin className="size-4" />
+                )}
+              </span>
+            </Button>
           </li>
         </ul>
 
         <Sheet modal={false} open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button
+              color="carmine"
               className={cn("flex size-[40px] rounded-[8px] bg-[#f9eaedff] p-0 md:hidden", {
                 "bg-[#dc134fff] hover:bg-[#dc134fff]": isOpen,
               })}

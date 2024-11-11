@@ -16,7 +16,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { InteractiveScreen } from "@/components/interactive-screen"
-import { Button, IconArrowRight } from "@/components/kobber-ssr-loader"
+import { Button } from "@/components/kobber-components"
+import { IconArrowRight } from "@/components/kobber-icons"
 
 type BrandColor = keyof typeof component.button.background.color
 const brandColors = Object.keys(primitives.color) as Array<BrandColor>
@@ -41,7 +42,11 @@ export function ButtonSection({ level }: { level: ButtonLevel }) {
           level={level}
         >
           Button
-          {iconOptions !== "none" && <IconArrowRight slot="icon" />}
+          {iconOptions !== "none" && (
+            <span slot="icon">
+              <IconArrowRight />
+            </span>
+          )}
         </Button>
       )}
     </InteractiveScreen>
