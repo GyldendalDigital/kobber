@@ -162,9 +162,7 @@ export class Button extends KobberElement {
 
       ::slotted([slot="icon"]) {
         display: ${unsafeCSS(this.iconSettings === "none" ? "none" : "flex")};
-        color: ${this.disabled === true
-          ? unsafeCSS(component.icon.color[this.color]?.[this.variantFallback()]?.primary.fallback)
-          : unsafeCSS(component.icon.color[this.color]?.[this.variantFallback()]?.primary.fallback)};
+        color: ${unsafeCSS(component.icon.color[this.color]?.[this.variantFallback()]?.primary.fallback)};
         --icon-width: ${component.icon.size.width.small}px;
         --icon-height: ${component.icon.size.height.small}px;
       }
