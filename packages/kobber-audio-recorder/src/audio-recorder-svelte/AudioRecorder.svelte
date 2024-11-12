@@ -368,6 +368,7 @@
             audioDurationArray = [];
             currentAudioIndex = 0;
             currentTimePercentage = "0%";
+            audioDataIndex = 0;
             timeTotal = 0;
             audioData = [];
             mp3Callback(audioData);
