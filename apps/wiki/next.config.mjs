@@ -27,6 +27,8 @@ const nextConfig = {
 
 export default nextConfig
 
+// Sentry PR: https://github.com/GyldendalDigital/kobber/pull/111
+
 // export default withSentryConfig(nextConfig, {
 //   // For all available options, see:
 //   // https://github.com/getsentry/sentry-webpack-plugin#options
