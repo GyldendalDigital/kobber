@@ -18,17 +18,32 @@
     <script type="module" src="/src/main.mjs"></script>
     <script type="module">
       let a = await fetch(`https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg`).then((mp3) => mp3.blob()).catch(console.log("could not fetch the data :("));
-      const temp1 = document.querySelector("kobber-audio-recorder");
-      temp1.mp3Callback = (e) => {console.log("check", e)};
+      let temp1 = document.querySelector("kobber-audio-recorder");
+      let savedData = undefined;
+
+      function callbackTester (e) {
+        console.log("callbackTester", e);
+        savedData = e;
+      }
+
+      temp1.mp3Callback = callbackTester;
 
       document.getElementById("start-data-button").addEventListener("click", () => {
-        temp1.audioData = a;
+        temp1.audioData = [a];
       })
       document.getElementById(".lang").addEventListener("change", (e) => {
         temp1.lang = e.target.value;
       })
+      document.getElementById("reload-button").addEventListener("click", () => {
+        let parent  = document.getElementById("recorder-parent");
+        parent.removeChild(temp1);
+        temp1 = document.createElement("kobber-audio-recorder");
+        temp1.audioData = savedData;
+        temp1.mp3Callback = callbackTester;
+        parent.appendChild(temp1);
+      })
     </script>
-    <div style="width: 16em">
+    <div id="recorder-parent" style="width: 16em">
       <kobber-audio-recorder></kobber-audio-recorder>
     </div>
 <!--    <kobber-audio-recorder></kobber-audio-recorder>-->
@@ -38,5 +53,6 @@
       <option value="nn">Nynorsk</option>
       <option value="en">English</option>
     </select>
+    <button id="reload-button">Reload with existing data</button>
   </body>
 </html>
