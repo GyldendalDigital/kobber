@@ -531,7 +531,7 @@
               ? new Date(recordedSeconds * 1000).toISOString().substring(14, 19)
               : (
                 new Date(roundWithDecimals(currentTimeGlobal, 0)*1000).toISOString().substring(14, 19)
-                + translations[lang].of +
+                + " " + translations[lang].of + " " +
                 new Date(roundWithDecimals(timeTotal, 0)*1000).toISOString().substring(14, 19)
                 )
               }
