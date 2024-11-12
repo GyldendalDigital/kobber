@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.54
+
+### Patch Changes
+
+- kobber-components react-ssr-safe export
+
 ## 0.3.53
 
 ### Patch Changes

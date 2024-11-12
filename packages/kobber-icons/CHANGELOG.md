@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.54
+
+### Patch Changes
+
+- kobber-components react-ssr-safe export
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.54
+
 ## 0.3.53
 
 ### Patch Changes
