@@ -27,7 +27,7 @@ export default function TypografiPage() {
   return (
     <SectionLayout>
       <div>
-        <Heading text={metadata.title as string} />
+        <Heading>{metadata.title as string}</Heading>
 
         <Ingress>
           Vårt typografiske system skal håndtere hele Gyldendals bredde av ulike sjangere og

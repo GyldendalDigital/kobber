@@ -1,30 +1,18 @@
 import Image from "next/image"
+import { damImageUrl } from "@/lib/damImageLoader"
 import { cn } from "@/lib/utils"
 
-type HeroBannerProps = {
-  src: string
-  alt?: string
-  className?: string
-  width: number
-  height: number
-}
-
-export function HeroBanner({ src, alt, width, height, className }: HeroBannerProps) {
+export function HeroBanner() {
+  const src = damImageUrl("FO4HFrU94yn8e_pN7iIqOf", ".svg")
+  const alt = "Gyldendal Art"
   return (
     <header
       className={cn(
-        "overflow-hidden rounded-[24px] bg-[#F9EAED] px-[16px] py-[32px] md:w-full md:p-[64px]",
-        className
+        "overflow-hidden rounded-[24px] bg-[#F9EAED] px-[16px] py-[32px] md:w-full md:p-[64px]"
       )}
     >
       <div className="flex flex-col items-center justify-between gap-[32px] md:grid md:grid-cols-[1fr_351px]">
-        <Image
-          src={src}
-          width={width}
-          height={height}
-          alt="Gyldendal Art"
-          className="block md:hidden"
-        />
+        <Image src={src} width={188} height={184} alt={alt} className="block md:hidden" />
 
         <div className="flex w-full flex-col items-center gap-y-[24px] md:items-start">
           <div className="grid w-full gap-[16px] text-center md:gap-[8px] md:text-left">
@@ -40,7 +28,7 @@ export function HeroBanner({ src, alt, width, height, className }: HeroBannerPro
           </p>
         </div>
 
-        <Image src={src} width={351} height={343} alt={alt || "Alt"} className="hidden md:block" />
+        <Image src={src} width={351} height={343} alt={alt} className="hidden md:block" />
       </div>
     </header>
   )

@@ -2,9 +2,10 @@ import { InterTypography } from "@/data/typography"
 import { PageDetails } from "@/types/types"
 import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname } from "@/lib/utils"
+import { Heading } from "@/components/heading"
 import { HeroImage } from "@/components/hero-image"
+import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
-import { TextCollection } from "@/components/text-collection"
 import { TypographyList } from "@/components/typography-list"
 
 export const metadata: PageDetails = {
@@ -15,17 +16,19 @@ export const metadata: PageDetails = {
     "Inter er en open source-font som brukes på komponenter i brukergrensesnitt, og i digitale tekster hvor det finnes pedagogiske behov for ulike varianter av bokstaver og tegn.",
 }
 
-const ingress = `Inter er en open source-font som brukes på komponenter i brukergrensesnitt, og i digitale tekster hvor det finnes pedagogiske behov for ulike varianter av bokstaver og tegn.
-
-Inter er en funksjonell font med lite identitet, og er optimal for bruk på små tekster i funksjonelle komponenter og brukergrensesnitt. 
-
-Inter brukes aldri brukes på markedsflater.`
-
 export default function InterPage() {
   return (
     <SectionLayout>
-      <HeroImage src={metadata.image} />
-      <TextCollection heading={metadata.title as string} ingress={ingress} />
+      <HeroImage src={damImageUrl("Exu0-ZEMqHz97PTPyNXbA2", ".svg")} />
+      <ArticleWrapper>
+        <Heading>{metadata.title as string}</Heading>
+        <Ingress>{metadata.description}</Ingress>
+        <p>
+          Dette er en funksjonell font med lite identitet, og er optimal for bruk på tekster ment
+          for mengdelesing i brukergrensesnitt, for eksempel i læringssituasjoner. Den skal aldri
+          brukes på markedsflater.
+        </p>
+      </ArticleWrapper>
       <TypographyList items={InterTypography} />
     </SectionLayout>
   )

@@ -1,16 +1,20 @@
+import Image from "next/image"
 import { PageDetails } from "@/types/types"
 import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { Heading } from "@/components/heading"
 import { HeroImage } from "@/components/hero-image"
 import { ArticleWrapper, Body } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
+import { SubHeading } from "@/components/sub-heading"
 import { Ingress } from "../../../../components/kobber-components"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
   title: "Introduksjon",
   image: placeholderImageUrl({}),
-  description: "",
+  description:
+    "Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem bestående av gjenbrukbare, fleksible ressurser slik som digitale komponenter, malverk, retningslinjer og kode. Samtidig tydeliggjør det vår merkevarestrategi, våre felles verdier og de opplevelsene vi har som mål å tilby våre sluttbrukere.",
 }
 export default function Introduksjon() {
   return (
@@ -18,55 +22,56 @@ export default function Introduksjon() {
       <HeroImage src={damImageUrl("2bULAP2gabp9rC4A1CbQSB")} />
 
       <ArticleWrapper>
-        <h1 className="text-[48px] font-light leading-[57.6px] text-[#481125]">
-          Designsystemet Kobber
-        </h1>
+        <Heading>Designsystemet Kobber</Heading>
 
         <h2 className="text-[48px] leading-[57.6px] text-[#DC134F]">
           Et verktøy for samspill og synergier
         </h2>
 
-        <Ingress className="max-w-[712px]">
-          Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem
-          bestående av gjenbrukbare, fleksible ressurser slik som digitale komponenter, malverk,
-          retningslinjer og kode. Samtidig tydeliggjør det vår merkevarestrategi, våre felles
-          verdier og de opplevelsene vi har som mål å tilby våre sluttbrukere.
-        </Ingress>
+        <Ingress>{metadata.description}</Ingress>
       </ArticleWrapper>
 
-      <ArticleWrapper>
-        <span className="text-[24px] text-[#481125]">Hvorfor et designsystem?</span>
-        <Body>
+      <ArticleWrapper className="max-w-[712px]">
+        <SubHeading>Hvorfor et designsystem?</SubHeading>
+        <p>
           Designsystemet muliggjør en raskere og mer effektiv praksis for konsistent
           merkevarebygging, produktutvikling og kommunikasjon. Det skaper en tydeligere felles
           retning, og bidrar til økt kjennskap til og gjenkjennelighet av Gyldendal.
-          <br />
-          <br />
+        </p>
+        <p>
           Det skal bidra til å styrke fellesskapsfølelsen på tvers av hele Gyldendal, ved å legge
           til rette for bedre samarbeid, transparens, synergier og deling av kompetanse og metoder
           på tvers av fagfelt, avdelinger og produkter.
-        </Body>
+        </p>
       </ArticleWrapper>
 
-      <ArticleWrapper>
-        <span className="text-[24px] text-[#481125]">Hva er kobber?</span>
+      <ArticleWrapper className="max-w-[712px]">
+        <SubHeading>Hva er kobber?</SubHeading>
 
-        <Body>
+        <Image
+          src={damImageUrl("7tpgwMbB4hmBMGYLZLYfHi", ".svg")}
+          width={711}
+          height={355}
+          className="object-contain"
+          alt="Forklaringsbilde av Kobber"
+        />
+
+        <p>
           Navnet «Kobber» er kallenavnet til Gyldendals designsystem. Det er inspirert av
           kobberdøra, inngangen til Gyldendalhuset, og symboliserer det tradisjonsrike i kombinasjon
           med modernisering og fremtid. Kobber er et stabilt og lett bearbeidbart metall som leder
           strøm, og representerer dermed både våre fysiske produkter og digitale løsninger.
-          <br />
-          <br />
+        </p>
+        <p>
           Denne nettsiden er en veileder for å sikre konsistent representasjon og implementasjon av
           Gyldendals merkevare- og designsystem på tvers av kontekster og flater. Den er ment for
           internt bruk og for eventuelle eksterne samarbeidspartnere.
-          <br />
-          <br />
+        </p>
+        <p>
           Det er viktig å sette seg inn i retningslinjene for å opprettholde merkevarens integritet
           og styrke over tid. Samtidig er det viktig å komme med tilbakemelding og forslag til
           oppdatering og forbedring. Sammen skaper vi en levende profil!
-        </Body>
+        </p>
       </ArticleWrapper>
     </SectionLayout>
   )

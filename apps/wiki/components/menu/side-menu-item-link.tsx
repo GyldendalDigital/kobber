@@ -17,6 +17,7 @@ export const SideMenuItemLink = (item: PageDetails) => {
       <ListItem
         disabled={item.status === "kommer" ? true : undefined}
         active={item.href === pathname ? true : undefined}
+        className="whitespace-nowrap"
       >
         {item.title as string}
 

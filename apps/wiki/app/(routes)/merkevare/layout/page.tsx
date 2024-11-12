@@ -20,7 +20,7 @@ export default function LayoutPage() {
   return (
     <SectionLayout>
       <div>
-        <Heading text={metadata.title as string} />
+        <Heading>{metadata.title as string}</Heading>
         <Ingress>
           For at tjenestene våre skal se like ut på tvers, er det viktig at de følger samme
           layoutprinsipper, samt at de benytter seg av våre farger, komponenter og typografi. Vi

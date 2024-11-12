@@ -186,6 +186,7 @@ const config = {
       },
       borderRadius: {},
       colors: {
+        highlight: component.article.heading.text.color.highlight,
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         link: component.link.text.color,

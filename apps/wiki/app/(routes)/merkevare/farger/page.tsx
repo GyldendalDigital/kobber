@@ -21,7 +21,7 @@ export default function FargerSection() {
   return (
     <SectionLayout>
       <ArticleWrapper>
-        <Heading text={metadata.title as string} />
+        <Heading>{metadata.title as string}</Heading>
         <Ingress>
           Gyldendals fargepalett er laget for å balansere det funksjonelle og det emosjonelle, og
           håndtere et bredt utvalg av ulike målgrupper. Det skal være varmt og gjenkjennelig,
