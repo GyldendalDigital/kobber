@@ -11,8 +11,6 @@ import { BoxLayout } from "./layouts/box-layout/BoxLayout";
 import { Button } from "./button/Button";
 import { ThemeContextProvider } from "./utils/theme-context";
 import { Divider } from "./divider/Divider";
-import { ProgressBar } from "./progress-bar/ProgressBar";
-import { ProgressBarItem } from "./progress-bar/ProgressBarItem";
 import { customElementName as wikiAccordionName, Accordion } from "./wiki-accordion/Accordion";
 import { customElementName as wikiListName, List } from "./wiki-list/List";
 import { customElementName as wikiListItemName, ListItem } from "./wiki-list/ListItem";
@@ -21,9 +19,14 @@ import { ArticleWrapper } from "./article-wrapper/ArticleWrapper";
 import { Body } from "./body/Body";
 import { Ingress } from "./ingress/Ingress";
 
-import { Carousel } from "./carousel/Carousel";
 import { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 import { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
+
+
+/**
+ * 
+ * Exports components which can be rendered server side
+ */
 
 export const KobberGrid = createComponent({
   tagName: "kobber-grid",
@@ -46,18 +49,6 @@ export const KobberGridColumnAspectRatio = createComponent({
 export const KobberCheckbox = createComponent({
   tagName: "kobber-checkbox",
   elementClass: Checkbox,
-  react: React,
-});
-
-export const KobberProgressBar = createComponent({
-  tagName: "kobber-progress-bar",
-  elementClass: ProgressBar,
-  react: React,
-});
-
-export const KobberProgressBarItem = createComponent({
-  tagName: "kobber-progress-bar-item",
-  elementClass: ProgressBarItem,
   react: React,
 });
 
@@ -133,11 +124,6 @@ export const KobberAccordion = createComponent({
   react: React,
 });
 
-export const KobberCarousel = createComponent({
-  tagName: "kobber-carousel",
-  elementClass: Carousel,
-  react: React,
-});
 
 export const KobberHorizontalLayout = createComponent({
   tagName: "kobber-horizontal-layout",
