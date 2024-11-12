@@ -16,7 +16,9 @@
             delete: "Delete",
             deletePrompt: "Delete the recording?",
             yes: "Yes",
-            no: "No"
+            no: "No",
+            of: "of"
+
         },
         nb: {
             play: "Spill av",
@@ -27,7 +29,8 @@
             delete: "Slett",
             deletePrompt: "Vil du slette opptaket?",
             yes: "Ja",
-            no: "Nei"
+            no: "Nei",
+            of: "av"
         },
         nn: {
             play: "Spel av",
@@ -38,7 +41,8 @@
             delete: "Slett",
             deletePrompt: "Vil du slette opptaket?",
             yes: "Ja",
-            no: "Nei"
+            no: "Nei",
+            of: "av"
         }
     }
 
@@ -520,6 +524,30 @@
             <path />
         </svg>
     </div>
+        <span class="kbr-ar-time"
+              style={confirmDelete ? "display: none;" : "" }
+              aria-label={
+              isRecording
+              ? new Date(recordedSeconds * 1000).toISOString().substring(14, 19)
+              : (
+                new Date(roundWithDecimals(currentTimeGlobal, 0)*1000).toISOString().substring(14, 19)
+                + translations[lang].of +
+                new Date(roundWithDecimals(timeTotal, 0)*1000).toISOString().substring(14, 19)
+                )
+              }
+        >
+        {#if isRecording}
+            <span style={`color: ${recordColor};`}>
+                {new Date(recordedSeconds * 1000).toISOString().substring(14, 19)}
+            </span>
+        {:else}
+            {
+                new Date(roundWithDecimals(currentTimeGlobal, 0)*1000).toISOString().substring(14, 19)
+                + " / " +
+                new Date(roundWithDecimals(timeTotal, 0)*1000).toISOString().substring(14, 19)
+            }
+        {/if}
+    </span>
     <button class="kbr-ar-delete-button"
             id={"delete-button-" + uniqueId}
             on:click={() => confirmDelete = !confirmDelete}
@@ -539,21 +567,6 @@
             {translations[lang].delete}
         </label>
     </button>
-    <span class="kbr-ar-time"
-          style={confirmDelete ? "display: none;" : "" }
-    >
-        {#if isRecording}
-            <span style={`color: ${recordColor};`}>
-                {new Date(recordedSeconds * 1000).toISOString().substring(14, 19)}
-            </span>
-        {:else}
-            {
-                new Date(roundWithDecimals(currentTimeGlobal, 0)*1000).toISOString().substring(14, 19)
-                + " / " +
-                new Date(roundWithDecimals(timeTotal, 0)*1000).toISOString().substring(14, 19)
-            }
-        {/if}
-    </span>
     <span class="kbr-ar-confirm-delete-text"
           style={confirmDelete ? "" : "display: none;"}
     >
@@ -769,6 +782,10 @@
       transition: opacity 100ms, box-shadow 100ms;
       box-shadow: none;
       opacity: 0.7;
+    }
+    button:focus-visible {
+      outline: var(--item-secondary-color) solid 0.25em;
+      outline-offset: -0.2em;
     }
     label {
       position: absolute;
