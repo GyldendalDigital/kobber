@@ -1,5 +1,11 @@
 # @gyldendal/kobber-scene
 
+## 0.3.55
+
+### Patch Changes
+
+- Minor carousel buttons corrections
+
 ## 0.3.54
 
 ### Patch Changes

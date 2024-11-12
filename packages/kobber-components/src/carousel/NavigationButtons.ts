@@ -51,6 +51,7 @@ export class NavigationButtons extends StyledLitElement {
             @click="${this.handlePreviousClick}"
             disabled
             color="thriller"
+            variant="main"
             ><icon-arrow_left slot="icon"
           /></kobber-button>`
         : html`<kobber-button
@@ -58,6 +59,7 @@ export class NavigationButtons extends StyledLitElement {
             class="button button--previous"
             @click="${this.handlePreviousClick}"
             color="thriller"
+            variant="main"
             ><icon-arrow_left slot="icon"
           /></kobber-button>`}
       ${this.nextButtonDisabled === "true"
@@ -67,6 +69,7 @@ export class NavigationButtons extends StyledLitElement {
             @click="${this.handleNextClick}"
             disabled
             color="thriller"
+            variant="main"
             ><icon-arrow_right slot="icon"
           /></kobber-button>`
         : html`<kobber-button
@@ -74,6 +77,7 @@ export class NavigationButtons extends StyledLitElement {
             class="button button--next"
             @click="${this.handleNextClick}"
             color="thriller"
+            variant="main"
             ><icon-arrow_right slot="icon"
           /></kobber-button>`}
     </div>
