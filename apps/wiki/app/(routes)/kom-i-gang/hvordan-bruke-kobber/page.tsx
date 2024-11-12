@@ -1,12 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
 import { PageDetails } from "@/types/types"
-import { KOBBER_TEAMS_URL } from "@/lib/constants"
+import { BRANDING_MANUAL_URL, KOBBER_TEAMS_URL } from "@/lib/constants"
 import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { ExternalLinksGrid } from "@/components/global/external-links-grid"
 import { Heading } from "@/components/heading"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
-import { IconExternalLink } from "@/components/kobber-icons"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
 
@@ -17,9 +17,6 @@ export const metadata: PageDetails = {
   description:
     "Denne nettsiden kan sees på som Gyldendals oppslagsverk for merkevare og designsystem. Her samles all informasjon slik at vi har en felles kilde med eksempler og retningslinjer vi kan følge.",
 }
-
-const merkevare_manual_url =
-  "https://dam-p-gyldendal.pqcloud.eu/app/#/search//name/?path=%22%5CKobber%5CDesign-og-merkevaremanual%22&enableAssetsOfCollections=false&showAssetsOfSubfolders=true&showSubCollections=false"
 
 export default function HvordanBrukeKobber() {
   return (
@@ -40,7 +37,7 @@ export default function HvordanBrukeKobber() {
           <br />
           Beskrivelser og retningslinjer for hvordan vi skal bruke merkevaren og designsystemet vår
           finnes i{" "}
-          <Link className="underline" href={merkevare_manual_url} target="_blank">
+          <Link className="underline" href={BRANDING_MANUAL_URL} target="_blank">
             merkevaremanualen
           </Link>{" "}
           og på denne nettsiden.
@@ -75,46 +72,7 @@ export default function HvordanBrukeKobber() {
           sine arbeidsverktøy som kode, Figma og Adobe.
         </p>
       </ArticleWrapper>
-      <section className="grid gap-y-section/gap/horizontal">
-        <ul className="flex flex-wrap items-center gap-[16px]">
-          {links.map((item, index) => (
-            <li key={index}>
-              <Link
-                target="_blank"
-                href={item.href}
-                className="text-link flex gap-[8px] text-[16px] leading-[1.15] hover:underline"
-              >
-                {item.title}
-                <IconExternalLink />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <ExternalLinksGrid />
     </SectionLayout>
   )
 }
-
-const links = [
-  {
-    title: "Merkevaremanual",
-    href: merkevare_manual_url,
-  },
-  {
-    title: "Gyldendal logo",
-    href: merkevare_manual_url,
-  },
-  {
-    title: "Ikonetsett",
-    href: "https://dam-p-gyldendal.pqcloud.eu/app/#/search//name/?path=%22%5CKobber%5CDokumentasjon%5CLogo%22&enableAssetsOfCollections=false&showAssetsOfSubfolders=true&showSubCollections=false",
-  },
-
-  {
-    title: "Kobber i Teams",
-    href: KOBBER_TEAMS_URL,
-  },
-  {
-    title: "Kobber i Slack",
-    href: "https://dam-p-gyldendal.pqcloud.eu/app/#/search//name/?path=%22%5CKobber%5CDokumentasjon%5CLogo%22&enableAssetsOfCollections=false&showAssetsOfSubfolders=true&showSubCollections=false",
-  },
-]
