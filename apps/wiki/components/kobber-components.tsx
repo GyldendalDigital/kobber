@@ -14,7 +14,7 @@ import {
   KobberIngress,
   KobberList,
   KobberListItem,
-} from "@gyldendal/kobber-components/react"
+} from "@gyldendal/kobber-components/react-ssr-safe"
 
 /**
  * Wraps all kobber components in a "use client" file to prevent SSR errors.

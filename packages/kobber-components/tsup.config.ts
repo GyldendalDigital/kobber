@@ -5,6 +5,8 @@ const chunks = "chunks";
 
 const reactDirectory = "react";
 
+const reactSsrSafeDirectory = "react-ssr-safe";
+
 const webComponentsDirectory = "web-components";
 
 const cssDirectory = "css";
@@ -16,12 +18,14 @@ const removeDirectory = (directory: string) => {
 
 removeDirectory(chunks);
 removeDirectory(reactDirectory);
+removeDirectory(reactSsrSafeDirectory);
 removeDirectory(webComponentsDirectory);
 removeDirectory(cssDirectory);
 
 export default defineConfig(() => ({
   entry: {
     [`${reactDirectory}/index`]: "src/index.react.tsx",
+    [`${reactSsrSafeDirectory}/index`]: "src/index.react-ssr-safe.tsx",
     [`${webComponentsDirectory}/index`]: "src/index.web-components.ts",
   },
   format: ["esm"],
