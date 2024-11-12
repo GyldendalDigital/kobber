@@ -20,7 +20,7 @@ export default function IkonerPage() {
   return (
     <SectionLayout>
       <div>
-        <Heading text={metadata.title as string} />
+        <Heading>{metadata.title as string}</Heading>
         <Ingress>
           Vi bruker ikoner for å gjøre det enklere for brukerne å forstå innhold, elementer og
           oppgaver. Et effektivt ikon formidler et konsept på en måte som er intuitivt for brukerne.

@@ -1,14 +1,60 @@
 import { PageDetails } from "@/types/types"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { Heading } from "@/components/heading"
+import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
-import { TextCollection } from "@/components/text-collection"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
-  title: "Spacing",
+  title: "Luft",
   image: placeholderImageUrl({}),
   description:
-    "God bruk av luft bidrar til å organisere informasjon, forbedrer lesbarheten, og skaper en balansert og estetisk tiltalende side. Spacing refererer til hvordan mellomrom brukes i utformingen av en nettside. ",
+    "God bruk av luft bidrar til å organisere informasjon, forbedrer lesbarheten, og skaper en balansert og estetisk tiltalende side.",
+}
+
+export default function SpacingPage() {
+  return (
+    <SectionLayout>
+      <ArticleWrapper>
+        <Heading>{metadata.title as string}</Heading>
+        <Ingress>{metadata.description}</Ingress>
+
+        <p>
+          Luft refererer til hvordan mellomrom brukes i utformingen av en nettside. Dette inkluderer
+          blant annet:
+          <ul>
+            <li>
+              Mellomrom mellom avsnitt og linjer, som påvirker lesbarheten ved å gi tekst nok luft
+              til at den blir enkel å lese
+            </li>
+            <li>Avstanden mellom innholdet og kanten av en boks eller ramme på siden (padding)</li>
+            <li>
+              Avstand mellom elementer, der mellomrommet mellom bilder, tekst, overskrifter, og
+              andre elementer bidrar til en organisert og visuelt tiltalende layout
+            </li>
+            <li>
+              Bruk av marginer, luften rundt kanten på en side, som skiller innholdet fra sidens
+              kant{" "}
+            </li>
+          </ul>
+        </p>
+      </ArticleWrapper>
+
+      <div>
+        {spacingSizes.map((size, index) => (
+          <div
+            key={size.name + index}
+            className="grid grid-cols-4 items-center border-b border-[#E5CFD3] pb-[8px] pt-[8px]"
+          >
+            <span>{size.name}</span>
+            <span>{size.px}px</span>
+            <span>{size.rem}rem</span>
+            <div className="ml-auto bg-[#691837]" style={{ width: size.size, height: size.size }} />
+          </div>
+        ))}
+      </div>
+    </SectionLayout>
+  )
 }
 
 type SpacingSizeTypes = {
@@ -122,32 +168,3 @@ const spacingSizes: SpacingSizeTypes[] = [
     size: 128,
   },
 ]
-
-export default function SpacingPage() {
-  return (
-    <SectionLayout>
-      <TextCollection
-        heading={metadata.title as string}
-        ingress={`God bruk av luft bidrar til å organisere informasjon, forbedrer lesbarheten, og skaper en balansert og estetisk tiltalende side. Spacing refererer til hvordan mellomrom brukes i utformingen av en nettside. Dette inkluderer blant annet:
-mellomrom mellom avsnitt og linjer, som påvirker lesbarheten ved å gi tekst nok luft til at den blir enkel å lese
-Avstanden mellom innholdet og kanten av en boks eller ramme på siden (padding)
-Avstand mellom elementer, der mellomrommet mellom bilder, tekst, overskrifter, og andre elementer bidrar til en organisert og visuelt tiltalende layout
-Bruk av marginer, luften rundt kanten på en side, som skiller innholdet fra sidens kant `}
-      />
-
-      <div>
-        {spacingSizes.map((size, index) => (
-          <div
-            key={size.name + index}
-            className="grid grid-cols-4 items-center border-b border-[#E5CFD3] pb-[8px] pt-[8px]"
-          >
-            <span>{size.name}</span>
-            <span>{size.px}px</span>
-            <span>{size.rem}rem</span>
-            <div className="ml-auto bg-[#691837]" style={{ width: size.size, height: size.size }} />
-          </div>
-        ))}
-      </div>
-    </SectionLayout>
-  )
-}
