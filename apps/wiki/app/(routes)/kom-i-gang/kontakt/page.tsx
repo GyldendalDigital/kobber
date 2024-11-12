@@ -1,4 +1,6 @@
+import Link from "next/link"
 import { InformationCardType, PageDetails } from "@/types/types"
+import { KOBBER_TEAMS_URL } from "@/lib/constants"
 import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { InformationCard } from "@/components/information-card"
@@ -62,9 +64,13 @@ export default function ContactPage() {
             ulike deler av selskapet.
             <br />
             <br />
-            Vi har en teams-kanal der det er mulig å få hjelp, ta opp relevante tema, ønsker og
-            behov. Om du har et spørsmål eller en tilbakemelding kan du først sjekke om noen har
-            tatt opp dette eller noe lignende tidligere.
+            Vi har en{" "}
+            <Link target="_blank" href={KOBBER_TEAMS_URL} className="underline">
+              teams-kanal
+            </Link>{" "}
+            der det er mulig å få hjelp, ta opp relevante tema, ønsker og behov. Om du har et
+            spørsmål eller en tilbakemelding kan du først sjekke om noen har tatt opp dette eller
+            noe lignende tidligere.
             <br />
             <br />
             Ta direkte kontakt med Irén eller Izelin ved forespørsler om nyutvikling av løsninger
