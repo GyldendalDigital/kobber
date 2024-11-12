@@ -2,8 +2,7 @@ import { db } from "@/drizzle/drizzle"
 import { accounts, users, verificationTokens } from "@/drizzle/schema"
 import MicrosoftEntraID from "@auth/core/providers/microsoft-entra-id"
 import { DrizzleAdapter } from "@auth/drizzle-adapter"
-import * as Sentry from "@sentry/nextjs"
-import NextAuth, { AuthError } from "next-auth"
+import NextAuth from "next-auth"
 
 const id = process.env.AUTH_MICROSOFT_ENTRA_ID_ISSUER
 
@@ -32,20 +31,4 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       },
     }),
   ],
-  logger: {
-    error(error) {
-      const name = error instanceof AuthError ? error.type : error.name
-      Sentry.captureException(
-        new Error(
-          `ERROR AUTH ${name}: ${error.message}\n ${error.cause ? JSON.stringify(error.cause) : ""}\n ${error.stack ? JSON.stringify(error.stack) : ""}`
-        )
-      )
-    },
-    // warn(code) {
-    //   Sentry.captureMessage(`WARNING AUTH ${code}`, "warning")
-    // },
-    // debug(message, metadata) {
-    //   Sentry.captureMessage(`DEBUG AUTH ${message}: ${metadata ? JSON.stringify(metadata) : ""}`, "debug")
-    // },
-  },
 })

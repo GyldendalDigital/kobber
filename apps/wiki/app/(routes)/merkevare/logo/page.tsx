@@ -15,7 +15,7 @@ export const metadata: PageDetails = {
 
 export default function Page() {
   return (
-    <SectionLayout className="max-w-[711px]">
+    <SectionLayout>
       <ArticleWrapper>
         <h2 className="text-[48px] text-[#691837]">Gyldendal Logo</h2>
         <Ingress>
@@ -26,7 +26,7 @@ export default function Page() {
         </Ingress>
       </ArticleWrapper>
 
-      <ArticleWrapper>
+      <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Primærlogo</h5>
         <Body>
           Gyldendals primærlogo skal brukes i de fleste tilfeller. 
@@ -48,7 +48,7 @@ export default function Page() {
         />
       </ArticleWrapper>
 
-      <ArticleWrapper>
+      <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Fargevarianter</h5>
         <Body>
           Gyldendals primærlogo kan brukes i en positiv og en negativ variant. Den positive
@@ -69,7 +69,7 @@ export default function Page() {
         />
       </ArticleWrapper>
 
-      <ArticleWrapper>
+      <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Emblemvariant</h5>
         <Body>
           Emblemversjonen av logoen brukes kun når Gyldendal selv er hovedfokuset i et budskap. Den
@@ -89,7 +89,7 @@ export default function Page() {
         />
       </ArticleWrapper>
 
-      <ArticleWrapper>
+      <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Størrelse</h5>
         <Body>
           Logoen skal alltid være leselig og synlig. Derfor skal den ikke brukes i mindre størrelse
@@ -105,7 +105,7 @@ export default function Page() {
         />
       </ArticleWrapper>
 
-      <ArticleWrapper>
+      <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Luft</h5>
         <Body>
           Logoen må ha tilstrekkelig rom rundt seg for å kunne stå ut. Om du skal plassere logoen
@@ -123,7 +123,7 @@ export default function Page() {
         />
       </ArticleWrapper>
 
-      <ArticleWrapper>
+      <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Logoikon</h5>
         <Body>
           Ikonet brukes alene kun i tilfeller der det ikke er plass til hele logoen, slik som i
@@ -143,7 +143,7 @@ export default function Page() {
           alt="Logo"
         />
       </ArticleWrapper>
-      <ArticleWrapper>
+      <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Unngå dette</h5>
 
         <Image

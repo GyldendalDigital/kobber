@@ -38,7 +38,6 @@ const config = {
         "2xl": "1400px",
       },
     },
-
     extend: {
       margin: {},
       width: {},
@@ -67,6 +66,7 @@ const config = {
         "text-section/gap/header-ingress-body/horizontal": `${textSectionGap.horizontal}px`,
         "main/gap/vertical": `${sectionGap.vertical}px`,
       },
+
       maxHeight: {},
       minHeight: {},
       fontWeight: {

@@ -25,7 +25,7 @@ export default function HvordanBrukeKobber() {
         <Ingress>{metadata.description}</Ingress>
       </ArticleWrapper>
 
-      <ArticleWrapper>
+      <ArticleWrapper className="max-w-[711px]">
         <SubHeading>Et felles system</SubHeading>
         <p>
           Verktøykassa vår skal kunne brukes på tvers av virksomhetene våre, samt kunne utvides og
@@ -41,7 +41,7 @@ export default function HvordanBrukeKobber() {
           felles beskjeder og er åpent for spørsmål.
         </p>
       </ArticleWrapper>
-      <ArticleWrapper>
+      <ArticleWrapper className="max-w-[711px]">
         <SubHeading>Slik er Kobber satt sammen</SubHeading>
         <Image
           src={damImageUrl("6atgf4QHaSg9sFEJKBk8s9", ".svg")}
@@ -69,7 +69,7 @@ export default function HvordanBrukeKobber() {
             <li key={index}>
               <Link
                 href={item.href}
-                className="flex gap-[8px] text-[16px] leading-[1.15] text-link hover:underline"
+                className="text-link flex gap-[8px] text-[16px] leading-[1.15] hover:underline"
               >
                 {item.title}
                 <IconExternalLink />
