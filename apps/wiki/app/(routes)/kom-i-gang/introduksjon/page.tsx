@@ -4,10 +4,9 @@ import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname, placeholderImageUrl } from "@/lib/utils"
 import { Heading } from "@/components/heading"
 import { HeroImage } from "@/components/hero-image"
-import { ArticleWrapper, Body } from "@/components/kobber-components"
+import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
-import { Ingress } from "../../../../components/kobber-components"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
@@ -18,7 +17,7 @@ export const metadata: PageDetails = {
 }
 export default function Introduksjon() {
   return (
-    <SectionLayout className="max-w-[858px]">
+    <SectionLayout>
       <HeroImage src={damImageUrl("2bULAP2gabp9rC4A1CbQSB")} />
 
       <ArticleWrapper>

@@ -11,7 +11,7 @@ type ComponentsLayoutProps = {
 export default function ComponentsLayout({ children }: ComponentsLayoutProps) {
   return (
     <ContentLayout>
-      <SideMenu>
+      {/* <SideMenu>
         <SideMenuGroup
           title="Navigasjon"
           items={[temporaryItem("Breadcrumb"), komponenterButtonPage, temporaryItem("Footer")]}
@@ -32,7 +32,7 @@ export default function ComponentsLayout({ children }: ComponentsLayoutProps) {
           items={["Accordion", "Card", "Carousel", "List", "Modal", "Search"].map(temporaryItem)}
           isOpenInitially
         />
-      </SideMenu>
+      </SideMenu> */}
       <section className="w-full pb-20">{children}</section>
     </ContentLayout>
   )

@@ -27,7 +27,7 @@ const illusrations: IllustrationType[] = [
 
 export default function IdentitetsPalett() {
   return (
-    <SectionLayout className="max-w-[711px]">
+    <SectionLayout>
       <ArticleWrapper>
         <h2 className="text-[48px] text-[#691837]">{metadata.title as string}</h2>
         <Ingress>
@@ -37,7 +37,7 @@ export default function IdentitetsPalett() {
         </Ingress>
       </ArticleWrapper>
 
-      <ArticleWrapper>
+      <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Full fargepalett</h5>
         <Body>
           Gyldendals fulle fargepaletter består av fargene Karmin, Aubergin, Vin og Betong.
@@ -51,7 +51,7 @@ export default function IdentitetsPalett() {
         />
       </ArticleWrapper>
 
-      <ArticleWrapper>
+      <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Karmin</h5>
         <Body>
           Karmin er primær identitetsfarge, og brukes i logoer, aktive knapper og for å fremheve
@@ -72,7 +72,7 @@ export default function IdentitetsPalett() {
         </ArticleWrapper>
       ))}
 
-      <ArticleWrapper>
+      <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Fargekombinasjoner</h5>
         <Body>
           Til ulike stemninger og kontekster kan det varieres mellom de tre fargekombinasjoner vi
@@ -84,7 +84,7 @@ export default function IdentitetsPalett() {
         <IllustrationsSkeleton />
       </ArticleWrapper>
 
-      <ArticleWrapper>
+      <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Unngå dette</h5>
         <Body>
           Det er viktig at bruken av fargepaletten forblir konsistent som en del av et helhetlig
