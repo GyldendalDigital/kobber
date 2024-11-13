@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.56
+
+### Patch Changes
+
+- audio-recorder data handling rework
+
 ## 0.3.55
 
 ### Patch Changes
