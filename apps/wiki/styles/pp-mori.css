@@ -1,0 +1,17 @@
+/* Remove when upgrading to Next15 and implement this in local fonts
+https://github.com/vercel/next.js/pull/53608
+*/
+@font-face {
+  font-family: PP Mori;
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: "Regular";
+  src: url("../app/fonts/PPMori-Regular.woff2") format("woff2");
+}
+
+body {
+  font-family:
+    PP Mori,
+    sans-serif;
+}

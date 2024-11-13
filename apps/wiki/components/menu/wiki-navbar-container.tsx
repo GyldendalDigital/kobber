@@ -3,27 +3,51 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-// import { KobberButton } from "@gyldendal/kobber-components/react-ssr-safe"
-import { Menu, X } from "lucide-react"
+import { ArrowLeft, Menu, X } from "lucide-react"
 import { signOut, useSession } from "next-auth/react"
 import { PageDetails } from "@/types/types"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import { ssoSignIn } from "@/hooks/use-sso-sign-in"
-// import { Button } from "@/components/kobber-components"
+import { Button } from "@/components/kobber-components"
 import { IconLogin, IconLogout } from "@/components/kobber-icons"
-import { Button } from "../kobber-components"
+import { SubHeading } from "../sub-heading"
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 import { WikiHeaderItem } from "./wiki-header-item"
 
 type WikiNavbarContainerProps = {
-  pages: PageDetails[]
+  itemsDesktop: PageDetails[]
+  itemsMobile: PageDetails[]
 }
 
-export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
+export function WikiNavbarContainer({ itemsDesktop, itemsMobile }: WikiNavbarContainerProps) {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const { data: session } = useSession()
+
+  const flattenItems = (items: PageDetails[]): PageDetails[] => {
+    return items.flatMap((item) => [item, ...(item.children ? flattenItems(item.children) : [])])
+  }
+
+  const flat = flattenItems(itemsMobile)
+
+  const selectedCategoryItems = itemsMobile.find((item) => pathname.startsWith(item.href))
+
+  const breadcrumb = pathname
+    .split("/")
+    .slice(1)
+    .reduce((acc, segment, index, array) => {
+      const href = `/${array.slice(0, index + 1).join("/")}`
+      const item = flat.find((item) => item.href === href)
+      if (item) {
+        acc.push({ ...item })
+      }
+      return acc
+    }, [] as PageDetails[])
+
+  // const current = breadcrumb[breadcrumb.length - 1]
+
+  const parent = breadcrumb[breadcrumb.length - 2]
 
   const handleLogout = () => {
     signOut()
@@ -49,7 +73,7 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
       </Link>
       <div>
         <ul className="hidden items-center gap-[24px] text-[#481125ff] md:flex">
-          {pages.map((item) => (
+          {itemsDesktop.map((item) => (
             <WikiHeaderItem key={item.href} page={item} />
           ))}
 
@@ -70,31 +94,131 @@ export function WikiNavbarContainer({ pages }: WikiNavbarContainerProps) {
         <Sheet modal={false} open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button
-              color="carmine"
-              className={cn("flex size-[40px] rounded-[8px] bg-[#f9eaedff] p-0 md:hidden", {
+              color={isOpen ? "carmine" : "aubergine"}
+              variant="main"
+              className={cn("flex rounded-[8px] bg-[#f9eaedff] p-0 md:hidden", {
                 "bg-[#dc134fff] hover:bg-[#dc134fff]": isOpen,
               })}
             >
-              {!isOpen ? (
-                <Menu className="size-[15px]" />
-              ) : (
-                <X className="size-[15px] text-white" />
-              )}
+              <span slot="icon">
+                {!isOpen ? (
+                  <Menu className="size-[15px]" />
+                ) : (
+                  <X className="size-[15px] text-white" />
+                )}
+              </span>
             </Button>
           </SheetTrigger>
           <SheetContent
             side={"top"}
-            className="mt-[72px] h-[calc(100vh-72px)] w-screen border-none bg-[#FDF9F9]"
+            className="z-60 mt-[72px] flex h-full w-screen overflow-y-auto border-none bg-[#FDF9F9] shadow-none outline-none"
           >
-            <ul className="flex flex-col gap-[56px] text-center text-[#481125ff]">
-              {pages.map((item) => (
-                <WikiHeaderItem
-                  key={item.href}
-                  page={item}
-                  className={cn("text-center text-[16px]", {})}
-                />
-              ))}
-            </ul>
+            <div className="flex flex-col gap-4">
+              <p className="pt-1 text-[#A35E70]">
+                {pathname === "/" ? (
+                  "Forside"
+                ) : (
+                  <Link href={parent?.href ?? "/"} className="flex items-center gap-2">
+                    <ArrowLeft size={20} />
+                    <span className="h-[20px]">
+                      {breadcrumb.slice(0, -1).map((item, i) => (
+                        <span key={item.href}>
+                          {item.title as string}{" "}
+                          {i !== breadcrumb.slice(0, -1).length - 1 ? "/ " : ""}
+                        </span>
+                      ))}
+                    </span>
+                  </Link>
+                )}
+              </p>
+
+              <ul className="flex flex-col gap-4">
+                {(selectedCategoryItems?.children ?? itemsMobile).map((item) => (
+                  <div className="flex flex-col gap-4" key={item.href}>
+                    <SubHeading className={cn({ underline: pathname === item.href })}>
+                      {!item.children || item.children.length === 0 ? (
+                        <Link
+                          className={cn("hover:underline", {
+                            "cursor-not-allowed opacity-50 hover:no-underline":
+                              item.status === "kommer",
+                          })}
+                          href={item.href}
+                        >
+                          {item.title as string}
+                          {item.status ? (
+                            <small slot="icon" className="text-[#dc134fff]">
+                              {" "}
+                              {item.status}
+                            </small>
+                          ) : null}
+                        </Link>
+                      ) : (
+                        (item.title as string)
+                      )}
+                    </SubHeading>
+
+                    {item.children && item.children.length !== 0 && (
+                      <ul className="flex flex-col gap-4">
+                        {item.children.map((childItem) => {
+                          return (
+                            <WikiHeaderItem
+                              key={childItem.href}
+                              page={childItem}
+                              className={cn("text-center text-[16px]", {})}
+                            />
+                          )
+                        })}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </ul>
+
+              {/* More specific menu */}
+              {/* {current.children && current.children.length !== 0 ? (
+              <ul className="flex flex-col gap-4">
+                {current.children.map((item) => (
+                  <WikiHeaderItem
+                    key={item.href}
+                    page={item}
+                    className={cn("text-center text-[16px]", {})}
+                  />
+                ))}
+              </ul>
+            ) : (
+              itemsMobile.map((item) => (
+                <div className="flex flex-col gap-4" key={item.href}>
+                  <SubHeading>{item.title as string}</SubHeading>
+
+                  {item.children && item.children.length !== 0 && (
+                    <ul className="flex flex-col gap-4">
+                      {item.children.map((childItem) => {
+                        return (
+                          <WikiHeaderItem
+                            key={childItem.href}
+                            page={childItem}
+                            className={cn("text-center text-[16px]", {})}
+                          />
+                        )
+                      })}
+                    </ul>
+                  )}
+                </div>
+              ))
+            )} */}
+
+              {/* DEBUG */}
+              {/* <pre>{JSON.stringify(breadcrumb, null, 2)}</pre> */}
+              {/* <pre>{JSON.stringify(current, null, 2)}</pre> */}
+              {/* <pre>{JSON.stringify(parent, null, 2)}</pre> */}
+              {/* <pre>
+              {JSON.stringify(
+                flat.map((x) => `${x.href}: ${x.title}`),
+                null,
+                2
+              )}
+            </pre> */}
+            </div>
           </SheetContent>
         </Sheet>
       </div>

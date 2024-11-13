@@ -1,3 +1,9 @@
-export function SubHeading({ children }: { children: React.ReactNode }) {
-  return <h2 className="text-primary-title-m text-[#481125ff]">{children}</h2>
+export function SubHeading({
+  children,
+  className,
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
+  return <h2 className={`text-primary-title-m text-[#481125ff] ${className}`}>{children}</h2>
 }

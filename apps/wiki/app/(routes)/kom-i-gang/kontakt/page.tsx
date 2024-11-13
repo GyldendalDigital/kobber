@@ -17,42 +17,42 @@ const team: InformationCardType[] = [
     title: "Irén Andresen",
     text: `Designer,
     ansvar for Kobber, merkevare`,
-    image: damImageUrl("6vh-YbtbqI_AAtWFybq3sH"),
+    image: damImageUrl("6vh-YbtbqI_AAtWFybq3sH", ".jpg"),
   },
   {
     title: "Izelin Tujunen",
     text: `Designer,
     ansvar for Kobber, digital`,
-    image: damImageUrl("6sYJyYjHKJmBOehq0Vvy2G"),
+    image: damImageUrl("6sYJyYjHKJmBOehq0Vvy2G", ".jpg"),
   },
   {
     title: "Karen Keiserud",
     text: `Direktør for kommunikasjon,
     merkevarer og samfunnskontakt`,
-    image: damImageUrl("4LatcGmH4DcAKVvCXfuSPK"),
+    image: damImageUrl("4LatcGmH4DcAKVvCXfuSPK", ".jpg"),
   },
   {
     title: "Dagfinn Reitan",
     text: `Utvikler,
     ansvar for teknologi`,
-    image: damImageUrl("Eq2wddK0K268EEuoYBSf9y"),
+    image: damImageUrl("Eq2wddK0K268EEuoYBSf9y", ".jpg"),
   },
   {
     title: "Dag Von Krogh Munkholt",
     text: "Designer",
-    image: damImageUrl("C_uLX-2MK2UBcx2tVHmiHf"),
+    image: damImageUrl("C_uLX-2MK2UBcx2tVHmiHf", ".jpg"),
   },
   {
     title: "Kevin Minh Nguyen",
     text: "Utvikler",
-    image: damImageUrl("1mSLy00SaTy90DM725qVdX"),
+    image: damImageUrl("1mSLy00SaTy90DM725qVdX", ".jpg"),
   },
 ]
 
 export default function ContactPage() {
   return (
     <main className="flex w-full max-w-[858px] flex-col gap-y-content/gap/horizontal">
-      <section className="flex w-full flex-col gap-y-text-section/gap/header-ingress-body/horizontal md:w-[858px]">
+      <section className="flex w-full flex-col gap-y-text-section/gap/header-ingress-body/horizontal">
         <ArticleWrapper>
           <h2 className="text-[48px] text-[#691837]">Spørsmål eller tilbakemelding?</h2>
           <Ingress>
