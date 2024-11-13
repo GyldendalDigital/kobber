@@ -12,7 +12,7 @@ const links = [
     href: "https://dam-p-gyldendal.pqcloud.eu/app/#/s/BI54jcT1Vj",
   },
   {
-    title: "Ikonetsett",
+    title: "Ikonesett",
     href: "https://dam-p-gyldendal.pqcloud.eu/?w=ZqxPo6bFjq",
   },
 
@@ -35,7 +35,7 @@ export function ExternalLinksGrid() {
             <Link
               target="_blank"
               href={item.href}
-              className="text-link flex gap-[8px] text-[16px] leading-[1.15] hover:underline"
+              className="flex gap-[8px] text-[16px] leading-[1.15] text-link hover:underline"
             >
               {item.title}
               <IconExternalLink />

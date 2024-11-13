@@ -17,7 +17,7 @@ export function HeroBanner() {
         <div className="flex w-full flex-col items-center gap-y-[24px] md:items-start">
           <div className="grid w-full gap-[16px] text-center md:gap-[8px] md:text-left">
             <h1 className="text[#481125] text-[20px] md:text-[48px] md:text-text/primary/size/display/small">
-              Velkommen til kobber
+              Velkommen til Kobber
             </h1>
             <h2 className="text-[32px] font-medium text-[#DC134F] md:text-[48px]">
               Gyldendals designsystem
