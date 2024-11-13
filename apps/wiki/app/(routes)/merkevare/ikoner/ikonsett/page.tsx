@@ -1,7 +1,9 @@
+import Link from "next/link"
 import { PageDetails } from "@/types/types"
 import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname } from "@/lib/utils"
 import { ArticleWrapper, BoxLayout, Ingress } from "@/components/kobber-components"
+import { IconExternalLink } from "@/components/kobber-icons"
 import { IconGrid } from "./icon-grid"
 
 export const metadata: PageDetails = {
@@ -31,7 +33,17 @@ export default function IkonSett() {
         </Ingress>
       </BoxLayout>
 
-      <br />
+      <BoxLayout>
+        <Link
+          target="_blank"
+          href={"https://dam-p-gyldendal.pqcloud.eu/?w=ZqxPo6bFjq"}
+          className="text-link flex gap-[8px] text-[16px] leading-[1.15] hover:underline"
+        >
+          Ikonsett
+          <IconExternalLink />
+        </Link>
+      </BoxLayout>
+
       <IconGrid />
     </ArticleWrapper>
   )

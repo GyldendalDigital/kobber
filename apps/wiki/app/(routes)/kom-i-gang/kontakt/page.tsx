@@ -17,13 +17,13 @@ const team: InformationCardType[] = [
     title: "Irén Andresen",
     text: `Designer,
     ansvar for Kobber, merkevare`,
-    image: damImageUrl("4LatcGmH4DcAKVvCXfuSPK"),
+    image: damImageUrl("6vh-YbtbqI_AAtWFybq3sH"),
   },
   {
     title: "Izelin Tujunen",
     text: `Designer,
     ansvar for Kobber, digital`,
-    image: damImageUrl("4LatcGmH4DcAKVvCXfuSPK"),
+    image: damImageUrl("6sYJyYjHKJmBOehq0Vvy2G"),
   },
   {
     title: "Karen Keiserud",
@@ -35,17 +35,17 @@ const team: InformationCardType[] = [
     title: "Dagfinn Reitan",
     text: `Utvikler,
     ansvar for teknologi`,
-    image: damImageUrl("4LatcGmH4DcAKVvCXfuSPK"),
+    image: damImageUrl("Eq2wddK0K268EEuoYBSf9y"),
   },
   {
     title: "Dag Von Krogh Munkholt",
     text: "Designer",
-    image: damImageUrl("4LatcGmH4DcAKVvCXfuSPK"),
+    image: damImageUrl("C_uLX-2MK2UBcx2tVHmiHf"),
   },
   {
     title: "Kevin Minh Nguyen",
     text: "Utvikler",
-    image: damImageUrl("4LatcGmH4DcAKVvCXfuSPK"),
+    image: damImageUrl("1mSLy00SaTy90DM725qVdX"),
   },
 ]
 
