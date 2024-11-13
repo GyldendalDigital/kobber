@@ -34,7 +34,7 @@ export default function Page() {
           href={"https://dam-p-gyldendal.pqcloud.eu/app/#/s/BI54jcT1Vj"}
           className="flex gap-[8px] text-[16px] leading-[1.15] text-link hover:underline"
         >
-          Gyldendal logo
+          Gyldendallogo
           <IconExternalLink />
         </Link>
         <Link
@@ -42,7 +42,7 @@ export default function Page() {
           href={"https://dam-p-gyldendal.pqcloud.eu/?w=C7may_WNjE"}
           className="flex gap-[8px] text-[16px] leading-[1.15] text-link hover:underline"
         >
-          Logo ikon
+          Logoikon
           <IconExternalLink />
         </Link>
       </div>

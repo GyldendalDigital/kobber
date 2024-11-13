@@ -9,8 +9,10 @@ type FeatureBoxGridItemProps = {
 export function FeatureBoxGridItem({
   item: { disabled, href, image, title },
 }: FeatureBoxGridItemProps) {
+  const url = href ? href : "#"
+
   return (
-    <Link href={disabled ? "#" : href!}>
+    <Link href={disabled ? "#" : url}>
       {/* TODO: switch with label component when it's ready */}
       <div className="relative flex h-full items-end justify-start overflow-hidden rounded-[16px] bg-[#EAE0E1] p-[12px] transition hover:scale-105">
         {title && (
