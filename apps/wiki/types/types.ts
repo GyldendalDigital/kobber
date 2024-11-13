@@ -23,6 +23,7 @@ export type FeatureBoxType = {
   title?: null | string | TemplateString
   image: string | null
   href?: string
+  disabled?: boolean
 }
 
 export type AwardType = {
