@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import Footer from "@/components/footer"
 import { IconLoader } from "@/components/kobber-icons-loader"
 import { WikiNavbar } from "@/components/menu/wiki-navbar"
+import { inter, lyon, mori } from "./fonts"
 
 /** Fallback for all pages */
 export const metadata: Metadata = {
@@ -23,11 +24,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="no" suppressHydrationWarning>
+    <html
+      lang="no"
+      className={`${mori.className} ${mori.variable} ${lyon.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
       <body className={cn("bg-[#FDF9F9] text-[#481125ff] antialiased transition-all")}>
         <SessionProvider>
           <IconLoader />
-          <div className="sm:px-page/padding/inline/small md:px-page/padding/inline/medium mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal px-page/padding/inline/xsmall xl:px-page/padding/inline/large">
+          <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal px-page/padding/inline/xsmall sm:px-page/padding/inline/small md:px-page/padding/inline/medium xl:px-page/padding/inline/large">
             <WikiNavbar />
             {children}
             <Footer />

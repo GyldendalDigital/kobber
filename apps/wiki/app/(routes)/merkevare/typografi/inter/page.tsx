@@ -29,7 +29,7 @@ export default function InterPage() {
           brukes på markedsflater.
         </p>
       </ArticleWrapper>
-      <TypographyList items={InterTypography} />
+      <TypographyList items={InterTypography} fontClassName="font-inter" />
     </SectionLayout>
   )
 }

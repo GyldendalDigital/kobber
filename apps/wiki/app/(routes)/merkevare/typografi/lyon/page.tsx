@@ -30,7 +30,7 @@ export default function LyongPage() {
           effekt. Om du er usikker på når du skal bruke fonten i en kontekst; se kontaktsiden.
         </p>
       </ArticleWrapper>
-      <TypographyList items={LyonTypography} />
+      <TypographyList items={LyonTypography} fontClassName="font-lyon" />
     </SectionLayout>
   )
 }

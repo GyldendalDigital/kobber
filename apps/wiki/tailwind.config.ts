@@ -69,6 +69,13 @@ const config = {
 
       maxHeight: {},
       minHeight: {},
+
+      // see app/fonts/index.ts
+      fontFamily: {
+        mori: ["var(--font-mori)"],
+        lyon: ["var(--font-lyon)"],
+        inter: ["var(--font-inter)"],
+      },
       fontWeight: {
         light: `${text.weight.light}`,
         book: `${text.weight.book}`,

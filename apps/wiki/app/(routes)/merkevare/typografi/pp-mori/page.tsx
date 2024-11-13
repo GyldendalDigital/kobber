@@ -33,7 +33,7 @@ export default function PPMoriPage() {
           benyttes variabelvekting.
         </p>
       </ArticleWrapper>
-      <TypographyList items={PPMoriTypography} />
+      <TypographyList items={PPMoriTypography} fontClassName="font-mori" />
     </SectionLayout>
   )
 }
