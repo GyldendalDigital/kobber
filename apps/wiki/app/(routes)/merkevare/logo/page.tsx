@@ -118,7 +118,7 @@ export default function Page() {
         </Body>
 
         <Image
-          src={damImageUrl("7QMhG4Do4FMAPwZw2hsz8W")}
+          src={damImageUrl("C7NO6xO94muAODruMvqz6X")}
           width={711}
           height={355}
           className="object-contain"
@@ -136,7 +136,7 @@ export default function Page() {
         </Body>
 
         <Image
-          src={damImageUrl("7QMhG4Do4FMAPwZw2hsz8W")}
+          src={damImageUrl("4MKJoFbQqlQ8bHzRZ_Wr5I")}
           width={711}
           height={355}
           className="object-contain"
@@ -155,24 +155,46 @@ export default function Page() {
           egne oppsett eller fargekombinasjoner for ikon, men brukes samme ikon på tvers av alle
           kontoer for å sikre et helhetlig utrykk.
         </Body>
-
-        <Image
-          src={damImageUrl("7QMhG4Do4FMAPwZw2hsz8W")}
-          width={711}
-          height={355}
-          className="object-contain"
-          alt="Logo"
-        />
+        <div className="grid grid-cols-2 gap-[14px] p-[14px]">
+          <Image
+            src={damImageUrl("84FY3H2XKB58UxQvEd77GH")}
+            width={335}
+            height={326}
+            className="rounded-[8px] object-contain"
+            alt="Logo"
+          />
+          <Image
+            src={damImageUrl("AVedawD5qbj8x0ldR7qLNu")}
+            width={335}
+            height={326}
+            className="rounded-[8px] object-contain"
+            alt="Logo"
+          />
+          <Image
+            src={damImageUrl("16nZGiVba9ABfrDKvw-BPV")}
+            width={335}
+            height={326}
+            className="rounded-[8px] object-contain"
+            alt="Logo"
+          />
+          <Image
+            src={damImageUrl("AVedawD5qbj8x0ldR7qLNu")}
+            width={335}
+            height={326}
+            className="rounded-[8px] object-contain"
+            alt="Logo"
+          />
+        </div>
       </ArticleWrapper>
       <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Unngå dette</h5>
 
         <Image
-          src={damImageUrl("EDeopuWia6SBwPNXiUwGfd")}
+          src={damImageUrl("24qUgPLAKGABtj9kD1cubQ")}
           width={711}
-          height={355}
+          height={650}
           className="object-contain"
-          alt="Logo"
+          alt="Unngå"
         />
       </ArticleWrapper>
     </SectionLayout>

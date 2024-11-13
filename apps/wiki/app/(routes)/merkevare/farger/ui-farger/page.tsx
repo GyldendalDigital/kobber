@@ -1,10 +1,10 @@
 import { UIColors } from "@/data/color-palettes"
 import { PageDetails } from "@/types/types"
+import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname } from "@/lib/utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
-import { damImageUrl } from "@/lib/damImageLoader"
 
 export const metadata: PageDetails = {
   href: pagePathname(import.meta.url),
@@ -27,7 +27,7 @@ export default function UiFarger() {
       </ArticleWrapper>
 
       {UIColors.map((theme, index) => (
-        <ArticleWrapper key={index}>
+        <ArticleWrapper key={index} className="gap-0">
           <h5 className="text-[24px] text-[#481125]">{theme.title}</h5>
           <Body>{theme.description}</Body>
           <ColorBlockGrid colors={theme.colors} enableCopy />
