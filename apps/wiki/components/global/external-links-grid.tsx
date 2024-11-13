@@ -8,7 +8,7 @@ const links = [
     href: BRANDING_MANUAL_URL,
   },
   {
-    title: "Gyldendal logo",
+    title: "Gyldendallogo",
     href: "https://dam-p-gyldendal.pqcloud.eu/app/#/s/BI54jcT1Vj",
   },
   {
