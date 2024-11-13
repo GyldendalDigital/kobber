@@ -28,7 +28,7 @@ const illusrations: IllustrationType[] = [
 export default function IdentitetsPalett() {
   return (
     <SectionLayout>
-      <ArticleWrapper>
+      <ArticleWrapper className="gap-[8px]">
         <h2 className="text-[48px] text-[#691837]">{metadata.title as string}</h2>
         <Ingress>
           Dette er vår identitetspalett, som består av de mest brukte fargene for å etablere
@@ -37,7 +37,7 @@ export default function IdentitetsPalett() {
         </Ingress>
       </ArticleWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
+      <ArticleWrapper className="max-w-[711px] gap-[0px]">
         <h5 className="text-[24px] text-[#481125]">Full fargepalett</h5>
         <Body>
           Gyldendals fulle fargepaletter består av fargene Karmin, Aubergin, Vin og Betong.
@@ -51,7 +51,7 @@ export default function IdentitetsPalett() {
         />
       </ArticleWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
+      <ArticleWrapper className="max-w-[711px] gap-[0px]">
         <h5 className="text-[24px] text-[#481125]">Karmin</h5>
         <Body>
           Karmin er primær identitetsfarge, og brukes i logoer, aktive knapper og for å fremheve
@@ -72,7 +72,7 @@ export default function IdentitetsPalett() {
         </ArticleWrapper>
       ))}
 
-      <ArticleWrapper className="max-w-[711px]">
+      <ArticleWrapper className="max-w-[711px] gap-[0px]">
         <h5 className="text-[24px] text-[#481125]">Fargekombinasjoner</h5>
         <Body>
           Til ulike stemninger og kontekster kan det varieres mellom de tre fargekombinasjoner vi
@@ -81,17 +81,21 @@ export default function IdentitetsPalett() {
           signalfargen Karmin 525 gjør det lett å skape et moderne digitalt uttrykk som fremstår
           varmt og emosjonelt.
         </Body>
-        <IllustrationsSkeleton />
+        <Illustrations
+          illustrations={[{ src: damImageUrl("EuqcwI8eaka8gV6z2lnji4"), height: 440, width: 711 }]}
+        />
       </ArticleWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
+      <ArticleWrapper className="max-w-[711px] gap-[0px]">
         <h5 className="text-[24px] text-[#481125]">Unngå dette</h5>
         <Body>
           Det er viktig at bruken av fargepaletten forblir konsistent som en del av et helhetlig
           utrykk og for å sikre nok kontrast. Fargene skal derfor ikke justeres og det skal ikke
           lages egne fargekombinasjoner utenfor det som er definert.
         </Body>
-        <IllustrationsSkeleton />
+        <Illustrations
+          illustrations={[{ src: damImageUrl("FLPb90y7KyFAitWiUnO3op"), height: 707, width: 711 }]}
+        />
       </ArticleWrapper>
     </SectionLayout>
   )
