@@ -21,11 +21,15 @@ export default function arialPage() {
       <ArticleWrapper>
         <Heading>{metadata.title as string}</Heading>
         <Ingress>{metadata.description}</Ingress>
-        <p>
-          Arial er tilgjengelig både for PC- og Mac-brukere, og brukes i blant annet:- E-post
-          signatur- Nyhetsbrev- Interne PowerPoint-presentasjoner- Interne dokumenter i Word og
-          Excel- Fallback font for web
-        </p>
+
+        <ul>
+          <p>Arial er tilgjengelig både for PC- og Mac-brukere, og brukes i blant annet:</p>
+          <li>- E-post signatur</li>
+          <li>- Nyhetsbrev</li>
+          <li>- Interne PowerPoint-presentasjoner</li>
+          <li>- Interne dokumenter i Word og Excel</li>
+          <li>- Fallback font for web</li>
+        </ul>
       </ArticleWrapper>
     </SectionLayout>
   )

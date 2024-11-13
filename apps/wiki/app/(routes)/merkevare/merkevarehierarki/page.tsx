@@ -123,7 +123,7 @@ export default function MerkevareHeriarkiPage() {
           kontaktsiden.
         </p>
         <Image
-          src={damImageUrl("3TCYMdT8qra86ZHBhPp9FE")}
+          src={damImageUrl("CJ8mJ2oVaqu8ww95BaQW3A")}
           width={711}
           height={294}
           alt="Illustrasjon nivå 3"
