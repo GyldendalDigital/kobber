@@ -29,7 +29,7 @@
       temp1.mp3Callback = callbackTester;
 
       document.getElementById("start-data-button").addEventListener("click", () => {
-        temp1.audioData = [a];
+        temp1.audioData = a;
       })
       document.getElementById(".lang").addEventListener("change", (e) => {
         temp1.lang = e.target.value;
@@ -38,6 +38,7 @@
         let parent  = document.getElementById("recorder-parent");
         parent.removeChild(temp1);
         temp1 = document.createElement("kobber-audio-recorder");
+        console.log(savedData);
         temp1.audioData = savedData;
         temp1.mp3Callback = callbackTester;
         parent.appendChild(temp1);

@@ -3,6 +3,43 @@ import MPEGMode from "lamejs/src/js/MPEGMode.js";
 import Lame from "lamejs/src/js/Lame.js";
 import BitStream from "lamejs/src/js/BitStream.js";
 
+export async function serializeBlobs(blobs) {
+    const parts = [];
+
+    for (const blob of blobs) {
+        const sizeHeader = new ArrayBuffer(4);
+        const view = new DataView(sizeHeader);
+        view.setUint32(0, blob.size, true);
+        parts.push(new Blob([sizeHeader]), blob);
+    }
+
+    return new Blob(parts);
+}
+
+export async function deserializeBlob(combinedBlob) {
+    const blobs = [];
+    let offset = 0;
+
+    while (offset < combinedBlob.size) {
+        const sizeHeader = await combinedBlob.slice(offset, offset + 4).arrayBuffer();
+        const blobSize = new DataView(sizeHeader).getUint32(0, true);
+        offset += 4;
+
+        // If the blob does not contain a header, assume it is old mp3 data.
+        // Give it a header for later use! :)
+        if (offset === 4 && (blobSize <= 0 || offset + blobSize > combinedBlob.size)) {
+            blobs.push(combinedBlob);
+            return blobs;
+        }
+
+        const blob = combinedBlob.slice(offset, offset + blobSize);
+        blobs.push(blob);
+        offset += blobSize;
+    }
+
+    return blobs;
+}
+
 export function audioBufferToWav(aBuffer) {
     window.MPEGMode = MPEGMode;
     window.Lame = Lame;
