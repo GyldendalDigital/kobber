@@ -16,7 +16,9 @@
             delete: "Delete",
             deletePrompt: "Delete the recording?",
             yes: "Yes",
-            no: "No"
+            no: "No",
+            of: "of"
+
         },
         nb: {
             play: "Spill av",
@@ -27,7 +29,8 @@
             delete: "Slett",
             deletePrompt: "Vil du slette opptaket?",
             yes: "Ja",
-            no: "Nei"
+            no: "Nei",
+            of: "av"
         },
         nn: {
             play: "Spel av",
@@ -38,7 +41,8 @@
             delete: "Slett",
             deletePrompt: "Vil du slette opptaket?",
             yes: "Ja",
-            no: "Nei"
+            no: "Nei",
+            of: "av"
         }
     }
 
@@ -89,6 +93,7 @@
     export let mp3Callback;
     export let audioData;
 
+    let audioDataIndex = 0;
     let mediaRecorder = null;
     let analyser = null;
     let audioCtx = null;
@@ -105,19 +110,19 @@
     let currentAudioIndex = 0;
     let currentTimePercentage = "0%";
     let recordedSeconds = 0;
-    $: isExpanded = recData.length > 0 || audioArray.length > 0 || isRecording || audioData;
+    $: isExpanded = recData.length > 0 || audioArray.length > 0 || audioData?.length > 0 || isRecording;
 
     function roundWithDecimals(num, decimals){
         return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
     }
 
     // Adds events for audio elements for them to handle playback
-    function audioEventSetter(audio, index) {
+    function audioEventSetter(audio, src, index) {
         audio.addEventListener("ended", onAudioEnd);
         audio.addEventListener("timeupdate", (event) => updateCurrentTime(event.target.currentTime));
         audio.addEventListener("durationchange", (event) => {
             if (event.target.duration === Infinity) {
-                recData[index][0].arrayBuffer().then((arrayBuffer) => {
+                src.arrayBuffer().then((arrayBuffer) => {
                     audioCtx = new AudioContext();
                     audioCtx.decodeAudioData(arrayBuffer).then((buffer) => {
                         audioDurationArray[index] = buffer.duration;
@@ -129,13 +134,15 @@
         });
     }
 
-    $: if (audioData !== undefined && audioArray.length === 0) {
-        recData.push([audioData]);
-        const newAudio = new Audio();
-        newAudio.preload = "metadata";
-        newAudio.src = window.URL.createObjectURL(recData[recData.length - 1][0]);
-        audioEventSetter(newAudio, 0);
-        audioArray.push(newAudio);
+    $: if (audioData && audioData.length !== 0  && audioArray.length === 0) {
+        audioDataIndex = audioData.length;
+        audioData.map((audio, index) => {
+            const newAudio = new Audio();
+            newAudio.preload = "metadata";
+            newAudio.src = window.URL.createObjectURL(audio);
+            audioEventSetter(newAudio, audio, index);
+            audioArray.push(newAudio);
+        })
     }
 
     $: timeTotal = audioDurationArray[audioDurationArray.length - 1] ? audioDurationArray.reduce((acc, current) => {return acc + current}, 0) : 0;
@@ -157,7 +164,9 @@
             })
             audioCtx.decodeAudioData(totalBuffer.buffer).then((audioBuffer) => {
                 // Sidenote: Either rename or export both converting helper functions.
-                mp3Callback && mp3Callback(audioBufferToWav(audioBuffer));
+                if (!audioData) audioData = [];
+                audioData[audioDataIndex] = audioBufferToWav(audioBuffer);
+                mp3Callback && mp3Callback(audioData);
             });
         })
     }
@@ -253,7 +262,7 @@
         const newAudio = new Audio();
         newAudio.preload = "auto";
         newAudio.src = window.URL.createObjectURL(recData[recData.length - 1][0]);
-        audioEventSetter(newAudio, audioArray.length);
+        audioEventSetter(newAudio, recData[recData.length - 1][0], audioArray.length);
         audioArray.push(newAudio);
         edgeHandler(false);
     }
@@ -337,7 +346,7 @@
         mediaRecorder.ondataavailable = (e) => {
             recData[recData.length - 1].push(e.data);
             updateRecordings();
-            mp3Callback(encodeToMP3());
+            encodeToMP3();
         };
 
         mediaRecorder.stop();
@@ -363,8 +372,10 @@
             audioDurationArray = [];
             currentAudioIndex = 0;
             currentTimePercentage = "0%";
+            audioDataIndex = 0;
             timeTotal = 0;
-            audioData = undefined;
+            audioData = [];
+            mp3Callback(audioData);
             confirmDelete = false;
         }
     }
@@ -513,6 +524,30 @@
             <path />
         </svg>
     </div>
+        <span class="kbr-ar-time"
+              style={confirmDelete ? "display: none;" : "" }
+              aria-label={
+              isRecording
+              ? new Date(recordedSeconds * 1000).toISOString().substring(14, 19)
+              : (
+                new Date(roundWithDecimals(currentTimeGlobal, 0)*1000).toISOString().substring(14, 19)
+                + " " + translations[lang].of + " " +
+                new Date(roundWithDecimals(timeTotal, 0)*1000).toISOString().substring(14, 19)
+                )
+              }
+        >
+        {#if isRecording}
+            <span style={`color: ${recordColor};`}>
+                {new Date(recordedSeconds * 1000).toISOString().substring(14, 19)}
+            </span>
+        {:else}
+            {
+                new Date(roundWithDecimals(currentTimeGlobal, 0)*1000).toISOString().substring(14, 19)
+                + " / " +
+                new Date(roundWithDecimals(timeTotal, 0)*1000).toISOString().substring(14, 19)
+            }
+        {/if}
+    </span>
     <button class="kbr-ar-delete-button"
             id={"delete-button-" + uniqueId}
             on:click={() => confirmDelete = !confirmDelete}
@@ -532,21 +567,6 @@
             {translations[lang].delete}
         </label>
     </button>
-    <span class="kbr-ar-time"
-          style={confirmDelete ? "display: none;" : "" }
-    >
-        {#if isRecording}
-            <span style={`color: ${recordColor};`}>
-                {new Date(recordedSeconds * 1000).toISOString().substring(14, 19)}
-            </span>
-        {:else}
-            {
-                new Date(roundWithDecimals(currentTimeGlobal, 0)*1000).toISOString().substring(14, 19)
-                + " / " +
-                new Date(roundWithDecimals(timeTotal, 0)*1000).toISOString().substring(14, 19)
-            }
-        {/if}
-    </span>
     <span class="kbr-ar-confirm-delete-text"
           style={confirmDelete ? "" : "display: none;"}
     >
@@ -762,6 +782,10 @@
       transition: opacity 100ms, box-shadow 100ms;
       box-shadow: none;
       opacity: 0.7;
+    }
+    button:focus-visible {
+      outline: var(--item-secondary-color) solid 0.25em;
+      outline-offset: -0.2em;
     }
     label {
       position: absolute;
