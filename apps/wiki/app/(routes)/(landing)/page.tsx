@@ -1,8 +1,7 @@
-import Link from "next/link"
 import { FeatureBoxType } from "@/types/types"
 import { damImageUrl } from "@/lib/damImageLoader"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
-import { IconExternalLink } from "@/components/kobber-icons"
+import { ExternalLinksGrid } from "@/components/global/external-links-grid"
 import { HeroBanner } from "./hero-banner"
 
 export default function Home() {
@@ -16,19 +15,7 @@ export default function Home() {
 
       <section className="grid gap-y-section/gap/horizontal">
         <h3 className="text-primary-title-m text-[#481120]">Nyttige ressurser</h3>
-        <ul className="flex flex-wrap items-center gap-[16px]">
-          {links.map((item, index) => (
-            <li key={index}>
-              <Link
-                href={item.href}
-                className="flex gap-[8px] text-[16px] leading-[1.15] text-link hover:underline"
-              >
-                {item.title}
-                <IconExternalLink />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <ExternalLinksGrid />
       </section>
     </main>
   )

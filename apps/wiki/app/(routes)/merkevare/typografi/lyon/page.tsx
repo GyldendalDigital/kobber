@@ -26,8 +26,15 @@ export default function LyongPage() {
         <p>
           Står den alene brukes brukes fonten hovedsakelig til sitater og mer emosjonelle budskap.
           Kombinert med PP Mori brukes den som kontrast i redaksjonelle overskrifter og for å legge
-          trykk på enkelte ord. Lyon Display skal ikke overbrukes, men heller brukes der den gir
-          effekt. Om du er usikker på når du skal bruke fonten i en kontekst; se kontaktsiden.
+          trykk på enkelte ord.
+          <br />
+          <br />
+          Lyon Display skal ikke overbrukes, men heller brukes der den gir effekt. Om du er usikker
+          på når du skal bruke fonten i en kontekst; se kontaktsiden.
+          <br />
+          <br />
+          Ved bruk av Lyon Display kreves det lisens som man må søke tilgang om. Kontakt oss ved
+          behov. Bruk Arial i presentasjoner og dokumenter.
         </p>
       </ArticleWrapper>
       <TypographyList items={LyonTypography} />
