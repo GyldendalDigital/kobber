@@ -376,8 +376,9 @@
             currentTimePercentage = "0%";
             audioDataIndex = 0;
             timeTotal = 0;
-            audioData = [];
-            mp3Callback(audioData);
+            audioData = null;
+            decodedAudioData = [];
+            mp3Callback(new Blob());
             confirmDelete = false;
         }
     }
