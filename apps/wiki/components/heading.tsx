@@ -11,7 +11,7 @@ export function Heading({ size = "display/small", children, className }: Heading
   return (
     <h1
       className={cn(
-        "truncate text-[#691837]",
+        "text-[#691837]",
         {
           "text-[24px]": size === "xs",
           "text-text/primary/size/display/small": size === "display/small",
