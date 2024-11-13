@@ -88,7 +88,7 @@
         - After recording, the progress of the range input is not updated with the new total.
      */
 
-    import { audioBufferToWav, } from "./AudioHelpers.js";
+    import { audioBufferToWav, serializeBlobs, deserializeBlob } from "./AudioHelpers.js";
 
     export let mp3Callback;
     export let audioData;
@@ -102,6 +102,7 @@
     let isPlaying = false;
     let confirmDelete = false;
 
+    let decodedAudioData = [];
     let recData = [];
     let audioArray = [];
     let currentTimeGlobal = 0;
@@ -110,7 +111,7 @@
     let currentAudioIndex = 0;
     let currentTimePercentage = "0%";
     let recordedSeconds = 0;
-    $: isExpanded = recData.length > 0 || audioArray.length > 0 || audioData?.length > 0 || isRecording;
+    $: isExpanded = recData.length > 0 || audioArray.length > 0 || audioData || isRecording;
 
     function roundWithDecimals(num, decimals){
         return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
@@ -134,14 +135,17 @@
         });
     }
 
-    $: if (audioData && audioData.length !== 0  && audioArray.length === 0) {
-        audioDataIndex = audioData.length;
-        audioData.map((audio, index) => {
-            const newAudio = new Audio();
-            newAudio.preload = "metadata";
-            newAudio.src = window.URL.createObjectURL(audio);
-            audioEventSetter(newAudio, audio, index);
-            audioArray.push(newAudio);
+    $: if (audioData && audioArray.length === 0) {
+        deserializeBlob(audioData).then((blobs) => {
+            audioDataIndex = blobs.length;
+            blobs.map((audio, index) => {
+                const newAudio = new Audio();
+                newAudio.preload = "metadata";
+                newAudio.src = window.URL.createObjectURL(audio);
+                audioEventSetter(newAudio, audio, index);
+                audioArray.push(newAudio);
+                decodedAudioData.push(audio);
+            })
         })
     }
 
@@ -163,10 +167,8 @@
                 currentPosition += buffer.byteLength;
             })
             audioCtx.decodeAudioData(totalBuffer.buffer).then((audioBuffer) => {
-                // Sidenote: Either rename or export both converting helper functions.
-                if (!audioData) audioData = [];
-                audioData[audioDataIndex] = audioBufferToWav(audioBuffer);
-                mp3Callback && mp3Callback(audioData);
+                decodedAudioData[audioDataIndex] = audioBufferToWav(audioBuffer);
+                serializeBlobs(decodedAudioData).then((blobs) => mp3Callback && mp3Callback(blobs));
             });
         })
     }
@@ -374,8 +376,9 @@
             currentTimePercentage = "0%";
             audioDataIndex = 0;
             timeTotal = 0;
-            audioData = [];
-            mp3Callback(audioData);
+            audioData = null;
+            decodedAudioData = [];
+            mp3Callback(new Blob());
             confirmDelete = false;
         }
     }
