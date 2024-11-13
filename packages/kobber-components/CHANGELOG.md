@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.3.57
+
+### Patch Changes
+
+- audio recorder single blob output with internal headers
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.57
+  - @gyldendal/kobber-icons@0.3.57
+
 ## 0.3.56
 
 ### Patch Changes

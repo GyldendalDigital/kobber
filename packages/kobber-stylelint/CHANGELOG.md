@@ -1,5 +1,11 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.57
+
+### Patch Changes
+
+- audio recorder single blob output with internal headers
+
 ## 0.3.56
 
 ### Patch Changes
