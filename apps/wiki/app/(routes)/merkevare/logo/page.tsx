@@ -164,7 +164,7 @@ export default function Page() {
             alt="Logo"
           />
           <Image
-            src={damImageUrl("AVedawD5qbj8x0ldR7qLNu")}
+            src={damImageUrl("2Ouy_3zQKR5A62Q3En4rPb")}
             width={335}
             height={326}
             className="rounded-[8px] object-contain"
