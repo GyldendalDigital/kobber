@@ -58,7 +58,7 @@ export const Ingress = dynamic(
 
 export const CardLayout = dynamic(
   () =>
-    import("@gyldendal/kobber-components/react").then((x) => ({
+    import("@gyldendal/kobber-components/react-ssr-safe").then((x) => ({
       default: x.KobberCardLayout,
     })),
   {
@@ -76,7 +76,7 @@ export const CardLayout = dynamic(
 
 export const CardLayoutColumnAspectRatio = dynamic(
   () =>
-    import("@gyldendal/kobber-components/react").then((x) => ({
+    import("@gyldendal/kobber-components/react-ssr-safe").then((x) => ({
       default: x.KobberCardLayoutColumnAspectRatio,
     })),
   {
@@ -87,7 +87,7 @@ export const CardLayoutColumnAspectRatio = dynamic(
 
 export const Divider = dynamic(
   () =>
-    import("@gyldendal/kobber-components/react").then((x) => ({
+    import("@gyldendal/kobber-components/react-ssr-safe").then((x) => ({
       default: x.KobberDivider,
     })),
   { loading: () => <Loader2 className="size-4" />, ssr: false }
@@ -95,19 +95,18 @@ export const Divider = dynamic(
 
 export const Accordion = dynamic(
   () =>
-    import("@gyldendal/kobber-components/react").then((x) => ({
+    import("@gyldendal/kobber-components/react-ssr-safe").then((x) => ({
       default: x.KobberAccordion,
     })),
   {
     loading: () => <Skeleton className="h-9 w-36" />,
-
     ssr: false,
   }
 )
 
 export const List = dynamic(
   () =>
-    import("@gyldendal/kobber-components/react").then((x) => ({
+    import("@gyldendal/kobber-components/react-ssr-safe").then((x) => ({
       default: x.KobberList,
     })),
   { loading: () => <Loader2 className="size-4" />, ssr: false }
@@ -115,7 +114,7 @@ export const List = dynamic(
 
 export const ListItem = dynamic(
   () =>
-    import("@gyldendal/kobber-components/react").then((x) => ({
+    import("@gyldendal/kobber-components/react-ssr-safe").then((x) => ({
       default: x.KobberListItem,
     })),
   { loading: () => <Skeleton className="h-9 w-36" />, ssr: false }
