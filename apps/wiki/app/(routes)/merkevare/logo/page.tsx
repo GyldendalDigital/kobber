@@ -1,8 +1,10 @@
 import Image from "next/image"
+import Link from "next/link"
 import { PageDetails } from "@/types/types"
 import { damImageUrl } from "@/lib/damImageLoader"
 import { pagePathname } from "@/lib/utils"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
+import { IconExternalLink } from "@/components/kobber-icons"
 import { SectionLayout } from "@/components/section-layout"
 
 export const metadata: PageDetails = {
@@ -25,6 +27,25 @@ export default function Page() {
           logoene i alle typer kontekster.
         </Ingress>
       </ArticleWrapper>
+
+      <div className="flex flex-wrap items-center gap-[16px]">
+        <Link
+          target="_blank"
+          href={"https://dam-p-gyldendal.pqcloud.eu/app/#/s/BI54jcT1Vj"}
+          className="flex gap-[8px] text-[16px] leading-[1.15] text-link hover:underline"
+        >
+          Gyldendal logo
+          <IconExternalLink />
+        </Link>
+        <Link
+          target="_blank"
+          href={"https://dam-p-gyldendal.pqcloud.eu/?w=C7may_WNjE"}
+          className="flex gap-[8px] text-[16px] leading-[1.15] text-link hover:underline"
+        >
+          Logo ikon
+          <IconExternalLink />
+        </Link>
+      </div>
 
       <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Primærlogo</h5>

@@ -29,7 +29,7 @@ export default function Temafarger() {
       {ThemeColors.map((theme, index) => (
         <ArticleWrapper key={index}>
           <h5 className="text-[24px] text-[#481125]">{theme.title}</h5>
-          <Body>{theme.description}</Body>
+          {theme.description && <Body>{theme.description}</Body>}
           <ColorBlockGrid colors={theme.colors} enableCopy />
         </ArticleWrapper>
       ))}
