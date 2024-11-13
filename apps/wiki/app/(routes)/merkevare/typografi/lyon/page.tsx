@@ -37,7 +37,7 @@ export default function LyongPage() {
           behov. Bruk Arial i presentasjoner og dokumenter.
         </p>
       </ArticleWrapper>
-      <TypographyList items={LyonTypography} />
+      <TypographyList items={LyonTypography} fontClassName="font-lyon" />
     </SectionLayout>
   )
 }

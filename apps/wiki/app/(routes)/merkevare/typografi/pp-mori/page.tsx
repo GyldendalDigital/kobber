@@ -39,7 +39,7 @@ export default function PPMoriPage() {
           Bruk Arial i presentasjoner og dokumenter.
         </p>
       </ArticleWrapper>
-      <TypographyList items={PPMoriTypography} />
+      <TypographyList items={PPMoriTypography} fontClassName="font-mori" />
     </SectionLayout>
   )
 }

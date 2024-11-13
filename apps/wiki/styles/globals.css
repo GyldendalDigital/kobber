@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @import url("@gyldendal/kobber-base/themes/default/tokens.css");
-@import url("./pp-mori.css");
 
 @layer base {
   :root {
