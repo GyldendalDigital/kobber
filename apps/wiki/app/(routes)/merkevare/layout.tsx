@@ -15,27 +15,25 @@ type GetStartedLayoutProps = {
 
 export default async function MerkevareLayout({ children }: GetStartedLayoutProps) {
   return (
-    <SessionProvider>
-      <ContentLayout>
-        <SideMenu>
-          <SideMenuGroup title="Introduksjon" items={temporaryIntroRoutes} isOpenInitially />
-          <SideMenuGroup
-            title="Identitetselementer"
-            items={[
-              merkevareLogoPage,
-              fargerPage,
-              typografiPage,
-              merkevareIkonerPage,
-              // merkevareLayoutPage, // removed until further notice
-              // see https://gyldendal.slack.com/archives/C07HL681DV3/p1731334837774659
-            ]}
-            isOpenInitially
-          />
-          <SideMenuGroup title="Maler" items={temporaryTemplateRoutes} isOpenInitially />
-        </SideMenu>
-        <section className="w-full">{children}</section>
-      </ContentLayout>
-    </SessionProvider>
+    <ContentLayout>
+      <SideMenu>
+        <SideMenuGroup title="Introduksjon" items={temporaryIntroRoutes} isOpenInitially />
+        <SideMenuGroup
+          title="Identitetselementer"
+          items={[
+            merkevareLogoPage,
+            fargerPage,
+            typografiPage,
+            merkevareIkonerPage,
+            // merkevareLayoutPage, // removed until further notice
+            // see https://gyldendal.slack.com/archives/C07HL681DV3/p1731334837774659
+          ]}
+          isOpenInitially
+        />
+        <SideMenuGroup title="Maler" items={temporaryTemplateRoutes} isOpenInitially />
+      </SideMenu>
+      <section className="w-full">{children}</section>
+    </ContentLayout>
   )
 }
 

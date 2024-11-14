@@ -11,12 +11,15 @@ export function Restricted() {
   return (
     <div className="flex h-[60vh] w-full flex-col items-start justify-center gap-content/gap/horizontal">
       <ArticleWrapper>
-        <Heading>Merkevare</Heading>
+        <Heading>
+          Kobber
+          <br />
+          <span className="text-[#DC134F]">Gyldendals Designsystem</span>
+        </Heading>
         <Ingress>
-          Gyldendals merkevare består av kjernehistorien om Gyldendal, et felles verdigrunnlag,
-          posisjonsbeskrivelse og et sett med felles designprinsipper. Her finnes også
-          retningslinjer for vår merkevarearkitektur, samt retningslinjer for logo, farger,
-          typografi, ikoner og layout.
+          Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem
+          bestående av gjenbrukbare, fleksible ressurser slik som digitale komponenter, malverk,
+          retningslinjer og kode.
         </Ingress>
       </ArticleWrapper>
       <Button variant="main" color="carmine" onClick={() => ssoSignIn({ redirectUrl: pathname })}>
