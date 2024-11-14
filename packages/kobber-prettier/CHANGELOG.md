@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.58
+
+### Patch Changes
+
+- audio-recorder iPad bugfix
+
 ## 0.3.57
 
 ### Patch Changes
