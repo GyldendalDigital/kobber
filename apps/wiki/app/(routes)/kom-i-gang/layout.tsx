@@ -18,9 +18,10 @@ const GetStartedRoutes: PageMetadata[] = [
 ]
 
 export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
+  // top-[96px] is the height of the navbar + gap
   return (
     <ContentLayout>
-      <SideMenu>
+      <SideMenu className="sticky top-[96px] max-h-0">
         <List orientation="vertical">
           {GetStartedRoutes.map((item, i) => (
             <>
