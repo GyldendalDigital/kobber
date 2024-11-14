@@ -1,11 +1,12 @@
 import type { Metadata } from "next"
 import "@/styles/globals.css"
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider as AuthProvider } from "next-auth/react"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import Footer from "@/components/footer"
 import { IconLoader } from "@/components/kobber-icons-loader"
 import { WikiNavbar } from "@/components/menu/wiki-navbar"
+import { SessionProvider } from "@/components/providers/session-provider"
 import { inter, lyon, mori } from "./fonts"
 
 /** Fallback for all pages */
@@ -30,14 +31,14 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={cn("bg-[#FDF9F9] text-[#481125ff] antialiased transition-all")}>
-        <SessionProvider>
+        <AuthProvider>
           <IconLoader />
           <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal px-page/padding/inline/xsmall sm:px-page/padding/inline/small md:px-page/padding/inline/medium xl:px-page/padding/inline/large">
             <WikiNavbar />
-            {children}
+            <SessionProvider>{children}</SessionProvider>
             <Footer />
           </div>
-        </SessionProvider>
+        </AuthProvider>
       </body>
     </html>
   )
