@@ -12,7 +12,7 @@ const links = [
     href: "https://dam-p-gyldendal.pqcloud.eu/app/#/s/BI54jcT1Vj",
   },
   {
-    title: "Ikonesett",
+    title: "Ikonsett",
     href: "https://dam-p-gyldendal.pqcloud.eu/?w=ZqxPo6bFjq",
   },
 

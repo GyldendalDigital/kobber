@@ -31,7 +31,7 @@ export function WikiNavbarContainer({ itemsDesktop, itemsMobile }: WikiNavbarCon
 
   const flat = flattenItems(itemsMobile)
 
-  const selectedCategoryItems = itemsMobile.find((item) => pathname.startsWith(item.href))
+  const selectedCategoryItems = itemsMobile.find((item) => pathname.startsWith(item.href))?.children
 
   const breadcrumb = pathname
     .split("/")
@@ -40,7 +40,7 @@ export function WikiNavbarContainer({ itemsDesktop, itemsMobile }: WikiNavbarCon
       const href = `/${array.slice(0, index + 1).join("/")}`
       const item = flat.find((item) => item.href === href)
       if (item) {
-        acc.push({ ...item })
+        acc.push(item)
       }
       return acc
     }, [] as PageDetails[])
@@ -93,21 +93,16 @@ export function WikiNavbarContainer({ itemsDesktop, itemsMobile }: WikiNavbarCon
 
         <Sheet modal={false} open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
-            <Button
-              color={isOpen ? "carmine" : "aubergine"}
-              variant="main"
-              className={cn("flex rounded-[8px] bg-[#f9eaedff] p-0 md:hidden", {
+            {/* Switch with Button when we can prevent double click when not clicking the icon*/}
+            <div
+              className={cn("flex rounded-[8px] bg-[#f9eaedff] p-4 md:hidden", {
                 "bg-[#dc134fff] hover:bg-[#dc134fff]": isOpen,
               })}
             >
               <span slot="icon">
-                {!isOpen ? (
-                  <Menu className="size-[15px]" />
-                ) : (
-                  <X className="size-[15px] text-white" />
-                )}
+                {!isOpen ? <Menu size={20} /> : <X className="text-white" size={20} />}
               </span>
-            </Button>
+            </div>
           </SheetTrigger>
           <SheetContent
             side={"top"}
@@ -118,7 +113,10 @@ export function WikiNavbarContainer({ itemsDesktop, itemsMobile }: WikiNavbarCon
                 {pathname === "/" ? (
                   "Forside"
                 ) : (
-                  <Link href={parent?.href ?? "/"} className="flex items-center gap-2">
+                  <Link
+                    href={pathname === parent?.redirectsTo ? "/" : (parent?.href ?? "/")}
+                    className="flex items-center gap-2"
+                  >
                     <ArrowLeft size={20} />
                     <span className="h-[20px]">
                       {breadcrumb.slice(0, -1).map((item, i) => (
@@ -133,7 +131,7 @@ export function WikiNavbarContainer({ itemsDesktop, itemsMobile }: WikiNavbarCon
               </p>
 
               <ul className="flex flex-col gap-4">
-                {(selectedCategoryItems?.children ?? itemsMobile).map((item) => (
+                {(selectedCategoryItems ?? itemsMobile).map((item) => (
                   <div className="flex flex-col gap-4" key={item.href}>
                     <SubHeading className={cn({ underline: pathname === item.href })}>
                       {!item.children || item.children.length === 0 ? (

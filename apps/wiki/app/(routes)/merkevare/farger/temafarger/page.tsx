@@ -11,7 +11,7 @@ export const metadata: PageDetails = {
   title: "Temafarger",
   image: damImageUrl("7zxDRnQoKdQ9TOZHgE5wur"),
   description:
-    "Temafarger kan benyttes i avgrensede område for å sette stemning rundt et tema, en enkeltutgivelse eller en kolleksjon av utgivelser. Det er ikke tillatt å bruke disse palettene på et helt brukergrensesnitt eller for å kategorisere produkt-spesifikt innhold.",
+    "Temafarger kan benyttes i avgrensede område for å sette stemning rundt et tema, en enkeltutgivelse eller en kolleksjon av utgivelser. Det er ikke tillatt å bruke disse palettene på et helt brukergrensesnitt eller for å kategorisere produktspesifikt innhold.",
 }
 
 export default function Temafarger() {
@@ -19,11 +19,7 @@ export default function Temafarger() {
     <SectionLayout>
       <ArticleWrapper>
         <h2 className="text-[48px] text-[#691837]">{metadata.title as string}</h2>
-        <Ingress>
-          Temafarger kan benyttes i avgrensede område for å sette stemning rundt et tema, en
-          enkeltutgivelse eller en kolleksjon av utgivelser. Det er ikke tillatt å bruke disse
-          palettene på et helt brukergrensesnitt eller for å kategorisere produkt-spesifikt innhold.
-        </Ingress>
+        <Ingress>{metadata.description}</Ingress>
       </ArticleWrapper>
 
       {ThemeColors.map((theme, index) => (

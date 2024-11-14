@@ -7,7 +7,7 @@ type HeroImageProps = {
 
 export function HeroImage({ src }: HeroImageProps) {
   return (
-    <div className="relative h-[320px] max-w-full overflow-hidden rounded-[16px]">
+    <div className="relative h-[160px] md:h-[320px] max-w-full overflow-hidden rounded-[16px]">
       <Image
         src={src ?? placeholderImageUrl({})}
         fill

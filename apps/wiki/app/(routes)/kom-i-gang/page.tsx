@@ -12,8 +12,9 @@ export const metadata: PageDetails = {
   description:
     "Velkommen til Gyldendals designsystem. Her finner du informasjon om hvordan du kommer i gang med designsystemet.",
   children: [introPage, howToPage, contactPage],
+  redirectsTo: introPage.href,
 }
 
 export default function GetStartedPage() {
-  return redirect(`${metadata.href}/introduksjon`)
+  return metadata.redirectsTo ? redirect(metadata.redirectsTo) : null
 }

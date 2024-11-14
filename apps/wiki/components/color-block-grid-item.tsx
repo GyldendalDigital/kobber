@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Check, Copy } from "lucide-react"
 import { ColorItemType } from "@/types/types"
-import { cn } from "@/lib/utils"
+import { cn, hexToRgb } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
 type ColorBlockGridItemProps = {
@@ -58,7 +58,9 @@ export function ColorBlockGridItem({ color, enableCopy = false }: ColorBlockGrid
             )}
           </div>
           <div className="flex items-center justify-between gap-[4px]">
-            <span className="text-[11px] text-[#A35E70]">RGB {color.rgb}</span>
+            <span className="text-[11px] text-[#A35E70]">
+              RGB {color.rgb || hexToRgb(color.hex)}
+            </span>
             {enableCopy && (
               <Button
                 variant={"info"}

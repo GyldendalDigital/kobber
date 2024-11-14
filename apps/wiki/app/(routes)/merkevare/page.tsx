@@ -14,8 +14,9 @@ export const metadata: PageDetails = {
   children: [fargerPage, ikonerPage, logoPage, brandingLevelsPage, typografiPage],
   description:
     "Merkevare er en samling av designelementer som sammen skaper en helhetlig opplevelse for brukeren. Dette inkluderer farger, fonter, ikoner og illustrasjoner.",
+  redirectsTo: brandingLevelsPage.href,
 }
 
 export default function BrandingPage() {
-  redirect(brandingLevelsPage.href)
+  return metadata.redirectsTo ? redirect(metadata.redirectsTo) : null
 }
