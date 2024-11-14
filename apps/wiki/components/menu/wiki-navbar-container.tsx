@@ -95,7 +95,7 @@ export function WikiNavbarContainer({ itemsDesktop, itemsMobile }: WikiNavbarCon
           <SheetTrigger asChild>
             {/* Switch with Button when we can prevent double click when not clicking the icon*/}
             <div
-              className={cn("flex rounded-[8px] bg-[#f9eaedff] p-4 md:hidden", {
+              className={cn("flex cursor-pointer rounded-[8px] bg-[#f9eaedff] p-4 md:hidden", {
                 "bg-[#dc134fff] hover:bg-[#dc134fff]": isOpen,
               })}
             >

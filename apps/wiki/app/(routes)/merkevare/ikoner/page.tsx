@@ -3,18 +3,10 @@ import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { Heading } from "@/components/heading"
 import { Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
-import { pageBrandIconsSet } from "./ikonsett/page"
-import { pageBrandIconsGuidelines } from "./retningslinjer/page"
+import { metaBrandIcons } from "./brandIcons.meta"
+import { pageBrandIconsGuidelines, pageBrandIconsSet } from "./brandIcons.pages"
 
-export { metadata as pageBrandIcons }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "Ikoner",
-  image: pageBrandIconsGuidelines.image,
-  description:
-    "Ikoner er en viktig del av designsystemet vårt, og brukes for å visualisere informasjon og veilede brukeren. Ikoner skal være enkle, tydelige og konsistente, og skal brukes i tråd med retningslinjene våre.",
-  children: [pageBrandIconsGuidelines, pageBrandIconsSet],
-})
+export const metadata = metaBrandIcons
 
 export default function IkonerPage() {
   return (

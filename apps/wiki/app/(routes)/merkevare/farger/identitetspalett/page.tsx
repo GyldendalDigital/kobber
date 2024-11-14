@@ -7,15 +7,9 @@ import { ColorBlockGridItem } from "@/components/color-block-grid-item"
 import { Illustrations } from "@/components/illustrations"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
+import { metaBrandColorIdentity } from "./identity.meta"
 
-export { metadata as pageBrandColorsIdentity }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "Identitetspalett",
-  image: damUrl("BkRpubsF45_8o0iVkKSQod", ".svg"),
-  description:
-    "Dette er vår identitetspalett, som består av de mest brukte fargene for å etablere Gyldendals stiluttrykk. Markedsføring forholder seg alltid til denne paletten, samtidig som utvidede paletter er tilgjengelige for designere av brukergrensesnitt og bokmalverk.",
-})
+export const metadata = metaBrandColorIdentity
 
 const illustrations: IllustrationType[] = [
   {
@@ -32,11 +26,7 @@ export default function IdentitetsPalett() {
     <SectionLayout>
       <ArticleWrapper className="gap-[8px]">
         <h2 className="text-[48px] text-[#691837]">{metadata.title as string}</h2>
-        <Ingress>
-          Dette er vår identitetspalett, som består av de mest brukte fargene for å etablere
-          Gyldendals stiluttrykk. Markedsføring forholder seg alltid til denne paletten, samtidig
-          som utvidede paletter er tilgjengelige for designere av brukergrensesnitt og bokmalverk.
-        </Ingress>
+        <Ingress>{metadata.description}</Ingress>
       </ArticleWrapper>
 
       <ArticleWrapper className="max-w-[711px] gap-[0px]">

@@ -9,15 +9,9 @@ import { Heading } from "@/components/heading"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
+import { metaGettingStartedHow } from "./how.meta"
 
-export { metadata as pageGettingStartedHow }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "Hvordan bruke Kobber",
-  image: placeholderImageUrl({}),
-  description:
-    "Denne nettsiden kan sees på som Gyldendals oppslagsverk for merkevare og designsystem. Her samles all informasjon slik at vi har en felles kilde med eksempler og retningslinjer vi kan følge.",
-})
+export const metadata = metaGettingStartedHow
 
 export default function HvordanBrukeKobber() {
   return (

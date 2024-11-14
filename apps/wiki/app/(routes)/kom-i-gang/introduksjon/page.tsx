@@ -7,15 +7,9 @@ import { HeroImage } from "@/components/hero-image"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
+import { metaGettingStartedIntro } from "./intro.meta"
 
-export { metadata as pageGettingStartedIntro }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "Introduksjon",
-  image: placeholderImageUrl({}),
-  description:
-    "Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem bestående av gjenbrukbare, fleksible ressurser slik som digitale komponenter, malverk, retningslinjer og kode. Samtidig tydeliggjør det vår merkevarestrategi, våre felles verdier og de opplevelsene vi har som mål å tilby våre sluttbrukere.",
-})
+export const metadata = metaGettingStartedIntro
 
 export default function Introduksjon() {
   return (

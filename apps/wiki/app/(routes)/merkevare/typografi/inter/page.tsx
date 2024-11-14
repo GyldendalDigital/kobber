@@ -6,15 +6,9 @@ import { HeroImage } from "@/components/hero-image"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { TypographyList } from "@/components/typography-list"
+import { metaBrandTypographyInter } from "./inter.meta"
 
-export { metadata as pageBrandTypographyInter }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "Inter",
-  image: damUrl("CVfEZzAPqUGASn21lmiGDZ", ".svg"),
-  description:
-    "Inter er en open source-font som brukes på komponenter i brukergrensesnitt, og i digitale tekster hvor det finnes pedagogiske behov for ulike varianter av bokstaver og tegn.",
-})
+export const metadata = metaBrandTypographyInter
 
 export default function InterPage() {
   return (

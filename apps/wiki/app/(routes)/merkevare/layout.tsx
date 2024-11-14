@@ -2,10 +2,10 @@ import { PageMetadata } from "@/lib/metadata.utils"
 import { ContentLayout } from "@/components/content-layout"
 import { SideMenu } from "@/components/menu/side-menu"
 import { SideMenuGroup } from "@/components/menu/side-menu-group"
-import { pageBrandColors } from "./farger/page"
-import { pageBrandIcons } from "./ikoner/page"
-import { pageBrandLogo } from "./logo/page"
-import { pageBrandTypography } from "./typografi/page"
+import { metaBrandColor } from "./farger/brandColor.meta"
+import { metaBrandIcons } from "./ikoner/brandIcons.meta"
+import { metaBrandLogo } from "./logo/logo.meta"
+import { metaBrandTypography } from "./typografi/brandTypography.meta"
 
 type GetStartedLayoutProps = {
   children: React.ReactNode
@@ -19,10 +19,10 @@ export default async function MerkevareLayout({ children }: GetStartedLayoutProp
         <SideMenuGroup
           title="Identitetselementer"
           items={[
-            pageBrandLogo,
-            pageBrandColors,
-            pageBrandTypography,
-            pageBrandIcons,
+            metaBrandLogo,
+            metaBrandColor,
+            metaBrandTypography,
+            metaBrandIcons,
             // merkevareLayoutPage, // removed until further notice
             // see https://gyldendal.slack.com/archives/C07HL681DV3/p1731334837774659
           ]}

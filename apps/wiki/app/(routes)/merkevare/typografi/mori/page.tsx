@@ -6,15 +6,9 @@ import { HeroImage } from "@/components/hero-image"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { TypographyList } from "@/components/typography-list"
+import { metaBrandTypographyMori } from "./mori.meta"
 
-export { metadata as pageBrandTypographyMori }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "PP Mori",
-  image: damUrl("2EyeCFedaTx9HKSLc9MOEL", ".svg"),
-  description:
-    "PP Mori er Gyldendals identitetsbærende hovedskrift og benyttes i Gyldendal på alle nivåer i vår kommunikasjon - fra logoer til overskrifter, brødtekst og fotnoter.",
-})
+export const metadata = metaBrandTypographyMori
 
 export default function PPMoriPage() {
   return (

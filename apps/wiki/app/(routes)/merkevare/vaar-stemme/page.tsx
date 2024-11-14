@@ -1,13 +1,8 @@
 import { pageMetadata } from "@/lib/metadata.utils"
 import { placeholderImageUrl } from "@/lib/utils"
+import { metaBrandVaarStemme } from "./stemme.meta"
 
-export { metadata as pageGettingStartedIntro }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "Vår stemme",
-  image: placeholderImageUrl({}),
-  description: "",
-})
+export const metadata = metaBrandVaarStemme
 
 export default function VaarStemmePage() {
   return <div>VaarStemmePage</div>

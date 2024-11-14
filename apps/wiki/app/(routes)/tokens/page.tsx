@@ -6,13 +6,9 @@ import { ContentSection } from "@/components/content-section"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 import { FluidDiagram } from "./FluidDiagram"
+import { metaTokens } from "./tokens.meta"
 
-export { metadata as pageGettingStartedIntro }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "Tokens",
-  image: placeholderImageUrl({}),
-})
+export const metadata = metaTokens
 
 export default function TokensPage() {
   return (

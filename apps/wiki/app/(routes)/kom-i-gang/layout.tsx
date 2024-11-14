@@ -3,18 +3,18 @@ import { ContentLayout } from "@/components/content-layout"
 import { Divider, List } from "@/components/kobber-components"
 import { SideMenu } from "@/components/menu/side-menu"
 import { SideMenuItem } from "@/components/menu/side-menu-item"
-import { pageGettingStartedHow } from "./hvordan-bruke-kobber/page"
-import { pageGettingStartedIntro } from "./introduksjon/page"
-import { pageGettingStartedContact } from "./kontakt/page"
+import { metaGettingStartedHow } from "./hvordan-bruke-kobber/how.meta"
+import { metaGettingStartedIntro } from "./introduksjon/intro.meta"
+import { metaGettingStartedContact } from "./kontakt/contact.meta"
 
 type GetStartedLayoutProps = {
   children: React.ReactNode
 }
 
 const GetStartedRoutes: PageMetadata[] = [
-  pageGettingStartedIntro,
-  pageGettingStartedHow,
-  pageGettingStartedContact,
+  metaGettingStartedIntro,
+  metaGettingStartedHow,
+  metaGettingStartedContact,
 ]
 
 export default function GetStartedLayout({ children }: GetStartedLayoutProps) {

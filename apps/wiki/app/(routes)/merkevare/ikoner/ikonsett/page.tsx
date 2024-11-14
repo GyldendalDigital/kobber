@@ -4,15 +4,9 @@ import { pageMetadata } from "@/lib/metadata.utils"
 import { ArticleWrapper, BoxLayout, Ingress } from "@/components/kobber-components"
 import { IconExternalLink } from "@/components/kobber-icons"
 import { IconGrid } from "./icon-grid"
+import { metaBrandIconSet } from "./iconSet.meta"
 
-export { metadata as pageBrandIconsSet }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "Ikonsett",
-  image: damUrl("5eWSL54644-8vUcyASwDWy", ".svg"),
-  description:
-    "Ikonsett er en viktig del av designsystemet vårt, og brukes for å visualisere informasjon og veilede brukeren. Ikoner skal være enkle, tydelige og konsistente, og skal brukes i tråd med retningslinjene våre.",
-})
+export const metadata = metaBrandIconSet
 
 export default function IkonSett() {
   return (
