@@ -1,11 +1,11 @@
 "use client"
 
 import { usePathname } from "next/navigation"
-import { PageDetails } from "@/types/types"
+import { PageMetadata } from "@/lib/metadata.utils"
 import { List } from "@/components/kobber-components"
 import { SideMenuItemLink } from "./side-menu-item-link"
 
-export const SideMenuItem = (item: PageDetails) => {
+export const SideMenuItem = (item: PageMetadata) => {
   const pathname = usePathname()
   return (
     <>

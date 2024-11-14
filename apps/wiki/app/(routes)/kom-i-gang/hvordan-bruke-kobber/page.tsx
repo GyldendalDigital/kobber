@@ -1,22 +1,21 @@
 import Image from "next/image"
 import Link from "next/link"
-import { PageDetails } from "@/types/types"
 import { BRANDING_MANUAL_URL, KOBBER_TEAMS_URL } from "@/lib/constants"
-import { damImageUrl } from "@/lib/damImageLoader"
-import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { damUrl } from "@/lib/damImageLoader"
+import { pageMetadata } from "@/lib/metadata.utils"
+import { placeholderImageUrl } from "@/lib/utils"
 import { ExternalLinksGrid } from "@/components/global/external-links-grid"
 import { Heading } from "@/components/heading"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
+export const metadata = pageMetadata(import.meta.url, {
   title: "Hvordan bruke Kobber",
   image: placeholderImageUrl({}),
   description:
     "Denne nettsiden kan sees på som Gyldendals oppslagsverk for merkevare og designsystem. Her samles all informasjon slik at vi har en felles kilde med eksempler og retningslinjer vi kan følge.",
-}
+})
 
 export default function HvordanBrukeKobber() {
   return (
@@ -53,7 +52,7 @@ export default function HvordanBrukeKobber() {
       <ArticleWrapper className="max-w-[711px]">
         <SubHeading>Slik er Kobber satt sammen</SubHeading>
         <Image
-          src={damImageUrl("6atgf4QHaSg9sFEJKBk8s9", ".svg")}
+          src={damUrl("6atgf4QHaSg9sFEJKBk8s9", ".svg")}
           width={711}
           height={355}
           className="object-contain"

@@ -1,5 +1,5 @@
 import { FeatureBoxType } from "@/types/types"
-import { damImageUrl } from "@/lib/damImageLoader"
+import { damUrl } from "@/lib/damImageLoader"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { ExternalLinksGrid } from "@/components/global/external-links-grid"
 import { HeroBanner } from "./hero-banner"
@@ -25,21 +25,21 @@ const boxes: FeatureBoxType[] = [
   {
     title: "Introduksjon av Kobber",
     href: "/kom-i-gang",
-    image: damImageUrl("2bULAP2gabp9rC4A1CbQSB", ".jpg"),
+    image: damUrl("2bULAP2gabp9rC4A1CbQSB", ".jpg"),
   },
   {
     title: "Vår nye Gyldendal-logo",
-    image: damImageUrl("CtM-1DQEapL98pVi_5S64C", ".svg"),
+    image: damUrl("CtM-1DQEapL98pVi_5S64C", ".svg"),
     href: "/merkevare/logo",
   },
   {
     title: "Vår nye fargepalett",
-    image: damImageUrl("BkRpubsF45_8o0iVkKSQod", ".svg"),
+    image: damUrl("BkRpubsF45_8o0iVkKSQod", ".svg"),
     href: "/merkevare/farger",
   },
   {
     title: "Fonter",
-    image: damImageUrl("Frg1nstAKYsA0hKXNk3z5x", ".svg"),
+    image: damUrl("Frg1nstAKYsA0hKXNk3z5x", ".svg"),
     href: "/merkevare/typografi",
   },
 ]

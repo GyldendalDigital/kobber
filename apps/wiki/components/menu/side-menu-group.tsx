@@ -1,12 +1,12 @@
 "use client"
 
-import { PageDetails } from "@/types/types"
+import { PageMetadata } from "@/lib/metadata.utils"
 import { Accordion, Divider, List } from "@/components/kobber-components"
 import { SideMenuItem } from "./side-menu-item"
 
 type Props = {
   title: string
-  items: PageDetails[]
+  items: PageMetadata[]
   isOpenInitially?: boolean
 }
 

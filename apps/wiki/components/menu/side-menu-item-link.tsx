@@ -2,10 +2,10 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { PageDetails } from "@/types/types"
+import { PageMetadata } from "@/lib/metadata.utils"
 import { ListItem } from "@/components/kobber-components"
 
-export const SideMenuItemLink = (item: PageDetails) => {
+export const SideMenuItemLink = (item: PageMetadata) => {
   const pathname = usePathname()
 
   return (

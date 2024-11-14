@@ -69,20 +69,10 @@ export type InformationCardType = {
 export type TextCollectionProps = {
   heading?: string
   label?: string
-  subheading?: string
+  subheading?: string | null
   ingress?: string
   size?: SizeType
   text?: string
-}
-
-export interface PageDetails extends Metadata {
-  href: string
-  image: string | null
-  status?: "kommer" | "nyhet"
-  children?: PageDetails[]
-  disabled?: boolean
-  /** Used in mobile navbar to prevent self redirects */
-  redirectsTo?: string
 }
 
 export type IllustrationType = {

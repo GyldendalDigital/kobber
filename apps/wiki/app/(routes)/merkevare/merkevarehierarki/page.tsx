@@ -1,22 +1,20 @@
 import Image from "next/image"
 import Link from "next/link"
-import { PageDetails } from "@/types/types"
-import { damImageUrl } from "@/lib/damImageLoader"
-import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { damUrl } from "@/lib/damImageLoader"
+import { pageBrandLogo, pageGettingStartedContact } from "@/lib/metadata.pages"
+import { pageMetadata } from "@/lib/metadata.utils"
+import { placeholderImageUrl } from "@/lib/utils"
 import { Heading } from "@/components/heading"
-import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
+import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
-import { metadata as contactPage } from "@/app/(routes)/kom-i-gang/kontakt/page"
-import { metadata as logoPage } from "@/app/(routes)/merkevare/logo/page"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
+export const metadata = pageMetadata(import.meta.url, {
   title: "Merkevare­hierarki",
   image: placeholderImageUrl({}),
   description:
     "Merkevarearkitekturens formål er å gi en klar struktur over merkevaren vår og hvordan produktene og løsningene våre henger sammen. Arkitekturen skal sørge for at vi snakker med konsistent visuell stemme, slik at vi styrker kommunikasjonen med og relasjonene til alle våre målgrupper. Dette vil gi større kraft til merkevaren Gyldendal, og gi oss bedre muligheter til å skape større verdi og nå våre mål.",
-}
+})
 
 export default function MerkevareHeriarkiPage() {
   return (
@@ -37,12 +35,7 @@ export default function MerkevareHeriarkiPage() {
           utgivelser og verk, støttede identiteter og frittstående identiteter. Disse forklares mer
           i detalj på denne siden.
         </p>
-        <Image
-          src={damImageUrl("4WYa-6IgqHmAdCdw9SxjB3")}
-          width={711}
-          height={294}
-          alt="Illustrasjon"
-        />
+        <Image src={damUrl("4WYa-6IgqHmAdCdw9SxjB3")} width={711} height={294} alt="Illustrasjon" />
       </ArticleWrapper>
 
       <ArticleWrapper className="max-w-[711px]">
@@ -55,7 +48,7 @@ export default function MerkevareHeriarkiPage() {
           Nivå 1.1 består av Gyldendals primærlogo og brukes alltid som avsender på Gyldendals
           utgivelser, arrangementer og lignende. Mer informasjon om primærlogoen og bruken av den,
           kan du finne i{" "}
-          <Link className="underline" href={logoPage.href}>
+          <Link className="underline" href={pageBrandLogo.href}>
             logo
           </Link>
           .
@@ -72,7 +65,7 @@ export default function MerkevareHeriarkiPage() {
           digitale flater.
         </p>
         <Image
-          src={damImageUrl("7bPjxwM9Kw2BLLWhKGBQJ2")}
+          src={damUrl("7bPjxwM9Kw2BLLWhKGBQJ2")}
           width={711}
           height={294}
           alt="Illustrasjon nivå 1"
@@ -105,7 +98,7 @@ export default function MerkevareHeriarkiPage() {
           som avsender.
         </p>
         <Image
-          src={damImageUrl("3TCYMdT8qra86ZHBhPp9FE")}
+          src={damUrl("3TCYMdT8qra86ZHBhPp9FE")}
           width={711}
           height={294}
           alt="Illustrasjon nivå 2"
@@ -127,13 +120,13 @@ export default function MerkevareHeriarkiPage() {
           Alle tjenester som benytter seg av Gyldendal-navnet skal benytte seg av samme
           logostruktur. Vi ønsker å unngå fargedifferensiering på tjenester, men unntak gjøres i
           tilfeller hvor det gir mening i konkurransebildet. Slike unntak må søkes om; se{" "}
-          <Link className="underline" href={contactPage.href}>
+          <Link className="underline" href={pageGettingStartedContact.href}>
             kontaktsiden
           </Link>
           .
         </p>
         <Image
-          src={damImageUrl("CJ8mJ2oVaqu8ww95BaQW3A")}
+          src={damUrl("CJ8mJ2oVaqu8ww95BaQW3A")}
           width={711}
           height={294}
           alt="Illustrasjon nivå 3"
@@ -154,7 +147,7 @@ export default function MerkevareHeriarkiPage() {
           ikke designsystemet Kobber.
         </p>
         <Image
-          src={damImageUrl("6EPS5_bUKpC8avwgVMLz1C")}
+          src={damUrl("6EPS5_bUKpC8avwgVMLz1C")}
           width={711}
           height={294}
           alt="Illustrasjon nivå 4"

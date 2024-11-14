@@ -1,25 +1,23 @@
 import { InterTypography } from "@/data/typography"
-import { PageDetails } from "@/types/types"
-import { damImageUrl } from "@/lib/damImageLoader"
-import { pagePathname } from "@/lib/utils"
+import { damUrl } from "@/lib/damImageLoader"
+import { pageMetadata } from "@/lib/metadata.utils"
 import { Heading } from "@/components/heading"
 import { HeroImage } from "@/components/hero-image"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { TypographyList } from "@/components/typography-list"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
+export const metadata = pageMetadata(import.meta.url, {
   title: "Inter",
-  image: damImageUrl("CVfEZzAPqUGASn21lmiGDZ", ".svg"),
+  image: damUrl("CVfEZzAPqUGASn21lmiGDZ", ".svg"),
   description:
     "Inter er en open source-font som brukes på komponenter i brukergrensesnitt, og i digitale tekster hvor det finnes pedagogiske behov for ulike varianter av bokstaver og tegn.",
-}
+})
 
 export default function InterPage() {
   return (
     <SectionLayout>
-      <HeroImage src={damImageUrl("Exu0-ZEMqHz97PTPyNXbA2", ".svg")} />
+      <HeroImage src={damUrl("Exu0-ZEMqHz97PTPyNXbA2", ".svg")} />
       <ArticleWrapper>
         <Heading>{metadata.title as string}</Heading>
         <Ingress>{metadata.description}</Ingress>
