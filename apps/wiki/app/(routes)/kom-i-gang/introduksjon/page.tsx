@@ -23,7 +23,7 @@ export default function Introduksjon() {
       <ArticleWrapper>
         <Heading>Designsystemet Kobber</Heading>
 
-        <h2 className="text-[48px] leading-[57.6px] text-[#DC134F]">
+        <h2 className="font-lyon text-[48px] leading-[57.6px] text-[#DC134F]">
           Et verktøy for samspill og synergier
         </h2>
 

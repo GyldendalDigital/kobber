@@ -11,7 +11,7 @@ export function Restricted() {
   return (
     <div className="flex h-[60vh] w-full flex-col items-start justify-center gap-content/gap/horizontal">
       <ArticleWrapper>
-        <Heading>
+        <Heading className="font-lyon">
           Kobber
           <br />
           <span className="text-[#DC134F]">Gyldendals Designsystem</span>
