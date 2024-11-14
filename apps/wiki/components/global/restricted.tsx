@@ -11,10 +11,10 @@ export function Restricted() {
   return (
     <div className="flex h-[60vh] w-full flex-col items-start justify-center gap-content/gap/horizontal">
       <ArticleWrapper>
-        <Heading className="font-lyon">
+        <Heading>
           Kobber
           <br />
-          <span className="text-[#DC134F]">Gyldendals Designsystem</span>
+          <span className="font-lyon text-[#DC134F]">Gyldendals Designsystem</span>
         </Heading>
         <Ingress>
           Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem
