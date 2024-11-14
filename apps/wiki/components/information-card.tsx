@@ -8,8 +8,8 @@ type InformationCardProps = {
 
 export function InformationCard({ item: { title, text, image } }: InformationCardProps) {
   return (
-    <div className="grid min-h-[375px] w-full items-center justify-center gap-[24px] md:w-[270px]">
-      <div className="relative size-[274px] overflow-hidden rounded-[16px] bg-muted">
+    <div className="flex h-full flex-col gap-2 md:w-[270px]">
+      <div className="relative aspect-square overflow-hidden rounded-[16px] bg-muted">
         <Image
           src={image ?? placeholderImageUrl({})}
           alt="Bilde"
@@ -18,7 +18,7 @@ export function InformationCard({ item: { title, text, image } }: InformationCar
         />
       </div>
 
-      <div className="flex min-h-[120px] flex-col items-start justify-start gap-[16px]">
+      <div className="flex min-h-[120px] flex-col items-start justify-start">
         <h6 className="tex-[#481125ff] text-[22px]">{title}</h6>
         {text && <p className="whitespace-pre-line text-[16px] text-[#A35E70]">{text}</p>}
       </div>

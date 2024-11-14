@@ -50,7 +50,7 @@ export default function Page() {
       <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Primærlogo</h5>
         <Body>
-          Gyldendals primærlogo skal brukes i de fleste tilfeller. 
+          Gyldendals primærlogo skal brukes i de fleste tilfeller.
           <br />
           <br />
           Den består av logosymbolet som er basert på en norsk gran, samt navnet skrevet i små
@@ -65,7 +65,7 @@ export default function Page() {
           width={711}
           height={355}
           className="object-contain"
-          alt="Logo"
+          alt="Gyldendals primærlogo"
         />
       </ArticleWrapper>
 
@@ -86,7 +86,7 @@ export default function Page() {
           width={711}
           height={355}
           className="object-contain"
-          alt="Logo"
+          alt="Gyldendal-logoen i forskjellige fargevarianter"
         />
       </ArticleWrapper>
 
@@ -94,11 +94,11 @@ export default function Page() {
         <h5 className="text-[24px] text-[#481125]">Emblemvariant</h5>
         <Body>
           Emblemversjonen av logoen brukes kun når Gyldendal selv er hovedfokuset i et budskap. Den
-          er best egnet når den står helt for seg selv på en flate. 
+          er best egnet når den står helt for seg selv på en flate.
           <br />
           <br />
           Dette er en sekundærlogo og skal generelt ikke brukes på produkter. Den finnes også i
-          fargevariantene  positiv, negativ og monoversjon.
+          fargevariantene positiv, negativ og monoversjon.
         </Body>
 
         <Image
@@ -106,7 +106,7 @@ export default function Page() {
           width={711}
           height={355}
           className="object-contain"
-          alt="Logo"
+          alt="Gyldendal-emblemet i forskjellige fargevarianter"
         />
       </ArticleWrapper>
 
@@ -122,7 +122,7 @@ export default function Page() {
           width={711}
           height={355}
           className="object-contain"
-          alt="Logo"
+          alt="Størrelser på logo og emblem"
         />
       </ArticleWrapper>
 
@@ -140,7 +140,7 @@ export default function Page() {
           width={711}
           height={355}
           className="object-contain"
-          alt="Logo"
+          alt="Logoen skal helst ha to liggende G-er i luft rundt seg"
         />
       </ArticleWrapper>
 
@@ -161,28 +161,28 @@ export default function Page() {
             width={335}
             height={326}
             className="rounded-[8px] object-contain"
-            alt="Logo"
+            alt="Kun logo, uten Gyldendal-navnet"
           />
           <Image
             src={damImageUrl("2Ouy_3zQKR5A62Q3En4rPb")}
             width={335}
             height={326}
             className="rounded-[8px] object-contain"
-            alt="Logo"
+            alt="Gyldendal på Facebook"
           />
           <Image
             src={damImageUrl("16nZGiVba9ABfrDKvw-BPV")}
             width={335}
             height={326}
             className="rounded-[8px] object-contain"
-            alt="Logo"
+            alt="Gyldendal story"
           />
           <Image
             src={damImageUrl("AVedawD5qbj8x0ldR7qLNu")}
             width={335}
             height={326}
             className="rounded-[8px] object-contain"
-            alt="Logo"
+            alt="Gyldendal på Instagram"
           />
         </div>
       </ArticleWrapper>
@@ -194,7 +194,7 @@ export default function Page() {
           width={711}
           height={650}
           className="object-contain"
-          alt="Unngå"
+          alt="Unngå omarrangerte elementer, utelatte elementer, endret farge, effekter som f.eks. skygge, egne varianter, og rotasjon av logo"
         />
       </ArticleWrapper>
     </SectionLayout>

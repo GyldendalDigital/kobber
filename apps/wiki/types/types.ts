@@ -81,6 +81,8 @@ export interface PageDetails extends Metadata {
   status?: "kommer" | "nyhet"
   children?: PageDetails[]
   disabled?: boolean
+  /** Used in mobile navbar to prevent self redirects */
+  redirectsTo?: string
 }
 
 export type IllustrationType = {

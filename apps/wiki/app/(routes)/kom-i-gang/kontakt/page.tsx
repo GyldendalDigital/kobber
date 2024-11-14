@@ -51,7 +51,7 @@ const team: InformationCardType[] = [
 
 export default function ContactPage() {
   return (
-    <main className="flex w-full max-w-[858px] flex-col gap-y-content/gap/horizontal">
+    <main className="flex w-full max-w-[858px] flex-col gap-2 md:gap-y-content/gap/horizontal">
       <section className="flex w-full flex-col gap-y-text-section/gap/header-ingress-body/horizontal">
         <ArticleWrapper>
           <h2 className="text-[48px] text-[#691837]">Spørsmål eller tilbakemelding?</h2>
@@ -79,7 +79,7 @@ export default function ContactPage() {
           </Body>
         </ArticleWrapper>
       </section>
-      <section className="grid grid-cols-1 items-center justify-center gap-x-section/gap/vertical md:grid-cols-2 lg:grid-cols-3">
+      <section className="grid grid-cols-2 items-center justify-center gap-4 md:grid-cols-2 lg:grid-cols-3">
         {team.map((person) => (
           <InformationCard key={person.title} item={person} />
         ))}

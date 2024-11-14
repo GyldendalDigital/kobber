@@ -19,11 +19,7 @@ export default function UiFarger() {
     <SectionLayout>
       <ArticleWrapper>
         <h2 className="text-[48px] text-[#691837]">{metadata.title as string}</h2>
-        <Ingress>
-          Vi har noen farger som er forbeholdt digitale grensesnitt. Dette inkluderer farger som
-          skal kommunisere til sluttbrukeren om suksess, informasjon og advarsler, samt en nøytral
-          palett.
-        </Ingress>
+        <Ingress>{metadata.description}</Ingress>
       </ArticleWrapper>
 
       {UIColors.map((theme, index) => (

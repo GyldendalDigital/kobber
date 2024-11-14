@@ -22,6 +22,7 @@ const illusrations: IllustrationType[] = [
     width: 771,
     height: 296,
     fill: true,
+    alt: "Fargepaletten, her representert med fargene Karmin, Aubergin, Vin og Betong",
   },
 ]
 
@@ -82,7 +83,14 @@ export default function IdentitetsPalett() {
           varmt og emosjonelt.
         </Body>
         <Illustrations
-          illustrations={[{ src: damImageUrl("EuqcwI8eaka8gV6z2lnji4"), height: 440, width: 711 }]}
+          illustrations={[
+            {
+              src: damImageUrl("EuqcwI8eaka8gV6z2lnji4"),
+              height: 440,
+              width: 711,
+              alt: "Mormerke og støttede identiteter",
+            },
+          ]}
         />
       </ArticleWrapper>
 
@@ -94,7 +102,14 @@ export default function IdentitetsPalett() {
           lages egne fargekombinasjoner utenfor det som er definert.
         </Body>
         <Illustrations
-          illustrations={[{ src: damImageUrl("FLPb90y7KyFAitWiUnO3op"), height: 707, width: 711 }]}
+          illustrations={[
+            {
+              src: damImageUrl("FLPb90y7KyFAitWiUnO3op"),
+              height: 707,
+              width: 711,
+              alt: "Ikke bruk transparens, egne fargekombinasjoner, lås farger til egne kategorier, eller bruk temafarger til hele grensesnitt",
+            },
+          ]}
         />
       </ArticleWrapper>
     </SectionLayout>
