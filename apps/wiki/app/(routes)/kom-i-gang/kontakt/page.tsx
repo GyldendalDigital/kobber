@@ -6,6 +6,8 @@ import { pageMetadata } from "@/lib/metadata.utils"
 import { InformationCard } from "@/components/information-card"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 
+export { metadata as pageGettingStartedContact }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "Kontakt",
   image: damUrl("EfzMn1EYq8DAhAFxjg892v", ".svg"),

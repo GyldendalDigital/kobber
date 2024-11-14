@@ -4,6 +4,8 @@ import { Heading } from "@/components/heading"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 
+export { metadata as pageBrandLayoutGrid }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "Layout og grid",
   image: placeholderImageUrl({}),

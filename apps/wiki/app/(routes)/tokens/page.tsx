@@ -7,6 +7,8 @@ import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 import { FluidDiagram } from "./FluidDiagram"
 
+export { metadata as pageGettingStartedIntro }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "Tokens",
   image: placeholderImageUrl({}),

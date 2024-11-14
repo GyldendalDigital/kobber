@@ -1,14 +1,14 @@
-import {
-  pageBrandTypographyArial,
-  pageBrandTypographyInter,
-  pageBrandTypographyLyon,
-  pageBrandTypographyMori,
-} from "@/lib/metadata.pages"
 import { pageMetadata } from "@/lib/metadata.utils"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { Heading } from "@/components/heading"
 import { Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
+import { pageBrandTypographyArial } from "./arial/page"
+import { pageBrandTypographyInter } from "./inter/page"
+import { pageBrandTypographyLyon } from "./lyon/page"
+import { pageBrandTypographyMori } from "./pp-mori/page"
+
+export { metadata as pageBrandTypography }
 
 export const metadata = pageMetadata(import.meta.url, {
   title: "Typografi",

@@ -1,11 +1,11 @@
 import { redirect } from "next/navigation"
-import {
-  pageGettingStartedContact,
-  pageGettingStartedHow,
-  pageGettingStartedIntro,
-} from "@/lib/metadata.pages"
 import { pageMetadata } from "@/lib/metadata.utils"
 import { placeholderImageUrl } from "@/lib/utils"
+import { pageGettingStartedHow } from "./hvordan-bruke-kobber/page"
+import { pageGettingStartedIntro } from "./introduksjon/page"
+import { pageGettingStartedContact } from "./kontakt/page"
+
+export { metadata as pageGettingStarted }
 
 export const metadata = pageMetadata(import.meta.url, {
   title: "Kom i gang",

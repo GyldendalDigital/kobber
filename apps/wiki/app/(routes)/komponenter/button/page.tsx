@@ -7,6 +7,8 @@ import { ButtonSection } from "./_components/button-section"
 import { InteractiveStatesSection } from "./_components/interactive-states-section"
 import { PracticeSection } from "./_components/practice-section"
 
+export { metadata as pageComponentsButton }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "Button",
   image: placeholderImageUrl({}),

@@ -1,13 +1,16 @@
 import Link from "next/link"
 import { LyonTypography } from "@/data/typography"
 import { damUrl } from "@/lib/damImageLoader"
-import { pageBrandTypographyArial, pageGettingStartedContact } from "@/lib/metadata.pages"
 import { pageMetadata } from "@/lib/metadata.utils"
 import { Heading } from "@/components/heading"
 import { HeroImage } from "@/components/hero-image"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { TypographyList } from "@/components/typography-list"
+import { pageGettingStartedContact } from "@/app/(routes)/kom-i-gang/kontakt/page"
+import { pageBrandTypographyArial } from "../arial/page"
+
+export { metadata as pageBrandTypographyLyon }
 
 export const metadata = pageMetadata(import.meta.url, {
   title: "Lyon Display",

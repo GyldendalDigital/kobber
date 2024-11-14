@@ -1,4 +1,6 @@
-import { pageBrand, pageComponents, pageGettingStarted } from "@/lib/metadata.pages"
+import { pageGettingStarted } from "@/app/(routes)/kom-i-gang/page"
+import { pageComponents } from "@/app/(routes)/komponenter/page"
+import { pageBrand } from "@/app/(routes)/merkevare/page"
 import { WikiNavbarContainer } from "./wiki-navbar-container"
 
 export function WikiNavbar() {

@@ -43,22 +43,3 @@ const boxes: FeatureBoxType[] = [
     href: "/merkevare/typografi",
   },
 ]
-
-const links = [
-  {
-    title: "Github",
-    href: "https://github.com/GyldendalDigital/kobber",
-  },
-  {
-    title: "Figma",
-    href: "https://www.figma.com/design/Ok3TVIMuuMH33Ka3spj5H8/Dokumentasjon",
-  },
-  {
-    title: "DAM",
-    href: "https://dam-p-gyldendal.pqcloud.eu/app/#/search///?path=%22%5CKobber%5CDokumentasjon%22&enableAssetsOfCollections=false&showAssetsOfSubfolders=true&showSubCollections=false",
-  },
-  {
-    title: "Teams",
-    href: "https://teams.microsoft.com/l/team/19%3Aa8271fb02da6401cac6283ad1e4a3e81%40thread.tacv2/conversations?groupId=bff6d131-5a81-403d-b18d-30408987f80e&tenantId=eabfa100-f9b3-4265-bed7-2a818cf990fe",
-  },
-]

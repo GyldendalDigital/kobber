@@ -5,6 +5,8 @@ import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 
+export { metadata as pageBrandColorsTheme }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "Temafarger",
   image: damUrl("7zxDRnQoKdQ9TOZHgE5wur"),

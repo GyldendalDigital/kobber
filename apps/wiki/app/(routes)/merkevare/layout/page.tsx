@@ -1,10 +1,13 @@
-import { pageBrandLayoutGrid, pageBrandLayoutSpacing } from "@/lib/metadata.pages"
 import { pageMetadata } from "@/lib/metadata.utils"
 import { placeholderImageUrl } from "@/lib/utils"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { Heading } from "@/components/heading"
 import { Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
+import { pageBrandLayoutGrid } from "./grid/page"
+import { pageBrandLayoutSpacing } from "./spacing/page"
+
+export { metadata as pageBrandLayout }
 
 export const metadata = pageMetadata(import.meta.url, {
   title: "Layout",

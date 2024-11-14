@@ -5,6 +5,8 @@ import { ArticleWrapper, BoxLayout, Ingress } from "@/components/kobber-componen
 import { IconExternalLink } from "@/components/kobber-icons"
 import { IconGrid } from "./icon-grid"
 
+export { metadata as pageBrandIconsSet }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "Ikonsett",
   image: damUrl("5eWSL54644-8vUcyASwDWy", ".svg"),

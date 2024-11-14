@@ -7,6 +7,8 @@ import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { TypographyList } from "@/components/typography-list"
 
+export { metadata as pageBrandTypographyMori }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "PP Mori",
   image: damUrl("2EyeCFedaTx9HKSLc9MOEL", ".svg"),

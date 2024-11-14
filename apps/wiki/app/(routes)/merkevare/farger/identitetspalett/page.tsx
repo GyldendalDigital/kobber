@@ -4,9 +4,11 @@ import { damUrl } from "@/lib/damImageLoader"
 import { pageMetadata } from "@/lib/metadata.utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ColorBlockGridItem } from "@/components/color-block-grid-item"
-import { Illustrations, IllustrationsSkeleton } from "@/components/illustrations"
+import { Illustrations } from "@/components/illustrations"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
+
+export { metadata as pageBrandColorsIdentity }
 
 export const metadata = pageMetadata(import.meta.url, {
   title: "Identitetspalett",

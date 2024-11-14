@@ -10,6 +10,8 @@ import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
 
+export { metadata as pageGettingStartedHow }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "Hvordan bruke Kobber",
   image: placeholderImageUrl({}),

@@ -5,6 +5,8 @@ import { HeroImage } from "@/components/hero-image"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 
+export { metadata as pageBrandTypographyArial }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "Arial",
   image: damUrl("2ORx4_83KjR9VhrWckk2iZ", ".svg"),

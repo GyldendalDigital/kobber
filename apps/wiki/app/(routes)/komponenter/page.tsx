@@ -3,6 +3,8 @@ import { placeholderImageUrl } from "@/lib/utils"
 import { Heading } from "@/components/heading"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 
+export { metadata as pageComponents }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "Komponenter",
   image: placeholderImageUrl({}),
