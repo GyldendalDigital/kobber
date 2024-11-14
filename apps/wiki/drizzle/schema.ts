@@ -84,3 +84,11 @@ export const authenticators = pgTable(
     }),
   })
 )
+
+export const visitors = pgTable("visitor", {
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  ip: text("ip").notNull(),
+  createdAt: timestamp("created_at", { mode: "date" }).defaultNow(),
+})
