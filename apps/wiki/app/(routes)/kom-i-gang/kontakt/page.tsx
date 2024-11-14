@@ -5,15 +5,9 @@ import { damUrl } from "@/lib/damImageLoader"
 import { pageMetadata } from "@/lib/metadata.utils"
 import { InformationCard } from "@/components/information-card"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
+import { metaGettingStartedContact } from "./contact.meta"
 
-export { metadata as pageGettingStartedContact }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "Kontakt",
-  image: damUrl("EfzMn1EYq8DAhAFxjg892v", ".svg"),
-  description:
-    "Ikke nøl med å ta kontakt om det er noe som er uklart, om du syns noe mangler eller om du har en generell tilbakemelding.",
-})
+export const metadata = metaGettingStartedContact
 
 const team: InformationCardType[] = [
   {

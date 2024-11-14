@@ -7,17 +7,11 @@ import { Heading } from "@/components/heading"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
-import { pageGettingStartedContact } from "../../kom-i-gang/kontakt/page"
-import { pageBrandLogo } from "../logo/page"
+import { metaGettingStartedContact } from "../../kom-i-gang/kontakt/contact.meta"
+import { metaBrandLogo } from "../logo/logo.meta"
+import { metaBrandLevel } from "./brandLevel.meta"
 
-export { metadata as pageBrandLevels }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "Merkevare­hierarki",
-  image: placeholderImageUrl({}),
-  description:
-    "Merkevarearkitekturens formål er å gi en klar struktur over merkevaren vår og hvordan produktene og løsningene våre henger sammen. Arkitekturen skal sørge for at vi snakker med konsistent visuell stemme, slik at vi styrker kommunikasjonen med og relasjonene til alle våre målgrupper. Dette vil gi større kraft til merkevaren Gyldendal, og gi oss bedre muligheter til å skape større verdi og nå våre mål.",
-})
+export const metadata = metaBrandLevel
 
 export default function MerkevareHeriarkiPage() {
   return (
@@ -51,7 +45,7 @@ export default function MerkevareHeriarkiPage() {
           Nivå 1.1 består av Gyldendals primærlogo og brukes alltid som avsender på Gyldendals
           utgivelser, arrangementer og lignende. Mer informasjon om primærlogoen og bruken av den,
           kan du finne i{" "}
-          <Link className="underline" href={pageBrandLogo.href}>
+          <Link className="underline" href={metaBrandLogo.href}>
             logo
           </Link>
           .
@@ -123,7 +117,7 @@ export default function MerkevareHeriarkiPage() {
           Alle tjenester som benytter seg av Gyldendal-navnet skal benytte seg av samme
           logostruktur. Vi ønsker å unngå fargedifferensiering på tjenester, men unntak gjøres i
           tilfeller hvor det gir mening i konkurransebildet. Slike unntak må søkes om; se{" "}
-          <Link className="underline" href={pageGettingStartedContact.href}>
+          <Link className="underline" href={metaGettingStartedContact.href}>
             kontaktsiden
           </Link>
           .

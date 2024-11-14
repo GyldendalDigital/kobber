@@ -6,15 +6,9 @@ import { TextCollection } from "@/components/text-collection"
 import { ButtonSection } from "./_components/button-section"
 import { InteractiveStatesSection } from "./_components/interactive-states-section"
 import { PracticeSection } from "./_components/practice-section"
+import { metaComponentsButton } from "./button.meta"
 
-export { metadata as pageComponentsButton }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "Button",
-  image: placeholderImageUrl({}),
-  description:
-    "En knappkomponent brukes for å utføre en bestemt handling eller trigge en hendelse. Teksten på knappen må tydelig beskrive hva som vil skje når den trykkes på.",
-})
+export const metadata = metaComponentsButton
 
 export default function ButtonPage() {
   return (

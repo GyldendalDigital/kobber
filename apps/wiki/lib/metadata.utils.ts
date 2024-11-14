@@ -30,9 +30,14 @@ const openGraph = (src: string | null) => {
   }
 }
 
-/** Get page pathname based on file location */
+/** Get page pathname based on file location
+ *
+ * @example
+ * url: "c:/repo/kobber/apps/wiki/app/(routes)/merkevare/typografi/lyon/lyon.meta.ts"
+ * out: "/merkevare/typografi/lyon"
+ */
 const pagePathname = (metaUrl: string) => {
-  return metaUrl.split("apps/wiki/app/(routes)")[1].replace("/page.tsx", "")
+  return metaUrl.split("(routes)")[1].replace(/\/[^\/]*$/, "")
 }
 
 export const pageMetadata = (

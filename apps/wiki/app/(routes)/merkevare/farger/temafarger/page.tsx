@@ -4,15 +4,9 @@ import { pageMetadata } from "@/lib/metadata.utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
+import { metaBrandColorTheme } from "./theme.meta"
 
-export { metadata as pageBrandColorsTheme }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "Temafarger",
-  image: damUrl("7zxDRnQoKdQ9TOZHgE5wur"),
-  description:
-    "Temafarger kan benyttes i avgrensede område for å sette stemning rundt et tema, en enkeltutgivelse eller en kolleksjon av utgivelser. Det er ikke tillatt å bruke disse palettene på et helt brukergrensesnitt eller for å kategorisere produktspesifikt innhold.",
-})
+export const metadata = metaBrandColorTheme
 
 export default function Temafarger() {
   return (

@@ -1,15 +1,8 @@
 import { damUrl } from "@/lib/damImageLoader"
 import { pageMetadata } from "@/lib/metadata.utils"
+import { metaBrandIconGuidelines } from "./guidelines.meta"
 
-export { metadata as pageBrandIconsGuidelines }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "Retningslinjer",
-  status: "kommer",
-  image: damUrl("6GvVFWJwa3_8m996Ctk3vG", ".svg"),
-  description:
-    "Retningslinjer er en viktig del av designsystemet vårt, og brukes for å visualisere informasjon og veilede brukeren. Ikoner skal være enkle, tydelige og konsistente, og skal brukes i tråd med retningslinjene våre.",
-})
+export const metadata = metaBrandIconGuidelines
 
 export default function RetningsLinjerPage() {
   return <div>RetningsLinjerPage</div>

@@ -4,15 +4,9 @@ import { pageMetadata } from "@/lib/metadata.utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
+import { metaBrandColorUi } from "./ui.meta"
 
-export { metadata as pageBrandColorsUi }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "UI-farger",
-  image: damUrl("0B8KFix1aoOBfZrSchmiFk"),
-  description:
-    "Vi har noen farger som er forbeholdt digitale grensesnitt. Dette inkluderer farger som skal kommunisere til sluttbrukeren om suksess, informasjon og advarsler, samt en nøytral palett.",
-})
+export const metadata = metaBrandColorUi
 
 export default function UiFarger() {
   return (

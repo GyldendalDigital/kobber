@@ -5,27 +5,16 @@ import { pageMetadata } from "@/lib/metadata.utils"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { IconExternalLink } from "@/components/kobber-icons"
 import { SectionLayout } from "@/components/section-layout"
+import { metaBrandLogo } from "./logo.meta"
 
-export { metadata as pageBrandLogo }
-
-export const metadata = pageMetadata(import.meta.url, {
-  title: "Logo",
-  image: damUrl("CtM-1DQEapL98pVi_5S64C"),
-  description:
-    "Logo er et viktig element i Gyldendal sin profil og er med på å danne kjennskap til merkevaren. Nivåene i merkevarearkitekturen reflekteres i logostrukturen. Å følge prinsippene og retningslinjene for logobruk er nødvendig for å beholde integriteten til logoene i alle typer kontekster.",
-})
+export const metadata = metaBrandLogo
 
 export default function Page() {
   return (
     <SectionLayout>
       <ArticleWrapper>
         <h2 className="text-[48px] text-[#691837]">Gyldendal Logo</h2>
-        <Ingress>
-          Logo er et viktig element i Gyldendal sin profil og er med på å danne kjennskap til
-          merkevaren. Nivåene i merkevarearkitekturen reflekteres i logostrukturen. Å følge
-          prinsippene og retningslinjene for logobruk er nødvendig for å beholde integriteten til
-          logoene i alle typer kontekster.
-        </Ingress>
+        <Ingress>{metadata.description}</Ingress>
       </ArticleWrapper>
 
       <div className="flex flex-wrap items-center gap-[16px]">
