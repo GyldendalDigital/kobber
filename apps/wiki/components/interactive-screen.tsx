@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 
 type InteractiveScreenProps = {
-  key: string
+  level: string
   children: (mode: Mode) => ReactNode
   properties: (mode: Mode) => ReactNode
   footer?: (mode: Mode) => ReactNode
@@ -13,7 +13,7 @@ type InteractiveScreenProps = {
 type Mode = "light" | "dark"
 
 export const InteractiveScreen = ({
-  key,
+  level,
   children,
   properties,
   footer,
@@ -47,12 +47,16 @@ export const InteractiveScreen = ({
             <h4 className="text-primary-title-s text-[#481125ff]">Visning</h4>
             <RadioGroup defaultValue="light" className="grid gap-16">
               <div className="flex items-center gap-2">
-                <RadioGroupItem value="light" id={key + "light"} onClick={() => setMode("light")} />
-                <Label htmlFor={key + "light"}>For lys bakgrunn</Label>
+                <RadioGroupItem
+                  value="light"
+                  id={level + "light"}
+                  onClick={() => setMode("light")}
+                />
+                <Label htmlFor={level + "light"}>For lys bakgrunn</Label>
               </div>
               <div className="flex items-center gap-2">
-                <RadioGroupItem value="dark" id={key + "dark"} onClick={() => setMode("dark")} />
-                <Label htmlFor={key + "dark"}>For mørk bakgrunn</Label>
+                <RadioGroupItem value="dark" id={level + "dark"} onClick={() => setMode("dark")} />
+                <Label htmlFor={level + "dark"}>For mørk bakgrunn</Label>
               </div>
             </RadioGroup>
           </div>

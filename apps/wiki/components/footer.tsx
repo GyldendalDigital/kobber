@@ -10,6 +10,7 @@ export default function Footer() {
           width={131}
           height={38}
           src={damUrl("D9ybaAQzaYm9EeK26gImQs", ".svg")}
+          unoptimized
         />
         <span className="text-center text-[12px] text-[#A35E70]">
           © {new Date().getFullYear()} Gyldendal
