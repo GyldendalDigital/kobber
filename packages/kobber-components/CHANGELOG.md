@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.3.58
+
+### Patch Changes
+
+- audio-recorder iPad bugfix
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.58
+  - @gyldendal/kobber-icons@0.3.58
+
 ## 0.3.57
 
 ### Patch Changes
