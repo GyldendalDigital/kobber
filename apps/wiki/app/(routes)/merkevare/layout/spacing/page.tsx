@@ -4,6 +4,8 @@ import { Heading } from "@/components/heading"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 
+export { metadata as pageBrandLayoutSpacing }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "Luft",
   image: placeholderImageUrl({}),

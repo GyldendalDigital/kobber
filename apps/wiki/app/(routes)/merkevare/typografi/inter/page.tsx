@@ -7,6 +7,8 @@ import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { TypographyList } from "@/components/typography-list"
 
+export { metadata as pageBrandTypographyInter }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "Inter",
   image: damUrl("CVfEZzAPqUGASn21lmiGDZ", ".svg"),

@@ -1,13 +1,11 @@
-import {
-  pageBrandColors,
-  pageBrandIcons,
-  pageBrandLogo,
-  pageBrandTypography,
-} from "@/lib/metadata.pages"
 import { PageMetadata } from "@/lib/metadata.utils"
 import { ContentLayout } from "@/components/content-layout"
 import { SideMenu } from "@/components/menu/side-menu"
 import { SideMenuGroup } from "@/components/menu/side-menu-group"
+import { pageBrandColors } from "./farger/page"
+import { pageBrandIcons } from "./ikoner/page"
+import { pageBrandLogo } from "./logo/page"
+import { pageBrandTypography } from "./typografi/page"
 
 type GetStartedLayoutProps = {
   children: React.ReactNode

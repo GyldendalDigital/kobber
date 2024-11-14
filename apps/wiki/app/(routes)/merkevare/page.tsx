@@ -1,13 +1,13 @@
 import { redirect } from "next/navigation"
-import {
-  pageBrandColors,
-  pageBrandIcons,
-  pageBrandLevels,
-  pageBrandLogo,
-  pageBrandTypography,
-} from "@/lib/metadata.pages"
 import { pageMetadata } from "@/lib/metadata.utils"
 import { placeholderImageUrl } from "@/lib/utils"
+import { pageBrandColors } from "./farger/page"
+import { pageBrandIcons } from "./ikoner/page"
+import { pageBrandLogo } from "./logo/page"
+import { pageBrandLevels } from "./merkevarehierarki/page"
+import { pageBrandTypography } from "./typografi/page"
+
+export { metadata as pageBrand }
 
 export const metadata = pageMetadata(import.meta.url, {
   title: "Merkevare",

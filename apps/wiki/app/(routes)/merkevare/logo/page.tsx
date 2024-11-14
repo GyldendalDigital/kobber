@@ -6,6 +6,8 @@ import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { IconExternalLink } from "@/components/kobber-icons"
 import { SectionLayout } from "@/components/section-layout"
 
+export { metadata as pageBrandLogo }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "Logo",
   image: damUrl("CtM-1DQEapL98pVi_5S64C"),

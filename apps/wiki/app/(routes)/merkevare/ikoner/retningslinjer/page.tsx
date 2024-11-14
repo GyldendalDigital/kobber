@@ -1,6 +1,8 @@
 import { damUrl } from "@/lib/damImageLoader"
 import { pageMetadata } from "@/lib/metadata.utils"
 
+export { metadata as pageBrandIconsGuidelines }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "Retningslinjer",
   status: "kommer",

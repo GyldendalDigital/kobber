@@ -8,6 +8,8 @@ import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
 
+export { metadata as pageGettingStartedIntro }
+
 export const metadata = pageMetadata(import.meta.url, {
   title: "Introduksjon",
   image: placeholderImageUrl({}),

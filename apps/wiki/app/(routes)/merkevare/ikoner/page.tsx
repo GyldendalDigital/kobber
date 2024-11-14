@@ -1,9 +1,12 @@
-import { pageBrandIconsGuidelines, pageBrandIconsSet } from "@/lib/metadata.pages"
 import { pageMetadata } from "@/lib/metadata.utils"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { Heading } from "@/components/heading"
 import { Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
+import { pageBrandIconsSet } from "./ikonsett/page"
+import { pageBrandIconsGuidelines } from "./retningslinjer/page"
+
+export { metadata as pageBrandIcons }
 
 export const metadata = pageMetadata(import.meta.url, {
   title: "Ikoner",

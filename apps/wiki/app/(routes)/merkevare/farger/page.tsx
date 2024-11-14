@@ -1,13 +1,13 @@
-import {
-  pageBrandColorsIdentity,
-  pageBrandColorsTheme,
-  pageBrandColorsUi,
-} from "@/lib/metadata.pages"
 import { pageMetadata } from "@/lib/metadata.utils"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { Heading } from "@/components/heading"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
+import { pageBrandColorsIdentity } from "./identitetspalett/page"
+import { pageBrandColorsTheme } from "./temafarger/page"
+import { pageBrandColorsUi } from "./ui-farger/page"
+
+export { metadata as pageBrandColors }
 
 export const metadata = pageMetadata(import.meta.url, {
   title: "Farger",

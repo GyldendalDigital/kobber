@@ -1,13 +1,11 @@
-import {
-  pageGettingStartedContact,
-  pageGettingStartedHow,
-  pageGettingStartedIntro,
-} from "@/lib/metadata.pages"
 import { PageMetadata } from "@/lib/metadata.utils"
 import { ContentLayout } from "@/components/content-layout"
 import { Divider, List } from "@/components/kobber-components"
 import { SideMenu } from "@/components/menu/side-menu"
 import { SideMenuItem } from "@/components/menu/side-menu-item"
+import { pageGettingStartedHow } from "./hvordan-bruke-kobber/page"
+import { pageGettingStartedIntro } from "./introduksjon/page"
+import { pageGettingStartedContact } from "./kontakt/page"
 
 type GetStartedLayoutProps = {
   children: React.ReactNode

@@ -1,13 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
 import { damUrl } from "@/lib/damImageLoader"
-import { pageBrandLogo, pageGettingStartedContact } from "@/lib/metadata.pages"
 import { pageMetadata } from "@/lib/metadata.utils"
 import { placeholderImageUrl } from "@/lib/utils"
 import { Heading } from "@/components/heading"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
+import { pageGettingStartedContact } from "../../kom-i-gang/kontakt/page"
+import { pageBrandLogo } from "../logo/page"
+
+export { metadata as pageBrandLevels }
 
 export const metadata = pageMetadata(import.meta.url, {
   title: "Merkevare­hierarki",
