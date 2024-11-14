@@ -14,6 +14,7 @@ export interface PageMetadata extends Metadata {
 const openGraph = (src: string | null) => {
   const parseResult = parseDamFileUrl(src)
 
+  // could return src instead, but it's mainly placeholders
   if (!parseResult) {
     return {}
   }

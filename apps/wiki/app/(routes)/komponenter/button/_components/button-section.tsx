@@ -28,7 +28,7 @@ export function ButtonSection({ level }: { level: ButtonLevel }) {
 
   return (
     <InteractiveScreen
-      key={level}
+      level={level}
       properties={(mode) => (
         <ButtonProperties setIconOptions={setIconOptions} setColor={setColor} />
       )}
