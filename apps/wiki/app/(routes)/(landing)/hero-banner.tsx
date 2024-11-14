@@ -1,9 +1,9 @@
 import Image from "next/image"
-import { damImageUrl } from "@/lib/damImageLoader"
+import { damUrl } from "@/lib/damImageLoader"
 import { cn } from "@/lib/utils"
 
 export function HeroBanner() {
-  const src = damImageUrl("FO4HFrU94yn8e_pN7iIqOf", ".svg")
+  const src = damUrl("FO4HFrU94yn8e_pN7iIqOf", ".svg")
   const alt = "Gyldendal Art"
   return (
     <header

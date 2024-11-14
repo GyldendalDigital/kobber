@@ -1,24 +1,24 @@
 import Image from "next/image"
-import { PageDetails } from "@/types/types"
-import { damImageUrl } from "@/lib/damImageLoader"
-import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { damUrl } from "@/lib/damImageLoader"
+import { pageMetadata } from "@/lib/metadata.utils"
+import { placeholderImageUrl } from "@/lib/utils"
 import { Heading } from "@/components/heading"
 import { HeroImage } from "@/components/hero-image"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
+export const metadata = pageMetadata(import.meta.url, {
   title: "Introduksjon",
   image: placeholderImageUrl({}),
   description:
     "Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem bestående av gjenbrukbare, fleksible ressurser slik som digitale komponenter, malverk, retningslinjer og kode. Samtidig tydeliggjør det vår merkevarestrategi, våre felles verdier og de opplevelsene vi har som mål å tilby våre sluttbrukere.",
-}
+})
+
 export default function Introduksjon() {
   return (
     <SectionLayout>
-      <HeroImage src={damImageUrl("2bULAP2gabp9rC4A1CbQSB")} />
+      <HeroImage src={damUrl("2bULAP2gabp9rC4A1CbQSB")} />
 
       <ArticleWrapper>
         <Heading>Designsystemet Kobber</Heading>
@@ -48,7 +48,7 @@ export default function Introduksjon() {
         <SubHeading>Hva er kobber?</SubHeading>
 
         <Image
-          src={damImageUrl("7tpgwMbB4hmBMGYLZLYfHi", ".svg")}
+          src={damUrl("7tpgwMbB4hmBMGYLZLYfHi", ".svg")}
           width={711}
           height={355}
           className="object-contain"

@@ -1,20 +1,17 @@
-import { PageDetails } from "@/types/types"
-import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pageBrandIconsGuidelines, pageBrandIconsSet } from "@/lib/metadata.pages"
+import { pageMetadata } from "@/lib/metadata.utils"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { Heading } from "@/components/heading"
 import { Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
-import { metadata as iconsetPage } from "@/app/(routes)/merkevare/ikoner/ikonsett/page"
-import { metadata as guidelinesPage } from "@/app/(routes)/merkevare/ikoner/retningslinjer/page"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
+export const metadata = pageMetadata(import.meta.url, {
   title: "Ikoner",
-  image: placeholderImageUrl({}),
+  image: pageBrandIconsGuidelines.image,
   description:
     "Ikoner er en viktig del av designsystemet vårt, og brukes for å visualisere informasjon og veilede brukeren. Ikoner skal være enkle, tydelige og konsistente, og skal brukes i tråd med retningslinjene våre.",
-  children: [guidelinesPage, iconsetPage],
-}
+  children: [pageBrandIconsGuidelines, pageBrandIconsSet],
+})
 
 export default function IkonerPage() {
   return (

@@ -1,13 +1,11 @@
-import { PageDetails } from "@/types/types"
-import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pageMetadata } from "@/lib/metadata.utils"
+import { placeholderImageUrl } from "@/lib/utils"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
+export const metadata = pageMetadata(import.meta.url, {
   title: "Vår stemme",
   image: placeholderImageUrl({}),
   description: "",
-  disabled: true,
-}
+})
 
 export default function VaarStemmePage() {
   return <div>VaarStemmePage</div>

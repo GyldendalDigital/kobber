@@ -1,18 +1,16 @@
 import Link from "next/link"
-import { PageDetails } from "@/types/types"
-import { damImageUrl } from "@/lib/damImageLoader"
-import { pagePathname } from "@/lib/utils"
+import { damUrl } from "@/lib/damImageLoader"
+import { pageMetadata } from "@/lib/metadata.utils"
 import { ArticleWrapper, BoxLayout, Ingress } from "@/components/kobber-components"
 import { IconExternalLink } from "@/components/kobber-icons"
 import { IconGrid } from "./icon-grid"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
+export const metadata = pageMetadata(import.meta.url, {
   title: "Ikonsett",
-  image: damImageUrl("5eWSL54644-8vUcyASwDWy", ".svg"),
+  image: damUrl("5eWSL54644-8vUcyASwDWy", ".svg"),
   description:
     "Ikonsett er en viktig del av designsystemet vårt, og brukes for å visualisere informasjon og veilede brukeren. Ikoner skal være enkle, tydelige og konsistente, og skal brukes i tråd med retningslinjene våre.",
-}
+})
 
 export default function IkonSett() {
   return (
@@ -37,7 +35,7 @@ export default function IkonSett() {
         <Link
           target="_blank"
           href={"https://dam-p-gyldendal.pqcloud.eu/?w=ZqxPo6bFjq"}
-          className="text-link flex gap-[8px] text-[16px] leading-[1.15] hover:underline"
+          className="flex gap-[8px] text-[16px] leading-[1.15] text-link hover:underline"
         >
           Ikonsett
           <IconExternalLink />

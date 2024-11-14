@@ -5,8 +5,8 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ArrowLeft, Menu, X } from "lucide-react"
 import { signOut, useSession } from "next-auth/react"
-import { PageDetails } from "@/types/types"
 import { APP_NAME } from "@/lib/constants"
+import { PageMetadata } from "@/lib/metadata.utils"
 import { cn } from "@/lib/utils"
 import { ssoSignIn } from "@/hooks/use-sso-sign-in"
 import { Button } from "@/components/kobber-components"
@@ -16,8 +16,8 @@ import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 import { WikiHeaderItem } from "./wiki-header-item"
 
 type WikiNavbarContainerProps = {
-  itemsDesktop: PageDetails[]
-  itemsMobile: PageDetails[]
+  itemsDesktop: PageMetadata[]
+  itemsMobile: PageMetadata[]
 }
 
 export function WikiNavbarContainer({ itemsDesktop, itemsMobile }: WikiNavbarContainerProps) {
@@ -25,7 +25,7 @@ export function WikiNavbarContainer({ itemsDesktop, itemsMobile }: WikiNavbarCon
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const { data: session } = useSession()
 
-  const flattenItems = (items: PageDetails[]): PageDetails[] => {
+  const flattenItems = (items: PageMetadata[]): PageMetadata[] => {
     return items.flatMap((item) => [item, ...(item.children ? flattenItems(item.children) : [])])
   }
 
@@ -43,7 +43,7 @@ export function WikiNavbarContainer({ itemsDesktop, itemsMobile }: WikiNavbarCon
         acc.push(item)
       }
       return acc
-    }, [] as PageDetails[])
+    }, [] as PageMetadata[])
 
   // const current = breadcrumb[breadcrumb.length - 1]
 
