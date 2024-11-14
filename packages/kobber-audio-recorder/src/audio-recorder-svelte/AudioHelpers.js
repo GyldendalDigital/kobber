@@ -33,7 +33,7 @@ export async function deserializeBlob(combinedBlob) {
         }
 
         const blob = combinedBlob.slice(offset, offset + blobSize);
-        blobs.push(blob);
+        blobs.push(new Blob([blob], {type: 'audio/mp3'}));
         offset += blobSize;
     }
 

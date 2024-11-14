@@ -2685,6 +2685,7 @@ __metadata:
   resolution: "@gyldendal/kobber-audio-recorder@workspace:packages/kobber-audio-recorder"
   dependencies:
     "@sveltejs/vite-plugin-svelte": "npm:^3.1.1"
+    "@vitejs/plugin-basic-ssl": "npm:1.1.0"
     lamejs: "npm:1.2.1"
     sass-embedded: "npm:^1.77.8"
     svelte: "npm:^4.2.18"
@@ -7418,6 +7419,15 @@ __metadata:
   version: 1.2.0
   resolution: "@ungap/structured-clone@npm:1.2.0"
   checksum: 10c0/8209c937cb39119f44eb63cf90c0b73e7c754209a6411c707be08e50e29ee81356dca1a848a405c8bdeebfe2f5e4f831ad310ae1689eeef65e7445c090c6657d
+  languageName: node
+  linkType: hard
+
+"@vitejs/plugin-basic-ssl@npm:1.1.0":
+  version: 1.1.0
+  resolution: "@vitejs/plugin-basic-ssl@npm:1.1.0"
+  peerDependencies:
+    vite: ^3.0.0 || ^4.0.0 || ^5.0.0
+  checksum: 10c0/98aadf5c7fd229995c67f973b4fb0f987a378031a4edcc5f714b412c00af12a6ecafb96659e76382ff9f8a831aac5243c74548e2807402ea8b02ec122d29f008
   languageName: node
   linkType: hard
 
