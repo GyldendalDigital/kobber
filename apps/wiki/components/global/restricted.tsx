@@ -9,7 +9,7 @@ export function Restricted() {
   const pathname = usePathname()
 
   return (
-    <div className="flex h-[60vh] w-full flex-col items-start justify-center gap-content/gap/horizontal">
+    <div className="flex min-h-[60vh] w-full flex-col items-start justify-center gap-content/gap/horizontal">
       <ArticleWrapper>
         <Heading>
           Kobber

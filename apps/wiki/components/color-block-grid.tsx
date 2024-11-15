@@ -11,7 +11,7 @@ export function ColorBlockGrid({ colors, enableCopy = false }: ColorBlockGridPro
   return (
     <div
       className={cn("grid w-full grid-cols-4 items-start gap-section/gap/vertical", {
-        "flex flex-row": colors.length === 3,
+        "flex flex-row flex-wrap": colors.length >= 3,
       })}
     >
       {colors.map((color, index) => (
