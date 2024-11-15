@@ -1,18 +1,12 @@
 import { ThemeColors } from "@/data/color-palettes"
-import { PageDetails } from "@/types/types"
-import { damImageUrl } from "@/lib/damImageLoader"
-import { pagePathname } from "@/lib/utils"
+import { damUrl } from "@/lib/damImageLoader"
+import { pageMetadata } from "@/lib/metadata.utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
+import { metaBrandColorTheme } from "./theme.meta"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
-  title: "Temafarger",
-  image: damImageUrl("7zxDRnQoKdQ9TOZHgE5wur"),
-  description:
-    "Temafarger kan benyttes i avgrensede område for å sette stemning rundt et tema, en enkeltutgivelse eller en kolleksjon av utgivelser. Det er ikke tillatt å bruke disse palettene på et helt brukergrensesnitt eller for å kategorisere produktspesifikt innhold.",
-}
+export const metadata = metaBrandColorTheme
 
 export default function Temafarger() {
   return (

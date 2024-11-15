@@ -1,21 +1,11 @@
-import { PageDetails } from "@/types/types"
-import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pageMetadata } from "@/lib/metadata.utils"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { Heading } from "@/components/heading"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
-import { metadata as merkevareFargerPage } from "./identitetspalett/page"
-import { metadata as merkevareTemafargerPage } from "./temafarger/page"
-import { metadata as merkevareFargerUiFargerPage } from "./ui-farger/page"
+import { metaBrandColor } from "./brandColor.meta"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
-  title: "Farger",
-  image: placeholderImageUrl({}),
-  children: [merkevareFargerPage, merkevareTemafargerPage, merkevareFargerUiFargerPage],
-  description:
-    "Farger er en viktig del av Gyldendals merkevare, og er laget for å balansere det funksjonelle og det emosjonelle. Fargepaletten er laget for å håndtere et bredt utvalg av ulike målgrupper.",
-}
+export const metadata = metaBrandColor
 
 export default function FargerSection() {
   return (

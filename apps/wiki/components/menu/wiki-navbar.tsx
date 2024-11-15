@@ -1,15 +1,14 @@
-import { metadata as komigangPage } from "@/app/(routes)/kom-i-gang/page"
-import { metadata as komponenterPage } from "@/app/(routes)/komponenter/page"
-import { metadata as merkevarePage } from "@/app/(routes)/merkevare/page"
+import { metaGettingStarted } from "@/app/(routes)/kom-i-gang/gettingStarted.meta"
+import { metaComponents } from "@/app/(routes)/komponenter/components.meta"
+import { metaBrand } from "@/app/(routes)/merkevare/brand.meta"
 import { WikiNavbarContainer } from "./wiki-navbar-container"
+
+const equalRoutesForNow = [metaGettingStarted, metaBrand, metaComponents]
 
 export function WikiNavbar() {
   return (
     <div className="z-50 flex h-[72px] w-full items-center backdrop-blur-sm md:h-[67px]">
-      <WikiNavbarContainer
-        itemsDesktop={[komigangPage, merkevarePage, komponenterPage]}
-        itemsMobile={[komigangPage, merkevarePage, komponenterPage]}
-      />
+      <WikiNavbarContainer itemsDesktop={equalRoutesForNow} itemsMobile={equalRoutesForNow} />
     </div>
   )
 }

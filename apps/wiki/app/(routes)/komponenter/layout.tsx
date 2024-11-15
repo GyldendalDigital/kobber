@@ -1,8 +1,7 @@
-import { PageDetails } from "@/types/types"
+import { PageMetadata } from "@/lib/metadata.utils"
 import { ContentLayout } from "@/components/content-layout"
 import { SideMenu } from "@/components/menu/side-menu"
 import { SideMenuGroup } from "@/components/menu/side-menu-group"
-import { metadata as komponenterButtonPage } from "./button/page"
 
 type ComponentsLayoutProps = {
   children: React.ReactNode
@@ -38,7 +37,7 @@ export default function ComponentsLayout({ children }: ComponentsLayoutProps) {
   )
 }
 
-const temporaryItem = (title: string): PageDetails => ({
+const temporaryItem = (title: string): PageMetadata => ({
   href: "#",
   title,
   status: "kommer",

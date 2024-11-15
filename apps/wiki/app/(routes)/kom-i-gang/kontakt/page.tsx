@@ -1,51 +1,48 @@
 import Link from "next/link"
-import { InformationCardType, PageDetails } from "@/types/types"
+import { InformationCardType } from "@/types/types"
 import { KOBBER_TEAMS_URL } from "@/lib/constants"
-import { damImageUrl } from "@/lib/damImageLoader"
-import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { damUrl } from "@/lib/damImageLoader"
+import { pageMetadata } from "@/lib/metadata.utils"
 import { InformationCard } from "@/components/information-card"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
+import { metaGettingStartedContact } from "./contact.meta"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
-  title: "Kontakt",
-  image: placeholderImageUrl({}),
-}
+export const metadata = metaGettingStartedContact
 
 const team: InformationCardType[] = [
   {
     title: "Irén Andresen",
     text: `Designer,
     ansvar for Kobber, merkevare`,
-    image: damImageUrl("6vh-YbtbqI_AAtWFybq3sH", ".jpg"),
+    image: damUrl("6vh-YbtbqI_AAtWFybq3sH", ".jpg"),
   },
   {
     title: "Izelin Tujunen",
     text: `Designer,
     ansvar for Kobber, digital`,
-    image: damImageUrl("6sYJyYjHKJmBOehq0Vvy2G", ".jpg"),
+    image: damUrl("6sYJyYjHKJmBOehq0Vvy2G", ".jpg"),
   },
   {
     title: "Karen Keiserud",
     text: `Direktør for kommunikasjon,
     merkevarer og samfunnskontakt`,
-    image: damImageUrl("4LatcGmH4DcAKVvCXfuSPK", ".jpg"),
+    image: damUrl("4LatcGmH4DcAKVvCXfuSPK", ".jpg"),
   },
   {
     title: "Dagfinn Reitan",
     text: `Utvikler,
     ansvar for teknologi`,
-    image: damImageUrl("Eq2wddK0K268EEuoYBSf9y", ".jpg"),
+    image: damUrl("Eq2wddK0K268EEuoYBSf9y", ".jpg"),
   },
   {
     title: "Dag Von Krogh Munkholt",
     text: "Designer",
-    image: damImageUrl("C_uLX-2MK2UBcx2tVHmiHf", ".jpg"),
+    image: damUrl("C_uLX-2MK2UBcx2tVHmiHf", ".jpg"),
   },
   {
     title: "Kevin Minh Nguyen",
     text: "Utvikler",
-    image: damImageUrl("1mSLy00SaTy90DM725qVdX", ".jpg"),
+    image: damUrl("1mSLy00SaTy90DM725qVdX", ".jpg"),
   },
 ]
 
@@ -55,10 +52,7 @@ export default function ContactPage() {
       <section className="flex w-full flex-col gap-y-text-section/gap/header-ingress-body/horizontal">
         <ArticleWrapper>
           <h2 className="text-[48px] text-[#691837]">Spørsmål eller tilbakemelding?</h2>
-          <Ingress>
-            Ikke nøl med å ta kontakt om det er noe som er uklart, om du syns noe mangler eller om
-            du har en generell tilbakemelding.
-          </Ingress>
+          <Ingress>{metadata.description}</Ingress>
           <Body>
             Kobber eies av kommunikasjonsavdelingen og utvikles for tiden av en arbeidsgruppe fra
             ulike deler av selskapet.

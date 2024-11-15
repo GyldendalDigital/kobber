@@ -1,24 +1,19 @@
 import { IdentityColors } from "@/data/color-palettes"
-import { IllustrationType, PageDetails } from "@/types/types"
-import { damImageUrl } from "@/lib/damImageLoader"
-import { pagePathname } from "@/lib/utils"
+import { IllustrationType } from "@/types/types"
+import { damUrl } from "@/lib/damImageLoader"
+import { pageMetadata } from "@/lib/metadata.utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ColorBlockGridItem } from "@/components/color-block-grid-item"
-import { Illustrations, IllustrationsSkeleton } from "@/components/illustrations"
+import { Illustrations } from "@/components/illustrations"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
+import { metaBrandColorIdentity } from "./identity.meta"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
-  title: "Identitetspalett",
-  image: damImageUrl("BkRpubsF45_8o0iVkKSQod"),
-  description:
-    "Dette er vår identitetspalett, som består av de mest brukte fargene for å etablere Gyldendals stiluttrykk. Markedsføring forholder seg alltid til denne paletten, samtidig som utvidede paletter er tilgjengelige for designere av brukergrensesnitt og bokmalverk.",
-}
+export const metadata = metaBrandColorIdentity
 
-const illusrations: IllustrationType[] = [
+const illustrations: IllustrationType[] = [
   {
-    src: damImageUrl("FVgHrlJXKR1AoxS-CeWwzK"),
+    src: damUrl("FVgHrlJXKR1AoxS-CeWwzK"),
     width: 771,
     height: 296,
     fill: true,
@@ -31,11 +26,7 @@ export default function IdentitetsPalett() {
     <SectionLayout>
       <ArticleWrapper className="gap-[8px]">
         <h2 className="text-[48px] text-[#691837]">{metadata.title as string}</h2>
-        <Ingress>
-          Dette er vår identitetspalett, som består av de mest brukte fargene for å etablere
-          Gyldendals stiluttrykk. Markedsføring forholder seg alltid til denne paletten, samtidig
-          som utvidede paletter er tilgjengelige for designere av brukergrensesnitt og bokmalverk.
-        </Ingress>
+        <Ingress>{metadata.description}</Ingress>
       </ArticleWrapper>
 
       <ArticleWrapper className="max-w-[711px] gap-[0px]">
@@ -48,7 +39,7 @@ export default function IdentitetsPalett() {
         <Illustrations
           className="h-[300px] rounded-none"
           illuClassName=" p-0"
-          illustrations={illusrations}
+          illustrations={illustrations}
         />
       </ArticleWrapper>
 
@@ -85,7 +76,7 @@ export default function IdentitetsPalett() {
         <Illustrations
           illustrations={[
             {
-              src: damImageUrl("EuqcwI8eaka8gV6z2lnji4"),
+              src: damUrl("EuqcwI8eaka8gV6z2lnji4"),
               height: 440,
               width: 711,
               alt: "Mormerke og støttede identiteter",
@@ -104,7 +95,7 @@ export default function IdentitetsPalett() {
         <Illustrations
           illustrations={[
             {
-              src: damImageUrl("FLPb90y7KyFAitWiUnO3op"),
+              src: damUrl("FLPb90y7KyFAitWiUnO3op"),
               height: 707,
               width: 711,
               alt: "Ikke bruk transparens, egne fargekombinasjoner, lås farger til egne kategorier, eller bruk temafarger til hele grensesnitt",

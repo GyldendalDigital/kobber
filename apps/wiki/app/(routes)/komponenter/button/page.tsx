@@ -1,27 +1,19 @@
-import { PageDetails } from "@/types/types"
-import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pageMetadata } from "@/lib/metadata.utils"
+import { placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 import { ButtonSection } from "./_components/button-section"
 import { InteractiveStatesSection } from "./_components/interactive-states-section"
 import { PracticeSection } from "./_components/practice-section"
+import { metaComponentsButton } from "./button.meta"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
-  title: "Button",
-  image: placeholderImageUrl({}),
-  description:
-    "En knappkomponent brukes for å utføre en bestemt handling eller trigge en hendelse. Teksten på knappen må tydelig beskrive hva som vil skje når den trykkes på.",
-}
-
-const subheading =
-  "En knappkomponent brukes for å utføre en bestemt handling eller trigge en hendelse. Teksten på knappen må tydelig beskrive hva som vil skje når den trykkes på."
+export const metadata = metaComponentsButton
 
 export default function ButtonPage() {
   return (
     <SectionLayout>
-      <TextCollection heading="Button" subheading={subheading} />
+      <TextCollection heading="Button" subheading={metadata.description} />
       <ContentSection
         textCollection={{
           heading: "Primirknapp",

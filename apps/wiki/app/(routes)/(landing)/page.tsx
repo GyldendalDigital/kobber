@@ -1,5 +1,5 @@
 import { FeatureBoxType } from "@/types/types"
-import { damImageUrl } from "@/lib/damImageLoader"
+import { damUrl } from "@/lib/damImageLoader"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { ExternalLinksGrid } from "@/components/global/external-links-grid"
 import { HeroBanner } from "./hero-banner"
@@ -25,40 +25,21 @@ const boxes: FeatureBoxType[] = [
   {
     title: "Introduksjon av Kobber",
     href: "/kom-i-gang",
-    image: damImageUrl("2bULAP2gabp9rC4A1CbQSB", ".jpg"),
+    image: damUrl("2bULAP2gabp9rC4A1CbQSB", ".jpg"),
   },
   {
     title: "Vår nye Gyldendal-logo",
-    image: damImageUrl("CtM-1DQEapL98pVi_5S64C", ".svg"),
+    image: damUrl("CtM-1DQEapL98pVi_5S64C", ".svg"),
     href: "/merkevare/logo",
   },
   {
     title: "Vår nye fargepalett",
-    image: damImageUrl("BkRpubsF45_8o0iVkKSQod", ".svg"),
+    image: damUrl("BkRpubsF45_8o0iVkKSQod", ".svg"),
     href: "/merkevare/farger",
   },
   {
     title: "Fonter",
-    image: damImageUrl("Frg1nstAKYsA0hKXNk3z5x", ".svg"),
+    image: damUrl("Frg1nstAKYsA0hKXNk3z5x", ".svg"),
     href: "/merkevare/typografi",
-  },
-]
-
-const links = [
-  {
-    title: "Github",
-    href: "https://github.com/GyldendalDigital/kobber",
-  },
-  {
-    title: "Figma",
-    href: "https://www.figma.com/design/Ok3TVIMuuMH33Ka3spj5H8/Dokumentasjon",
-  },
-  {
-    title: "DAM",
-    href: "https://dam-p-gyldendal.pqcloud.eu/app/#/search///?path=%22%5CKobber%5CDokumentasjon%22&enableAssetsOfCollections=false&showAssetsOfSubfolders=true&showSubCollections=false",
-  },
-  {
-    title: "Teams",
-    href: "https://teams.microsoft.com/l/team/19%3Aa8271fb02da6401cac6283ad1e4a3e81%40thread.tacv2/conversations?groupId=bff6d131-5a81-403d-b18d-30408987f80e&tenantId=eabfa100-f9b3-4265-bed7-2a818cf990fe",
   },
 ]

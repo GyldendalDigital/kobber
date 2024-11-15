@@ -1,25 +1,19 @@
 import { PPMoriTypography } from "@/data/typography"
-import { PageDetails } from "@/types/types"
-import { damImageUrl } from "@/lib/damImageLoader"
-import { pagePathname } from "@/lib/utils"
+import { damUrl } from "@/lib/damImageLoader"
+import { pageMetadata } from "@/lib/metadata.utils"
 import { Heading } from "@/components/heading"
 import { HeroImage } from "@/components/hero-image"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { TypographyList } from "@/components/typography-list"
+import { metaBrandTypographyMori } from "./mori.meta"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
-  title: "PP Mori",
-  image: damImageUrl("2EyeCFedaTx9HKSLc9MOEL", ".svg"),
-  description:
-    "PP Mori er Gyldendals identitetsbærende hovedskrift og benyttes i Gyldendal på alle nivåer i vår kommunikasjon - fra logoer til overskrifter, brødtekst og fotnoter.",
-}
+export const metadata = metaBrandTypographyMori
 
 export default function PPMoriPage() {
   return (
     <SectionLayout>
-      <HeroImage src={damImageUrl("AGyvV5YIaUQ9v0MMHWgzOA", ".svg")} />
+      <HeroImage src={damUrl("AGyvV5YIaUQ9v0MMHWgzOA", ".svg")} />
       <ArticleWrapper>
         <Heading>{metadata.title as string}</Heading>
         <Ingress>{metadata.description}</Ingress>

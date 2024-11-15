@@ -3,18 +3,15 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { isOnPath } from "@/utils/is-on-path"
-import { PageDetails } from "@/types/types"
+import { PageMetadata } from "@/lib/metadata.utils"
 import { cn } from "@/lib/utils"
 
 type WikiHeaderItemProps = {
   className?: string
-  page: PageDetails
+  page: PageMetadata
 }
 
-export function WikiHeaderItem({
-  className,
-  page: { title, href, disabled },
-}: WikiHeaderItemProps) {
+export function WikiHeaderItem({ className, page: { title, href } }: WikiHeaderItemProps) {
   const pathName = usePathname()
 
   return (
@@ -25,10 +22,9 @@ export function WikiHeaderItem({
           className,
           {
             underline: pathName && isOnPath(pathName, href),
-            "cursor-not-allowed opacity-50 hover:no-underline": disabled,
           }
         )}
-        href={disabled ? "#" : href}
+        href={href}
       >
         {title as string}
       </Link>

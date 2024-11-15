@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { damImageUrl } from "@/lib/damImageLoader"
+import { damUrl } from "@/lib/damImageLoader"
 
 export default function Footer() {
   return (
@@ -9,7 +9,8 @@ export default function Footer() {
           alt="Gyldendal Logo"
           width={131}
           height={38}
-          src={damImageUrl("D9ybaAQzaYm9EeK26gImQs", ".svg")}
+          src={damUrl("D9ybaAQzaYm9EeK26gImQs", ".svg")}
+          unoptimized
         />
         <span className="text-center text-[12px] text-[#A35E70]">
           © {new Date().getFullYear()} Gyldendal

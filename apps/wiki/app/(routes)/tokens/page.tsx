@@ -1,17 +1,14 @@
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens"
 import { getContrastCompliantColors } from "@gyldendal/kobber-components/src/utils/contrast"
-import { PageDetails } from "@/types/types"
-import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pageMetadata } from "@/lib/metadata.utils"
+import { placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 import { FluidDiagram } from "./FluidDiagram"
+import { metaTokens } from "./tokens.meta"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
-  title: "Tokens",
-  image: placeholderImageUrl({}),
-}
+export const metadata = metaTokens
 
 export default function TokensPage() {
   return (

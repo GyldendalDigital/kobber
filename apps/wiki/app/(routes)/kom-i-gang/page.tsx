@@ -1,19 +1,9 @@
 import { redirect } from "next/navigation"
-import { PageDetails } from "@/types/types"
-import { pagePathname, placeholderImageUrl } from "@/lib/utils"
-import { metadata as howToPage } from "@/app/(routes)/kom-i-gang/hvordan-bruke-kobber/page"
-import { metadata as introPage } from "@/app/(routes)/kom-i-gang/introduksjon/page"
-import { metadata as contactPage } from "@/app/(routes)/kom-i-gang/kontakt/page"
+import { pageMetadata } from "@/lib/metadata.utils"
+import { placeholderImageUrl } from "@/lib/utils"
+import { metaGettingStarted } from "./gettingStarted.meta"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
-  title: "Kom i gang",
-  image: placeholderImageUrl({}),
-  description:
-    "Velkommen til Gyldendals designsystem. Her finner du informasjon om hvordan du kommer i gang med designsystemet.",
-  children: [introPage, howToPage, contactPage],
-  redirectsTo: introPage.href,
-}
+export const metadata = metaGettingStarted
 
 export default function GetStartedPage() {
   return metadata.redirectsTo ? redirect(metadata.redirectsTo) : null

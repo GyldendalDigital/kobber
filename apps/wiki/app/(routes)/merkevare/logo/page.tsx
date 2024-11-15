@@ -1,31 +1,20 @@
 import Image from "next/image"
 import Link from "next/link"
-import { PageDetails } from "@/types/types"
-import { damImageUrl } from "@/lib/damImageLoader"
-import { pagePathname } from "@/lib/utils"
+import { damUrl } from "@/lib/damImageLoader"
+import { pageMetadata } from "@/lib/metadata.utils"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { IconExternalLink } from "@/components/kobber-icons"
 import { SectionLayout } from "@/components/section-layout"
+import { metaBrandLogo } from "./logo.meta"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
-  title: "Logo",
-  image: damImageUrl("CtM-1DQEapL98pVi_5S64C"),
-  description:
-    "Logo er et viktig element i Gyldendal sin profil og er med på å danne kjennskap til merkevaren. Nivåene i merkevarearkitekturen reflekteres i logostrukturen. Å følge prinsippene og retningslinjene for logobruk er nødvendig for å beholde integriteten til logoene i alle typer kontekster.",
-}
+export const metadata = metaBrandLogo
 
 export default function Page() {
   return (
     <SectionLayout>
       <ArticleWrapper>
         <h2 className="text-[48px] text-[#691837]">Gyldendal Logo</h2>
-        <Ingress>
-          Logo er et viktig element i Gyldendal sin profil og er med på å danne kjennskap til
-          merkevaren. Nivåene i merkevarearkitekturen reflekteres i logostrukturen. Å følge
-          prinsippene og retningslinjene for logobruk er nødvendig for å beholde integriteten til
-          logoene i alle typer kontekster.
-        </Ingress>
+        <Ingress>{metadata.description}</Ingress>
       </ArticleWrapper>
 
       <div className="flex flex-wrap items-center gap-[16px]">
@@ -61,7 +50,7 @@ export default function Page() {
           vennlig.
         </Body>
         <Image
-          src={damImageUrl("7QMhG4Do4FMAPwZw2hsz8W")}
+          src={damUrl("7QMhG4Do4FMAPwZw2hsz8W")}
           width={711}
           height={355}
           className="object-contain"
@@ -82,7 +71,7 @@ export default function Page() {
         </Body>
 
         <Image
-          src={damImageUrl("BssOkfJ8qo8BPiPoPP7Xdf")}
+          src={damUrl("BssOkfJ8qo8BPiPoPP7Xdf")}
           width={711}
           height={355}
           className="object-contain"
@@ -102,7 +91,7 @@ export default function Page() {
         </Body>
 
         <Image
-          src={damImageUrl("EDeopuWia6SBwPNXiUwGfd")}
+          src={damUrl("EDeopuWia6SBwPNXiUwGfd")}
           width={711}
           height={355}
           className="object-contain"
@@ -118,7 +107,7 @@ export default function Page() {
         </Body>
 
         <Image
-          src={damImageUrl("C7NO6xO94muAODruMvqz6X")}
+          src={damUrl("C7NO6xO94muAODruMvqz6X")}
           width={711}
           height={355}
           className="object-contain"
@@ -136,7 +125,7 @@ export default function Page() {
         </Body>
 
         <Image
-          src={damImageUrl("4MKJoFbQqlQ8bHzRZ_Wr5I")}
+          src={damUrl("4MKJoFbQqlQ8bHzRZ_Wr5I")}
           width={711}
           height={355}
           className="object-contain"
@@ -157,28 +146,28 @@ export default function Page() {
         </Body>
         <div className="grid grid-cols-2 gap-[14px] p-[14px]">
           <Image
-            src={damImageUrl("84FY3H2XKB58UxQvEd77GH")}
+            src={damUrl("84FY3H2XKB58UxQvEd77GH")}
             width={335}
             height={326}
             className="rounded-[8px] object-contain"
             alt="Kun logo, uten Gyldendal-navnet"
           />
           <Image
-            src={damImageUrl("2Ouy_3zQKR5A62Q3En4rPb")}
+            src={damUrl("2Ouy_3zQKR5A62Q3En4rPb")}
             width={335}
             height={326}
             className="rounded-[8px] object-contain"
             alt="Gyldendal på Facebook"
           />
           <Image
-            src={damImageUrl("16nZGiVba9ABfrDKvw-BPV")}
+            src={damUrl("16nZGiVba9ABfrDKvw-BPV")}
             width={335}
             height={326}
             className="rounded-[8px] object-contain"
             alt="Gyldendal story"
           />
           <Image
-            src={damImageUrl("AVedawD5qbj8x0ldR7qLNu")}
+            src={damUrl("AVedawD5qbj8x0ldR7qLNu")}
             width={335}
             height={326}
             className="rounded-[8px] object-contain"
@@ -190,7 +179,7 @@ export default function Page() {
         <h5 className="text-[24px] text-[#481125]">Unngå dette</h5>
 
         <Image
-          src={damImageUrl("24qUgPLAKGABtj9kD1cubQ")}
+          src={damUrl("24qUgPLAKGABtj9kD1cubQ", ".svg")}
           width={711}
           height={650}
           className="object-contain"

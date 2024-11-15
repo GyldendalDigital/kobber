@@ -1,13 +1,11 @@
-import { PageDetails } from "@/types/types"
+import { PageMetadata } from "@/lib/metadata.utils"
 import { ContentLayout } from "@/components/content-layout"
 import { SideMenu } from "@/components/menu/side-menu"
 import { SideMenuGroup } from "@/components/menu/side-menu-group"
-import { SessionProvider } from "@/components/providers/session-provider"
-import { metadata as fargerPage } from "./farger/page"
-import { metadata as merkevareIkonerPage } from "./ikoner/page"
-// import { metadata as merkevareLayoutPage } from "./layout/page"
-import { metadata as merkevareLogoPage } from "./logo/page"
-import { metadata as typografiPage } from "./typografi/page"
+import { metaBrandColor } from "./farger/brandColor.meta"
+import { metaBrandIcons } from "./ikoner/brandIcons.meta"
+import { metaBrandLogo } from "./logo/logo.meta"
+import { metaBrandTypography } from "./typografi/brandTypography.meta"
 
 type GetStartedLayoutProps = {
   children: React.ReactNode
@@ -21,10 +19,10 @@ export default async function MerkevareLayout({ children }: GetStartedLayoutProp
         <SideMenuGroup
           title="Identitetselementer"
           items={[
-            merkevareLogoPage,
-            fargerPage,
-            typografiPage,
-            merkevareIkonerPage,
+            metaBrandLogo,
+            metaBrandColor,
+            metaBrandTypography,
+            metaBrandIcons,
             // merkevareLayoutPage, // removed until further notice
             // see https://gyldendal.slack.com/archives/C07HL681DV3/p1731334837774659
           ]}
@@ -37,14 +35,14 @@ export default async function MerkevareLayout({ children }: GetStartedLayoutProp
   )
 }
 
-const temporaryIntroRoutes: PageDetails[] = [
+const temporaryIntroRoutes: PageMetadata[] = [
   { href: "/merkevare/merkevarehierarki", title: "Merkevarehierarki", image: null },
   { href: "#", title: "Våre verdier", status: "kommer", image: null },
   { href: "#", title: "Vår stemme", status: "kommer", image: null },
   { href: "#", title: "Designprinsipper", status: "kommer", image: null },
 ]
 
-const temporaryTemplateRoutes: PageDetails[] = [
+const temporaryTemplateRoutes: PageMetadata[] = [
   { href: "#", title: "Powerpoint", status: "kommer", image: null },
   { href: "#", title: "Word", status: "kommer", image: null },
   { href: "#", title: "E-post signatur", status: "kommer", image: null },

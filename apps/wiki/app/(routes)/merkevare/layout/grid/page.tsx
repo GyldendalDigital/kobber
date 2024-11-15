@@ -1,16 +1,11 @@
-import { PageDetails } from "@/types/types"
-import { pagePathname, placeholderImageUrl } from "@/lib/utils"
+import { pageMetadata } from "@/lib/metadata.utils"
+import { placeholderImageUrl } from "@/lib/utils"
 import { Heading } from "@/components/heading"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
+import { metaBrandLayoutGrid } from "./grid.meta"
 
-export const metadata: PageDetails = {
-  href: pagePathname(import.meta.url),
-  title: "Layout og grid",
-  image: placeholderImageUrl({}),
-  description:
-    "Vi har definert en layout grid slik at våre løsninger skal fungere godt på alle skjermbredder og ha et helhetlig oppsett. Griden følger reglene for riktig spacing for å plassere elementer med jevn rytme, riktig hierarki og med god bruk av luft.",
-}
+export const metadata = metaBrandLayoutGrid
 
 export default function GridPage() {
   return (
