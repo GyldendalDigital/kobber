@@ -2863,6 +2863,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@gyldendal/kobber-tailwind@workspace:packages/kobber-tailwind":
+  version: 0.0.0-use.local
+  resolution: "@gyldendal/kobber-tailwind@workspace:packages/kobber-tailwind"
+  dependencies:
+    "@gyldendal/kobber-base": "npm:*"
+    class-variance-authority: "npm:^0.7.0"
+    tailwind-merge: "npm:^2.5.2"
+    tailwindcss: "npm:^3.4.1"
+    tailwindcss-animate: "npm:^1.0.7"
+  languageName: unknown
+  linkType: soft
+
 "@hapi/bourne@npm:^3.0.0":
   version: 3.0.0
   resolution: "@hapi/bourne@npm:3.0.0"
