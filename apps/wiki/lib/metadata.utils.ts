@@ -6,6 +6,7 @@ export interface PageMetadata extends Metadata {
   image: string | null
   status?: "kommer" | "nyhet"
   children?: PageMetadata[]
+  disabled?: boolean
   /** Used in mobile navbar to prevent self redirects */
   redirectsTo?: string
 }
