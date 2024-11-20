@@ -27,13 +27,13 @@ export default function RetningsLinjerPage() {
 
         <div className="flex flex-col items-center justify-center gap-[10px] md:grid md:grid-cols-2">
           <Image
-            src={damUrl("ATDKFsEdKuu9lwRA7RX0tj")}
+            src={damUrl("99VG7ccXKQY9CIM8EjZlPp")}
             width={350}
             height={212}
             alt="Unngå ikoner med mange detaljer"
           />
           <Image
-            src={damUrl("5dWHwzpdKhA8FYY6Q_Id4x")}
+            src={damUrl("4RQUai5nqQ09ypUUY50Kxi")}
             width={350}
             height={212}
             alt="Bruk enkle ikoner for bedre lesbarhet"
@@ -50,13 +50,13 @@ export default function RetningsLinjerPage() {
 
         <div className="flex flex-col items-center justify-center gap-[10px] md:grid md:grid-cols-2">
           <Image
-            src={damUrl("2K9jmXRT44uBsRnTmljfUo")}
+            src={damUrl(" FIBrL3LF4S_Ak9pOo3cu-5")}
             width={355}
             height={218}
             alt="Unngå ikoner med mange detaljer"
           />
           <Image
-            src={damUrl("0MznluZ04Yo8FDoeT26hFU")}
+            src={damUrl(" 2WjVTWDjqY3B7WvL0v3H9A")}
             width={355}
             height={218}
             alt="Bruk enkle ikoner for bedre lesbarhet"
@@ -74,20 +74,20 @@ export default function RetningsLinjerPage() {
 
         <div className="flex flex-col items-center justify-center gap-[24px]">
           <Image
-            src={damUrl("7_-ZtcHoK-A8y3e94KyW8T")}
+            src={damUrl("5iplNeysq0SAVJUjxMHKTr")}
             width={711}
             height={29}
             alt="Unngå å justere vekten på ikonet via stroke i Figma."
           />
           <div className="flex flex-col gap-[10px] md:grid md:grid-cols-2">
             <Image
-              src={damUrl("C-P9fYuvKZH89j9e3bmLy5")}
+              src={damUrl("F0JSVaEMqjM8ijIyaGdz9o")}
               width={355}
               height={218}
               alt="Unngå å justere vekten på ikonet via stroke i Figma."
             />
             <Image
-              src={damUrl("CL8GOGwua9RBLHCgjFNWt1")}
+              src={damUrl("CWvGe71_qwZ9Z5sXONjuFC")}
               width={355}
               height={218}
               alt={`Bruk "K" tasten til å skalere for riktig høyde og vekt utover grunnstørrelsen 20px.`}
