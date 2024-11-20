@@ -1,25 +1,13 @@
+import Image from "next/image"
 import { IdentityColors } from "@/data/color-palettes"
-import { IllustrationType } from "@/types/types"
 import { damUrl } from "@/lib/damImageLoader"
-import { pageMetadata } from "@/lib/metadata.utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ColorBlockGridItem } from "@/components/color-block-grid-item"
-import { Illustrations } from "@/components/illustrations"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { metaBrandColorIdentity } from "./identity.meta"
 
 export const metadata = metaBrandColorIdentity
-
-const illustrations: IllustrationType[] = [
-  {
-    src: damUrl("FVgHrlJXKR1AoxS-CeWwzK"),
-    width: 771,
-    height: 296,
-    fill: true,
-    alt: "Fargepaletten, her representert med fargene Karmin, Aubergin, Vin og Betong",
-  },
-]
 
 export default function IdentitetsPalett() {
   return (
@@ -36,10 +24,12 @@ export default function IdentitetsPalett() {
           Fargepalettene er laget for å alltid kunne fungere i kombinasjon med hverandre for å skape
           dynamikk og kontrast, uavhengig av om man ønsker et lyst eller et mørkt uttrykk.
         </Body>
-        <Illustrations
-          className="h-[300px] rounded-none"
-          illuClassName=" p-0"
-          illustrations={illustrations}
+
+        <Image
+          src={damUrl("FVgHrlJXKR1AoxS-CeWwzK")}
+          width={711}
+          height={322}
+          alt="Fargepaletten, her representert med fargene Karmin, Aubergin, Vin og Betong"
         />
       </ArticleWrapper>
 
@@ -73,15 +63,11 @@ export default function IdentitetsPalett() {
           signalfargen Karmin 525 gjør det lett å skape et moderne digitalt uttrykk som fremstår
           varmt og emosjonelt.
         </Body>
-        <Illustrations
-          illustrations={[
-            {
-              src: damUrl("EuqcwI8eaka8gV6z2lnji4"),
-              height: 440,
-              width: 711,
-              alt: "Mormerke og støttede identiteter",
-            },
-          ]}
+        <Image
+          src={damUrl("EuqcwI8eaka8gV6z2lnji4")}
+          width={711}
+          height={440}
+          alt="Mørke og støttede identiteter"
         />
       </ArticleWrapper>
 
@@ -92,16 +78,32 @@ export default function IdentitetsPalett() {
           utrykk og for å sikre nok kontrast. Fargene skal derfor ikke justeres og det skal ikke
           lages egne fargekombinasjoner utenfor det som er definert.
         </Body>
-        <Illustrations
-          illustrations={[
-            {
-              src: damUrl("FLPb90y7KyFAitWiUnO3op"),
-              height: 707,
-              width: 711,
-              alt: "Ikke bruk transparens, egne fargekombinasjoner, lås farger til egne kategorier, eller bruk temafarger til hele grensesnitt",
-            },
-          ]}
-        />
+        <div className="grid grid-cols-2 gap-[24px]">
+          <Image
+            src={damUrl("6_E6OVQOa41A6i06G0TwK3")}
+            width={342}
+            height={332}
+            alt="Ikke bruk transparens, egne fargekombinasjoner, lås farger til egne kategorier, eller bruk temafarger til hele grensesnitt"
+          />
+          <Image
+            src={damUrl("ADn7d89N45lB3I1C4ySlrG")}
+            width={342}
+            height={332}
+            alt="Ikke bruk egne fargekombinasjoner"
+          />
+          <Image
+            src={damUrl("2YIm7z1fqrY9F2Pwt1cK2X")}
+            width={342}
+            height={332}
+            alt="Ikke lås farger til egne kategorier"
+          />
+          <Image
+            src={damUrl("9Wxt7SUNKO380j8l7AhKhu")}
+            width={342}
+            height={332}
+            alt="Ikke bruk temafarger til hele grensesnitt"
+          />
+        </div>
       </ArticleWrapper>
     </SectionLayout>
   )

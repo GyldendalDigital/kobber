@@ -144,7 +144,7 @@ export default function Page() {
           egne oppsett eller fargekombinasjoner for ikon, men brukes samme ikon på tvers av alle
           kontoer for å sikre et helhetlig utrykk.
         </Body>
-        <div className="grid grid-cols-2 gap-[14px] p-[14px]">
+        <div className="grid grid-cols-2 gap-[14px]">
           <Image
             src={damUrl("84FY3H2XKB58UxQvEd77GH")}
             width={335}
