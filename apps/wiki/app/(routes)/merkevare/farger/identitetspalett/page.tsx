@@ -80,19 +80,19 @@ export default function IdentitetsPalett() {
         </Body>
         <div className="flex flex-col items-center justify-center gap-[24px] md:grid md:grid-cols-2">
           <Image
-            src={damUrl("6_E6OVQOa41A6i06G0TwK3")}
+            src={damUrl("5yvZJUv-Ks-8aPU-IEBOWc", ".svg")}
             width={342}
             height={332}
             alt="Ikke bruk transparens, egne fargekombinasjoner, lås farger til egne kategorier, eller bruk temafarger til hele grensesnitt"
           />
           <Image
-            src={damUrl("ADn7d89N45lB3I1C4ySlrG")}
+            src={damUrl("8QSf3zFDKVL8WGtHM3Lwcl", ".svg")}
             width={342}
             height={332}
             alt="Ikke bruk egne fargekombinasjoner"
           />
           <Image
-            src={damUrl("2YIm7z1fqrY9F2Pwt1cK2X")}
+            src={damUrl("A_jAwC68qpF82nfI3E_wjX", ".svg")}
             width={342}
             height={332}
             alt="Ikke lås farger til egne kategorier"

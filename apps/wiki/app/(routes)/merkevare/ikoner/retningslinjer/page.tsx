@@ -27,13 +27,13 @@ export default function RetningsLinjerPage() {
 
         <div className="flex flex-col items-center justify-center gap-[10px] md:grid md:grid-cols-2">
           <Image
-            src={damUrl("99VG7ccXKQY9CIM8EjZlPp")}
+            src={damUrl("99VG7ccXKQY9CIM8EjZlPp", ".svg")}
             width={350}
             height={212}
             alt="Unngå ikoner med mange detaljer"
           />
           <Image
-            src={damUrl("4RQUai5nqQ09ypUUY50Kxi")}
+            src={damUrl("4RQUai5nqQ09ypUUY50Kxi", ".svg")}
             width={350}
             height={212}
             alt="Bruk enkle ikoner for bedre lesbarhet"
@@ -50,13 +50,13 @@ export default function RetningsLinjerPage() {
 
         <div className="flex flex-col items-center justify-center gap-[10px] md:grid md:grid-cols-2">
           <Image
-            src={damUrl(" FIBrL3LF4S_Ak9pOo3cu-5")}
+            src={damUrl(" FIBrL3LF4S_Ak9pOo3cu-5", ".svg")}
             width={355}
             height={218}
             alt="Unngå ikoner med mange detaljer"
           />
           <Image
-            src={damUrl(" 2WjVTWDjqY3B7WvL0v3H9A")}
+            src={damUrl(" 2WjVTWDjqY3B7WvL0v3H9A", ".svg")}
             width={355}
             height={218}
             alt="Bruk enkle ikoner for bedre lesbarhet"
@@ -74,20 +74,20 @@ export default function RetningsLinjerPage() {
 
         <div className="flex flex-col items-center justify-center gap-[24px]">
           <Image
-            src={damUrl("5iplNeysq0SAVJUjxMHKTr")}
+            src={damUrl("5iplNeysq0SAVJUjxMHKTr", ".svg")}
             width={711}
             height={29}
             alt="Unngå å justere vekten på ikonet via stroke i Figma."
           />
           <div className="flex flex-col gap-[10px] md:grid md:grid-cols-2">
             <Image
-              src={damUrl("F0JSVaEMqjM8ijIyaGdz9o")}
+              src={damUrl("F0JSVaEMqjM8ijIyaGdz9o", ".svg")}
               width={355}
               height={218}
               alt="Unngå å justere vekten på ikonet via stroke i Figma."
             />
             <Image
-              src={damUrl("CWvGe71_qwZ9Z5sXONjuFC")}
+              src={damUrl("CWvGe71_qwZ9Z5sXONjuFC", ".svg")}
               width={355}
               height={218}
               alt={`Bruk "K" tasten til å skalere for riktig høyde og vekt utover grunnstørrelsen 20px.`}

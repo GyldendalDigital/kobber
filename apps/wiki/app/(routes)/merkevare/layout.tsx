@@ -5,6 +5,9 @@ import { SideMenuGroup } from "@/components/menu/side-menu-group"
 import { metaBrandColor } from "./farger/brandColor.meta"
 import { metaBrandIcons } from "./ikoner/brandIcons.meta"
 import { metaBrandLogo } from "./logo/logo.meta"
+import { metaEMailTemplate } from "./maler/e-post/e-post-template.meta"
+import { metaPowerpointTemplate } from "./maler/powerpoint/powerpoint-template.meta"
+import { metaWordTemplate } from "./maler/word/word-template.meta"
 import { metaBrandTypography } from "./typografi/brandTypography.meta"
 
 type GetStartedLayoutProps = {
@@ -28,7 +31,11 @@ export default async function MerkevareLayout({ children }: GetStartedLayoutProp
           ]}
           isOpenInitially
         />
-        <SideMenuGroup title="Maler" items={temporaryTemplateRoutes} isOpenInitially />
+        <SideMenuGroup
+          title="Maler"
+          items={[metaPowerpointTemplate, metaWordTemplate, metaEMailTemplate]}
+          isOpenInitially
+        />
       </SideMenu>
       <section className="w-full">{children}</section>
     </ContentLayout>
@@ -40,10 +47,4 @@ const temporaryIntroRoutes: PageMetadata[] = [
   { href: "#", title: "Våre verdier", status: "kommer", image: null },
   { href: "#", title: "Vår stemme", status: "kommer", image: null },
   { href: "#", title: "Designprinsipper", status: "kommer", image: null },
-]
-
-const temporaryTemplateRoutes: PageMetadata[] = [
-  { href: "#", title: "Powerpoint", status: "kommer", image: null },
-  { href: "#", title: "Word", status: "kommer", image: null },
-  { href: "#", title: "E-post signatur", status: "kommer", image: null },
 ]
