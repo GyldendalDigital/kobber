@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { damUrl } from "@/lib/damImageLoader"
-import { pageMetadata } from "@/lib/metadata.utils"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { IconExternalLink } from "@/components/kobber-icons"
 import { SectionLayout } from "@/components/section-layout"
@@ -106,13 +105,22 @@ export default function Page() {
           enn det som er definert under.
         </Body>
 
-        <Image
-          src={damUrl("C7NO6xO94muAODruMvqz6X")}
-          width={711}
-          height={355}
-          className="object-contain"
-          alt="Størrelser på logo og emblem"
-        />
+        <div className="flex flex-col items-center gap-[46px] md:flex-row md:items-end">
+          <Image
+            src={damUrl("56ixNHqoaJbAaqY-dib4Xh", ".svg")}
+            width={386}
+            height={169}
+            className="object-contain"
+            alt="Størrelse logo"
+          />
+          <Image
+            src={damUrl("70riM5264g-8jPBCRtdZKH", ".svg")}
+            width={255}
+            height={252}
+            className="object-contain"
+            alt="Størrelse emblem"
+          />
+        </div>
       </ArticleWrapper>
 
       <ArticleWrapper className="max-w-[711px]">
@@ -124,13 +132,22 @@ export default function Page() {
           tilgjengelig via designverktøy og kode.
         </Body>
 
-        <Image
-          src={damUrl("4MKJoFbQqlQ8bHzRZ_Wr5I")}
-          width={711}
-          height={355}
-          className="object-contain"
-          alt="Logoen skal helst ha to liggende G-er i luft rundt seg"
-        />
+        <div className="flex flex-col items-center gap-[46px] md:flex-row md:items-end">
+          <Image
+            src={damUrl("47FrxqP0q-_9mBciSzeOMu", ".svg")}
+            width={377}
+            height={194}
+            className="object-contain"
+            alt="Logoen skal helst ha to liggende G-er i luft rundt seg"
+          />
+          <Image
+            src={damUrl("3_gh5qyyaOnB5UEyZ1esJE", ".svg")}
+            width={287}
+            height={233}
+            className="object-contain"
+            alt=""
+          />
+        </div>
       </ArticleWrapper>
 
       <ArticleWrapper className="max-w-[711px]">
@@ -144,7 +161,7 @@ export default function Page() {
           egne oppsett eller fargekombinasjoner for ikon, men brukes samme ikon på tvers av alle
           kontoer for å sikre et helhetlig utrykk.
         </Body>
-        <div className="grid grid-cols-2 gap-[14px]">
+        <div className="flex flex-col items-center justify-center gap-[14px] md:grid md:grid-cols-2">
           <Image
             src={damUrl("84FY3H2XKB58UxQvEd77GH")}
             width={335}
@@ -178,13 +195,50 @@ export default function Page() {
       <ArticleWrapper className="max-w-[711px]">
         <h5 className="text-[24px] text-[#481125]">Unngå dette</h5>
 
-        <Image
-          src={damUrl("24qUgPLAKGABtj9kD1cubQ", ".svg")}
-          width={711}
-          height={650}
-          className="object-contain"
-          alt="Unngå omarrangerte elementer, utelatte elementer, endret farge, effekter som f.eks. skygge, egne varianter, og rotasjon av logo"
-        />
+        <div className="flex flex-col items-center justify-center gap-[14px] md:grid md:grid-cols-2">
+          <Image
+            src={damUrl("0io5B1AbazcAvYsR1sG4PO", ".svg")}
+            width={342}
+            height={196}
+            className="rounded-[8px] object-contain"
+            alt="Ikke omarranger elementer"
+          />
+          <Image
+            src={damUrl("1llKecD-KZ2ABnECzqoFmg", ".svg")}
+            width={342}
+            height={196}
+            className="rounded-[8px] object-contain"
+            alt="Ikke utelat elementer"
+          />
+          <Image
+            src={damUrl("08SKhqul4FR8rIkqQcm9lT", ".svg")}
+            width={342}
+            height={196}
+            className="rounded-[8px] object-contain"
+            alt="Ikke legg ti leffekter"
+          />
+          <Image
+            src={damUrl("0eH7XijWasH9V9JMxFXUSI", ".svg")}
+            width={342}
+            height={196}
+            className="rounded-[8px] object-contain"
+            alt="Ikke endre fargene"
+          />
+          <Image
+            src={damUrl("2Vho9BmH4829E4Q4SazF8L", ".svg")}
+            width={342}
+            height={196}
+            className="rounded-[8px] object-contain"
+            alt="Ikke lag logovarianter"
+          />
+          <Image
+            src={damUrl("Ffy6D_C5alVBxZE7klVO__", ".svg")}
+            width={342}
+            height={196}
+            className="rounded-[8px] object-contain"
+            alt="Ikke roter vinkelen"
+          />
+        </div>
       </ArticleWrapper>
     </SectionLayout>
   )
