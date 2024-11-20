@@ -1,8 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { damUrl } from "@/lib/damImageLoader"
-import { pageMetadata } from "@/lib/metadata.utils"
-import { placeholderImageUrl } from "@/lib/utils"
 import { Heading } from "@/components/heading"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
