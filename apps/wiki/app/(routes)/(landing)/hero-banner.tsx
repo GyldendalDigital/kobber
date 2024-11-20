@@ -19,7 +19,7 @@ export function HeroBanner() {
             <h1 className="text[#481125] text-[20px] md:text-[48px] md:text-text/primary/size/display/small">
               Velkommen til Kobber
             </h1>
-            <h2 className="text-[32px] font-medium text-[#DC134F] md:text-[48px]">
+            <h2 className="font-lyon text-[32px] font-medium text-[#DC134F] md:text-[48px]">
               Gyldendals designsystem
             </h2>
           </div>

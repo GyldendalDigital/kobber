@@ -78,7 +78,7 @@ export default function IdentitetsPalett() {
           utrykk og for å sikre nok kontrast. Fargene skal derfor ikke justeres og det skal ikke
           lages egne fargekombinasjoner utenfor det som er definert.
         </Body>
-        <div className="grid grid-cols-2 gap-[24px]">
+        <div className="flex flex-col items-center justify-center gap-[24px] md:grid md:grid-cols-2">
           <Image
             src={damUrl("6_E6OVQOa41A6i06G0TwK3")}
             width={342}
