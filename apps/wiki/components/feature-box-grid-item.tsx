@@ -19,7 +19,7 @@ export function FeatureBoxGridItem({
         className={cn(
           "relative flex h-full items-end justify-start overflow-hidden rounded-[16px] bg-[#EAE0E1] p-[12px] transition hover:scale-105",
           {
-            "opacity-30 hover:scale-100": disabled,
+            "cursor-not-allowed opacity-30 hover:scale-100": disabled,
           }
         )}
       >
