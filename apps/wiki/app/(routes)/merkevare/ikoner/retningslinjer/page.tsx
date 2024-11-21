@@ -50,13 +50,13 @@ export default function RetningsLinjerPage() {
 
         <div className="flex flex-col items-center justify-center gap-[10px] md:grid md:grid-cols-2">
           <Image
-            src={damUrl(" FIBrL3LF4S_Ak9pOo3cu-5", ".svg")}
+            src={damUrl("FIBrL3LF4S_Ak9pOo3cu-5", ".svg")}
             width={355}
             height={218}
             alt="Unngå ikoner med mange detaljer"
           />
           <Image
-            src={damUrl(" 2WjVTWDjqY3B7WvL0v3H9A", ".svg")}
+            src={damUrl("2WjVTWDjqY3B7WvL0v3H9A", ".svg")}
             width={355}
             height={218}
             alt="Bruk enkle ikoner for bedre lesbarhet"
