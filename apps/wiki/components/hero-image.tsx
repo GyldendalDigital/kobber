@@ -18,8 +18,9 @@ export function HeroImage({ className, src, width = 857, height = 288 }: HeroIma
     >
       <Image
         src={src ?? placeholderImageUrl({})}
-        width={width}
-        height={height}
+        // width={width}
+        // height={height}
+        fill
         className="object-cover object-top"
         alt="Header Image"
       />
