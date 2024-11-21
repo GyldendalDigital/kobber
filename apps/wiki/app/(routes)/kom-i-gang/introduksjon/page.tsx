@@ -1,9 +1,6 @@
 import Image from "next/image"
 import { damUrl } from "@/lib/damImageLoader"
-import { pageMetadata } from "@/lib/metadata.utils"
-import { placeholderImageUrl } from "@/lib/utils"
 import { Heading } from "@/components/heading"
-import { HeroImage } from "@/components/hero-image"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
@@ -14,7 +11,13 @@ export const metadata = metaGettingStartedIntro
 export default function Introduksjon() {
   return (
     <SectionLayout>
-      <HeroImage src={damUrl("2bULAP2gabp9rC4A1CbQSB")} />
+      <Image
+        src={damUrl("2bULAP2gabp9rC4A1CbQSB")}
+        width={858}
+        height={293}
+        className="h-[293px] w-full rounded-[16px] object-cover object-top"
+        alt="Image"
+      />
 
       <ArticleWrapper>
         <Heading>Designsystemet Kobber</Heading>
