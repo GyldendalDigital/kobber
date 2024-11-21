@@ -1,0 +1,52 @@
+import { layout } from "@gyldendal/kobber-base/themes/default/tokens";
+import { ValidMaxWidths } from "./BoxLayout";
+
+# BoxLayout
+
+Element with a predefined `max-width` and outer `padding`.<br />
+Use this for creating layouts that are consistent with the design system.
+
+## Predefined max widths
+
+Use <code>{ValidMaxWidths.FixedPageHeader}</code> (<code>{layout.fixedPageHeaderMaxWidth}px</code>)
+for page headers that should exceed the width of other content on the page
+
+```html
+<kobber-box-layout max-width="fixed-page-header"></kobber-box-layout>
+```
+
+Use <code>{ValidMaxWidths.Content}</code> (<code>{layout.contentMaxWidth}px</code>) to prevent elements from spanning the entire viewport on wide screens
+
+```html
+<kobber-box-layout max-width="content"></kobber-box-layout>
+```
+
+## Further customizations
+
+Any CSS property can be customized using attributes:
+
+```html
+<kobber-box-layout
+  max-width="content"
+  padding-block="8rem">
+</kobber-box-layout>
+
+<!-- Responsive block padding -->
+<kobber-box-layout
+  max-width="content"
+  padding-block='"(min-width: 640px)": "8rem"'>
+</kobber-box-layout>
+```
+
+Or by using CSS:
+
+```html
+<style>
+  .extra-padding-block { padding-block: 8rem }
+</style>
+
+<kobber-box-layout
+  max-width="content"
+  class="extra-padding-block">
+</kobber-box-layout>
+```
