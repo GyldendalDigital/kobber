@@ -1,5 +1,5 @@
 import { layout } from "@gyldendal/kobber-base/themes/default/tokens";
-import { ValidMaxWidths } from "./BoxLayout";
+import { BoxLayoutMaxWidth } from "./settings";
 
 # BoxLayout
 
@@ -8,14 +8,14 @@ Use this for creating layouts that are consistent with the design system.
 
 ## Predefined max widths
 
-Use <code>{ValidMaxWidths.FixedPageHeader}</code> (<code>{layout.fixedPageHeaderMaxWidth}px</code>)
+Use <code>{BoxLayoutMaxWidth.FixedPageHeader}</code> (<code>{layout.fixedPageHeaderMaxWidth}px</code>)
 for page headers that should exceed the width of other content on the page
 
 ```html
 <kobber-box-layout max-width="fixed-page-header"></kobber-box-layout>
 ```
 
-Use <code>{ValidMaxWidths.Content}</code> (<code>{layout.contentMaxWidth}px</code>) to prevent elements from spanning the entire viewport on wide screens
+Use <code>{BoxLayoutMaxWidth.Content}</code> (<code>{layout.contentMaxWidth}px</code>) to prevent elements from spanning the entire viewport on wide screens
 
 ```html
 <kobber-box-layout max-width="content"></kobber-box-layout>

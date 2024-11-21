@@ -3,13 +3,9 @@ import { css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { StyledLitElement } from "../../utils/StyledLitElement";
 import { stringifyStyleObject } from "../../utils/stringifyStyleObject";
+import { BoxLayoutMaxWidth } from "./settings";
 
-export enum ValidMaxWidths {
-  FixedPageHeader = "fixed-page-header",
-  Content = "content",
-}
-
-const validMaxWidths = [ValidMaxWidths.FixedPageHeader, ValidMaxWidths.Content];
+const validMaxWidths = [BoxLayoutMaxWidth.FixedPageHeader, BoxLayoutMaxWidth.Content];
 
 @customElement("kobber-box-layout")
 export class BoxLayout extends StyledLitElement {
@@ -46,7 +42,7 @@ export class BoxLayout extends StyledLitElement {
 
   private _getBoxClassName = () => {
     const maxWidth = this.maxWidth;
-    if (maxWidth === undefined || !validMaxWidths.includes(maxWidth as ValidMaxWidths)) {
+    if (maxWidth === undefined || !validMaxWidths.includes(maxWidth as BoxLayoutMaxWidth)) {
       console.error(`max-width "${this.maxWidth}" is not valid`);
     }
     return `max-width-${maxWidth}`;

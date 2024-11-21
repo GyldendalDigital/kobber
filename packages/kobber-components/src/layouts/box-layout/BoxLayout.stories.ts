@@ -4,14 +4,14 @@ import type { Meta, StoryObj } from "@storybook/web-components";
 import { WebComponentsRenderer } from "@storybook/web-components";
 import { html, unsafeCSS } from "lit";
 import "./BoxLayout";
-import { ValidMaxWidths } from "./BoxLayout";
 import Wiki from "./BoxLayoutWiki.mdx";
 import "../../utils/theme-context";
+import { BoxLayoutMaxWidth } from "./settings";
 
-const validMaxWidths = Object.values(ValidMaxWidths);
+const validMaxWidths = Object.values(BoxLayoutMaxWidth);
 
 interface Args {
-  maxWidth: ValidMaxWidths;
+  maxWidth: BoxLayoutMaxWidth;
   source?: string;
 }
 

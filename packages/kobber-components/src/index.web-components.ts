@@ -9,6 +9,7 @@ export { Checkbox } from "./checkbox/Checkbox";
 export { CardLayout } from "./layouts/card-layout/CardLayout";
 export { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
 export { BoxLayout } from "./layouts/box-layout/BoxLayout";
+export { BoxLayoutMaxWidth } from "./layouts/box-layout/settings";
 
 export { ArticleWrapper } from "./article-wrapper/ArticleWrapper";
 export { Body } from "./body/Body";
