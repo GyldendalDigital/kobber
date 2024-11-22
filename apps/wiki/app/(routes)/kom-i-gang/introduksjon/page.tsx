@@ -20,11 +20,13 @@ export default function Introduksjon() {
       />
 
       <ArticleWrapper>
-        <Heading>Designsystemet Kobber</Heading>
-
-        <h2 className="font-lyon text-[48px] leading-[57.6px] text-[#DC134F]">
-          Et verktøy for samspill og synergier
-        </h2>
+        <Heading>
+          Designsystemet Kobber
+          <br />
+          <span className="font-lyon text-[48px] font-light leading-[57.6px] text-[#DC134F]">
+            Et verktøy for samspill og synergier
+          </span>
+        </Heading>
 
         <Ingress>{metadata.description}</Ingress>
       </ArticleWrapper>

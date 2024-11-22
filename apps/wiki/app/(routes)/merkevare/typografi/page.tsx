@@ -1,4 +1,3 @@
-import { pageMetadata } from "@/lib/metadata.utils"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { Heading } from "@/components/heading"
 import { Body, Ingress } from "@/components/kobber-components"

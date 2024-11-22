@@ -47,7 +47,7 @@ export default function IdentitetsPalett() {
       </ArticleWrapper>
 
       {IdentityColors.map((theme, index) => (
-        <ArticleWrapper key={index}>
+        <ArticleWrapper key={index} className="gap-0">
           <h5 className="text-[24px] text-[#481125]">{theme.title}</h5>
           <Body>{theme.description}</Body>
           <ColorBlockGrid colors={theme.colors} enableCopy />

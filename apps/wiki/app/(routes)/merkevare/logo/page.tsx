@@ -4,6 +4,7 @@ import { damUrl } from "@/lib/damImageLoader"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { IconExternalLink } from "@/components/kobber-icons"
 import { SectionLayout } from "@/components/section-layout"
+import { SubHeading } from "@/components/sub-heading"
 import { metaBrandLogo } from "./logo.meta"
 
 export const metadata = metaBrandLogo
@@ -35,8 +36,8 @@ export default function Page() {
         </Link>
       </div>
 
-      <ArticleWrapper className="max-w-[711px]">
-        <h5 className="text-[24px] text-[#481125]">Primærlogo</h5>
+      <ArticleWrapper className="max-w-[711px] gap-0">
+        <SubHeading className="text-[24px] text-[#481125]">Primærlogo</SubHeading>
         <Body>
           Gyldendals primærlogo skal brukes i de fleste tilfeller.
           <br />
@@ -57,8 +58,8 @@ export default function Page() {
         />
       </ArticleWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
-        <h5 className="text-[24px] text-[#481125]">Fargevarianter</h5>
+      <ArticleWrapper className="max-w-[711px] gap-0">
+        <SubHeading className="text-[24px] text-[#481125]">Fargevarianter</SubHeading>
         <Body>
           Gyldendals primærlogo kan brukes i en positiv og en negativ variant. Den positive
           varianten brukes på lys bakgrunn og den negative brukes på mørk bakgrunn.
@@ -78,8 +79,8 @@ export default function Page() {
         />
       </ArticleWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
-        <h5 className="text-[24px] text-[#481125]">Emblemvariant</h5>
+      <ArticleWrapper className="max-w-[711px] gap-0">
+        <SubHeading className="text-[24px] text-[#481125]">Emblemvariant</SubHeading>
         <Body>
           Emblemversjonen av logoen brukes kun når Gyldendal selv er hovedfokuset i et budskap. Den
           er best egnet når den står helt for seg selv på en flate.
@@ -98,8 +99,8 @@ export default function Page() {
         />
       </ArticleWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
-        <h5 className="text-[24px] text-[#481125]">Størrelse</h5>
+      <ArticleWrapper className="max-w-[711px] gap-0">
+        <SubHeading className="text-[24px] text-[#481125]">Størrelse</SubHeading>
         <Body>
           Logoen skal alltid være leselig og synlig. Derfor skal den ikke brukes i mindre størrelse
           enn det som er definert under.
@@ -123,15 +124,14 @@ export default function Page() {
         </div>
       </ArticleWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
-        <h5 className="text-[24px] text-[#481125]">Luft</h5>
+      <ArticleWrapper className="max-w-[711px] gap-0">
+        <SubHeading className="text-[24px] text-[#481125]">Luft</SubHeading>
         <Body>
           Logoen må ha tilstrekkelig rom rundt seg for å kunne stå ut. Om du skal plassere logoen
           utenom et malverk, skal andre objekter plasseres utenfor klaringen som vist ved siden av.
           For digitale flater vil det finnes faste størrelsesenheter for luft som skal benyttes
           tilgjengelig via designverktøy og kode.
         </Body>
-
         <div className="flex flex-col items-center gap-[46px] md:flex-row md:items-end">
           <Image
             src={damUrl("47FrxqP0q-_9mBciSzeOMu", ".svg")}
@@ -150,8 +150,8 @@ export default function Page() {
         </div>
       </ArticleWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
-        <h5 className="text-[24px] text-[#481125]">Logoikon</h5>
+      <ArticleWrapper className="max-w-[711px] gap-0">
+        <SubHeading className="text-[24px] text-[#481125]">Logoikon</SubHeading>
         <Body>
           Ikonet brukes alene kun i tilfeller der det ikke er plass til hele logoen, slik som i
           profilbilde på sosiale medier-kontoer eller som favorittikon i nettleser. 
@@ -193,7 +193,7 @@ export default function Page() {
         </div>
       </ArticleWrapper>
       <ArticleWrapper className="max-w-[711px]">
-        <h5 className="text-[24px] text-[#481125]">Unngå dette</h5>
+        <SubHeading className="text-[24px] text-[#481125]">Unngå dette</SubHeading>
 
         <div className="flex flex-col items-center justify-center gap-[14px] md:grid md:grid-cols-2">
           <Image
