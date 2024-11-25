@@ -70,7 +70,7 @@ const makeIconComponents = () => {
       const attributes = `\n\t\tconst ariaLabel =
       this.getAttribute("aria-label") || ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */\n\t\tconst ariaHidden = ariaLabel === "";\n\t\tconst role = ariaHidden ? "presentation" : "img";`;
       const styles =
-        "<style>svg {width: var(--icon-width, ${this.widthValueFallback});height: var(--icon-height, ${this.heightValueFallback});}</style>";
+        "<style>:host { display: flex; align-items: center; justify-content: center; }svg {width: var(--icon-width, ${this.widthValueFallback});height: var(--icon-height, ${this.heightValueFallback});}</style>";
       const svgCode = `<svg viewBox="${symbol.getAttribute("viewBox")}" aria-label="\${ariaLabel}" aria-hidden="\${ariaHidden}" role="\${role}">${symbol.innerHTML}</svg>`;
 
       const componentCode = `export class ${iconName.unprefixedCapitalized} extends HTMLElement {${constructor}renderComponent() {${attributes}\n\t\tthis.shadowRoot.innerHTML = \`
