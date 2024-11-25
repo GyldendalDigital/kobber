@@ -69,8 +69,8 @@ export function WikiNavbar() {
   }, [pathname])
 
   return (
-    <div className="z-50 flex h-[72px] w-full items-center backdrop-blur-sm md:h-[67px]">
-      <div className="mx-auto flex h-full w-full items-center justify-between">
+    <header className="fixed left-0 top-0 z-50 flex h-[72px] w-full items-center bg-[#FDF9F9] md:h-[67px]">
+      <div className="mx-auto flex h-full w-full items-center justify-between md:w-[1152px]">
         <Link href="/" className="text-primary-title-s font-medium text-[#481125]">
           {APP_NAME}
         </Link>
@@ -224,6 +224,6 @@ export function WikiNavbar() {
           </Sheet>
         </div>
       </div>
-    </div>
+    </header>
   )
 }
