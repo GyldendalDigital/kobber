@@ -35,7 +35,9 @@ export default function RootLayout({
           <IconLoader />
           <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal px-page/padding/inline/xsmall sm:px-page/padding/inline/small md:px-page/padding/inline/medium xl:px-page/padding/inline/large">
             <WikiNavbar />
-            <SessionProvider>{children}</SessionProvider>
+            <SessionProvider>
+              <div className="mt-[72px] md:mt-[67px]">{children}</div>
+            </SessionProvider>
             <Footer />
           </div>
         </AuthProvider>

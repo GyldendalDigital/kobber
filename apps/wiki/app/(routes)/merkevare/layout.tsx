@@ -1,7 +1,6 @@
 import { PageMetadata } from "@/lib/metadata.utils"
 import { ContentLayout } from "@/components/content-layout"
-import { SideMenu } from "@/components/menu/side-menu"
-import { SideMenuGroup } from "@/components/menu/side-menu-group"
+import { SidebarLayout } from "@/components/menu/sidebar-layout"
 import { metaBrandColor } from "./farger/brandColor.meta"
 import { metaBrandIcons } from "./ikoner/brandIcons.meta"
 import { metaBrandLogo } from "./logo/logo.meta"
@@ -17,27 +16,27 @@ type GetStartedLayoutProps = {
 export default async function MerkevareLayout({ children }: GetStartedLayoutProps) {
   return (
     <ContentLayout>
-      <SideMenu>
-        <SideMenuGroup title="Introduksjon" items={temporaryIntroRoutes} isOpenInitially />
-        <SideMenuGroup
-          title="Identitetselementer"
-          items={[
-            metaBrandLogo,
-            metaBrandColor,
-            metaBrandTypography,
-            metaBrandIcons,
-            // merkevareLayoutPage, // removed until further notice
-            // see https://gyldendal.slack.com/archives/C07HL681DV3/p1731334837774659
-          ]}
-          isOpenInitially
-        />
-        <SideMenuGroup
-          title="Maler"
-          items={[metaPowerpointTemplate, metaWordTemplate, metaEMailTemplate]}
-          isOpenInitially
-        />
-      </SideMenu>
-      <section className="w-full">{children}</section>
+      <SidebarLayout
+        groups={[
+          {
+            title: "Introduksjon",
+            items: temporaryIntroRoutes,
+            isOpenInitially: true,
+          },
+          {
+            title: "Identitetselementer",
+            items: [metaBrandLogo, metaBrandColor, metaBrandTypography, metaBrandIcons],
+            isOpenInitially: true,
+          },
+          {
+            title: "Maler",
+            items: [metaPowerpointTemplate, metaWordTemplate, metaEMailTemplate],
+            isOpenInitially: true,
+          },
+        ]}
+      >
+        {children}
+      </SidebarLayout>
     </ContentLayout>
   )
 }
