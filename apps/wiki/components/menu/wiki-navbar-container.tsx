@@ -1,5 +1,6 @@
 "use client"
 
+/** @deprecated Not in use anymore */
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
