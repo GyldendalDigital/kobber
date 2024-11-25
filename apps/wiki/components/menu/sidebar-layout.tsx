@@ -34,7 +34,7 @@ export function SidebarLayout({ children, groups, items }: SidebarLayoutProps) {
           </List>
         )}
       </SideMenu>
-      <section className="w-full md:ml-[280px] md:pr-[280px]">{children}</section>
+      <section className="w-[calc(100%-280px)] md:ml-[280px]">{children}</section>
     </>
   )
 }
