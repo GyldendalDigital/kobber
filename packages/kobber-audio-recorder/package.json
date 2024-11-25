@@ -1,6 +1,6 @@
 {
   "name": "@gyldendal/kobber-audio-recorder",
-  "version": "0.3.58",
+  "version": "0.3.59",
   "license": "MIT",
   "type": "module",
   "files": [
