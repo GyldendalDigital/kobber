@@ -5,13 +5,13 @@ import { toUpperCase } from "@/lib/utils"
 import { Accordion, Divider, List } from "@/components/kobber-components"
 import { SideMenuItem } from "./side-menu-item"
 
-type Props = {
+export type SideMenuGroupProps = {
   title: string
   items: PageMetadata[]
   isOpenInitially?: boolean
 }
 
-export const SideMenuGroup = ({ title, items, isOpenInitially = false }: Props) => {
+export const SideMenuGroup = ({ title, items, isOpenInitially = false }: SideMenuGroupProps) => {
   if (!items) return null
 
   return (

@@ -36,10 +36,3 @@ export default function ComponentsLayout({ children }: ComponentsLayoutProps) {
     </ContentLayout>
   )
 }
-
-const temporaryItem = (title: string): PageMetadata => ({
-  href: "#",
-  title,
-  status: "kommer",
-  image: null,
-})
