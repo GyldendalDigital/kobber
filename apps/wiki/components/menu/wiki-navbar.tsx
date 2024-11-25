@@ -70,7 +70,7 @@ export function WikiNavbar() {
 
   return (
     <header className="fixed left-0 top-0 z-50 flex h-[72px] w-full items-center bg-[#FDF9F9] md:h-[67px]">
-      <div className="mx-auto flex h-full w-full items-center justify-between md:w-[1152px]">
+      <div className="mx-auto flex h-full w-full items-center justify-between px-2 md:w-[1152px] md:px-0">
         <Link href="/" className="text-primary-title-s font-medium text-[#481125]">
           {APP_NAME}
         </Link>
