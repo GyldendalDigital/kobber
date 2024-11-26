@@ -1,3 +1,4 @@
+import React from "react"
 import { PageMetadata } from "@/lib/metadata.utils"
 import { Divider, List } from "@/components/kobber-components"
 import { SideMenu } from "./side-menu"
