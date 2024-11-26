@@ -97,6 +97,8 @@ export const KobberBoxLayout = createComponent({
   react: React,
 });
 
+export { BoxLayoutMaxWidth } from "./layouts/box-layout/settings";
+
 export const KobberButton = createComponent({
   tagName: "kobber-button",
   elementClass: Button,

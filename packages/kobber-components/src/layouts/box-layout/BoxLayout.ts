@@ -3,17 +3,25 @@ import { css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { StyledLitElement } from "../../utils/StyledLitElement";
 import { stringifyStyleObject } from "../../utils/stringifyStyleObject";
+import { BoxLayoutMaxWidth } from "./settings";
 
-const validMaxWidths = ["fixed-page-header", "content"];
+const validMaxWidths = [BoxLayoutMaxWidth.FixedPageHeader, BoxLayoutMaxWidth.Content];
 
 @customElement("kobber-box-layout")
 export class BoxLayout extends StyledLitElement {
   private _getDefaultStyles = () => css`
     :host {
+      box-sizing: border-box;
       display: grid;
       width: 100%;
       justify-items: center;
       padding: ${unsafeCSS(layout.gap["16-32"])};
+    }
+
+    :host *,
+    :host *:before,
+    :host *:after {
+      box-sizing: inherit;
     }
 
     .box {
@@ -34,18 +42,20 @@ export class BoxLayout extends StyledLitElement {
 
   private _getBoxClassName = () => {
     const maxWidth = this.maxWidth;
-    if (maxWidth === undefined || !validMaxWidths.includes(maxWidth)) {
+    if (maxWidth === undefined || !validMaxWidths.includes(maxWidth as BoxLayoutMaxWidth)) {
       console.error(`max-width "${this.maxWidth}" is not valid`);
     }
     return `max-width-${maxWidth}`;
   };
 
-  render = () =>
-    html`<style>
+  render = () => {
+    const { maxWidth, ...styles } = this.getStyles();
+    return html`<style>
         ${this._getDefaultStyles()}
-        ${stringifyStyleObject(":host", this.getStyles())}
+        ${stringifyStyleObject(":host", styles)}
       </style>
       <div class="box ${this._getBoxClassName()}">
         <slot />
       </div>`;
+  };
 }
