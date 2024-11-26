@@ -5,12 +5,11 @@ import BitStream from "lamejs/src/js/BitStream.js";
 
 export async function serializeBlobs(blobs) {
     const parts = [];
-
     for (const blob of blobs) {
         const sizeHeader = new ArrayBuffer(4);
         const view = new DataView(sizeHeader);
         view.setUint32(0, blob.size, true);
-        parts.push(new Blob([sizeHeader]), blob);
+        parts.push(new Blob([sizeHeader]), new Blob([blob], {type: 'audio/mp3'}));
     }
 
     return new Blob(parts);
@@ -28,15 +27,18 @@ export async function deserializeBlob(combinedBlob) {
         // If the blob does not contain a header, assume it is old mp3 data.
         // Give it a header for later use! :)
         if (offset === 4 && (blobSize <= 0 || offset + blobSize > combinedBlob.size)) {
-            blobs.push(combinedBlob);
-            return blobs;
+            if (combinedBlob.type === 'audio/mp3' || combinedBlob.type === 'audio/mpeg') {
+                blobs.push(new Blob([combinedBlob], {type: 'audio/mp3'}));
+                return blobs;
+            } else {
+                throw new Error(`Invalid mimetype on load: ${combinedBlob.type}`);
+            }
         }
 
         const blob = combinedBlob.slice(offset, offset + blobSize);
         blobs.push(new Blob([blob], {type: 'audio/mp3'}));
         offset += blobSize;
     }
-
     return blobs;
 }
 

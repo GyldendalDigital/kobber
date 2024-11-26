@@ -137,12 +137,20 @@
 
     $: if (audioData && audioArray.length === 0) {
         deserializeBlob(audioData).then((blobs) => {
-            audioDataIndex = blobs.length;
             blobs.map((audio, index) => {
+                audioDataIndex = blobs.length;
                 const newAudio = new Audio();
                 newAudio.preload = "metadata";
                 newAudio.src = window.URL.createObjectURL(audio);
                 audioEventSetter(newAudio, audio, index);
+                if (newAudio.duration === Infinity || isNaN(newAudio.duration)) {
+                    audio.arrayBuffer().then((arrayBuffer) => {
+                        audioCtx = new AudioContext();
+                        audioCtx.decodeAudioData(arrayBuffer).then((buffer) => {
+                            audioDurationArray[index] = buffer.duration;
+                        });
+                    });
+                }
                 audioArray.push(newAudio);
                 decodedAudioData.push(audio);
             })
@@ -155,19 +163,10 @@
     // decodes that new buffer, converts to wav, converts to mp3,
     // and finally calls the callback with that mp3.
     function encodeToMP3() {
-        Promise.all(recData.map((data) => {return data[0].arrayBuffer()})).then((response) => {
-            let totalByteLength = 0;
-            response.forEach((buffer) => {
-                totalByteLength += buffer.byteLength;
-            });
-            let totalBuffer = new Uint8Array(totalByteLength);
-            let currentPosition = 0;
-            response.forEach((buffer) => {
-                totalBuffer.set(new Uint8Array(buffer), currentPosition);
-                currentPosition += buffer.byteLength;
-            })
-            audioCtx.decodeAudioData(totalBuffer.buffer).then((audioBuffer) => {
-                decodedAudioData[audioDataIndex] = audioBufferToWav(audioBuffer);
+        recData[recData.length - 1][0].arrayBuffer().then((response) => {
+            audioCtx = new AudioContext();
+            audioCtx.decodeAudioData(response).then((audioBuffer) => {
+                decodedAudioData.push(audioBufferToWav(audioBuffer));
                 serializeBlobs(decodedAudioData).then((blobs) => mp3Callback && mp3Callback(blobs));
             });
         })
