@@ -5,7 +5,6 @@
   "type": "module",
   "files": [
     "chunks/**/*",
-    "css/**/*",
     "react/**/*",
     "react-ssr-safe/**/*",
     "web-components/**/*"
