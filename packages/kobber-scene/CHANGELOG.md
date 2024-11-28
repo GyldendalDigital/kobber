@@ -1,5 +1,11 @@
 # @gyldendal/kobber-scene
 
+## 0.3.60
+
+### Patch Changes
+
+- audio-recorder ios data management improvements
+
 ## 0.3.59
 
 ### Patch Changes
