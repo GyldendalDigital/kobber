@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.3.60
+
+### Patch Changes
+
+- audio-recorder ios data management improvements
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.60
+  - @gyldendal/kobber-icons@0.3.60
+
 ## 0.3.59
 
 ### Patch Changes
