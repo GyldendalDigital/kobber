@@ -1,5 +1,11 @@
 # @gyldendal/kobber-eslint
 
+## 0.3.61
+
+### Patch Changes
+
+- Clean up dependencies
+
 ## 0.3.60
 
 ### Patch Changes
