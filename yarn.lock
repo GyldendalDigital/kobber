@@ -2626,12 +2626,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esm-bundle/chai@npm:4.3.4-fix.0":
-  version: 4.3.4-fix.0
-  resolution: "@esm-bundle/chai@npm:4.3.4-fix.0"
+"@esm-bundle/chai@npm:^4.3.4-fix.0":
+  version: 4.3.4
+  resolution: "@esm-bundle/chai@npm:4.3.4"
   dependencies:
     "@types/chai": "npm:^4.2.12"
-  checksum: 10c0/d01571b1e66787262317ba93fdcdcc2de34797fe678bb9e8f56aaba77a9e0511cbb7633412a7d3741fc37f57ff72ab09bda628bced002596c3277e910ea23d7d
+  checksum: 10c0/7101b30e4b059b9e7cece9ed92d201e95893f865e4c918887ebcf6264db7d713d258eb3226dd914907f44eae90cf5c9cc19ff242cba8b0d0b1df0036cd8b9dda
   languageName: node
   linkType: hard
 
@@ -2697,7 +2697,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-base@workspace:packages/kobber-base"
   dependencies:
-    "@types/node": "npm:20.9.0"
+    "@types/node": "npm:^20.9.0"
     style-dictionary: "npm:^3.9.0"
     tsx: "npm:^4.6.2"
     typescript: "npm:^5.6.3"
@@ -2708,7 +2708,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-components@workspace:packages/kobber-components"
   dependencies:
-    "@esm-bundle/chai": "npm:4.3.4-fix.0"
+    "@esm-bundle/chai": "npm:^4.3.4-fix.0"
     "@gyldendal/kobber-base": "npm:*"
     "@gyldendal/kobber-eslint": "npm:*"
     "@gyldendal/kobber-icons": "npm:*"
@@ -2717,7 +2717,7 @@ __metadata:
     "@lit/react": "npm:^1.0.5"
     "@shoelace-style/shoelace": "npm:^2.14.0"
     "@types/mocha": "npm:^10.0.6"
-    "@types/react": "npm:18.3.6"
+    "@types/react": "npm:^18.3.6"
     "@types/stylis": "npm:^4.2.4"
     "@typescript-eslint/eslint-plugin": "npm:^6.14.0"
     "@typescript-eslint/parser": "npm:^6.14.0"
@@ -2738,8 +2738,8 @@ __metadata:
     lit: "npm:^3.2.0"
     onchange: "npm:^7.1.0"
     prettier: "npm:^3.1.0"
-    react: "npm:18.3.1"
-    react-dom: "npm:18.3.1"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
     stylelint: "npm:^16.0.2"
     stylelint-config-standard: "npm:^35.0.0"
     stylelint-order: "npm:^6.0.4"
@@ -2791,7 +2791,7 @@ __metadata:
     "@gyldendal/kobber-stylelint": "npm:*"
     "@lit/react": "npm:^1.0.5"
     "@types/jsdom": "npm:^21.1.7"
-    "@types/react": "npm:18.3.6"
+    "@types/react": "npm:^18.3.6"
     "@typescript-eslint/eslint-plugin": "npm:^6.14.0"
     "@typescript-eslint/parser": "npm:^6.14.0"
     eslint: "npm:^8.55.0"
@@ -2809,8 +2809,8 @@ __metadata:
     lit: "npm:^3.2.0"
     onchange: "npm:^7.1.0"
     prettier: "npm:^3.1.0"
-    react: "npm:18.3.1"
-    react-dom: "npm:18.3.1"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
     stylelint: "npm:^16.0.2"
     stylelint-config-standard: "npm:^35.0.0"
     stylelint-order: "npm:^6.0.4"
@@ -6844,15 +6844,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.9.0":
-  version: 20.9.0
-  resolution: "@types/node@npm:20.9.0"
-  dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 10c0/755d07de735eafda4e20af75ad9d03bdbfddef327d790e9a896142eac7493db5d8501591376e1c8227aa12eeb88e522bc727c6024504842ed40e539e8a466db9
-  languageName: node
-  linkType: hard
-
 "@types/node@npm:^12.7.1":
   version: 12.20.55
   resolution: "@types/node@npm:12.20.55"
@@ -6875,6 +6866,15 @@ __metadata:
   dependencies:
     undici-types: "npm:~6.19.2"
   checksum: 10c0/6af7994129815010bcbc4cf8221865559c8116ff43e74a6549525c2108267596fc2d18aff5d5ecfe089fb60a119f975631343e2c65c52bfa0955ed9dc56733d6
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20.9.0":
+  version: 20.17.9
+  resolution: "@types/node@npm:20.17.9"
+  dependencies:
+    undici-types: "npm:~6.19.2"
+  checksum: 10c0/1c37c3618407d56b76301578edabcb4c6a7ef093d0811c50fc4df8df68fc546797a294cafac0e50789f4e0e485cd1d6871964d8e6222fd420658bdae89c1fb4a
   languageName: node
   linkType: hard
 
@@ -6957,6 +6957,16 @@ __metadata:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: 10c0/e347787a496f2006fe61358316e040c22548a1669559277b72dad39e2f1f713080115be9fe6c30f9d1d28a54054b96cf6c06471be6967a3605e31f5b84a6cec7
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^18.3.6":
+  version: 18.3.12
+  resolution: "@types/react@npm:18.3.12"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 10c0/8bae8d9a41619804561574792e29112b413044eb0d53746dde2b9720c1f9a59f71c895bbd7987cd8ce9500b00786e53bc032dced38cddf42910458e145675290
   languageName: node
   linkType: hard
 
@@ -17118,7 +17128,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.3.1, react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react-dom@npm:^18, react-dom@npm:^18.2.0":
+"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react-dom@npm:^18, react-dom@npm:^18.2.0, react-dom@npm:^18.3.1":
   version: 18.3.1
   resolution: "react-dom@npm:18.3.1"
   dependencies:
@@ -17255,7 +17265,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.3.1, react@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react@npm:^18.2.0":
+"react@npm:18.3.1, react@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react@npm:^18.2.0, react@npm:^18.3.1":
   version: 18.3.1
   resolution: "react@npm:18.3.1"
   dependencies:
