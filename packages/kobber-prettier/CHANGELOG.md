@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.62
+
+### Patch Changes
+
+- Correct versions
+
 ## 0.3.61
 
 ### Patch Changes
