@@ -159,13 +159,7 @@ export function WikiNavbarContainer({ itemsDesktop, itemsMobile }: WikiNavbarCon
                     {item.children && item.children.length !== 0 && (
                       <ul className="flex flex-col gap-4">
                         {item.children.map((childItem) => {
-                          return (
-                            <WikiHeaderItem
-                              key={childItem.href}
-                              page={childItem}
-                              className={cn("text-center text-[16px]", {})}
-                            />
-                          )
+                          return <WikiHeaderItem key={childItem.href} page={childItem} />
                         })}
                       </ul>
                     )}
