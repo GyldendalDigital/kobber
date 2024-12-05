@@ -1,4 +1,4 @@
-import tokensFromFigma from "./tokens-2024-11-07.json" assert { type: "json" };
+import tokensFromFigma from "./tokens-2024-11-20.json" assert { type: "json" };
 
 /**
  * Points to the latest Figma export.
