@@ -8,22 +8,25 @@
     "@gyldendal/kobber-base": "*",
     "@gyldendal/kobber-components": "*",
     "@gyldendal/kobber-icons": "*",
+    "@storybook/manager-api": "^8.4.6",
+    "@storybook/theming": "^8.4.6",
     "lit-html": "^3.1.1",
-    "storybook": "^8.3.6"
+    "storybook": "^8.4.6"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^8.3.6",
-    "@storybook/addon-essentials": "^8.3.6",
-    "@storybook/blocks": "^8.3.6",
-    "@storybook/builder-vite": "^8.3.6",
-    "@storybook/web-components": "^8.3.6",
-    "@storybook/web-components-vite": "^8.3.6",
+    "@storybook/addon-a11y": "^8.4.6",
+    "@storybook/addon-essentials": "^8.4.6",
+    "@storybook/blocks": "^8.4.6",
+    "@storybook/builder-vite": "^8.4.6",
+    "@storybook/web-components": "^8.4.6",
+    "@storybook/web-components-vite": "^8.4.6",
     "typescript": "^5.6.3",
     "vite": "^5.4.10"
   },
   "scripts": {
     "clean": "rm -rf node_modules storybook-static",
     "storybook": "storybook dev -p 6006",
-    "build": "storybook build"
+    "build": "storybook build",
+    "serve": "npx serve storybook-static"
   }
 }

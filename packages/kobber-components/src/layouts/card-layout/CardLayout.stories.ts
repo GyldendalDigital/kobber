@@ -1,6 +1,4 @@
-import { ArgsStoryFn } from "@storybook/types";
 import type { Meta, StoryObj } from "@storybook/web-components";
-import { WebComponentsRenderer } from "@storybook/web-components";
 import { TemplateResult, html } from "lit";
 import "../box-layout/BoxLayout";
 import "../story/ExampleCard";
@@ -25,7 +23,7 @@ const initIndicators = (canvasElement: HTMLElement) => {
 };
 
 const meta: Meta<Args> = {
-  title: "layouts/CardLayout",
+  title: "GU/Layouts/CardLayout",
   component: "CardLayout",
   tags: ["autodocs"],
   argTypes: {
@@ -52,7 +50,7 @@ const meta: Meta<Args> = {
 
 export default meta;
 
-const render: ArgsStoryFn<WebComponentsRenderer, Args> = ({ cardHtml, overrideContainerWidth, containerWidth }) => html`
+const render = ({ cardHtml, overrideContainerWidth, containerWidth }: Args) => html`
   <style>
     .demo {
       display: grid;

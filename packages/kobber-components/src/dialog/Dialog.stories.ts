@@ -3,7 +3,7 @@ import "./Dialog";
 import { html } from "lit";
 
 const meta: Meta = {
-  title: "In development 🧪/Dialog",
+  title: "GU/Dialog",
   component: "kobber-dialog",
   argTypes: {},
 };

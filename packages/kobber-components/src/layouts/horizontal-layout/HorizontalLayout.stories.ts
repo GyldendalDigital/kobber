@@ -1,6 +1,4 @@
-import { ArgsStoryFn } from "@storybook/types";
 import type { Meta, StoryObj } from "@storybook/web-components";
-import { WebComponentsRenderer } from "@storybook/web-components";
 import { html } from "lit";
 import "../box-layout/BoxLayout";
 import "../story/ExampleCard";
@@ -12,7 +10,7 @@ import { globalStyles } from "../../story/globalStyles";
 import { maxColumns } from "./config";
 
 const meta: Meta = {
-  title: "layouts/HorizontalLayout (Carousel)",
+  title: "GU/Layouts/HorizontalLayout (Carousel)",
   component: "HorizontalLayout",
   tags: ["autodocs"],
   decorators: [(story, storyContext) => html`<div class="${storyContext.globals.theme}">${story()}</div>`],
@@ -20,7 +18,7 @@ const meta: Meta = {
 
 export default meta;
 
-const render: ArgsStoryFn<WebComponentsRenderer> = () => html`
+const render = () => html`
   <style>
     .demo {
       display: grid;

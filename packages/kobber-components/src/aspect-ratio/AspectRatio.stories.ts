@@ -1,13 +1,13 @@
-import { ArgsStoryFn } from "@storybook/types";
 import type { Meta, StoryObj } from "@storybook/web-components";
-import { WebComponentsRenderer } from "@storybook/web-components";
 import { html, unsafeCSS } from "lit";
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 import { defaultAspectRatio } from "./AspectRatio";
 import AspectRatioWiki from "./AspectRatioWiki.mdx";
 
-const meta: Meta = {
-  title: "Utilities 🔧/AspectRatio",
+type Args = { aspectRatio: string };
+
+const meta: Meta<Args> = {
+  title: "GU/AspectRatio",
   component: "kobber-aspect-ratio",
   tags: ["autodocs"],
   parameters: {
@@ -24,9 +24,9 @@ const meta: Meta = {
 
 export default meta;
 
-type Story = StoryObj;
+type Story = StoryObj<Args>;
 
-const render: ArgsStoryFn<WebComponentsRenderer> = args => {
+const render = (args: Args) => {
   return html`
     <style>
       html {

@@ -5,7 +5,7 @@ import { getProficiencyNameByPercentage } from "../utils/progressHelpers";
 import "@gyldendal/kobber-base/themes/default/tokens.css";
 
 const meta: Meta = {
-  title: "Progress-Bar",
+  title: "GU/Progress-Bar",
   component: "kobber-progress-bar",
   tags: ["autodocs"],
   args: {
