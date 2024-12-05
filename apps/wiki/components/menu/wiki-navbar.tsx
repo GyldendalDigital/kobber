@@ -47,8 +47,6 @@ export function WikiNavbar() {
       return acc
     }, [] as PageMetadata[])
 
-  // const current = breadcrumb[breadcrumb.length - 1]
-
   const parent = breadcrumb[breadcrumb.length - 2]
 
   const handleLogout = () => {
@@ -135,7 +133,7 @@ export function WikiNavbar() {
 
                 <ul className="flex flex-col gap-4">
                   {(selectedCategoryItems ?? equalRoutesForNow).map((item) => (
-                    <div className="flex flex-col gap-4" key={item.href}>
+                    <li className="flex flex-col gap-4" key={item.href}>
                       <SubHeading className={cn({ underline: pathname === item.href })}>
                         {!item.children || item.children.length === 0 ? (
                           <Link
@@ -165,60 +163,15 @@ export function WikiNavbar() {
                               <WikiHeaderItem
                                 key={childItem.href}
                                 page={childItem}
-                                className={cn("text-center text-[16px]", {})}
+                                className={cn("text-[16px]", {})}
                               />
                             )
                           })}
                         </ul>
                       )}
-                    </div>
+                    </li>
                   ))}
                 </ul>
-
-                {/* More specific menu */}
-                {/* {current.children && current.children.length !== 0 ? (
-              <ul className="flex flex-col gap-4">
-                {current.children.map((item) => (
-                  <WikiHeaderItem
-                    key={item.href}
-                    page={item}
-                    className={cn("text-center text-[16px]", {})}
-                  />
-                ))}
-              </ul>
-            ) : (
-              itemsMobile.map((item) => (
-                <div className="flex flex-col gap-4" key={item.href}>
-                  <SubHeading>{item.title as string}</SubHeading>
-
-                  {item.children && item.children.length !== 0 && (
-                    <ul className="flex flex-col gap-4">
-                      {item.children.map((childItem) => {
-                        return (
-                          <WikiHeaderItem
-                            key={childItem.href}
-                            page={childItem}
-                            className={cn("text-center text-[16px]", {})}
-                          />
-                        )
-                      })}
-                    </ul>
-                  )}
-                </div>
-              ))
-            )} */}
-
-                {/* DEBUG */}
-                {/* <pre>{JSON.stringify(breadcrumb, null, 2)}</pre> */}
-                {/* <pre>{JSON.stringify(current, null, 2)}</pre> */}
-                {/* <pre>{JSON.stringify(parent, null, 2)}</pre> */}
-                {/* <pre>
-              {JSON.stringify(
-                flat.map((x) => `${x.href}: ${x.title}`),
-                null,
-                2
-              )}
-            </pre> */}
               </div>
             </SheetContent>
           </Sheet>
