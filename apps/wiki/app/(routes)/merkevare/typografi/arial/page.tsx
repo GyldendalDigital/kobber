@@ -15,8 +15,8 @@ export default function arialPage() {
         <Heading>{metadata.title as string}</Heading>
         <Ingress>{metadata.description}</Ingress>
 
+        <p>Arial er tilgjengelig både for PC- og Mac-brukere, og brukes i blant annet:</p>
         <ul>
-          <p>Arial er tilgjengelig både for PC- og Mac-brukere, og brukes i blant annet:</p>
           <li>- E-post signatur</li>
           <li>- Nyhetsbrev</li>
           <li>- Interne PowerPoint-presentasjoner</li>
