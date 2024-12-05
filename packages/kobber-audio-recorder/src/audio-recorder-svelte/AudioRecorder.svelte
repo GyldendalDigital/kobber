@@ -148,6 +148,8 @@
                         audioCtx = new AudioContext();
                         audioCtx.decodeAudioData(arrayBuffer).then((buffer) => {
                             audioDurationArray[index] = buffer.duration;
+                        }).catch((r) => {
+                            throw new Error(`couldn't decode mimetype: ${audio.type}, ${r}`);
                         });
                     });
                 }
