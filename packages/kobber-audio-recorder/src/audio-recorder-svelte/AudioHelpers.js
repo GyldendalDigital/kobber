@@ -24,14 +24,13 @@ export async function deserializeBlob(combinedBlob) {
         const blobSize = new DataView(sizeHeader).getUint32(0, true);
         offset += 4;
 
-        // If the blob does not contain a header, assume it is old mp3 data.
-        // Give it a header for later use! :)
         if (offset === 4 && (blobSize <= 0 || offset + blobSize > combinedBlob.size)) {
-            if (combinedBlob.type === 'audio/mp3' || combinedBlob.type === 'audio/mpeg') {
-                blobs.push(new Blob([combinedBlob], {type: 'audio/mp3'}));
+            if (combinedBlob.type === 'audio/mpeg' || combinedBlob.type === 'application/octet-stream') {
+                blobs.push(new Blob([combinedBlob], {type: 'audio/mpeg'}));
                 return blobs;
             } else {
-                throw new Error(`Invalid mimetype on load: ${combinedBlob.type}`);
+                blobs.push(new Blob([combinedBlob], {type: combinedBlob.type}));
+                return blobs;
             }
         }
 

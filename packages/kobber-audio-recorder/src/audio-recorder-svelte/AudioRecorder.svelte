@@ -111,7 +111,7 @@
     let currentAudioIndex = 0;
     let currentTimePercentage = "0%";
     let recordedSeconds = 0;
-    $: isExpanded = recData.length > 0 || audioArray.length > 0 || audioData || isRecording;
+    $: isExpanded = recData.length > 0 || audioArray.length > 0 || audioData != null || isRecording;
 
     function roundWithDecimals(num, decimals){
         return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
@@ -148,6 +148,8 @@
                         audioCtx = new AudioContext();
                         audioCtx.decodeAudioData(arrayBuffer).then((buffer) => {
                             audioDurationArray[index] = buffer.duration;
+                        }).catch((r) => {
+                            throw new Error(`couldn't decode mimetype: ${audio.type}, ${r}`);
                         });
                     });
                 }
@@ -377,7 +379,7 @@
             timeTotal = 0;
             audioData = null;
             decodedAudioData = [];
-            mp3Callback(new Blob());
+            mp3Callback(null);
             confirmDelete = false;
         }
     }
