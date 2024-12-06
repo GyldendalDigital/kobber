@@ -2925,7 +2925,6 @@ __metadata:
     onchange: "npm:^7.1.0"
     prettier: "npm:^3.1.0"
     react: "npm:^18.3.1"
-    react-dom: "npm:^18.3.1"
     stylelint: "npm:^16.0.2"
     stylelint-config-standard: "npm:^35.0.0"
     stylelint-order: "npm:^6.0.4"
@@ -2940,7 +2939,6 @@ __metadata:
     "@shoelace-style/shoelace": ">=2"
     "@web/test-runner-playwright": ">=0.11"
     react: ">=18"
-    react-dom: ">=18"
   peerDependenciesMeta:
     "@lit/react":
       optional: true
@@ -2949,8 +2947,6 @@ __metadata:
     "@web/test-runner-playwright":
       optional: true
     react:
-      optional: true
-    react-dom:
       optional: true
   languageName: unknown
   linkType: soft
@@ -3013,7 +3009,6 @@ __metadata:
     onchange: "npm:^7.1.0"
     prettier: "npm:^3.1.0"
     react: "npm:^18.3.1"
-    react-dom: "npm:^18.3.1"
     stylelint: "npm:^16.0.2"
     stylelint-config-standard: "npm:^35.0.0"
     stylelint-order: "npm:^6.0.4"
@@ -3026,13 +3021,10 @@ __metadata:
   peerDependencies:
     "@lit/react": ">=1"
     react: ">=18"
-    react-dom: ">=18"
   peerDependenciesMeta:
     "@lit/react":
       optional: true
     react:
-      optional: true
-    react-dom:
       optional: true
   languageName: unknown
   linkType: soft
@@ -17358,7 +17350,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react-dom@npm:^18, react-dom@npm:^18.2.0, react-dom@npm:^18.3.1":
+"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react-dom@npm:^18, react-dom@npm:^18.2.0":
   version: 18.3.1
   resolution: "react-dom@npm:18.3.1"
   dependencies:

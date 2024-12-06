@@ -46,7 +46,6 @@
     "onchange": "^7.1.0",
     "prettier": "^3.1.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "stylelint": "^16.0.2",
     "stylelint-config-standard": "^35.0.0",
     "stylelint-order": "^6.0.4",
@@ -59,17 +58,13 @@
   },
   "peerDependencies": {
     "@lit/react": ">=1",
-    "react": ">=18",
-    "react-dom": ">=18"
+    "react": ">=18"
   },
   "peerDependenciesMeta": {
     "@lit/react": {
       "optional": true
     },
     "react": {
-      "optional": true
-    },
-    "react-dom": {
       "optional": true
     }
   },
