@@ -6,7 +6,7 @@ const placeholderImage =
 export const miniExample = html`
   <kobber-horizontal-layout>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="1"
         image="${placeholderImage}"
@@ -20,7 +20,7 @@ export const miniExample = html`
 export const exampleIrregular = html`
   <kobber-horizontal-layout>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="1"
         image="${placeholderImage}"
@@ -29,7 +29,7 @@ export const exampleIrregular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column span="2">
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="2"
         image="${placeholderImage}"
@@ -38,7 +38,7 @@ export const exampleIrregular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="3"
         image="${placeholderImage}"
@@ -47,7 +47,7 @@ export const exampleIrregular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="4"
         image="${placeholderImage}"
@@ -56,17 +56,17 @@ export const exampleIrregular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="5"
         image="${placeholderImage}"
         heading="Lorem ipsum"
         body="Carousel sit amet"
         ><a href="https://vg.no">En lang lenke til VG</a>
-      </kobber-example-card>
+      </kobber-layout-example-card>
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column span="2">
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="6"
         image="${placeholderImage}"
@@ -75,7 +75,7 @@ export const exampleIrregular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="7"
         image="${placeholderImage}"
@@ -84,7 +84,7 @@ export const exampleIrregular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="8"
         image="${placeholderImage}"
@@ -93,17 +93,17 @@ export const exampleIrregular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="9"
         image="${placeholderImage}"
         heading="Lorem ipsum"
         body="Carousel sit amet"
         ><a href="https://vg.no">VG</a>
-      </kobber-example-card>
+      </kobber-layout-example-card>
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="10"
         image="${placeholderImage}"
@@ -112,7 +112,7 @@ export const exampleIrregular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column span="4">
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="11"
         image="${placeholderImage}"
@@ -121,7 +121,7 @@ export const exampleIrregular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column span="3">
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="12"
         image="${placeholderImage}"
@@ -130,7 +130,7 @@ export const exampleIrregular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="13"
         image="${placeholderImage}"
@@ -144,7 +144,7 @@ export const exampleIrregular = html`
 export const exampleRegular = html`
   <kobber-horizontal-layout>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="1"
         image="${placeholderImage}"
@@ -153,7 +153,7 @@ export const exampleRegular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="2"
         image="${placeholderImage}"
@@ -162,17 +162,17 @@ export const exampleRegular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="3"
         image="${placeholderImage}"
         heading="Lorem ipsum"
         body="Carousel sit amet"
         ><a href="https://vg.no">VG</a>
-      </kobber-example-card>
+      </kobber-layout-example-card>
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="4"
         image="${placeholderImage}"
@@ -181,12 +181,12 @@ export const exampleRegular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card data-indicator-target badge="5" image="${placeholderImage}" heading="Lorem ipsum" body=" "
+      <kobber-layout-example-card data-indicator-target badge="5" image="${placeholderImage}" heading="Lorem ipsum" body=" "
         ><a href="https://vg.no">En lang lenke til VG</a>
-      </kobber-example-card>
+      </kobber-layout-example-card>
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="6"
         image="${placeholderImage}"
@@ -195,7 +195,7 @@ export const exampleRegular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="7"
         image="${placeholderImage}"
@@ -204,7 +204,7 @@ export const exampleRegular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="8"
         image="${placeholderImage}"
@@ -213,17 +213,17 @@ export const exampleRegular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="9"
         image="${placeholderImage}"
         heading="Lorem ipsum"
         body="Carousel sit amet"
         ><a href="https://vg.no">VG</a>
-      </kobber-example-card>
+      </kobber-layout-example-card>
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="10"
         image="${placeholderImage}"
@@ -232,7 +232,7 @@ export const exampleRegular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="11"
         image="${placeholderImage}"
@@ -241,7 +241,7 @@ export const exampleRegular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="12"
         image="${placeholderImage}"
@@ -250,7 +250,7 @@ export const exampleRegular = html`
       />
     </kobber-horizontal-layout-column>
     <kobber-horizontal-layout-column>
-      <kobber-example-card
+      <kobber-layout-example-card
         data-indicator-target
         badge="13"
         image="${placeholderImage}"

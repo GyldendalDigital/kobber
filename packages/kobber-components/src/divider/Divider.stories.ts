@@ -7,7 +7,6 @@ const variants: DividerVariant[] = ["main", "supplemental"];
 
 const meta: Meta = {
   component: "kobber-divider",
-  tags: ["autodocs"],
   argTypes: {
     variant: {
       options: variants,

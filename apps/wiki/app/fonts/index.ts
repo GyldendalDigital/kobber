@@ -40,7 +40,6 @@ export const lyon = localFont({
 
 export const inter = localFont({
   src: "./InterVariable.ttf",
-  // src: "./Inter-Regular.woff2",
   display: "swap",
   variable: "--font-inter",
 })

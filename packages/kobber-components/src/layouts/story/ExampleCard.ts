@@ -7,7 +7,7 @@ const paddingBlock = "16px";
 
 const paddingInline = "16px";
 
-@customElement("kobber-example-card")
+@customElement("kobber-layout-example-card")
 export class ExampleCard extends LitElement {
   static styles = css`
     :host {

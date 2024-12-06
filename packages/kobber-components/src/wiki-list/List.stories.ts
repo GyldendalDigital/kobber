@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components";
 import { customElementName } from "./List";
 
 export default {
-  title: "wiki/List",
+  title: "kobber.gyldendal.no/List",
   component: customElementName,
   argTypes: {
     orientation: {

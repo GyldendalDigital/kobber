@@ -1,6 +1,4 @@
-import { ArgsStoryFn } from "@storybook/types";
 import type { Meta, StoryObj } from "@storybook/web-components";
-import { WebComponentsRenderer } from "@storybook/web-components";
 import { html } from "lit";
 import "../box-layout/BoxLayout";
 import { example as cardLayoutExample } from "../card-layout/story/example";
@@ -16,6 +14,7 @@ interface Args {
 }
 
 const meta: Meta<Args> = {
+  title: "GU/Layouts/Patterns",
   component: "Patterns",
   args: {
     carouselHasManyItems: true,
@@ -28,7 +27,7 @@ const meta: Meta<Args> = {
 
 export default meta;
 
-const render: ArgsStoryFn<WebComponentsRenderer, Args> = args => {
+const render = (args: Args) => {
   return html`
     <style>
       html {
