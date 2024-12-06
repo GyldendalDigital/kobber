@@ -1,5 +1,11 @@
 # @gyldendal/kobber-audio-recorder
 
+## 0.3.63
+
+### Patch Changes
+
+- package adjustments and audio-recorder mimetype bugfixes
+
 ## 0.3.62
 
 ### Patch Changes
