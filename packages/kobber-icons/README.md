@@ -15,9 +15,7 @@ npm install @gyldendal/kobber-icons
 yarn add @gyldendal/kobber-icons
 ```
 
-You will also need to install
-[react](https://www.npmjs.com/package/react) and
-[react-dom](https://www.npmjs.com/package/react-dom)
+Depending on you usage, you might need to to install the optional peerDependencies.
 
 ## Usage
 
