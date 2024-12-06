@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="npm version bump">
-      <change afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/assets/over_love_soelves_test.mp3" afterDir="false" />
+    <list default="true" id="e05440de-c49f-4f3d-aa17-238eb9280d99" name="Changes" comment="application/octet-stream is given as a default type from the largeFileApi, meaning I have to infer it being audio to get it to work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioHelpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioHelpers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/packages/kobber-audio-recorder/src/audio-recorder-svelte/AudioRecorder.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +16,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="audio-recorder-ipad-bugfix" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,20 +29,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/solve.selander/WebstormProjects/kobber/packages/kobber-audio/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/solve.selander/WebstormProjects/kobber/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "audio-recorder-application/octet-stream-bug",
+    "last_opened_file_path": "/Users/solve.selander/WebstormProjects/kobber/packages/kobber-audio/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "/Users/solve.selander/WebstormProjects/kobber/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/kobber-audio/src" />
@@ -307,7 +304,14 @@
       <option name="presentableId" value="LOCAL−00032" />
       <updated>1731581452681</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL−00033" summary="application/octet-stream is given as a default type from the largeFileApi, meaning I have to infer it being audio to get it to work">
+      <option name="closed" value="true" />
+      <created>1733406372539</created>
+      <option name="number" value="LOCAL−00033" />
+      <option name="presentableId" value="LOCAL−00033" />
+      <updated>1733406372539</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,7 +329,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Working version of timekeeping! :)" />
     <MESSAGE value="typo fix :)" />
     <MESSAGE value="Fixed scrolling back and forth! Needs more work, but it is currently in a working state :)" />
     <MESSAGE value="Slight cleanup" />
@@ -350,6 +353,7 @@
     <MESSAGE value="general cleanup o7" />
     <MESSAGE value="added translations" />
     <MESSAGE value="npm version bump" />
-    <option name="LAST_COMMIT_MESSAGE" value="npm version bump" />
+    <MESSAGE value="application/octet-stream is given as a default type from the largeFileApi, meaning I have to infer it being audio to get it to work" />
+    <option name="LAST_COMMIT_MESSAGE" value="application/octet-stream is given as a default type from the largeFileApi, meaning I have to infer it being audio to get it to work" />
   </component>
 </project>
