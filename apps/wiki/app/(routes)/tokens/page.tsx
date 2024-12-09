@@ -1,7 +1,5 @@
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens"
 import { getContrastCompliantColors } from "@gyldendal/kobber-components/src/utils/contrast"
-import { pageMetadata } from "@/lib/metadata.utils"
-import { placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
