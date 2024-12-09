@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import { damPreviewUrl, parseDamFileUrl } from "./damImageLoader"
+import { damPreviewUrl, parseDamFileUrl } from "../utils/damUtils"
 
 export interface PageMetadata extends Metadata {
   href: string

@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { damUrl } from "@/lib/damImageLoader"
+import { damUrl } from "@/utils/damUtils"
 
 export default function Footer() {
   return (

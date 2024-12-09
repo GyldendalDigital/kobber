@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { LyonTypography } from "@/data/typography"
-import { damUrl } from "@/lib/damImageLoader"
+import { damUrl } from "@/utils/damUtils"
 import { Heading } from "@/components/heading"
 import { HeroImage } from "@/components/hero-image"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { IdentityColors } from "@/data/color-palettes"
-import { damUrl } from "@/lib/damImageLoader"
+import { damUrl } from "@/utils/damUtils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ColorBlockGridItem } from "@/components/color-block-grid-item"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"

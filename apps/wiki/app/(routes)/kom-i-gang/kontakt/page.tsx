@@ -1,7 +1,7 @@
 import Link from "next/link"
+import { damUrl } from "@/utils/damUtils"
 import { InformationCardType } from "@/types/types"
 import { KOBBER_TEAMS_URL } from "@/lib/constants"
-import { damUrl } from "@/lib/damImageLoader"
 import { InformationCard } from "@/components/information-card"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { metaGettingStartedContact } from "./contact.meta"

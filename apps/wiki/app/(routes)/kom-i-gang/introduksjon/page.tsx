@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { damUrl } from "@/lib/damImageLoader"
+import { damUrl } from "@/utils/damUtils"
 import { Heading } from "@/components/heading"
 import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"

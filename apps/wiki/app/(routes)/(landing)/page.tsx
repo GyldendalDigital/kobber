@@ -1,5 +1,5 @@
+import { damUrl } from "@/utils/damUtils"
 import { FeatureBoxType } from "@/types/types"
-import { damUrl } from "@/lib/damImageLoader"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { ExternalLinksGrid } from "@/components/global/external-links-grid"
 import { HeroBanner } from "./hero-banner"

@@ -1,5 +1,5 @@
 import { ThemeColors } from "@/data/color-palettes"
-import { damUrl } from "@/lib/damImageLoader"
+import { damUrl } from "@/utils/damUtils"
 import { pageMetadata } from "@/lib/metadata.utils"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"

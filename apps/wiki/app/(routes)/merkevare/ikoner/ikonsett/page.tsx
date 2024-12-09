@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { damUrl } from "@/lib/damImageLoader"
+import { damUrl } from "@/utils/damUtils"
 import { pageMetadata } from "@/lib/metadata.utils"
 import { ArticleWrapper, BoxLayout, Ingress } from "@/components/kobber-components"
 import { IconExternalLink } from "@/components/kobber-icons"

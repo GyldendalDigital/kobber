@@ -1,4 +1,4 @@
-import { damUrl } from "@/lib/damImageLoader"
+import { damUrl } from "@/utils/damUtils"
 import { pageMetadata } from "@/lib/metadata.utils"
 
 export const metaWordTemplate = pageMetadata(import.meta.url, {

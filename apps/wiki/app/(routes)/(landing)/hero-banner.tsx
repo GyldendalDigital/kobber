@@ -1,5 +1,6 @@
 import Image from "next/image"
-import { damUrl } from "@/lib/damImageLoader"
+import damImageLoader from "@/damImageLoader"
+import { damUrl } from "@/utils/damUtils"
 import { cn } from "@/lib/utils"
 
 export function HeroBanner() {
@@ -12,7 +13,14 @@ export function HeroBanner() {
       )}
     >
       <div className="flex flex-col items-center justify-between gap-[32px] md:grid md:grid-cols-[1fr_351px]">
-        <Image src={src} width={188} height={184} alt={alt} className="block md:hidden" />
+        <Image
+          src={src}
+          width={188}
+          height={184}
+          alt={alt}
+          className="block md:hidden"
+          loader={damImageLoader}
+        />
 
         <div className="flex w-full flex-col items-center gap-y-[24px] md:items-start">
           <div className="grid w-full gap-[16px] text-center md:gap-[8px] md:text-left">
@@ -28,7 +36,14 @@ export function HeroBanner() {
           </p>
         </div>
 
-        <Image src={src} width={351} height={343} alt={alt} className="hidden md:block" />
+        <Image
+          src={src}
+          width={351}
+          height={343}
+          alt={alt}
+          className="hidden md:block"
+          loader={damImageLoader}
+        />
       </div>
     </header>
   )

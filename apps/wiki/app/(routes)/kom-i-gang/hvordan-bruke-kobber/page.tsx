@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
+import { damUrl } from "@/utils/damUtils"
 import { BRANDING_MANUAL_URL, KOBBER_TEAMS_URL } from "@/lib/constants"
-import { damUrl } from "@/lib/damImageLoader"
 import { pageMetadata } from "@/lib/metadata.utils"
 import { placeholderImageUrl } from "@/lib/utils"
 import { ExternalLinksGrid } from "@/components/global/external-links-grid"
