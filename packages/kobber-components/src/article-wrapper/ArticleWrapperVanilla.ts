@@ -1,4 +1,4 @@
-import css from "./ArticleWrapperVanilla.module.css";
-import { styles } from "./ArticleWrapperVanilla.styles";
+import cssModule from "./ArticleWrapperVanilla.module.css";
+import { cssLit } from "./ArticleWrapperVanilla.styles";
 
-export default { css, styles };
+export default { cssModule, cssLit, jsFunction: () => console.log("Hello from ArticleWrapperVanilla") };
