@@ -6,17 +6,15 @@ const typography = tokens.default.typography
 const component = tokens.default.component
 
 const page = tokens.default.template.page
-const section = tokens.default.template.section
-const content = tokens.default.template.content
-const textSection = tokens.default.template.section
+const main = tokens.default.template.main
+const textSection = tokens.default.template["text-wrapper"]
 
 const global = tokens.default.global.text
 
 const { typography: text } = semantics
 const { primary, secondary } = typography
-const { gap: pageGap, padding } = page
-const { gap: sectionGap } = section
-const { gap: contentGap } = content
+const { gap: pageGap } = page
+const { gap: contentGap } = main
 const { gap: textSectionGap } = textSection
 
 const { ui } = global
@@ -50,21 +48,21 @@ const config = {
       height: {},
 
       padding: {
-        "page/padding/inline/large": `${padding.inline["min-screen-1280"]}px`,
-        "page/padding/inline/medium": `${padding.inline["min-screen-720"]}px`,
-        "page/padding/inline/small": `${padding.inline["min-screen-520"]}px`,
-        "page/padding/inline/xsmall": `${padding.inline["min-screen-320"]}px`,
+        "page/padding/inline/large": "64px",
+        "page/padding/inline/medium": "40px",
+        "page/padding/inline/small": "24px",
+        "page/padding/inline/xsmall": "16px",
       },
 
       space: {},
       gap: {
-        "page/gap/horizontal": `${pageGap.horizontal}px`,
-        "section/gap/horizontal": `${sectionGap.horizontal}px`,
-        "section/gap/vertical": `${sectionGap.vertical}px`,
-        "content/gap/horizontal": `${contentGap.horizontal}px`,
+        "page/gap/horizontal": "48px", // change this as we wait for a new template component 
+        "section/gap/horizontal": `${textSectionGap.horizontal}px`,
+        "section/gap/vertical": `${textSectionGap.horizontal}px`,
+        "content/gap/horizontal": "16px",
         "text-section/gap/header/horizontal": `${textSectionGap.horizontal}px`,
         "text-section/gap/header-ingress-body/horizontal": `${textSectionGap.horizontal}px`,
-        "main/gap/vertical": `${sectionGap.vertical}px`,
+        "main/gap/vertical": `${textSectionGap.horizontal}px`,
       },
 
       maxHeight: {},

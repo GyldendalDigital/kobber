@@ -1,6 +1,7 @@
 import { css, html } from "lit";
-import { customElement } from "lit/decorators.js";
+
 import KobberElement from "../base/kobber-element";
+import { customElement } from "lit/decorators.js";
 
 @customElement("kobber-article-wrapper")
 export class ArticleWrapper extends KobberElement {
@@ -16,7 +17,7 @@ export class ArticleWrapper extends KobberElement {
   }
 
   themedStyles = () => {
-    const article = this.tokens().template["article-wrapper"];
+    const article = this.tokens().template["text-wrapper"];
 
     return css`
       :host {
