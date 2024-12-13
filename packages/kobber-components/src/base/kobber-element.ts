@@ -1,5 +1,5 @@
 import * as defaultTokens from "@gyldendal/kobber-base/themes/default/tokens";
-import { LitElement, PropertyDeclaration, css, html, unsafeCSS } from "lit";
+import { LitElement } from "lit";
 import { consume } from "@lit/context";
 import { themeContext } from "../utils/theme-context";
 import { Theme } from "../utils/theme-context.types";

@@ -1,4 +1,4 @@
-import { css, html, unsafeCSS } from "lit";
+import { css, CSSResultGroup, html, unsafeCSS } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 import {
   ButtonBackgroundColor,
@@ -8,7 +8,9 @@ import {
   ButtonIconSettings,
 } from "./Button.types";
 import KobberElement from "../base/kobber-element";
-
+import componentStyles from "../base/styles/component.styles";
+import styles from "./Button.styles.js";
+import d from "./button.module.css";
 /**
  * Button with icon
  *
@@ -18,6 +20,8 @@ import KobberElement from "../base/kobber-element";
  */
 @customElement("kobber-button")
 export class Button extends KobberElement {
+  static styles: CSSResultGroup = [componentStyles, styles, unsafeCSS(d)];
+
   @property()
   color: ButtonBackgroundColor = "aubergine";
 
@@ -63,6 +67,7 @@ export class Button extends KobberElement {
       <style>
         ${themeStyles}
       </style>
+      <span class="${d.dagfinn}">heihei</span>
       <button class=${this.classList.value} ?disabled=${this.disabled} aria-label="${this._label}">
         <span><slot></slot></span>
         <slot name="icon"></slot>
