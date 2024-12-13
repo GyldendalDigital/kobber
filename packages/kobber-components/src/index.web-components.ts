@@ -10,7 +10,8 @@ export { CardLayout } from "./layouts/card-layout/CardLayout";
 export { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
 export { BoxLayout } from "./layouts/box-layout/BoxLayout";
 
-export { ArticleWrapper } from "./article-wrapper/ArticleWrapper";
+export { TextWrapper } from "./text/TextWrapper.component";
+export { TextHighlight } from "./text/TextHighlight.component";
 export { Body } from "./body/Body";
 export { Ingress } from "./ingress/Ingress";
 

@@ -2,14 +2,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { BRANDING_MANUAL_URL, KOBBER_TEAMS_URL } from "@/lib/constants"
 import { damUrl } from "@/lib/damImageLoader"
-import { pageMetadata } from "@/lib/metadata.utils"
-import { placeholderImageUrl } from "@/lib/utils"
+import { ArticleWrapper } from "@/components/article/ArticleWrapper"
 import { ExternalLinksGrid } from "@/components/global/external-links-grid"
 import { Heading } from "@/components/heading"
-import { ArticleWrapper, Ingress } from "@/components/kobber-components"
+import { Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
 import { metaGettingStartedHow } from "./how.meta"
+import { ArticleHighlight } from "@/components/article/ArticleHighlight"
 
 export const metadata = metaGettingStartedHow
 
@@ -25,7 +25,7 @@ export default function HvordanBrukeKobber() {
         <SubHeading>Et felles system</SubHeading>
 
         <p>
-          Verktøykassa vår skal kunne brukes på tvers av virksomhetene våre, samt kunne utvides og
+          <ArticleHighlight>Verktøykassa</ArticleHighlight> vår skal kunne brukes på tvers av virksomhetene våre, samt kunne utvides og
           tilpasses etter behov. Det er et kontinuerlig arbeid hvor alle som er brukere av systemet
           også bidrar til det.
           <br />

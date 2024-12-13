@@ -15,16 +15,15 @@ import { customElementName as wikiAccordionName, Accordion } from "./wiki-accord
 import { customElementName as wikiListName, List } from "./wiki-list/List";
 import { customElementName as wikiListItemName, ListItem } from "./wiki-list/ListItem";
 
-import { ArticleWrapper } from "./article-wrapper/ArticleWrapper";
+import { TextWrapper } from "./text/TextWrapper.component";
 import { Body } from "./body/Body";
 import { Ingress } from "./ingress/Ingress";
 
 import { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 import { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
 
-
 /**
- * 
+ *
  * Exports components which can be rendered server side
  */
 
@@ -59,8 +58,8 @@ export const KobberCardLayout = createComponent({
 });
 
 export const KobberArticleWrapper = createComponent({
-  tagName: "kobber-article-wrapper",
-  elementClass: ArticleWrapper,
+  tagName: "kobber-text-wrapper",
+  elementClass: TextWrapper,
   react: React,
 });
 
@@ -123,7 +122,6 @@ export const KobberAccordion = createComponent({
   elementClass: Accordion,
   react: React,
 });
-
 
 export const KobberHorizontalLayout = createComponent({
   tagName: "kobber-horizontal-layout",

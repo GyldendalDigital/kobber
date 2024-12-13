@@ -1,5 +1,6 @@
 import fs from "fs";
 import { defineConfig } from "tsup";
+import { cssModules } from "./src/index.vanilla-css";
 
 const chunks = "chunks";
 
@@ -27,7 +28,7 @@ export default defineConfig(() => ({
     [`${reactDirectory}/index`]: "src/index.react.tsx",
     [`${reactSsrSafeDirectory}/index`]: "src/index.react-ssr-safe.tsx",
     [`${webComponentsDirectory}/index`]: "src/index.web-components.ts",
-    [`${vanillaDirectory}/index`]: "src/index.vanilla.ts",
+    [`${vanillaDirectory}/index`]: "src/index.vanilla-js.ts",
   },
   format: ["esm"],
   dts: true,
@@ -37,4 +38,19 @@ export default defineConfig(() => ({
   esbuildOptions(options) {
     options.chunkNames = `${chunks}/[name]-[hash]`;
   },
+  onSuccess() {
+    return new Promise(resolve => {
+      createCss();
+      resolve();
+    });
+  },
 }));
+
+const createCss = () => {
+  for (const cssModule of cssModules) {
+    fs.writeFileSync(
+      `${vanillaDirectory}/${cssModule.id}.module.css`,
+      cssModule.styles.map(style => style.trim()).join("\n"),
+    );
+  }
+};
