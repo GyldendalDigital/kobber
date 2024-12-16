@@ -74,18 +74,12 @@
 
     /*
     NOTES:
-        - Calculating total time before playing through is a bit wonky...
-        It seems like the browser because of security does not want to give exact
-        timings, which gives a weird result when timing the recording (off by fluctuating values).
         - Should the component have a breaking limit in terms of size?
         And in relation to this, should there be some sort of font-size scaling?
      KNOWN BUGS:
-        - Sometimes an audio resets playback from 0 (inconsistent).
-        Maybe write a check in playAudio() to re-set the value based on currentTimeGlobal.
-        - durationChange sometimes runs wild (inconsistent).
-        Usually you don't need to re-update the durationchange, so look into analyzing
-        the initial with arraybuffer, so the check for previous duration becomes cleaner.
-        - After recording, the progress of the range input is not updated with the new total.
+        - When loading an empty blob, you wil be served with the expanded player.
+        This is not ideal, but have had issues with getting the right checks in
+        order for it work on iPadOS. Take a look at it when time is available.
      */
 
     import { audioBufferToWav, serializeBlobs, deserializeBlob } from "./AudioHelpers.js";
@@ -111,7 +105,7 @@
     let currentAudioIndex = 0;
     let currentTimePercentage = "0%";
     let recordedSeconds = 0;
-    $: isExpanded = recData.length > 0 || audioArray.length > 0 || audioData != null || isRecording;
+    $: isExpanded = recData.length > 0 || audioArray.length > 0 || isRecording || audioData;
 
     function roundWithDecimals(num, decimals){
         return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
@@ -247,15 +241,23 @@
     function movePlayhead(event, keyboard) {
         if (keyboard) {
             if (event.key === "ArrowLeft") {
-                currentTimeGlobal = currentTimeGlobal > 1 ? currentTimeGlobal -1 : 0;
+                if (event.shiftKey) {
+                    currentTimeGlobal = 0;
+                } else {
+                    currentTimeGlobal = currentTimeGlobal > 1 ? currentTimeGlobal -1 : 0;
+                }
             } else if (event.key === "ArrowRight") {
-                currentTimeGlobal = currentTimeGlobal + 1 > timeTotal ? timeTotal : currentTimeGlobal + 1;
+                if (event.shiftKey) {
+                    currentTimeGlobal = timeTotal;
+                } else {
+                    currentTimeGlobal = currentTimeGlobal + 1 > timeTotal ? timeTotal : currentTimeGlobal + 1;
+                }
             }
             currentTimePercentage = currentTimeGlobal / timeTotal + "%";
             currentAudioIndex = findAudioIndex(currentTimeGlobal, 0, audioDurationArray, 0);
         } else {
             currentTimeGlobal = Number(event.target.value);
-            currentTimePercentage = Number(event.target.value) / timeTotal + "%";
+            //currentTimePercentage = Number(event.target.value) / timeTotal + "%";
             currentAudioIndex = findAudioIndex(currentTimeGlobal, 0, audioDurationArray, 0);
         }
     }
@@ -379,7 +381,7 @@
             timeTotal = 0;
             audioData = null;
             decodedAudioData = [];
-            mp3Callback(null);
+            mp3Callback(new Blob());
             confirmDelete = false;
         }
     }
@@ -495,7 +497,9 @@
                 max={timeTotal}
                 step="0.01"
                 on:mousedown={stopAudio}
+                on:touchstart={stopAudio}
                 on:mouseup={e => movePlayhead(e)}
+                on:touchend={e => movePlayhead(e)}
                 on:keydown={e => movePlayhead(e, true)}
                 on:input={e => currentTimePercentage = e.target.value / timeTotal * 100 + "%"}
                 disabled={timeTotal === 0}
