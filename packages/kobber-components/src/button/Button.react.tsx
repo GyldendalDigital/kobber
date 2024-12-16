@@ -8,27 +8,23 @@ import {
   ButtonIconSettings,
 } from "./Button.types";
 import { buttonStyles } from "./Button.newStyles";
-// by using variants, we can use <a className={buttonVariants.primary}>
+
+// by using variants, we can use <a className={buttonVariants.link}>
 // Instead of having our own link component
 // We can also use <button className={buttonVariants.primary}>
 
-// TODO: Add correct variants
-type ButtonVariants = {
-  primary: string;
-  secondary: string;
-  link: string;
-};
+// Generate the CSS styles using the tokens
 
 // TODO: Add correct classnames / styles
-const buttonVariants: ButtonVariants = {
-  primary: `${buttonStyles.customElementName} primary`,
-  secondary: `${buttonStyles.customElementName} secondary`,
-  link: `${buttonStyles.customElementName} link`,
+const buttonVariants = {
+  main: buttonStyles.styles.main,
+  supplemental: buttonStyles.styles.supplemental,
+  "supplemental alt": buttonStyles.styles["supplemental alt"],
 } as const;
 
 // TODO: Check for correct props
-type ButtonProps = Pick<HTMLProps<HTMLButtonElement>, "className" | "children"> & {
-  variant: keyof ButtonVariants;
+export type ButtonProps = Pick<HTMLProps<HTMLButtonElement>, "className" | "children"> & {
+  variant: ButtonVariant;
   backgroundColor?: ButtonBackgroundColor;
   borderColor?: ButtonBorderColor;
   level?: ButtonLevel;
@@ -41,12 +37,26 @@ type ButtonProps = Pick<HTMLProps<HTMLButtonElement>, "className" | "children"> 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, children, variant, backgroundColor, borderColor, level, iconSettings = "none", ...props }, ref) => {
     return (
-      <button ref={ref} className={`${buttonVariants[variant]} ${className}`} {...props}>
+      <button
+        ref={ref}
+        className={`
+          ${buttonVariants[variant]}
+          ${className || ""}
+        `.trim()}
+        {...props}
+      >
         {children}
       </button>
     );
   },
 );
+
+const style = document.createElement("style");
+style.textContent = `
+  ${buttonStyles.cssStatic}
+  ${buttonStyles.cssVariables()}
+`;
+document.head.appendChild(style);
 
 // debugging purposes - easier to find the comp in dev tools
 Button.displayName = "Button";

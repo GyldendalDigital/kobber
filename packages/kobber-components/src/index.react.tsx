@@ -9,6 +9,7 @@ import { CardLayout } from "./layouts/card-layout/CardLayout";
 import { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
 import { BoxLayout } from "./layouts/box-layout/BoxLayout";
 import { Button } from "./button/Button";
+import { Button as ButtonReact } from "./button/Button.react";
 import { ThemeContextProvider } from "./utils/theme-context";
 import { Divider } from "./divider/Divider";
 import { ProgressBar } from "./progress-bar/ProgressBar";
@@ -150,3 +151,5 @@ export const KobberHorizontalLayoutColumn = createComponent({
   elementClass: HorizontalLayoutColumn,
   react: React,
 });
+
+export const TestButton = ButtonReact;

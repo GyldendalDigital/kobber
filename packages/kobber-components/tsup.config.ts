@@ -45,7 +45,6 @@ export default defineConfig(() => ({
     });
   },
 }));
-
 const createCss = () => {
   for (const cssModule of cssModules) {
     fs.writeFileSync(
