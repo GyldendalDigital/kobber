@@ -1,6 +1,7 @@
 "use client"
 
 import { usePathname } from "next/navigation"
+import { TestButton } from "@gyldendal/kobber-components/react"
 import { ssoSignIn } from "@/hooks/use-sso-sign-in"
 import { Heading } from "../heading"
 import { ArticleWrapper, Button, Ingress } from "../kobber-components"
@@ -25,6 +26,7 @@ export function Restricted() {
       <Button variant="main" color="carmine" onClick={() => ssoSignIn({ redirectUrl: pathname })}>
         Logg inn med SSO
       </Button>
+      <TestButton variant="main">Logg inn med SSO (react)</TestButton>
     </div>
   )
 }
