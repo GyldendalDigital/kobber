@@ -11,7 +11,7 @@ export { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutCol
 export { BoxLayout } from "./layouts/box-layout/BoxLayout";
 
 export { TextWrapper } from "./text/TextWrapper.component";
-export { TextHighlight } from "./text/TextHighlight.component";
+export { TextHighlight } from "./text/text-highlight/TextHighlight.component";
 export { Body } from "./body/Body";
 export { Ingress } from "./ingress/Ingress";
 

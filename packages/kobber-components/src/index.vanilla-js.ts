@@ -1,3 +1,3 @@
-import { textHighlightFunctions } from "./text/TextHighlight.functions";
+import { textHighlightFunctions } from "./text/text-highlight/TextHighlight.functions";
 
 export { textHighlightFunctions };

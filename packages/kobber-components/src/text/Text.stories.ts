@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { html } from "lit";
 import "./TextWrapper.component";
-import "./TextHighlight.component";
+import "./text-highlight/TextHighlight.component";
 
 const meta: Meta = {
   title: "In development 🧪/Text",
@@ -26,7 +26,7 @@ export const Text: Story = {
 
         <p>
           Rapidiously strategize integrated intellectual capital vis-a-vis
-          <kobber-text-highlight>progressive</kobber-text-highlight> mindshare.
+          <kobber-text-highlight variant="b">progressive</kobber-text-highlight> mindshare.
         </p>
         <p>
           Uniquely reconceptualize robust e-tailers without ethical action items. Compellingly restore resource-leveling

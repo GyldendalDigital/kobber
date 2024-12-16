@@ -1,5 +1,5 @@
 import * as defaultTokens from "@gyldendal/kobber-base/themes/default/tokens.js";
-import { textHighlightStyles } from "./text/TextHighlight.styles";
+import { textHighlightStyles } from "./text/text-highlight/TextHighlight.styles";
 import { textWrapperStyles } from "./text/TextWrapper.styles";
 
 export const cssModules = [
