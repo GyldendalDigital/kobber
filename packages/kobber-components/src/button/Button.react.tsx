@@ -2,6 +2,8 @@ import React from "react";
 import { textHighlightFunctions } from "../../vanilla";
 import { HTMLProps } from "react";
 
+// by using variants, we can use <a className={buttonVariants.primary}>
+// Instead of having our own link component
 const buttonVariants = {
   primary: "insert the classnames here",
   secondary: "insert the classnames here",
