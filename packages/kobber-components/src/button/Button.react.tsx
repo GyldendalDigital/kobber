@@ -2,6 +2,12 @@ import React from "react";
 import { textHighlightFunctions } from "../../vanilla";
 import { HTMLProps } from "react";
 
+const buttonVariants = {
+  primary: "insert the classnames here",
+  secondary: "insert the classnames here",
+  link: "insert the classnames here",
+} as const;
+
 type ButtonProps = Parameters<typeof textHighlightFunctions.classNames>[0] &
   Pick<HTMLProps<HTMLElement>, "className" | "children">;
 
@@ -10,7 +16,7 @@ type ButtonProps = Parameters<typeof textHighlightFunctions.classNames>[0] &
 
 // {...props} allows passing through additional props example: disabled={true}
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ className, children, ...props }, ref) => {
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ className, children, ...props }, ref) => {
   const buttonClassName = textHighlightFunctions
     .classNames({
       ...props,
@@ -27,3 +33,5 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ classN
 
 // debugging purposes - easier to find the comp in dev tools
 Button.displayName = "Button";
+
+export { Button, buttonVariants };
