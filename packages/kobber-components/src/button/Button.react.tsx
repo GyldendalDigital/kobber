@@ -7,6 +7,7 @@ import {
   ButtonLevel,
   ButtonIconSettings,
 } from "./Button.types";
+import { buttonStyles } from "./Button.newStyles";
 // by using variants, we can use <a className={buttonVariants.primary}>
 // Instead of having our own link component
 // We can also use <button className={buttonVariants.primary}>
@@ -20,9 +21,9 @@ type ButtonVariants = {
 
 // TODO: Add correct classnames / styles
 const buttonVariants: ButtonVariants = {
-  primary: "insert the classnames here",
-  secondary: "insert the classnames here",
-  link: "insert the classnames here",
+  primary: `${buttonStyles.customElementName} primary`,
+  secondary: `${buttonStyles.customElementName} secondary`,
+  link: `${buttonStyles.customElementName} link`,
 } as const;
 
 // TODO: Check for correct props
