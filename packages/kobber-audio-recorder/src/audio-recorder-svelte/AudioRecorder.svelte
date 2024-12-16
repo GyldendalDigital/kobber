@@ -257,7 +257,6 @@
             currentAudioIndex = findAudioIndex(currentTimeGlobal, 0, audioDurationArray, 0);
         } else {
             currentTimeGlobal = Number(event.target.value);
-            //currentTimePercentage = Number(event.target.value) / timeTotal + "%";
             currentAudioIndex = findAudioIndex(currentTimeGlobal, 0, audioDurationArray, 0);
         }
     }
@@ -607,7 +606,6 @@
         border-radius: 5% / var(--percentage-adjustment);
         background-color: var(--background-color);
         color: var(--text-color);
-        //box-shadow: inset 0 0 1em -0.75em;
     }
     .kbr-ar-aspect {
       padding: 50%;
@@ -712,7 +710,6 @@
     input[type="range"]::-webkit-slider-runnable-track {
       height: 25%;
       border-radius: 1em;
-      //box-shadow: inset 0 0.1em 0.1em -0.1em;
       transition: background 5ms;
       background: linear-gradient(
                       to right,
@@ -729,17 +726,14 @@
       border-radius: 50%;
       height: 200%;
       width: 12.5%;
-      //box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
     }
     input[type="range"]:enabled::-webkit-slider-thumb:hover {
       transition: transform 100ms, box-shadow 100ms;
       transform: scale(1.1, 1.1);
-      //box-shadow: 0 0.5em 0.5em -0.5em rgba(0,0,0,0.375);
     }
     input[type="range"]::-moz-range-track {
       height: 25%;
       border-radius: 1em;
-      //box-shadow: inset 0 0.1em 0.1em -0.1em;
       background: linear-gradient(
                       to right,
                       var(--item-secondary-color) 0%,
@@ -753,12 +747,10 @@
       border-radius: 50%;
       height: 50%;
       width: 12.5%;
-      //box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
     }
     input[type="range"]:enabled::-moz-range-thumb:hover {
       transition: transform 100ms, box-shadow 100ms;
       transform: scale(1.1, 1.1);
-      //box-shadow: 0 0.5em 0.5em -0.5em rgba(0,0,0,0.375);
     }
     input[type="range"]:focus-visible {
       outline: 0.25em solid var(--item-secondary-color);
@@ -773,18 +765,15 @@
       background-color: var(--item-primary-color);
       color: var(--text-color);
       padding: 0;
-      //box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
       font-size: inherit;
     }
     button:hover:enabled {
       transition: transform 100ms, box-shadow 100ms;
       transform: scale(1.0375, 1.0375);
-      //box-shadow: 0 0.5em 0.5em -0.5em rgba(0,0,0,0.375);
     }
     button:active:enabled {
       transition: transform 100ms, box-shadow 100ms;
       transform: scale(1, 1);
-      //box-shadow: 0 0.125em 0.125em -0.125em rgba(0,0,0,0.5);
     }
     button:disabled {
       transition: opacity 100ms, box-shadow 100ms;
