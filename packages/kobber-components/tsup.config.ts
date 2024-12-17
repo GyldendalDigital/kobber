@@ -31,7 +31,6 @@ export default defineConfig(() => ({
   clean: true,
   external: ["react"],
   esbuildOptions(options) {
-    // options.outdir = chunks;
     options.chunkNames = `${chunks}/[name]-[hash]`;
   },
 }));
