@@ -2,10 +2,7 @@
 
 import { useState } from "react"
 import { component, primitives } from "@gyldendal/kobber-base/themes/default/tokens"
-import type {
-  ButtonIconSettings,
-  ButtonLevel,
-} from "@gyldendal/kobber-components/src/button/Button.types"
+import type { Button as KobberButton } from "@gyldendal/kobber-components/web-components"
 import { ChevronDown } from "lucide-react"
 import { Button as RadixButton } from "@/components/ui/button"
 import {
@@ -21,6 +18,9 @@ import { IconArrowRight } from "@/components/kobber-icons"
 
 type BrandColor = keyof typeof component.button.background.color
 const brandColors = Object.keys(primitives.color) as Array<BrandColor>
+
+type ButtonLevel = typeof KobberButton.prototype.level
+type ButtonIconSettings = typeof KobberButton.prototype.iconSettings
 
 export function ButtonSection({ level }: { level: ButtonLevel }) {
   const [iconOptions, setIconOptions] = useState<ButtonIconSettings>("right")

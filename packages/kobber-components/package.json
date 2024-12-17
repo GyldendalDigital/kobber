@@ -4,11 +4,13 @@
   "license": "MIT",
   "type": "module",
   "files": [
-    "chunks/**/*",
-    "react/**/*",
-    "react-ssr-safe/**/*",
-    "web-components/**/*"
+    "dist/**/*"
   ],
+  "exports": {
+    "./react": "./dist/react/index.js",
+    "./react-ssr-safe": "./dist/react-ssr-safe/index.js",
+    "./web-components": "./dist/web-components/index.js"
+  },
   "scripts": {
     "clean": "rm -rf .turbo node_modules chunks css react web-components",
     "lint": "yarn lint:js & yarn lint:css",
@@ -59,7 +61,7 @@
     "stylelint": "^16.0.2",
     "stylelint-config-standard": "^35.0.0",
     "stylelint-order": "^6.0.4",
-    "tsup": "^7.2.0",
+    "tsup": "^8.3.5",
     "typedoc": "^0.25.12",
     "typedoc-github-wiki-theme": "^1.1.0",
     "typedoc-plugin-markdown": "^3.17.1",
