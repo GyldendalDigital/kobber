@@ -21,7 +21,7 @@ export const buildThemeTokens = async (tokensFromFigma: any, themeConfig: ThemeC
   try {
     const sd = new StyleDictionary(sdConfig);
     await sd.hasInitialized;
-    console.log("tokens", sd.tokens);
+    await sd.buildAllPlatforms();
   } catch (error) {
     console.error(error);
   }

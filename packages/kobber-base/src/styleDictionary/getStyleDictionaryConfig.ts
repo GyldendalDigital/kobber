@@ -26,17 +26,6 @@ export const getStyleDictionaryConfig = (
   return {
     tokens: sanitizedTokensFromFigma,
     platforms: {
-      scss: {
-        transforms: [...cssTransforms, ...transforms],
-        buildPath,
-        files: [
-          {
-            destination: `${themeConfig.themeName}/tokens.scss`,
-            format: "scss/variables",
-            filter,
-          },
-        ],
-      },
       css: {
         transforms: [...cssTransforms, ...transforms],
         buildPath,
@@ -57,21 +46,21 @@ export const getStyleDictionaryConfig = (
         transforms: [...jsTransforms, ...transforms],
         buildPath,
         files: [
-          {
-            destination: `${themeConfig.themeName}/tokens.json`,
-            format: jsonFormat.name,
-            filter,
-          },
+          // {
+          //   destination: `${themeConfig.themeName}/tokens.json`,
+          //   format: jsonFormat.name,
+          //   filter,
+          // },
           {
             destination: `${themeConfig.themeName}/tokens.js`,
             format: esmFormat.name,
             filter,
           },
-          {
-            destination: `${themeConfig.themeName}/tokens.d.ts`,
-            format: tsDeclarationsFormat.name,
-            filter,
-          },
+          // {
+          //   destination: `${themeConfig.themeName}/tokens.d.ts`,
+          //   format: tsDeclarationsFormat.name,
+          //   filter,
+          // },
         ],
       },
     },

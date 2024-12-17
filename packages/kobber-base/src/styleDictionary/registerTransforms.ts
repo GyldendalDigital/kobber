@@ -5,16 +5,16 @@ import { pxToRemTransform } from "./transforms/pxToRem";
 
 export const cssTransforms = [
   "attribute/cti",
-  "name/cti/kebab",
+  "name/kebab",
   "time/seconds",
-  "content/icon",
+  "html/icon",
   "size/rem",
   "color/css",
   fluidClampTransform.name,
   pxToRemTransform.name,
 ];
 
-export const jsTransforms = ["attribute/cti", "name/cti/pascal", "size/rem", "color/hex", fluidClampTransform.name];
+export const jsTransforms = ["attribute/cti", "name/pascal", "size/rem", "color/hex", fluidClampTransform.name];
 
 export const registerTransforms = (transforms: Transform[]) => {
   transforms.forEach(t => StyleDictionary.registerTransform(t));
