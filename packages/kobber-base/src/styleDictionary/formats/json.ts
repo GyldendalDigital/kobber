@@ -1,9 +1,9 @@
-import { Format, Named } from "style-dictionary";
+import { Format } from "style-dictionary/types";
 import { minifyDictionary } from "../../utils/minifyDictionary";
 
-export const jsonFormat: Named<Format> = {
+export const jsonFormat: Format = {
   name: "json/nested-v2",
-  formatter: ({ dictionary, options }) => {
+  format: ({ dictionary }) => {
     const minified = minifyDictionary(dictionary.tokens);
     return JSON.stringify(minified, null, 2);
   },

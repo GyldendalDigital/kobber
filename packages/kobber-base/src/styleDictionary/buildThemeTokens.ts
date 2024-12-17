@@ -11,20 +11,20 @@ import { additionalTokens } from "./additionalTokens";
 /**
  * Convert Figma modes into themes
  */
-export const buildThemeTokens = (tokensFromFigma: any, themeConfig: ThemeConfig) => {
+export const buildThemeTokens = async (tokensFromFigma: any, themeConfig: ThemeConfig) => {
   registerFormats([jsonFormat, esmFormat, tsDeclarationsFormat]);
 
   const allTokens = getAllTokens(tokensFromFigma, themeConfig);
 
-  const styleDictionaryConfig = getStyleDictionaryConfig(allTokens, themeConfig);
+  const sdConfig = getStyleDictionaryConfig(allTokens, themeConfig);
 
   try {
-    StyleDictionary.extend(styleDictionaryConfig).buildAllPlatforms();
+    const sd = new StyleDictionary(sdConfig);
+    await sd.hasInitialized;
+    console.log("tokens", sd.tokens);
   } catch (error) {
     console.error(error);
   }
-
-  return { allTokens, styleDictionaryConfig };
 };
 
 // Merge tokens from Figma and temporary, hardcoded tokens

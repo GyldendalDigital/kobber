@@ -8,7 +8,11 @@ import { tokensFromFigma } from "./tokens-from-figma";
  *
  * Run by the build script in package.json
  */
-themeConfigs.forEach(themeConfig => {
-  buildThemeTokens(tokensFromFigma, themeConfig);
-  buildTypography(themeConfig);
-});
+const build = async () => {
+  for (const themeConfig of themeConfigs) {
+    await buildThemeTokens(tokensFromFigma, themeConfig);
+    buildTypography(themeConfig);
+  }
+};
+
+await build();

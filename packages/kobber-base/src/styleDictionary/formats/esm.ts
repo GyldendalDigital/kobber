@@ -1,9 +1,9 @@
-import { Format, Named } from "style-dictionary";
+import type { Format } from "style-dictionary/types";
 import { minifyDictionary } from "../../utils/minifyDictionary";
 
-export const esmFormat: Named<Format> = {
+export const esmFormat: Format = {
   name: "esm/nested",
-  formatter: ({ dictionary }) => {
+  format: ({ dictionary }) => {
     const minified = minifyDictionary(dictionary.tokens) ?? {};
     return Object.entries(minified)
       .map(([name, value]) => {

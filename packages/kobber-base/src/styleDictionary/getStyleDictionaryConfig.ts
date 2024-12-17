@@ -1,4 +1,4 @@
-import StyleDictionary from "style-dictionary";
+import type { TransformedToken, Config } from "style-dictionary/types";
 import { esmFormat } from "./formats/esm";
 import { jsonFormat } from "./formats/json";
 import { cssTransforms, jsTransforms, registerTransforms } from "./registerTransforms";
@@ -11,7 +11,7 @@ const buildPath = themeDirectory + "/";
 
 const invalidKeys = ["font"];
 
-const filter = (token: StyleDictionary.TransformedToken) => !invalidKeys.includes(token.path[0]);
+const filter = (token: TransformedToken) => !invalidKeys.includes(token.path[0]);
 
 /**
  * Create a config object from tokens, transforms and formats
@@ -20,7 +20,7 @@ export const getStyleDictionaryConfig = (
   sanitizedTokensFromFigma: any,
   themeConfig: ThemeConfig,
   transforms: string[] = [],
-): StyleDictionary.Config => {
+): Config => {
   registerTransforms([pxToRemTransform, fluidClampTransform]);
 
   return {

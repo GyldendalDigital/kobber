@@ -1,9 +1,9 @@
-import { Format, Named } from "style-dictionary";
+import { Format } from "style-dictionary/types";
 import { minifyDictionary } from "../../utils/minifyDictionary";
 
-export const tsDeclarationsFormat: Named<Format> = {
+export const tsDeclarationsFormat: Format = {
   name: "ts-declarations/nested",
-  formatter: ({ dictionary }) => {
+  format: ({ dictionary }) => {
     const minified = minifyDictionary(dictionary.tokens) ?? {};
     return Object.entries(minified)
       .map(([name, value]) => {
