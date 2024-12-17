@@ -1,11 +1,10 @@
 import type { TransformedToken, Config } from "style-dictionary/types";
 import { esmFormat } from "./formats/esm";
-import { jsonFormat } from "./formats/json";
-import { cssTransforms, jsTransforms, registerTransforms } from "./registerTransforms";
+import { cssTransforms, jsTransforms } from "./registerTransforms";
 import { tsDeclarationsFormat } from "./formats/tsDeclarations";
-import { fluidClampTransform } from "./transforms/fluidClamp";
-import { pxToRemTransform } from "./transforms/pxToRem";
 import { ThemeConfig, themeDirectory } from "../types";
+import { esmWithCssVariableValues } from "./formats/esmWithCssVariableValues";
+import { logBrokenReferenceLevels, logVerbosityLevels, logWarningLevels } from "style-dictionary/enums";
 
 const buildPath = themeDirectory + "/";
 
@@ -21,9 +20,14 @@ export const getStyleDictionaryConfig = (
   themeConfig: ThemeConfig,
   transforms: string[] = [],
 ): Config => {
-  registerTransforms([pxToRemTransform, fluidClampTransform]);
-
   return {
+    log: {
+      warnings: logWarningLevels.disabled, // 'warn' | 'error' | 'disabled'
+      verbosity: logVerbosityLevels.default, // 'default' | 'silent' | 'verbose'
+      errors: {
+        brokenReferences: logBrokenReferenceLevels.throw, // 'throw' | 'console'
+      },
+    },
     tokens: sanitizedTokensFromFigma,
     platforms: {
       css: {
@@ -42,25 +46,37 @@ export const getStyleDictionaryConfig = (
           },
         ],
       },
+      jsToCSS: {
+        transforms: cssTransforms,
+        buildPath,
+        prefix: "kobber",
+        files: [
+          {
+            destination: `${themeConfig.themeName}/tokens.css-variables.js`,
+            format: esmWithCssVariableValues.name,
+            filter,
+          },
+        ],
+      },
       object: {
         transforms: [...jsTransforms, ...transforms],
         buildPath,
         files: [
-          // {
-          //   destination: `${themeConfig.themeName}/tokens.json`,
-          //   format: jsonFormat.name,
-          //   filter,
-          // },
           {
             destination: `${themeConfig.themeName}/tokens.js`,
             format: esmFormat.name,
             filter,
           },
-          // {
-          //   destination: `${themeConfig.themeName}/tokens.d.ts`,
-          //   format: tsDeclarationsFormat.name,
-          //   filter,
-          // },
+          {
+            destination: `${themeConfig.themeName}/tokens.json`,
+            format: "json/nested",
+            filter,
+          },
+          {
+            destination: `${themeConfig.themeName}/tokens.d.ts`,
+            format: tsDeclarationsFormat.name,
+            filter,
+          },
         ],
       },
     },

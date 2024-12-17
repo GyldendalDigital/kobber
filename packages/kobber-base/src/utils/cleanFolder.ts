@@ -1,9 +1,9 @@
 import * as fs from "fs";
 import { themeDirectory } from "../types";
 
-export const cleanFolder = () => {
+export const cleanThemeDirectory = () => {
   if (fs.existsSync(themeDirectory)) {
-    fs.rmdirSync(themeDirectory, { recursive: true });
+    fs.rmSync(themeDirectory, { recursive: true });
   } else {
     fs.mkdirSync(themeDirectory);
   }

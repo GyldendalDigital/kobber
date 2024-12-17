@@ -1,5 +1,6 @@
 import type { Transform } from "style-dictionary/types";
 
+/** @deprecated Already built in: https://styledictionary.com/reference/hooks/transforms/predefined/#sizepxtorem */
 export const pxToRemTransform: Transform = {
   name: "pxToRem",
   type: "value",

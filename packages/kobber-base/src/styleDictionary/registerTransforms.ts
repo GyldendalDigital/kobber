@@ -1,20 +1,25 @@
 import StyleDictionary from "style-dictionary";
 import type { Transform } from "style-dictionary/types";
 import { fluidClampTransform } from "./transforms/fluidClamp";
-import { pxToRemTransform } from "./transforms/pxToRem";
 
 export const cssTransforms = [
   "attribute/cti",
   "name/kebab",
   "time/seconds",
   "html/icon",
-  "size/rem",
+  // "size/pxToRem", // removed until we decide to use rem
+  // "size/rem", // Figma numbers units are in px // https://styledictionary.com/reference/hooks/transforms/predefined/#sizerem
   "color/css",
   fluidClampTransform.name,
-  pxToRemTransform.name,
 ];
 
-export const jsTransforms = ["attribute/cti", "name/pascal", "size/rem", "color/hex", fluidClampTransform.name];
+export const jsTransforms = [
+  "attribute/cti",
+  "name/pascal",
+  // "size/pxToRem", // removed until we decide to use rem
+  "color/hex",
+  fluidClampTransform.name,
+];
 
 export const registerTransforms = (transforms: Transform[]) => {
   transforms.forEach(t => StyleDictionary.registerTransform(t));
