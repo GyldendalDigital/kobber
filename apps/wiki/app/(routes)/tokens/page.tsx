@@ -1,7 +1,4 @@
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens"
-import { getContrastCompliantColors } from "@gyldendal/kobber-components/src/utils/contrast"
-import { pageMetadata } from "@/lib/metadata.utils"
-import { placeholderImageUrl } from "@/lib/utils"
 import { ContentSection } from "@/components/content-section"
 import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
@@ -28,10 +25,7 @@ export default function TokensPage() {
                       key={colorValue}
                       style={{
                         backgroundColor: colorValue,
-                        color: getContrastCompliantColors({
-                          backgroundColor: colorValue,
-                          textColor: "#ffffff",
-                        }).textColor,
+                        color: "#ffffff",
                       }}
                     >
                       {colorValue}
@@ -60,10 +54,7 @@ export default function TokensPage() {
                           <div
                             style={{
                               backgroundColor: colorValue as string,
-                              color: getContrastCompliantColors({
-                                backgroundColor: colorValue as string,
-                                textColor: "#ffffff",
-                              }).textColor,
+                              color: "#ffffff",
                             }}
                           >
                             {colorValue as string}
