@@ -24,6 +24,7 @@ export class ThemeContextProvider extends LitElement {
   update(changedProperties: PropertyValueMap<ThemeContextProvider> | Map<PropertyKey, unknown>): void {
     if (changedProperties.has("themeId")) {
       this.theme = this.themes.find(theme => theme.id === this.themeId) || this.themes[0];
+      this.classList.add(this.theme.id);
     }
     super.update(changedProperties);
   }
