@@ -1,17 +1,16 @@
-import StyleDictionary from "style-dictionary";
+import type { TransformedToken, Config } from "style-dictionary/types";
 import { esmFormat } from "./formats/esm";
-import { jsonFormat } from "./formats/json";
-import { cssTransforms, jsTransforms, registerTransforms } from "./registerTransforms";
+import { cssTransforms, jsTransforms } from "./registerTransforms";
 import { tsDeclarationsFormat } from "./formats/tsDeclarations";
-import { fluidClampTransform } from "./transforms/fluidClamp";
-import { pxToRemTransform } from "./transforms/pxToRem";
 import { ThemeConfig, themeDirectory } from "../types";
+import { esmWithCssVariableValues } from "./formats/esmWithCssVariableValues";
+import { logBrokenReferenceLevels, logVerbosityLevels, logWarningLevels } from "style-dictionary/enums";
 
 const buildPath = themeDirectory + "/";
 
 const invalidKeys = ["font"];
 
-const filter = (token: StyleDictionary.TransformedToken) => !invalidKeys.includes(token.path[0]);
+const filter = (token: TransformedToken) => !invalidKeys.includes(token.path[0]);
 
 /**
  * Create a config object from tokens, transforms and formats
@@ -20,23 +19,17 @@ export const getStyleDictionaryConfig = (
   sanitizedTokensFromFigma: any,
   themeConfig: ThemeConfig,
   transforms: string[] = [],
-): StyleDictionary.Config => {
-  registerTransforms([pxToRemTransform, fluidClampTransform]);
-
+): Config => {
   return {
+    log: {
+      warnings: logWarningLevels.disabled, // 'warn' | 'error' | 'disabled'
+      verbosity: logVerbosityLevels.default, // 'default' | 'silent' | 'verbose'
+      errors: {
+        brokenReferences: logBrokenReferenceLevels.throw, // 'throw' | 'console'
+      },
+    },
     tokens: sanitizedTokensFromFigma,
     platforms: {
-      scss: {
-        transforms: [...cssTransforms, ...transforms],
-        buildPath,
-        files: [
-          {
-            destination: `${themeConfig.themeName}/tokens.scss`,
-            format: "scss/variables",
-            filter,
-          },
-        ],
-      },
       css: {
         transforms: [...cssTransforms, ...transforms],
         buildPath,
@@ -53,18 +46,30 @@ export const getStyleDictionaryConfig = (
           },
         ],
       },
+      jsToCSS: {
+        transforms: cssTransforms,
+        buildPath,
+        prefix: "kobber",
+        files: [
+          {
+            destination: `${themeConfig.themeName}/tokens.css-variables.js`,
+            format: esmWithCssVariableValues.name,
+            filter,
+          },
+        ],
+      },
       object: {
         transforms: [...jsTransforms, ...transforms],
         buildPath,
         files: [
           {
-            destination: `${themeConfig.themeName}/tokens.json`,
-            format: jsonFormat.name,
+            destination: `${themeConfig.themeName}/tokens.js`,
+            format: esmFormat.name,
             filter,
           },
           {
-            destination: `${themeConfig.themeName}/tokens.js`,
-            format: esmFormat.name,
+            destination: `${themeConfig.themeName}/tokens.json`,
+            format: "json/nested",
             filter,
           },
           {

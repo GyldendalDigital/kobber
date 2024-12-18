@@ -1,7 +1,7 @@
-import StyleDictionary, { Named, Transform } from "style-dictionary";
+import type { Transform, TransformedToken } from "style-dictionary/types";
 import { fluidClamp } from "../../utils/fluid";
 
-const isClamp = (token: StyleDictionary.TransformedToken) =>
+const isClamp = (token: TransformedToken): token is TokenClampTransformedToken =>
   (token?.$type === "fluidClamp" || token?.type === "fluidClamp") &&
   typeof token.value === "object" &&
   "min" in token.value &&
@@ -10,26 +10,30 @@ const isClamp = (token: StyleDictionary.TransformedToken) =>
   "viewportMax" in token.value &&
   "unit" in token.value;
 
-type TokenClamp = {
+interface TokenClampTransformedToken extends TransformedToken {
+  value: TokenClamp;
+}
+
+interface TokenClamp {
   min: number;
   max: number;
   viewportMin: number;
   viewportMax: number;
   unit: string;
-};
+}
 
-export const fluidClampTransform: Named<Transform> = {
+export const fluidClampTransform: Transform = {
   name: "fluidClamp",
   type: "value",
   transitive: true,
-  matcher: isClamp,
-  transformer: ({ value }: { value: TokenClamp }) => {
-    return fluidClamp(
-      value.min,
-      value.max,
-      value.viewportMin,
-      value.viewportMax,
-      value.unit
-    );
+  filter: isClamp,
+  transform: token => {
+    if (!isClamp(token)) {
+      return token.value;
+    }
+
+    const { value } = token;
+
+    return fluidClamp(value.min, value.max, value.viewportMin, value.viewportMax, value.unit);
   },
 };

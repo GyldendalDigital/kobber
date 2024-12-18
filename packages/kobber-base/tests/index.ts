@@ -9,7 +9,7 @@ const simpleTest: ThemeConfig = {
   themeName: "test-simple",
 };
 
-buildThemeTokensTest(simpleTokens, simpleTest);
+await buildThemeTokensTest(simpleTokens, simpleTest);
 buildTypographyTest(simpleTest);
 
 const fullTest: ThemeConfig = {
@@ -17,5 +17,5 @@ const fullTest: ThemeConfig = {
   themeName: "test-full",
 };
 
-buildThemeTokensTest(tokensFromFigma, fullTest);
+await buildThemeTokensTest(tokensFromFigma, fullTest);
 buildTypographyTest(fullTest);

@@ -1,11 +1,11 @@
-import { Named, Transform } from "style-dictionary";
+import type { Transform } from "style-dictionary/types";
 
-export const pxToRemTransform: Named<Transform> = {
+/** @deprecated Already built in: https://styledictionary.com/reference/hooks/transforms/predefined/#sizepxtorem */
+export const pxToRemTransform: Transform = {
   name: "pxToRem",
   type: "value",
-  matcher: (token) =>
-    token.path[0] === "primitives" && token.type === "dimension",
-  transformer: (token) => {
+  filter: token => token.path[0] === "primitives" && token.type === "dimension",
+  transform: token => {
     const value = parseFloat(token.value);
     return !isNaN(value) ? `${value / 16}rem` : value;
   },

@@ -14,22 +14,6 @@ export const sanitizeJsonFromFigma = (tokensFromFigmaString: string, themeConfig
   // Return JSON that do not include objects with mode names in them
   const json = JSON.parse(replaced);
 
-  // Missing references (remove when fixed)
-  json.semantics.action.border = {
-    radius: {
-      xxsmall: {
-        type: "dimension",
-        value: 0,
-      },
-    },
-  };
-  json.primitives.border = {
-    [10]: {
-      type: "dimension",
-      value: 0,
-    },
-  };
-
   console.log(`Sanitized tokens name=${themeConfig.themeName} mode=${themeConfig.figmaMode}`);
 
   return {

@@ -1,11 +1,9 @@
-import { LitElement, css, html } from "lit";
+import { CSSResultGroup, LitElement, html } from "lit";
 import { customElement, property, query } from "lit/decorators.js";
 import "../wiki-list/List";
 import "../wiki-list/ListItem";
-import { consume } from "@lit/context";
-import { Theme } from "../utils/theme-context.types";
-import { themeContext } from "../utils/theme-context";
-import KobberElement from "../base/kobber-element";
+import componentStyles from "../base/styles/component.styles";
+import { accordionStyles } from "./Accordion.styles";
 
 export const customElementName = "kobber-wiki-accordion";
 
@@ -17,9 +15,8 @@ type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
  * @todo Add "exclusive" option which makes sure only one accordion is open at a time. See {@link https://developer.mozilla.org/en-US/blog/html-details-exclusive-accordions/#using_details_name_to_create_exclusive_accordions|example}.
  */
 @customElement(customElementName)
-export class Accordion extends KobberElement {
-  @consume({ context: themeContext, subscribe: true })
-  theme?: Theme;
+export class Accordion extends LitElement {
+  static styles: CSSResultGroup = [componentStyles, accordionStyles];
 
   @property()
   expanded = false;
@@ -45,10 +42,6 @@ export class Accordion extends KobberElement {
   override render() {
     const dateNowAsElementId = new Date().toISOString();
     return html`
-      <style>
-        ${this.themedStyles()}
-      </style>
-
       <div class="accordion" tabindex="-1">
         <div role="heading" aria-level="${this.headingLevel}">
           <kobber-wiki-list-item
@@ -72,24 +65,4 @@ export class Accordion extends KobberElement {
       </div>
     `;
   }
-
-  themedStyles = () => {
-    const component = this.tokens().component["wiki-list-item"];
-
-    return css`
-      .accordion {
-        border-radius: ${component.container.border.radius}px;
-      }
-
-      .accordion-content {
-        overflow: hidden;
-        transition: max-height 0.2s ease-out;
-        max-height: 1000px;
-      }
-
-      .accordion-content[aria-hidden="true"] {
-        max-height: 0;
-      }
-    `;
-  };
 }

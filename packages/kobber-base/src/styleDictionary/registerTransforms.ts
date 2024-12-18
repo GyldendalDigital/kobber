@@ -1,21 +1,27 @@
 import StyleDictionary from "style-dictionary";
+import type { Transform } from "style-dictionary/types";
 import { fluidClampTransform } from "./transforms/fluidClamp";
-import { pxToRemTransform } from "./transforms/pxToRem";
 
+/** Docs: https://styledictionary.com/reference/hooks/transforms/predefined */
 export const cssTransforms = [
   "attribute/cti",
-  "name/cti/kebab",
+  "name/kebab",
   "time/seconds",
-  "content/icon",
-  "size/rem",
+  "html/icon",
+  "size/pxToRem",
   "color/css",
   fluidClampTransform.name,
-  pxToRemTransform.name,
 ];
 
-export const jsTransforms = ["attribute/cti", "name/cti/pascal", "size/rem", "color/hex", fluidClampTransform.name];
+export const jsTransforms = [
+  "attribute/cti",
+  "name/pascal",
+  // "size/pxToRem", // Keep px values in JS for calculations
+  "color/hex",
+  fluidClampTransform.name,
+];
 
-export const registerTransforms = (transforms: StyleDictionary.Named<StyleDictionary.Transform>[]) => {
+export const registerTransforms = (transforms: Transform[]) => {
   transforms.forEach(t => StyleDictionary.registerTransform(t));
   console.log(`Transforms registered: ${transforms.map(f => f.name).join(", ")}`);
 };
