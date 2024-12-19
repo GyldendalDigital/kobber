@@ -1,6 +1,5 @@
 import { createContext, provide } from "@lit/context";
 import * as tokensDefault from "@gyldendal/kobber-base/themes/default/tokens";
-// import * as tokensDark from "@gyldendal/kobber-base/themes/dark/tokens"; // TODO: this breaks the CI build somehow
 import { customElement, property } from "lit/decorators.js";
 import { LitElement, PropertyValueMap, html } from "lit";
 import { Theme } from "./theme-context.types";
@@ -9,6 +8,11 @@ export const themeContext = createContext<Theme>("kobber-theme");
 
 @customElement("kobber-theme-context")
 export class ThemeContextProvider extends LitElement {
+  constructor() {
+    super();
+    this.classList.contains(this.themeId) || this.classList.add(this.themeId);
+  }
+
   private themes: Theme[] = [
     { id: "kobber-theme-default", tokens: tokensDefault },
     { id: "kobber-theme-dark", tokens: tokensDefault },
@@ -24,7 +28,6 @@ export class ThemeContextProvider extends LitElement {
   update(changedProperties: PropertyValueMap<ThemeContextProvider> | Map<PropertyKey, unknown>): void {
     if (changedProperties.has("themeId")) {
       this.theme = this.themes.find(theme => theme.id === this.themeId) || this.themes[0];
-      this.classList.add(this.theme.id);
     }
     super.update(changedProperties);
   }

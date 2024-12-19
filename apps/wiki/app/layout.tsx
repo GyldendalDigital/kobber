@@ -30,7 +30,7 @@ export default function RootLayout({
       className={`${mori.className} ${mori.variable} ${lyon.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
-      <body className={cn("bg-[#FDF9F9] text-[#481125ff] antialiased transition-all")}>
+      <body className={cn("kobber-theme-default bg-[#FDF9F9] text-[#481125ff] antialiased transition-all")}>
         <AuthProvider>
           <IconLoader />
           <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal px-page/padding/inline/xsmall sm:px-page/padding/inline/small md:px-page/padding/inline/medium xl:px-page/padding/inline/large">

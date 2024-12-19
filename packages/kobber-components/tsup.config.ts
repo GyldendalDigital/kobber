@@ -40,11 +40,13 @@ export default defineConfig(() => ({
   },
   onSuccess() {
     return new Promise(resolve => {
-      createCss();
+      // fix build crash when this css is actually needed
+      // createCss();
       resolve();
     });
   },
 }));
+
 const createCss = () => {
   for (const cssModule of cssModules) {
     fs.writeFileSync(

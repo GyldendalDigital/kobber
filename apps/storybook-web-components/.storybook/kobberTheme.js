@@ -6,7 +6,7 @@ const background = semantics.navigation.color.darkest;
 /** Options: https://storybook.js.org/docs/configure/user-interface/theming */
 export default create({
   base: "dark",
-  fontBase: "Mori, sans-serif",
+  fontBase: "PP Mori, sans-serif",
   fontCode: "monospace",
 
   brandTitle: "Kobber Storybook",

@@ -8,8 +8,7 @@ import { GridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
 import { CardLayout } from "./layouts/card-layout/CardLayout";
 import { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
 import { BoxLayout } from "./layouts/box-layout/BoxLayout";
-import { Button } from "./button/Button";
-import { Button as ButtonReact } from "./button/Button.react";
+import { Button } from "./button/Button.react";
 import { ThemeContextProvider } from "./utils/theme-context";
 import { Divider } from "./divider/Divider";
 import { ProgressBar } from "./progress-bar/ProgressBar";
@@ -98,12 +97,6 @@ export const KobberBoxLayout = createComponent({
   react: React,
 });
 
-export const KobberButton = createComponent({
-  tagName: "kobber-button",
-  elementClass: Button,
-  react: React,
-});
-
 export const KobberDivider = createComponent({
   tagName: "kobber-divider",
   elementClass: Divider,
@@ -152,4 +145,4 @@ export const KobberHorizontalLayoutColumn = createComponent({
   react: React,
 });
 
-export const TestButton = ButtonReact;
+export const KobberButton = Button;

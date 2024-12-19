@@ -20,7 +20,7 @@ type BrandColor = keyof typeof component.button.background.color
 const brandColors = Object.keys(primitives.color) as Array<BrandColor>
 
 type ButtonLevel = typeof KobberButton.prototype.level
-type ButtonIconSettings = typeof KobberButton.prototype.iconSettings
+type ButtonIconSettings = typeof KobberButton.prototype.iconPosition
 
 export function ButtonSection({ level }: { level: ButtonLevel }) {
   const [iconOptions, setIconOptions] = useState<ButtonIconSettings>("right")
@@ -38,15 +38,13 @@ export function ButtonSection({ level }: { level: ButtonLevel }) {
         <Button
           color={color}
           variant={mode === "dark" && level === "secondary" ? "supplemental" : "main"}
-          iconSettings={iconOptions === "left" ? "left" : "right"}
+          iconPosition={iconOptions === "left" ? "left" : "right"}
           level={level}
         >
           Button
-          {iconOptions !== "none" && (
-            <span slot="icon">
-              <IconArrowRight />
-            </span>
-          )}
+          <span slot="icon">
+            <IconArrowRight />
+          </span>
         </Button>
       )}
     </InteractiveScreen>
@@ -69,7 +67,6 @@ function ButtonProperties({ setIconOptions, setColor }: ButtonPropertiesProps) {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
           <DropdownMenuGroup>
-            <DropdownMenuItem onClick={() => setIconOptions("none")}>Ingen</DropdownMenuItem>
             <DropdownMenuItem onClick={() => setIconOptions("left")}>Venstre</DropdownMenuItem>
             <DropdownMenuItem onClick={() => setIconOptions("right")}>Høyre</DropdownMenuItem>
           </DropdownMenuGroup>
