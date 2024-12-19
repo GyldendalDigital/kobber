@@ -7,46 +7,54 @@ export const buttonClassNames = ({
   variant = "main",
   level = "primary",
   hasIcon = false,
-  isIconOnly = false,
-  iconPosition = "right",
-}: ButtonProps & ButtonIconProps) => {
-  return [
-    buttonName,
-    color,
-    variant?.replace(" ", "-"),
-    level,
-    hasIcon ? "icon" : "",
-    hasIcon && isIconOnly ? "icon-only" : "",
-    hasIcon && !isIconOnly && iconPosition === "left" ? "icon-left" : "",
-  ].filter(Boolean);
+  iconOnly = false,
+  iconFirst = false,
+}: ButtonProps & ButtonComputedProps): ButtonClassNames[] => {
+  const iconClassNames: ButtonClassNames[] = [];
+  if (hasIcon) {
+    iconClassNames.push("icon");
+    if (iconOnly) {
+      iconClassNames.push("icon-only");
+    } else if (iconFirst) {
+      iconClassNames.push("icon-left");
+    }
+  }
+
+  return [buttonName, color, variant, level, ...iconClassNames];
 };
 
-export const buttonClassNamesWithModule = (cssModule: Record<string, string>, props: ButtonProps & ButtonIconProps) =>
-  buttonClassNames(props).map(x => cssModule[x]);
+export const buttonClassNamesWithModule = (
+  cssModule: Record<string, string>,
+  props: ButtonProps & ButtonComputedProps,
+) => buttonClassNames(props).map(x => cssModule[x]);
 
 export type ButtonProps = {
   color?: ButtonColor;
   variant?: ButtonVariant;
   level?: ButtonLevel;
-  iconPosition?: ButtonIconPosition;
+  iconFirst?: boolean;
 };
 
-export type ButtonIconProps = {
+export type ButtonComputedProps = {
   hasIcon?: boolean;
-  isIconOnly?: boolean;
-  iconPosition?: ButtonIconPosition;
+  iconOnly?: boolean;
 };
+
+export type ButtonClassNames =
+  | typeof buttonName
+  | ButtonColor
+  | ButtonVariant
+  | ButtonLevel
+  | "icon"
+  | "icon-only"
+  | "icon-left";
 
 export type ButtonColor = keyof typeof component.button.background.color;
-export type ButtonVariant = keyof typeof component.button.background.color.neutral;
+export type ButtonVariant = keyof Omit<typeof component.button.background.color.neutral, "supplemental alt">;
 export type ButtonLevel = keyof typeof component.button.text.color.carmine.main;
-export type ButtonIconPosition = "left" | "right";
 
 export const buttonColors: ButtonColor[] = Object.keys(component.button.background.color) as ButtonColor[];
 export const buttonVariants: ButtonVariant[] = Object.keys(
-  component.button.background.color.neutral,
+  component.button.background.color.carmine,
 ) as ButtonVariant[];
 export const buttonLevels: ButtonLevel[] = Object.keys(component.button.text.color.carmine.main) as ButtonLevel[];
-
-export const includesLevel = (value: ButtonLevel, buttonLevels: string[]): value is ButtonLevel =>
-  buttonLevels.includes(value);

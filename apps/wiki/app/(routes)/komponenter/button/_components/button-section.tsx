@@ -20,7 +20,7 @@ type BrandColor = keyof typeof component.button.background.color
 const brandColors = Object.keys(primitives.color) as Array<BrandColor>
 
 type ButtonLevel = typeof KobberButton.prototype.level
-type ButtonIconSettings = typeof KobberButton.prototype.iconPosition
+type ButtonIconSettings = "left" | "right"
 
 export function ButtonSection({ level }: { level: ButtonLevel }) {
   const [iconOptions, setIconOptions] = useState<ButtonIconSettings>("right")
@@ -28,7 +28,7 @@ export function ButtonSection({ level }: { level: ButtonLevel }) {
 
   return (
     <InteractiveScreen
-      level={level}
+      level={level === "primary" ? "primary" : "secondary"}
       properties={(mode) => (
         <ButtonProperties setIconOptions={setIconOptions} setColor={setColor} />
       )}
@@ -38,7 +38,7 @@ export function ButtonSection({ level }: { level: ButtonLevel }) {
         <Button
           color={color}
           variant={mode === "dark" && level === "secondary" ? "supplemental" : "main"}
-          iconPosition={iconOptions === "left" ? "left" : "right"}
+          iconFirst={iconOptions === "left"}
           level={level}
         >
           Button

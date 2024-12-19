@@ -1,17 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
-import {
-  buttonColors,
-  buttonVariants,
-  buttonLevels,
-  ButtonColor,
-  ButtonIconPosition,
-  ButtonLevel,
-  ButtonVariant,
-} from "./Button.core";
+import { primitives } from "@gyldendal/kobber-base/themes/default/tokens";
+import { buttonColors, buttonVariants, buttonLevels, ButtonColor, ButtonVariant, ButtonLevel } from "./Button.core";
 import "./Button";
 
 const states = ["idle", "hover", "active", "focus", "disabled"];
+
+type ButtonIconPosition = undefined | "right" | "left";
 
 const meta: Meta = {
   title: "In development 🧪/Button",
@@ -72,7 +66,7 @@ export const Buttons: Story = {
     },
   },
   args: {
-    icon: "none",
+    icon: "right",
   },
   render: args => {
     return `
@@ -96,7 +90,7 @@ export const Buttons: Story = {
         .wrapper-level {
           display: flex;
           flex-direction: column;
-          border: 1px solid ${tokens.primitives.color.wine[250]};
+          border: 1px solid ${primitives.color.wine[250]};
           border-radius: 1rem;
         }
 
@@ -116,7 +110,7 @@ export const Buttons: Story = {
 
           &.supplemental.secondary {
             color: white;
-            background-color:${tokens.primitives.color.wine[850]};
+            background-color:${primitives.color.wine[850]};
           }
 
           &.supplemental-alt.secondary {
@@ -160,7 +154,7 @@ const renderVariant = (
   level: ButtonLevel,
   iconPosition: ButtonIconPosition,
 ) => {
-  // TODO:
+  // @ts-ignore
   if (variant === "supplemental alt") {
     return;
   }
@@ -182,7 +176,7 @@ const renderButton = (
 ) => {
   return `
 <kobber-button color="${color}" variant="${variant}" level="${level}" class="${state}" ${state === "disabled" ? "disabled" : ""} 
-  iconPosition=${iconPosition} onclick="clickHandler()" aria-label="button label">
+  iconFirst=${iconPosition === "left"} onclick="clickHandler()" aria-label="button label">
   ${text ?? state}
   <icon-arrow_right slot="icon" />
 </kobber-button>

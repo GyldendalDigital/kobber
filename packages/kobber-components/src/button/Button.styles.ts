@@ -66,57 +66,60 @@ export const buttonStyles = () => {
 
 const buttonVariableStyles = () => {
   const variableClasses = buttonColors.flatMap(color => {
-    // TODO: Handle supplemental-alt variant
-    return buttonVariants
-      .filter(variant => variant !== "supplemental alt")
-      .flatMap(variant => {
-        return [
-          ...buttonLevels
-            .filter(level => level === "primary")
-            .map(level => {
-              const background = component.button.background.color[color]?.[variant]?.[level];
-              const text = component.button.text.color[color]?.[variant]?.[level];
-              if (!background || !text) return;
+    return (
+      buttonVariants
+        // TODO: Handle supplemental-alt variant
+        // @ts-ignore
+        .filter(variant => variant !== "supplemental alt")
+        .flatMap(variant => {
+          return [
+            ...buttonLevels
+              .filter(level => level === "primary")
+              .map(level => {
+                const background = component.button.background.color[color]?.[variant]?.[level];
+                const text = component.button.text.color[color]?.[variant]?.[level];
+                if (!background || !text) return;
 
-              return css`
-                &.${unsafeCSS(color)}.${unsafeCSS(variant.replace(" ", "-"))}.${unsafeCSS(level)} {
-                  background-color: var(${unsafeCSS(background.fallback)});
-                  color: var(${unsafeCSS(text.fallback)});
+                return css`
+                  &.${unsafeCSS(color)}.${unsafeCSS(variant.replace(" ", "-"))}.${unsafeCSS(level)} {
+                    background-color: var(${unsafeCSS(background.fallback)});
+                    color: var(${unsafeCSS(text.fallback)});
 
-                  &:hover,
-                  &.hover {
-                    ${hoverEffect(background.hover, background.fallback)}
+                    &:hover,
+                    &.hover {
+                      ${hoverEffect(background.hover, background.fallback)}
+                    }
                   }
-                }
-              `;
-            })
-            .filter(Boolean),
-          // special handling of secondary transparent buttons
-          ...buttonLevels
-            .filter(level => level === "secondary")
-            .map(level => {
-              // @ts-ignore
-              const text = component.button.text.color[color]?.[variant]?.[level]?.fallback;
-              if (!text) return;
+                `;
+              })
+              .filter(Boolean),
+            // special handling of secondary transparent buttons
+            ...buttonLevels
+              .filter(level => level === "secondary")
+              .map(level => {
+                // @ts-ignore
+                const text = component.button.text.color[color]?.[variant]?.[level]?.fallback;
+                if (!text) return;
 
-              return css`
-                &.${unsafeCSS(color)}.${unsafeCSS(variant.replace(" ", "-"))}.${unsafeCSS(level)} {
-                  background-color: transparent;
-                  color: var(${unsafeCSS(text)});
+                return css`
+                  &.${unsafeCSS(color)}.${unsafeCSS(variant.replace(" ", "-"))}.${unsafeCSS(level)} {
+                    background-color: transparent;
+                    color: var(${unsafeCSS(text)});
 
-                  &:hover,
-                  &.hover,
-                  &:active,
-                  &.active {
-                    border-bottom: 1px solid var(${unsafeCSS(text)});
-                    border-radius: 0;
+                    &:hover,
+                    &.hover,
+                    &:active,
+                    &.active {
+                      border-bottom: 1px solid var(${unsafeCSS(text)});
+                      border-radius: 0;
+                    }
                   }
-                }
-              `;
-            })
-            .filter(Boolean),
-        ];
-      });
+                `;
+              })
+              .filter(Boolean),
+          ];
+        })
+    );
   });
 
   return unsafeCSS(variableClasses.join("\n"));

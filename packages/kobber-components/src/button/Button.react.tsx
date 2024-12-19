@@ -10,10 +10,12 @@ type Props = {
   HTMLProps<HTMLButtonElement>;
 
 export const Button = React.forwardRef<HTMLButtonElement, Props>((props, ref) => {
-  const { color, variant, level, iconPosition, className, children, type, icon, ...rest } = props;
-  console.log("r", children, icon);
+  const { color, variant, level, iconFirst, className, children, type, icon, ...rest } = props;
+
   return (
     <>
+      {/* hoists the style kelement into <head> and deduplicates it */}
+      {/* https://react.dev/reference/react-dom/components/style#rendering-an-inline-css-stylesheet */}
       {/* @ts-ignore */}
       <style href={buttonName} precedence="medium">
         {buttonStyles().cssText}
@@ -21,7 +23,7 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>((props, ref) =>
       <button
         {...rest}
         ref={ref}
-        className={buttonClassNames({ ...props, hasIcon: !!icon, isIconOnly: !!icon && !children }).join(" ")}
+        className={buttonClassNames({ ...props, hasIcon: !!icon, iconOnly: !!icon && !children }).join(" ")}
       >
         {children}
         {icon}
