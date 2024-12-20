@@ -1,9 +1,11 @@
 "use client"
 
 import { usePathname } from "next/navigation"
+import { KobberButton } from "@gyldendal/kobber-components/react"
 import { ssoSignIn } from "@/hooks/use-sso-sign-in"
+import { IconLogin } from "@/components/kobber-icons"
 import { Heading } from "../heading"
-import { ArticleWrapper, Button, Ingress } from "../kobber-components"
+import { ArticleWrapper, Ingress } from "../kobber-components"
 
 export function Restricted() {
   const pathname = usePathname()
@@ -22,9 +24,14 @@ export function Restricted() {
           retningslinjer og kode.
         </Ingress>
       </ArticleWrapper>
-      <Button variant="main" color="carmine" onClick={() => ssoSignIn({ redirectUrl: pathname })}>
+      <KobberButton
+        variant="main"
+        color="carmine"
+        icon={<IconLogin className="size-4" />}
+        onClick={() => ssoSignIn({ redirectUrl: pathname })}
+      >
         Logg inn med SSO
-      </Button>
+      </KobberButton>
     </div>
   )
 }

@@ -2,7 +2,7 @@ import { themeConfigs } from "./buildConfig";
 import { buildTypography } from "./src/typography/buildTypography";
 import { buildThemeTokens } from "./src/styleDictionary/buildThemeTokens";
 import { tokensFromFigma } from "./tokens-from-figma";
-import { cleanThemeDirectory } from "./src/utils/cleanFolder";
+import { cleanThemeDirectory } from "./src/utils/cleanThemeDirectory";
 
 /**
  * Converts json from Figma into css, js, scss ++

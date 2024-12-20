@@ -1,5 +1,5 @@
 @font-face {
-  font-family: Mori;
+  font-family: PP Mori;
   font-weight: 100 900;
   font-display: swap;
   font-style: normal;
@@ -8,5 +8,5 @@
 }
 
 * {
-  font-family: Mori, sans-serif !important;
+  font-family: PP Mori, sans-serif !important;
 }

@@ -1,5 +1,6 @@
 "use client"
 
+// switch to "./kobber-components-ssr" to test server side rendering
 import {
   Accordion,
   ArticleWrapper,
@@ -13,7 +14,7 @@ import {
   Ingress,
   List,
   ListItem,
-} from "./kobber-components-csr" // switch to "./kobber-components-ssr" to test server side rendering
+} from "./kobber-components-csr"
 
 /**
  * Wraps all kobber components in a "use client" file to prevent SSR errors.

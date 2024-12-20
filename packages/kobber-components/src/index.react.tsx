@@ -8,7 +8,7 @@ import { GridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
 import { CardLayout } from "./layouts/card-layout/CardLayout";
 import { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
 import { BoxLayout } from "./layouts/box-layout/BoxLayout";
-import { Button } from "./button/Button";
+import { Button } from "./button/Button.react";
 import { ThemeContextProvider } from "./utils/theme-context";
 import { Divider } from "./divider/Divider";
 import { ProgressBar } from "./progress-bar/ProgressBar";
@@ -17,7 +17,7 @@ import { customElementName as wikiAccordionName, Accordion } from "./wiki-accord
 import { customElementName as wikiListName, List } from "./wiki-list/List";
 import { customElementName as wikiListItemName, ListItem } from "./wiki-list/ListItem";
 
-import { ArticleWrapper } from "./article-wrapper/ArticleWrapper";
+import { TextWrapper } from "./text/text-wrapper/TextWrapper.react";
 import { Body } from "./body/Body";
 import { Ingress } from "./ingress/Ingress";
 
@@ -67,11 +67,7 @@ export const KobberCardLayout = createComponent({
   react: React,
 });
 
-export const KobberArticleWrapper = createComponent({
-  tagName: "kobber-article-wrapper",
-  elementClass: ArticleWrapper,
-  react: React,
-});
+export const KobberArticleWrapper = TextWrapper;
 
 export const KobberBody = createComponent({
   tagName: "kobber-body",
@@ -94,12 +90,6 @@ export const KobberCardLayoutColumnAspectRatio = createComponent({
 export const KobberBoxLayout = createComponent({
   tagName: "kobber-box-layout",
   elementClass: BoxLayout,
-  react: React,
-});
-
-export const KobberButton = createComponent({
-  tagName: "kobber-button",
-  elementClass: Button,
   react: React,
 });
 
@@ -150,3 +140,5 @@ export const KobberHorizontalLayoutColumn = createComponent({
   elementClass: HorizontalLayoutColumn,
   react: React,
 });
+
+export const KobberButton = Button;
