@@ -1,20 +1,20 @@
 import { css, unsafeCSS } from "lit";
-import { component, global, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables";
+import { component, global, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import { buttonName, buttonColors, buttonVariants, buttonLevels } from "./Button.core";
 
 /**
  * Shared styles, used in web component, React and CSS module.
- * 
- * TODO: 
+ *
+ * TODO:
  * support variant supplemental alt
  * let consumer decide if element should be button or anchor tag
- * 
+ * secondary hover effect bottom border should only cover text
  */
 export const buttonStyles = () => {
   const button = component.button;
 
   return css`
-    .${unsafeCSS(buttonName)} {
+    .kobber-button {
       display: inline-flex;
       justify-content: center;
       align-items: center;
@@ -24,51 +24,50 @@ export const buttonStyles = () => {
       cursor: pointer;
       white-space: nowrap;
       vertical-align: middle;
-      border: 2px solid transparent;
+      border: 1px solid transparent;
       gap: var(${unsafeCSS(button.container.gap)});
       padding-block: var(${unsafeCSS(button.container.padding.block)});
       padding-inline: var(${unsafeCSS(button.container.padding.inline)});
       border-radius: var(${unsafeCSS(button.container.border.radius)});
       min-height: var(${unsafeCSS(button.container.size.height)});
       line-height: initial;
-
-      &::-moz-focus-inner {
-        border: 0;
-      }
-
       ${typographyButton()}
-
-      ${buttonVariableStyles()}
-
-      &[disabled],
-      &.disabled {
-        /* TODO: wait for tokens to expose percent as number, not rem */
-        /* opacity: var(${unsafeCSS(global.disabled.container.opacity)}); */
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
-
-      &:focus-visible:enabled,
-      &.focus {
-        outline: none;
-        box-shadow: 0 0 0 var(${unsafeCSS(global.focus.border.width)}) var(${unsafeCSS(global.focus.color)});
-      }
-
-      &.icon {
-        --icon-width: var(${unsafeCSS(button.icon.size.width.small)});
-        --icon-height: var(${unsafeCSS(button.icon.size.height.small)});
-
-        &.icon-left {
-          flex-direction: row-reverse;
-        }
-
-        &.icon-only {
-          gap: 0;
-          padding-block: 12px;
-          padding-inline: 12px;
-        }
-      }
     }
+
+    .kobber-button::-moz-focus-inner {
+      border: 0;
+    }
+
+    .kobber-button[disabled],
+    .kobber-button.disabled {
+      /* TODO: wait for tokens to expose percent as number, not rem */
+      /* opacity: var(${unsafeCSS(global.disabled.container.opacity)}); */
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .kobber-button:focus-visible:enabled,
+    .kobber-button.focus {
+      outline: none;
+      box-shadow: 0 0 0 var(${unsafeCSS(global.focus.border.width)}) var(${unsafeCSS(global.focus.color)});
+    }
+
+    .kobber-button.icon {
+      --icon-width: var(${unsafeCSS(button.icon.size.width.small)});
+      --icon-height: var(${unsafeCSS(button.icon.size.height.small)});
+    }
+
+    .kobber-button.icon.icon-left {
+      flex-direction: row-reverse;
+    }
+
+    .kobber-button.icon.icon-only {
+      gap: 0;
+      padding-block: 12px;
+      padding-inline: 12px;
+    }
+
+    ${buttonVariableStyles()}
   `;
 };
 
@@ -84,19 +83,20 @@ const buttonVariableStyles = () => {
             ...buttonLevels
               .filter(level => level === "primary")
               .map(level => {
-                const background = component.button.background.color[color]?.[variant]?.[level];
-                const text = component.button.text.color[color]?.[variant]?.[level];
-                if (!background || !text) return;
+                const backgroundColor = component.button.background.color[color]?.[variant]?.[level];
+                const textColor = component.button.text.color[color]?.[variant]?.[level];
+                if (!backgroundColor || !textColor) return;
+
+                const nestedClassNames = `.kobber-button.${color}.${variant}.${level}`;
 
                 return css`
-                  &.${unsafeCSS(color)}.${unsafeCSS(variant.replace(" ", "-"))}.${unsafeCSS(level)} {
-                    background-color: var(${unsafeCSS(background.fallback)});
-                    color: var(${unsafeCSS(text.fallback)});
+                  ${unsafeCSS(nestedClassNames)} {
+                    background-color: var(${unsafeCSS(backgroundColor.fallback)});
+                    color: var(${unsafeCSS(textColor.fallback)});
+                  }
 
-                    &:hover,
-                    &.hover {
-                      ${hoverEffect(background.hover, background.fallback)}
-                    }
+                  ${unsafeCSS(nestedClassNames)}:hover, ${unsafeCSS(nestedClassNames)}.hover {
+                    ${hoverEffect(backgroundColor.hover, backgroundColor.fallback)}
                   }
                 `;
               })
@@ -106,21 +106,22 @@ const buttonVariableStyles = () => {
               .filter(level => level === "secondary")
               .map(level => {
                 // @ts-ignore
-                const text = component.button.text.color[color]?.[variant]?.[level]?.fallback;
-                if (!text) return;
+                const textColor = component.button.text.color[color]?.[variant]?.[level]?.fallback;
+                if (!textColor) return;
+
+                const nestedClassNames = `.kobber-button.${color}.${variant}.${level}`;
 
                 return css`
-                  &.${unsafeCSS(color)}.${unsafeCSS(variant.replace(" ", "-"))}.${unsafeCSS(level)} {
+                  ${unsafeCSS(nestedClassNames)} {
                     background-color: transparent;
-                    color: var(${unsafeCSS(text)});
+                    color: var(${unsafeCSS(textColor)});
+                  }
 
-                    &:hover,
-                    &.hover,
-                    &:active,
-                    &.active {
-                      border-bottom: 1px solid var(${unsafeCSS(text)});
-                      border-radius: 0;
-                    }
+                  ${unsafeCSS(nestedClassNames)}:hover, ${unsafeCSS(nestedClassNames)}.hover, ${unsafeCSS(
+                    nestedClassNames,
+                  )}:active, ${unsafeCSS(nestedClassNames)}.active {
+                    box-shadow: 0 2px 0 -1px var(${unsafeCSS(textColor)});
+                    border-radius: 0;
                   }
                 `;
               })
@@ -153,7 +154,7 @@ const typographyButton = () => {
 /**
  * NYI
  
-.${unsafeCSS(buttonName)}.supplemental-alt {
+.kobber-button.supplemental-alt {
     background-color: transparent;
     height: auto;
     padding: 0;

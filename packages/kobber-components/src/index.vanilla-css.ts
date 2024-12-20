@@ -1,14 +1,21 @@
-import * as defaultTokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { textHighlightStyles } from "./text/text-highlight/TextHighlight.styles";
-import { textWrapperStyles } from "./text/TextWrapper.styles";
+import { textWrapperName } from "./text/text-wrapper/TextWrapper.core";
+import { textWrapperStyles } from "./text/text-wrapper/TextWrapper.styles";
+import { buttonName } from "./button/Button.core";
+import { buttonStyles } from "./button/Button.styles";
+import { textHighlightName } from "./text/text-highlight/TextHighlight.core";
 
 export const cssModules = [
   {
-    id: textWrapperStyles.customElementName,
-    styles: [textWrapperStyles.cssVariables(defaultTokens).cssText, textWrapperStyles.cssStatic.cssText],
+    id: buttonName,
+    styles: [buttonStyles().cssText],
   },
   {
-    id: textHighlightStyles.customElementName,
-    styles: [textHighlightStyles.cssVariables(defaultTokens).cssText, textHighlightStyles.cssStatic.cssText],
+    id: textWrapperName,
+    styles: [textWrapperStyles().cssText],
+  },
+  {
+    id: textHighlightName,
+    styles: [textHighlightStyles().cssText],
   },
 ];

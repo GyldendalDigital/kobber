@@ -3,23 +3,29 @@ import { customElement, property } from "lit/decorators.js";
 import KobberElement from "../../base/kobber-element";
 import { textHighlightStyles } from "./TextHighlight.styles";
 import componentStyles from "../../base/styles/component.styles";
-import { textHighlightFunctions, TextHighlightProps } from "./TextHighlight.functions";
+import {
+  textHighlightClassNames,
+  TextHighlightColor,
+  textHighlightName,
+  TextHighlightProps,
+} from "./TextHighlight.core";
 
-@customElement(textHighlightStyles.customElementName)
+@customElement(textHighlightName)
 export class TextHighlight extends KobberElement implements TextHighlightProps {
-  static styles: CSSResultGroup = [componentStyles, textHighlightStyles.cssStatic];
+  static styles: CSSResultGroup = [componentStyles, textHighlightStyles()];
 
   @property()
-  variant: "a" | "b" = "a";
+  color?: TextHighlightColor;
 
   render() {
-    this.onclick = textHighlightFunctions.onClick;
     return html`
-      <style>
-        ${textHighlightStyles.cssVariables(this.tokens())}
-      </style>
       <span
-        class="${textHighlightFunctions.classNames({ variant: this.variant })}"
+        class="${[
+          ...textHighlightClassNames({
+            color: this.color,
+          }),
+          this.className,
+        ].join(" ")}"
       >
         <slot></slot>
       </span>

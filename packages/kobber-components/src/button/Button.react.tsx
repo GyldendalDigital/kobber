@@ -1,8 +1,6 @@
-import React from "react";
-import { HTMLProps } from "react";
+import React, { HTMLProps, ReactNode } from "react";
 import { buttonStyles } from "./Button.styles";
 import { buttonClassNames, buttonName, ButtonProps } from "./Button.core";
-import { ReactNode } from "react";
 
 type Props = {
   icon?: ReactNode;
@@ -11,7 +9,6 @@ type Props = {
 
 export const Button = React.forwardRef<HTMLButtonElement, Props>((props, ref) => {
   const { color, variant, level, iconFirst, className, children, type, icon, ...rest } = props;
-
   return (
     <>
       {/* hoists the style kelement into <head> and deduplicates it */}
@@ -23,7 +20,9 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>((props, ref) =>
       <button
         {...rest}
         ref={ref}
-        className={buttonClassNames({ ...props, hasIcon: !!icon, iconOnly: !!icon && !children }).join(" ")}
+        className={[className, ...buttonClassNames({ ...props, hasIcon: !!icon, iconOnly: !!icon && !children })].join(
+          " ",
+        )}
       >
         {children}
         {icon}

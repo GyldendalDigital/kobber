@@ -1,34 +1,28 @@
 import { css, unsafeCSS } from "lit";
-import { Theme } from "../../utils/theme-context.types";
+import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { textHighlightColors, textHighlightName } from "./TextHighlight.core";
 
-const customElementName = "kobber-text-highlight";
-
-const cssVariables = (tokens: Theme["tokens"]) => {
-  const article = tokens.component.article;
+export const textHighlightStyles = () => {
+  const article = component.article;
 
   return css`
-    .${unsafeCSS(customElementName)} {
-      --text-highlight-color: ${unsafeCSS(article.body.text.color.highlight)};
+    .${unsafeCSS(textHighlightName)} {
+      color: var(${unsafeCSS(article.body.text.color.highlight)});
+
+      ${textHighlightVariableStyles()};
     }
   `;
 };
 
-const cssStatic = css`
-  .${unsafeCSS(customElementName)} {
-    color: var(--text-highlight-color);
-  }
-
-  .variant-a {
-    text-decoration: underline;
-  }
-
-  .variant-b {
-    text-decoration: underline;
-  }
-`;
-
-export const textHighlightStyles = {
-  customElementName,
-  cssVariables,
-  cssStatic,
-};
+const textHighlightVariableStyles = () =>
+  unsafeCSS(
+    textHighlightColors
+      .map(
+        color => css`
+          &.${unsafeCSS(color)} {
+            color: var(${unsafeCSS(component.button.background.color[color].main.primary.fallback)});
+          }
+        `,
+      )
+      .join("\n"),
+  );

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { html } from "lit";
-import "./TextWrapper.component";
-import "./text-highlight/TextHighlight.component";
+import "./text-wrapper/TextWrapper";
+import "./text-highlight/TextHighlight";
 
 const meta: Meta = {
   title: "In development 🧪/Text",
@@ -12,7 +12,7 @@ type Story = StoryObj;
 
 export const Text: Story = {
   render: () =>
-    html`<div>
+    html`<div class="kobber-theme-default">
       <kobber-text-wrapper class="kobber-text-wrapper">
         <h1>
           Velkommen til kobber<br />
@@ -26,7 +26,7 @@ export const Text: Story = {
 
         <p>
           Rapidiously strategize integrated intellectual capital vis-a-vis
-          <kobber-text-highlight variant="b">progressive</kobber-text-highlight> mindshare.
+          <kobber-text-highlight color="vacation">progressive</kobber-text-highlight> mindshare.
         </p>
         <p>
           Uniquely reconceptualize robust e-tailers without ethical action items. Compellingly restore resource-leveling
@@ -59,7 +59,7 @@ export const Text: Story = {
           competencies through fully tested collaboration and idea-sharing. Credibly whiteboard bleeding-edge e-services
           via real-time collaboration and idea-sharing. Compellingly myocardinate transparent e-business after superior
           users. Authoritatively reintermediate economically sound
-          <kobber-text-highlight>collaboration and idea-sharing</kobber-text-highlight> after cross-media benefits.
+          <kobber-text-highlight color="rettsdata">collaboration and idea-sharing</kobber-text-highlight> after cross-media benefits.
         </p>
         <p>
           Phosfluorescently negotiate high-payoff catalysts for change without interactive partnerships. Proactively

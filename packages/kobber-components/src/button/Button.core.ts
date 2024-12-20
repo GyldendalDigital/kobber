@@ -1,4 +1,4 @@
-import { component } from "@gyldendal/kobber-base/themes/default/tokens";
+import { component } from "@gyldendal/kobber-base/themes/default/tokens.js";
 
 export const buttonName = "kobber-button";
 
