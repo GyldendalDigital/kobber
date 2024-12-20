@@ -1,6 +1,5 @@
 import { createComponent } from "@lit/react";
 import * as React from "react";
-
 import { Grid } from "./grid/Grid";
 import { GridColumn } from "./grid/GridColumn";
 import { Checkbox } from "./checkbox/Checkbox";
@@ -8,7 +7,6 @@ import { GridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
 import { CardLayout } from "./layouts/card-layout/CardLayout";
 import { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
 import { BoxLayout } from "./layouts/box-layout/BoxLayout";
-import { Button } from "./button/Button.react";
 import { ThemeContextProvider } from "./utils/theme-context";
 import { Divider } from "./divider/Divider";
 import { ProgressBar } from "./progress-bar/ProgressBar";
@@ -16,11 +14,6 @@ import { ProgressBarItem } from "./progress-bar/ProgressBarItem";
 import { customElementName as wikiAccordionName, Accordion } from "./wiki-accordion/Accordion";
 import { customElementName as wikiListName, List } from "./wiki-list/List";
 import { customElementName as wikiListItemName, ListItem } from "./wiki-list/ListItem";
-
-import { TextWrapper } from "./text/text-wrapper/TextWrapper.react";
-import { Body } from "./body/Body";
-import { Ingress } from "./ingress/Ingress";
-
 import { Carousel } from "./carousel/Carousel";
 import { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 import { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
@@ -64,20 +57,6 @@ export const KobberProgressBarItem = createComponent({
 export const KobberCardLayout = createComponent({
   tagName: "kobber-card-layout",
   elementClass: CardLayout,
-  react: React,
-});
-
-export const KobberArticleWrapper = TextWrapper;
-
-export const KobberBody = createComponent({
-  tagName: "kobber-body",
-  elementClass: Body,
-  react: React,
-});
-
-export const KobberIngress = createComponent({
-  tagName: "kobber-ingress",
-  elementClass: Ingress,
   react: React,
 });
 
@@ -140,5 +119,3 @@ export const KobberHorizontalLayoutColumn = createComponent({
   elementClass: HorizontalLayoutColumn,
   react: React,
 });
-
-export const KobberButton = Button;

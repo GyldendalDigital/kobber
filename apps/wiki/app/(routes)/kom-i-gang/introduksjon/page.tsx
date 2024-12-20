@@ -1,7 +1,10 @@
 import Image from "next/image"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
-import { Heading } from "@/components/heading"
-import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
 import { metaGettingStartedIntro } from "./intro.meta"
@@ -19,19 +22,19 @@ export default function Introduksjon() {
         alt="Image"
       />
 
-      <ArticleWrapper>
-        <Heading>
+      <KobberTextWrapper>
+        <KobberHeading>
           Designsystemet Kobber
           <br />
           <span className="font-lyon text-[48px] font-light leading-[57.6px] text-[#DC134F]">
             Et verktøy for samspill og synergier
           </span>
-        </Heading>
+        </KobberHeading>
 
-        <Ingress>{metadata.description}</Ingress>
-      </ArticleWrapper>
+        <KobberIngress>{metadata.description}</KobberIngress>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[712px]">
+      <KobberTextWrapper className="max-w-[712px]">
         <SubHeading>Hvorfor et designsystem?</SubHeading>
         <p>
           Designsystemet muliggjør en raskere og mer effektiv praksis for konsistent
@@ -43,9 +46,9 @@ export default function Introduksjon() {
           til rette for bedre samarbeid, transparens, synergier og deling av kompetanse og metoder
           på tvers av fagfelt, avdelinger og produkter.
         </p>
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[712px]">
+      <KobberTextWrapper className="max-w-[712px]">
         <SubHeading>Hva er kobber?</SubHeading>
 
         <Image
@@ -72,7 +75,7 @@ export default function Introduksjon() {
           og styrke over tid. Samtidig er det viktig å komme med tilbakemelding og forslag til
           oppdatering og forbedring. Sammen skaper vi en levende profil!
         </p>
-      </ArticleWrapper>
+      </KobberTextWrapper>
     </SectionLayout>
   )
 }

@@ -1,8 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
-import { Heading } from "@/components/heading"
-import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
 import { metaGettingStartedContact } from "../../kom-i-gang/kontakt/contact.meta"
@@ -14,12 +17,12 @@ export const metadata = metaBrandLevel
 export default function MerkevareHeriarkiPage() {
   return (
     <SectionLayout>
-      <ArticleWrapper>
-        <Heading>{metadata.title as string}</Heading>
-        <Ingress>{metadata.description}</Ingress>
-      </ArticleWrapper>
+      <KobberTextWrapper>
+        <KobberHeading>{metadata.title as string}</KobberHeading>
+        <KobberIngress>{metadata.description}</KobberIngress>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
+      <KobberTextWrapper className="max-w-[711px]">
         <p>
           Gyldendal benytter seg av et hybridhierarki med et overordnet mormerke. Dette betyr at
           undermerkevarer skal enten være veldig tett knyttet til Gyldendal, eller fremstå
@@ -31,9 +34,9 @@ export default function MerkevareHeriarkiPage() {
           i detalj på denne siden.
         </p>
         <Image src={damUrl("4WYa-6IgqHmAdCdw9SxjB3")} width={711} height={294} alt="Illustrasjon" />
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
+      <KobberTextWrapper className="max-w-[711px]">
         <SubHeading>
           <span className="text-highlight">Nivå 1</span>
           <br />
@@ -65,9 +68,9 @@ export default function MerkevareHeriarkiPage() {
           height={294}
           alt="Illustrasjon nivå 1"
         />
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
+      <KobberTextWrapper className="max-w-[711px]">
         <SubHeading>
           <span className="text-highlight">Nivå 2</span>
           <br />
@@ -98,9 +101,9 @@ export default function MerkevareHeriarkiPage() {
           height={294}
           alt="Illustrasjon nivå 2"
         />
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
+      <KobberTextWrapper className="max-w-[711px]">
         <SubHeading>
           <span className="text-highlight">Nivå 3</span>
           <br />
@@ -126,9 +129,9 @@ export default function MerkevareHeriarkiPage() {
           height={294}
           alt="Illustrasjon nivå 3"
         />
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
+      <KobberTextWrapper className="max-w-[711px]">
         <SubHeading>
           <span className="text-highlight">Nivå 4</span>
           <br />
@@ -147,7 +150,7 @@ export default function MerkevareHeriarkiPage() {
           height={294}
           alt="Illustrasjon nivå 4"
         />
-      </ArticleWrapper>
+      </KobberTextWrapper>
     </SectionLayout>
   )
 }

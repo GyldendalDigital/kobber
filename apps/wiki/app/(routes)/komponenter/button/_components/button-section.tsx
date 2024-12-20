@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { component, primitives } from "@gyldendal/kobber-base/themes/default/tokens"
-import type { Button as KobberButton } from "@gyldendal/kobber-components/web-components"
+import { KobberButton } from "@gyldendal/kobber-components/react-ssr-safe"
 import { ChevronDown } from "lucide-react"
 import { Button as RadixButton } from "@/components/ui/button"
 import {
@@ -13,7 +13,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { InteractiveScreen } from "@/components/interactive-screen"
-import { Button } from "@/components/kobber-components"
 import { IconArrowRight } from "@/components/kobber-icons"
 
 type BrandColor = keyof typeof component.button.background.color
@@ -35,7 +34,7 @@ export function ButtonSection({ level }: { level: ButtonLevel }) {
       footer={(mode) => (mode === "dark" && level === "secondary" ? "supplemental" : "")}
     >
       {(mode) => (
-        <Button
+        <KobberButton
           color={color}
           variant={mode === "dark" && level === "secondary" ? "supplemental" : "main"}
           iconFirst={iconOptions === "left"}
@@ -45,7 +44,7 @@ export function ButtonSection({ level }: { level: ButtonLevel }) {
           <span slot="icon">
             <IconArrowRight />
           </span>
-        </Button>
+        </KobberButton>
       )}
     </InteractiveScreen>
   )

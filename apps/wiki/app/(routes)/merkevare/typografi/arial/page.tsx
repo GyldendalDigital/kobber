@@ -1,7 +1,10 @@
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
-import { Heading } from "@/components/heading"
 import { HeroImage } from "@/components/hero-image"
-import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { metaBrandTypographyArial } from "./arial.meta"
 
@@ -11,9 +14,9 @@ export default function arialPage() {
   return (
     <SectionLayout>
       <HeroImage src={damUrl("4RX2rrxwaN08pAa_b1iyQu", ".svg")} />
-      <ArticleWrapper>
-        <Heading>{metadata.title as string}</Heading>
-        <Ingress>{metadata.description}</Ingress>
+      <KobberTextWrapper>
+        <KobberHeading>{metadata.title as string}</KobberHeading>
+        <KobberIngress>{metadata.description}</KobberIngress>
 
         <p>Arial er tilgjengelig både for PC- og Mac-brukere, og brukes i blant annet:</p>
         <ul>
@@ -23,7 +26,7 @@ export default function arialPage() {
           <li>- Interne dokumenter i Word og Excel</li>
           <li>- Fallback font for web</li>
         </ul>
-      </ArticleWrapper>
+      </KobberTextWrapper>
     </SectionLayout>
   )
 }

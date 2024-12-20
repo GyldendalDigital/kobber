@@ -1,7 +1,8 @@
-import { pageMetadata } from "@/lib/metadata.utils"
-import { placeholderImageUrl } from "@/lib/utils"
-import { Heading } from "@/components/heading"
-import { ArticleWrapper, Ingress } from "@/components/kobber-components"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { SectionLayout } from "@/components/section-layout"
 import { metaBrandLayoutGrid } from "./grid.meta"
 
@@ -10,9 +11,9 @@ export const metadata = metaBrandLayoutGrid
 export default function GridPage() {
   return (
     <SectionLayout>
-      <ArticleWrapper>
-        <Heading>{metadata.title as string}</Heading>
-        <Ingress>{metadata.description}</Ingress>
+      <KobberTextWrapper>
+        <KobberHeading>{metadata.title as string}</KobberHeading>
+        <KobberIngress>{metadata.description}</KobberIngress>
 
         <p>
           Vi bruker fem skjermstørrelser, kategorisert som x-small, small, medium, large og
@@ -20,7 +21,7 @@ export default function GridPage() {
           responsivt resultat anbefales det å skissere for flere skjermstørrelser, med riktig grid
           lagt på via Grid Styles i Figma.
         </p>
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
       <div className="w-full overflow-x-auto">
         <table className="w-full border-spacing-0">

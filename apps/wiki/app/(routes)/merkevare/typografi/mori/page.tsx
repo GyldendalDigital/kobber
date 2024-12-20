@@ -1,8 +1,11 @@
 import { PPMoriTypography } from "@/data/typography"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
-import { Heading } from "@/components/heading"
 import { HeroImage } from "@/components/hero-image"
-import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { TypographyList } from "@/components/typography-list"
 import { metaBrandTypographyMori } from "./mori.meta"
@@ -13,9 +16,9 @@ export default function PPMoriPage() {
   return (
     <SectionLayout>
       <HeroImage src={damUrl("AGyvV5YIaUQ9v0MMHWgzOA", ".svg")} />
-      <ArticleWrapper>
-        <Heading>{metadata.title as string}</Heading>
-        <Ingress>{metadata.description}</Ingress>
+      <KobberTextWrapper>
+        <KobberHeading>{metadata.title as string}</KobberHeading>
+        <KobberIngress>{metadata.description}</KobberIngress>
         <p>
           Samtidig som den har et moderne grotesk uttrykk, har PP Mori også flere karakteristikker
           som gjør skriften vennlig og uhøytidelig. Fonten bygger sin identitet rundt bokstaven G og
@@ -31,7 +34,7 @@ export default function PPMoriPage() {
           Ved bruk av PP Mori kreves det lisens som man må søke tilgang om. Kontakt oss ved behov.
           Bruk Arial i presentasjoner og dokumenter.
         </p>
-      </ArticleWrapper>
+      </KobberTextWrapper>
       <TypographyList items={PPMoriTypography} fontClassName="font-mori" />
     </SectionLayout>
   )

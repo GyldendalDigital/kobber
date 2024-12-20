@@ -12,7 +12,7 @@ import {
 
 @customElement(textHighlightName)
 export class TextHighlight extends KobberElement implements TextHighlightProps {
-  static styles: CSSResultGroup = [componentStyles, textHighlightStyles()];
+  static styles: CSSResultGroup = [componentStyles, textHighlightStyles];
 
   @property()
   color?: TextHighlightColor;

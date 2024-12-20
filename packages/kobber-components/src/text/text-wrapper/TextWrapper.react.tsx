@@ -1,6 +1,5 @@
 import React, { HTMLProps } from "react";
-import { textWrapperName } from "./TextWrapper.core";
-import { textWrapperStyles } from "./TextWrapper.styles";
+import { textWrapperName, textWrapperStyles } from "./TextWrapper.styles";
 
 type Props = HTMLProps<HTMLDivElement>;
 
@@ -10,7 +9,7 @@ export const TextWrapper = React.forwardRef<HTMLDivElement, Props>((props, ref) 
     <>
       {/* @ts-ignore */}
       <style href={textWrapperName} precedence="medium">
-        {textWrapperStyles().cssText}
+        {textWrapperStyles.cssText}
       </style>
       <div {...rest} ref={ref} className={[className, textWrapperName].join(" ")}>
         {children}
