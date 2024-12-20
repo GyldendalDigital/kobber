@@ -1,6 +1,7 @@
 import { css, unsafeCSS } from "lit";
 import { component, global, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
-import { buttonName, buttonColors, buttonVariants, buttonLevels } from "./Button.core";
+import { buttonColors, buttonVariants, buttonLevels } from "./Button.core";
+import { resetButton } from "../base/styles/reset.styles";
 
 /**
  * Shared styles, used in web component, React and CSS module.
@@ -15,27 +16,39 @@ export const buttonStyles = () => {
 
   return css`
     .kobber-button {
+      ${resetButton()};
+      position: relative;
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      text-decoration: none;
-      user-select: none;
-      -webkit-user-select: none;
       cursor: pointer;
-      white-space: nowrap;
-      vertical-align: middle;
       border: 1px solid transparent;
       gap: var(${unsafeCSS(button.container.gap)});
       padding-block: var(${unsafeCSS(button.container.padding.block)});
       padding-inline: var(${unsafeCSS(button.container.padding.inline)});
       border-radius: var(${unsafeCSS(button.container.border.radius)});
       min-height: var(${unsafeCSS(button.container.size.height)});
-      line-height: initial;
       ${typographyButton()}
     }
 
-    .kobber-button::-moz-focus-inner {
-      border: 0;
+    .kobber-button:not([disabled]).secondary.hover::after,
+    .kobber-button:not([disabled]).secondary:hover::after,
+    .kobber-button.secondary.active::after,
+    .kobber-button.secondary:active::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      border-bottom: 1px solid currentColor;
+    }
+
+    .kobber-button:not(.icon-only)::after {
+      right: var(${unsafeCSS(button.container.padding.inline)});
+      left: var(${unsafeCSS(button.container.padding.inline)});
+    }
+
+    .kobber-button.icon.icon-only::after {
+      right: 12px;
+      left: 12px;
     }
 
     .kobber-button[disabled],
@@ -43,7 +56,7 @@ export const buttonStyles = () => {
       /* TODO: wait for tokens to expose percent as number, not rem */
       /* opacity: var(${unsafeCSS(global.disabled.container.opacity)}); */
       opacity: 0.5;
-      cursor: not-allowed;
+      cursor: auto;
     }
 
     .kobber-button:focus-visible:enabled,
@@ -95,7 +108,9 @@ const buttonVariableStyles = () => {
                     color: var(${unsafeCSS(textColor.fallback)});
                   }
 
-                  ${unsafeCSS(nestedClassNames)}:hover, ${unsafeCSS(nestedClassNames)}.hover {
+                  ${unsafeCSS(nestedClassNames)}:hover:not([disabled]), ${unsafeCSS(
+                    nestedClassNames,
+                  )}.hover:not([disabled]) {
                     ${hoverEffect(backgroundColor.hover, backgroundColor.fallback)}
                   }
                 `;
@@ -115,13 +130,6 @@ const buttonVariableStyles = () => {
                   ${unsafeCSS(nestedClassNames)} {
                     background-color: transparent;
                     color: var(${unsafeCSS(textColor)});
-                  }
-
-                  ${unsafeCSS(nestedClassNames)}:hover, ${unsafeCSS(nestedClassNames)}.hover, ${unsafeCSS(
-                    nestedClassNames,
-                  )}:active, ${unsafeCSS(nestedClassNames)}.active {
-                    box-shadow: 0 2px 0 -1px var(${unsafeCSS(textColor)});
-                    border-radius: 0;
                   }
                 `;
               })
@@ -148,6 +156,7 @@ const typographyButton = () => {
     font-weight: var(${unsafeCSS(button.fontWeight)});
     font-style: var(${unsafeCSS(button.fontStyle)});
     font-stretch: var(${unsafeCSS(button.fontStretch)});
+    line-height: normal;
   `;
 };
 
