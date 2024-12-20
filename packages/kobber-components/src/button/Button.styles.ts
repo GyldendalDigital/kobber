@@ -33,8 +33,8 @@ export const buttonStyles = () => {
 
     .kobber-button:not([disabled]).secondary.hover::after,
     .kobber-button:not([disabled]).secondary:hover::after,
-    .kobber-button.secondary.active::after,
-    .kobber-button.secondary:active::after {
+    .kobber-button:not([disabled]).secondary.active::after,
+    .kobber-button:not([disabled]).secondary:active::after {
       content: "";
       position: absolute;
       bottom: 0;
