@@ -6,7 +6,7 @@ import { buttonClassNames, ButtonColor, ButtonLevel, buttonName, ButtonProps, Bu
 import "@gyldendal/kobber-icons/web-components";
 
 /**
- * Button with icon
+ * Button with icon slot
  *
  * @param ariaLabel required when using icon only
  *
@@ -25,8 +25,8 @@ export class Button extends LitElement implements ButtonProps {
   @property()
   level?: ButtonLevel;
 
-  @property()
-  iconFirst?: boolean;
+  @property({ type: Boolean })
+  iconFirst = false;
 
   @property({ type: Boolean })
   disabled = false;

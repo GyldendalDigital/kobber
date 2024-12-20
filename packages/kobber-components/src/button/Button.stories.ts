@@ -175,8 +175,9 @@ const renderButton = (
   text?: string,
 ) => {
   return `
-<kobber-button color="${color}" variant="${variant}" level="${level}" class="${state}" ${state === "disabled" ? "disabled" : ""} 
-  iconFirst=${iconPosition === "left"} onclick="clickHandler()" aria-label="button label">
+<kobber-button class="${state}" color="${color}" variant="${variant}" level="${level}" 
+  ${state === "disabled" ? "disabled" : ""} ${iconPosition === "left" ? "iconFirst" : ""} 
+  onclick="clickHandler()" aria-label="optional button label">
   ${text ?? state}
   <icon-arrow_right slot="icon" />
 </kobber-button>
@@ -185,8 +186,9 @@ const renderButton = (
 
 const renderIconOnlyButton = (color: string, variant: string, level: string, state: string) => {
   return `
-<kobber-button color="${color}" variant="${variant}" level="${level}" class="${state}" ${state === "disabled" ? "disabled" : ""} 
-   onclick="clickHandler()" aria-label="button label">
+<kobber-button class="${state}" color="${color}" variant="${variant}" level="${level}" 
+${state === "disabled" ? "disabled" : ""} 
+   onclick="clickHandler()" aria-label="required button label">
   <icon-arrow_right slot="icon" />
 </kobber-button>
 `;

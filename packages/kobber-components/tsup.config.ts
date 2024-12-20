@@ -2,6 +2,8 @@ import fs from "fs";
 import { defineConfig } from "tsup";
 import { cssModules } from "./src/index.vanilla-css";
 
+const outDir = "dist";
+
 const chunks = "chunks";
 
 const reactDirectory = "react";
@@ -12,17 +14,6 @@ const webComponentsDirectory = "web-components";
 
 const vanillaDirectory = "vanilla";
 
-const removeDirectory = (directory: string) => {
-  if (!fs.existsSync(directory)) return;
-  fs.rmdirSync(directory, { recursive: true });
-};
-
-removeDirectory(chunks);
-removeDirectory(reactDirectory);
-removeDirectory(reactSsrSafeDirectory);
-removeDirectory(webComponentsDirectory);
-removeDirectory(vanillaDirectory);
-
 export default defineConfig(() => ({
   entry: {
     [`${reactDirectory}/index`]: "src/index.react.tsx",
@@ -32,7 +23,7 @@ export default defineConfig(() => ({
   },
   format: ["esm"],
   dts: true,
-  outDir: "./dist",
+  outDir: outDir,
   clean: true,
   external: ["react"],
   esbuildOptions(options) {
@@ -40,8 +31,7 @@ export default defineConfig(() => ({
   },
   onSuccess() {
     return new Promise(resolve => {
-      // fix build crash when this css is actually needed
-      // createCss();
+      createCss();
       resolve();
     });
   },
@@ -50,7 +40,7 @@ export default defineConfig(() => ({
 const createCss = () => {
   for (const cssModule of cssModules) {
     fs.writeFileSync(
-      `${vanillaDirectory}/${cssModule.id}.module.css`,
+      `${outDir}/${vanillaDirectory}/${cssModule.id}.module.css`,
       cssModule.styles.map(style => style.trim()).join("\n"),
     );
   }

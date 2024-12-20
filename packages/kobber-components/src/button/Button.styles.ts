@@ -2,6 +2,14 @@ import { css, unsafeCSS } from "lit";
 import { component, global, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables";
 import { buttonName, buttonColors, buttonVariants, buttonLevels } from "./Button.core";
 
+/**
+ * Shared styles, used in web component, React and CSS module.
+ * 
+ * TODO: 
+ * support variant supplemental alt
+ * let consumer decide if element should be button or anchor tag
+ * 
+ */
 export const buttonStyles = () => {
   const button = component.button;
 
