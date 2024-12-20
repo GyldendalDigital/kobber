@@ -11,7 +11,7 @@ import { resetButton } from "../base/styles/reset.styles";
  * let consumer decide if element should be button or anchor tag
  * secondary hover effect bottom border should only cover text
  */
-export const buttonStyles = () => {
+const createButtonStyles = () => {
   const button = component.button;
 
   return css`
@@ -159,6 +159,8 @@ const typographyButton = () => {
     line-height: normal;
   `;
 };
+
+export const buttonStyles = createButtonStyles();
 
 /**
  * NYI

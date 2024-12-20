@@ -8,7 +8,7 @@ import { textHighlightName } from "./text/text-highlight/TextHighlight.core";
 export const cssModules = [
   {
     id: buttonName,
-    styles: [buttonStyles().cssText],
+    styles: [buttonStyles.cssText],
   },
   {
     id: textWrapperName,

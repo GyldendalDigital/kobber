@@ -14,7 +14,7 @@ import "@gyldendal/kobber-icons/web-components";
  */
 @customElement(buttonName)
 export class Button extends LitElement implements ButtonProps {
-  static styles: CSSResultGroup = [componentStyles, buttonStyles()];
+  static styles: CSSResultGroup = [componentStyles, buttonStyles];
 
   @property()
   color?: ButtonColor;

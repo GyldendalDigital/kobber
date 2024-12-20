@@ -15,7 +15,7 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>((props, ref) =>
       {/* https://react.dev/reference/react-dom/components/style#rendering-an-inline-css-stylesheet */}
       {/* @ts-ignore */}
       <style href={buttonName} precedence="medium">
-        {buttonStyles().cssText}
+        {buttonStyles.cssText}
       </style>
       <button
         {...rest}
