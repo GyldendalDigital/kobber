@@ -8,9 +8,7 @@ export const Heading = React.forwardRef<HTMLHeadingElement, Props>((props, ref) 
   return (
     <>
       {/* @ts-ignore */}
-      <style href={headingName} precedence="medium">
-        {headingStyles.cssText}
-      </style>
+      <style href={headingName} precedence="medium" dangerouslySetInnerHTML={{ __html: headingStyles.cssText }}></style>
       <h1 {...rest} ref={ref} className={[className, headingName].join(" ")}>
         {children}
       </h1>

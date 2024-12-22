@@ -7,10 +7,12 @@ export const TextWrapper = React.forwardRef<HTMLDivElement, Props>((props, ref) 
   const { children, className, ...rest } = props;
   return (
     <>
-      {/* @ts-ignore */}
-      <style href={textWrapperName} precedence="medium">
-        {textWrapperStyles.cssText}
-      </style>
+      <style
+        // @ts-ignore
+        href={textWrapperName}
+        precedence="medium"
+        dangerouslySetInnerHTML={{ __html: textWrapperStyles.cssText }}
+      ></style>
       <div {...rest} ref={ref} className={[className, textWrapperName].join(" ")}>
         {children}
       </div>

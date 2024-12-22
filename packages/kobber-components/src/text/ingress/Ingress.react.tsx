@@ -8,9 +8,7 @@ export const Ingress = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
   return (
     <>
       {/* @ts-ignore */}
-      <style href={ingressName} precedence="medium">
-        {ingressStyles.cssText}
-      </style>
+      <style href={ingressName} precedence="medium" dangerouslySetInnerHTML={{ __html: ingressStyles.cssText }}></style>
       <div {...rest} ref={ref} className={[className, ingressName].join(" ")}>
         {children}
       </div>

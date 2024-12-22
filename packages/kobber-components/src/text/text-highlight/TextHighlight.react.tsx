@@ -8,10 +8,12 @@ export const TextHighlight = React.forwardRef<HTMLSpanElement, Props>((props, re
   const { color, children, className, ...rest } = props;
   return (
     <>
-      {/* @ts-ignore */}
-      <style href={textHighlightName} precedence="medium">
-        {textHighlightStyles.cssText}
-      </style>
+      <style
+        // @ts-ignore
+        href={textHighlightName}
+        precedence="medium"
+        dangerouslySetInnerHTML={{ __html: textHighlightStyles.cssText }}
+      ></style>
       <span {...rest} ref={ref} className={[className, ...textHighlightClassNames({ color })].join(" ")}>
         {children}
       </span>

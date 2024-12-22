@@ -13,10 +13,10 @@ export const Button = React.forwardRef<HTMLButtonElement, Props>((props, ref) =>
     <>
       {/* hoists the style kelement into <head> and deduplicates it */}
       {/* https://react.dev/reference/react-dom/components/style#rendering-an-inline-css-stylesheet */}
+      {/* have to use dangerousHtml because of encoding, changing ie. & into &amp; */}
+      {/* https://github.com/facebook/react/issues/13838#issuecomment-675270594 */}
       {/* @ts-ignore */}
-      <style href={buttonName} precedence="medium">
-        {buttonStyles.cssText}
-      </style>
+      <style href={buttonName} precedence="medium" dangerouslySetInnerHTML={{ __html: buttonStyles.cssText }}></style>
       <button
         {...rest}
         ref={ref}
