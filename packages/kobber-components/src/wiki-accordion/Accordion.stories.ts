@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { customElementName } from "./Accordion";
 import "../button/Button";
+import "../utils/theme-context";
 
 export default {
   title: "kobber.gyldendal.no/Accordion",
