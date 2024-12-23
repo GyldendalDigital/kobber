@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { customElementName } from "./List";
+import "../utils/theme-context";
 
 export default {
   title: "kobber.gyldendal.no/List",

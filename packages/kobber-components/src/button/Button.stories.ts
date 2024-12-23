@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components";
 import { primitives } from "@gyldendal/kobber-base/themes/default/tokens";
 import { buttonColors, buttonVariants, buttonLevels, ButtonColor, ButtonVariant, ButtonLevel } from "./Button.core";
 import "./Button";
+import "../utils/theme-context";
 
 const states = ["idle", "hover", "active", "focus", "disabled"];
 
@@ -36,7 +37,7 @@ const meta: Meta = {
   decorators: [
     (Story, context) => `
     <script>const clickHandler = () => console.log('clicked')</script>
-    <kobber-theme-context theme-id=${context.globals.theme} class=${context.globals.theme}>
+    <kobber-theme-context theme-id=${context.globals.theme}>
       ${Story()}
     </kobber-theme-context>
     `,

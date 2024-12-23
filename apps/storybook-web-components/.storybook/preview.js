@@ -1,4 +1,5 @@
 import "@gyldendal/kobber-base/themes/default/tokens.css";
+import "@gyldendal/kobber-base/themes/dark/tokens.css";
 
 const themes = ["kobber-theme-default", "kobber-theme-dark"];
 
