@@ -1,7 +1,7 @@
+import { KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
 import { TextCollectionProps } from "@/types/types"
 import { Heading } from "./heading"
 import { Ingress } from "./ingress"
-import { SubHeading } from "./sub-heading"
 
 /** @deprecated use ArticleWrapper + Heading + Ingress + <p>  */
 export function TextCollection({
@@ -21,7 +21,11 @@ export function TextCollection({
         </div>
       )}
       {!label && heading && <Heading size={size}>{heading}</Heading>}
-      {subheading && <SubHeading>{subheading}</SubHeading>}
+      {subheading && (
+        <KobberHeading level="h2" variant="title medium">
+          {subheading}
+        </KobberHeading>
+      )}
       {ingress && <Ingress text={ingress} size={size} />}
       {text && (
         <p className="whitespace-pre-wrap text-[16px] leading-[25px] text-[#481125ff]">{text}</p>

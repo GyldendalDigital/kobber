@@ -1,17 +1,30 @@
-import { CSSResultGroup, html, LitElement } from "lit";
-import { customElement } from "lit/decorators.js";
+import { CSSResultGroup, LitElement } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import { html, unsafeStatic } from "lit/static-html.js";
 import componentStyles from "../../base/styles/component.styles";
-import { headingName, headingStyles } from "./Heading.styles";
+import { headingStyles } from "./Heading.styles";
+import { headingClassNames, headingName, HeadingProps, sanitizeHeadingLevel } from "./Heading.core";
 
 @customElement(headingName)
-export class Heading extends LitElement {
+export class Heading extends LitElement implements HeadingProps {
   static styles: CSSResultGroup = [componentStyles, headingStyles];
 
+  @property({ type: String })
+  level: HeadingProps["level"];
+
+  @property({ type: String })
+  variant: HeadingProps["variant"];
+
+  @property({ type: String })
+  font: HeadingProps["font"];
+
   render() {
+    const tag = sanitizeHeadingLevel(this.level);
+
     return html`
-      <h1 class="${headingName} ${this.className}">
+      <${unsafeStatic(tag)} class="${headingClassNames(this).join(" ")}">
         <slot></slot>
-      </h1>
+      </${unsafeStatic(tag)}>
     `;
   }
 }

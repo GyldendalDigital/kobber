@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { KobberButton } from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
 import { ArrowLeft, Menu, X } from "lucide-react"
 import { signOut, useSession } from "next-auth/react"
 import { APP_NAME } from "@/lib/constants"
@@ -14,7 +14,6 @@ import { IconLogin, IconLogout } from "@/components/kobber-icons"
 import { metaGettingStarted } from "@/app/(routes)/kom-i-gang/gettingStarted.meta"
 import { metaComponents } from "@/app/(routes)/komponenter/components.meta"
 import { metaBrand } from "@/app/(routes)/merkevare/brand.meta"
-import { SubHeading } from "../sub-heading"
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
 import { WikiHeaderItem } from "./wiki-header-item"
 
@@ -23,7 +22,7 @@ const equalRoutesForNow = [metaGettingStarted, metaBrand, metaComponents]
 export function WikiNavbar() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
 
   const flattenItems = (items: PageMetadata[]): PageMetadata[] => {
     return items.flatMap((item) => [item, ...(item.children ? flattenItems(item.children) : [])])
@@ -83,14 +82,14 @@ export function WikiNavbar() {
                 color="aubergine"
                 onClick={handleAuth}
                 icon={
-                  session?.user ? (
-                    <IconLogout className="size-4" />
-                  ) : (
+                  status === "unauthenticated" ? (
                     <IconLogin className="size-4" />
+                  ) : (
+                    <IconLogout className="size-4" />
                   )
                 }
               >
-                Logg {session?.user ? "ut" : "inn"}
+                Logg {status === "unauthenticated" ? "inn" : "ut"}
               </KobberButton>
             </li>
           </ul>
@@ -137,7 +136,11 @@ export function WikiNavbar() {
                 <ul className="flex flex-col gap-4">
                   {(selectedCategoryItems ?? equalRoutesForNow).map((item) => (
                     <li className="flex flex-col gap-4" key={item.href}>
-                      <SubHeading className={cn({ underline: pathname === item.href })}>
+                      <KobberHeading
+                        level="h2"
+                        variant="title medium"
+                        className={cn({ underline: pathname === item.href })}
+                      >
                         {!item.children || item.children.length === 0 ? (
                           <Link
                             className={cn("hover:underline", {
@@ -157,7 +160,7 @@ export function WikiNavbar() {
                         ) : (
                           (item.title as string)
                         )}
-                      </SubHeading>
+                      </KobberHeading>
 
                       {item.children && item.children.length !== 0 && (
                         <ul className="flex flex-col gap-4">

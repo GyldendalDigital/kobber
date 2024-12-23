@@ -6,7 +6,3 @@
   font-named-instance: "Regular";
   src: url("/fonts/mori/PPMori-Regular.woff2") format("woff2");
 }
-
-* {
-  font-family: PP Mori, sans-serif !important;
-}

@@ -116,7 +116,7 @@ const buttonVariableStyles = () => {
                   }
                 `;
               })
-              .filter(Boolean),
+              .filter(x => x !== undefined),
             // special handling of secondary transparent buttons
             ...buttonLevels
               .filter(level => level === "secondary")
@@ -134,7 +134,7 @@ const buttonVariableStyles = () => {
                   }
                 `;
               })
-              .filter(Boolean),
+              .filter(x => x !== undefined),
           ];
         })
     );

@@ -1,10 +1,13 @@
 import Image from "next/image"
 import Link from "next/link"
-import { KobberIngress, KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
 import { IconExternalLink } from "@/components/kobber-icons"
 import { SectionLayout } from "@/components/section-layout"
-import { SubHeading } from "@/components/sub-heading"
 import { metaBrandLogo } from "./logo.meta"
 
 export const metadata = metaBrandLogo
@@ -37,7 +40,9 @@ export default function Page() {
       </div>
 
       <KobberTextWrapper className="max-w-[711px] gap-0">
-        <SubHeading className="text-[24px] text-[#481125]">Primærlogo</SubHeading>
+        <KobberHeading level="h2" variant="title medium">
+          Primærlogo
+        </KobberHeading>
         <p>
           Gyldendals primærlogo skal brukes i de fleste tilfeller.
           <br />
@@ -59,7 +64,9 @@ export default function Page() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px] gap-0">
-        <SubHeading className="text-[24px] text-[#481125]">Fargevarianter</SubHeading>
+        <KobberHeading level="h2" variant="title medium">
+          Fargevarianter
+        </KobberHeading>
         <p>
           Gyldendals primærlogo kan brukes i en positiv og en negativ variant. Den positive
           varianten brukes på lys bakgrunn og den negative brukes på mørk bakgrunn.
@@ -80,7 +87,9 @@ export default function Page() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px] gap-0">
-        <SubHeading className="text-[24px] text-[#481125]">Emblemvariant</SubHeading>
+        <KobberHeading level="h2" variant="title medium">
+          Emblemvariant
+        </KobberHeading>
         <p>
           Emblemversjonen av logoen brukes kun når Gyldendal selv er hovedfokuset i et budskap. Den
           er best egnet når den står helt for seg selv på en flate.
@@ -100,7 +109,9 @@ export default function Page() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px] gap-0">
-        <SubHeading className="text-[24px] text-[#481125]">Størrelse</SubHeading>
+        <KobberHeading level="h2" variant="title medium">
+          Størrelse
+        </KobberHeading>
         <p>
           Logoen skal alltid være leselig og synlig. Derfor skal den ikke brukes i mindre størrelse
           enn det som er definert under.
@@ -125,7 +136,9 @@ export default function Page() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px] gap-0">
-        <SubHeading className="text-[24px] text-[#481125]">Luft</SubHeading>
+        <KobberHeading level="h2" variant="title medium">
+          Luft
+        </KobberHeading>
         <p>
           Logoen må ha tilstrekkelig rom rundt seg for å kunne stå ut. Om du skal plassere logoen
           utenom et malverk, skal andre objekter plasseres utenfor klaringen som vist ved siden av.
@@ -151,7 +164,9 @@ export default function Page() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px] gap-0">
-        <SubHeading className="text-[24px] text-[#481125]">Logoikon</SubHeading>
+        <KobberHeading level="h2" variant="title medium">
+          Logoikon
+        </KobberHeading>
         <p>
           Ikonet brukes alene kun i tilfeller der det ikke er plass til hele logoen, slik som i
           profilbilde på sosiale medier-kontoer eller som favorittikon i nettleser. 
@@ -194,7 +209,9 @@ export default function Page() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px]">
-        <SubHeading className="text-[24px] text-[#481125]">Unngå dette</SubHeading>
+        <KobberHeading level="h2" variant="title medium">
+          Unngå dette
+        </KobberHeading>
 
         <div className="flex flex-col items-center justify-center gap-[14px] md:grid md:grid-cols-2">
           <Image
