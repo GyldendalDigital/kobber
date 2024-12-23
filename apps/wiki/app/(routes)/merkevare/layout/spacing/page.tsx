@@ -1,7 +1,8 @@
-import { pageMetadata } from "@/lib/metadata.utils"
-import { placeholderImageUrl } from "@/lib/utils"
-import { Heading } from "@/components/heading"
-import { ArticleWrapper, Ingress } from "@/components/kobber-components"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { SectionLayout } from "@/components/section-layout"
 import { metaBrandLayoutSpacing } from "./spacing.meta"
 
@@ -10,9 +11,9 @@ export const metadata = metaBrandLayoutSpacing
 export default function SpacingPage() {
   return (
     <SectionLayout>
-      <ArticleWrapper>
-        <Heading>{metadata.title as string}</Heading>
-        <Ingress>{metadata.description}</Ingress>
+      <KobberTextWrapper>
+        <KobberHeading>{metadata.title as string}</KobberHeading>
+        <KobberIngress>{metadata.description}</KobberIngress>
 
         <p>
           Luft refererer til hvordan mellomrom brukes i utformingen av en nettside. Dette inkluderer
@@ -33,7 +34,7 @@ export default function SpacingPage() {
             </li>
           </ul>
         </p>
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
       <div>
         {spacingSizes.map((size, index) => (

@@ -4,13 +4,13 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { KobberButton } from "@gyldendal/kobber-components/react-ssr-safe"
 import { ArrowLeft, Menu, X } from "lucide-react"
 import { signOut, useSession } from "next-auth/react"
 import { APP_NAME } from "@/lib/constants"
 import { PageMetadata } from "@/lib/metadata.utils"
 import { cn } from "@/lib/utils"
 import { ssoSignIn } from "@/hooks/use-sso-sign-in"
-import { Button } from "@/components/kobber-components"
 import { IconLogin, IconLogout } from "@/components/kobber-icons"
 import { SubHeading } from "../sub-heading"
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet"
@@ -79,16 +79,14 @@ export function WikiNavbarContainer({ itemsDesktop, itemsMobile }: WikiNavbarCon
           ))}
 
           <li className="ml-[56px] flex items-center gap-2">
-            <Button onClick={handleAuth}>
+            <KobberButton
+              onClick={handleAuth}
+              icon={
+                session?.user ? <IconLogout className="size-4" /> : <IconLogin className="size-4" />
+              }
+            >
               Logg {session?.user ? "ut" : "inn"}
-              <span slot="icon">
-                {session?.user ? (
-                  <IconLogout className="size-4" />
-                ) : (
-                  <IconLogin className="size-4" />
-                )}
-              </span>
-            </Button>
+            </KobberButton>
           </li>
         </ul>
 

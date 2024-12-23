@@ -1,6 +1,9 @@
-import { Heading } from "@/components/heading"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { HeroImage } from "@/components/hero-image"
-import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { metaPowerpointTemplate } from "./powerpoint-template.meta"
 
@@ -10,11 +13,11 @@ export default function PowerpointTemplatePage() {
   return (
     <SectionLayout>
       <HeroImage src={metadata.image} />
-      <ArticleWrapper>
-        <Heading>Presentasjonsmal</Heading>
-        <Ingress>{metadata.description}</Ingress>
+      <KobberTextWrapper>
+        <KobberHeading>Presentasjonsmal</KobberHeading>
+        <KobberIngress>{metadata.description}</KobberIngress>
         {/* TODO: Remove the mt-5 look figma */}
-        <p className="mt-5">
+        <p>
           Malen følger identitetens fargeutrykk. Tittelsider, sitatsider og ellers andre sider som
           bryter opp vanlige tekstsider, finnes i både en lys og mørk variant. Karminrød brukes som
           bakgrunn for å fremheve mellomdelingsider.
@@ -30,7 +33,7 @@ export default function PowerpointTemplatePage() {
           <br />
           Presentasjonsmalen er tilgjengelig i PowerPoint når du oppretter en ny presentasjon.
         </p>
-      </ArticleWrapper>
+      </KobberTextWrapper>
     </SectionLayout>
   )
 }

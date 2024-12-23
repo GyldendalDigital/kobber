@@ -1,8 +1,9 @@
 import { css, unsafeCSS } from "lit";
 import { template } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
-import { textWrapperName } from "./TextWrapper.core";
 
-export const textWrapperStyles = () => {
+export const textWrapperName = "kobber-text-wrapper";
+
+const createTextWrapperStyles = () => {
   const textWrapper = template["text-wrapper"];
 
   return css`
@@ -14,3 +15,5 @@ export const textWrapperStyles = () => {
     }
   `;
 };
+
+export const textWrapperStyles = createTextWrapperStyles();

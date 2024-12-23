@@ -1,9 +1,12 @@
 import Link from "next/link"
 import { LyonTypography } from "@/data/typography"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
-import { Heading } from "@/components/heading"
 import { HeroImage } from "@/components/hero-image"
-import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { TypographyList } from "@/components/typography-list"
 import { metaGettingStartedContact } from "@/app/(routes)/kom-i-gang/kontakt/contact.meta"
@@ -16,9 +19,9 @@ export default function LyongPage() {
   return (
     <SectionLayout>
       <HeroImage src={damUrl("By9O98egq-FBEgC3t7Ek6L", ".svg")} />
-      <ArticleWrapper>
-        <Heading>{metadata.title as string}</Heading>
-        <Ingress>{metadata.description}</Ingress>
+      <KobberTextWrapper>
+        <KobberHeading>{metadata.title as string}</KobberHeading>
+        <KobberIngress>{metadata.description}</KobberIngress>
         <p>
           Står den alene brukes brukes fonten hovedsakelig til sitater og mer emosjonelle budskap.
           Kombinert med PP Mori brukes den som kontrast i redaksjonelle overskrifter og for å legge
@@ -40,7 +43,7 @@ export default function LyongPage() {
           </Link>{" "}
           i presentasjoner og dokumenter.
         </p>
-      </ArticleWrapper>
+      </KobberTextWrapper>
       <TypographyList items={LyonTypography} fontClassName="font-lyon" />
     </SectionLayout>
   )

@@ -1,6 +1,6 @@
 import { css, unsafeCSS } from "lit";
 import { component, global, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
-import { buttonColors, buttonVariants, buttonLevels } from "./Button.core";
+import { buttonColors, buttonVariants, buttonLevels, buttonName } from "./Button.core";
 import { resetButton } from "../base/styles/reset.styles";
 
 /**
@@ -15,7 +15,7 @@ const createButtonStyles = () => {
   const button = component.button;
 
   return css`
-    .kobber-button {
+    .${unsafeCSS(buttonName)} {
       ${resetButton()};
       position: relative;
       display: inline-flex;
@@ -28,59 +28,60 @@ const createButtonStyles = () => {
       padding-inline: var(${unsafeCSS(button.container.padding.inline)});
       border-radius: var(${unsafeCSS(button.container.border.radius)});
       min-height: var(${unsafeCSS(button.container.size.height)});
+
+      ${buttonVariableStyles()}
+
       ${typographyButton()}
-    }
 
-    .kobber-button:not([disabled]).secondary.hover::after,
-    .kobber-button:not([disabled]).secondary:hover::after,
-    .kobber-button:not([disabled]).secondary.active::after,
-    .kobber-button:not([disabled]).secondary:active::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      border-bottom: 1px solid currentColor;
-    }
+      &:not([disabled]).secondary.hover::after,
+      &:not([disabled]).secondary:hover::after,
+      &:not([disabled]).secondary.active::after,
+      &:not([disabled]).secondary:active::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        border-bottom: 1px solid currentColor;
+      }
 
-    .kobber-button:not(.icon-only)::after {
-      right: var(${unsafeCSS(button.container.padding.inline)});
-      left: var(${unsafeCSS(button.container.padding.inline)});
-    }
+      &:not(.icon-only)::after {
+        right: var(${unsafeCSS(button.container.padding.inline)});
+        left: var(${unsafeCSS(button.container.padding.inline)});
+      }
 
-    .kobber-button.icon.icon-only::after {
-      right: 12px;
-      left: 12px;
-    }
+      &.icon.icon-only::after {
+        right: 12px;
+        left: 12px;
+      }
 
-    .kobber-button[disabled],
-    .kobber-button.disabled {
-      /* TODO: wait for tokens to expose percent as number, not rem */
-      /* opacity: var(${unsafeCSS(global.disabled.container.opacity)}); */
-      opacity: 0.5;
-      cursor: auto;
-    }
+      &[disabled],
+      &.disabled {
+        /* TODO: wait for tokens to expose percent as number, not rem */
+        /* opacity: var(${unsafeCSS(global.disabled.container.opacity)}); */
+        opacity: 0.5;
+        cursor: auto;
+      }
 
-    .kobber-button:focus-visible:enabled,
-    .kobber-button.focus {
-      outline: none;
-      box-shadow: 0 0 0 var(${unsafeCSS(global.focus.border.width)}) var(${unsafeCSS(global.focus.color)});
-    }
+      &:focus-visible:enabled,
+      &.focus {
+        outline: none;
+        box-shadow: 0 0 0 var(${unsafeCSS(global.focus.border.width)}) var(${unsafeCSS(global.focus.color)});
+      }
 
-    .kobber-button.icon {
-      --icon-width: var(${unsafeCSS(button.icon.size.width.small)});
-      --icon-height: var(${unsafeCSS(button.icon.size.height.small)});
-    }
+      &.icon {
+        --icon-width: var(${unsafeCSS(button.icon.size.width.small)});
+        --icon-height: var(${unsafeCSS(button.icon.size.height.small)});
+      }
 
-    .kobber-button.icon.icon-left {
-      flex-direction: row-reverse;
-    }
+      &.icon.icon-left {
+        flex-direction: row-reverse;
+      }
 
-    .kobber-button.icon.icon-only {
-      gap: 0;
-      padding-block: 12px;
-      padding-inline: 12px;
+      &.icon.icon-only {
+        gap: 0;
+        padding-block: 12px;
+        padding-inline: 12px;
+      }
     }
-
-    ${buttonVariableStyles()}
   `;
 };
 
@@ -100,7 +101,7 @@ const buttonVariableStyles = () => {
                 const textColor = component.button.text.color[color]?.[variant]?.[level];
                 if (!backgroundColor || !textColor) return;
 
-                const nestedClassNames = `.kobber-button.${color}.${variant}.${level}`;
+                const nestedClassNames = `&.${color}.${variant}.${level}`;
 
                 return css`
                   ${unsafeCSS(nestedClassNames)} {
@@ -124,7 +125,7 @@ const buttonVariableStyles = () => {
                 const textColor = component.button.text.color[color]?.[variant]?.[level]?.fallback;
                 if (!textColor) return;
 
-                const nestedClassNames = `.kobber-button.${color}.${variant}.${level}`;
+                const nestedClassNames = `&.${color}.${variant}.${level}`;
 
                 return css`
                   ${unsafeCSS(nestedClassNames)} {
@@ -165,7 +166,7 @@ export const buttonStyles = createButtonStyles();
 /**
  * NYI
  
-.kobber-button.supplemental-alt {
+&.supplemental-alt {
     background-color: transparent;
     height: auto;
     padding: 0;

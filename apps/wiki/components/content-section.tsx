@@ -10,6 +10,7 @@ type ContentSectionProps = {
   chilClassName?: string
 }
 
+/** @deprecated use ArticleWrapper + Heading + Ingress + <p>  */
 export function ContentSection({
   textCollection: { heading, ingress, label, size, subheading, text },
   children,

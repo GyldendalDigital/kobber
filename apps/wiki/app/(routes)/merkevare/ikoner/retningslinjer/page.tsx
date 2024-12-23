@@ -1,7 +1,10 @@
 import Image from "next/image"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
-import { Heading } from "@/components/heading"
-import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
 import { metaBrandIconGuidelines } from "./guidelines.meta"
@@ -11,12 +14,12 @@ export const metadata = metaBrandIconGuidelines
 export default function RetningsLinjerPage() {
   return (
     <SectionLayout>
-      <ArticleWrapper>
-        <Heading>{metadata.title as string}</Heading>
-        <Ingress>{metadata.description}</Ingress>
-      </ArticleWrapper>
+      <KobberTextWrapper>
+        <KobberHeading>{metadata.title as string}</KobberHeading>
+        <KobberIngress>{metadata.description}</KobberIngress>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
+      <KobberTextWrapper className="max-w-[711px]">
         <SubHeading>Utforming</SubHeading>
         <p>
           For å sikre konsistens og lesbarhet, bruker vi moderne, enkelt utformede ikoner i
@@ -39,9 +42,9 @@ export default function RetningsLinjerPage() {
             alt="Bruk enkle ikoner for bedre lesbarhet"
           />
         </div>
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
+      <KobberTextWrapper className="max-w-[711px]">
         <SubHeading>Størrelser</SubHeading>
         <p>
           Ikonene har en grunnstørrelse på 20 x 20 px for 1280px skjermbredde. Dette inkluderer
@@ -62,9 +65,9 @@ export default function RetningsLinjerPage() {
             alt="Bruk enkle ikoner for bedre lesbarhet"
           />
         </div>
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
+      <KobberTextWrapper className="max-w-[711px]">
         <SubHeading>Vekt</SubHeading>
         <p>
           For å sikre at ikonene beholder lik tykkelse ved skalering, unngår vi å justere vekten
@@ -94,9 +97,9 @@ export default function RetningsLinjerPage() {
             />
           </div>
         </div>
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
+      <KobberTextWrapper className="max-w-[711px]">
         <SubHeading>Tekst og ikoner</SubHeading>
         <p>
           Når ikoner brukes sammen med tekst, er formålet å tydeliggjøre en beskjed eller handling.
@@ -143,7 +146,7 @@ export default function RetningsLinjerPage() {
             alt="Tekst sammen med ikon støtter navigasjonen."
           />
         </div>
-      </ArticleWrapper>
+      </KobberTextWrapper>
     </SectionLayout>
   )
 }

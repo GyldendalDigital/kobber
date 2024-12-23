@@ -1,11 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
-import { KobberTextHighlight, KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextHighlight,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { BRANDING_MANUAL_URL, KOBBER_TEAMS_URL } from "@/lib/constants"
 import { damUrl } from "@/lib/damImageLoader"
 import { ExternalLinksGrid } from "@/components/global/external-links-grid"
-import { Heading } from "@/components/heading"
-import { Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { SubHeading } from "@/components/sub-heading"
 import { metaGettingStartedHow } from "./how.meta"
@@ -16,8 +19,8 @@ export default function HvordanBrukeKobber() {
   return (
     <SectionLayout>
       <KobberTextWrapper>
-        <Heading>{metadata.title as string}</Heading>
-        <Ingress>{metadata.description}</Ingress>
+        <KobberHeading>{metadata.title as string}</KobberHeading>
+        <KobberIngress>{metadata.description}</KobberIngress>
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px]">
