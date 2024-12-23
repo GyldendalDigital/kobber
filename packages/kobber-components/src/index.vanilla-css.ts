@@ -3,7 +3,8 @@ import { textWrapperName, textWrapperStyles } from "./text/text-wrapper/TextWrap
 import { buttonName } from "./button/Button.core";
 import { buttonStyles } from "./button/Button.styles";
 import { textHighlightName } from "./text/text-highlight/TextHighlight.core";
-import { headingName } from "./text/heading/Heading.styles";
+import { headingName } from "./text/heading/Heading.core";
+import { headingStyles } from "./text/heading/Heading.styles";
 
 export const cssModules = [
   {
@@ -20,6 +21,6 @@ export const cssModules = [
   },
   {
     id: headingName,
-    styles: [textHighlightStyles.cssText],
+    styles: [headingStyles.cssText],
   },
 ];

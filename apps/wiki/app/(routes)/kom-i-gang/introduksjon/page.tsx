@@ -6,7 +6,6 @@ import {
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
 import { SectionLayout } from "@/components/section-layout"
-import { SubHeading } from "@/components/sub-heading"
 import { metaGettingStartedIntro } from "./intro.meta"
 
 export const metadata = metaGettingStartedIntro
@@ -35,7 +34,9 @@ export default function Introduksjon() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[712px]">
-        <SubHeading>Hvorfor et designsystem?</SubHeading>
+        <KobberHeading level="h2" variant="title medium">
+          Hvorfor et designsystem?
+        </KobberHeading>
         <p>
           Designsystemet muliggjør en raskere og mer effektiv praksis for konsistent
           merkevarebygging, produktutvikling og kommunikasjon. Det skaper en tydeligere felles
@@ -49,7 +50,9 @@ export default function Introduksjon() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[712px]">
-        <SubHeading>Hva er kobber?</SubHeading>
+        <KobberHeading level="h2" variant="title medium">
+          Hva er kobber?
+        </KobberHeading>
 
         <Image
           src={damUrl("7tpgwMbB4hmBMGYLZLYfHi", ".svg")}

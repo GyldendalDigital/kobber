@@ -3,11 +3,11 @@ import Link from "next/link"
 import {
   KobberHeading,
   KobberIngress,
+  KobberTextHighlight,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
 import { SectionLayout } from "@/components/section-layout"
-import { SubHeading } from "@/components/sub-heading"
 import { metaGettingStartedContact } from "../../kom-i-gang/kontakt/contact.meta"
 import { metaBrandLogo } from "../logo/logo.meta"
 import { metaBrandLevel } from "./brandLevel.meta"
@@ -37,11 +37,11 @@ export default function MerkevareHeriarkiPage() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px]">
-        <SubHeading>
-          <span className="text-highlight">Nivå 1</span>
+        <KobberHeading level="h2" variant="title medium">
+          <KobberTextHighlight>Nivå 1</KobberTextHighlight>
           <br />
           Mormerke
-        </SubHeading>
+        </KobberHeading>
         <p>
           Nivå 1.1 består av Gyldendals primærlogo og brukes alltid som avsender på Gyldendals
           utgivelser, arrangementer og lignende. Mer informasjon om primærlogoen og bruken av den,
@@ -71,11 +71,11 @@ export default function MerkevareHeriarkiPage() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px]">
-        <SubHeading>
-          <span className="text-highlight">Nivå 2</span>
+        <KobberHeading level="h2" variant="title medium">
+          <KobberTextHighlight>Nivå 2</KobberTextHighlight>
           <br />
           Støttet utgivelse og verk
-        </SubHeading>
+        </KobberHeading>
         <p>
           Nivå 2 beskriver hvordan logoer brukes i utgivelser og verk som skal ha Gyldendal som
           avsender.
@@ -104,11 +104,11 @@ export default function MerkevareHeriarkiPage() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px]">
-        <SubHeading>
-          <span className="text-highlight">Nivå 3</span>
+        <KobberHeading level="h2" variant="title medium">
+          <KobberTextHighlight>Nivå 3</KobberTextHighlight>
           <br />
           Støttet identitet
-        </SubHeading>
+        </KobberHeading>
         <p>
           Støttede identiteter brukes av digitale tjenester som utvikles av Gyldendal og derfor har
           Gyldendal som del av sin logo. Disse har egne logosymboler, men følger Gyldendals regler
@@ -132,11 +132,11 @@ export default function MerkevareHeriarkiPage() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px]">
-        <SubHeading>
-          <span className="text-highlight">Nivå 4</span>
+        <KobberHeading level="h2" variant="title medium">
+          <KobberTextHighlight>Nivå 4</KobberTextHighlight>
           <br />
           Frittstående identitet
-        </SubHeading>
+        </KobberHeading>
         <p>
           Frittstående identiteter er selvstendige merkevarer og tjenester som, av strategiske
           grunner, kommuniserer uten å fremheve tilknytningen til Gyldendal. Dette kan være

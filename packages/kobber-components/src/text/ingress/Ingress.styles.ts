@@ -4,17 +4,17 @@ import { component, typography } from "@gyldendal/kobber-base/themes/default/tok
 export const ingressName = "kobber-ingress";
 
 const createIngressStyles = () => {
-  const Ingress = component.article.ingress;
+  const ingress = component.article.ingress;
 
   return css`
     .${unsafeCSS(ingressName)} {
-      color: var(${unsafeCSS(Ingress.text.color.base)});
-      ${typographyLarge()}
+      color: var(${unsafeCSS(ingress.text.color.base)});
+      ${ingressTypography()}
     }
   `;
 };
 
-const typographyLarge = () => {
+const ingressTypography = () => {
   const ingress = typography.primary["title medium"];
 
   return css`
