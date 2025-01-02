@@ -16,7 +16,7 @@ export const resetButton = () => css`
   color: inherit;
   cursor: pointer;
 
-  ::-moz-focus-inner {
+  &::-moz-focus-inner {
     border: 0;
     padding: 0;
   }

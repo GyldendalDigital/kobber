@@ -1,15 +1,19 @@
 import { css, unsafeCSS } from "lit";
 import { component, global, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
-import { buttonColors, buttonVariants, buttonLevels, buttonName } from "./Button.core";
+import {
+  buttonColors,
+  buttonVariants,
+  buttonLevels,
+  buttonName,
+  ButtonClassNames,
+  isValidPropCombination,
+  hasSupplementalAlt,
+  isUiColor,
+} from "./Button.core";
 import { resetButton } from "../base/styles/reset.styles";
 
 /**
  * Shared styles, used in web component, React and CSS module.
- *
- * TODO:
- * support variant supplemental alt
- * let consumer decide if element should be button or anchor tag
- * secondary hover effect bottom border should only cover text
  */
 const createButtonStyles = () => {
   const button = component.button;
@@ -33,16 +37,6 @@ const createButtonStyles = () => {
 
       ${typographyButton()}
 
-      &:not([disabled]).secondary.hover::after,
-      &:not([disabled]).secondary:hover::after,
-      &:not([disabled]).secondary.active::after,
-      &:not([disabled]).secondary:active::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        border-bottom: 1px solid currentColor;
-      }
-
       &:not(.icon-only)::after {
         right: var(${unsafeCSS(button.container.padding.inline)});
         left: var(${unsafeCSS(button.container.padding.inline)});
@@ -61,25 +55,30 @@ const createButtonStyles = () => {
         cursor: auto;
       }
 
-      &:focus-visible:enabled,
+      &:focus-visible,
       &.focus {
         outline: none;
         box-shadow: 0 0 0 var(${unsafeCSS(global.focus.border.width)}) var(${unsafeCSS(global.focus.color)});
       }
 
-      &.icon {
+      &.${unsafeCSS("icon" satisfies ButtonClassNames)} {
         --icon-width: var(${unsafeCSS(button.icon.size.width.small)});
         --icon-height: var(${unsafeCSS(button.icon.size.height.small)});
+
+        &.${unsafeCSS("icon-left" satisfies ButtonClassNames)} {
+          flex-direction: row-reverse;
+        }
+
+        &.${unsafeCSS("icon-only" satisfies ButtonClassNames)} {
+          gap: 0;
+          padding-block: 12px;
+          padding-inline: 12px;
+        }
       }
 
-      &.icon.icon-left {
-        flex-direction: row-reverse;
-      }
-
-      &.icon.icon-only {
-        gap: 0;
-        padding-block: 12px;
-        padding-inline: 12px;
+      &.${unsafeCSS("link" satisfies ButtonClassNames)} {
+        text-decoration: none;
+        /* color: var(${unsafeCSS(component.link.text.color)}) !important; */
       }
     }
   `;
@@ -87,65 +86,85 @@ const createButtonStyles = () => {
 
 const buttonVariableStyles = () => {
   const variableClasses = buttonColors.flatMap(color => {
-    return (
-      buttonVariants
-        // TODO: Handle supplemental-alt variant
-        // @ts-ignore
-        .filter(variant => variant !== "supplemental alt")
-        .flatMap(variant => {
-          return [
-            ...buttonLevels
-              .filter(level => level === "primary")
-              .map(level => {
-                const backgroundColor = component.button.background.color[color]?.[variant]?.[level];
-                const textColor = component.button.text.color[color]?.[variant]?.[level];
-                if (!backgroundColor || !textColor) return;
+    return buttonVariants.flatMap(variant => {
+      return buttonLevels
+        .filter(level => isValidPropCombination({ color, variant, level }))
+        .map(level => {
+          const nestedClassNames = `&.${color}.${variant}.${level}`.replace(" ", "-");
 
-                const nestedClassNames = `&.${color}.${variant}.${level}`;
+          // rules
+          // level secondary: background-color transparent, different hover effect
+          // color success, informative, warning: level secondary not available
+          // color aubergine, rettsdata, neutral: variant supplemental alt available
 
-                return css`
-                  ${unsafeCSS(nestedClassNames)} {
-                    background-color: var(${unsafeCSS(backgroundColor.fallback)});
-                    color: var(${unsafeCSS(textColor.fallback)});
-                  }
+          // transparent secondary buttons with alternative hover effect
+          if (level === "secondary") {
+            if (variant === "supplemental alt" || isUiColor(color)) {
+              return;
+            }
 
-                  ${unsafeCSS(nestedClassNames)}:hover:not([disabled]), ${unsafeCSS(
-                    nestedClassNames,
-                  )}.hover:not([disabled]) {
-                    ${hoverEffect(backgroundColor.hover, backgroundColor.fallback)}
-                  }
-                `;
-              })
-              .filter(x => x !== undefined),
-            // special handling of secondary transparent buttons
-            ...buttonLevels
-              .filter(level => level === "secondary")
-              .map(level => {
-                // @ts-ignore
-                const textColor = component.button.text.color[color]?.[variant]?.[level]?.fallback;
-                if (!textColor) return;
+            return css`
+              ${unsafeCSS(nestedClassNames)} {
+                background-color: transparent;
+                color: var(${unsafeCSS(component.button.text.color[color][variant][level].fallback)});
 
-                const nestedClassNames = `&.${color}.${variant}.${level}`;
+                ${hoverEffectSecondary()}
+              }
+            `;
+          }
 
-                return css`
-                  ${unsafeCSS(nestedClassNames)} {
-                    background-color: transparent;
-                    color: var(${unsafeCSS(textColor)});
-                  }
-                `;
-              })
-              .filter(x => x !== undefined),
-          ];
+          // not all colors have supplemental alt variant
+          let textColor;
+          let backgroundColor;
+          if (variant === "supplemental alt") {
+            if (!hasSupplementalAlt(color)) {
+              return;
+            }
+            textColor = component.button.text.color[color][variant][level];
+            backgroundColor = component.button.background.color[color][variant][level];
+          } else {
+            textColor = component.button.text.color[color][variant][level];
+            backgroundColor = component.button.background.color[color][variant][level];
+          }
+
+          return css`
+            ${unsafeCSS(nestedClassNames)} {
+              background-color: var(${unsafeCSS(backgroundColor.fallback)});
+              color: var(${unsafeCSS(textColor.fallback)});
+
+              ${hoverEffectPrimary(backgroundColor.hover, backgroundColor.fallback)}
+            }
+          `;
         })
-    );
+        .filter(x => x !== undefined);
+    });
   });
 
   return unsafeCSS(variableClasses.join("\n"));
 };
 
-const hoverEffect = (hoverColor: string, fallbackColor: string) => css`
-  background: linear-gradient(0deg, var(${unsafeCSS(hoverColor)}) 0%, var(${unsafeCSS(hoverColor)}) 100%),
-    var(${unsafeCSS(fallbackColor)});
+const hoverEffectPrimary = (hoverColor: string, fallbackColor: string) => css`
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background: linear-gradient(0deg, var(${unsafeCSS(hoverColor)}) 0%, var(${unsafeCSS(hoverColor)}) 100%),
+        var(${unsafeCSS(fallbackColor)});
+    }
+  }
+`;
+
+const hoverEffectSecondary = () => css`
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]):after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      border-bottom: var(${unsafeCSS(component.button.container.border.width.hover)}) solid currentColor;
+    }
+  }
 `;
 
 const typographyButton = () => {
@@ -162,15 +181,3 @@ const typographyButton = () => {
 };
 
 export const buttonStyles = createButtonStyles();
-
-/**
- * NYI
- 
-&.supplemental-alt {
-    background-color: transparent;
-    height: auto;
-    padding: 0;
-    text-decoration: underline;
-  }
-
- */
