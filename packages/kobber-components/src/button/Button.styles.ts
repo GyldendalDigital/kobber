@@ -31,21 +31,12 @@ const createButtonStyles = () => {
       padding-block: var(${unsafeCSS(button.container.padding.block)});
       padding-inline: var(${unsafeCSS(button.container.padding.inline)});
       border-radius: var(${unsafeCSS(button.container.border.radius)});
-      min-height: var(${unsafeCSS(button.container.size.height)});
+      /* TODO: reconsider fixed height */
+      /* min-height: var(${unsafeCSS(button.container.size.height)}); */
 
       ${buttonVariableStyles()}
 
       ${typographyButton()}
-
-      &:not(.icon-only)::after {
-        right: var(${unsafeCSS(button.container.padding.inline)});
-        left: var(${unsafeCSS(button.container.padding.inline)});
-      }
-
-      &.icon.icon-only::after {
-        right: 12px;
-        left: 12px;
-      }
 
       &[disabled],
       &.disabled {
@@ -78,7 +69,11 @@ const createButtonStyles = () => {
 
       &.${unsafeCSS("link" satisfies ButtonClassNames)} {
         text-decoration: none;
-        /* color: var(${unsafeCSS(component.link.text.color)}) !important; */
+      }
+
+      &.${unsafeCSS("inlined" satisfies ButtonClassNames)} {
+        padding-inline: 0;
+        color: var(${unsafeCSS(component.link.text.color)}) !important;
       }
     }
   `;
@@ -161,8 +156,24 @@ const hoverEffectSecondary = () => css`
     &:not([disabled]):after {
       content: "";
       position: absolute;
-      bottom: 0;
+      /* TODO: find out what this value should be */
+      bottom: 0.2rem;
       border-bottom: var(${unsafeCSS(component.button.container.border.width.hover)}) solid currentColor;
+    }
+
+    &:not(.icon-only):after {
+      right: var(${unsafeCSS(component.button.container.padding.inline)});
+      left: var(${unsafeCSS(component.button.container.padding.inline)});
+    }
+
+    &.icon.icon-only:after {
+      right: 12px;
+      left: 12px;
+    }
+
+    &.inlined:after {
+      right: 0;
+      left: 0;
     }
   }
 `;
