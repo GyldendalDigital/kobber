@@ -1,6 +1,5 @@
-import Link from "next/link"
+import { KobberLink } from "@gyldendal/kobber-components/react-ssr-safe"
 import { BRANDING_MANUAL_URL, KOBBER_TEAMS_URL } from "@/lib/constants"
-import { IconExternalLink } from "../kobber-icons"
 
 const links = [
   {
@@ -32,14 +31,7 @@ export function ExternalLinksGrid() {
       <ul className="flex flex-wrap items-center gap-[16px]">
         {links.map((item, index) => (
           <li key={index}>
-            <Link
-              target="_blank"
-              href={item.href}
-              className="flex gap-[8px] text-[16px] leading-[1.15] text-link hover:underline"
-            >
-              {item.title}
-              <IconExternalLink />
-            </Link>
+            <KobberLink href={item.href}>{item.title}</KobberLink>
           </li>
         ))}
       </ul>

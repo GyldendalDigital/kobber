@@ -9,7 +9,13 @@
   "exports": {
     "./react": "./dist/react/index.js",
     "./react-ssr-safe": "./dist/react-ssr-safe/index.js",
-    "./web-components": "./dist/web-components/index.js"
+    "./web-components": "./dist/web-components/index.js",
+    "./vanilla": [
+      "./dist/vanilla/index.js"
+    ],
+    "./vanilla/*.css": [
+      "./dist/vanilla/*.css"
+    ]
   },
   "scripts": {
     "clean": "rm -rf .turbo node_modules chunks css react web-components",

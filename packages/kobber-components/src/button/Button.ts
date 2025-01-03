@@ -1,9 +1,19 @@
-import { CSSResultGroup, html, LitElement } from "lit";
+import { CSSResultGroup, LitElement } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 import componentStyles from "../base/styles/component.styles";
 import { buttonStyles } from "./Button.styles";
-import { buttonClassNames, ButtonColor, ButtonLevel, buttonName, ButtonProps, ButtonVariant } from "./Button.core";
+import {
+  buttonClassNames,
+  ButtonColor,
+  ButtonLevel,
+  buttonName,
+  ButtonProps,
+  ButtonVariant,
+  hasSupplementalAlt,
+} from "./Button.core";
 import "@gyldendal/kobber-icons/web-components";
+import { literal, html } from "lit/static-html.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 /**
  * Button with icon slot
@@ -31,6 +41,14 @@ export class Button extends LitElement implements ButtonProps {
   @property({ type: Boolean })
   disabled = false;
 
+  /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
+  @property()
+  href = "";
+
+  /** Tells the browser where to open the link. Only used when `href` is present. */
+  @property()
+  target: "_blank" | "_parent" | "_self" | "_top";
+
   @state()
   private _hasIcon = false;
 
@@ -39,6 +57,10 @@ export class Button extends LitElement implements ButtonProps {
 
   @state()
   private _label?: string | null;
+
+  private isLink() {
+    return this.href ? true : false;
+  }
 
   connectedCallback() {
     super.connectedCallback();
@@ -55,11 +77,17 @@ export class Button extends LitElement implements ButtonProps {
     if (this._iconOnly && !this._label) {
       console.warn("aria-label is required for icon only buttons");
     }
+    if (!hasSupplementalAlt(this.color) && this.variant === "supplemental alt") {
+      console.warn("variant 'supplemental alt' must match the following function: " + hasSupplementalAlt.toString());
+    }
   }
 
   render() {
+    const isLink = this.isLink();
+    const tag = isLink ? literal`a` : literal`button`;
+
     return html`
-      <button
+      <${tag}
         class=${[
           ...buttonClassNames({
             color: this.color,
@@ -68,15 +96,20 @@ export class Button extends LitElement implements ButtonProps {
             hasIcon: this._hasIcon,
             iconOnly: this._iconOnly,
             iconFirst: this.iconFirst,
+            isLink: isLink,
           }),
           this.className,
         ].join(" ")}
-        ?disabled=${this.disabled}
-        aria-label="${this._label}"
+        ?disabled=${ifDefined(isLink ? undefined : this.disabled)}
+        href=${ifDefined(isLink && !this.disabled ? this.href : undefined)}
+        target=${ifDefined(isLink ? this.target : undefined)}
+        aria-disabled=${this.disabled ? "true" : "false"}
+        aria-label=${this._label}
+        tabindex=${this.disabled ? "-1" : "0"}
       >
         <slot></slot>
         <slot name="icon"></slot>
-      </button>
+      </${tag}>
     `;
   }
 }

@@ -1,4 +1,5 @@
-import { component } from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { component, semantics } from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { ReplaceSpaceWithDash, replaceSpaceWithDash } from "../utils/replace";
 
 export const buttonName = "kobber-button";
 
@@ -9,18 +10,24 @@ export const buttonClassNames = ({
   hasIcon = false,
   iconOnly = false,
   iconFirst = false,
+  isLink = false,
 }: ButtonProps & ButtonComputedProps): ButtonClassNames[] => {
-  const iconClassNames: ButtonClassNames[] = [];
+  const conditionalClassNames: ButtonClassNames[] = [];
+
   if (hasIcon) {
-    iconClassNames.push("icon");
+    conditionalClassNames.push("icon");
     if (iconOnly) {
-      iconClassNames.push("icon-only");
+      conditionalClassNames.push("icon-only");
     } else if (iconFirst) {
-      iconClassNames.push("icon-left");
+      conditionalClassNames.push("icon-left");
     }
   }
 
-  return [buttonName, color, variant, level, ...iconClassNames];
+  if (isLink) {
+    conditionalClassNames.push("link");
+  }
+
+  return [buttonName, color, replaceSpaceWithDash(variant), level, ...conditionalClassNames];
 };
 
 export const buttonClassNamesWithModule = (
@@ -33,28 +40,56 @@ export type ButtonProps = {
   variant?: ButtonVariant;
   level?: ButtonLevel;
   iconFirst?: boolean;
+  href?: string;
+  target?: "_blank" | "_parent" | "_self" | "_top";
 };
 
 export type ButtonComputedProps = {
   hasIcon?: boolean;
   iconOnly?: boolean;
+  isLink?: boolean;
 };
 
 export type ButtonClassNames =
   | typeof buttonName
   | ButtonColor
-  | ButtonVariant
+  | ReplaceSpaceWithDash<ButtonVariant>
   | ButtonLevel
   | "icon"
   | "icon-only"
-  | "icon-left";
+  | "icon-left"
+  | "link"
+  | "inlined";
 
 export type ButtonColor = keyof typeof component.button.background.color;
-export type ButtonVariant = keyof Omit<typeof component.button.background.color.neutral, "supplemental alt">;
-export type ButtonLevel = keyof typeof component.button.text.color.carmine.main;
+export type ButtonVariant = keyof typeof component.button.background.color.neutral;
+export type ButtonLevel = keyof typeof component.button.text.color.neutral.main;
 
 export const buttonColors: ButtonColor[] = Object.keys(component.button.background.color) as ButtonColor[];
 export const buttonVariants: ButtonVariant[] = Object.keys(
-  component.button.background.color.carmine,
+  component.button.background.color.neutral,
 ) as ButtonVariant[];
-export const buttonLevels: ButtonLevel[] = Object.keys(component.button.text.color.carmine.main) as ButtonLevel[];
+export const buttonLevels: ButtonLevel[] = Object.keys(component.button.text.color.neutral.main) as ButtonLevel[];
+
+export type ButtonUiColor = keyof typeof semantics.color.ui;
+export const isUiColor = (color: ButtonColor | undefined): color is ButtonUiColor =>
+  !!color && color in semantics.color.ui;
+
+export const hasSupplementalAlt = (color: ButtonColor | undefined) =>
+  color === "aubergine" || color === "rettsdata" || color === "neutral";
+
+export const isValidPropCombination = (props: ButtonProps) => {
+  const { color, variant, level } = props;
+
+  // ui colors only have primary level
+  if (isUiColor(color) && level !== "primary") {
+    return false;
+  }
+
+  // supplemental alt variant only available for aubergine, rettsdata, and neutral colors
+  if (variant === "supplemental alt" && !hasSupplementalAlt(props.color)) {
+    return false;
+  }
+
+  return true;
+};

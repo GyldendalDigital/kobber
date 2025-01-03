@@ -4,6 +4,7 @@ import "./text-wrapper/TextWrapper";
 import "./text-highlight/TextHighlight";
 import "./heading/Heading";
 import "./ingress/Ingress";
+import "./link/Link";
 import { headingPrimarySizes } from "./heading/Heading.core";
 import { textHighlightColors } from "./text-highlight/TextHighlight.core";
 
@@ -34,16 +35,19 @@ export const Text: Story = {
         <kobber-text-highlight>progressive</kobber-text-highlight> mindshare.
       </p>
       <p>
-        Uniquely reconceptualize robust e-tailers without ethical action items. Compellingly restore resource-leveling
-        experiences without exceptional technology. Assertively target 2.0 networks through state of the art e-services.
-        Continually innovate ubiquitous relationships and visionary internal or "organic" sources. Interactively iterate
-        sustainable users via diverse paradigms.
+        Uniquely
+        <kobber-link href="https://github.com/GyldendalDigital/kobber" target="_blank">reconceptualize</kobber-link>
+        robust e-tailers without ethical action items. Compellingly restore resource-leveling experiences without
+        exceptional technology. Assertively target 2.0 networks through state of the art e-services. Continually
+        innovate ubiquitous relationships and visionary internal or "organic" sources. Interactively iterate sustainable
+        users via diverse paradigms.
       </p>
       <p>
-        Energistically implement installed base models vis-a-vis innovative mindshare. Conveniently cultivate pandemic
-        methods of empowerment and unique networks. Enthusiastically negotiate one-to-one catalysts for change with
-        principle-centered potentialities. Dynamically e-enable next-generation applications rather than leveraged
-        testing procedures. Dynamically reconceptualize B2B sources rather.
+        Energistically <kobber-link href="#">implement</kobber-link> installed base models vis-a-vis innovative
+        mindshare. Conveniently cultivate pandemic methods of empowerment and unique networks. Enthusiastically
+        negotiate one-to-one catalysts for change with principle-centered potentialities. Dynamically e-enable
+        next-generation applications rather than leveraged testing procedures. Dynamically reconceptualize B2B sources
+        rather.
       </p>
       <ul>
         <li>Page: Omfavner hele siden, inkludert alle hovedelementene</li>

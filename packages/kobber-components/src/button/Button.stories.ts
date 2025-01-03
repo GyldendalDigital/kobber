@@ -1,17 +1,23 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { primitives } from "@gyldendal/kobber-base/themes/default/tokens";
-import { buttonColors, buttonVariants, buttonLevels, ButtonColor, ButtonVariant, ButtonLevel } from "./Button.core";
+import { buttonColors, buttonVariants, buttonLevels, ButtonProps, hasSupplementalAlt } from "./Button.core";
 import "./Button";
 import "../utils/theme-context";
 
-const states = ["idle", "hover", "active", "focus", "disabled"];
+const states = ["idle", "hover", "active", "focus", "disabled"] as const;
 
-type ButtonIconPosition = undefined | "right" | "left";
+const buttonIconSettings = ["none", "right", "left"] as const;
 
-const meta: Meta = {
+interface Args extends ButtonProps {
+  text?: string;
+  state: (typeof states)[number];
+  icon: (typeof buttonIconSettings)[number];
+  link: boolean;
+}
+
+const meta: Meta<Args> = {
   title: "In development 🧪/Button",
   component: "kobber-button",
-  tags: ["autodocs"],
   argTypes: {
     color: {
       options: buttonColors,
@@ -30,13 +36,15 @@ const meta: Meta = {
       control: { type: "select" },
     },
     icon: {
-      options: ["left", "right"],
+      options: buttonIconSettings,
       control: { type: "radio" },
+    },
+    link: {
+      control: { type: "boolean" },
     },
   },
   decorators: [
     (Story, context) => `
-    <script>const clickHandler = () => console.log('clicked')</script>
     <kobber-theme-context theme-id=${context.globals.theme}>
       ${Story()}
     </kobber-theme-context>
@@ -45,29 +53,30 @@ const meta: Meta = {
 };
 
 export default meta;
-type Story = StoryObj;
 
-export const Button: Story = {
+export const Button: StoryObj<Args> = {
   args: {
     text: "Button text",
     color: meta.argTypes?.color?.options?.[0],
     variant: buttonVariants[0],
     level: buttonLevels[0],
     state: states[0],
-    icon: "right",
+    icon: buttonIconSettings[1],
+    link: false,
   },
-  render: args => renderButton(args.color, args.variant, args.level, args.state, args.icon, args.text),
+  render: args => renderButton(args),
 };
 
-export const Buttons: Story = {
+export const Buttons: StoryObj<Args> = {
   parameters: {
     layout: "none",
     controls: {
-      exclude: /^(?!.*(icon)).*/g,
+      exclude: /^(?!.*(icon|link)).*/g,
     },
   },
   args: {
     icon: "right",
+    link: false,
   },
   render: args => {
     return `
@@ -125,72 +134,63 @@ export const Buttons: Story = {
       </style>
 
       <div class="wrapper-theme">
-        ${buttonColors.map(color => renderColor(color, args.icon)).join("")}
+        ${buttonColors.map(color => renderColor({ ...args, color })).join("")}
       </div>
     `;
   },
 };
 
 // carmine, aubergine
-const renderColor = (color: ButtonColor, iconPosition: ButtonIconPosition) => `
+const renderColor = (args: Args) => `
 <div class="wrapper-color">
-${buttonLevels.map(level => renderLevel(color, level, iconPosition)).join("")}
+  ${buttonLevels.map(level => renderLevel({ ...args, level })).join("")}
 </div>
 `;
 
 // primary, secondary
-const renderLevel = (color: ButtonColor, level: ButtonLevel, iconPosition: ButtonIconPosition) => {
+const renderLevel = (args: Args) => {
+  const { color, level } = args;
+
   if (level === "secondary" && (color === "success" || color === "informative" || color === "warning")) {
     return;
   }
+
   return `<div class="wrapper-level">${buttonVariants
-    .map(variant => renderVariant(color, variant, level, iconPosition))
+    .map(variant => renderVariant({ ...args, variant }))
     .join("")}</div>`;
 };
 
 // main, supplemental
-const renderVariant = (
-  color: ButtonColor,
-  variant: ButtonVariant,
-  level: ButtonLevel,
-  iconPosition: ButtonIconPosition,
-) => {
-  // @ts-ignore
-  if (variant === "supplemental alt") {
+const renderVariant = (args: Args) => {
+  const { color, variant, level } = args;
+
+  if (!variant || (variant === "supplemental alt" && !hasSupplementalAlt(color))) {
     return;
   }
 
   return `<div class="wrapper-variant ${variant.replace(" ", "-")} ${level}">
 <small>${color}<br />${variant}<br />${level}</small>
-  ${states.map(state => renderButton(color, variant, level, state, iconPosition)).join("")}
-  ${states.map(state => renderIconOnlyButton(color, variant, level, state)).join("")}
+  ${states.map(state => renderButton({ ...args, state, text: state })).join("")}
+  ${states.map(state => renderButton({ ...args, state, text: state, icon: "none" })).join("")}
+  ${states.map(state => renderButton({ ...args, state })).join("")}
 </div>`;
 };
 
-const renderButton = (
-  color: string,
-  variant: string,
-  level: string,
-  state: string,
-  iconPosition: ButtonIconPosition,
-  text?: string,
-) => {
-  return `
-<kobber-button class="${state}" color="${color}" variant="${variant}" level="${level}" 
-  ${state === "disabled" ? "disabled" : ""} ${iconPosition === "left" ? "iconFirst" : ""} 
-  onclick="clickHandler()" aria-label="optional button label">
-  ${text ?? state}
-  <icon-arrow_right slot="icon" />
-</kobber-button>
-`;
-};
+const renderButton = (args: Args) => {
+  const { color, variant, level, state, icon, text, link } = args;
 
-const renderIconOnlyButton = (color: string, variant: string, level: string, state: string) => {
   return `
-<kobber-button class="${state}" color="${color}" variant="${variant}" level="${level}" 
-${state === "disabled" ? "disabled" : ""} 
-   onclick="clickHandler()" aria-label="required button label">
-  <icon-arrow_right slot="icon" />
+<kobber-button 
+  class="${state}" 
+  color="${color}" 
+  variant="${variant}" 
+  level="${level}" 
+  ${state === "disabled" ? "disabled" : ""} 
+  ${icon === "left" ? "iconFirst" : ""} 
+  ${link ? "href='#' target='_blank'" : undefined}"
+  aria-label="optional button label">
+  ${text ? text : ""}
+  ${icon !== "none" ? "<icon-arrow_right slot='icon' />" : ""}
 </kobber-button>
 `;
 };
