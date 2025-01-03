@@ -11,7 +11,6 @@ export const buttonClassNames = ({
   iconOnly = false,
   iconFirst = false,
   isLink = false,
-  inlined = false,
 }: ButtonProps & ButtonComputedProps): ButtonClassNames[] => {
   const conditionalClassNames: ButtonClassNames[] = [];
 
@@ -26,10 +25,6 @@ export const buttonClassNames = ({
 
   if (isLink) {
     conditionalClassNames.push("link");
-  }
-
-  if (inlined) {
-    conditionalClassNames.push("inlined");
   }
 
   return [buttonName, color, replaceSpaceWithDash(variant), level, ...conditionalClassNames];
@@ -47,7 +42,6 @@ export type ButtonProps = {
   iconFirst?: boolean;
   href?: string;
   target?: "_blank" | "_parent" | "_self" | "_top";
-  inlined?: boolean;
 };
 
 export type ButtonComputedProps = {

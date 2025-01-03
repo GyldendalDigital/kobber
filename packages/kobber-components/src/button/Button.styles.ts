@@ -12,8 +12,15 @@ import {
 } from "./Button.core";
 import { resetButton } from "../base/styles/reset.styles";
 
+// TODO: get from tokens
+const paddingIconOnly = 12 / 16 + "rem";
+
 /**
  * Shared styles, used in web component, React and CSS module.
+ *
+ * TODO:
+ * - choose between padding block or fixed height. Both are not needed.
+ * - padding as icon only should be a token, or use fixed width same as height
  */
 const createButtonStyles = () => {
   const button = component.button;
@@ -28,11 +35,10 @@ const createButtonStyles = () => {
       cursor: pointer;
       border: 1px solid transparent;
       gap: var(${unsafeCSS(button.container.gap)});
-      padding-block: var(${unsafeCSS(button.container.padding.block)});
+      /* see TODO: padding-block: var(${unsafeCSS(button.container.padding.block)}); */
       padding-inline: var(${unsafeCSS(button.container.padding.inline)});
       border-radius: var(${unsafeCSS(button.container.border.radius)});
-      /* TODO: reconsider fixed height */
-      /* min-height: var(${unsafeCSS(button.container.size.height)}); */
+      height: var(${unsafeCSS(button.container.size.height)});
 
       ${buttonVariableStyles()}
 
@@ -62,18 +68,13 @@ const createButtonStyles = () => {
 
         &.${unsafeCSS("icon-only" satisfies ButtonClassNames)} {
           gap: 0;
-          padding-block: 12px;
-          padding-inline: 12px;
+          padding-inline: ${unsafeCSS(paddingIconOnly)};
+          /* see TODO: width: var(${unsafeCSS(button.container.size.height)}); */
         }
       }
 
       &.${unsafeCSS("link" satisfies ButtonClassNames)} {
         text-decoration: none;
-      }
-
-      &.${unsafeCSS("inlined" satisfies ButtonClassNames)} {
-        padding-inline: 0;
-        color: var(${unsafeCSS(component.link.text.color)}) !important;
       }
     }
   `;
@@ -153,27 +154,25 @@ const hoverEffectSecondary = () => css`
   &.active,
   &:hover,
   &.hover {
-    &:not([disabled]):after {
-      content: "";
-      position: absolute;
-      /* TODO: find out what this value should be */
-      bottom: 0.2rem;
-      border-bottom: var(${unsafeCSS(component.button.container.border.width.hover)}) solid currentColor;
-    }
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        /* TODO: find out what this value should be */
+        bottom: 0.2rem;
+        border-bottom: var(${unsafeCSS(component.button.container.border.width.hover)}) solid currentColor;
+        right: var(${unsafeCSS(component.button.container.padding.inline)});
+        left: var(${unsafeCSS(component.button.container.padding.inline)});
+      }
 
-    &:not(.icon-only):after {
-      right: var(${unsafeCSS(component.button.container.padding.inline)});
-      left: var(${unsafeCSS(component.button.container.padding.inline)});
-    }
-
-    &.icon.icon-only:after {
-      right: 12px;
-      left: 12px;
-    }
-
-    &.inlined:after {
-      right: 0;
-      left: 0;
+      &.${unsafeCSS("icon" satisfies ButtonClassNames)} {
+        &.${unsafeCSS("icon-only" satisfies ButtonClassNames)} {
+          &:after {
+            right: ${unsafeCSS(paddingIconOnly)};
+            left: ${unsafeCSS(paddingIconOnly)};
+          }
+        }
+      }
     }
   }
 `;

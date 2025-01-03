@@ -6,12 +6,12 @@ import "../utils/theme-context";
 
 const states = ["idle", "hover", "active", "focus", "disabled"] as const;
 
-type ButtonIcon = "none" | "right" | "left";
+const buttonIconSettings = ["none", "right", "left"] as const;
 
 interface Args extends ButtonProps {
   text?: string;
   state: (typeof states)[number];
-  icon: ButtonIcon;
+  icon: (typeof buttonIconSettings)[number];
   link: boolean;
 }
 
@@ -36,7 +36,7 @@ const meta: Meta<Args> = {
       control: { type: "select" },
     },
     icon: {
-      options: ["left", "right"],
+      options: buttonIconSettings,
       control: { type: "radio" },
     },
     link: {
@@ -61,7 +61,7 @@ export const Button: StoryObj<Args> = {
     variant: buttonVariants[0],
     level: buttonLevels[0],
     state: states[0],
-    icon: "right",
+    icon: buttonIconSettings[1],
     link: false,
   },
   render: args => renderButton(args),
