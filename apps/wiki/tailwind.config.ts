@@ -1,20 +1,18 @@
 import type { Config } from "tailwindcss"
 import { tokens } from "./lib/theme"
 
-const semantics = tokens.default.semantics
-const typography = tokens.default.typography
-const component = tokens.default.component
+const mode = "default"
 
-const page = tokens.default.template.page
-const main = tokens.default.template.main
-const textSection = tokens.default.template["text-wrapper"]
+const semantics = tokens[mode].semantics
+const typography = tokens[mode].typography
+const component = tokens[mode].component
 
-const global = tokens.default.global.text
+const textSection = tokens[mode].template["text-wrapper"]
+
+const global = tokens[mode].global.text
 
 const { typography: text } = semantics
 const { primary, secondary } = typography
-const { gap: pageGap } = page
-const { gap: contentGap } = main
 const { gap: textSectionGap } = textSection
 
 const { ui } = global
@@ -40,10 +38,10 @@ const config = {
       margin: {},
       width: {},
       maxWidth: {
-        "max-width": `${tokens.default.layout.maxWidth}px`,
+        "max-width": `${tokens[mode].layout.maxWidth}px`,
       },
       minWidth: {
-        "min-width": `${tokens.default.layout.minWidth}px`,
+        "min-width": `${tokens[mode].layout.minWidth}px`,
       },
       height: {},
 
@@ -56,7 +54,7 @@ const config = {
 
       space: {},
       gap: {
-        "page/gap/horizontal": "48px", // change this as we wait for a new template component 
+        "page/gap/horizontal": "48px", // change this as we wait for a new template component
         "section/gap/horizontal": `${textSectionGap.horizontal}px`,
         "section/gap/vertical": `${textSectionGap.horizontal}px`,
         "content/gap/horizontal": "16px",

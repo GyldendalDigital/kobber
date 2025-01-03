@@ -1,9 +1,9 @@
 import Link from "next/link"
+import { KobberIngress, KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
 import { InformationCardType } from "@/types/types"
 import { KOBBER_TEAMS_URL } from "@/lib/constants"
 import { damUrl } from "@/lib/damImageLoader"
 import { InformationCard } from "@/components/information-card"
-import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { metaGettingStartedContact } from "./contact.meta"
 
 export const metadata = metaGettingStartedContact
@@ -49,10 +49,10 @@ export default function ContactPage() {
   return (
     <main className="flex w-full max-w-[858px] flex-col gap-2 md:gap-y-content/gap/horizontal">
       <section className="flex w-full flex-col gap-y-text-section/gap/header-ingress-body/horizontal">
-        <ArticleWrapper>
+        <KobberTextWrapper>
           <h2 className="text-[48px] text-[#691837]">Spørsmål eller tilbakemelding?</h2>
-          <Ingress>{metadata.description}</Ingress>
-          <Body>
+          <KobberIngress>{metadata.description}</KobberIngress>
+          <p>
             Kobber eies av kommunikasjonsavdelingen og utvikles for tiden av en arbeidsgruppe fra
             ulike deler av selskapet.
             <br />
@@ -69,9 +69,10 @@ export default function ContactPage() {
             Ta direkte kontakt med Irén eller Izelin ved forespørsler om nyutvikling av løsninger
             tilknyttet merkevaren, komponenter, logo, nytt markedsmateriell eller ved spørsmål om
             mulige unntak.
-          </Body>
-        </ArticleWrapper>
+          </p>
+        </KobberTextWrapper>
       </section>
+
       <section className="grid grid-cols-2 items-center justify-center gap-4 md:grid-cols-2 lg:grid-cols-3">
         {team.map((person) => (
           <InformationCard key={person.title} item={person} />

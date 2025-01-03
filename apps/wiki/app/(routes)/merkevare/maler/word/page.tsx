@@ -1,8 +1,7 @@
-import { Heading } from "@/components/heading"
 import { HeroImage } from "@/components/hero-image"
-import { ArticleWrapper } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
 import { metaWordTemplate } from "./word-template.meta"
+import { KobberHeading, KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
 
 export const metadata = metaWordTemplate
 
@@ -10,8 +9,8 @@ export default function WordTemplatePage() {
   return (
     <SectionLayout>
       <HeroImage src={metadata.image} />
-      <ArticleWrapper>
-        <Heading>Dokument- og brevmal</Heading>
+      <KobberTextWrapper>
+        <KobberHeading>Dokument- og brevmal</KobberHeading>
         <p>
           For dokumenter og brev brukes primærlogo plassert i venstre topp. Dokumentets innhold
           skrives med Arial 10 pkt. Hovedtittel settes i Karmin i størrelse 24 pkt. Undertitler
@@ -28,7 +27,7 @@ export default function WordTemplatePage() {
           <br />
           Disse malene for dokument og brev er tilgjengelig i Word.
         </p>
-      </ArticleWrapper>
+      </KobberTextWrapper>
     </SectionLayout>
   )
 }

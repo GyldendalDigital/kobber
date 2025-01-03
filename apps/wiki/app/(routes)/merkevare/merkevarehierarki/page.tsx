@@ -1,10 +1,13 @@
 import Image from "next/image"
 import Link from "next/link"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextHighlight,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
-import { Heading } from "@/components/heading"
-import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
-import { SubHeading } from "@/components/sub-heading"
 import { metaGettingStartedContact } from "../../kom-i-gang/kontakt/contact.meta"
 import { metaBrandLogo } from "../logo/logo.meta"
 import { metaBrandLevel } from "./brandLevel.meta"
@@ -14,12 +17,12 @@ export const metadata = metaBrandLevel
 export default function MerkevareHeriarkiPage() {
   return (
     <SectionLayout>
-      <ArticleWrapper>
-        <Heading>{metadata.title as string}</Heading>
-        <Ingress>{metadata.description}</Ingress>
-      </ArticleWrapper>
+      <KobberTextWrapper>
+        <KobberHeading>{metadata.title as string}</KobberHeading>
+        <KobberIngress>{metadata.description}</KobberIngress>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
+      <KobberTextWrapper className="max-w-[711px]">
         <p>
           Gyldendal benytter seg av et hybridhierarki med et overordnet mormerke. Dette betyr at
           undermerkevarer skal enten være veldig tett knyttet til Gyldendal, eller fremstå
@@ -31,14 +34,14 @@ export default function MerkevareHeriarkiPage() {
           i detalj på denne siden.
         </p>
         <Image src={damUrl("4WYa-6IgqHmAdCdw9SxjB3")} width={711} height={294} alt="Illustrasjon" />
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
-        <SubHeading>
-          <span className="text-highlight">Nivå 1</span>
+      <KobberTextWrapper className="max-w-[711px]">
+        <KobberHeading level="h2" variant="title medium">
+          <KobberTextHighlight>Nivå 1</KobberTextHighlight>
           <br />
           Mormerke
-        </SubHeading>
+        </KobberHeading>
         <p>
           Nivå 1.1 består av Gyldendals primærlogo og brukes alltid som avsender på Gyldendals
           utgivelser, arrangementer og lignende. Mer informasjon om primærlogoen og bruken av den,
@@ -65,14 +68,14 @@ export default function MerkevareHeriarkiPage() {
           height={294}
           alt="Illustrasjon nivå 1"
         />
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
-        <SubHeading>
-          <span className="text-highlight">Nivå 2</span>
+      <KobberTextWrapper className="max-w-[711px]">
+        <KobberHeading level="h2" variant="title medium">
+          <KobberTextHighlight>Nivå 2</KobberTextHighlight>
           <br />
           Støttet utgivelse og verk
-        </SubHeading>
+        </KobberHeading>
         <p>
           Nivå 2 beskriver hvordan logoer brukes i utgivelser og verk som skal ha Gyldendal som
           avsender.
@@ -98,14 +101,14 @@ export default function MerkevareHeriarkiPage() {
           height={294}
           alt="Illustrasjon nivå 2"
         />
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
-        <SubHeading>
-          <span className="text-highlight">Nivå 3</span>
+      <KobberTextWrapper className="max-w-[711px]">
+        <KobberHeading level="h2" variant="title medium">
+          <KobberTextHighlight>Nivå 3</KobberTextHighlight>
           <br />
           Støttet identitet
-        </SubHeading>
+        </KobberHeading>
         <p>
           Støttede identiteter brukes av digitale tjenester som utvikles av Gyldendal og derfor har
           Gyldendal som del av sin logo. Disse har egne logosymboler, men følger Gyldendals regler
@@ -126,14 +129,14 @@ export default function MerkevareHeriarkiPage() {
           height={294}
           alt="Illustrasjon nivå 3"
         />
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
-        <SubHeading>
-          <span className="text-highlight">Nivå 4</span>
+      <KobberTextWrapper className="max-w-[711px]">
+        <KobberHeading level="h2" variant="title medium">
+          <KobberTextHighlight>Nivå 4</KobberTextHighlight>
           <br />
           Frittstående identitet
-        </SubHeading>
+        </KobberHeading>
         <p>
           Frittstående identiteter er selvstendige merkevarer og tjenester som, av strategiske
           grunner, kommuniserer uten å fremheve tilknytningen til Gyldendal. Dette kan være
@@ -147,7 +150,7 @@ export default function MerkevareHeriarkiPage() {
           height={294}
           alt="Illustrasjon nivå 4"
         />
-      </ArticleWrapper>
+      </KobberTextWrapper>
     </SectionLayout>
   )
 }

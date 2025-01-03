@@ -1,6 +1,4 @@
-import { damUrl } from "@/lib/damImageLoader"
 import { pageMetadata } from "@/lib/metadata.utils"
-import { placeholderImageUrl } from "@/lib/utils"
 import { metaBrandIconSet } from "./ikonsett/iconSet.meta"
 import { metaBrandIconGuidelines } from "./retningslinjer/guidelines.meta"
 

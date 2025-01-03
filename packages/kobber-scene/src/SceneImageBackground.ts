@@ -45,7 +45,6 @@ export class SceneImageBackground extends SceneBackground {
 
   connectedCallback() {
     super.connectedCallback();
-    this.role = "img";
   }
 
   private getCropStyles = () => {

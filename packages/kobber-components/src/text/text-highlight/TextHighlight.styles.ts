@@ -2,7 +2,7 @@ import { css, unsafeCSS } from "lit";
 import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import { textHighlightColors, textHighlightName } from "./TextHighlight.core";
 
-export const textHighlightStyles = () => {
+const createTextHighlightStyles = () => {
   const article = component.article;
 
   return css`
@@ -26,3 +26,5 @@ const textHighlightVariableStyles = () =>
       )
       .join("\n"),
   );
+
+export const textHighlightStyles = createTextHighlightStyles();

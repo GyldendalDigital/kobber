@@ -1,9 +1,11 @@
 @import url("@gyldendal/kobber-base/themes/default/tokens.css");
 @import url("./pp-mori.css");
+@import url("@gyldendal/kobber-base/themes/dark/tokens.css");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 @layer base {
   :root {

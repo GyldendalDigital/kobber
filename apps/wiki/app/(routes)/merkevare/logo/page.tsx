@@ -1,10 +1,13 @@
 import Image from "next/image"
 import Link from "next/link"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
-import { ArticleWrapper, Body, Ingress } from "@/components/kobber-components"
 import { IconExternalLink } from "@/components/kobber-icons"
 import { SectionLayout } from "@/components/section-layout"
-import { SubHeading } from "@/components/sub-heading"
 import { metaBrandLogo } from "./logo.meta"
 
 export const metadata = metaBrandLogo
@@ -12,10 +15,10 @@ export const metadata = metaBrandLogo
 export default function Page() {
   return (
     <SectionLayout>
-      <ArticleWrapper>
+      <KobberTextWrapper>
         <h2 className="text-[48px] text-[#691837]">Gyldendal Logo</h2>
-        <Ingress>{metadata.description}</Ingress>
-      </ArticleWrapper>
+        <KobberIngress>{metadata.description}</KobberIngress>
+      </KobberTextWrapper>
 
       <div className="flex flex-wrap items-center gap-[16px]">
         <Link
@@ -36,9 +39,11 @@ export default function Page() {
         </Link>
       </div>
 
-      <ArticleWrapper className="max-w-[711px] gap-0">
-        <SubHeading className="text-[24px] text-[#481125]">Primærlogo</SubHeading>
-        <Body>
+      <KobberTextWrapper className="max-w-[711px] gap-0">
+        <KobberHeading level="h2" variant="title medium">
+          Primærlogo
+        </KobberHeading>
+        <p>
           Gyldendals primærlogo skal brukes i de fleste tilfeller.
           <br />
           <br />
@@ -48,7 +53,7 @@ export default function Page() {
           identiteter. Gyldendal har et visuelt distinkt navn slik det skrives ut, og dette benytter
           logoen for å bygge mer gjenkjennelighet i ulike kontekster. Fargen fremstår varm og
           vennlig.
-        </Body>
+        </p>
         <Image
           src={damUrl("7QMhG4Do4FMAPwZw2hsz8W")}
           width={711}
@@ -56,11 +61,13 @@ export default function Page() {
           className="object-contain"
           alt="Gyldendals primærlogo"
         />
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px] gap-0">
-        <SubHeading className="text-[24px] text-[#481125]">Fargevarianter</SubHeading>
-        <Body>
+      <KobberTextWrapper className="max-w-[711px] gap-0">
+        <KobberHeading level="h2" variant="title medium">
+          Fargevarianter
+        </KobberHeading>
+        <p>
           Gyldendals primærlogo kan brukes i en positiv og en negativ variant. Den positive
           varianten brukes på lys bakgrunn og den negative brukes på mørk bakgrunn.
           <br />
@@ -68,7 +75,7 @@ export default function Page() {
           En monoversjon av primærlogoen brukes der det ikke er mulig å bruke logoen i farge, og på
           bakgrunner hvor logoen ellers ikke ville vært synlig nok, slik som på en sterk farge eller
           et bilde. Den brukes typisk på bokomslag.
-        </Body>
+        </p>
 
         <Image
           src={damUrl("BssOkfJ8qo8BPiPoPP7Xdf")}
@@ -77,18 +84,20 @@ export default function Page() {
           className="object-contain"
           alt="Gyldendal-logoen i forskjellige fargevarianter"
         />
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px] gap-0">
-        <SubHeading className="text-[24px] text-[#481125]">Emblemvariant</SubHeading>
-        <Body>
+      <KobberTextWrapper className="max-w-[711px] gap-0">
+        <KobberHeading level="h2" variant="title medium">
+          Emblemvariant
+        </KobberHeading>
+        <p>
           Emblemversjonen av logoen brukes kun når Gyldendal selv er hovedfokuset i et budskap. Den
           er best egnet når den står helt for seg selv på en flate.
           <br />
           <br />
           Dette er en sekundærlogo og skal generelt ikke brukes på produkter. Den finnes også i
           fargevariantene positiv, negativ og monoversjon.
-        </Body>
+        </p>
 
         <Image
           src={damUrl("EDeopuWia6SBwPNXiUwGfd")}
@@ -97,14 +106,16 @@ export default function Page() {
           className="object-contain"
           alt="Gyldendal-emblemet i forskjellige fargevarianter"
         />
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px] gap-0">
-        <SubHeading className="text-[24px] text-[#481125]">Størrelse</SubHeading>
-        <Body>
+      <KobberTextWrapper className="max-w-[711px] gap-0">
+        <KobberHeading level="h2" variant="title medium">
+          Størrelse
+        </KobberHeading>
+        <p>
           Logoen skal alltid være leselig og synlig. Derfor skal den ikke brukes i mindre størrelse
           enn det som er definert under.
-        </Body>
+        </p>
 
         <div className="flex flex-col items-center gap-[46px] md:flex-row md:items-end">
           <Image
@@ -122,16 +133,18 @@ export default function Page() {
             alt="Størrelse emblem"
           />
         </div>
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px] gap-0">
-        <SubHeading className="text-[24px] text-[#481125]">Luft</SubHeading>
-        <Body>
+      <KobberTextWrapper className="max-w-[711px] gap-0">
+        <KobberHeading level="h2" variant="title medium">
+          Luft
+        </KobberHeading>
+        <p>
           Logoen må ha tilstrekkelig rom rundt seg for å kunne stå ut. Om du skal plassere logoen
           utenom et malverk, skal andre objekter plasseres utenfor klaringen som vist ved siden av.
           For digitale flater vil det finnes faste størrelsesenheter for luft som skal benyttes
           tilgjengelig via designverktøy og kode.
-        </Body>
+        </p>
         <div className="flex flex-col items-center gap-[46px] md:flex-row md:items-end">
           <Image
             src={damUrl("47FrxqP0q-_9mBciSzeOMu", ".svg")}
@@ -148,11 +161,13 @@ export default function Page() {
             alt=""
           />
         </div>
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px] gap-0">
-        <SubHeading className="text-[24px] text-[#481125]">Logoikon</SubHeading>
-        <Body>
+      <KobberTextWrapper className="max-w-[711px] gap-0">
+        <KobberHeading level="h2" variant="title medium">
+          Logoikon
+        </KobberHeading>
+        <p>
           Ikonet brukes alene kun i tilfeller der det ikke er plass til hele logoen, slik som i
           profilbilde på sosiale medier-kontoer eller som favorittikon i nettleser. 
           <br />
@@ -160,7 +175,7 @@ export default function Page() {
           Ikonet er tilgjengelig for å fungere både i sirkel og kvadrat. Det skal ikke lages opp
           egne oppsett eller fargekombinasjoner for ikon, men brukes samme ikon på tvers av alle
           kontoer for å sikre et helhetlig utrykk.
-        </Body>
+        </p>
         <div className="flex flex-col items-center justify-center gap-[14px] md:grid md:grid-cols-2">
           <Image
             src={damUrl("84FY3H2XKB58UxQvEd77GH")}
@@ -191,9 +206,12 @@ export default function Page() {
             alt="Gyldendal på Instagram"
           />
         </div>
-      </ArticleWrapper>
-      <ArticleWrapper className="max-w-[711px]">
-        <SubHeading className="text-[24px] text-[#481125]">Unngå dette</SubHeading>
+      </KobberTextWrapper>
+
+      <KobberTextWrapper className="max-w-[711px]">
+        <KobberHeading level="h2" variant="title medium">
+          Unngå dette
+        </KobberHeading>
 
         <div className="flex flex-col items-center justify-center gap-[14px] md:grid md:grid-cols-2">
           <Image
@@ -239,7 +257,7 @@ export default function Page() {
             alt="Ikke roter vinkelen"
           />
         </div>
-      </ArticleWrapper>
+      </KobberTextWrapper>
     </SectionLayout>
   )
 }

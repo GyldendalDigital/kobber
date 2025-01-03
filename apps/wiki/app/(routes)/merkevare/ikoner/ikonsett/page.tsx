@@ -1,7 +1,6 @@
 import Link from "next/link"
-import { damUrl } from "@/lib/damImageLoader"
-import { pageMetadata } from "@/lib/metadata.utils"
-import { ArticleWrapper, BoxLayout, Ingress } from "@/components/kobber-components"
+import { KobberIngress, KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
+import { BoxLayout } from "@/components/kobber-components"
 import { IconExternalLink } from "@/components/kobber-icons"
 import { IconGrid } from "./icon-grid"
 import { metaBrandIconSet } from "./iconSet.meta"
@@ -10,7 +9,7 @@ export const metadata = metaBrandIconSet
 
 export default function IkonSett() {
   return (
-    <ArticleWrapper>
+    <KobberTextWrapper>
       <BoxLayout className="py-0">
         <h1 className="text-[48px] font-light leading-[57.6px] text-[#481125]">
           {metadata.title as string}
@@ -18,13 +17,13 @@ export default function IkonSett() {
       </BoxLayout>
 
       <BoxLayout className="py-0">
-        <Ingress className="max-w-[712px]">
+        <KobberIngress className="max-w-[712px]">
           Våre ikoner kommer fra Streamline-biblioteket, og vi har et forhåndsdefinert sett med
           ikoner som brukes i Gyldendals digitale produkter. Streamline er en grafisk harmonisk
           ikonbank med flere unike kolleksjoner som kan kombineres etter behov. Vi benytter
           «Streamline Regular», et enkelt og konsistent formspråk som tydelig kommuniserer
           handlinger og informasjon til brukeren.
-        </Ingress>
+        </KobberIngress>
       </BoxLayout>
 
       <BoxLayout>
@@ -39,6 +38,6 @@ export default function IkonSett() {
       </BoxLayout>
 
       <IconGrid />
-    </ArticleWrapper>
+    </KobberTextWrapper>
   )
 }

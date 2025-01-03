@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.65
+
+### Patch Changes
+
+- react components
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.65
+
 ## 0.3.64
 
 ### Patch Changes

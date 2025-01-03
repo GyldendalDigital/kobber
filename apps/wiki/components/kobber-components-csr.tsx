@@ -9,14 +9,6 @@ import { Skeleton } from "./ui/skeleton"
  * Lazy load kobber components on the client side, to prevent SSR errors.
  */
 
-export const Body = dynamic(
-  () => import("@gyldendal/kobber-components/react").then((mod) => mod.KobberBody),
-  {
-    loading: () => <Skeleton className="h-6 w-24" />,
-    ssr: false,
-  }
-)
-
 export const Grid = dynamic(
   () => import("@gyldendal/kobber-components/react").then((mod) => mod.KobberGrid),
   {
@@ -28,30 +20,6 @@ export const BoxLayout = dynamic(
   () => import("@gyldendal/kobber-components/react").then((mod) => mod.KobberBoxLayout),
   {
     loading: () => <Skeleton className="h-6 w-24" />,
-    ssr: false,
-  }
-)
-
-export const ArticleWrapper = dynamic(
-  () =>
-    import("@gyldendal/kobber-components/react").then((mod) => mod.KobberArticleWrapper),
-  {
-    loading: () => <Skeleton className="h-6 w-24" />,
-    ssr: false,
-  }
-)
-
-export const Button = dynamic(
-  () => import("@gyldendal/kobber-components/react").then((mod) => mod.KobberButton),
-  {
-    loading: () => <Skeleton className="h-6 w-24" />,
-    ssr: false,
-  }
-)
-
-export const Ingress = dynamic(
-  () => import("@gyldendal/kobber-components/react").then((mod) => mod.KobberIngress),
-  {
     ssr: false,
   }
 )

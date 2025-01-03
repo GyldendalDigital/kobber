@@ -1,7 +1,7 @@
+import { KobberButton } from "@gyldendal/kobber-components/react-ssr-safe"
 import { Download } from "lucide-react"
 import { Button as RadixButton } from "@/components/ui/button"
 import { ContentSection } from "@/components/content-section"
-import { Button } from "@/components/kobber-components"
 import { PracticeIllustration } from "@/components/practice-illustration"
 
 export function PracticeSection() {
@@ -28,9 +28,9 @@ export function PracticeSection() {
 function AcceptedComponent() {
   return (
     <>
-      <Button variant={"main"} level="primary" color="aubergine">
+      <KobberButton variant={"main"} level="primary" color="aubergine">
         Handling 1
-      </Button>
+      </KobberButton>
       <RadixButton>Handling 2</RadixButton>
     </>
   )

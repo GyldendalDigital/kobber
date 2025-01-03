@@ -1,9 +1,11 @@
 import Image from "next/image"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
-import { Heading } from "@/components/heading"
-import { ArticleWrapper, Ingress } from "@/components/kobber-components"
 import { SectionLayout } from "@/components/section-layout"
-import { SubHeading } from "@/components/sub-heading"
 import { metaBrandIconGuidelines } from "./guidelines.meta"
 
 export const metadata = metaBrandIconGuidelines
@@ -11,13 +13,15 @@ export const metadata = metaBrandIconGuidelines
 export default function RetningsLinjerPage() {
   return (
     <SectionLayout>
-      <ArticleWrapper>
-        <Heading>{metadata.title as string}</Heading>
-        <Ingress>{metadata.description}</Ingress>
-      </ArticleWrapper>
+      <KobberTextWrapper>
+        <KobberHeading>{metadata.title as string}</KobberHeading>
+        <KobberIngress>{metadata.description}</KobberIngress>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
-        <SubHeading>Utforming</SubHeading>
+      <KobberTextWrapper className="max-w-[711px]">
+        <KobberHeading level="h2" variant="title medium">
+          Utforming
+        </KobberHeading>
         <p>
           For å sikre konsistens og lesbarhet, bruker vi moderne, enkelt utformede ikoner i
           begrensede størrelser. Gjennomgå Kobber sitt ikonsett før du implementerer nye ikoner.
@@ -39,10 +43,12 @@ export default function RetningsLinjerPage() {
             alt="Bruk enkle ikoner for bedre lesbarhet"
           />
         </div>
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
-        <SubHeading>Størrelser</SubHeading>
+      <KobberTextWrapper className="max-w-[711px]">
+        <KobberHeading level="h2" variant="title medium">
+          Størrelser
+        </KobberHeading>
         <p>
           Ikonene har en grunnstørrelse på 20 x 20 px for 1280px skjermbredde. Dette inkluderer
           rammen rundt ikonet.
@@ -62,10 +68,12 @@ export default function RetningsLinjerPage() {
             alt="Bruk enkle ikoner for bedre lesbarhet"
           />
         </div>
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
-        <SubHeading>Vekt</SubHeading>
+      <KobberTextWrapper className="max-w-[711px]">
+        <KobberHeading level="h2" variant="title medium">
+          Vekt
+        </KobberHeading>
         <p>
           For å sikre at ikonene beholder lik tykkelse ved skalering, unngår vi å justere vekten
           eller bruke størrelsesvariabler. Vi anbefaler å bruke skaleringsknappen &apos;K&apos; i
@@ -90,14 +98,16 @@ export default function RetningsLinjerPage() {
               src={damUrl("CWvGe71_qwZ9Z5sXONjuFC", ".svg")}
               width={355}
               height={218}
-              alt={`Bruk "K" tasten til å skalere for riktig høyde og vekt utover grunnstørrelsen 20px.`}
+              alt="Bruk 'K' tasten til å skalere for riktig høyde og vekt utover grunnstørrelsen 20px."
             />
           </div>
         </div>
-      </ArticleWrapper>
+      </KobberTextWrapper>
 
-      <ArticleWrapper className="max-w-[711px]">
-        <SubHeading>Tekst og ikoner</SubHeading>
+      <KobberTextWrapper className="max-w-[711px]">
+        <KobberHeading level="h2" variant="title medium">
+          Tekst og ikoner
+        </KobberHeading>
         <p>
           Når ikoner brukes sammen med tekst, er formålet å tydeliggjøre en beskjed eller handling.
           Det er viktig å sørge for at både ikon og tekst har samme tykkelse som angitt i
@@ -143,7 +153,7 @@ export default function RetningsLinjerPage() {
             alt="Tekst sammen med ikon støtter navigasjonen."
           />
         </div>
-      </ArticleWrapper>
+      </KobberTextWrapper>
     </SectionLayout>
   )
 }
