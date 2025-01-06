@@ -21,7 +21,7 @@ export const Navbar = () => {
       </Link>
 
       <nav className={styles["nav-large-screen"]}>
-        <ul className={styles["nav-links"]}>
+        <ul className={styles["nav-large-screen-links"]}>
           {mainRoutes.map((route) => (
             <li key={route.href}>
               <KobberLink href={route.href}>{route.title as string}</KobberLink>

@@ -1,7 +1,4 @@
 .navbar {
-  /* background: blue; */
-  /* top: 72px; */
-
   position: fixed;
   inset-inline: 0;
   display: grid;
@@ -25,6 +22,14 @@
   }
 }
 
+.nav-large-screen-links {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
 .nav-small-screen {
   justify-self: end;
   display: none;
@@ -32,12 +37,4 @@
   @media (max-width: 768px) {
     display: block;
   }
-}
-
-.nav-links {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
 }
