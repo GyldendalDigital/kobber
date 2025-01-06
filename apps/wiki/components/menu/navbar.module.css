@@ -1,0 +1,43 @@
+.navbar {
+  /* background: blue; */
+  /* top: 72px; */
+
+  position: fixed;
+  inset-inline: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding-block: var(--kobber-component-wiki-navbar-container-padding-block);
+  padding-inline: var(--kobber-layout-gap-16-32);
+  min-width: var(--kobber-template-page-width-min);
+  max-width: var(--kobber-template-page-width-max);
+  white-space: nowrap;
+}
+
+.nav-large-screen {
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.nav-small-screen {
+  justify-self: end;
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.nav-links {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}

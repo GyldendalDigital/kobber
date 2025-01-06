@@ -9,6 +9,7 @@ import { IconLoader } from "@/components/kobber-icons-loader"
 import { WikiNavbar } from "@/components/menu/wiki-navbar"
 import { SessionProvider } from "@/components/providers/session-provider"
 import { inter, lyon, mori } from "./fonts"
+import { Navbar } from "@/components/menu/navbar"
 
 /** Fallback for all pages */
 export const metadata: Metadata = {
@@ -38,7 +39,8 @@ export default async function RootLayout({
         <AuthProvider>
           <IconLoader />
           <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal px-page/padding/inline/xsmall sm:px-page/padding/inline/small md:px-page/padding/inline/medium xl:px-page/padding/inline/large">
-            <WikiNavbar />
+            {/* <WikiNavbar /> */}
+            <Navbar />
             <SessionProvider>
               <div className="mt-[72px] md:mt-[67px]">{children}</div>
             </SessionProvider>

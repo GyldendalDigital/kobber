@@ -1,18 +1,11 @@
-"use client"
-
-import { usePathname } from "next/navigation"
 import {
-  KobberButton,
   KobberHeading,
   KobberIngress,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
-import { ssoSignIn } from "@/hooks/use-sso-sign-in"
-import { IconLogin } from "@/components/kobber-icons"
+import { LoginButton } from "./login-button"
 
 export function Restricted() {
-  const pathname = usePathname()
-
   return (
     <div className="flex min-h-[60vh] w-full flex-col items-start justify-center gap-content/gap/horizontal">
       <KobberTextWrapper>
@@ -27,14 +20,7 @@ export function Restricted() {
           retningslinjer og kode.
         </KobberIngress>
       </KobberTextWrapper>
-      <KobberButton
-        variant="main"
-        color="carmine"
-        icon={<IconLogin className="size-4" />}
-        onClick={() => ssoSignIn({ redirectUrl: pathname })}
-      >
-        Logg inn med SSO
-      </KobberButton>
+      <LoginButton cta textSuffix=" med SSO" />
     </div>
   )
 }
