@@ -1,4 +1,3 @@
-import { Metadata } from "next"
 import { TemplateString } from "next/dist/lib/metadata/types/metadata-types"
 
 export type RouteType = {

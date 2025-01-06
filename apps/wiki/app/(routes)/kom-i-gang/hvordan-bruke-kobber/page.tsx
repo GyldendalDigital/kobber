@@ -11,6 +11,7 @@ import { ExternalLinksGrid } from "@/components/global/external-links-grid"
 import { SectionLayout } from "@/components/section-layout"
 import { metaGettingStartedHow } from "./how.meta"
 
+
 export const metadata = metaGettingStartedHow
 
 export default function HvordanBrukeKobber() {
