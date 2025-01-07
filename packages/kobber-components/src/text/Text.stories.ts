@@ -5,18 +5,26 @@ import "./text-highlight/TextHighlight";
 import "./heading/Heading";
 import "./ingress/Ingress";
 import "./link/Link";
-import { headingPrimarySizes } from "./heading/Heading.core";
+import { headingPrimarySizes, headingSecondarySizes } from "./heading/Heading.core";
 import { textHighlightColors } from "./text-highlight/TextHighlight.core";
+import { template, semantics, component } from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { storySummary } from "../story/story-summary";
+import { textWrapperStyles } from "./text-wrapper/TextWrapper.styles";
+import { linkStyles } from "./link/Link.styles";
+import { textHighlightStyles } from "./text-highlight/TextHighlight.styles";
+import { getContrast, isContrastCompliant } from "../utils/contrast";
+import { ingressStyles } from "./ingress/Ingress.styles";
+import { headingStyles } from "./heading/Heading.styles";
 
 const meta: Meta = {
-  title: "In development 🧪/Text",
+  title: "Text",
   decorators: [(Story, context) => html`<div class="${context.globals.theme}">${Story()}</div>`],
 };
 
 export default meta;
 type Story = StoryObj;
 
-export const Text: Story = {
+export const All: Story = {
   render: () => html`
     <kobber-text-wrapper>
       <kobber-heading>
@@ -107,12 +115,12 @@ export const Heading: Story = {
       args.highlighted ? html`<kobber-text-highlight>${textValue}</kobber-text-highlight>` : textValue;
 
     return html`
-      <div style="display: flex; gap: 2rem;">
+      <div style="display: flex; gap: 2rem; margin-top: 3rem;">
         <kobber-text-wrapper class="kobber-text-wrapper">
           Primary
           ${headingPrimarySizes.map(
             size => html`
-              <kobber-heading level="${args.h1 ? "h1" : "h2"}" size="${size}" font="primary">
+              <kobber-heading level="${args.h1 ? "h1" : "h2"}" variant="${size}" font="primary">
                 ${text(args.text || size)}
               </kobber-heading>
             `,
@@ -121,38 +129,136 @@ export const Heading: Story = {
 
         <kobber-text-wrapper class="kobber-text-wrapper">
           Secondary
-          ${headingPrimarySizes.map(
+          ${headingSecondarySizes.map(
             size => html`
-              <kobber-heading level="${args.h1 ? "h1" : "h2"}" size="${size}" font="secondary">
+              <kobber-heading level="${args.h1 ? "h1" : "h2"}" variant="${size}" font="secondary">
                 ${text(args.text || size)}
               </kobber-heading>
             `,
           )}
         </kobber-text-wrapper>
       </div>
+
+      ${storySummary({
+        summary: `Primary er PP Mori, secondary er Lyon Display.`,
+        code: headingStyles.cssText,
+      })}
     `;
   },
 };
 
-export const Highlight: Story = {
+export const Ingress: Story = {
   argTypes: {
     text: {
       control: "text",
     },
   },
   args: {
-    text: "Highlight",
+    text: "Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem bestående av gjenbrukbare, fleksible ressurser slik som digitale komponenter, malverk, retningslinjer og kode. Samtidig tydeliggjør det vår merkevarestrategi, våre felles verdier og de opplevelsene vi har som mål å tilby våre sluttbrukere.",
   },
   render: args => {
-    return html`
-      <kobber-text-wrapper>
-        ${textHighlightColors.map(
-          (color, i) =>
-            html`<kobber-text-highlight color="${color}"
-              >${color} ${args.text} ${i === 0 ? " (default)" : ""}</kobber-text-highlight
-            >`,
-        )}
-      </kobber-text-wrapper>
-    `;
+    return html`<div style="max-width: 600px;">
+        <kobber-ingress> ${args.text} </kobber-ingress>
+      </div>
+
+      ${storySummary({
+        summary: `Bruker farge fra "component.article", og typografi fra "title medium".`,
+        code: ingressStyles.cssText,
+      })}`;
   },
 };
+
+export const Highlight: Story = {
+  parameters: {
+    layout: "none",
+  },
+  render: args => {
+    return html`<div style="margin-top: 4rem">
+        <kobber-text-wrapper>
+          ${textHighlightColors.map((color, i) => {
+            const highlightValue = component.button.background.color[color].main.primary.fallback;
+            const backgroundValue = semantics.navigation.color.brightest;
+            const textValue = component.article.body.text.color.base;
+
+            const backgroundContrast = getContrast(backgroundValue, highlightValue);
+            const backgroundContrastCompliant = isContrastCompliant(backgroundValue, highlightValue, false, "AA");
+
+            const textContrast = getContrast(textValue, highlightValue);
+
+            return html`<div style="padding: 1rem; border: 1px solid lightgray; border-radius: 0.5rem;">
+              <p style="font-family: monospace; font-size: 0.8rem;">
+                Farge: ${color} <br />
+                Kontrast mot bakgrunn: ${backgroundContrast} ${backgroundContrastCompliant ? "👍" : "👎"} <br />
+                Kontrast mot brødtekst: ${textContrast} <br />
+              </p>
+              <p>Dette er den <kobber-text-highlight color="${color}">fremhevede</kobber-text-highlight> teksten.</p>
+            </div>`;
+          })}
+        </kobber-text-wrapper>
+      </div>
+
+      ${storySummary({
+        summary: `Carmine og Rettsdata er vel de eneste som egner seg for highlighting.`,
+        code: textHighlightStyles.cssText,
+      })}`;
+  },
+};
+
+const linkStates = ["idle", "active", "hover", "focus"];
+
+export const Link: Story = {
+  argTypes: {
+    external: {
+      control: "boolean",
+    },
+  },
+  args: {
+    external: false,
+  },
+  render: args => {
+    return html`<div style="max-width: 600px;">
+        <kobber-text-wrapper>
+          ${linkStates.map(
+            state =>
+              html`<p>
+                <kobber-link
+                  class="${state}"
+                  href="${args.external ? "https://github.com/GyldendalDigital/kobber" : "/"}"
+                >
+                  ${args.external ? "Ekstern" : "Intern"} lenke
+                </kobber-link>
+                med tilstand <code>${state}</code>
+              </p>`,
+          )}
+        </kobber-text-wrapper>
+      </div>
+
+      ${storySummary({
+        summary: `Disabled er ikke en gyldig state for lenker. Da fjerner man heller href-attributten.`,
+        code: linkStyles.cssText,
+      })}`;
+  },
+};
+
+export const Wrapper: Story = {
+  render: () => {
+    return html`<div style="max-width: 600px;">
+      <kobber-text-wrapper>
+        <h1>Hvorfor et designsystem?</h2>
+        <p>
+          Designsystemet muliggjør en raskere og mer effektiv praksis for konsistent merkevarebygging, produktutvikling og kommunikasjon. Det skaper en tydeligere felles retning, og bidrar til økt kjennskap til og gjenkjennelighet av Gyldendal.
+        </p>
+        <p>
+        Det skal bidra til å styrke fellesskapsfølelsen på tvers av hele Gyldendal, ved å legge til rette for bedre samarbeid, transparens, synergier og deling av kompetanse og metoder på tvers av fagfelt, avdelinger og produkter.
+        </p>
+      </kobber-text-wrapper>
+    </div>
+
+  ${storySummary({
+    summary: `Wrapper bolker med tekst og gir gap på ${pxToRem(template["text-wrapper"].gap.horizontal)} (${template["text-wrapper"].gap.horizontal}px)`,
+    code: textWrapperStyles.cssText,
+  })}`;
+  },
+};
+
+const pxToRem = (px: number) => `${px / 16}rem`;

@@ -12,7 +12,6 @@ export { BoxLayout } from "./layouts/box-layout/BoxLayout";
 export { TextWrapper } from "./text/text-wrapper/TextWrapper";
 export { TextHighlight } from "./text/text-highlight/TextHighlight";
 export { Heading } from "./text/heading/Heading";
-export { Ingress } from "./ingress/Ingress";
 export { Carousel } from "./carousel/Carousel";
 export { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 export { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
