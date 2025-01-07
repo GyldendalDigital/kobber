@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils"
 import Footer from "@/components/footer"
 import { IconLoader } from "@/components/kobber-icons-loader"
 import { Navbar } from "@/components/menu/navbar"
-import { WikiNavbar } from "@/components/menu/wiki-navbar"
 import { SessionProvider } from "@/components/providers/session-provider"
 import { inter, lyon, mori } from "./fonts"
 
@@ -35,17 +34,12 @@ export default async function RootLayout({
       className={`${mori.className} ${mori.variable} ${lyon.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
-      <body className={cn(kobberTheme, "bg-[#FDF9F9] text-[#481125ff] antialiased transition-all")}>
+      <body className={kobberTheme}>
         <AuthProvider>
           <IconLoader />
-          <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal">
-            {/* <WikiNavbar /> */}
-            <Navbar />
-            <SessionProvider>
-              <div className="mt-[72px] md:mt-[67px]">{children}</div>
-            </SessionProvider>
-            <Footer />
-          </div>
+          <Navbar />
+          <SessionProvider>{children}</SessionProvider>
+          <Footer />
         </AuthProvider>
       </body>
     </html>

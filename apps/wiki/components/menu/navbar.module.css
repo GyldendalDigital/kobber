@@ -8,9 +8,6 @@
   gap: 1rem;
   align-items: center;
   padding-block: var(--kobber-component-wiki-navbar-container-padding-block);
-  padding-inline: var(--kobber-layout-gap-16-32);
-  min-width: var(--kobber-template-page-width-min);
-  max-width: var(--kobber-template-page-width-max);
   white-space: nowrap;
   background-color: var(--kobber-semantics-navigation-color-brightest);
 }

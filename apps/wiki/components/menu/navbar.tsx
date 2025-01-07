@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
 import { APP_NAME } from "@/lib/constants"
+import { cn } from "@/lib/utils"
 import { metaGettingStarted } from "@/app/(routes)/kom-i-gang/gettingStarted.meta"
 import { metaComponents } from "@/app/(routes)/komponenter/components.meta"
 import { metaBrand } from "@/app/(routes)/merkevare/brand.meta"
@@ -14,7 +15,7 @@ const mainRoutes = [metaGettingStarted, metaBrand, metaComponents]
 /** Top bar. Includes side bar on small devices. */
 export const Navbar = () => {
   return (
-    <header className={styles.navbar}>
+    <header className={cn(styles.navbar, "page-spacing")}>
       <Link href="/">
         <KobberHeading level="span" variant="title medium">
           {APP_NAME}

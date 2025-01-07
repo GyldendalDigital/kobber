@@ -3,7 +3,7 @@ import { damUrl } from "@/lib/damImageLoader"
 
 export default function Footer() {
   return (
-    <footer className="mt-auto min-h-[206px] w-full">
+    <footer className="page-spacing">
       <div className="mx-auto flex w-full flex-col items-center gap-[16px] pb-[60px] pt-[72px] md:flex-row md:justify-between md:pt-[108px]">
         <Image
           alt="Gyldendal Logo"
