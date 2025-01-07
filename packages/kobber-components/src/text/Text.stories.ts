@@ -5,7 +5,7 @@ import "./text-highlight/TextHighlight";
 import "./heading/Heading";
 import "./ingress/Ingress";
 import "./link/Link";
-import { headingPrimarySizes } from "./heading/Heading.core";
+import { headingPrimarySizes, headingSecondarySizes } from "./heading/Heading.core";
 import { textHighlightColors } from "./text-highlight/TextHighlight.core";
 import { template } from "@gyldendal/kobber-base/themes/default/tokens.js";
 
@@ -113,7 +113,7 @@ export const Heading: Story = {
           Primary
           ${headingPrimarySizes.map(
             size => html`
-              <kobber-heading level="${args.h1 ? "h1" : "h2"}" size="${size}" font="primary">
+              <kobber-heading level="${args.h1 ? "h1" : "h2"}" variant="${size}" font="primary">
                 ${text(args.text || size)}
               </kobber-heading>
             `,
@@ -122,9 +122,9 @@ export const Heading: Story = {
 
         <kobber-text-wrapper class="kobber-text-wrapper">
           Secondary
-          ${headingPrimarySizes.map(
+          ${headingSecondarySizes.map(
             size => html`
-              <kobber-heading level="${args.h1 ? "h1" : "h2"}" size="${size}" font="secondary">
+              <kobber-heading level="${args.h1 ? "h1" : "h2"}" variant="${size}" font="secondary">
                 ${text(args.text || size)}
               </kobber-heading>
             `,
