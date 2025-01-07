@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import "@/styles/globals.css"
+import { cookies } from "next/headers"
 import { SessionProvider as AuthProvider } from "next-auth/react"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
@@ -19,22 +20,21 @@ export const metadata: Metadata = {
     "Byggesteiner Gyldendal bruker til å lage solide, sammenhengende og universelt tilgjengelige produkter.",
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const cookieStore = await cookies()
+  const mode = cookieStore.get("color-scheme")?.value || "default"
+  const kobberTheme = `kobber-theme-${mode}`
   return (
     <html
       lang="no"
       className={`${mori.className} ${mori.variable} ${lyon.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
-      <body
-        className={cn(
-          "kobber-theme-default bg-[#FDF9F9] text-[#481125ff] antialiased transition-all"
-        )}
-      >
+      <body className={cn(kobberTheme, "bg-[#FDF9F9] text-[#481125ff] antialiased transition-all")}>
         <AuthProvider>
           <IconLoader />
           <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal px-page/padding/inline/xsmall sm:px-page/padding/inline/small md:px-page/padding/inline/medium xl:px-page/padding/inline/large">
