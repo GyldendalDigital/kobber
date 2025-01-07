@@ -12,7 +12,6 @@ const createTextWrapperStyles = () => {
     .${unsafeCSS(textWrapperName)} {
       display: flex;
       flex-direction: column;
-      overflow: hidden;
       gap: var(${unsafeCSS(textWrapper.gap.horizontal)});
       color: var(${unsafeCSS(body.text.color.base)});
       font-family: var(${unsafeCSS(bodyText.fontFamily)});

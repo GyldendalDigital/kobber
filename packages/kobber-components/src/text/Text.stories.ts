@@ -7,6 +7,7 @@ import "./ingress/Ingress";
 import "./link/Link";
 import { headingPrimarySizes } from "./heading/Heading.core";
 import { textHighlightColors } from "./text-highlight/TextHighlight.core";
+import { template } from "@gyldendal/kobber-base/themes/default/tokens.js";
 
 const meta: Meta = {
   title: "In development 🧪/Text",
@@ -16,7 +17,7 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-export const Text: Story = {
+export const All: Story = {
   render: () => html`
     <kobber-text-wrapper>
       <kobber-heading>
@@ -134,6 +135,22 @@ export const Heading: Story = {
   },
 };
 
+export const Ingress: Story = {
+  argTypes: {
+    text: {
+      control: "text",
+    },
+  },
+  args: {
+    text: "Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem bestående av gjenbrukbare, fleksible ressurser slik som digitale komponenter, malverk, retningslinjer og kode. Samtidig tydeliggjør det vår merkevarestrategi, våre felles verdier og de opplevelsene vi har som mål å tilby våre sluttbrukere.",
+  },
+  render: args => {
+    return html`<div style="max-width: 600px;">
+      <kobber-ingress> ${args.text} </kobber-ingress>
+    </div>`;
+  },
+};
+
 export const Highlight: Story = {
   argTypes: {
     text: {
@@ -156,3 +173,56 @@ export const Highlight: Story = {
     `;
   },
 };
+
+const linkStates = ["idle", "active", "hover", "focus"];
+
+export const Link: Story = {
+  argTypes: {
+    external: {
+      control: "boolean",
+    },
+  },
+  args: {
+    external: false,
+  },
+  render: args => {
+    return html`<div style="max-width: 600px;">
+      <kobber-text-wrapper>
+        ${linkStates.map(
+          state =>
+            html`<p>
+              <kobber-link
+                class="${state}"
+                href="${args.external ? "https://github.com/GyldendalDigital/kobber" : "/"}"
+              >
+                ${args.external ? "Ekstern" : "Intern"} lenke
+              </kobber-link>
+              med tilstand <code>${state}</code>
+            </p>`,
+        )}
+      </kobber-text-wrapper>
+    </div>`;
+  },
+};
+
+export const Wrapper: Story = {
+  render: () => {
+    return html`<div style="max-width: 600px;">
+      <kobber-text-wrapper>
+        <h1>Hvorfor et designsystem?</h2>
+        <p>
+          Designsystemet muliggjør en raskere og mer effektiv praksis for konsistent merkevarebygging, produktutvikling og kommunikasjon. Det skaper en tydeligere felles retning, og bidrar til økt kjennskap til og gjenkjennelighet av Gyldendal.
+        </p>
+        <p>
+        Det skal bidra til å styrke fellesskapsfølelsen på tvers av hele Gyldendal, ved å legge til rette for bedre samarbeid, transparens, synergier og deling av kompetanse og metoder på tvers av fagfelt, avdelinger og produkter.
+        </p>
+      </kobber-text-wrapper>
+      <br />
+      <pre style="border: 1px solid grey; border-radius: 1rem; padding: 1rem;">
+        Wrapper bolker med tekst og gir gap ${pxToRem(template["text-wrapper"].gap.horizontal)} (${template["text-wrapper"].gap.horizontal}px)
+      </pre>
+    </div> `;
+  },
+};
+
+const pxToRem = (px: number) => `${px / 16}rem`;
