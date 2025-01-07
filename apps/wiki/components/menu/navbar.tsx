@@ -1,10 +1,11 @@
 import Link from "next/link"
-import { KobberHeading, KobberLink } from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
 import { APP_NAME } from "@/lib/constants"
 import { metaGettingStarted } from "@/app/(routes)/kom-i-gang/gettingStarted.meta"
 import { metaComponents } from "@/app/(routes)/komponenter/components.meta"
 import { metaBrand } from "@/app/(routes)/merkevare/brand.meta"
 import { LoginButton } from "../global/login-button"
+import { RouterLink } from "../global/router-link"
 import { NavbarSmallScreenMenu } from "./navbar-small-screen-menu"
 import styles from "./navbar.module.css"
 
@@ -24,7 +25,7 @@ export const Navbar = () => {
         <ul className={styles["nav-large-screen-links"]}>
           {mainRoutes.map((route) => (
             <li key={route.href}>
-              <KobberLink href={route.href}>{route.title as string}</KobberLink>
+              <RouterLink href={route.href}>{route.title as string}</RouterLink>
             </li>
           ))}
         </ul>

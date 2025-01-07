@@ -6,10 +6,10 @@ import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import Footer from "@/components/footer"
 import { IconLoader } from "@/components/kobber-icons-loader"
+import { Navbar } from "@/components/menu/navbar"
 import { WikiNavbar } from "@/components/menu/wiki-navbar"
 import { SessionProvider } from "@/components/providers/session-provider"
 import { inter, lyon, mori } from "./fonts"
-import { Navbar } from "@/components/menu/navbar"
 
 /** Fallback for all pages */
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ export default async function RootLayout({
       <body className={cn(kobberTheme, "bg-[#FDF9F9] text-[#481125ff] antialiased transition-all")}>
         <AuthProvider>
           <IconLoader />
-          <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal px-page/padding/inline/xsmall sm:px-page/padding/inline/small md:px-page/padding/inline/medium xl:px-page/padding/inline/large">
+          <div className="mx-auto flex min-h-screen w-full max-w-max-width flex-col gap-y-page/gap/horizontal">
             {/* <WikiNavbar /> */}
             <Navbar />
             <SessionProvider>

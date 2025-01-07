@@ -1,6 +1,8 @@
 .navbar {
-  position: fixed;
+  position: sticky;
   inset-inline: 0;
+  top: 0;
+  z-index: 1000;
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1rem;
@@ -10,6 +12,7 @@
   min-width: var(--kobber-template-page-width-min);
   max-width: var(--kobber-template-page-width-max);
   white-space: nowrap;
+  background-color: var(--kobber-semantics-navigation-color-brightest);
 }
 
 .nav-large-screen {
@@ -26,7 +29,6 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 1rem;
   width: 100%;
 }
 
