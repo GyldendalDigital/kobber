@@ -7,10 +7,17 @@ import "./ingress/Ingress";
 import "./link/Link";
 import { headingPrimarySizes, headingSecondarySizes } from "./heading/Heading.core";
 import { textHighlightColors } from "./text-highlight/TextHighlight.core";
-import { template } from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { template, semantics, component } from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { storySummary } from "../story/story-summary";
+import { textWrapperStyles } from "./text-wrapper/TextWrapper.styles";
+import { linkStyles } from "./link/Link.styles";
+import { textHighlightStyles } from "./text-highlight/TextHighlight.styles";
+import { getContrast, isContrastCompliant } from "../utils/contrast";
+import { ingressStyles } from "./ingress/Ingress.styles";
+import { headingStyles } from "./heading/Heading.styles";
 
 const meta: Meta = {
-  title: "In development 🧪/Text",
+  title: "Text",
   decorators: [(Story, context) => html`<div class="${context.globals.theme}">${Story()}</div>`],
 };
 
@@ -108,7 +115,7 @@ export const Heading: Story = {
       args.highlighted ? html`<kobber-text-highlight>${textValue}</kobber-text-highlight>` : textValue;
 
     return html`
-      <div style="display: flex; gap: 2rem;">
+      <div style="display: flex; gap: 2rem; margin-top: 3rem;">
         <kobber-text-wrapper class="kobber-text-wrapper">
           Primary
           ${headingPrimarySizes.map(
@@ -131,6 +138,11 @@ export const Heading: Story = {
           )}
         </kobber-text-wrapper>
       </div>
+
+      ${storySummary({
+        summary: `Primary er PP Mori, secondary er Lyon Display.`,
+        code: headingStyles.cssText,
+      })}
     `;
   },
 };
@@ -146,31 +158,49 @@ export const Ingress: Story = {
   },
   render: args => {
     return html`<div style="max-width: 600px;">
-      <kobber-ingress> ${args.text} </kobber-ingress>
-    </div>`;
+        <kobber-ingress> ${args.text} </kobber-ingress>
+      </div>
+
+      ${storySummary({
+        summary: `Bruker farge fra "component.article", og typografi fra "title medium".`,
+        code: ingressStyles.cssText,
+      })}`;
   },
 };
 
 export const Highlight: Story = {
-  argTypes: {
-    text: {
-      control: "text",
-    },
-  },
-  args: {
-    text: "Highlight",
+  parameters: {
+    layout: "none",
   },
   render: args => {
-    return html`
-      <kobber-text-wrapper>
-        ${textHighlightColors.map(
-          (color, i) =>
-            html`<kobber-text-highlight color="${color}"
-              >${color} ${args.text} ${i === 0 ? " (default)" : ""}</kobber-text-highlight
-            >`,
-        )}
-      </kobber-text-wrapper>
-    `;
+    return html`<div style="margin-top: 4rem">
+        <kobber-text-wrapper>
+          ${textHighlightColors.map((color, i) => {
+            const highlightValue = component.button.background.color[color].main.primary.fallback;
+            const backgroundValue = semantics.navigation.color.brightest;
+            const textValue = component.article.body.text.color.base;
+
+            const backgroundContrast = getContrast(backgroundValue, highlightValue);
+            const backgroundContrastCompliant = isContrastCompliant(backgroundValue, highlightValue, false, "AA");
+
+            const textContrast = getContrast(textValue, highlightValue);
+
+            return html`<div style="padding: 1rem; border: 1px solid lightgray; border-radius: 0.5rem;">
+              <p style="font-family: monospace; font-size: 0.8rem;">
+                Farge: ${color} <br />
+                Kontrast mot bakgrunn: ${backgroundContrast} ${backgroundContrastCompliant ? "👍" : "👎"} <br />
+                Kontrast mot brødtekst: ${textContrast} <br />
+              </p>
+              <p>Dette er den <kobber-text-highlight color="${color}">fremhevede</kobber-text-highlight> teksten.</p>
+            </div>`;
+          })}
+        </kobber-text-wrapper>
+      </div>
+
+      ${storySummary({
+        summary: `Carmine og Rettsdata er vel de eneste som egner seg for highlighting.`,
+        code: textHighlightStyles.cssText,
+      })}`;
   },
 };
 
@@ -187,21 +217,26 @@ export const Link: Story = {
   },
   render: args => {
     return html`<div style="max-width: 600px;">
-      <kobber-text-wrapper>
-        ${linkStates.map(
-          state =>
-            html`<p>
-              <kobber-link
-                class="${state}"
-                href="${args.external ? "https://github.com/GyldendalDigital/kobber" : "/"}"
-              >
-                ${args.external ? "Ekstern" : "Intern"} lenke
-              </kobber-link>
-              med tilstand <code>${state}</code>
-            </p>`,
-        )}
-      </kobber-text-wrapper>
-    </div>`;
+        <kobber-text-wrapper>
+          ${linkStates.map(
+            state =>
+              html`<p>
+                <kobber-link
+                  class="${state}"
+                  href="${args.external ? "https://github.com/GyldendalDigital/kobber" : "/"}"
+                >
+                  ${args.external ? "Ekstern" : "Intern"} lenke
+                </kobber-link>
+                med tilstand <code>${state}</code>
+              </p>`,
+          )}
+        </kobber-text-wrapper>
+      </div>
+
+      ${storySummary({
+        summary: `Disabled er ikke en gyldig state for lenker. Da fjerner man heller href-attributten.`,
+        code: linkStyles.cssText,
+      })}`;
   },
 };
 
@@ -217,11 +252,12 @@ export const Wrapper: Story = {
         Det skal bidra til å styrke fellesskapsfølelsen på tvers av hele Gyldendal, ved å legge til rette for bedre samarbeid, transparens, synergier og deling av kompetanse og metoder på tvers av fagfelt, avdelinger og produkter.
         </p>
       </kobber-text-wrapper>
-      <br />
-      <pre style="border: 1px solid grey; border-radius: 1rem; padding: 1rem;">
-        Wrapper bolker med tekst og gir gap ${pxToRem(template["text-wrapper"].gap.horizontal)} (${template["text-wrapper"].gap.horizontal}px)
-      </pre>
-    </div> `;
+    </div>
+
+  ${storySummary({
+    summary: `Wrapper bolker med tekst og gir gap på ${pxToRem(template["text-wrapper"].gap.horizontal)} (${template["text-wrapper"].gap.horizontal}px)`,
+    code: textWrapperStyles.cssText,
+  })}`;
   },
 };
 

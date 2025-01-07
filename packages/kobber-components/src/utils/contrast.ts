@@ -55,7 +55,7 @@ export const getContrastCompliantColors = ({
  * {@link https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast | minimum contrast}
  * @param isLargeFont: 18pt or 14pt bold
  */
-const isContrastCompliant = (
+export const isContrastCompliant = (
   color1: string,
   color2: string,
   isLargeFont: boolean,
