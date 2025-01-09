@@ -12,8 +12,13 @@
  *
  * Using other icons for now.
  */
-import { ArrowRight, ExternalLink, LogIn, LogOut } from "lucide-react"
+import { ArrowLeft, ArrowRight, ExternalLink, LogIn, LogOut } from "lucide-react"
 
 export const IconExternalLink = () => <ExternalLink size={14} />
 
-export { ArrowRight as IconArrowRight, LogOut as IconLogout, LogIn as IconLogin }
+export {
+  ArrowRight as IconArrowRight,
+  ArrowLeft as IconArrowLeft,
+  LogOut as IconLogout,
+  LogIn as IconLogin,
+}

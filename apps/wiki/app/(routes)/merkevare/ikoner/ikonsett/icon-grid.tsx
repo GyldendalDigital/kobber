@@ -1,9 +1,9 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { Grid } from "@/components/kobber-components"
+import styles from "./icon-grid.module.css"
 
-const lazyLoadIcons = async (): Promise<Record<string, React.ComponentType>> => {
+const lazyLoadIcons = async (): Promise<Record<string, any>> => {
   const { default: _, ...rest } = await import("@gyldendal/kobber-icons/react")
   return rest
 }
@@ -24,11 +24,7 @@ export const IconGrid = () => {
     })
   }, [])
 
-  return (
-    <Grid gridTemplateColumns={"repeat(auto-fill, minmax(100px, 1fr))"}>
-      {components.map((x) => IconDisplayer(x))}
-    </Grid>
-  )
+  return <div className={styles["icon-grid"]}>{components.map((x) => IconDisplayer(x))}</div>
 }
 
 const IconDisplayer = ({ key, component: IconComponent }: Icon) => {

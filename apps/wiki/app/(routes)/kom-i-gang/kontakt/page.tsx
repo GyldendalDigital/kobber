@@ -1,9 +1,14 @@
 import Link from "next/link"
-import { KobberIngress, KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { InformationCardType } from "@/types/types"
 import { KOBBER_TEAMS_URL } from "@/lib/constants"
 import { damUrl } from "@/lib/damImageLoader"
 import { InformationCard } from "@/components/information-card"
+import { SectionLayout } from "@/components/section-layout"
 import { metaGettingStartedContact } from "./contact.meta"
 
 export const metadata = metaGettingStartedContact
@@ -47,37 +52,35 @@ const team: InformationCardType[] = [
 
 export default function ContactPage() {
   return (
-    <main className="flex w-full max-w-[858px] flex-col gap-2 md:gap-y-content/gap/horizontal">
-      <section className="flex w-full flex-col gap-y-text-section/gap/header-ingress-body/horizontal">
-        <KobberTextWrapper>
-          <h2 className="text-[48px] text-[#691837]">Spørsmål eller tilbakemelding?</h2>
-          <KobberIngress>{metadata.description}</KobberIngress>
-          <p>
-            Kobber eies av kommunikasjonsavdelingen og utvikles for tiden av en arbeidsgruppe fra
-            ulike deler av selskapet.
-            <br />
-            <br />
-            Vi har en{" "}
-            <Link target="_blank" href={KOBBER_TEAMS_URL} className="underline">
-              teams-kanal
-            </Link>{" "}
-            der det er mulig å få hjelp, ta opp relevante tema, ønsker og behov. Om du har et
-            spørsmål eller en tilbakemelding kan du først sjekke om noen har tatt opp dette eller
-            noe lignende tidligere.
-            <br />
-            <br />
-            Ta direkte kontakt med Irén eller Izelin ved forespørsler om nyutvikling av løsninger
-            tilknyttet merkevaren, komponenter, logo, nytt markedsmateriell eller ved spørsmål om
-            mulige unntak.
-          </p>
-        </KobberTextWrapper>
-      </section>
+    <SectionLayout>
+      <KobberTextWrapper>
+        <KobberHeading>Spørsmål eller tilbakemelding?</KobberHeading>
+        <KobberIngress>{metadata.description}</KobberIngress>
+        <p>
+          Kobber eies av kommunikasjonsavdelingen og utvikles for tiden av en arbeidsgruppe fra
+          ulike deler av selskapet.
+          <br />
+          <br />
+          Vi har en{" "}
+          <Link target="_blank" href={KOBBER_TEAMS_URL} className="underline">
+            teams-kanal
+          </Link>{" "}
+          der det er mulig å få hjelp, ta opp relevante tema, ønsker og behov. Om du har et spørsmål
+          eller en tilbakemelding kan du først sjekke om noen har tatt opp dette eller noe lignende
+          tidligere.
+          <br />
+          <br />
+          Ta direkte kontakt med Irén eller Izelin ved forespørsler om nyutvikling av løsninger
+          tilknyttet merkevaren, komponenter, logo, nytt markedsmateriell eller ved spørsmål om
+          mulige unntak.
+        </p>
+      </KobberTextWrapper>
 
       <section className="grid grid-cols-2 items-center justify-center gap-4 md:grid-cols-2 lg:grid-cols-3">
         {team.map((person) => (
           <InformationCard key={person.title} item={person} />
         ))}
       </section>
-    </main>
+    </SectionLayout>
   )
 }

@@ -1,25 +1,30 @@
-import { PageMetadata } from "@/lib/metadata.utils"
-import { ContentLayout } from "@/components/content-layout"
-import { SidebarLayout } from "@/components/menu/sidebar-layout"
+import { cn } from "@/lib/utils"
+import { SideNav } from "@/components/navigation/side-nav"
+import { pageLayoutTempFix } from "@/styles/page-layout-temp-fix"
+import pageLayoutStyles from "@/styles/page-layout.module.css"
 import { metaGettingStartedHow } from "./hvordan-bruke-kobber/how.meta"
 import { metaGettingStartedIntro } from "./introduksjon/intro.meta"
 import { metaGettingStartedContact } from "./kontakt/contact.meta"
 
-type GetStartedLayoutProps = {
-  children: React.ReactNode
-}
-
-const GetStartedRoutes: PageMetadata[] = [
-  metaGettingStartedIntro,
-  metaGettingStartedHow,
-  metaGettingStartedContact,
-]
-
-export default function GetStartedLayout({ children }: GetStartedLayoutProps) {
-  // top-[96px] is the height of the navbar + gap
+export default function GetStartedLayout({ children }: React.PropsWithChildren) {
   return (
-    <ContentLayout>
-      <SidebarLayout items={GetStartedRoutes}>{children}</SidebarLayout>
-    </ContentLayout>
+    <div
+      className={cn(
+        pageLayoutStyles["page-layout"],
+        pageLayoutStyles["page-spacing"],
+        pageLayoutTempFix
+      )}
+    >
+      <SideNav
+        groups={[
+          {
+            title: "Introduksjon",
+            items: [metaGettingStartedIntro, metaGettingStartedHow, metaGettingStartedContact],
+            isOpenInitially: true,
+          },
+        ]}
+      />
+      <main className="main">{children}</main>
+    </div>
   )
 }

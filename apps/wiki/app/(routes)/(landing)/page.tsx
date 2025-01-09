@@ -1,20 +1,32 @@
+import { KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
 import { FeatureBoxType } from "@/types/types"
-import { damUrl } from "@/lib/damImageLoader"
+import { cn } from "@/lib/utils"
 import { FeatureBoxGrid } from "@/components/feature-box-grid"
 import { ExternalLinksGrid } from "@/components/global/external-links-grid"
+import { pageLayoutTempFix } from "@/styles/page-layout-temp-fix"
+import pageLayoutStyles from "@/styles/page-layout.module.css"
+import { metaGettingStarted } from "../kom-i-gang/gettingStarted.meta"
+import { metaBrandColor } from "../merkevare/farger/brandColor.meta"
+import { metaBrandLogo } from "../merkevare/logo/logo.meta"
+import { metaBrandTypography } from "../merkevare/typografi/brandTypography.meta"
 import { HeroBanner } from "./hero-banner"
+import styles from "./landing.module.css"
 
 export default function Home() {
   return (
-    <main className="mx-auto flex w-full flex-col gap-y-content/gap/horizontal">
+    <main className={cn(styles.landing, pageLayoutStyles["page-spacing"], pageLayoutTempFix)}>
       <HeroBanner />
       <section className="grid gap-y-section/gap/horizontal">
-        <h4 className="text-primary-heading-s font-normal text-[#481125ff]">Kom i gang</h4>
+        <KobberHeading level="h2" variant="title medium">
+          Kom i gang
+        </KobberHeading>
         <FeatureBoxGrid items={boxes} />
       </section>
 
       <section className="grid gap-y-section/gap/horizontal">
-        <h3 className="text-primary-title-m text-[#481120]">Nyttige ressurser</h3>
+        <KobberHeading level="h2" variant="title medium">
+          Nyttige ressurser
+        </KobberHeading>
         <ExternalLinksGrid />
       </section>
     </main>
@@ -24,22 +36,22 @@ export default function Home() {
 const boxes: FeatureBoxType[] = [
   {
     title: "Introduksjon av Kobber",
-    href: "/kom-i-gang",
-    image: damUrl("2bULAP2gabp9rC4A1CbQSB", ".jpg"),
+    href: metaGettingStarted.href,
+    image: metaGettingStarted.image,
   },
   {
     title: "Vår nye Gyldendal-logo",
-    image: damUrl("CtM-1DQEapL98pVi_5S64C", ".svg"),
-    href: "/merkevare/logo",
+    image: metaBrandLogo.image,
+    href: metaBrandLogo.href,
   },
   {
     title: "Vår nye fargepalett",
-    image: damUrl("BkRpubsF45_8o0iVkKSQod", ".svg"),
-    href: "/merkevare/farger",
+    image: metaBrandColor.image,
+    href: metaBrandColor.href,
   },
   {
     title: "Fonter",
-    image: damUrl("Frg1nstAKYsA0hKXNk3z5x", ".svg"),
-    href: "/merkevare/typografi",
+    image: metaBrandTypography.image,
+    href: metaBrandTypography.href,
   },
 ]

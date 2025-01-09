@@ -6,9 +6,5 @@ type ContentLayoutProps = {
 
 /** Wraps side menu and content. Sets fixed size for sidebar when screen >= md */
 export function ContentLayout({ children }: ContentLayoutProps) {
-  return (
-    <div className="relative mx-auto w-full">
-      {children}
-    </div>
-  )
+  return <div className="sidebar+main page-spacing"></div>
 }

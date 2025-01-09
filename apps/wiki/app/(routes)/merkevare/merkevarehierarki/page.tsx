@@ -39,8 +39,7 @@ export default function MerkevareHeriarkiPage() {
       <KobberTextWrapper className="max-w-[711px]">
         <KobberHeading level="h2" variant="title medium">
           <KobberTextHighlight>Nivå 1</KobberTextHighlight>
-          <br />
-          Mormerke
+          <br /> Mormerke
         </KobberHeading>
         <p>
           Nivå 1.1 består av Gyldendals primærlogo og brukes alltid som avsender på Gyldendals
@@ -73,8 +72,7 @@ export default function MerkevareHeriarkiPage() {
       <KobberTextWrapper className="max-w-[711px]">
         <KobberHeading level="h2" variant="title medium">
           <KobberTextHighlight>Nivå 2</KobberTextHighlight>
-          <br />
-          Støttet utgivelse og verk
+          <br /> Støttet utgivelse og verk
         </KobberHeading>
         <p>
           Nivå 2 beskriver hvordan logoer brukes i utgivelser og verk som skal ha Gyldendal som
@@ -106,8 +104,7 @@ export default function MerkevareHeriarkiPage() {
       <KobberTextWrapper className="max-w-[711px]">
         <KobberHeading level="h2" variant="title medium">
           <KobberTextHighlight>Nivå 3</KobberTextHighlight>
-          <br />
-          Støttet identitet
+          <br /> Støttet identitet
         </KobberHeading>
         <p>
           Støttede identiteter brukes av digitale tjenester som utvikles av Gyldendal og derfor har
@@ -134,8 +131,7 @@ export default function MerkevareHeriarkiPage() {
       <KobberTextWrapper className="max-w-[711px]">
         <KobberHeading level="h2" variant="title medium">
           <KobberTextHighlight>Nivå 4</KobberTextHighlight>
-          <br />
-          Frittstående identitet
+          <br /> Frittstående identitet
         </KobberHeading>
         <p>
           Frittstående identiteter er selvstendige merkevarer og tjenester som, av strategiske

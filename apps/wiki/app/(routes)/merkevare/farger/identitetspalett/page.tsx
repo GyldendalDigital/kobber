@@ -1,6 +1,10 @@
 import Image from "next/image"
 import { IdentityColors } from "@/data/color-palettes"
-import { KobberIngress, KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ColorBlockGridItem } from "@/components/color-block-grid-item"
@@ -13,12 +17,14 @@ export default function IdentitetsPalett() {
   return (
     <SectionLayout>
       <KobberTextWrapper className="gap-[8px]">
-        <h2 className="text-[48px] text-[#691837]">{metadata.title as string}</h2>
+        <KobberHeading>{metadata.title as string}</KobberHeading>
         <KobberIngress>{metadata.description}</KobberIngress>
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px] gap-[0px]">
-        <h5 className="text-[24px] text-[#481125]">Full fargepalett</h5>
+        <KobberHeading level="h2" variant="heading small">
+          Full fargepalett
+        </KobberHeading>
         <p>
           Gyldendals fulle fargepaletter består av fargene Karmin, Aubergin, Vin og Betong.
           Fargepalettene er laget for å alltid kunne fungere i kombinasjon med hverandre for å skape
@@ -34,7 +40,9 @@ export default function IdentitetsPalett() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px] gap-[0px]">
-        <h5 className="text-[24px] text-[#481125]">Karmin</h5>
+        <KobberHeading level="h2" variant="heading small">
+          Karmin
+        </KobberHeading>
         <p>
           Karmin er primær identitetsfarge, og brukes i logoer, aktive knapper og for å fremheve
           deler av tekst. Den skal ikke overbrukes, men heller brukes der den gir effekt og skaper
@@ -48,14 +56,18 @@ export default function IdentitetsPalett() {
 
       {IdentityColors.map((theme, index) => (
         <KobberTextWrapper key={index} className="gap-0">
-          <h5 className="text-[24px] text-[#481125]">{theme.title}</h5>
+          <KobberHeading level="h2" variant="heading small">
+            {theme.title}
+          </KobberHeading>
           <p>{theme.description}</p>
           <ColorBlockGrid colors={theme.colors} enableCopy />
         </KobberTextWrapper>
       ))}
 
       <KobberTextWrapper className="max-w-[711px] gap-[0px]">
-        <h5 className="text-[24px] text-[#481125]">Fargekombinasjoner</h5>
+        <KobberHeading level="h2" variant="heading small">
+          Fargekombinasjoner
+        </KobberHeading>
         <p>
           Til ulike stemninger og kontekster kan det varieres mellom de tre fargekombinasjoner vi
           bygger identitet rundt. Det lyse og mørke uttrykket skal brukes i størst grad, og
@@ -72,7 +84,9 @@ export default function IdentitetsPalett() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px] gap-[0px]">
-        <h5 className="text-[24px] text-[#481125]">Unngå dette</h5>
+        <KobberHeading level="h2" variant="heading small">
+          Unngå dette
+        </KobberHeading>
         <p>
           Det er viktig at bruken av fargepaletten forblir konsistent som en del av et helhetlig
           utrykk og for å sikre nok kontrast. Fargene skal derfor ikke justeres og det skal ikke

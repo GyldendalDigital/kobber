@@ -2,10 +2,12 @@ import Image from "next/image"
 import {
   KobberHeading,
   KobberIngress,
+  KobberTextHighlight,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
 import { SectionLayout } from "@/components/section-layout"
+import { metaGettingStarted } from "../gettingStarted.meta"
 import { metaGettingStartedIntro } from "./intro.meta"
 
 export const metadata = metaGettingStartedIntro
@@ -14,7 +16,7 @@ export default function Introduksjon() {
   return (
     <SectionLayout>
       <Image
-        src={damUrl("2bULAP2gabp9rC4A1CbQSB")}
+        src={metaGettingStarted.image}
         width={858}
         height={293}
         className="h-[293px] w-full rounded-[16px] object-cover object-top"
@@ -23,11 +25,10 @@ export default function Introduksjon() {
 
       <KobberTextWrapper>
         <KobberHeading>
-          Designsystemet Kobber
-          <br />
-          <span className="font-lyon text-[48px] font-light leading-[57.6px] text-[#DC134F]">
-            Et verktøy for samspill og synergier
-          </span>
+          Designsystemet Kobber <br />
+          <KobberHeading level="div" font="secondary">
+            <KobberTextHighlight>Et verktøy for samspill og synergier</KobberTextHighlight>
+          </KobberHeading>
         </KobberHeading>
 
         <KobberIngress>{metadata.description}</KobberIngress>

@@ -21,7 +21,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, Props>((props, ref) => {
         {/* TODO: react icons */}
         {isExternal && (
           <svg viewBox="0 0 20 20">
-            <g clip-path="url(#bva)">
+            <g clipPath="url(#bva)">
               <path
                 fill="currentColor"
                 d="M6.876 13.748a.628.628 0 0 1-.442-1.067L17.867 1.247h-4.115a.625.625 0 0 1 0-1.25h5.625a.625.625 0 0 1 .578.387l.007.022a.61.61 0 0 1 .04.216v5.625a.625.625 0 0 1-1.25 0V2.132L7.318 13.566a.626.626 0 0 1-.442.182Z"

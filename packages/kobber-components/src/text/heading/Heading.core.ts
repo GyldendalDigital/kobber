@@ -30,7 +30,7 @@ export type HeadingPrimarySize = (typeof headingPrimarySizes)[number];
 export type HeadingSecondarySize = (typeof headingSecondarySizes)[number];
 export type HeadingFont = (typeof headingFonts)[number];
 
-export const headingLevels = ["h1", "h2", "h3", "h4", "h5", "h6", "span"] as const;
+export const headingLevels = ["h1", "h2", "h3", "h4", "h5", "h6", "span", "div"] as const;
 
 export const headingPrimarySizes = [
   "display large",

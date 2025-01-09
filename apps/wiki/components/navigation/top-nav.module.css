@@ -1,0 +1,39 @@
+.top-nav {
+  position: sticky;
+  inset-inline: 0;
+  top: 0;
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding-block: var(--kobber-component-wiki-navbar-container-padding-block);
+  white-space: nowrap;
+  background-color: var(--kobber-semantics-navigation-color-brightest);
+}
+
+.top-nav-large-screen {
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.top-nav-large-screen-links {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+}
+
+.top-nav-small-screen {
+  justify-self: end;
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}

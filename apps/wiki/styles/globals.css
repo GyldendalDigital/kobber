@@ -67,16 +67,22 @@
     display: none;
   }
 
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   html {
     scrollbar-gutter: stable;
   }
-}
 
-@layer base {
-  * {
-    @apply border-border;
-  }
   body {
-    @apply bg-background text-foreground;
+    color: var(--kobber-component-article-body-text-color-base);
+    background-color: var(--kobber-semantics-navigation-color-brightest);
+
+    --top-nav-height: calc(
+      2 * var(--kobber-component-wiki-navbar-container-padding-block) +
+        var(--kobber-component-button-container-size-height)
+    );
   }
 }
