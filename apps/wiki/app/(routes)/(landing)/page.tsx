@@ -7,7 +7,7 @@ import { pageLayoutTempFix } from "@/styles/page-layout-temp-fix"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
 import { metaGettingStarted } from "../kom-i-gang/gettingStarted.meta"
 import { metaBrandColor } from "../merkevare/farger/brandColor.meta"
-import { metaBrandLogo } from "../merkevare/logo/logo.meta"
+import { metaBrandLogoGyldendal } from "../merkevare/logo/gyldendal-logo/gyldendalLogo.meta"
 import { metaBrandTypography } from "../merkevare/typografi/brandTypography.meta"
 import { HeroBanner } from "./hero-banner"
 import styles from "./landing.module.css"
@@ -41,8 +41,8 @@ const boxes: FeatureBoxType[] = [
   },
   {
     title: "Vår nye Gyldendal-logo",
-    image: metaBrandLogo.image,
-    href: metaBrandLogo.href,
+    image: metaBrandLogoGyldendal.image,
+    href: metaBrandLogoGyldendal.href,
   },
   {
     title: "Vår nye fargepalett",

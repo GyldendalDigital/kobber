@@ -4,7 +4,6 @@ import {
   KobberIngress,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
-import { damUrl } from "@/lib/damImageLoader"
 import { SectionLayout } from "@/components/section-layout"
 import { metaBrandLogoProduct } from "./productLogo.meta"
 
@@ -34,13 +33,15 @@ export default function Page() {
         <p>
           Utvikles det ett nytt produkt eller tjeneste, skal det søkes om ny logo; se kontaktsiden.
         </p>
-        <Image
-          src={damUrl("7QMhG4Do4FMAPwZw2hsz8W")}
-          width={711}
-          height={355}
-          className="object-contain"
-          alt="Gyldendals primærlogo"
-        />
+        {metadata.image && (
+          <Image
+            src={metadata.image}
+            width={711}
+            height={355}
+            className="object-contain"
+            alt="Gyldendals primærlogo"
+          />
+        )}
       </KobberTextWrapper>
     </SectionLayout>
   )
