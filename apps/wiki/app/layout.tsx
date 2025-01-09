@@ -3,10 +3,9 @@ import "@/styles/globals.css"
 import { cookies } from "next/headers"
 import { SessionProvider as AuthProvider } from "next-auth/react"
 import { APP_NAME } from "@/lib/constants"
-import { cn } from "@/lib/utils"
 import Footer from "@/components/footer"
 import { IconLoader } from "@/components/kobber-icons-loader"
-import { Navbar } from "@/components/menu/navbar"
+import { TopNav } from "@/components/navigation/top-nav"
 import { SessionProvider } from "@/components/providers/session-provider"
 import { inter, lyon, mori } from "./fonts"
 
@@ -37,7 +36,7 @@ export default async function RootLayout({
       <body className={kobberTheme}>
         <AuthProvider>
           <IconLoader />
-          <Navbar />
+          <TopNav />
           <SessionProvider>{children}</SessionProvider>
           <Footer />
         </AuthProvider>

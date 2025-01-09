@@ -1,29 +1,27 @@
-"use client"
-
 import { PageMetadata } from "@/lib/metadata.utils"
 import { toUpperCase } from "@/lib/utils"
-import { Accordion, Divider, List } from "@/components/kobber-components"
-import { SideMenuItem } from "./side-menu-item"
+import { Accordion, List } from "../kobber-components-csr"
+import { SideNavItem } from "./side-nav-item"
+import styles from "./side-nav.module.css"
 
-export type SideMenuGroupProps = {
+export type Props = {
   title: string
   items: PageMetadata[]
   isOpenInitially?: boolean
 }
 
-export const SideMenuGroup = ({ title, items, isOpenInitially = false }: SideMenuGroupProps) => {
+export const SideNavGroup = ({ title, items, isOpenInitially = false }: Props) => {
   if (!items) return null
 
   return (
-    <>
+    <div className={styles["side-nav-group"]}>
       <Accordion title={toUpperCase(title)} expanded={isOpenInitially}>
         <List orientation="vertical">
           {items.map((item, i) => (
-            <SideMenuItem key={item.href + i} {...item} />
+            <SideNavItem key={item.href + i} {...item} />
           ))}
         </List>
       </Accordion>
-      <Divider />
-    </>
+    </div>
   )
 }

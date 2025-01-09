@@ -1,15 +1,20 @@
-import { ContentLayout } from "@/components/content-layout"
-import { SidebarLayout } from "@/components/menu/sidebar-layout"
+import { cn } from "@/lib/utils"
+import { SideNav } from "@/components/navigation/side-nav"
+import { pageLayoutTempFix } from "@/styles/page-layout-temp-fix"
+import pageLayoutStyles from "@/styles/page-layout.module.css"
 import { metaBrandNavigationGroups } from "./brand.meta"
 
-type GetStartedLayoutProps = {
-  children: React.ReactNode
-}
-
-export default async function MerkevareLayout({ children }: GetStartedLayoutProps) {
+export default async function MerkevareLayout({ children }: React.PropsWithChildren) {
   return (
-    <ContentLayout>
-      <SidebarLayout groups={metaBrandNavigationGroups}>{children}</SidebarLayout>
-    </ContentLayout>
+    <div
+      className={cn(
+        pageLayoutStyles["page-layout"],
+        pageLayoutStyles["page-spacing"],
+        pageLayoutTempFix
+      )}
+    >
+      <SideNav groups={metaBrandNavigationGroups} />
+      <main className="merkevare-layout-main">{children}</main>
+    </div>
   )
 }

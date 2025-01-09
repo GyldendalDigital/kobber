@@ -1,5 +1,6 @@
 import { damUrl } from "@/lib/damImageLoader"
 import { pageMetadata } from "@/lib/metadata.utils"
+import { Props as SideNavGroupProps } from "@/components/navigation/side-nav-group"
 import { metaBrandColor } from "./farger/brandColor.meta"
 import { metaBrandIcons } from "./ikoner/brandIcons.meta"
 import { metaBrandLogo } from "./logo/logo.meta"
@@ -9,7 +10,6 @@ import { metaWordTemplate } from "./maler/word/word-template.meta"
 import { metaBrandLevel } from "./merkevarehierarki/brandLevel.meta"
 import { metaBrandTypography } from "./typografi/brandTypography.meta"
 import { metaBrandVaarStemme } from "./vaar-stemme/stemme.meta"
-import { SideMenuGroupProps } from "@/components/menu/side-menu-group"
 
 export const metaBrand = pageMetadata(import.meta.url, {
   title: "Merkevare",
@@ -51,4 +51,4 @@ export const metaBrandNavigationGroups = [
     items: [metaPowerpointTemplate, metaWordTemplate, metaEMailTemplate],
     isOpenInitially: true,
   },
-] satisfies SideMenuGroupProps[]
+] satisfies SideNavGroupProps[]

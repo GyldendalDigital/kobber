@@ -1,5 +1,4 @@
 import { pageMetadata } from "@/lib/metadata.utils"
-import { placeholderImageUrl } from "@/lib/utils"
 import { metaBrandColorIdentity } from "./identitetspalett/identity.meta"
 import { metaBrandColorTheme } from "./temafarger/theme.meta"
 import { metaBrandColorUi } from "./ui-farger/ui.meta"

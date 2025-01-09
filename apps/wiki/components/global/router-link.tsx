@@ -9,10 +9,11 @@ type Props = {
   href: string
   children: React.ReactNode
   disabled?: boolean
+  onClick?: () => void
 }
 
 export const RouterLink = (props: Props) => {
-  const { href, children, disabled } = props
+  const { href, children, disabled, onClick } = props
   const pathname = usePathname()
   return (
     <Link href={href} passHref legacyBehavior>
@@ -22,6 +23,7 @@ export const RouterLink = (props: Props) => {
         disabled={disabled}
         className={cn({ active: pathname === href })}
         href={href}
+        onClick={onClick}
       >
         {children}
       </KobberButton>

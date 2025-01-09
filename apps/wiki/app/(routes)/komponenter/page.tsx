@@ -9,11 +9,11 @@ export const metadata = metaComponents
 
 export default function ComponentsPage() {
   return (
-    <main className="flex h-full items-center justify-center md:h-[calc(100vh-67px-412px)]">
+    <div className="components-page">
       <KobberTextWrapper>
         <KobberHeading>{metadata.title as string}</KobberHeading>
         <KobberIngress>{metadata.description}</KobberIngress>
       </KobberTextWrapper>
-    </main>
+    </div>
   )
 }

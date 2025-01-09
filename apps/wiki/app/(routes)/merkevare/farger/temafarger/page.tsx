@@ -1,5 +1,9 @@
 import { ThemeColors } from "@/data/color-palettes"
-import { KobberIngress, KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
+import {
+  KobberHeading,
+  KobberIngress,
+  KobberTextWrapper,
+} from "@gyldendal/kobber-components/react-ssr-safe"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { SectionLayout } from "@/components/section-layout"
 import { metaBrandColorTheme } from "./theme.meta"
@@ -10,13 +14,15 @@ export default function Temafarger() {
   return (
     <SectionLayout>
       <KobberTextWrapper>
-        <h2 className="text-[48px] text-[#691837]">{metadata.title as string}</h2>
+        <KobberHeading>{metadata.title as string}</KobberHeading>
         <KobberIngress>{metadata.description}</KobberIngress>
       </KobberTextWrapper>
 
       {ThemeColors.map((theme, index) => (
         <KobberTextWrapper key={index}>
-          <h5 className="text-[24px] text-[#481125]">{theme.title}</h5>
+          <KobberHeading level="h2" variant="heading small">
+            {theme.title}
+          </KobberHeading>
           {theme.description && <p>{theme.description}</p>}
           <ColorBlockGrid colors={theme.colors} enableCopy />
         </KobberTextWrapper>
