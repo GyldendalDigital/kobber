@@ -105,7 +105,11 @@ export const SmallScreenNav = () => {
                       key={child.title as string}
                       className={styles["small-screen-nav-overlay-link-list-inner-item"]}
                     >
-                      <RouterLink href={child.href} disabled={child.status === "kommer"}>
+                      <RouterLink
+                        href={child.href}
+                        disabled={child.status === "kommer"}
+                        onClick={handleToggle}
+                      >
                         {child.title as string}
                         {child.status !== "kommer" && <IconArrowRight />}
                       </RouterLink>
@@ -128,7 +132,7 @@ export const SmallScreenNav = () => {
                         key={child.href}
                         className={styles["small-screen-nav-overlay-link-list-inner-item"]}
                       >
-                        <RouterLink href={child.href}>
+                        <RouterLink href={child.href} onClick={handleToggle}>
                           {child.title as string}
                           <IconArrowRight />
                         </RouterLink>
