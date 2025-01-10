@@ -28,7 +28,12 @@
         savedData = e;
       }
 
+      function checkRecordingStatus (e) {
+        console.log(e);
+      }
+
       temp1.mp3Callback = callbackTester;
+      temp1.isRecordingCallback = checkRecordingStatus;
 
       document.getElementById("start-data-button").addEventListener("click", () => {
         temp1.audioData = activeFile;
