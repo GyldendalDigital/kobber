@@ -86,13 +86,13 @@
 
     export let mp3Callback;
     export let audioData;
+    export let isRecording = false;
 
     let audioDataIndex = 0;
     let mediaRecorder = null;
     let analyser = null;
     let audioCtx = null;
     let animationId = null;
-    let isRecording = false;
     let isPlaying = false;
     let confirmDelete = false;
 
