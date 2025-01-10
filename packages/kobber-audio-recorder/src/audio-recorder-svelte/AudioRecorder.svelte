@@ -86,8 +86,9 @@
 
     export let mp3Callback;
     export let audioData;
-    export let isRecording = false;
+    export let isRecordingCallback;
 
+    let isRecording = false;
     let audioDataIndex = 0;
     let mediaRecorder = null;
     let analyser = null;
@@ -392,6 +393,7 @@
             startRecording();
         }
         isRecording = !isRecording;
+        isRecordingCallback(isRecording);
     }
 
     $: currentWidth = document.getElementById(".audio-recorder-" + uniqueId)?.getBoundingClientRect().width;
