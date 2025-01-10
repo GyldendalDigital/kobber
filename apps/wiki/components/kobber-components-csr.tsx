@@ -2,64 +2,11 @@
 
 import dynamic from "next/dynamic"
 import { Loader2 } from "lucide-react"
-import { FeatureBoxGridSkeleton } from "./feature-box-grid-skeleton"
 import { Skeleton } from "./ui/skeleton"
 
 /**
  * Lazy load kobber components on the client side, to prevent SSR errors.
  */
-
-export const Grid = dynamic(
-  () => import("@gyldendal/kobber-components/react").then((mod) => mod.KobberGrid),
-  {
-    loading: () => <Skeleton className="h-6 w-24" />,
-    ssr: false,
-  }
-)
-export const BoxLayout = dynamic(
-  () => import("@gyldendal/kobber-components/react").then((mod) => mod.KobberBoxLayout),
-  {
-    loading: () => <Skeleton className="h-6 w-24" />,
-    ssr: false,
-  }
-)
-
-export const CardLayout = dynamic(
-  () =>
-    import("@gyldendal/kobber-components/react").then((x) => ({
-      default: x.KobberCardLayout,
-    })),
-  {
-    loading: () => (
-      <div className="flex items-center justify-between gap-4">
-        <FeatureBoxGridSkeleton />
-        <FeatureBoxGridSkeleton />
-        <FeatureBoxGridSkeleton />
-        <FeatureBoxGridSkeleton />
-      </div>
-    ),
-    ssr: false,
-  }
-)
-
-export const CardLayoutColumnAspectRatio = dynamic(
-  () =>
-    import("@gyldendal/kobber-components/react").then((x) => ({
-      default: x.KobberCardLayoutColumnAspectRatio,
-    })),
-  {
-    loading: () => <Loader2 className="size-4" />,
-    ssr: false,
-  }
-)
-
-export const Divider = dynamic(
-  () =>
-    import("@gyldendal/kobber-components/react").then((x) => ({
-      default: x.KobberDivider,
-    })),
-  { loading: () => <Loader2 className="size-4" />, ssr: false }
-)
 
 export const Accordion = dynamic(
   () =>

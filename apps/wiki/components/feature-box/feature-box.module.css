@@ -1,0 +1,40 @@
+.feature-box {
+  display: grid;
+  /* TODO: from tokens */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(100%, max(13rem + clamp(0.5rem, 0.38rem + 0.63vw, 1rem), 20%)), 1fr)
+  );
+  gap: 1rem;
+}
+
+.feature-box-item {
+  position: relative;
+  display: flex;
+  align-items: end;
+  aspect-ratio: 100/86;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.feature-box-item:hover {
+  opacity: 0.9;
+}
+
+.feature-box-item-label {
+  background-color: var(--kobber-semantics-navigation-color-brightest);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  padding: 0.5rem;
+  z-index: 10;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.feature-box-item-image {
+  object-fit: cover;
+  object-position: left;
+}

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
@@ -26,22 +26,23 @@ export const SmallScreenNav = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedBrandNavigationGroup, setSelectedBrandNavigationGroup] = useState<
     SideNavGroupProps | undefined
-  >(findNavigationGroup(pathname))
+  >()
 
-  const handleToggle = () => {
-    if (isOpen) {
-      document.body.classList.remove("overflow-y-hidden")
-      setIsOpen(false)
-    } else {
-      // prevent scrolling when menu is open
-      document.body.classList.add("overflow-y-hidden")
-      setIsOpen(true)
-    }
+  const onOpen = () => {
+    document.body.classList.add("overflow-y-hidden")
+    setIsOpen(true)
+    setSelectedBrandNavigationGroup(findNavigationGroup(pathname))
   }
 
-  const handleBrandNavigation = (group: SideNavGroupProps | undefined) => {
-    setSelectedBrandNavigationGroup(group)
+  const onClose = () => {
+    document.body.classList.remove("overflow-y-hidden")
+    setIsOpen(false)
+    setSelectedBrandNavigationGroup(undefined)
   }
+
+  useEffect(() => {
+    onClose()
+  }, [pathname])
 
   return (
     <div className={styles["small-screen-nav"]}>
@@ -51,7 +52,7 @@ export const SmallScreenNav = () => {
         variant="main"
         color={isOpen ? "carmine" : "aubergine"}
         icon={isOpen ? <X className="text-white" size={20} /> : <Menu size={20} />}
-        onClick={handleToggle}
+        onClick={isOpen ? onClose : onOpen}
       ></KobberButton>
 
       {/* Overlay */}
@@ -64,7 +65,7 @@ export const SmallScreenNav = () => {
                 <KobberButton
                   color="aubergine"
                   level="secondary"
-                  onClick={() => handleBrandNavigation(undefined)}
+                  onClick={() => setSelectedBrandNavigationGroup(undefined)}
                 >
                   <IconArrowLeft />
                   {metaBrand.title} / {selectedBrandNavigationGroup?.title}
@@ -87,7 +88,7 @@ export const SmallScreenNav = () => {
                             key={child.href}
                             className={styles["small-screen-nav-overlay-link-list-inner-item"]}
                           >
-                            <RouterLink href={child.href} onClick={handleToggle}>
+                            <RouterLink href={child.href}>
                               {child.title as string}
                               <IconArrowRight />
                             </RouterLink>
@@ -105,11 +106,7 @@ export const SmallScreenNav = () => {
                       key={child.title as string}
                       className={styles["small-screen-nav-overlay-link-list-inner-item"]}
                     >
-                      <RouterLink
-                        href={child.href}
-                        disabled={child.status === "kommer"}
-                        onClick={handleToggle}
-                      >
+                      <RouterLink href={child.href} disabled={child.status === "kommer"}>
                         {child.title as string}
                         {child.status !== "kommer" && <IconArrowRight />}
                       </RouterLink>
@@ -132,7 +129,7 @@ export const SmallScreenNav = () => {
                         key={child.href}
                         className={styles["small-screen-nav-overlay-link-list-inner-item"]}
                       >
-                        <RouterLink href={child.href} onClick={handleToggle}>
+                        <RouterLink href={child.href}>
                           {child.title as string}
                           <IconArrowRight />
                         </RouterLink>
@@ -154,7 +151,7 @@ export const SmallScreenNav = () => {
                         <KobberButton
                           color="aubergine"
                           level="secondary"
-                          onClick={() => handleBrandNavigation(child)}
+                          onClick={() => setSelectedBrandNavigationGroup(child)}
                         >
                           {child.title as string}
                           <IconArrowRight />
