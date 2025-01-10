@@ -1,11 +1,11 @@
-import { css, html } from "lit";
+import { CSSResultGroup, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import "./ListItem";
 import KobberElement from "../base/kobber-element";
-
-export const customElementName = "kobber-wiki-list";
-
-type ListOrientation = "vertical" | "horizontal" | undefined;
+import { listClassNames, listName, ListProps } from "./List.core";
+import componentStyles from "../base/styles/component.styles";
+import { listStyles } from "./List.styles";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 /**
  * Vertical or horizontal display of elements.
@@ -22,44 +22,25 @@ type ListOrientation = "vertical" | "horizontal" | undefined;
 
   If a menubar has a visible label, the element with role menubar has aria-labelledby set to a value that refers to the labelling element. Otherwise, the menubar element has a label provided by aria-label.
  */
-@customElement(customElementName)
-export class List extends KobberElement {
+@customElement(listName)
+export class List extends KobberElement implements ListProps {
+  static styles: CSSResultGroup = [componentStyles, listStyles];
+
   @property()
-  orientation?: ListOrientation;
+  orientation?: ListProps["orientation"];
 
-  public override connectedCallback(): void {
-    super.connectedCallback();
-    this.setAttribute("role", this.role ?? "menubar");
-    if (this.orientation) {
-      this.setAttribute("aria-orientation", this.orientation);
-    }
-  }
+  // perhaps we need to set role on the host to let list items inherit roles
 
-  render() {
+  override render() {
     return html`
-      <style>
-        ${this.themedStyles()}
-      </style>
-      <slot></slot>
+      <div
+        class="${listClassNames(listName)}"
+        role="${this.role ?? "menubar"}"
+        aria-orientation="${ifDefined(this.orientation)}"
+        tabindex="-1"
+      >
+        <slot></slot>
+      </div>
     `;
   }
-
-  themedStyles = () => {
-    const component = this.tokens().component["wiki-side-menu"];
-
-    return css`
-      :host {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        list-style-type: none;
-        gap: ${component.container.gap}px;
-        width: 100%;
-      }
-
-      :host([aria-orientation="horizontal"]) {
-        flex-direction: row;
-      }
-    `;
-  };
 }

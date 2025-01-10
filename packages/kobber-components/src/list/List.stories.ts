@@ -1,30 +1,28 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import { customElementName } from "./List";
+import { listName, ListProps } from "./List.core";
+import "./List";
 import "../utils/theme-context";
+
+const states = ["idle", "hover", "active", "focus", "disabled"] as const;
+
+const buttonIconSettings = ["none", "lock", "label"] as const;
+
+interface Args extends ListProps {
+  text?: string;
+  icon: (typeof buttonIconSettings)[number];
+}
 
 export default {
   title: "kobber.gyldendal.no/List",
-  component: customElementName,
+  component: listName,
   argTypes: {
     orientation: {
       options: ["vertical", "horizontal"],
       control: { type: "select" },
     },
-    itemTextPrefix: {
-      control: { type: "text" },
-    },
-    itemCount: {
-      control: { type: "range", min: 0, max: 20 },
-    },
     icon: {
-      options: ["none", "lock", "label"],
+      options: buttonIconSettings,
       control: { type: "select" },
-    },
-    active: {
-      control: { type: "boolean" },
-    },
-    disabled: {
-      control: { type: "boolean" },
     },
   },
   decorators: [
@@ -33,27 +31,24 @@ export default {
       ${Story()}
     </kobber-theme-context>`,
   ],
-} satisfies Meta;
+} satisfies Meta<Args>;
 
-export const List: StoryObj = {
+export const List: StoryObj<Args> = {
   args: {
+    text: "",
     orientation: "vertical",
-    itemTextPrefix: "Item",
-    itemCount: 3,
     icon: "none",
-    active: false,
-    disabled: false,
   },
   render: args => `
     <div style="width: 200px">
-      <kobber-wiki-list orientation=${args.orientation}>
-        ${[...Array(args.itemCount).keys()]
+      <kobber-list orientation=${args.orientation}>
+        ${states
           .map(
-            i =>
-              `<kobber-wiki-list-item ${args.active ? "active" : ""} ${args.disabled ? "disabled" : ""}>${args.itemTextPrefix} ${i + 1} ${getNamedSlot(args.icon)}</kobber-wiki-list-item>`,
+            state =>
+              `<kobber-list-item ${state}><a href="#">${args.text || state} ${getNamedSlot(args.icon)}</a></kobber-list-item>`,
           )
           .join("")}
-      </kobber-wiki-list>
+      </kobber-list>
     </div>
   `,
 };

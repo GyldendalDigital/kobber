@@ -1,3 +1,4 @@
+import { Accordion } from "./accordion/Accordion.react";
 import { Button } from "./button/Button.react";
 import { TextWrapper } from "./text/text-wrapper/TextWrapper.react";
 import { TextHighlight } from "./text/text-highlight/TextHighlight.react";
@@ -11,3 +12,4 @@ export const KobberHeading = Heading;
 export const KobberIngress = Ingress;
 export const KobberButton = Button;
 export const KobberLink = Link;
+export const KobberAccordion = Accordion;

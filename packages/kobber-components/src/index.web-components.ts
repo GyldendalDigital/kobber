@@ -1,3 +1,4 @@
+export { Accordion } from "./accordion/Accordion";
 export { Grid } from "./grid/Grid";
 export { GridColumn } from "./grid/GridColumn";
 export { ProgressBar } from "./progress-bar/ProgressBar";

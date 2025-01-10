@@ -1,8 +1,7 @@
 import { css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import KobberElement from "../base/kobber-element";
-
-export const customElementName = "kobber-wiki-list-item";
+import { listItemName } from "./ListItem.core";
 
 /**
  * Used as a child of the `kobber-list` and `kobber-accordion` components.
@@ -10,7 +9,7 @@ export const customElementName = "kobber-wiki-list-item";
  * Deduces `role` from the parent:
  * @example parent role="menubar" => item role="menuitem"
  */
-@customElement(customElementName)
+@customElement(listItemName)
 export class ListItem extends KobberElement {
   @property({ reflect: true })
   active?: boolean;
@@ -24,7 +23,7 @@ export class ListItem extends KobberElement {
     if (this.hasAttribute("disabled")) {
       this.toggleAttribute("inert");
     }
-
+console.log("p", this.parentElement, this.parentElement?.getAttribute("role"));
     const role = this.role ?? (this.parentElement?.getAttribute("role")?.includes("menu") ? "menuitem" : null);
     if (role) {
       this.setAttribute("role", role);
@@ -40,7 +39,7 @@ export class ListItem extends KobberElement {
       </span>
       <slot name="icon"></slot>`;
   }
-
+// move to styles
   themedStyles() {
     const component = this.tokens().component["wiki-list-item"];
     const typography = this.tokens().typography.ui;
