@@ -2,11 +2,6 @@
 
 import {
   Accordion,
-  BoxLayout,
-  CardLayout,
-  CardLayoutColumnAspectRatio,
-  Divider,
-  Grid,
   List,
   ListItem,
 } from "./kobber-components-csr"
@@ -16,11 +11,6 @@ import {
  */
 export {
   Accordion,
-  BoxLayout,
-  CardLayout,
-  CardLayoutColumnAspectRatio,
-  Divider,
-  Grid,
   List,
   ListItem,
 }

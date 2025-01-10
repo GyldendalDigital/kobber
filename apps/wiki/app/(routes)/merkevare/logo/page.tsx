@@ -3,7 +3,7 @@ import {
   KobberIngress,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
-import { FeatureBoxGrid } from "@/components/feature-box-grid"
+import { FeatureBoxGrid } from "@/components/feature-box/feature-box-grid"
 import { SectionLayout } from "@/components/section-layout"
 import { metaBrandLogo } from "./logo.meta"
 

@@ -8,7 +8,7 @@
       var(--kobber-component-button-container-size-height)
   );
 
-  position: fixed;
+  position: absolute;
   inset: 0;
   top: var(--navbar-height);
 

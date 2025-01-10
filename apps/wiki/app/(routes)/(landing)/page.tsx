@@ -1,7 +1,7 @@
 import { KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
 import { FeatureBoxType } from "@/types/types"
 import { cn } from "@/lib/utils"
-import { FeatureBoxGrid } from "@/components/feature-box-grid"
+import { FeatureBoxGrid } from "@/components/feature-box/feature-box-grid"
 import { ExternalLinksGrid } from "@/components/global/external-links-grid"
 import { pageLayoutTempFix } from "@/styles/page-layout-temp-fix"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
