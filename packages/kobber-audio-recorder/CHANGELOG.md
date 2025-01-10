@@ -1,5 +1,12 @@
 # @gyldendal/kobber-audio-recorder
 
+## 0.3.66
+
+### Patch Changes
+
+- audio-recorder new callback
+- 2345e1f: removed old ingress web component
+
 ## 0.3.65
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @gyldendal/kobber-components
 
+## 0.3.66
+
+### Patch Changes
+
+- audio-recorder new callback
+- 2345e1f: removed old ingress web component
+- Updated dependencies
+- Updated dependencies [2345e1f]
+  - @gyldendal/kobber-base@0.3.66
+
 ## 0.3.65
 
 ### Patch Changes
