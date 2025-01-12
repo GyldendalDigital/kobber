@@ -45,7 +45,7 @@ export const List: StoryObj<Args> = {
         ${states
           .map(
             state =>
-              `<kobber-list-item ${state}><a href="#">${args.text || state} ${getNamedSlot(args.icon)}</a></kobber-list-item>`,
+              `<kobber-list-item ${state} class="${state}">${args.text || state} ${getNamedSlot(args.icon)}</kobber-list-item>`,
           )
           .join("")}
       </kobber-list>
