@@ -10,11 +10,11 @@ const createListItemStyles = () => {
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
-      gap: ${unsafeCSS(listItem.container.gap)};
-      padding: ${unsafeCSS(listItem.container.padding.bottom)};
-      border-radius: ${unsafeCSS(listItem.container.border.radius)};
-      color: ${unsafeCSS(listItem.text.color)};
-      font-size: ${unsafeCSS(typography.ui["label large - single line"].fontSize)};
+      gap: var(${unsafeCSS(listItem.container.gap)});
+      padding: var(${unsafeCSS(listItem.container.padding.bottom)});
+      border-radius: var(${unsafeCSS(listItem.container.border.radius)});
+      color: var(${unsafeCSS(listItem.text.color)});
+      font-size: var(${unsafeCSS(typography.ui["label large - single line"].fontSize)});
 
       &:focus-visible,
       &.focus {
@@ -30,25 +30,31 @@ const createListItemStyles = () => {
 
       &:hover,
       &.hover {
-        background-color: ${unsafeCSS(listItem.background.color.hover)};
+        background-color: var(${unsafeCSS(listItem.background.color.hover)});
       }
 
       .text {
         align-self: center;
-        line-height: calc(1rem + ${unsafeCSS(listItem["border-bottom"].padding.top)});
+        line-height: calc(1rem + var(${unsafeCSS(listItem["border-bottom"].padding.top)}));
+      }
+
+      &[active],
+      &.active {
+        .text {
+          box-shadow: 0 var(${unsafeCSS(listItem["border-bottom"].width.active)}) 0 0
+            var(${unsafeCSS(listItem["border-bottom"].color.active)});
+        }
+      }
+
+      --icon-width: 1rem;
+      --icon-height: 1rem;
+
+      svg {
+        display: inline;
+        width: var(--icon-width);
+        height: var(--icon-height);
       }
     }
-
-    &[active],
-    &.active {
-      .text {
-        box-shadow: 0 ${unsafeCSS(listItem["border-bottom"].width.active)} 0 0
-          ${unsafeCSS(listItem["border-bottom"].color.active)};
-      }
-    }
-
-    --icon-width: 1rem;
-    --icon-height: 1rem;
   `;
 };
 

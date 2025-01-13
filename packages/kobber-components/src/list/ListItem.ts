@@ -27,12 +27,13 @@ export class ListItem extends KobberElement {
 
     return html`
       <div
-        class="${listItemClassNames(listItemName)}"
+        class="${[listItemClassNames(listItemName), this.className].join(" ")}"
         role=${ifDefined(role)}
+        ?active=${ifDefined(this.active)}
         ?disabled=${ifDefined(this.disabled)}
         ?inert=${ifDefined(this.disabled)}
       >
-        <span class="text" class=${[this.className].join(" ")}>
+        <span class="text">
           <slot></slot>
         </span>
         <slot name="icon"></slot>

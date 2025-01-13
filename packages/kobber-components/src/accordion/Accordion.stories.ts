@@ -31,7 +31,6 @@ export default {
   },
   decorators: [
     (Story, context) => `
-    <script>const clickHandler = () => console.log('clicked')</script>
     <div style="height: 100vh;">
       <kobber-theme-context theme-id=${context.globals.theme}>
         ${Story()}
@@ -75,7 +74,7 @@ const getSlot = (args: StoryObj["args"], i: number) => {
   if (args.itemElementType === "button") {
     return (
       args &&
-      `<kobber-list-item><kobber-button onclick="clickHandler()">${args.itemText} ${i + 1}</kobber-button>${getNamedSlot(args.icon)}</kobber-list-item>`
+      `<kobber-list-item><kobber-button>${args.itemText} ${i + 1}</kobber-button>${getNamedSlot(args.icon)}</kobber-list-item>`
     );
   }
 

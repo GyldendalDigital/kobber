@@ -1,6 +1,7 @@
+"use client"
+import { KobberAccordion, KobberList } from "@gyldendal/kobber-components/react-ssr-safe"
 import { PageMetadata } from "@/lib/metadata.utils"
 import { toUpperCase } from "@/lib/utils"
-import { Accordion, List } from "../kobber-components-csr"
 import { SideNavItem } from "./side-nav-item"
 import styles from "./side-nav.module.css"
 
@@ -15,13 +16,13 @@ export const SideNavGroup = ({ title, items, isOpenInitially = false }: Props) =
 
   return (
     <div className={styles["side-nav-group"]}>
-      <Accordion title={toUpperCase(title)} expanded={isOpenInitially}>
-        <List orientation="vertical">
+      <KobberAccordion title={toUpperCase(title)} defaultExpanded={isOpenInitially}>
+        <KobberList orientation="vertical">
           {items.map((item, i) => (
             <SideNavItem key={item.href + i} {...item} />
           ))}
-        </List>
-      </Accordion>
+        </KobberList>
+      </KobberAccordion>
     </div>
   )
 }
