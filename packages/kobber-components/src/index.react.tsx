@@ -11,9 +11,6 @@ import { ThemeContextProvider } from "./utils/theme-context";
 import { Divider } from "./divider/Divider";
 import { ProgressBar } from "./progress-bar/ProgressBar";
 import { ProgressBarItem } from "./progress-bar/ProgressBarItem";
-import { customElementName as wikiAccordionName, Accordion } from "./wiki-accordion/Accordion";
-import { customElementName as wikiListName, List } from "./wiki-list/List";
-import { customElementName as wikiListItemName, ListItem } from "./wiki-list/ListItem";
 import { Carousel } from "./carousel/Carousel";
 import { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 import { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
@@ -81,24 +78,6 @@ export const KobberDivider = createComponent({
 export const KobberThemeContext = createComponent({
   tagName: "kobber-theme-context",
   elementClass: ThemeContextProvider,
-  react: React,
-});
-
-export const KobberList = createComponent({
-  tagName: wikiListName,
-  elementClass: List,
-  react: React,
-});
-
-export const KobberListItem = createComponent({
-  tagName: wikiListItemName,
-  elementClass: ListItem,
-  react: React,
-});
-
-export const KobberAccordion = createComponent({
-  tagName: wikiAccordionName,
-  elementClass: Accordion,
   react: React,
 });
 

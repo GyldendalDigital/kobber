@@ -2,8 +2,8 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { KobberListItem } from "@gyldendal/kobber-components/react-ssr-safe"
 import { PageMetadata } from "@/lib/metadata.utils"
-import { ListItem } from "@/components/kobber-components"
 
 export const SideNavItemLink = (item: PageMetadata) => {
   const pathname = usePathname()
@@ -14,20 +14,15 @@ export const SideNavItemLink = (item: PageMetadata) => {
       href={item.status !== "kommer" && item.href ? item.href : "#"}
       className="cursor-default"
     >
-      <ListItem
+      <KobberListItem
+        className="whitespace-nowrap"
         disabled={item.status === "kommer" ? true : undefined}
         active={item.href === pathname ? true : undefined}
-        className="whitespace-nowrap"
+        // temp label
+        icon={item.status ? <small className="text-[#dc134fff]">{item.status}</small> : null}
       >
         {item.title as string}
-
-        {/* Temporary label */}
-        {item.status ? (
-          <small slot="icon" className="text-[#dc134fff]">
-            {item.status}
-          </small>
-        ) : null}
-      </ListItem>
+      </KobberListItem>
     </Link>
   )
 }

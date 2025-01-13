@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import { customElementName } from "./Accordion";
+import { accordionName } from "./Accordion.core";
+import "../accordion/Accordion";
 import "../button/Button";
 import "../utils/theme-context";
 
 export default {
   title: "kobber.gyldendal.no/Accordion",
-  component: customElementName,
+  component: accordionName,
   argTypes: {
     title: {
       control: { type: "text" },
@@ -30,7 +31,6 @@ export default {
   },
   decorators: [
     (Story, context) => `
-    <script>const clickHandler = () => console.log('clicked')</script>
     <div style="height: 100vh;">
       <kobber-theme-context theme-id=${context.globals.theme}>
         ${Story()}
@@ -54,9 +54,11 @@ export const Accordion: StoryObj = {
 const getAccordion = (args: StoryObj["args"], i: number) =>
   args &&
   `
-    <kobber-wiki-accordion title="${args.title + " " + (i + 1)}">
-      ${[...Array(args.itemCount).keys()].map(i => getSlot(args, i)).join("")}
-    </kobber-wiki-accordion>
+    <kobber-accordion title="${args.title + " " + (i + 1)}">
+      <div style="display: flex; flex-direction: column;">
+        ${[...Array(args.itemCount).keys()].map(i => getSlot(args, i)).join("")}
+      </div>
+    </kobber-accordion>
 `;
 
 const getSlot = (args: StoryObj["args"], i: number) => {
@@ -65,18 +67,18 @@ const getSlot = (args: StoryObj["args"], i: number) => {
   if (args.itemElementType === "link") {
     return (
       args &&
-      `<kobber-wiki-list-item><a href="#" style="text-decoration:none;color:#481125ff">${args.itemText} ${i + 1}</a>${getNamedSlot(args.icon)}</kobber-wiki-list-item>`
+      `<kobber-list-item><a href="#" style="text-decoration:none;color:#481125ff">${args.itemText} ${i + 1}</a>${getNamedSlot(args.icon)}</kobber-list-item>`
     );
   }
 
   if (args.itemElementType === "button") {
     return (
       args &&
-      `<kobber-wiki-list-item><kobber-button onclick="clickHandler()">${args.itemText} ${i + 1}</kobber-button>${getNamedSlot(args.icon)}</kobber-wiki-list-item>`
+      `<kobber-list-item><kobber-button>${args.itemText} ${i + 1}</kobber-button>${getNamedSlot(args.icon)}</kobber-list-item>`
     );
   }
 
-  return `${args.itemText} ${i + 1} ${getNamedSlot(args.icon)}`;
+  return `<span style="display: flex; justify-content: space-evenly;">${args.itemText} ${i + 1} ${getNamedSlot(args.icon)}</span>`;
 };
 
 const getNamedSlot = (icon: string) =>
