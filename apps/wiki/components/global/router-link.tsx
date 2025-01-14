@@ -2,31 +2,29 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { KobberButton } from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberLink } from "@gyldendal/kobber-components/react-ssr-safe"
 import { cn } from "@/lib/utils"
 
 type Props = {
+  extendedColor?: "text" | "heading"
   href: string
   children: React.ReactNode
   disabled?: boolean
-  onClick?: () => void
 }
 
 export const RouterLink = (props: Props) => {
-  const { href, children, disabled, onClick } = props
+  const { href, children, disabled, extendedColor } = props
   const pathname = usePathname()
   return (
     <Link href={href} passHref legacyBehavior>
-      <KobberButton
-        color="aubergine"
-        level="secondary"
+      <KobberLink
+        extendedColor={extendedColor}
         disabled={disabled}
         className={cn({ active: pathname === href })}
         href={href}
-        onClick={onClick}
       >
         {children}
-      </KobberButton>
+      </KobberLink>
     </Link>
   )
 }

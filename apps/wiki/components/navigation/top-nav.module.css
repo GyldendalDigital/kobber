@@ -24,9 +24,8 @@
 
 .top-nav-large-screen-links {
   display: flex;
-  justify-content: end;
   align-items: center;
-  width: 100%;
+  gap: 1rem;
 }
 
 .top-nav-small-screen {

@@ -3,7 +3,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.kobber-theme-default,
+.kobber-theme-dark {
+  color: var(--kobber-component-article-body-text-color-base);
+  background-color: var(--kobber-semantics-navigation-color-brightest);
+  font-family:
+    PP Mori,
+    sans-serif;
+}
+
 p {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-size: inherit;
   line-height: inherit;

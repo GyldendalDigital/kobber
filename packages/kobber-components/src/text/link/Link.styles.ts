@@ -1,6 +1,7 @@
 import { css, unsafeCSS } from "lit";
 import { component, global } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import { linkName } from "./Link.core";
+import { resetButton } from "../../base/styles/reset.styles";
 
 /**
  * TODO: svg from icon component
@@ -10,11 +11,30 @@ const createStyles = () => {
 
   return css`
     .${unsafeCSS(linkName)} {
+      ${resetButton()};
       position: relative;
       display: inline-flex;
+      align-items: center;
       text-decoration: none;
       gap: var(${unsafeCSS(link.container.gap)});
+      line-height: var(${unsafeCSS(global.text.ui["line-height"].input)});
       color: var(${unsafeCSS(link.text.color)});
+
+      &.color-text {
+        color: var(${unsafeCSS(component.article.body.text.color.base)});
+      }
+
+      &.color-heading {
+        color: var(${unsafeCSS(component.article.heading.text.color.h1.base)});
+      }
+
+      &[disabled],
+      &.disabled {
+        /* TODO: wait for tokens to expose percent as number, not rem */
+        /* opacity: var(${unsafeCSS(global.disabled.container.opacity)}); */
+        opacity: 0.5;
+        cursor: auto;
+      }
 
       &:active,
       &.active,

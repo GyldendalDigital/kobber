@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { primitives } from "@gyldendal/kobber-base/themes/default/tokens";
-import { buttonColors, buttonVariants, buttonLevels, ButtonProps, hasSupplementalAlt } from "./Button.core";
+import { buttonColors, buttonVariants, buttonLevels, ButtonProps, hasSupplementalAlt, buttonName } from "./Button.core";
 import "./Button";
+import "../text/heading/Heading";
 import "../utils/theme-context";
 
 const states = ["idle", "hover", "active", "focus", "disabled"] as const;
@@ -16,8 +17,8 @@ interface Args extends ButtonProps {
 }
 
 const meta: Meta<Args> = {
-  title: "In development 🧪/Button",
-  component: "kobber-button",
+  title: "Button",
+  component: buttonName,
   argTypes: {
     color: {
       options: buttonColors,
@@ -85,16 +86,20 @@ export const Buttons: StoryObj<Args> = {
           padding: 0.5rem;
         }
 
+        kobber-heading {
+          text-transform: capitalize;
+        }
+
         .wrapper-theme {
           display: flex;
           flex-direction: column;
-          gap: 1rem;
+          gap: 3rem;
         }
 
         .wrapper-color {
           display: flex;
+          flex-direction: column;
           align-items: flex-start;
-          gap: 1rem;
         }
 
         .wrapper-level {
@@ -102,6 +107,7 @@ export const Buttons: StoryObj<Args> = {
           flex-direction: column;
           border: 1px solid ${primitives.color.wine[250]};
           border-radius: 1rem;
+          margin-bottom: 1rem;
         }
 
         .wrapper-variant {
@@ -109,6 +115,7 @@ export const Buttons: StoryObj<Args> = {
           padding: 0.5rem 1rem;
           gap: 0.5rem;
           border-radius: 0 0 1rem 1rem;
+          align-items: center;
 
           &:first-of-type {
             padding-top: 1rem;
@@ -143,6 +150,7 @@ export const Buttons: StoryObj<Args> = {
 // carmine, aubergine
 const renderColor = (args: Args) => `
 <div class="wrapper-color">
+  <kobber-heading variant="heading small" title="Kode: color, Figma: theme">${args.color}</kobber-heading>
   ${buttonLevels.map(level => renderLevel({ ...args, level })).join("")}
 </div>
 `;
@@ -155,9 +163,12 @@ const renderLevel = (args: Args) => {
     return;
   }
 
-  return `<div class="wrapper-level">${buttonVariants
-    .map(variant => renderVariant({ ...args, variant }))
-    .join("")}</div>`;
+  return `
+<kobber-heading variant="title small" title="Level">${level}</kobber-heading>
+<div class="wrapper-level">
+  ${buttonVariants.map(variant => renderVariant({ ...args, variant })).join("")}
+</div>
+`;
 };
 
 // main, supplemental
@@ -169,7 +180,7 @@ const renderVariant = (args: Args) => {
   }
 
   return `<div class="wrapper-variant ${variant.replace(" ", "-")} ${level}">
-<small>${color}<br />${variant}<br />${level}</small>
+<small title="Variant">${variant}</small>
   ${states.map(state => renderButton({ ...args, state, text: state })).join("")}
   ${states.map(state => renderButton({ ...args, state, text: state, icon: "none" })).join("")}
   ${states.map(state => renderButton({ ...args, state })).join("")}
@@ -187,7 +198,7 @@ const renderButton = (args: Args) => {
   level="${level}" 
   ${state === "disabled" ? "disabled" : ""} 
   ${icon === "left" ? "iconFirst" : ""} 
-  ${link ? "href='#' target='_blank'" : undefined}"
+  ${link ? "href='#' target='_blank'" : undefined}
   aria-label="optional button label">
   ${text ? text : ""}
   ${icon !== "none" ? "<icon-arrow_right slot='icon' />" : ""}
