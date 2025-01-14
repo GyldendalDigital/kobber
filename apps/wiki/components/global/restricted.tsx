@@ -5,13 +5,12 @@ import {
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { cn } from "@/lib/utils"
-import { pageLayoutTempFix } from "@/styles/page-layout-temp-fix"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
 import { LoginButton } from "./login-button"
 
 export function Restricted() {
   return (
-    <div className={cn(pageLayoutStyles["page-spacing"], pageLayoutTempFix)}>
+    <div className={cn(pageLayoutStyles["page-spacing"])}>
       <KobberTextWrapper>
         <KobberHeading>
           Kobber

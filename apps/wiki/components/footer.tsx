@@ -1,12 +1,11 @@
 import Image from "next/image"
 import { damUrl } from "@/lib/damImageLoader"
 import { cn } from "@/lib/utils"
-import { pageLayoutTempFix } from "@/styles/page-layout-temp-fix"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
 
 export default function Footer() {
   return (
-    <footer className={cn(pageLayoutStyles["page-spacing"], pageLayoutTempFix)}>
+    <footer className={cn(pageLayoutStyles["page-spacing"])}>
       <div className="mx-auto flex w-full flex-col items-center gap-[16px] pb-[60px] pt-[72px] md:flex-row md:justify-between md:pt-[108px]">
         <Image
           alt="Gyldendal Logo"
