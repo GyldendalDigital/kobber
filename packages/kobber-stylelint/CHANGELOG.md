@@ -1,5 +1,13 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.67
+
+### Patch Changes
+
+- 2345e1f: removed old ingress web component
+- bump
+- 05d7b81: kobber link as button
+
 ## 0.3.66
 
 ### Patch Changes

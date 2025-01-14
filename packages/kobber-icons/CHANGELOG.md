@@ -1,5 +1,17 @@
 # @gyldendal/kobber-components
 
+## 0.3.67
+
+### Patch Changes
+
+- 2345e1f: removed old ingress web component
+- bump
+- 05d7b81: kobber link as button
+- Updated dependencies [2345e1f]
+- Updated dependencies
+- Updated dependencies [05d7b81]
+  - @gyldendal/kobber-base@0.3.67
+
 ## 0.3.66
 
 ### Patch Changes
