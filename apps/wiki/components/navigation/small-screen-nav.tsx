@@ -60,11 +60,7 @@ export const SmallScreenNav = () => {
         createPortal(
           selectedBrandNavigationGroup ? (
             <div
-              className={cn(
-                styles["small-screen-nav-overlay"],
-                pageLayoutStyles["page-spacing"],
-                pageLayoutTempFix
-              )}
+              className={cn(styles["small-screen-nav-overlay"], pageLayoutStyles["page-spacing"])}
             >
               {/* Breadcrumbs */}
               <div className={styles["small-screen-nav-overlay-back-button"]}>
@@ -118,11 +114,7 @@ export const SmallScreenNav = () => {
             </div>
           ) : (
             <div
-              className={cn(
-                styles["small-screen-nav-overlay"],
-                pageLayoutStyles["page-spacing"],
-                pageLayoutTempFix
-              )}
+              className={cn(styles["small-screen-nav-overlay"], pageLayoutStyles["page-spacing"])}
             >
               {/* Top level navigation: no brand group selected */}
               <ul className={styles["small-screen-nav-overlay-link-list-outer"]}>
