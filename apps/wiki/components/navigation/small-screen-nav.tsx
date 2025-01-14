@@ -30,13 +30,13 @@ export const SmallScreenNav = () => {
   >()
 
   const onOpen = () => {
-    document.body.classList.add("overflow-hidden")
+    document.body.classList.add("overflow-hidden", "fixed")
     setIsOpen(true)
     setSelectedBrandNavigationGroup(findNavigationGroup(pathname))
   }
 
   const onClose = () => {
-    document.body.classList.remove("overflow-hidden")
+    document.body.classList.remove("overflow-hidden", "fixed")
     setIsOpen(false)
     setSelectedBrandNavigationGroup(undefined)
   }
