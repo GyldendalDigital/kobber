@@ -1,17 +1,18 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
 import { Menu, X } from "lucide-react"
 import { createPortal } from "react-dom"
+import { cn } from "@/lib/utils"
+import { pageLayoutTempFix } from "@/styles/page-layout-temp-fix"
+import pageLayoutStyles from "@/styles/page-layout.module.css"
 import { metaGettingStarted } from "@/app/(routes)/kom-i-gang/gettingStarted.meta"
-import { metaComponents } from "@/app/(routes)/komponenter/components.meta"
 import { metaBrand, metaBrandNavigationGroups } from "@/app/(routes)/merkevare/brand.meta"
 import { LoginButton } from "../global/login-button"
-import { RouterLink } from "../global/router-link"
-import { IconArrowLeft, IconArrowRight } from "../kobber-icons"
+import { IconArrowLeft } from "../kobber-icons"
+import { NavButton, NavLink } from "./nav-link"
 import { Props as SideNavGroupProps } from "./side-nav-group"
 import styles from "./small-screen-nav.module.css"
 
@@ -29,13 +30,13 @@ export const SmallScreenNav = () => {
   >()
 
   const onOpen = () => {
-    document.body.classList.add("overflow-y-hidden")
+    document.body.classList.add("overflow-hidden", "fixed")
     setIsOpen(true)
     setSelectedBrandNavigationGroup(findNavigationGroup(pathname))
   }
 
   const onClose = () => {
-    document.body.classList.remove("overflow-y-hidden")
+    document.body.classList.remove("overflow-hidden", "fixed")
     setIsOpen(false)
     setSelectedBrandNavigationGroup(undefined)
   }
@@ -59,17 +60,22 @@ export const SmallScreenNav = () => {
       {isOpen &&
         createPortal(
           selectedBrandNavigationGroup ? (
-            <div className={styles["small-screen-nav-overlay"]}>
+            <div
+              className={cn(
+                styles["small-screen-nav-overlay"],
+                pageLayoutStyles["page-spacing"],
+                pageLayoutTempFix
+              )}
+            >
               {/* Breadcrumbs */}
               <div className={styles["small-screen-nav-overlay-back-button"]}>
-                <KobberButton
-                  color="aubergine"
-                  level="secondary"
+                <NavButton
                   onClick={() => setSelectedBrandNavigationGroup(undefined)}
+                  extendedColor="default"
                 >
-                  <IconArrowLeft />
-                  {metaBrand.title} / {selectedBrandNavigationGroup?.title}
-                </KobberButton>
+                  <IconArrowLeft size={16} />
+                  {metaBrand.title as string} / {selectedBrandNavigationGroup?.title}
+                </NavButton>
               </div>
 
               {selectedBrandNavigationGroup?.items?.some(
@@ -88,10 +94,7 @@ export const SmallScreenNav = () => {
                             key={child.href}
                             className={styles["small-screen-nav-overlay-link-list-inner-item"]}
                           >
-                            <RouterLink href={child.href}>
-                              {child.title as string}
-                              <IconArrowRight />
-                            </RouterLink>
+                            <NavLink href={child.href}>{child.title as string}</NavLink>
                           </li>
                         ))}
                       </ul>
@@ -106,17 +109,22 @@ export const SmallScreenNav = () => {
                       key={child.title as string}
                       className={styles["small-screen-nav-overlay-link-list-inner-item"]}
                     >
-                      <RouterLink href={child.href} disabled={child.status === "kommer"}>
+                      <NavLink href={child.href} disabled={child.status === "kommer"}>
                         {child.title as string}
-                        {child.status !== "kommer" && <IconArrowRight />}
-                      </RouterLink>
+                      </NavLink>
                     </li>
                   ))}
                 </ul>
               )}
             </div>
           ) : (
-            <div className={styles["small-screen-nav-overlay"]}>
+            <div
+              className={cn(
+                styles["small-screen-nav-overlay"],
+                pageLayoutStyles["page-spacing"],
+                pageLayoutTempFix
+              )}
+            >
               {/* Top level navigation: no brand group selected */}
               <ul className={styles["small-screen-nav-overlay-link-list-outer"]}>
                 <li>
@@ -129,10 +137,7 @@ export const SmallScreenNav = () => {
                         key={child.href}
                         className={styles["small-screen-nav-overlay-link-list-inner-item"]}
                       >
-                        <RouterLink href={child.href}>
-                          {child.title as string}
-                          <IconArrowRight />
-                        </RouterLink>
+                        <NavLink href={child.href}>{child.title as string}</NavLink>
                       </li>
                     ))}
                   </ul>
@@ -148,28 +153,12 @@ export const SmallScreenNav = () => {
                         key={child.title}
                         className={styles["small-screen-nav-overlay-link-list-inner-item"]}
                       >
-                        <KobberButton
-                          color="aubergine"
-                          level="secondary"
-                          onClick={() => setSelectedBrandNavigationGroup(child)}
-                        >
+                        <NavButton onClick={() => setSelectedBrandNavigationGroup(child)}>
                           {child.title as string}
-                          <IconArrowRight />
-                        </KobberButton>
+                        </NavButton>
                       </li>
                     ))}
                   </ul>
-                </li>
-
-                <li>
-                  <KobberHeading level="span" variant="title medium">
-                    <Link
-                      href={metaComponents.href}
-                      className="block border-b border-transparent hover:border-current"
-                    >
-                      {metaComponents.title as string}
-                    </Link>
-                  </KobberHeading>
                 </li>
               </ul>
 

@@ -8,7 +8,7 @@ import { metaGettingStarted } from "@/app/(routes)/kom-i-gang/gettingStarted.met
 import { metaComponents } from "@/app/(routes)/komponenter/components.meta"
 import { metaBrand } from "@/app/(routes)/merkevare/brand.meta"
 import { LoginButton } from "../global/login-button"
-import { RouterLink } from "../global/router-link"
+import { NavLink } from "./nav-link"
 import { SmallScreenNav } from "./small-screen-nav"
 import styles from "./top-nav.module.css"
 
@@ -19,7 +19,7 @@ export const TopNav = () => {
   return (
     <header className={cn(styles["top-nav"], pageLayoutStyles["page-spacing"], pageLayoutTempFix)}>
       <Link href="/">
-        <KobberHeading level="span" variant="title medium">
+        <KobberHeading level="div" variant="title small">
           {APP_NAME}
         </KobberHeading>
       </Link>
@@ -28,7 +28,7 @@ export const TopNav = () => {
         <ul className={styles["top-nav-large-screen-links"]}>
           {mainRoutes.map((route) => (
             <li key={route.href}>
-              <RouterLink href={route.href}>{route.title as string}</RouterLink>
+              <NavLink href={route.href}>{route.title as string}</NavLink>
             </li>
           ))}
         </ul>

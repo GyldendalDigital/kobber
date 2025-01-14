@@ -15,6 +15,7 @@ import { textHighlightStyles } from "./text-highlight/TextHighlight.styles";
 import { getContrast, isContrastCompliant } from "../utils/contrast";
 import { ingressStyles } from "./ingress/Ingress.styles";
 import { headingStyles } from "./heading/Heading.styles";
+import { linkExtendedColors } from "./link/Link.core";
 
 const meta: Meta = {
   title: "Text",
@@ -211,25 +212,46 @@ export const Link: Story = {
     external: {
       control: "boolean",
     },
+    button: {
+      control: "boolean",
+    },
+    color: {
+      options: linkExtendedColors,
+      control: { type: "select" },
+    },
   },
   args: {
     external: false,
+    button: false,
+    color: undefined,
   },
   render: args => {
     return html`<div style="max-width: 600px;">
         <kobber-text-wrapper>
-          ${linkStates.map(
-            state =>
-              html`<p>
-                <kobber-link
-                  class="${state}"
-                  href="${args.external ? "https://github.com/GyldendalDigital/kobber" : "/"}"
-                >
-                  ${args.external ? "Ekstern" : "Intern"} lenke
-                </kobber-link>
-                med tilstand <code>${state}</code>
-              </p>`,
-          )}
+          ${linkStates.map(state => {
+            return html`<p>
+              <kobber-link
+                class="${state}"
+                href="${args.external ? "https://github.com/GyldendalDigital/kobber" : "#"}"
+                color="${args.color}"
+              >
+                ${args.external ? "Ekstern" : "Intern"} lenke
+              </kobber-link>
+              med tilstand <code>${state}</code>
+            </p>`;
+          })}
+        </kobber-text-wrapper>
+        <br />
+        <br />
+        <kobber-text-wrapper>
+          ${linkStates.map(state => {
+            return html`<p>
+              <kobber-link class="${state}" onclick="console.log(123)" color="${args.color}">
+                ${args.external ? "Ekstern" : "Intern"} knapp
+              </kobber-link>
+              med tilstand <code>${state}</code>
+            </p>`;
+          })}
         </kobber-text-wrapper>
       </div>
 

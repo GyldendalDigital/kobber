@@ -67,9 +67,8 @@ const createButtonStyles = () => {
         }
 
         &.${unsafeCSS("icon-only" satisfies ButtonClassNames)} {
-          gap: 0;
-          padding-inline: ${unsafeCSS(paddingIconOnly)};
-          /* see TODO: width: var(${unsafeCSS(button.container.size.height)}); */
+          aspect-ratio: 1 / 1;
+          padding: 0;
         }
       }
 

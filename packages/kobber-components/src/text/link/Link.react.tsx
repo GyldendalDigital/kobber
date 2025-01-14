@@ -1,11 +1,11 @@
 import React, { HTMLProps } from "react";
 import { linkStyles } from "./Link.styles";
-import { isExternalLink, linkName, LinkProps } from "./Link.core";
+import { isButton, isExternalLink, linkClassNames, linkName, LinkProps } from "./Link.core";
 
 type Props = LinkProps & HTMLProps<HTMLAnchorElement>;
 
 export const Link = React.forwardRef<HTMLAnchorElement, Props>((props, ref) => {
-  const { children, className, target: initialTarget, ...rest } = props;
+  const { children, className, target: initialTarget, extendedColor, ...rest } = props;
   const isExternal = isExternalLink(props.href);
   const target = initialTarget || (isExternal ? "_blank" : undefined);
   return (
@@ -16,7 +16,12 @@ export const Link = React.forwardRef<HTMLAnchorElement, Props>((props, ref) => {
         precedence="medium"
         dangerouslySetInnerHTML={{ __html: linkStyles.cssText }}
       ></style>
-      <a {...rest} ref={ref} className={[className, linkName].join(" ")} target={target}>
+      <LinkTag
+        {...rest}
+        ref={ref}
+        className={[className, ...linkClassNames({ extendedColor })].join(" ")}
+        target={target}
+      >
         {children}
         {/* TODO: react icons */}
         {isExternal && (
@@ -38,7 +43,11 @@ export const Link = React.forwardRef<HTMLAnchorElement, Props>((props, ref) => {
             </defs>
           </svg>
         )}
-      </a>
+      </LinkTag>
     </>
   );
 });
+
+const LinkTag = ({ children, ...props }: Props) => {
+  return React.createElement(isButton(props.href, props.onClick) ? "button" : "a", props, children);
+};

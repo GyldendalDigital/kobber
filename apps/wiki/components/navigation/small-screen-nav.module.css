@@ -26,7 +26,6 @@
 
 .small-screen-nav-overlay-login-button {
   padding-block: 1rem;
-  padding-inline: var(--kobber-layout-gap-16-32);
 }
 
 .small-screen-nav-overlay-link-list-outer {
@@ -34,7 +33,6 @@
   flex-direction: column;
   gap: 2rem;
   padding-block: var(--kobber-component-wiki-navbar-container-padding-block);
-  padding-inline: var(--kobber-layout-gap-16-32);
   background-color: var(--kobber-component-wiki-navbar-background-color-main);
 }
 
@@ -47,11 +45,4 @@
 
 .small-screen-nav-overlay-link-list-inner-item {
   display: block;
-}
-
-.small-screen-nav-overlay-link-list-inner-item a,
-.small-screen-nav-overlay-link-list-inner-item button {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
 }
