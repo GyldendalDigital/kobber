@@ -11,7 +11,6 @@ module.exports = {
     },
     extends: [
         "eslint:recommended",
-        "turbo",
         "plugin:import/errors",
         "plugin:import/warnings",
         "plugin:import/typescript",

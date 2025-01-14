@@ -6,7 +6,6 @@ import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react-
 import { Menu, X } from "lucide-react"
 import { createPortal } from "react-dom"
 import { cn } from "@/lib/utils"
-import { pageLayoutTempFix } from "@/styles/page-layout-temp-fix"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
 import { metaGettingStarted } from "@/app/(routes)/kom-i-gang/gettingStarted.meta"
 import { metaBrand, metaBrandNavigationGroups } from "@/app/(routes)/merkevare/brand.meta"

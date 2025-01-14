@@ -3,7 +3,6 @@ import { FeatureBoxType } from "@/types/types"
 import { cn } from "@/lib/utils"
 import { FeatureBoxGrid } from "@/components/feature-box/feature-box-grid"
 import { ExternalLinksGrid } from "@/components/global/external-links-grid"
-import { pageLayoutTempFix } from "@/styles/page-layout-temp-fix"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
 import { metaGettingStarted } from "../kom-i-gang/gettingStarted.meta"
 import { metaBrandColor } from "../merkevare/farger/brandColor.meta"
@@ -14,7 +13,7 @@ import styles from "./landing.module.css"
 
 export default function Home() {
   return (
-    <main className={cn(styles.landing, pageLayoutStyles["page-spacing"], pageLayoutTempFix)}>
+    <main className={cn(styles.landing, pageLayoutStyles["page-spacing"])}>
       <HeroBanner />
       <section className="grid gap-y-section/gap/horizontal">
         <KobberHeading level="h2" variant="title medium">

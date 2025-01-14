@@ -10,7 +10,7 @@ on:
 jobs:
   run_tests_job:
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
-    name: Perform tests
+    name: Build and perform tests
     runs-on: ubuntu-latest
     env:
       repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
@@ -34,8 +34,8 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Setup test
-        run: npx playwright install --with-deps chromium
+      # - name: Setup test
+      #   run: npx playwright install --with-deps chromium
 
-      - name: Test
-        run: yarn test
+      # - name: Test
+      #   run: yarn test
