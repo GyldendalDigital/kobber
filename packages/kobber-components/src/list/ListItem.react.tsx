@@ -1,6 +1,6 @@
-import React, { HTMLProps } from "react";
+import { forwardRef, HTMLProps, ReactNode } from "react";
 import { listItemClassNames, listItemName, ListItemProps } from "./ListItem.core";
-import { ReactNode } from "react";
+
 import { listItemStyles } from "./ListItem.styles";
 
 type Props = {
@@ -8,12 +8,11 @@ type Props = {
 } & ListItemProps &
   HTMLProps<HTMLDivElement>;
 
-export const ListItem = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
+export const ListItem = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { children, className, icon, active, ...rest } = props;
   return (
     <>
       <style
-        // @ts-ignore
         href={listItemName}
         precedence="medium"
         dangerouslySetInnerHTML={{ __html: listItemStyles.cssText }}

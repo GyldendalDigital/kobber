@@ -3,12 +3,12 @@
 import React, { useEffect, useState } from "react"
 import styles from "./icon-grid.module.css"
 
-const lazyLoadIcons = async (): Promise<Record<string, any>> => {
+const lazyLoadIcons = async (): Promise<Record<string, unknown>> => {
   const { default: _, ...rest } = await import("@gyldendal/kobber-icons/react")
   return rest
 }
 
-type Icon = { key: string; component: any }
+type Icon = { key: string; component: unknown }
 
 export const IconGrid = () => {
   const [components, setComponents] = useState<Icon[]>([])

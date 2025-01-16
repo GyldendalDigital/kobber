@@ -39,13 +39,13 @@ export default function TokensPage() {
       </ContentSection>
 
       <ContentSection textCollection={{ subheading: "Farger semantics" }}>
-        {Object.entries(tokens.semantics.color).map(([semanticCategory, colorCategoryValue]) => {
+        {Object.entries(tokens.semantics.color).map(([semanticCategory, colorCategoryValue], i) => {
           return (
-            <div>
+            <div key={i}>
               {semanticCategory}
               <div>
-                {Object.entries(colorCategoryValue).map(([colorCategory, color]) => (
-                  <div>
+                {Object.entries(colorCategoryValue).map(([colorCategory, color], j) => (
+                  <div key={j}>
                     {colorCategory}
                     <div className="grid grid-cols-[6rem_1fr]">
                       {Object.entries(color).map(([colorName, colorValue]) => (
@@ -100,8 +100,8 @@ export default function TokensPage() {
 
       <ContentSection textCollection={{ subheading: "Former" }}>
         <div className="grid grid-cols-[1fr_auto] gap-20">
-          {Object.entries(tokens.semantics.layout.element.radius).map(([key, value]) => (
-            <span>
+          {Object.entries(tokens.semantics.layout.element.radius).map(([key, value], i) => (
+            <span key={i}>
               <div>semantics.layout.element.radius.{key}</div>
 
               <div

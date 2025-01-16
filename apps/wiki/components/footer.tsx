@@ -6,7 +6,7 @@ import pageLayoutStyles from "@/styles/page-layout.module.css"
 export default function Footer() {
   return (
     <footer className={cn(pageLayoutStyles["page-spacing"])}>
-      <div className="mx-auto flex w-full flex-col items-center gap-[16px] pb-[60px] pt-[72px] md:flex-row md:justify-between md:pt-[108px]">
+      <div className="mx-auto flex w-full flex-col items-center gap-4 pb-[60px] pt-[72px] md:flex-row md:justify-between md:pt-[108px]">
         <Image
           alt="Gyldendal Logo"
           width={131}

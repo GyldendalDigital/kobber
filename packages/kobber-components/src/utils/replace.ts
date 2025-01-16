@@ -1,7 +1,8 @@
 /**
  * @example type MyType = Replace<"foo bar", " ", "_">; // "foo_bar"
  *
- * https://stackoverflow.com/a/71353081 */
+ * https://stackoverflow.com/a/71353081
+ */
 export type Replace<
   T extends string,
   S extends string,

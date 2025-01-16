@@ -1,21 +1,16 @@
-import React, { HTMLProps } from "react";
+import { createElement, forwardRef, HTMLProps } from "react";
 import { linkStyles } from "./Link.styles";
 import { isButton, isExternalLink, linkClassNames, linkName, LinkProps } from "./Link.core";
 
 type Props = LinkProps & HTMLProps<HTMLAnchorElement>;
 
-export const Link = React.forwardRef<HTMLAnchorElement, Props>((props, ref) => {
+export const Link = forwardRef<HTMLAnchorElement, Props>((props, ref) => {
   const { children, className, target: initialTarget, extendedColor, ...rest } = props;
   const isExternal = isExternalLink(props.href);
   const target = initialTarget || (isExternal ? "_blank" : undefined);
   return (
     <>
-      <style
-        // @ts-ignore
-        href={linkName}
-        precedence="medium"
-        dangerouslySetInnerHTML={{ __html: linkStyles.cssText }}
-      ></style>
+      <style href={linkName} precedence="medium" dangerouslySetInnerHTML={{ __html: linkStyles.cssText }}></style>
       <LinkTag
         {...rest}
         ref={ref}
@@ -49,5 +44,5 @@ export const Link = React.forwardRef<HTMLAnchorElement, Props>((props, ref) => {
 });
 
 const LinkTag = ({ children, ...props }: Props) => {
-  return React.createElement(isButton(props.href, props.onClick) ? "button" : "a", props, children);
+  return createElement(isButton(props.href, props.onClick) ? "button" : "a", props, children);
 };

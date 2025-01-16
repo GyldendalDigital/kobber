@@ -25,7 +25,7 @@ export default function GridPage() {
 
       <div className="w-full overflow-x-auto">
         <table className="w-full border-spacing-0">
-          <thead className="grid grid-cols-[120px_120px_80px_80px_80px_100px_1fr] border-b border-[#E5CFD3] pb-[8px] pt-[8px]">
+          <thead className="grid grid-cols-[120px_120px_80px_80px_80px_100px_1fr] border-b border-[#E5CFD3] py-[8px]">
             <td className="">Størrelse</td>
             <td>Brekkpunkter</td>
             <td>Kolonner</td>
@@ -38,7 +38,7 @@ export default function GridPage() {
             {tableData.map((row, index) => (
               <tr
                 key={index}
-                className="grid grid-cols-[120px_120px_80px_80px_80px_100px_1fr] border-b border-[#E5CFD3] pb-[8px] pt-[8px] text-[16px]"
+                className="grid grid-cols-[120px_120px_80px_80px_80px_100px_1fr] border-b border-[#E5CFD3] py-[8px] text-[16px]"
               >
                 <td>{row.size}</td>
                 <td>{row.breakpoint}</td>

@@ -20,14 +20,14 @@ export const InteractiveScreen = ({
 }: InteractiveScreenProps) => {
   const [mode, setMode] = useState<Mode>("light")
   return (
-    <div className="p-main">
+    <div className="px-0">
       <div
-        className={`rounded-16 grid min-h-96 w-[733px] max-w-[733px] grid-cols-[389px_1fr] gap-24 bg-white p-8 shadow`}
+        className={`grid min-h-96 w-[733px] max-w-[733px] grid-cols-[389px_1fr] gap-24 rounded-2xl bg-white p-8 shadow`}
       >
-        <div className="rounded-16 relative flex items-center justify-center gap-24 bg-[#FDF9F9]">
+        <div className="relative flex items-center justify-center gap-24 rounded-2xl bg-[#FDF9F9]">
           <div
             className={cn(
-              "rounded-16 h-104 max-h-104 flex w-[309px] max-w-[309px] items-center justify-center py-16",
+              "h-104 max-h-104 flex w-[309px] max-w-[309px] items-center justify-center rounded-2xl py-16",
               {
                 "bg-white": mode === "light",
                 "bg-[#884D5D]": mode === "dark",
