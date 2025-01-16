@@ -3,6 +3,7 @@
   "version": "0.3.67",
   "main": "prettier.config.js",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "clean": "rm -rf .turbo node_modules"
   },

@@ -10,8 +10,6 @@
   ],
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
-    "lint": "yarn lint:js",
-    "lint:js": "eslint ./src/**/*.{ts,tsx}",
     "build": "tsup",
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build"
@@ -22,9 +20,7 @@
     "lit": "^3.2.1"
   },
   "devDependencies": {
-    "@gyldendal/kobber-eslint": "*",
     "@types/react": "^19.0.2",
-    "eslint": "^8.55.0",
     "onchange": "^7.1.0",
     "react": "^19.0.0",
     "tsup": "^7.2.0",
