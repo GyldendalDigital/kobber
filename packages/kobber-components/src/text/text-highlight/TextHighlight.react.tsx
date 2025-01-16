@@ -1,15 +1,14 @@
-import React, { HTMLProps } from "react";
+import { forwardRef, HTMLProps } from "react";
 import { textHighlightStyles } from "./TextHighlight.styles";
 import { textHighlightClassNames, textHighlightName, TextHighlightProps } from "./TextHighlight.core";
 
 type Props = TextHighlightProps & HTMLProps<HTMLSpanElement>;
 
-export const TextHighlight = React.forwardRef<HTMLSpanElement, Props>((props, ref) => {
+export const TextHighlight = forwardRef<HTMLSpanElement, Props>((props, ref) => {
   const { color, children, className, ...rest } = props;
   return (
     <>
       <style
-        // @ts-ignore
         href={textHighlightName}
         precedence="medium"
         dangerouslySetInnerHTML={{ __html: textHighlightStyles.cssText }}

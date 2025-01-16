@@ -13,10 +13,10 @@ export class NavigationButtons extends StyledLitElement {
   nextButtonDisabled = "";
 
   @property()
-  handlePreviousClick: () => {};
+  handlePreviousClick: () => object;
 
   @property()
-  handleNextClick: () => {};
+  handleNextClick: () => object;
 
   static styles = css`
     :host {

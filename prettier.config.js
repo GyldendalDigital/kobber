@@ -1,5 +1,5 @@
-const sharedConfig = require("./packages/kobber-prettier/prettier.config");
+import sharedConfig from "./packages/kobber-prettier/prettier.config";
 
-module.exports = {
+export default {
   ...sharedConfig,
 };

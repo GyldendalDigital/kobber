@@ -12,7 +12,7 @@ export function HeroBanner() {
   return (
     <header
       className={
-        "flex flex-col items-center justify-between gap-[32px] overflow-hidden rounded-[24px] bg-[#F9EAED] px-[16px] py-[32px] md:grid md:w-full md:grid-cols-[1fr_351px] md:p-[64px]"
+        "flex flex-col items-center justify-between gap-[32px] overflow-hidden rounded-[24px] bg-[#F9EAED] px-page/padding/inline/xsmall py-[32px] md:grid md:w-full md:grid-cols-[1fr_351px] md:p-page/padding/inline/large"
       }
     >
       <Image src={src} width={188} height={184} alt={alt} className="block md:hidden" />

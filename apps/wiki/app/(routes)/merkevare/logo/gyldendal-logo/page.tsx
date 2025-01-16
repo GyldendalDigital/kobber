@@ -20,7 +20,7 @@ export default function Page() {
         <KobberIngress>{metadata.description}</KobberIngress>
       </KobberTextWrapper>
 
-      <div className="flex flex-wrap items-center gap-[16px]">
+      <div className="flex flex-wrap items-center gap-4">
         <Link
           target="_blank"
           href={"https://dam-p-gyldendal.pqcloud.eu/app/#/s/BI54jcT1Vj"}
@@ -169,7 +169,7 @@ export default function Page() {
         </KobberHeading>
         <p>
           Ikonet brukes alene kun i tilfeller der det ikke er plass til hele logoen, slik som i
-          profilbilde på sosiale medier-kontoer eller som favorittikon i nettleser. 
+          profilbilde på sosiale medier-kontoer eller som favorittikon i nettleser.
           <br />
           <br />
           Ikonet er tilgjengelig for å fungere både i sirkel og kvadrat. Det skal ikke lages opp

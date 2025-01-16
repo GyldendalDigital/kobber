@@ -28,7 +28,7 @@ const links = [
 export function ExternalLinksGrid() {
   return (
     <section className="grid gap-y-section/gap/horizontal">
-      <ul className="flex flex-wrap items-center gap-[16px]">
+      <ul className="flex flex-wrap items-center gap-4">
         {links.map((item, index) => (
           <li key={index}>
             <KobberLink href={item.href}>{item.title}</KobberLink>

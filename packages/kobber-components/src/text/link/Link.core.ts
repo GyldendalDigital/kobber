@@ -21,7 +21,7 @@ export const linkClassNames = ({ extendedColor }: LinkProps) => {
 
 export const isExternalLink = (href?: string) => href && href.startsWith("http");
 
-export const isButton = (href?: string, onclick?: any) => (!href && onclick ? true : false);
+export const isButton = (href?: string, onclick?: unknown) => (!href && onclick ? true : false);
 
 export type LinkExtendedColor = (typeof linkExtendedColors)[number];
 export const linkExtendedColors = ["default", "text", "heading"] as const;

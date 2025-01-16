@@ -8,7 +8,7 @@ type AwardListItemProps = {
 export function AwardListItem({ award }: AwardListItemProps) {
   return (
     <Link href={"/"}>
-      <div className="grid h-40 grid-cols-5 border-b-[1px] border-[#E5CFD3] py-8">
+      <div className="grid h-40 grid-cols-5 border-b border-[#E5CFD3] py-8">
         <span className="line-clamp-1 text-sm text-[#DC134F]">
           {award.date.toLocaleDateString(undefined, {
             weekday: "long",

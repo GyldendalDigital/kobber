@@ -40,7 +40,7 @@ export default function SpacingPage() {
         {spacingSizes.map((size, index) => (
           <div
             key={size.name + index}
-            className="grid grid-cols-4 items-center border-b border-[#E5CFD3] pb-[8px] pt-[8px]"
+            className="grid grid-cols-4 items-center border-b border-[#E5CFD3] py-[8px]"
           >
             <span>{size.name}</span>
             <span>{size.px}px</span>

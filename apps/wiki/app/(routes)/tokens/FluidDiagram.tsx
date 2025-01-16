@@ -1,9 +1,9 @@
 "use client"
 
-import React, { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 
 type Props = {
-  fluidTokens: any
+  fluidTokens: Record<string, string>
 }
 
 export const FluidDiagram = ({ fluidTokens }: Props) => {
@@ -23,6 +23,7 @@ export const FluidDiagram = ({ fluidTokens }: Props) => {
     if (ref.current) {
       draw()
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

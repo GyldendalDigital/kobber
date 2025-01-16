@@ -113,7 +113,7 @@ export default class Modal {
 
     const addition = this.tabDirection === "forward" ? 1 : -1;
 
-    // eslint-disable-next-line
+     
     while (true) {
       if (currentFocusIndex + addition >= tabbableElements.length) {
         currentFocusIndex = 0;

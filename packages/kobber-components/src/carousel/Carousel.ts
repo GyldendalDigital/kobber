@@ -181,6 +181,7 @@ export class Carousel extends StyledLitElement {
     this._previousButtonDisabled = false;
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private _handleSlotchange = (e: { target: { assignedElements: () => any } }) => {
     const childNodes = e.target.assignedElements();
     this._numberOfChildren = childNodes[0].children.length;

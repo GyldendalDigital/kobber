@@ -61,7 +61,7 @@ function NotAcceptedComponenTwo() {
     <>
       <RadixButton
         variant={"dropdown"}
-        className="max-w-104 flex-col items-center justify-center overflow-hidden"
+        className="max-w-96 flex-col items-center justify-center overflow-hidden"
       >
         <Download className="ml-2 size-4" />
         <span>Last ned innhold</span>

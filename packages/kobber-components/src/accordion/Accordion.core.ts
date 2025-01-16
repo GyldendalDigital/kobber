@@ -1,7 +1,8 @@
 export const accordionName = "kobber-accordion";
 
 export type AccordionProps = {
-  defaultExpanded?: boolean;
+  expanded?: boolean;
+  onToggle?: () => void;
   headingLevel?: AccordionAriaHeadingLevel;
 };
 

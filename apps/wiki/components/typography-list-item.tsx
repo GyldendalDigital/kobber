@@ -8,8 +8,8 @@ type TypographyListItemProps = {
 
 export function TypographyListItem({ typography, fontClassName }: TypographyListItemProps) {
   return (
-    <div className="rounded-16 flex w-full flex-row items-center gap-x-main/gap/vertical py-4">
-      <div className="text-[#A35E70 grid w-[116px] gap-[8px] text-[12px]">
+    <div className="flex w-full flex-row items-center gap-x-main/gap/vertical rounded-2xl py-4">
+      <div className="grid w-[116px] gap-[8px] text-[12px] text-[#A35E70]">
         <span>Weight: {typography.weight}</span>
         <span>
           Size: {typography.rem.toLocaleString("no-NO")}rem / {typography.px}px

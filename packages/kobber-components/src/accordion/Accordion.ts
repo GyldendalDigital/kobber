@@ -16,7 +16,7 @@ export class Accordion extends LitElement implements AccordionProps {
   static styles: CSSResultGroup = [componentStyles, accordionStyles];
 
   @property()
-  defaultExpanded = false;
+  expanded = false;
 
   @property()
   headingLevel: AccordionAriaHeadingLevel = 2;
@@ -25,8 +25,8 @@ export class Accordion extends LitElement implements AccordionProps {
   contentElement!: HTMLElement;
 
   toggle() {
-    this.defaultExpanded = !this.defaultExpanded;
-    this.contentElement.toggleAttribute("inert", !this.defaultExpanded);
+    this.expanded = !this.expanded;
+    this.contentElement.toggleAttribute("inert", !this.expanded);
   }
 
   handleKeyDown(event: KeyboardEvent) {
@@ -43,13 +43,13 @@ export class Accordion extends LitElement implements AccordionProps {
         <div role="heading" aria-level="${this.headingLevel}">
           <kobber-list-item
             role="button"
-            aria-expanded="${this.defaultExpanded}"
+            aria-expanded="${this.expanded}"
             aria-controls="content-${dateNowAsElementId}"
             tabindex="0"
             @keypress="${this.handleKeyDown}"
             @click="${this.toggle}"
             >${this.title}
-            ${this.defaultExpanded
+            ${this.expanded
               ? html`<icon-chevron_up slot="icon" />`
               : html`<icon-chevron_down slot="icon" />`}</kobber-list-item
           >
@@ -58,7 +58,7 @@ export class Accordion extends LitElement implements AccordionProps {
         <div
           id="content-${dateNowAsElementId}"
           class="${accordionClassNames("accordion-content")}"
-          aria-hidden="${!this.defaultExpanded}"
+          aria-hidden="${!this.expanded}"
         >
           <slot></slot>
         </div>

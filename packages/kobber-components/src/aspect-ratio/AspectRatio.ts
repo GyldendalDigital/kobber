@@ -51,7 +51,7 @@ export class AspectRatio extends StyledLitElement {
       this.cssAspectRatioToPadding(ratioValue),
     );
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+     
     const { aspectRatio, ...styles } = this.getStyles({
       paddingTop: paddingValues,
     });
