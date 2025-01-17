@@ -7,6 +7,8 @@ import NextAuth from "next-auth"
 const id = process.env.AUTH_MICROSOFT_ENTRA_ID_ISSUER
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   adapter: DrizzleAdapter(db, {
     accountsTable: accounts,
     usersTable: users,

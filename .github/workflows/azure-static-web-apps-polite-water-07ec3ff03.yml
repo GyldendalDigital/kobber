@@ -14,11 +14,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup install
-        run: corepack enable
+      - name: test
+        run: ls
 
-      - name: Install
-        run: yarn
+      # - name: Setup install
+      #   run: corepack enable
+
+      # - name: Install
+      #   run: yarn
 
       - name: Add secrets to .env
         run: |
@@ -31,8 +34,8 @@ jobs:
           echo AUTH_MICROSOFT_ENTRA_ID_SECRET=${{ secrets.AUTH_MICROSOFT_ENTRA_ID_SECRET }} >> ./apps/wiki/.env
           echo AUTH_MICROSOFT_ENTRA_ID_ISSUER=${{ secrets.AUTH_MICROSOFT_ENTRA_ID_ISSUER }} >> ./apps/wiki/.env
 
-      - name: Build
-        run: yarn build -F kobber-wiki
+      # - name: Build
+      #   run: yarn build -F kobber-wiki
 
       - name: Deploy
         id: builddeploy
@@ -40,7 +43,8 @@ jobs:
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-          CUSTOM_BUILD_COMMAND: echo "Already built"
+          PRE_BUILD_COMMAND: ls && corepack enable && yarn
+          CUSTOM_BUILD_COMMAND: ls && yarn build
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_POLITE_WATER_07EC3FF03 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
@@ -50,6 +54,6 @@ jobs:
           app_location: "apps/wiki" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "" # Built app content directory - optional
-          skip_app_build: true
-          skip_api_build: true
+          # skip_app_build: true
+          # skip_api_build: true
           ###### End of Repository/Build Configurations ######
