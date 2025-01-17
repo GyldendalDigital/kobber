@@ -8,7 +8,8 @@ const lazyLoadIcons = async (): Promise<Record<string, unknown>> => {
   return rest
 }
 
-type Icon = { key: string; component: unknown }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Icon = { key: string; component: any }
 
 export const IconGrid = () => {
   const [components, setComponents] = useState<Icon[]>([])

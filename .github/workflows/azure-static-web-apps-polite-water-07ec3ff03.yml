@@ -14,13 +14,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup install
-        run: corepack enable
-
       - name: Install
-        run: yarn
+        run: corepack enable && yarn
 
-      - name: Add secrets to .env
+      - name: Build components
+        run: yarn build -F @gyldendal/kobber-components
+
+      - name: Add wiki secrets to .env
         run: |
           touch ./apps/wiki/.env
           echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> ./apps/wiki/.env
@@ -30,18 +30,16 @@ jobs:
           echo AUTH_MICROSOFT_ENTRA_ID_ID=${{ secrets.AUTH_MICROSOFT_ENTRA_ID_ID }} >> ./apps/wiki/.env
           echo AUTH_MICROSOFT_ENTRA_ID_SECRET=${{ secrets.AUTH_MICROSOFT_ENTRA_ID_SECRET }} >> ./apps/wiki/.env
           echo AUTH_MICROSOFT_ENTRA_ID_ISSUER=${{ secrets.AUTH_MICROSOFT_ENTRA_ID_ISSUER }} >> ./apps/wiki/.env
-          echo SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }} >> ./apps/wiki/.env
 
-      - name: Build
-        run: yarn build -F kobber-wiki
-
-      - name: Deploy
+      - name: Build and deploy wiki
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-          CUSTOM_BUILD_COMMAND: yarn build
+          # root is based on app_location
+          PRE_BUILD_COMMAND: corepack enable && yarn 
+          CUSTOM_BUILD_COMMAND: yarn build && cp -r .next/standalone/apps/wiki/. .next/standalone
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_POLITE_WATER_07EC3FF03 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)

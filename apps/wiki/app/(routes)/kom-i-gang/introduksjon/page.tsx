@@ -15,13 +15,15 @@ export const metadata = metaGettingStartedIntro
 export default function Introduksjon() {
   return (
     <SectionLayout>
-      <Image
-        src={metaGettingStarted.image}
-        width={858}
-        height={293}
-        className="h-[293px] w-full rounded-[16px] object-cover object-top"
-        alt="Image"
-      />
+      {metaGettingStarted.image && (
+        <Image
+          src={metaGettingStarted.image}
+          width={858}
+          height={293}
+          className="h-[293px] w-full rounded-[16px] object-cover object-top"
+          alt="Image"
+        />
+      )}
 
       <KobberTextWrapper>
         <KobberHeading>
