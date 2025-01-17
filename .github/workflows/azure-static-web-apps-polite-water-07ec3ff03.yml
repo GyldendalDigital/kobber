@@ -30,7 +30,6 @@ jobs:
           echo AUTH_MICROSOFT_ENTRA_ID_ID=${{ secrets.AUTH_MICROSOFT_ENTRA_ID_ID }} >> ./apps/wiki/.env
           echo AUTH_MICROSOFT_ENTRA_ID_SECRET=${{ secrets.AUTH_MICROSOFT_ENTRA_ID_SECRET }} >> ./apps/wiki/.env
           echo AUTH_MICROSOFT_ENTRA_ID_ISSUER=${{ secrets.AUTH_MICROSOFT_ENTRA_ID_ISSUER }} >> ./apps/wiki/.env
-          echo SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }} >> ./apps/wiki/.env
 
       - name: Build
         run: yarn build -F kobber-wiki
@@ -41,7 +40,7 @@ jobs:
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-          CUSTOM_BUILD_COMMAND: yarn build
+          CUSTOM_BUILD_COMMAND: echo "Already built"
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_POLITE_WATER_07EC3FF03 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
@@ -51,6 +50,6 @@ jobs:
           app_location: "apps/wiki" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "" # Built app content directory - optional
-          # skip_app_build: true
-          # skip_api_build: true
+          skip_app_build: true
+          skip_api_build: true
           ###### End of Repository/Build Configurations ######
