@@ -37,10 +37,9 @@ jobs:
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-          # root is based on app_location in with:
+          # root is based on app_location
           PRE_BUILD_COMMAND: corepack enable && yarn 
           CUSTOM_BUILD_COMMAND: yarn build && cp -r .next/standalone/apps/wiki/. .next/standalone
-          VERBOSE: true
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_POLITE_WATER_07EC3FF03 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
