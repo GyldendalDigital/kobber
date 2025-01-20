@@ -16,6 +16,7 @@ export type IconType =
   | "kobber-backspace"
   | "kobber-banned"
   | "kobber-bincular"
+  | "kobber-book_flip_page"
   | "kobber-book_open"
   | "kobber-bookmark"
   | "kobber-bullet_list"
@@ -132,6 +133,7 @@ export type IconType =
   | "kobber-share"
   | "kobber-shrink"
   | "kobber-shuffle"
+  | "kobber-social_instagram"
   | "kobber-study_math"
   | "kobber-subscript"
   | "kobber-subtract"
@@ -183,6 +185,7 @@ export type IconType =
  "kobber-backspace", 
  "kobber-banned", 
  "kobber-bincular", 
+ "kobber-book_flip_page", 
  "kobber-book_open", 
  "kobber-bookmark", 
  "kobber-bullet_list", 
@@ -299,6 +302,7 @@ export type IconType =
  "kobber-share", 
  "kobber-shrink", 
  "kobber-shuffle", 
+ "kobber-social_instagram", 
  "kobber-study_math", 
  "kobber-subscript", 
  "kobber-subtract", 
