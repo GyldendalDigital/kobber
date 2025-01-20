@@ -18,6 +18,7 @@ import { AudioRecording } from "./icon/icons/audio_recording";
 import { Backspace } from "./icon/icons/backspace";
 import { Banned } from "./icon/icons/banned";
 import { Bincular } from "./icon/icons/bincular";
+import { BookFlipPage } from "./icon/icons/book_flip_page";
 import { BookOpen } from "./icon/icons/book_open";
 import { Bookmark } from "./icon/icons/bookmark";
 import { BulletList } from "./icon/icons/bullet_list";
@@ -134,6 +135,7 @@ import { SettingsSlider } from "./icon/icons/settings_slider";
 import { Share } from "./icon/icons/share";
 import { Shrink } from "./icon/icons/shrink";
 import { Shuffle } from "./icon/icons/shuffle";
+import { SocialInstagram } from "./icon/icons/social_instagram";
 import { StudyMath } from "./icon/icons/study_math";
 import { Subscript } from "./icon/icons/subscript";
 import { Subtract } from "./icon/icons/subtract";
@@ -265,6 +267,12 @@ export const IconBanned = createComponent({
 export const IconBincular = createComponent({
 	tagName: "icon-bincular",
 	elementClass: Bincular,
+	react: React,
+});
+
+export const IconBookFlipPage = createComponent({
+	tagName: "icon-book_flip_page",
+	elementClass: BookFlipPage,
 	react: React,
 });
 
@@ -961,6 +969,12 @@ export const IconShrink = createComponent({
 export const IconShuffle = createComponent({
 	tagName: "icon-shuffle",
 	elementClass: Shuffle,
+	react: React,
+});
+
+export const IconSocialInstagram = createComponent({
+	tagName: "icon-social_instagram",
+	elementClass: SocialInstagram,
 	react: React,
 });
 
