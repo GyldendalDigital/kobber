@@ -1,5 +1,11 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.68
+
+### Patch Changes
+
+- Add 2 new icons
+
 ## 0.3.67
 
 ### Patch Changes
