@@ -3,6 +3,7 @@ import { RouteType, SideMenuBarType } from "@/types/types"
 export const GET_STARTED_URL = "/kom-i-gang"
 export const COMPONENTS_URL = "/komponenter"
 export const BRANDING_URL = "/merkevare"
+export const TOKENS_URL = "/tokens"
 
 export const getStartedRoutes: RouteType[] = [
   {
@@ -38,6 +39,10 @@ export const mainRoutes: RouteType[] = [
   {
     title: "Merkevare",
     slug: BRANDING_URL,
+  },
+  {
+    title: "Tokens",
+    slug: TOKENS_URL,
   },
   {
     title: "Komponenter",
