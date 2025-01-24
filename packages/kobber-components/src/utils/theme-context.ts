@@ -10,7 +10,7 @@ const themes: Theme[] = [
   { id: "kobber-theme-dark", tokens: tokensDark },
 ];
 
-export const themeContext = createContext<Theme>("kobber-theme");
+export const themeContext = createContext<Theme | undefined>("kobber-theme");
 
 @customElement("kobber-theme-context")
 export class ThemeContextProvider extends LitElement {
@@ -29,7 +29,7 @@ export class ThemeContextProvider extends LitElement {
 
   @provide({ context: themeContext })
   @property({ attribute: false })
-  public theme: Theme = themes.find(theme => theme.id === this.themeId) || themes[0];
+  public theme: Theme | undefined = themes.find(theme => theme.id === this.themeId) || themes[0];
 
   setTheme(themeId: Theme["id"]) {
     this.themeId = themeId;

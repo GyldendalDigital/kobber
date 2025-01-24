@@ -32,7 +32,7 @@ export class Carousel extends StyledLitElement {
   private _carouselFullWidth = 0;
 
   @state()
-  private _numberOfChildren: number;
+  private _numberOfChildren = 0;
 
   @state()
   private _getTooFewItems = () => this._numberOfChildren < 3;
@@ -43,7 +43,7 @@ export class Carousel extends StyledLitElement {
   @state()
   private _getItemShrinkWidthCalcBase = () => (this._getTooFewItems() ? "50%" : "78%");
 
-  @queryAssignedElements() _elementsContainer!: Array<HTMLElement>;
+  @queryAssignedElements() _elementsContainer?: Array<HTMLElement>;
 
   private _resizeController = new ResizeController(this, {
     callback: ([entry]) => entry,
@@ -66,13 +66,13 @@ export class Carousel extends StyledLitElement {
 
     this._observeAllItemsForTeaserWidth();
 
-    this._observeSingleItemWithCallback(this._elementsContainer[0].children[0], () => {
+    this._observeSingleItemWithCallback(this._elementsContainer?.[0]?.children[0], () => {
       this._previousButtonDisabled = true;
       this._nextButtonDisabled = false;
     });
 
     this._observeSingleItemWithCallback(
-      this._elementsContainer[0].children[this._elementsContainer[0].children.length - 1],
+      this._elementsContainer?.[0]?.children[this._elementsContainer[0].children.length - 1],
       () => {
         this._previousButtonDisabled = false;
         this._nextButtonDisabled = true;
@@ -81,7 +81,10 @@ export class Carousel extends StyledLitElement {
   }
 
   private _observeAllItemsForTeaserWidth = () => {
-    const elementList = this._elementsContainer[0].children;
+    const elementList = this._elementsContainer?.[0]?.children;
+    if (!elementList || elementList.length === 0) {
+      return;
+    }
 
     const allItemsObserver = new IntersectionObserver(
       entries => {
@@ -101,11 +104,14 @@ export class Carousel extends StyledLitElement {
     );
 
     for (let i = 0; i < elementList.length; i++) {
-      allItemsObserver.observe(elementList[i]);
+      const element = elementList[i];
+      if (element) {
+        allItemsObserver.observe(element);
+      }
     }
   };
 
-  private _observeSingleItemWithCallback = (item: Element, callback: () => void) => {
+  private _observeSingleItemWithCallback = (item: Element | undefined, callback: () => void) => {
     const io = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -117,7 +123,9 @@ export class Carousel extends StyledLitElement {
       { root: document, threshold: 1 }, // root: document must be specified for iOS 16.
     );
 
-    io.observe(item);
+    if (item) {
+      io.observe(item);
+    }
   };
 
   private _getHostWidth = () => {

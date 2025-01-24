@@ -22,14 +22,14 @@ export class CssVariableProvider extends LitElement {
 
   constructor() {
     super();
-    this._resizeObserver = new window.ResizeObserver((entries) => {
+    this._resizeObserver = new window.ResizeObserver(entries => {
       this._updateCssColumns(this._resizeObserverEntriesToWidth(entries));
       this._updateHorizontalPadding();
     });
   }
 
   private _resizeObserverEntriesToWidth = (entries: ResizeObserverEntry[]) =>
-    entries.length > 0 ? entries[0].contentRect.width : undefined;
+    entries.length > 0 ? entries?.[0]?.contentRect.width : undefined;
 
   connectedCallback() {
     super.connectedCallback();
