@@ -1,0 +1,14 @@
+{
+  "extends": "./base.json",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "module": "Preserve",
+    "moduleResolution": "bundler",
+    "paths": {
+      "react": [
+        "../../node_modules/@types/react"
+      ]
+    }
+  }
+}

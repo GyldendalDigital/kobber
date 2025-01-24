@@ -1,14 +1,8 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-      "strict": true,
-      "resolveJsonModule": true,
-      "esModuleInterop": true,
-      "noEmit": false
-    },
-    "files": [
-      "buildTokens.ts",
-      "buildTypography.ts"
-    ]
-  }
-  
+  "extends": "@gyldendal/kobber-tsconfig/base.json",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "noEmit": false
+  },
+  "files": ["buildTokens.ts", "buildTypography.ts"]
+}
