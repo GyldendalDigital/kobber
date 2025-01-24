@@ -22,7 +22,7 @@ export default function TokenIntroPage() {
           Egenskap: verdi
         </KobberHeading>
         <p>
-          En design token består av en egenskap og en verdi, for eksempel farge: rød. Dette globale formatet passer inn i alle typer teknologi og produksjonsverktøy som CSS, Power Point eller InDesign.
+          En designtoken består av en egenskap og en verdi, for eksempel farge: rød. Dette globale formatet passer inn i alle typer teknologi og produksjonsverktøy som CSS, Power Point eller InDesign.
         </p>
         <p>
           Noen eksempler:
@@ -42,7 +42,7 @@ export default function TokenIntroPage() {
           Tokens blir navngitt etter hvilken kolleksjon, kontekst og egenskap den har, også kalt taksonomi. Taksonomi er vitenskapen om klassifisering og systematisering av informasjon. Kobber-teamet har laget en mal for hvordan vi navngir tokens. Vi går ikke dypere igjennom navngivning her, men ta kontakt dersom du ønsker å vite mer om dette.
         </p>
         <p>
-          Under ser vi et eksempler på en token som har fått nytt navn basert på kolleksjon og konteksts. Her ser vi også at token-verdier refererer til andre token-verdier. Les mer om dette under fanen <a href="/tokens/kolleksjoner">Kolleksjoner</a>.
+          Under ser vi et eksempel på en token som har fått nytt navn basert på kolleksjon og kontekst. Her ser vi også at token-verdier refererer til andre token-verdier. Les mer om dette under fanen <a href="/tokens/kolleksjoner">Kolleksjoner</a>.
         </p>
       </KobberTextWrapper>
 

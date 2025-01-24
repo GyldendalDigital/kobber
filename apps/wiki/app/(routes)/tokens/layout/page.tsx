@@ -13,12 +13,12 @@ export default function TokenIntroPage() {
     <SectionLayout className="max-w-[818px]">
       <KobberTextWrapper>
         <KobberHeading>Responsivitet</KobberHeading>
-        <KobberIngress> Responsiv layout er hvordan en applikasjon viser, responderer og strukturerer layout, vinduer og innhold basert på en en skjermstørrelse - gjerne kalt responsiv eller dynamisk design.</KobberIngress>
+        <KobberIngress>Responsiv layout handler om hvordan en applikasjon viser, responderer og strukturerer layout, vinduer og innhold basert på en skjermstørrelse - gjerne kalt responsiv eller dynamisk design.</KobberIngress>
         <p>
-          Å designe responsivitet er vanskelig å gjøre i Figma. Dette er design av oppførsel og må derfor utformes med kode. Derfor designer vi en slags guide i Figma der vi illustrerer ønsket oppførsel og hvilke verdier, altså tokens som skal brukes.
+          Å designe responsivitet er utfordrende å få helt nøyaktig i Figma. Dette er design av oppførsel og utformes derfor med kode. Vi har derfor designet en guide i Figma som illustrerer ønsket oppførsel og token-verdier som skal brukes.
         </p>
         <p>
-          På samme måte som med digitale komponenter lager vi layout-komponenter som kan gjenbrukes. Per i dag har vi startet med noen overordnede og generiske layout-komponenter, men disse dekker ikke alle behovene der ute. Denne teksten er derfor ment som dokumentasjon av hvordan vi utformer og bruker layout i designsystemet illustrerrt med layout-komponentene under.
+          På samme måte som med digitale komponenter lager vi layout-komponenter som kan gjenbrukes. Vi har startet med noen overordnede layout-komponenter, og vil videreutvikle alternativer ved behov.
         </p>
       </KobberTextWrapper>
 
@@ -49,10 +49,10 @@ export default function TokenIntroPage() {
           Main
         </KobberHeading>
         <p>
-          Main-komponentet har samme dynamiske gutter som page, men har i tillegg dynamiske sidemarginer som samler innholdet på midten. De har altså mye av den samme funksjonaliteten, men page er litt mer fleksibelt med tanke på hvilke layout du ønsker. For å bruke main-komponentet må alltid page-komponentet ligge på toppen.
+          Main-komponentet har samme dynamiske gap som page, men har i tillegg dynamiske side-paddinger som samler innholdet på midten. De har altså mye av den samme funksjonaliteten, men page er litt mer fleksibelt med tanke på hvilke layout du ønsker. For å bruke main-komponentet må alltid page-komponentet ligge på toppen.
         </p>
         <p>
-          Figuren under viser et eksempel der content ligger inne i main, mens andre elementer ligger i page. Eksempel i dag: Skolestudio.
+          Figuren under viser et eksempel der content ligger inne i main, mens andre elementer ligger i page.
         </p>
       </KobberTextWrapper>
       <Image
@@ -64,7 +64,7 @@ export default function TokenIntroPage() {
       />
       <KobberTextWrapper>
         <p>
-          Eksempel der sidemeny, content, header og footer ligger i main. Eksempel i dag: Kobber dokumentasjon.
+          Eksempel der sidemeny, content, header og footer ligger i main.
         </p>
       </KobberTextWrapper>
       <Image

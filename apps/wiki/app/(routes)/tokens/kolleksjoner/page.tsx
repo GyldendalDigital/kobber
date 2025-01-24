@@ -136,7 +136,7 @@ export default function TokenIntroPage() {
           Samspillet mellom kolleksjonene
         </KobberHeading>
         <p>
-          I figuren under ser vi hvordan instanser av tokens kopierer seg nedover kolleksjonene og får nye kontekster. Fordelen med dette er at det tvinger oss til å velge en av de definerte semantiske størrelsene, noe som gjør designet mer helhetlig og konsekvent. Et konsistent design blir mindre tilfeldig og enklere å bruke. Det vil også passe på at Gyldendal sin merkevare blir godt ivaretatt og det vil være enklere å endre eller iterere designet over tid.
+          I figuren under ser vi hvordan instanser av tokens kopierer seg nedover kolleksjonene og får nye kontekster. Fordelen med dette er at det tvinger oss til å velge en av de definerte semantiske størrelsene, noe som gjør designet mer helhetlig og konsekvent. Et konsistent design blir mindre tilfeldig og enklere å bruke. Det vil også passe på at Gyldendal sin merkevare blir godt ivaretatt og det vil være enklere å endre og iterere designet over tid.
         </p>
       </KobberTextWrapper>
       <Image
