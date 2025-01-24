@@ -1,26 +1,27 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
+  "compileOnSave": false,
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "declaration": false,
     "declarationMap": false,
     "esModuleInterop": true,
+    "experimentalDecorators": true,
     "incremental": false,
-    "noUncheckedIndexedAccess": true,
-    "noUncheckedSideEffectImports": true,
-    "skipLibCheck": true,
-    "noEmit": true,
     "isolatedModules": true,
     "lib": [
       "ES2022",
       "DOM",
       "DOM.Iterable"
     ],
-    "target": "ES2022",
     "module": "Node16",
-    "experimentalDecorators": true,
-    "useDefineForClassFields": false,
-    "allowSyntheticDefaultImports": true,
+    "noEmit": true,
+    "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
     "resolveJsonModule": true,
+    "skipLibCheck": true,
     "strict": true,
+    "target": "ES2022",
+    "useDefineForClassFields": false
   }
 }

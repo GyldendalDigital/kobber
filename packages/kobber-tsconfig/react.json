@@ -1,6 +1,4 @@
 {
-  "extends": "./base.json",
-  "compileOnSave": false,
   "compilerOptions": {
     "jsx": "react-jsx",
     "module": "Preserve",
@@ -10,5 +8,6 @@
         "../../node_modules/@types/react"
       ]
     }
-  }
+  },
+  "extends": "./base.json"
 }

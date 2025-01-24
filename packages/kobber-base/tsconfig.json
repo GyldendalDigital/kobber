@@ -1,8 +1,7 @@
 {
-  "extends": "@gyldendal/kobber-tsconfig/base.json",
-  "compileOnSave": false,
   "compilerOptions": {
     "noEmit": false
   },
+  "extends": "@gyldendal/kobber-tsconfig/base.json",
   "files": ["buildTokens.ts", "buildTypography.ts"]
 }
