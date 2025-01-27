@@ -1,5 +1,5 @@
 {
-  "name": "kobber-wiki",
+  "name": "docs",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -20,6 +20,7 @@
     "@gyldendal/kobber-base": "*",
     "@gyldendal/kobber-components": "*",
     "@gyldendal/kobber-icons": "*",
+    "@gyldendal/kobber-stylelint": "*",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@neondatabase/serverless": "^0.10.1",
     "@radix-ui/react-aspect-ratio": "^1.1.1",

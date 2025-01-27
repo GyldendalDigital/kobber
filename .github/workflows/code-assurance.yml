@@ -28,8 +28,8 @@ jobs:
 
       - name: Add secrets to .env
         run: |
-          touch ./apps/wiki/.env
-          echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> ./apps/wiki/.env
+          touch ./apps/docs/.env
+          echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> ./apps/docs/.env
 
       - name: Build
         run: yarn build
