@@ -8,24 +8,24 @@ import { createPortal } from "react-dom"
 import { cn } from "@/lib/utils"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
 import { metaGettingStarted } from "@/app/(routes)/kom-i-gang/gettingStarted.meta"
-import { metaBrand, metaBrandNavigationGroups } from "@/app/(routes)/merkevare/brand.meta"
+import { metaBrand } from "@/app/(routes)/merkevare/brand.meta"
 import { LoginButton } from "../global/login-button"
 import { IconArrowLeft } from "../kobber-icons"
 import { NavButton, NavLink } from "./nav-link"
-import { Props as SideNavGroupProps } from "./side-nav-group"
+import { metaBrandNavigationGroups, NavigationGroup } from "./navigation-map"
 import styles from "./small-screen-nav.module.css"
 
 const findNavigationGroup = (pathname: string) => {
   return metaBrandNavigationGroups?.find((group) =>
     group.items.some((item) => pathname.includes(item.href))
-  ) satisfies SideNavGroupProps | undefined
+  ) satisfies NavigationGroup | undefined
 }
 
 export const SmallScreenNav = () => {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [selectedBrandNavigationGroup, setSelectedBrandNavigationGroup] = useState<
-    SideNavGroupProps | undefined
+    NavigationGroup | undefined
   >()
 
   const onOpen = () => {

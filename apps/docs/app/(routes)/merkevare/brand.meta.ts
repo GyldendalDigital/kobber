@@ -1,6 +1,5 @@
 import { damUrl } from "@/lib/damImageLoader"
 import { pageMetadata } from "@/lib/metadata.utils"
-import { Props as SideNavGroupProps } from "@/components/navigation/side-nav-group"
 import { metaBrandColor } from "./farger/brandColor.meta"
 import { metaBrandIcons } from "./ikoner/brandIcons.meta"
 import { metaBrandLogo } from "./logo/logo.meta"
@@ -29,26 +28,3 @@ export const metaBrand = pageMetadata(import.meta.url, {
     "Merkevare er en samling av designelementer som sammen skaper en helhetlig opplevelse for brukeren. Dette inkluderer farger, fonter, ikoner og illustrasjoner.",
   redirectsTo: metaBrandLevel.href,
 })
-
-export const metaBrandNavigationGroups = [
-  {
-    title: "Introduksjon",
-    items: [
-      metaBrandLevel,
-      { href: "#", title: "Våre verdier", status: "kommer", image: null },
-      { href: "#", title: "Vår stemme", status: "kommer", image: null },
-      { href: "#", title: "Designprinsipper", status: "kommer", image: null },
-    ],
-    isOpenInitially: true,
-  },
-  {
-    title: "Identitetselementer",
-    items: [metaBrandLogo, metaBrandColor, metaBrandTypography, metaBrandIcons],
-    isOpenInitially: true,
-  },
-  {
-    title: "Maler",
-    items: [metaPowerpointTemplate, metaWordTemplate, metaEMailTemplate],
-    isOpenInitially: true,
-  },
-] satisfies SideNavGroupProps[]
