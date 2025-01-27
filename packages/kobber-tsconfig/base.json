@@ -10,7 +10,7 @@
     "incremental": false,
     "isolatedModules": true,
     "lib": [
-      "ES2024",
+      "ES2023",
       "DOM",
       "DOM.Iterable"
     ],
@@ -21,7 +21,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ES2024",
+    "target": "ES2023",
     "useDefineForClassFields": false
   }
 }
