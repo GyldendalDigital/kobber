@@ -1,9 +1,8 @@
 import { pageMetadata } from "@/lib/metadata.utils"
-import { placeholderImageUrl } from "@/lib/utils"
+import { damUrl } from "../../../../lib/damImageLoader"
 
 export const metaTokensIntro = pageMetadata(import.meta.url, {
   title: "Hva er tokens?",
-  image: placeholderImageUrl({}),
-  description:
-    "En introduksjon til hva designtokens er"
+  image: damUrl("AiqcjsC9quT9X0rbMcayLp", ".svg"),
+  description: "En introduksjon til hva designtokens er",
 })

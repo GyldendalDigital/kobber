@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
 import { metaGettingStarted } from "@/app/(routes)/kom-i-gang/gettingStarted.meta"
 import { metaBrand } from "@/app/(routes)/merkevare/brand.meta"
+import { metaTokens } from "../../app/(routes)/tokens/tokens.meta"
 import { LoginButton } from "../global/login-button"
 import { IconArrowLeft } from "../kobber-icons"
 import { NavButton, NavLink } from "./nav-link"
@@ -147,6 +148,22 @@ export const SmallScreenNav = () => {
                         <NavButton onClick={() => setSelectedBrandNavigationGroup(child)}>
                           {child.title as string}
                         </NavButton>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+
+                <li>
+                  <KobberHeading level="span" variant="title medium">
+                    {metaTokens.title as string}
+                  </KobberHeading>
+                  <ul className={styles["small-screen-nav-overlay-link-list-inner"]}>
+                    {metaTokens?.children?.map((child) => (
+                      <li
+                        key={child.href}
+                        className={styles["small-screen-nav-overlay-link-list-inner-item"]}
+                      >
+                        <NavLink href={child.href}>{child.title as string}</NavLink>
                       </li>
                     ))}
                   </ul>

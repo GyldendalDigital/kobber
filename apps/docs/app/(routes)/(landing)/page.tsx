@@ -9,7 +9,10 @@ import { metaBrandColor } from "../merkevare/farger/brandColor.meta"
 import { metaBrandLogoGyldendal } from "../merkevare/logo/gyldendal-logo/gyldendalLogo.meta"
 import { metaBrandTypography } from "../merkevare/typografi/brandTypography.meta"
 import { HeroBanner } from "./hero-banner"
+import { metaLanding } from "./landing.meta"
 import styles from "./landing.module.css"
+
+export const metadata = metaLanding
 
 export default function Home() {
   return (

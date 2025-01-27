@@ -11,6 +11,7 @@
   position: absolute;
   inset: 0;
   top: var(--navbar-height);
+  max-height: calc(100vh - var(--navbar-height));
 
   display: flex;
   flex-direction: column;
