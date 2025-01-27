@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.69
+
+### Patch Changes
+
+- tsconfig update
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.69
+
 ## 0.3.68
 
 ### Patch Changes
