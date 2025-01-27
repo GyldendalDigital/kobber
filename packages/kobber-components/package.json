@@ -1,6 +1,6 @@
 {
   "name": "@gyldendal/kobber-components",
-  "version": "0.3.68",
+  "version": "0.3.69",
   "license": "MIT",
   "type": "module",
   "files": [
@@ -39,6 +39,7 @@
     "@esm-bundle/chai": "^4.3.4-fix.0",
     "@gyldendal/kobber-eslint": "*",
     "@gyldendal/kobber-stylelint": "*",
+    "@gyldendal/kobber-tsconfig": "*",
     "@lit/react": "^1.0.7",
     "@shoelace-style/shoelace": "^2.14.0",
     "@types/mocha": "^10.0.6",

@@ -47,7 +47,7 @@ export class Button extends LitElement implements ButtonProps {
 
   /** Tells the browser where to open the link. Only used when `href` is present. */
   @property()
-  target: "_blank" | "_parent" | "_self" | "_top";
+  target?: "_blank" | "_parent" | "_self" | "_top";
 
   @state()
   private _hasIcon = false;

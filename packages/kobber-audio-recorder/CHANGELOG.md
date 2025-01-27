@@ -1,5 +1,11 @@
 # @gyldendal/kobber-audio-recorder
 
+## 0.3.69
+
+### Patch Changes
+
+- tsconfig update
+
 ## 0.3.68
 
 ### Patch Changes

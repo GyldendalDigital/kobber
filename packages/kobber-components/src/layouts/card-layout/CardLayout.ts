@@ -77,7 +77,7 @@ export class CardLayout extends StyledLitElement {
     }
   `;
 
-  private _gapMeasurement: HTMLElement;
+  private _gapMeasurement?: HTMLElement;
 
   private _resizeController = new ResizeController(this, {
     callback: ([entry]) => entry,

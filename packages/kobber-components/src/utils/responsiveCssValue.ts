@@ -27,7 +27,9 @@ export const mapResponsiveCssValue = <ReturnType = string>(
     const updated: Record<string, ReturnType> = {};
     for (const query in value) {
       const cssValue = value[query];
-      updated[query] = callback(cssValue);
+      if (cssValue) {
+        updated[query] = callback(cssValue);
+      }
     }
     return updated;
   }
