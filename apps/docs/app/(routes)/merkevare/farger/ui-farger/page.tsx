@@ -20,7 +20,7 @@ export default function UiFarger() {
 
       {UIColors.map((theme, index) => (
         <KobberTextWrapper key={index} className="gap-0">
-          <KobberHeading level="h2" variant="heading small">
+          <KobberHeading level="h2" variant="title medium">
             {theme.title}
           </KobberHeading>
           {theme.description && <p>{theme.description}</p>}

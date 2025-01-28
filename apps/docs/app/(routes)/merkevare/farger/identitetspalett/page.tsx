@@ -22,7 +22,7 @@ export default function IdentitetsPalett() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px] gap-0">
-        <KobberHeading level="h2" variant="heading small">
+        <KobberHeading level="h2" variant="title medium">
           Full fargepalett
         </KobberHeading>
         <p>
@@ -40,7 +40,7 @@ export default function IdentitetsPalett() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px] gap-0">
-        <KobberHeading level="h2" variant="heading small">
+        <KobberHeading level="h2" variant="title medium">
           Karmin
         </KobberHeading>
         <p>
@@ -56,7 +56,7 @@ export default function IdentitetsPalett() {
 
       {IdentityColors.map((theme, index) => (
         <KobberTextWrapper key={index} className="gap-0">
-          <KobberHeading level="h2" variant="heading small">
+          <KobberHeading level="h2" variant="title medium">
             {theme.title}
           </KobberHeading>
           <p>{theme.description}</p>
@@ -65,7 +65,7 @@ export default function IdentitetsPalett() {
       ))}
 
       <KobberTextWrapper className="max-w-[711px] gap-0">
-        <KobberHeading level="h2" variant="heading small">
+        <KobberHeading level="h2" variant="title medium">
           Fargekombinasjoner
         </KobberHeading>
         <p>
@@ -84,7 +84,7 @@ export default function IdentitetsPalett() {
       </KobberTextWrapper>
 
       <KobberTextWrapper className="max-w-[711px] gap-0">
-        <KobberHeading level="h2" variant="heading small">
+        <KobberHeading level="h2" variant="title medium">
           Unngå dette
         </KobberHeading>
         <p>

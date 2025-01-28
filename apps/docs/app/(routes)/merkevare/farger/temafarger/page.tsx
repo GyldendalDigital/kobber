@@ -20,7 +20,7 @@ export default function Temafarger() {
 
       {ThemeColors.map((theme, index) => (
         <KobberTextWrapper key={index}>
-          <KobberHeading level="h2" variant="heading small">
+          <KobberHeading level="h2" variant="title medium">
             {theme.title}
           </KobberHeading>
           {theme.description && <p>{theme.description}</p>}
