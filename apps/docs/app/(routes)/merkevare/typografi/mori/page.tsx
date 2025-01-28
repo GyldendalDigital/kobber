@@ -5,8 +5,8 @@ import {
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
+import { ContentLayout } from "@/components/content-layout"
 import { HeroImage } from "@/components/hero-image"
-import { SectionLayout } from "@/components/section-layout"
 import { TypographyList } from "@/components/typography-list"
 import { metaBrandTypographyMori } from "./mori.meta"
 
@@ -14,7 +14,7 @@ export const metadata = metaBrandTypographyMori
 
 export default function PPMoriPage() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <HeroImage src={damUrl("AGyvV5YIaUQ9v0MMHWgzOA", ".svg")} />
       <KobberTextWrapper>
         <KobberHeading>{metadata.title as string}</KobberHeading>
@@ -36,6 +36,6 @@ export default function PPMoriPage() {
         </p>
       </KobberTextWrapper>
       <TypographyList items={PPMoriTypography} fontClassName="font-mori" />
-    </SectionLayout>
+    </ContentLayout>
   )
 }

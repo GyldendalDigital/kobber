@@ -1,10 +1,21 @@
-import { ReactNode } from "react"
+import { cn } from "@/lib/utils"
+import styles from "./content-layout.module.css"
 
-type ContentLayoutProps = {
-  children: ReactNode
+type Props = React.HTMLAttributes<HTMLDivElement> & {
+  maxWidthSettings?: "read" | "full"
 }
 
-/** Wraps side menu and content. Sets fixed size for sidebar when screen >= md */
-export function ContentLayout({ children }: ContentLayoutProps) {
-  return <div className="sidebar+main page-spacing"></div>
+export function ContentLayout({ children, className, maxWidthSettings = "read", ...rest }: Props) {
+  return (
+    <div
+      className={cn(
+        styles["content-layout"],
+        maxWidthSettings === "read" && styles["read-with"],
+        className
+      )}
+      {...rest}
+    >
+      {children}
+    </div>
+  )
 }

@@ -7,15 +7,15 @@ import {
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { BRANDING_MANUAL_URL, KOBBER_TEAMS_URL } from "@/lib/constants"
 import { damUrl } from "@/lib/damImageLoader"
+import { ContentLayout } from "@/components/content-layout"
 import { ExternalLinksGrid } from "@/components/global/external-links-grid"
-import { SectionLayout } from "@/components/section-layout"
 import { metaGettingStartedHow } from "./how.meta"
 
 export const metadata = metaGettingStartedHow
 
 export default function HvordanBrukeKobber() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <KobberTextWrapper>
         <KobberHeading>{metadata.title as string}</KobberHeading>
         <KobberIngress>{metadata.description}</KobberIngress>
@@ -72,6 +72,6 @@ export default function HvordanBrukeKobber() {
         </p>
       </KobberTextWrapper>
       <ExternalLinksGrid />
-    </SectionLayout>
+    </ContentLayout>
   )
 }

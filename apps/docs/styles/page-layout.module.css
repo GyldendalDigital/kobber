@@ -3,11 +3,12 @@
   min-width: var(--kobber-template-page-width-min);
   margin-inline: auto;
   padding-inline: var(--kobber-layout-gap-16-32);
+  padding-top: var(--kobber-layout-gap-16-44);
 }
 
 .page-layout {
   display: grid;
-  gap: var(--kobber-layout-gap-16-32);
+  gap: var(--kobber-layout-gap-16-72);
   grid-template-columns: 280px auto;
 
   @media (max-width: 768px) {

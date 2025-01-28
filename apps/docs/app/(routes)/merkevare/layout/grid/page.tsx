@@ -3,14 +3,14 @@ import {
   KobberIngress,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
-import { SectionLayout } from "@/components/section-layout"
+import { ContentLayout } from "@/components/content-layout"
 import { metaBrandLayoutGrid } from "./grid.meta"
 
 export const metadata = metaBrandLayoutGrid
 
 export default function GridPage() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <KobberTextWrapper>
         <KobberHeading>{metadata.title as string}</KobberHeading>
         <KobberIngress>{metadata.description}</KobberIngress>
@@ -52,7 +52,7 @@ export default function GridPage() {
           </tbody>
         </table>
       </div>
-    </SectionLayout>
+    </ContentLayout>
   )
 }
 

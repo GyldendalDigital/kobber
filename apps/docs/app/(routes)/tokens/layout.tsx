@@ -1,10 +1,9 @@
-import { SideNav } from "@/components/navigation/side-nav"
-import TokenIntroPage from "./hva-er-tokens/page"
 import { cn } from "@/lib/utils"
+import { SideNav } from "@/components/navigation/side-nav"
+import pageLayoutStyles from "@/styles/page-layout.module.css"
+import { metaTokensIntro } from "./hva-er-tokens/tokensIntro.meta"
 import { metaCollections } from "./kolleksjoner/collections.meta"
 import { metaLayout } from "./layout/tokensLayout.meta"
-import { metaTokensIntro } from "./hva-er-tokens/tokensIntro.meta"
-import pageLayoutStyles from "@/styles/page-layout.module.css"
 
 export default function GetStartedLayout({ children }: React.PropsWithChildren) {
   return (

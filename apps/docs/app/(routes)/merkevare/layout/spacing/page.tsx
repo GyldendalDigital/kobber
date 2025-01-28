@@ -3,14 +3,14 @@ import {
   KobberIngress,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
-import { SectionLayout } from "@/components/section-layout"
+import { ContentLayout } from "@/components/content-layout"
 import { metaBrandLayoutSpacing } from "./spacing.meta"
 
 export const metadata = metaBrandLayoutSpacing
 
 export default function SpacingPage() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <KobberTextWrapper>
         <KobberHeading>{metadata.title as string}</KobberHeading>
         <KobberIngress>{metadata.description}</KobberIngress>
@@ -49,7 +49,7 @@ export default function SpacingPage() {
           </div>
         ))}
       </div>
-    </SectionLayout>
+    </ContentLayout>
   )
 }
 

@@ -4,14 +4,14 @@ import {
   KobberIngress,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
-import { SectionLayout } from "@/components/section-layout"
+import { ContentLayout } from "@/components/content-layout"
 import { metaBrandLogoProduct } from "./productLogo.meta"
 
 export const metadata = metaBrandLogoProduct
 
 export default function Page() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <KobberTextWrapper>
         <KobberHeading>{metadata.title as string}</KobberHeading>
         <KobberIngress>{metadata.description}</KobberIngress>
@@ -43,6 +43,6 @@ export default function Page() {
           />
         )}
       </KobberTextWrapper>
-    </SectionLayout>
+    </ContentLayout>
   )
 }

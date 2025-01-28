@@ -7,8 +7,8 @@ import {
 import { InformationCardType } from "@/types/types"
 import { KOBBER_TEAMS_URL } from "@/lib/constants"
 import { damUrl } from "@/lib/damImageLoader"
+import { ContentLayout } from "@/components/content-layout"
 import { InformationCard } from "@/components/information-card"
-import { SectionLayout } from "@/components/section-layout"
 import { metaGettingStartedContact } from "./contact.meta"
 
 export const metadata = metaGettingStartedContact
@@ -52,7 +52,7 @@ const team: InformationCardType[] = [
 
 export default function ContactPage() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <KobberTextWrapper>
         <KobberHeading>Spørsmål eller tilbakemelding?</KobberHeading>
         <KobberIngress>{metadata.description}</KobberIngress>
@@ -81,6 +81,6 @@ export default function ContactPage() {
           <InformationCard key={person.title} item={person} />
         ))}
       </section>
-    </SectionLayout>
+    </ContentLayout>
   )
 }

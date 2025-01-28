@@ -4,15 +4,15 @@ import {
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
+import { ContentLayout } from "@/components/content-layout"
 import { HeroImage } from "@/components/hero-image"
-import { SectionLayout } from "@/components/section-layout"
 import { metaBrandTypographyArial } from "./arial.meta"
 
 export const metadata = metaBrandTypographyArial
 
 export default function arialPage() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <HeroImage src={damUrl("4RX2rrxwaN08pAa_b1iyQu", ".svg")} />
       <KobberTextWrapper>
         <KobberHeading>{metadata.title as string}</KobberHeading>
@@ -27,6 +27,6 @@ export default function arialPage() {
           <li>- Fallback font for web</li>
         </ul>
       </KobberTextWrapper>
-    </SectionLayout>
+    </ContentLayout>
   )
 }

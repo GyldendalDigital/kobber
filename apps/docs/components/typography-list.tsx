@@ -9,7 +9,7 @@ type TypographyListProps = {
 
 export function TypographyList({ items, fontClassName }: TypographyListProps) {
   return (
-    <div className="grid gap-10">
+    <div className="grid gap-6">
       {items.map((item, index) => (
         <TypographyListItem key={index} typography={item} fontClassName={fontClassName} />
       ))}

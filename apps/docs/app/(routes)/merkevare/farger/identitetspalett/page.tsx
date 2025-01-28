@@ -8,14 +8,14 @@ import {
 import { damUrl } from "@/lib/damImageLoader"
 import { ColorBlockGrid } from "@/components/color-block-grid"
 import { ColorBlockGridItem } from "@/components/color-block-grid-item"
-import { SectionLayout } from "@/components/section-layout"
+import { ContentLayout } from "@/components/content-layout"
 import { metaBrandColorIdentity } from "./identity.meta"
 
 export const metadata = metaBrandColorIdentity
 
 export default function IdentitetsPalett() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <KobberTextWrapper className="gap-[8px]">
         <KobberHeading>{metadata.title as string}</KobberHeading>
         <KobberIngress>{metadata.description}</KobberIngress>
@@ -119,6 +119,6 @@ export default function IdentitetsPalett() {
           />
         </div>
       </KobberTextWrapper>
-    </SectionLayout>
+    </ContentLayout>
   )
 }

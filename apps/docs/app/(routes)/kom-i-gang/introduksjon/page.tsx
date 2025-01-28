@@ -6,14 +6,14 @@ import {
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
-import { SectionLayout } from "@/components/section-layout"
+import { ContentLayout } from "@/components/content-layout"
 import { metaGettingStartedIntro } from "./intro.meta"
 
 export const metadata = metaGettingStartedIntro
 
 export default function Introduksjon() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <KobberTextWrapper>
         <KobberHeading>
           Designsystemet Kobber <br />
@@ -71,6 +71,6 @@ export default function Introduksjon() {
           oppdatering og forbedring. Sammen skaper vi en levende profil!
         </p>
       </KobberTextWrapper>
-    </SectionLayout>
+    </ContentLayout>
   )
 }

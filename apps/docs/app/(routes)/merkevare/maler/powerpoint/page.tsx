@@ -3,15 +3,15 @@ import {
   KobberIngress,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
+import { ContentLayout } from "@/components/content-layout"
 import { HeroImage } from "@/components/hero-image"
-import { SectionLayout } from "@/components/section-layout"
 import { metaPowerpointTemplate } from "./powerpoint-template.meta"
 
 export const metadata = metaPowerpointTemplate
 
 export default function PowerpointTemplatePage() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <HeroImage src={metadata.image} />
       <KobberTextWrapper>
         <KobberHeading>Presentasjons­mal</KobberHeading>
@@ -31,6 +31,6 @@ export default function PowerpointTemplatePage() {
         </p>
         <p>Presentasjonsmalen er tilgjengelig i PowerPoint når du oppretter en ny presentasjon.</p>
       </KobberTextWrapper>
-    </SectionLayout>
+    </ContentLayout>
   )
 }

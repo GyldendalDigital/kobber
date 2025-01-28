@@ -3,15 +3,15 @@ import {
   KobberIngress,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
+import { ContentLayout } from "@/components/content-layout"
 import { HeroImage } from "@/components/hero-image"
-import { SectionLayout } from "@/components/section-layout"
 import { metaEMailTemplate } from "./e-post-template.meta"
 
 export const metadata = metaEMailTemplate
 
 export default function EPostTemplatePage() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <HeroImage src={metadata.image} />
       <KobberTextWrapper>
         <KobberHeading>E-post signatur</KobberHeading>
@@ -27,6 +27,6 @@ export default function EPostTemplatePage() {
           vår teams-kanal.
         </p>
       </KobberTextWrapper>
-    </SectionLayout>
+    </ContentLayout>
   )
 }

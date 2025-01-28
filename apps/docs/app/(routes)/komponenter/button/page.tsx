@@ -1,7 +1,7 @@
 import { pageMetadata } from "@/lib/metadata.utils"
 import { placeholderImageUrl } from "@/lib/utils"
+import { ContentLayout } from "@/components/content-layout"
 import { ContentSection } from "@/components/content-section"
-import { SectionLayout } from "@/components/section-layout"
 import { TextCollection } from "@/components/text-collection"
 import { ButtonSection } from "./_components/button-section"
 import { InteractiveStatesSection } from "./_components/interactive-states-section"
@@ -12,7 +12,7 @@ export const metadata = metaComponentsButton
 
 export default function ButtonPage() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <TextCollection heading="Button" subheading={metadata.description} />
       <ContentSection
         textCollection={{
@@ -34,6 +34,6 @@ export default function ButtonPage() {
       </ContentSection>
       <PracticeSection />
       <InteractiveStatesSection />
-    </SectionLayout>
+    </ContentLayout>
   )
 }

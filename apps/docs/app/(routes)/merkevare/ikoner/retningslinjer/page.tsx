@@ -5,14 +5,14 @@ import {
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
-import { SectionLayout } from "@/components/section-layout"
+import { ContentLayout } from "@/components/content-layout"
 import { metaBrandIconGuidelines } from "./guidelines.meta"
 
 export const metadata = metaBrandIconGuidelines
 
 export default function RetningsLinjerPage() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <KobberTextWrapper>
         <KobberHeading>{metadata.title as string}</KobberHeading>
         <KobberIngress>{metadata.description}</KobberIngress>
@@ -154,6 +154,6 @@ export default function RetningsLinjerPage() {
           />
         </div>
       </KobberTextWrapper>
-    </SectionLayout>
+    </ContentLayout>
   )
 }

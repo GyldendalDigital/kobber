@@ -1,24 +1,31 @@
+import Image from "next/image"
 import {
   KobberHeading,
   KobberIngress,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
-
-import Image from "next/image"
-import { SectionLayout } from "@/components/section-layout"
 import { damUrl } from "@/lib/damImageLoader"
+import { ContentLayout } from "@/components/content-layout"
 
 export default function TokenIntroPage() {
   return (
-    <SectionLayout className="max-w-[818px]">
+    <ContentLayout>
       <KobberTextWrapper>
         <KobberHeading>Responsivitet</KobberHeading>
-        <KobberIngress>Responsiv layout handler om hvordan en applikasjon viser, responderer og strukturerer layout, vinduer og innhold basert på en skjermstørrelse - gjerne kalt responsiv eller dynamisk design.</KobberIngress>
+        <KobberIngress>
+          Responsiv layout handler om hvordan en applikasjon viser, responderer og strukturerer
+          layout, vinduer og innhold basert på en skjermstørrelse - gjerne kalt responsiv eller
+          dynamisk design.
+        </KobberIngress>
         <p>
-          Å designe responsivitet er utfordrende å få helt nøyaktig i Figma. Dette er design av oppførsel og utformes derfor med kode. Vi har derfor designet en guide i Figma som illustrerer ønsket oppførsel og token-verdier som skal brukes.
+          Å designe responsivitet er utfordrende å få helt nøyaktig i Figma. Dette er design av
+          oppførsel og utformes derfor med kode. Vi har derfor designet en guide i Figma som
+          illustrerer ønsket oppførsel og token-verdier som skal brukes.
         </p>
         <p>
-          På samme måte som med digitale komponenter lager vi layout-komponenter som kan gjenbrukes. Vi har startet med noen overordnede layout-komponenter, og vil videreutvikle alternativer ved behov.
+          På samme måte som med digitale komponenter lager vi layout-komponenter som kan gjenbrukes.
+          Vi har startet med noen overordnede layout-komponenter, og vil videreutvikle alternativer
+          ved behov.
         </p>
       </KobberTextWrapper>
 
@@ -27,7 +34,8 @@ export default function TokenIntroPage() {
           Page
         </KobberHeading>
         <p>
-          Page-komponentet brukes som det ytterste skallet på en nettside. Vi bruker dynamiske størrelser som vokser eller minker avhengig av skjermstørrelsen.
+          Page-komponentet brukes som det ytterste skallet på en nettside. Vi bruker dynamiske
+          størrelser som vokser eller minker avhengig av skjermstørrelsen.
         </p>
       </KobberTextWrapper>
       <Image
@@ -49,10 +57,14 @@ export default function TokenIntroPage() {
           Main
         </KobberHeading>
         <p>
-          Main-komponentet har samme dynamiske gap som page, men har i tillegg dynamiske side-paddinger som samler innholdet på midten. De har altså mye av den samme funksjonaliteten, men page er litt mer fleksibelt med tanke på hvilke layout du ønsker. For å bruke main-komponentet må alltid page-komponentet ligge på toppen.
+          Main-komponentet har samme dynamiske gap som page, men har i tillegg dynamiske
+          side-paddinger som samler innholdet på midten. De har altså mye av den samme
+          funksjonaliteten, men page er litt mer fleksibelt med tanke på hvilke layout du ønsker.
+          For å bruke main-komponentet må alltid page-komponentet ligge på toppen.
         </p>
         <p>
-          Figuren under viser et eksempel der content ligger inne i main, mens andre elementer ligger i page.
+          Figuren under viser et eksempel der content ligger inne i main, mens andre elementer
+          ligger i page.
         </p>
       </KobberTextWrapper>
       <Image
@@ -63,9 +75,7 @@ export default function TokenIntroPage() {
         alt="Illustrasjon av Main-komponentet eksempel 1"
       />
       <KobberTextWrapper>
-        <p>
-          Eksempel der sidemeny, content, header og footer ligger i main.
-        </p>
+        <p>Eksempel der sidemeny, content, header og footer ligger i main.</p>
       </KobberTextWrapper>
       <Image
         src={damUrl("BB7NABeRq20B0rspwofHPm", ".png")}
@@ -81,7 +91,6 @@ export default function TokenIntroPage() {
         className="object-contain"
         alt="Liste med tokens for Main-komponentet"
       />
-    </SectionLayout>
+    </ContentLayout>
   )
 }
-

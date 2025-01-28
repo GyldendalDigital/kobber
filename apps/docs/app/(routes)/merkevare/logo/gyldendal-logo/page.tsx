@@ -6,15 +6,15 @@ import {
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
+import { ContentLayout } from "@/components/content-layout"
 import { IconExternalLink } from "@/components/kobber-icons"
-import { SectionLayout } from "@/components/section-layout"
 import { metaBrandLogoGyldendal } from "./gyldendalLogo.meta"
 
 export const metadata = metaBrandLogoGyldendal
 
 export default function Page() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <KobberTextWrapper>
         <KobberHeading>{metadata.title as string}</KobberHeading>
         <KobberIngress>{metadata.description}</KobberIngress>
@@ -258,6 +258,6 @@ export default function Page() {
           />
         </div>
       </KobberTextWrapper>
-    </SectionLayout>
+    </ContentLayout>
   )
 }

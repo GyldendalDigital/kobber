@@ -7,7 +7,7 @@ import {
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
-import { SectionLayout } from "@/components/section-layout"
+import { ContentLayout } from "@/components/content-layout"
 import { metaGettingStartedContact } from "../../kom-i-gang/kontakt/contact.meta"
 import { metaBrandLogo } from "../logo/logo.meta"
 import { metaBrandLevel } from "./brandLevel.meta"
@@ -16,7 +16,7 @@ export const metadata = metaBrandLevel
 
 export default function MerkevareHeriarkiPage() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <KobberTextWrapper>
         <KobberHeading>{metadata.title as string}</KobberHeading>
         <KobberIngress>{metadata.description}</KobberIngress>
@@ -147,6 +147,6 @@ export default function MerkevareHeriarkiPage() {
           alt="Illustrasjon nivå 4"
         />
       </KobberTextWrapper>
-    </SectionLayout>
+    </ContentLayout>
   )
 }

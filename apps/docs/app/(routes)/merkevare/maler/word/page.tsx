@@ -1,13 +1,13 @@
-import { HeroImage } from "@/components/hero-image"
-import { SectionLayout } from "@/components/section-layout"
-import { metaWordTemplate } from "./word-template.meta"
 import { KobberHeading, KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
+import { ContentLayout } from "@/components/content-layout"
+import { HeroImage } from "@/components/hero-image"
+import { metaWordTemplate } from "./word-template.meta"
 
 export const metadata = metaWordTemplate
 
 export default function WordTemplatePage() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <HeroImage src={metadata.image} />
       <KobberTextWrapper>
         <KobberHeading>Dokument- og brevmal</KobberHeading>
@@ -28,6 +28,6 @@ export default function WordTemplatePage() {
           Disse malene for dokument og brev er tilgjengelig i Word.
         </p>
       </KobberTextWrapper>
-    </SectionLayout>
+    </ContentLayout>
   )
 }

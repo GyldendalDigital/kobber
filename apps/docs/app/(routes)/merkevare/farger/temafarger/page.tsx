@@ -5,14 +5,14 @@ import {
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { ColorBlockGrid } from "@/components/color-block-grid"
-import { SectionLayout } from "@/components/section-layout"
+import { ContentLayout } from "@/components/content-layout"
 import { metaBrandColorTheme } from "./theme.meta"
 
 export const metadata = metaBrandColorTheme
 
 export default function Temafarger() {
   return (
-    <SectionLayout>
+    <ContentLayout>
       <KobberTextWrapper>
         <KobberHeading>{metadata.title as string}</KobberHeading>
         <KobberIngress>{metadata.description}</KobberIngress>
@@ -27,6 +27,6 @@ export default function Temafarger() {
           <ColorBlockGrid colors={theme.colors} enableCopy />
         </KobberTextWrapper>
       ))}
-    </SectionLayout>
+    </ContentLayout>
   )
 }
