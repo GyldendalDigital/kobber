@@ -30,16 +30,16 @@ export default function HvordanBrukeKobber() {
           Verktøykassa vår skal kunne brukes på tvers av virksomhetene våre, samt kunne utvides og
           tilpasses etter behov. Det er et kontinuerlig arbeid hvor alle som er brukere av systemet
           også bidrar til det.
-          <br />
-          <br />
+        </p>
+        <p>
           Beskrivelser og retningslinjer for hvordan vi skal bruke merkevaren og designsystemet vår
           finnes i{" "}
           <Link className="underline" href={BRANDING_MANUAL_URL} target="_blank">
             merkevaremanualen
           </Link>{" "}
           og på denne nettsiden.
-          <br />
-          <br />
+        </p>
+        <p>
           Husk å følge med på oppdateringer på denne siden samt vår{" "}
           <Link href={KOBBER_TEAMS_URL} className="underline" target="_blank">
             teams-kanal

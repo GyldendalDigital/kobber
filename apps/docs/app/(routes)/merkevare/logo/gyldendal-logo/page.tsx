@@ -43,10 +43,8 @@ export default function Page() {
         <KobberHeading level="h2" variant="title medium">
           Primærlogo
         </KobberHeading>
+        <p>Gyldendals primærlogo skal brukes i de fleste tilfeller.</p>
         <p>
-          Gyldendals primærlogo skal brukes i de fleste tilfeller.
-          <br />
-          <br />
           Den består av logosymbolet som er basert på en norsk gran, samt navnet skrevet i små
           bokstaver, unntatt G-en. Fonten sikrer en god balanse mellom gjenkjennelighet og
           anvendelighet, slik at fonten også kan benyttes i logoer på Gyldendals støttede
@@ -70,8 +68,8 @@ export default function Page() {
         <p>
           Gyldendals primærlogo kan brukes i en positiv og en negativ variant. Den positive
           varianten brukes på lys bakgrunn og den negative brukes på mørk bakgrunn.
-          <br />
-          <br />
+        </p>
+        <p>
           En monoversjon av primærlogoen brukes der det ikke er mulig å bruke logoen i farge, og på
           bakgrunner hvor logoen ellers ikke ville vært synlig nok, slik som på en sterk farge eller
           et bilde. Den brukes typisk på bokomslag.
@@ -93,8 +91,8 @@ export default function Page() {
         <p>
           Emblemversjonen av logoen brukes kun når Gyldendal selv er hovedfokuset i et budskap. Den
           er best egnet når den står helt for seg selv på en flate.
-          <br />
-          <br />
+        </p>
+        <p>
           Dette er en sekundærlogo og skal generelt ikke brukes på produkter. Den finnes også i
           fargevariantene positiv, negativ og monoversjon.
         </p>
@@ -170,8 +168,8 @@ export default function Page() {
         <p>
           Ikonet brukes alene kun i tilfeller der det ikke er plass til hele logoen, slik som i
           profilbilde på sosiale medier-kontoer eller som favorittikon i nettleser.
-          <br />
-          <br />
+        </p>
+        <p>
           Ikonet er tilgjengelig for å fungere både i sirkel og kvadrat. Det skal ikke lages opp
           egne oppsett eller fargekombinasjoner for ikon, men brukes samme ikon på tvers av alle
           kontoer for å sikre et helhetlig utrykk.

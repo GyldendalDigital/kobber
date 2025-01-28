@@ -25,12 +25,13 @@ export default function PPMoriPage() {
           sine overdrevne diakritiske tegn, og den kraftige avrundingen i G-versalen spiller godt
           sammen med Gyldendals andre identitetsbærende visuelle grep. F-minuskelen gir et lite hint
           til det digitale.
-          <br />
-          <br />I vanlig typografisk bruk er det lov å benytte seg av vektene fra Light til Bold,
-          men Regular, Book og Semi Bold er de mest brukte vektene. Til bruk i logoen benyttes
+        </p>
+        <p>
+          I vanlig typografisk bruk er det lov å benytte seg av vektene fra Light til Bold, men
+          Regular, Book og Semi Bold er de mest brukte vektene. Til bruk i logoen benyttes
           variabelvekting.
-          <br />
-          <br />
+        </p>
+        <p>
           Ved bruk av PP Mori kreves det lisens som man må søke tilgang om. Kontakt oss ved behov.
           Bruk Arial i presentasjoner og dokumenter.
         </p>

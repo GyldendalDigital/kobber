@@ -35,7 +35,7 @@ export const damPreviewUrl = (
  * src: https://dam-prod.gyldendaldigital.no/tenants/edu/file/123/^/123.png
  * out: {assetId: "123", extension: ".png"}
  */
-export const parseDamFileUrl = (src: string | null) => {
+export const parseDamFileUrl = (src: string | undefined) => {
   if (!src?.startsWith(damBaseUrl)) {
     return false
   }

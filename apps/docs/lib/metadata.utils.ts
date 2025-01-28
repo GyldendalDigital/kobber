@@ -3,7 +3,7 @@ import { damPreviewUrl, parseDamFileUrl } from "./damImageLoader"
 
 export interface PageMetadata extends Metadata {
   href: string
-  image: string | null
+  image?: string
   status?: "kommer" | "nyhet"
   children?: PageMetadata[]
   disabled?: boolean
@@ -12,7 +12,7 @@ export interface PageMetadata extends Metadata {
 }
 
 /** OG does not support SVG */
-const openGraph = (src: string | null) => {
+const openGraph = (src: string | undefined) => {
   const parseResult = parseDamFileUrl(src)
 
   // could return src instead, but it's mainly placeholders

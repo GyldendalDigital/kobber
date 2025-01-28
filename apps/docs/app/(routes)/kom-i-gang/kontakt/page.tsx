@@ -59,8 +59,8 @@ export default function ContactPage() {
         <p>
           Kobber eies av kommunikasjonsavdelingen og utvikles for tiden av en arbeidsgruppe fra
           ulike deler av selskapet.
-          <br />
-          <br />
+        </p>
+        <p>
           Vi har en{" "}
           <Link target="_blank" href={KOBBER_TEAMS_URL} className="underline">
             teams-kanal
@@ -68,8 +68,8 @@ export default function ContactPage() {
           der det er mulig å få hjelp, ta opp relevante tema, ønsker og behov. Om du har et spørsmål
           eller en tilbakemelding kan du først sjekke om noen har tatt opp dette eller noe lignende
           tidligere.
-          <br />
-          <br />
+        </p>
+        <p>
           Ta direkte kontakt med Irén eller Izelin ved forespørsler om nyutvikling av løsninger
           tilknyttet merkevaren, komponenter, logo, nytt markedsmateriell eller ved spørsmål om
           mulige unntak.
