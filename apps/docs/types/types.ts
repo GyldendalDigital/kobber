@@ -1,4 +1,3 @@
-import { Metadata } from "next"
 import { TemplateString } from "next/dist/lib/metadata/types/metadata-types"
 
 export type RouteType = {
@@ -21,7 +20,7 @@ export type RouteDataType = {
 
 export type FeatureBoxType = {
   title?: null | string | TemplateString
-  image: string | null
+  image?: string
   href?: string
   disabled?: boolean
 }
