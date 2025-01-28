@@ -1,6 +1,5 @@
 import { damUrl } from "@/lib/damImageLoader"
 import { pageMetadata } from "@/lib/metadata.utils"
-import { placeholderImageUrl } from "@/lib/utils"
 
 export const metaBrandTypographyInter = pageMetadata(import.meta.url, {
   title: "Inter",

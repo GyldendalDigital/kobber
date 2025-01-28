@@ -7,7 +7,6 @@ import {
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
 import { SectionLayout } from "@/components/section-layout"
-import { metaGettingStarted } from "../gettingStarted.meta"
 import { metaGettingStartedIntro } from "./intro.meta"
 
 export const metadata = metaGettingStartedIntro
@@ -15,16 +14,6 @@ export const metadata = metaGettingStartedIntro
 export default function Introduksjon() {
   return (
     <SectionLayout>
-      {metaGettingStarted.image && (
-        <Image
-          src={metaGettingStarted.image}
-          width={858}
-          height={293}
-          className="h-[293px] w-full rounded-[16px] object-cover object-top"
-          alt="Image"
-        />
-      )}
-
       <KobberTextWrapper>
         <KobberHeading>
           Designsystemet Kobber <br />
