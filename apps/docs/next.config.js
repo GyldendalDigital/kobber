@@ -24,6 +24,14 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    turbo: {
+      // fixing "missing loader prop" error with turbopack
+      resolveAlias: {
+        "next/dist/shared/lib/image-loader": "./lib/damImageLoader.ts",
+      },
+    },
+  },
 }
 
 export default nextConfig

@@ -38,7 +38,11 @@ const openGraph = (src: string | null) => {
  * out: "/merkevare/typografi/lyon"
  */
 const pagePathname = (metaUrl: string) => {
-  return metaUrl.split("(routes)")[1].replace(/\/[^/]*$/, "")
+  const normalizedPath = metaUrl.split("(routes)")[1]?.replace(/\\/g, "/")
+  if (!normalizedPath) {
+    throw new Error("Invalid metaUrl format")
+  }
+  return normalizedPath.substring(0, normalizedPath.lastIndexOf("/"))
 }
 
 export const pageMetadata = (
