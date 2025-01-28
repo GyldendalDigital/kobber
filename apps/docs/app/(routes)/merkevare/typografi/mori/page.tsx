@@ -15,7 +15,7 @@ export const metadata = metaBrandTypographyMori
 export default function PPMoriPage() {
   return (
     <ContentLayout>
-      <HeroImage src={damUrl("AGyvV5YIaUQ9v0MMHWgzOA", ".svg")} />
+      <HeroImage src={damUrl("AGyvV5YIaUQ9v0MMHWgzOA", ".svg")} alt="PP Mori eksempeltegn" />
       <KobberTextWrapper>
         <KobberHeading>{metadata.title as string}</KobberHeading>
         <KobberIngress>{metadata.description}</KobberIngress>

@@ -1,28 +1,21 @@
 import Image from "next/image"
 import { cn, placeholderImageUrl } from "@/lib/utils"
 
-type HeroImageProps = {
-  src: string | null
-  width?: number
-  height?: number
-  className?: string
-}
+type Props = React.HTMLAttributes<HTMLElement> & Partial<Pick<HTMLImageElement, "src" | "alt">>
 
-export function HeroImage({ className, src, width = 857, height = 288 }: HeroImageProps) {
+export function HeroImage({ className, src, alt = "" }: Props) {
   return (
     <div
       className={cn(
-        "relative h-[160px] max-w-full overflow-hidden rounded-[16px] md:h-[320px]",
+        "relative h-[30vw] max-h-80 overflow-hidden rounded-[1rem] md:h-[20vw]",
         className
       )}
     >
       <Image
         src={src ?? placeholderImageUrl({})}
-        // width={width}
-        // height={height}
         fill
         className="object-cover object-top"
-        alt="Header Image"
+        alt={alt}
       />
     </div>
   )
