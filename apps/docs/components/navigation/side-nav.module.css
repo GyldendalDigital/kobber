@@ -1,0 +1,27 @@
+.side-nav {
+  position: sticky;
+  top: var(--top-nav-height);
+  height: calc(100vh - var(--top-nav-height));
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.side-nav-content {
+  border-right: 1px solid var(--kobber-component-divider-background-color-main);
+  padding: var(--kobber-component-wiki-side-menu-container-padding);
+}
+
+.side-nav-group {
+  border-bottom: 1px solid var(--kobber-component-divider-background-color-main);
+  padding-block: var(--kobber-component-wiki-side-menu-container-padding);
+}
+
+.side-nav-list-with-divider {
+  & > *:not(:last-child) {
+    border-bottom: 1px solid var(--kobber-component-divider-background-color-main);
+    padding-bottom: var(--kobber-component-wiki-side-menu-container-padding);
+  }
+}
