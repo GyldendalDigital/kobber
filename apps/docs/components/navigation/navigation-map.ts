@@ -25,9 +25,9 @@ export const metaBrandNavigationGroups = [
     title: "Introduksjon",
     items: [
       metaBrandLevel,
-      { href: "#", title: "Våre verdier", status: "kommer", image: null },
-      { href: "#", title: "Vår stemme", status: "kommer", image: null },
-      { href: "#", title: "Designprinsipper", status: "kommer", image: null },
+      { href: "#", title: "Våre verdier", status: "kommer", image: undefined },
+      { href: "#", title: "Vår stemme", status: "kommer", image: undefined },
+      { href: "#", title: "Designprinsipper", status: "kommer", image: undefined },
     ],
     isOpenInitially: true,
   },
