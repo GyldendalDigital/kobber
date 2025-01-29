@@ -198,7 +198,7 @@ const renderButton = (args: Args) => {
   level="${level}" 
   ${state === "disabled" ? "disabled" : ""} 
   ${icon === "left" ? "iconFirst" : ""} 
-  ${link ? "href='#' target='_blank'" : undefined}
+  ${link ? "href='#' target='_blank'" : ""}
   aria-label="optional button label">
   ${text ? text : ""}
   ${icon !== "none" ? "<icon-arrow_right slot='icon' />" : ""}
