@@ -8,12 +8,15 @@ import {
 import { damUrl } from "@/lib/damImageLoader"
 import { ContentLayout } from "@/components/content-layout"
 import { metaGettingStartedIntro } from "./intro.meta"
+import { HeroImage } from "@/components/hero-image"
 
 export const metadata = metaGettingStartedIntro
 
 export default function Introduksjon() {
   return (
     <ContentLayout>
+      <HeroImage src={metaGettingStartedIntro.image} />
+
       <KobberTextWrapper>
         <KobberHeading>
           Designsystemet Kobber <br />
