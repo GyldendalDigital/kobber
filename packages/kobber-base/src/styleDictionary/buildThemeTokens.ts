@@ -27,6 +27,7 @@ export const buildThemeTokens = async (
 
   try {
     const sd = new StyleDictionary(styleDictionaryConfig);
+    sd.log.verbosity = "verbose";
     await sd.hasInitialized;
     await sd.buildAllPlatforms();
     return { allTokens, styleDictionaryConfig };
