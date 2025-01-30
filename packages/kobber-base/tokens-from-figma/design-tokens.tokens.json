@@ -1911,7 +1911,7 @@
             "small": {
               "description": "",
               "type": "color",
-              "value": "{global.visual.icon.size.regular}"
+              "value": "{global.visual.icon.size.small}"
             }
           }
         }
@@ -5350,14 +5350,14 @@
             "value": "{global.typography.weight.regular}"
           }
         },
-        "font-familty": {
+        "font-family": {
           "description": "",
           "type": "color",
           "value": "{global.typography.font-family.pp-mori}"
         }
       },
       "secondary": {
-        "font-familty": {
+        "font-family": {
           "description": "",
           "type": "color",
           "value": "{global.typography.font-family.lyon-display}"
@@ -5457,7 +5457,7 @@
         }
       },
       "reading": {
-        "font-familty": {
+        "font-family": {
           "description": "",
           "type": "color",
           "value": "{global.typography.font-family.inter}"
@@ -5593,7 +5593,7 @@
         }
       },
       "ui": {
-        "font-familty": {
+        "font-family": {
           "description": "",
           "type": "color",
           "value": "{global.typography.font-family.pp-mori}"
