@@ -5968,17 +5968,17 @@
         "large": {
           "description": "",
           "type": "color",
-          "value": "{regional.layout.element.space.large}"
+          "value": "{global.layout.element.space.large}"
         },
         "medium": {
           "description": "",
           "type": "color",
-          "value": "{regional.layout.element.space.medium}"
+          "value": "{global.layout.element.space.medium}"
         },
         "small": {
           "description": "",
           "type": "color",
-          "value": "{regional.layout.element.space.xsmall}"
+          "value": "{global.layout.element.space.xsmall}"
         }
       }
     },
