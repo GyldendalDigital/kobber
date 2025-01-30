@@ -70,7 +70,44 @@ We recommend using [normalize.css](https://github.com/necolas/normalize.css/) or
 
 ## Development
 
-After making a new component, do the following steps to expose it to the world:
+### Create components
+
+For maintainability, components should be created to consume data as children rather than props. By using props for all data, the amount of component props over time will grow unmaintanable. Most likely, you will end up with a component that needs to accept children components as props (while having to maintain possibly deprecated data props).
+
+Example of component consuming data as children:
+
+```
+<RadioGroup
+  label="Format"
+  onChange={(value) => setValue(value)}
+  currentValue={value}
+  direction="horizontal" // eller vertical
+>
+  <RadioInput group="format" label="Innbundet" {...}/>
+</RadioGroup>
+```
+
+Example of component consuming data as props:
+
+```
+<RadioGroup
+  label="Format"
+  group="format"
+  onChange={(value) => setValue(value)}
+  currentValue={value}
+  direction="horizontal" // eller vertical
+  options={[
+    { label: "Innbundet", value: "hardcover" },
+    { label: "Pocket", value: "pocket" },
+    { label: "Ebok", value: "ebook" },
+    { label: "Lydbok", value: "audiobook" }
+  ]}
+/>
+```
+
+### Publish components
+
+After creating a new component, do the following steps to expose it to the world:
 
 1. Export it from src/index.react.tsx and src/index.web-components.ts.
 2. Run `yarn build`.

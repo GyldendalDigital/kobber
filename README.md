@@ -10,8 +10,6 @@ Pull requests are deployed in Cloudflare. To view build logs, make your own Clou
 
 ### Storybook
 
-Storybook [opens two instances](https://github.com/GyldendalDigital/kobber/pull/6) - one for react components, and one for web components.
-
 Storybook for web components lets you choose between kobber-theme-default and kobber-theme-dark, but for now the themes are identical.
 
 ## 📦 Packages
