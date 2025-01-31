@@ -1,5 +1,5 @@
 import { create } from "@storybook/theming";
-import { semantics } from "@gyldendal/kobber-base/themes/default/tokens";
+import { regional } from "@gyldendal/kobber-base/themes/default/tokens";
 
 const background = semantics.navigation.color.darkest;
 
@@ -12,11 +12,11 @@ export default create({
   brandTitle: "Kobber Storybook",
   brandImage: "https://dam-prod.gyldendaldigital.no/tenants/edu/file/D_8MwlmJKANA6W4OIRWa7k/*/logo.svg",
 
-  colorSecondary: semantics.navigation.color.bright,
+  colorSecondary: regional.navigation.color.bright,
 
   appBg: background,
   appContentBg: background,
-  appPreviewBg: semantics.navigation.color.brightest,
+  appPreviewBg: regional.navigation.color.brightest,
 
   barBg: background,
 });

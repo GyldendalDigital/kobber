@@ -1,6 +1,6 @@
 .page-spacing {
-  max-width: var(--kobber-template-page-width-max);
-  min-width: var(--kobber-template-page-width-min);
+  max-width: var(--kobber-global-layout-page-width-max);
+  min-width: var(--kobber-global-layout-page-width-min);
   margin-inline: auto;
   padding-inline: var(--kobber-layout-gap-16-32);
   padding-top: var(--kobber-layout-gap-16-44);

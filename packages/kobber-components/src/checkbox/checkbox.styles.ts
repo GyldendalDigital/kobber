@@ -73,14 +73,14 @@ export default css`
 
   /* Focus */
   .checkbox:not(.checkbox--checked):not(.checkbox--disabled) .checkbox__input:focus-visible ~ .checkbox__control {
-    box-shadow: 0px 0px 0px 3px var(--kobber-semantic-color-focus);
+    box-shadow: 0px 0px 0px 3px var(--kobber-universal-color-focus);
     outline-offset: 0px;
   }
 
   /* Checked/indeterminate + focus */
   .checkbox.checkbox--checked:not(.checkbox--disabled) .checkbox__input:focus-visible ~ .checkbox__control,
   .checkbox.checkbox--indeterminate:not(.checkbox--disabled) .checkbox__input:focus-visible ~ .checkbox__control {
-    box-shadow: 0px 0px 0px 3px var(--kobber-semantic-color-focus);
+    box-shadow: 0px 0px 0px 3px var(--kobber-universal-color-focus);
     outline-offset: 0px;
   }
 

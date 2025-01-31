@@ -7,7 +7,6 @@ import "./ingress/Ingress";
 import "./link/Link";
 import { headingPrimarySizes, headingSecondarySizes } from "./heading/Heading.core";
 import { textHighlightColors } from "./text-highlight/TextHighlight.core";
-import { template, semantics, component } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { storySummary } from "../story/story-summary";
 import { textWrapperStyles } from "./text-wrapper/TextWrapper.styles";
 import { linkStyles } from "./link/Link.styles";
@@ -16,6 +15,7 @@ import { getContrast, isContrastCompliant } from "../utils/contrast";
 import { ingressStyles } from "./ingress/Ingress.styles";
 import { headingStyles } from "./heading/Heading.styles";
 import { linkExtendedColors } from "./link/Link.core";
+import { regional, component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables";
 
 const meta: Meta = {
   title: "Text",
@@ -178,8 +178,8 @@ export const Highlight: Story = {
         <kobber-text-wrapper>
           ${textHighlightColors.map((color, i) => {
             const highlightValue = component.button.background.color[color].main.primary.fallback;
-            const backgroundValue = semantics.navigation.color.brightest;
-            const textValue = component.article.body.text.color.base;
+            const backgroundValue = regional.navigation.color.brightest;
+            const textValue = component.body.text.color.base;
 
             const backgroundContrast = getContrast(backgroundValue, highlightValue);
             const backgroundContrastCompliant = isContrastCompliant(backgroundValue, highlightValue, false, "AA");
@@ -277,7 +277,7 @@ export const Wrapper: Story = {
     </div>
 
   ${storySummary({
-    summary: `Wrapper bolker med tekst og gir gap på ${pxToRem(template["text-wrapper"].gap.horizontal)} (${template["text-wrapper"].gap.horizontal}px)`,
+    summary: `Wrapper bolker med tekst og gir gap på ${pxToRem(16)} (${16}px)`,
     code: textWrapperStyles.cssText,
   })}`;
   },

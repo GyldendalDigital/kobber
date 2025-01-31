@@ -12,16 +12,16 @@ import { replaceSpaceWithDash } from "../../utils/replace";
 import { resetHeading } from "../../base/styles/reset.styles";
 
 const createHeadingStyles = () => {
-  const heading = component.article.heading;
+  const heading = component.heading;
 
   return css`
     .${unsafeCSS(headingName)} {
       ${resetHeading()};
 
-      color: var(${unsafeCSS(heading.text.color.h2.base)});
+      color: var(${unsafeCSS(heading.text.color.base)});
 
       &.${unsafeCSS("h1" satisfies HeadingLevel)} {
-        color: var(${unsafeCSS(heading.text.color.h1.base)});
+        color: var(${unsafeCSS(heading.text.color.base)});
       }
 
       &.${unsafeCSS("primary" satisfies HeadingFont)} {

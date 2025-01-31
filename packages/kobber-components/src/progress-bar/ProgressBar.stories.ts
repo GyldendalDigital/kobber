@@ -49,7 +49,7 @@ const getFillColor = (args: Args) => {
     return "var(--kobber-component-progressbar-color-foreground-default-primary)";
   }
   if (args.__progressColor === "unknown") {
-    return "var(--kobber-semantic-progress-color-foreground-unknown)";
+    return "var(--kobber-regional-progress-color-foreground-unknown)";
   }
   return `var(--kobber-component-progressbar-color-foreground-${args.__progressColor})`;
 };

@@ -1,5 +1,5 @@
 import { css, unsafeCSS } from "lit";
-import { component, global } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import { linkName } from "./Link.core";
 import { resetButton } from "../../base/styles/reset.styles";
 
@@ -17,21 +17,21 @@ const createStyles = () => {
       align-items: center;
       text-decoration: none;
       gap: var(${unsafeCSS(link.container.gap)});
-      line-height: var(${unsafeCSS(global.text.ui["line-height"].input)});
+      line-height: var(${unsafeCSS(universal.text.primary["line-height"].body)});
       color: var(${unsafeCSS(link.text.color)});
 
       &.color-text {
-        color: var(${unsafeCSS(component.article.body.text.color.base)});
+        color: var(${unsafeCSS(component["text-link"].text.color)});
       }
 
       &.color-heading {
-        color: var(${unsafeCSS(component.article.heading.text.color.h1.base)});
+        color: var(${unsafeCSS(component["text-link"].text.color)});
       }
 
       &[disabled],
       &.disabled {
         /* TODO: wait for tokens to expose percent as number, not rem */
-        /* opacity: var(${unsafeCSS(global.disabled.container.opacity)}); */
+        /* opacity: var(${unsafeCSS(universal.disabled.container.opacity)}); */
         opacity: 0.5;
         cursor: auto;
       }
@@ -55,8 +55,8 @@ const createStyles = () => {
       &:focus-visible,
       &.focus {
         outline: none;
-        border-radius: var(${unsafeCSS(global.focus.border.radius.xsmall)});
-        box-shadow: 0 0 0 var(${unsafeCSS(global.focus.border.width)}) var(${unsafeCSS(global.focus.color)});
+        border-radius: var(${unsafeCSS(universal.focus.border.radius.xsmall)});
+        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
         padding-inline: var(${unsafeCSS(link.container.gap)});
 
         &:active,

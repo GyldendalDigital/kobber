@@ -4,7 +4,7 @@ import { component, typography } from "@gyldendal/kobber-base/themes/default/tok
 export const ingressName = "kobber-ingress";
 
 const createIngressStyles = () => {
-  const ingress = component.article.ingress;
+  const ingress = component.ingress;
 
   return css`
     .${unsafeCSS(ingressName)} {

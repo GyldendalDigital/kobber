@@ -1,4 +1,4 @@
-import { component, semantics } from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { component, global } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { ReplaceSpaceWithDash, replaceSpaceWithDash } from "../utils/replace";
 
 export const buttonName = "kobber-button";
@@ -71,9 +71,9 @@ export const buttonVariants: ButtonVariant[] = Object.keys(
 ) as ButtonVariant[];
 export const buttonLevels: ButtonLevel[] = Object.keys(component.button.text.color.neutral.main) as ButtonLevel[];
 
-export type ButtonUiColor = keyof typeof semantics.color.ui;
+export type ButtonUiColor = keyof typeof global.color.ui;
 export const isUiColor = (color: ButtonColor | undefined): color is ButtonUiColor =>
-  !!color && color in semantics.color.ui;
+  !!color && color in global.color.ui;
 
 export const hasSupplementalAlt = (color: ButtonColor | undefined) =>
   color === "aubergine" || color === "rettsdata" || color === "neutral";

@@ -11,17 +11,17 @@
 
 .side-nav-content {
   border-right: 1px solid var(--kobber-component-divider-background-color-main);
-  padding: var(--kobber-component-wiki-side-menu-container-padding);
+  padding: var(--kobber-component-docs-side-menu-container-padding);
 }
 
 .side-nav-group {
   border-bottom: 1px solid var(--kobber-component-divider-background-color-main);
-  padding-block: var(--kobber-component-wiki-side-menu-container-padding);
+  padding-block: var(--kobber-component-docs-side-menu-container-padding);
 }
 
 .side-nav-list-with-divider {
   & > *:not(:last-child) {
     border-bottom: 1px solid var(--kobber-component-divider-background-color-main);
-    padding-bottom: var(--kobber-component-wiki-side-menu-container-padding);
+    padding-bottom: var(--kobber-component-docs-side-menu-container-padding);
   }
 }

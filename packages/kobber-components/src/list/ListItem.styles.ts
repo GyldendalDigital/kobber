@@ -1,9 +1,9 @@
-import { component, global, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables";
+import { component, typography, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables";
 import { css, unsafeCSS } from "lit";
 import { listItemClassNames, listItemName } from "./ListItem.core";
 
 const createListItemStyles = () => {
-  const listItem = component["wiki-list-item"];
+  const listItem = component["docs-list-item"];
   return css`
     .${unsafeCSS(listItemClassNames(listItemName))} {
       display: flex;
@@ -19,7 +19,7 @@ const createListItemStyles = () => {
       &:focus-visible,
       &.focus {
         outline: none;
-        box-shadow: 0 0 0 var(${unsafeCSS(global.focus.border.width)}) var(${unsafeCSS(global.focus.color)});
+        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
       }
 
       &[disabled],

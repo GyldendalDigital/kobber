@@ -1,5 +1,5 @@
 import { css, unsafeCSS } from "lit";
-import { component, global, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, universal, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import {
   buttonColors,
   buttonVariants,
@@ -47,7 +47,7 @@ const createButtonStyles = () => {
       &[disabled],
       &.disabled {
         /* TODO: wait for tokens to expose percent as number, not rem */
-        /* opacity: var(${unsafeCSS(global.disabled.container.opacity)}); */
+        /* opacity: var(${unsafeCSS(universal.disabled.container.opacity)}); */
         opacity: 0.5;
         cursor: auto;
       }
@@ -55,7 +55,7 @@ const createButtonStyles = () => {
       &:focus-visible,
       &.focus {
         outline: none;
-        box-shadow: 0 0 0 var(${unsafeCSS(global.focus.border.width)}) var(${unsafeCSS(global.focus.color)});
+        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
       }
 
       &.${unsafeCSS("icon" satisfies ButtonClassNames)} {

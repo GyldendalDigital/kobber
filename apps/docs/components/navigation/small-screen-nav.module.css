@@ -4,7 +4,7 @@
 
 .small-screen-nav-overlay {
   --navbar-height: calc(
-    2 * var(--kobber-component-wiki-navbar-container-padding-block) +
+    2 * var(--kobber-component-docs-navbar-container-padding-block) +
       var(--kobber-component-button-container-size-height)
   );
 
@@ -15,14 +15,14 @@
 
   display: flex;
   flex-direction: column;
-  background-color: var(--kobber-component-wiki-navbar-background-color-main);
+  background-color: var(--kobber-component-docs-navbar-background-color-main);
   z-index: 900;
   overflow-y: auto;
 }
 
 .small-screen-nav-overlay-back-button {
   opacity: 0.8;
-  padding-block: var(--kobber-component-wiki-navbar-container-padding-block);
+  padding-block: var(--kobber-component-docs-navbar-container-padding-block);
 }
 
 .small-screen-nav-overlay-login-button {
@@ -33,8 +33,8 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding-block: var(--kobber-component-wiki-navbar-container-padding-block);
-  background-color: var(--kobber-component-wiki-navbar-background-color-main);
+  padding-block: var(--kobber-component-docs-navbar-container-padding-block);
+  background-color: var(--kobber-component-docs-navbar-background-color-main);
 }
 
 .small-screen-nav-overlay-link-list-inner {
