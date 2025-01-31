@@ -100,7 +100,6 @@ const buttonVariableStyles = () => {
 
             return css`
               ${unsafeCSS(nestedClassNames)} {
-                background-color: transparent;
                 color: var(${unsafeCSS(component.button.text.color[color][variant][level].fallback)});
 
                 ${hoverEffectSecondary()}
@@ -159,7 +158,7 @@ const hoverEffectSecondary = () => css`
         position: absolute;
         /* TODO: find out what this value should be */
         bottom: 0.2rem;
-        border-bottom: var(${unsafeCSS(component.button.container.border.width.hover)}) solid currentColor;
+        border-bottom: var(${unsafeCSS(component.button.container.border.width.hover)}) solid;
         right: var(${unsafeCSS(component.button.container.padding.inline)});
         left: var(${unsafeCSS(component.button.container.padding.inline)});
       }
