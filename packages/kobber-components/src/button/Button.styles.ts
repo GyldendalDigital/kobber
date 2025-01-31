@@ -28,12 +28,16 @@ const createButtonStyles = () => {
   return css`
     .${unsafeCSS(buttonName)} {
       ${resetButton()};
+      --color: inherit;
+      --background-color: transparent;
       position: relative;
       display: inline-flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
       border: 1px solid transparent;
+      color: var(--color);
+      background-color: var(--background-color);
       gap: var(${unsafeCSS(button.container.gap)});
       /* see TODO: padding-block: var(${unsafeCSS(button.container.padding.block)}); */
       padding-inline: var(${unsafeCSS(button.container.padding.inline)});
@@ -100,8 +104,7 @@ const buttonVariableStyles = () => {
 
             return css`
               ${unsafeCSS(nestedClassNames)} {
-                color: var(${unsafeCSS(component.button.text.color[color][variant][level].fallback)});
-
+                --color: var(${unsafeCSS(component.button.text.color[color][variant][level].fallback)});
                 ${hoverEffectSecondary()}
               }
             `;
@@ -123,8 +126,8 @@ const buttonVariableStyles = () => {
 
           return css`
             ${unsafeCSS(nestedClassNames)} {
-              background-color: var(${unsafeCSS(backgroundColor.fallback)});
-              color: var(${unsafeCSS(textColor.fallback)});
+              --background-color: var(${unsafeCSS(backgroundColor.fallback)});
+              --color: var(${unsafeCSS(textColor.fallback)});
 
               ${hoverEffectPrimary(backgroundColor.hover, backgroundColor.fallback)}
             }
@@ -141,8 +144,8 @@ const hoverEffectPrimary = (hoverColor: string, fallbackColor: string) => css`
   &:hover,
   &.hover {
     &:not([disabled]) {
-      background: linear-gradient(0deg, var(${unsafeCSS(hoverColor)}) 0%, var(${unsafeCSS(hoverColor)}) 100%),
-        var(${unsafeCSS(fallbackColor)});
+      --background-color: var(${unsafeCSS(fallbackColor)});
+      background-image: linear-gradient(0deg, var(${unsafeCSS(hoverColor)}) 0%, var(${unsafeCSS(hoverColor)}) 100%);
     }
   }
 `;
