@@ -78,11 +78,11 @@
   }
 
   body {
-    color: var(--kobber-component-article-body-text-color-base);
-    background-color: var(--kobber-semantics-navigation-color-brightest);
+    color: var(--kobber-component-body-text-color-base);
+    background-color: var(--kobber-regional-navigation-color-brightest);
 
     --top-nav-height: calc(
-      2 * var(--kobber-component-wiki-navbar-container-padding-block) +
+      2 * var(--kobber-component-docs-navbar-container-padding-block) +
         var(--kobber-component-button-container-size-height)
     );
   }

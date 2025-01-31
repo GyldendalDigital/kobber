@@ -3,11 +3,9 @@ import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-vari
 import { textHighlightColors, textHighlightName } from "./TextHighlight.core";
 
 const createTextHighlightStyles = () => {
-  const article = component.article;
-
   return css`
     .${unsafeCSS(textHighlightName)} {
-      color: var(${unsafeCSS(article.body.text.color.highlight)});
+      color: var(${unsafeCSS(component.body.text.color.highlight)});
 
       ${textHighlightVariableStyles()};
     }

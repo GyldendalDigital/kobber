@@ -5,8 +5,8 @@
 
 .kobber-theme-default,
 .kobber-theme-dark {
-  color: var(--kobber-component-article-body-text-color-base);
-  background-color: var(--kobber-semantics-navigation-color-brightest);
+  color: var(--kobber-component-body-text-color-base);
+  background-color: var(--kobber-regional-navigation-color-brightest);
   font-family:
     PP Mori,
     sans-serif;

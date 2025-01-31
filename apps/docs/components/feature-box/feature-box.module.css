@@ -23,7 +23,7 @@
 }
 
 .feature-box-item-label {
-  background-color: var(--kobber-semantics-navigation-color-brightest);
+  background-color: var(--kobber-regional-navigation-color-brightest);
   border-radius: 0.5rem;
   overflow: hidden;
   padding: 0.5rem;

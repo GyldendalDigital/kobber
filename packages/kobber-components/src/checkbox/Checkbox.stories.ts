@@ -54,8 +54,8 @@ export const Checkbox: Story = {
           const sheet = new CSSStyleSheet();
           sheet.replaceSync(
             ".form-control__help-text { color: ${args.disabled
-              ? "var(--kobber-semantic-action-color-default-disabled-foreground)"
-              : "var(--kobber-semantic-action-color-default-default-foreground)"};font-style: italic;}",
+              ? "var(--kobber-regional-action-color-default-disabled-foreground)"
+              : "var(--kobber-regional-action-color-default-default-foreground)"};font-style: italic;}",
           );
 
           const elemStyleSheets = checkbox.shadowRoot.adoptedStyleSheets;

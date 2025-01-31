@@ -11,7 +11,7 @@ export default function NotFound() {
         height="400"
         className="rounded-2xl"
       />
-      <h1 className="text-primary-title-m">Ops! Vi fant ikke siden du leter etter</h1>
+      <h1>Ops! Vi fant ikke siden du leter etter</h1>
     </div>
   )
 }

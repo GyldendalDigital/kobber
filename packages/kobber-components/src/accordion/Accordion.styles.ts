@@ -4,7 +4,7 @@ import { accordionClassNames } from "./Accordion.core";
 
 export const accordionStyles = css`
   .${unsafeCSS(accordionClassNames("kobber-accordion"))} {
-    border-radius: var(${unsafeCSS(component["wiki-list-item"].container.border.radius)});
+    border-radius: var(${unsafeCSS(component["docs-list-item"].container.border.radius)});
     font-family: PP Mori;
   }
 

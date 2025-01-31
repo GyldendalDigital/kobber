@@ -7,9 +7,9 @@
   grid-template-columns: auto 1fr;
   gap: 1rem;
   align-items: center;
-  padding-block: var(--kobber-component-wiki-navbar-container-padding-block);
+  padding-block: var(--kobber-component-docs-navbar-container-padding-block);
   white-space: nowrap;
-  background-color: var(--kobber-semantics-navigation-color-brightest);
+  background-color: var(--kobber-regional-navigation-color-brightest);
 }
 
 .top-nav-large-screen {
