@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.70
+
+### Patch Changes
+
+- Carousel fix
+
 ## 0.3.69
 
 ### Patch Changes
