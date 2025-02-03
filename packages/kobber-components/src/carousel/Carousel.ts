@@ -32,10 +32,10 @@ export class Carousel extends StyledLitElement {
   private _carouselFullWidth = 0;
 
   @state()
-  private _numberOfChildren = 0;
+  private _numberOfChildren: number | undefined = undefined;
 
   @state()
-  private _getTooFewItems = () => this._numberOfChildren < 3;
+  private _getTooFewItems = () => this._numberOfChildren && this._numberOfChildren < 3;
 
   @state()
   private _getItemShrinkValue = () => (this._getTooFewItems() ? -1 : 0);
@@ -230,7 +230,6 @@ export class Carousel extends StyledLitElement {
       bottom: -1em;
       left: -100%;
       content: "";
-      backdrop-filter: grayscale(1);
     }
 
     .carousel.has-next-items:after {
@@ -241,7 +240,6 @@ export class Carousel extends StyledLitElement {
       bottom: 0;
       left: 100%;
       content: "";
-      backdrop-filter: grayscale(1);
     }
   `;
 
