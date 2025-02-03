@@ -1,5 +1,11 @@
 # @gyldendal/kobber-audio-recorder
 
+## 0.3.70
+
+### Patch Changes
+
+- Carousel fix
+
 ## 0.3.69
 
 ### Patch Changes
