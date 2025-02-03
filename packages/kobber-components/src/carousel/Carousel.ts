@@ -230,7 +230,6 @@ export class Carousel extends StyledLitElement {
       bottom: -1em;
       left: -100%;
       content: "";
-      backdrop-filter: grayscale(1);
     }
 
     .carousel.has-next-items:after {
@@ -241,7 +240,6 @@ export class Carousel extends StyledLitElement {
       bottom: 0;
       left: 100%;
       content: "";
-      backdrop-filter: grayscale(1);
     }
   `;
 
