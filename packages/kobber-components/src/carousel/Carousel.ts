@@ -32,7 +32,7 @@ export class Carousel extends StyledLitElement {
   private _carouselFullWidth = 0;
 
   @state()
-  private _numberOfChildren: number|undefined=undefined;
+  private _numberOfChildren: number | undefined = undefined;
 
   @state()
   private _getTooFewItems = () => this._numberOfChildren && this._numberOfChildren < 3;
