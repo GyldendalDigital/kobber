@@ -37,6 +37,9 @@ export default {
       </kobber-theme-context>
     </div>`,
   ],
+  parameters: {
+    layout: "centered",
+  },
 } satisfies Meta;
 
 export const Accordion: StoryObj = {

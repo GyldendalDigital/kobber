@@ -20,12 +20,18 @@ import { regional, component } from "@gyldendal/kobber-base/themes/default/token
 const meta: Meta = {
   title: "Text",
   decorators: [(Story, context) => html`<div class="${context.globals.theme}">${Story()}</div>`],
+  parameters: {
+    layout: "centered",
+  },
 };
 
 export default meta;
 type Story = StoryObj;
 
 export const All: Story = {
+  parameters: {
+    layout: "padded", // Default not-centered value, as per https://storybook.js.org/docs/configure/story-layout
+  },
   render: () => html`
     <kobber-text-wrapper>
       <kobber-heading>
