@@ -2045,20 +2045,35 @@
         }
       },
       "size": {
-        "medium": {
+        "large": {
           "description": "",
           "type": "color",
           "value": "{global.layout.element.size.large}"
         },
-        "large": {
+        "xlarge": {
           "description": "",
           "type": "color",
           "value": "{global.layout.element.size.xlarge}"
         },
-        "small": {
+        "medium": {
           "description": "",
           "type": "color",
           "value": "{global.layout.element.size.medium}"
+        },
+        "small": {
+          "description": "",
+          "type": "color",
+          "value": "{global.layout.element.size.small}"
+        },
+        "xsmall": {
+          "description": "",
+          "type": "color",
+          "value": "{global.layout.element.size.xsmall}"
+        },
+        "xxsmall": {
+          "description": "",
+          "type": "color",
+          "value": "{global.layout.element.size.tiny}"
         }
       }
     },
@@ -4275,12 +4290,12 @@
             "height": {
               "description": "",
               "type": "color",
-              "value": "{regional.action.size.small}"
+              "value": "{regional.form.size.small}"
             },
             "width": {
               "description": "",
               "type": "color",
-              "value": "{regional.action.size.small}"
+              "value": "{regional.form.size.small}"
             }
           },
           "border": {
@@ -4326,29 +4341,29 @@
                   "type": "color",
                   "value": "{regional.form.color.base.darkest}"
                 }
-              },
-              "shape": {
-                "width": {
-                  "description": "",
-                  "type": "color",
-                  "value": "{regional.action.size.xxsmall}"
-                },
-                "height": {
-                  "description": "",
-                  "type": "color",
-                  "value": "{regional.action.size.xxsmall}"
-                }
               }
             },
             "height": {
               "description": "",
               "type": "color",
-              "value": "{regional.action.size.xsmall}"
+              "value": "{regional.form.size.xsmall}"
             },
             "width": {
               "description": "",
               "type": "color",
-              "value": "{regional.action.size.xsmall}"
+              "value": "{regional.form.size.xsmall}"
+            }
+          },
+          "shape": {
+            "width": {
+              "description": "",
+              "type": "color",
+              "value": "{regional.form.size.xxsmall}"
+            },
+            "height": {
+              "description": "",
+              "type": "color",
+              "value": "{regional.form.size.xxsmall}"
             }
           }
         },
@@ -6453,6 +6468,11 @@
             "description": "",
             "type": "dimension",
             "value": "{primitives.size.12}"
+          },
+          "tiny": {
+            "description": "",
+            "type": "dimension",
+            "value": "{primitives.size.10}"
           }
         },
         "space": {
