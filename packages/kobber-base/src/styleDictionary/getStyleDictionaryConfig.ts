@@ -10,7 +10,7 @@ const buildPath = themeDirectory + "/";
 
 const invalidKeys = ["font"];
 
-const filter = (token: TransformedToken) => !invalidKeys.includes(token.path[0]);
+const filter = (token: TransformedToken) => token.path[0] && !invalidKeys.includes(token.path[0]);
 
 /**
  * Create a config object from tokens, transforms and formats

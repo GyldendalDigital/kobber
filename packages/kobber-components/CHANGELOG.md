@@ -1,5 +1,41 @@
 # @gyldendal/kobber-components
 
+## 0.3.74
+
+### Patch Changes
+
+- Fix build
+- Updated dependencies
+  - @gyldendal/kobber-icons@0.3.74
+  - @gyldendal/kobber-base@0.3.74
+
+## 0.3.73
+
+### Patch Changes
+
+- a238020: refactor reprecated fs api
+- Updated dependencies [a238020]
+  - @gyldendal/kobber-icons@0.3.73
+  - @gyldendal/kobber-base@0.3.73
+
+## 0.3.72
+
+### Patch Changes
+
+- Upgraded eslint
+- Updated dependencies
+  - @gyldendal/kobber-icons@0.3.72
+  - @gyldendal/kobber-base@0.3.72
+
+## 0.3.71
+
+### Patch Changes
+
+- Upgrade packages
+- Updated dependencies
+  - @gyldendal/kobber-icons@0.3.71
+  - @gyldendal/kobber-base@0.3.71
+
 ## 0.3.70
 
 ### Patch Changes

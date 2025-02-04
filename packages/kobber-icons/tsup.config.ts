@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "node:fs";
 import { defineConfig } from "tsup";
 import { JSDOM } from "jsdom";
 
@@ -19,7 +19,7 @@ const componentPrefix = "icon-";
 
 const removeDirectory = (directory: string) => {
   if (!fs.existsSync(directory)) return;
-  fs.rmSync(directory, { recursive: true });
+  fs.rmdirSync(directory, { recursive: true });
 };
 
 class DOMParser {

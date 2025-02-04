@@ -25,8 +25,11 @@ export const buildTypography = (themeConfig: ThemeConfig) => {
   console.info(`✔︎ ${themeTokensDirectory}/typography-tokens-flattened.json`);
 
   const typographyTokens = typographyTokensFlattened.map(getTypographyJson).reduce((merged, object) => {
-    const [key, value] = Object.entries(object)[0];
-    merged[key] = value;
+    const entry = Object.entries(object)[0];
+    if (entry) {
+      const [key, value] = entry;
+      merged[key] = value;
+    }
     return merged;
   }, {});
   writeJsonToFile(`${themeTokensDirectory}/typography-tokens.json`, typographyTokens);

@@ -10,14 +10,14 @@
       }
     }
   },
-  "semantics": {
+  "regional": {
     "action": {
       "color": {
         "carmine": {
           "lightest": {
             "opaque": {
               "type": "color",
-              "value": "{semantics.mode 1.color.brand.carmine.25}"
+              "value": "{regional.mode 1.color.brand.carmine.25}"
             }
           }
         }
@@ -44,7 +44,7 @@
                 "primary": {
                   "fallback": {
                     "type": "color",
-                    "value": "{semantics.mode 1.action.color.carmine.lightest.opaque}"
+                    "value": "{regional.mode 1.action.color.carmine.lightest.opaque}"
                   }
                 }
               }
