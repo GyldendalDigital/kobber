@@ -17,8 +17,8 @@ const assertSanitized = (tokensFromFigmaSanitized: any, themeConfig: ThemeConfig
   if (sanitizedString.includes(`primitives.${themeConfig.figmaMode}`)) {
     console.error(`Sanitation failed. Tokens still includes primitives.${themeConfig.figmaMode}`);
   }
-  if (sanitizedString.includes(`semantics.${themeConfig.figmaMode}`)) {
-    console.error(`Sanitation failed. Tokens still includes semantics.${themeConfig.figmaMode}`);
+  if (sanitizedString.includes(`regional.${themeConfig.figmaMode}`)) {
+    console.error(`Sanitation failed. Tokens still includes regional.${themeConfig.figmaMode}`);
   }
 };
 

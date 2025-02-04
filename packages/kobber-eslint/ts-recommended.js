@@ -25,6 +25,7 @@ export const kobberEslintTsConfig = [
       // crashes on some files
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/no-duplicate-enum-values": "off",
+      "@typescript-eslint/no-empty-object-type": "off",
     },
   },
   eslintPluginImportX.flatConfigs.typescript,
@@ -38,33 +39,32 @@ export const kobberEslintTsConfig = [
       ],
     },
   },
-  // {
-  //   languageOptions: {
-  //     globals: {
-  //       ...globals.browser,
-  //       ...globals.node,
-  //       JSX: true,
-  //       Atomics: "readonly",
-  //       SharedArrayBuffer: "readonly",
-  //       global: "readonly",
-  //       module: "readonly",
-  //       process: "readonly",
-  //       require: "readonly",
-  //       __filename: true,
-  //       __dirname: true,
-  //     },
+  {
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        JSX: true,
+        Atomics: "readonly",
+        SharedArrayBuffer: "readonly",
+        global: "readonly",
+        module: "readonly",
+        process: "readonly",
+        require: "readonly",
+        __filename: true,
+        __dirname: true,
+      },
 
-  //     parser: tsParser,
-  //     ecmaVersion: 2018,
-  //     sourceType: "module",
+      parser: tsParser,
+      sourceType: "module",
 
-  //     parserOptions: {
-  //       ecmaFeatures: {
-  //         jsx: true,
-  //       },
-  //     },
-  //   },
-  // },
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+  },
 
   // turbo
   {

@@ -6,7 +6,8 @@ export const sanitizeJsonFromFigma = (tokensFromFigmaString: string, themeConfig
   // Figma exports tokens that reference one of the modes.
   // Remove the mode name from the references.
   replaced = tokensFromFigmaString.replace(new RegExp(`primitives.${themeConfig.figmaMode}`, "g"), "primitives");
-  replaced = replaced.replace(new RegExp(`semantics.${themeConfig.figmaMode}`, "g"), "semantics");
+  replaced = replaced.replace(new RegExp(`global.${themeConfig.figmaMode}`, "g"), "global");
+  replaced = replaced.replace(new RegExp(`regional.${themeConfig.figmaMode}`, "g"), "regional");
 
   // Add "Inter Variable" as a fallback in font-family
   replaced = replaced.replace(new RegExp("Inter", "g"), "Inter, 'Inter Variable'");

@@ -11,7 +11,7 @@ const cssDirectory = "css";
 
 const removeDirectory = (directory: string) => {
   if (!fs.existsSync(directory)) return;
-  fs.rmdirSync(directory, { recursive: true });
+  fs.rmSync(directory, { recursive: true });
 };
 
 removeDirectory(chunks);

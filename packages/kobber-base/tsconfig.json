@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "noEmit": false
+    "noEmit": false,
+    "module": "Preserve",
+    "moduleResolution": "bundler"
   },
-  "extends": "@gyldendal/kobber-tsconfig/base.json",
-  "files": ["buildTokens.ts", "buildTypography.ts"]
+  "extends": "@gyldendal/kobber-tsconfig/base.json"
 }
