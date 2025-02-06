@@ -31,6 +31,9 @@ export default {
       ${Story()}
     </kobber-theme-context>`,
   ],
+  parameters: {
+    layout: "centered",
+  },
 } satisfies Meta<Args>;
 
 export const List: StoryObj<Args> = {

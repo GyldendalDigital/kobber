@@ -65,6 +65,9 @@ export const Button: StoryObj<Args> = {
     icon: buttonIconSettings[1],
     link: false,
   },
+  parameters: {
+    layout: "centered",
+  },
   render: args => renderButton(args),
 };
 

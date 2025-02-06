@@ -14,6 +14,9 @@ const meta: Meta = {
       control: { type: "select" },
     },
   },
+  parameters: {
+    layout: "centered",
+  },
   decorators: [
     (Story, context) => html`
       <kobber-theme-context theme-id=${context.globals.theme}> ${Story()} </kobber-theme-context>

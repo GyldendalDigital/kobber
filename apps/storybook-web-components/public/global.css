@@ -5,6 +5,7 @@
 
 .kobber-theme-default,
 .kobber-theme-dark {
+  display: block;
   color: var(--kobber-component-body-text-color-base);
   background-color: var(--kobber-regional-navigation-color-brightest);
   font-family:

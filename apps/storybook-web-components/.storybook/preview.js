@@ -11,7 +11,6 @@ const themes = ["kobber-theme-default", "kobber-theme-dark"];
         date: /Date$/,
       },
     },
-    layout: "centered",
     options: {
       storySort: {
         order: ["*", "In development 🧪", "kobber.gyldendal.no", "GU"],
