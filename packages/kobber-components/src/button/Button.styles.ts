@@ -10,7 +10,6 @@ import {
   hasSupplementalAlt,
   isUiColor,
 } from "./Button.core";
-import { resetButton } from "../base/styles/reset.styles";
 
 // TODO: get from tokens
 const paddingIconOnly = 12 / 16 + "rem";
@@ -27,13 +26,27 @@ const createButtonStyles = () => {
 
   return css`
     .${unsafeCSS(buttonName)} {
-      ${resetButton()};
+      --color: inherit;
+      --background-color: transparent;
+      appearance: none;
+      width: auto;
+      margin: 0;
+      text-align: inherit;
+      -webkit-font-smoothing: inherit;
+      -moz-osx-font-smoothing: inherit;
+      -webkit-tap-highlight-color: transparent;
+      &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+      }
       position: relative;
       display: inline-flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
       border: 1px solid transparent;
+      color: var(--color);
+      background-color: var(--background-color);
       gap: var(${unsafeCSS(button.container.gap)});
       /* see TODO: padding-block: var(${unsafeCSS(button.container.padding.block)}); */
       padding-inline: var(${unsafeCSS(button.container.padding.inline)});
@@ -100,9 +113,7 @@ const buttonVariableStyles = () => {
 
             return css`
               ${unsafeCSS(nestedClassNames)} {
-                background-color: transparent;
-                color: var(${unsafeCSS(component.button.text.color[color][variant][level].fallback)});
-
+                --color: var(${unsafeCSS(component.button.text.color[color][variant][level].fallback)});
                 ${hoverEffectSecondary()}
               }
             `;
@@ -124,8 +135,8 @@ const buttonVariableStyles = () => {
 
           return css`
             ${unsafeCSS(nestedClassNames)} {
-              background-color: var(${unsafeCSS(backgroundColor.fallback)});
-              color: var(${unsafeCSS(textColor.fallback)});
+              --background-color: var(${unsafeCSS(backgroundColor.fallback)});
+              --color: var(${unsafeCSS(textColor.fallback)});
 
               ${hoverEffectPrimary(backgroundColor.hover, backgroundColor.fallback)}
             }
@@ -142,8 +153,8 @@ const hoverEffectPrimary = (hoverColor: string, fallbackColor: string) => css`
   &:hover,
   &.hover {
     &:not([disabled]) {
-      background: linear-gradient(0deg, var(${unsafeCSS(hoverColor)}) 0%, var(${unsafeCSS(hoverColor)}) 100%),
-        var(${unsafeCSS(fallbackColor)});
+      --background-color: var(${unsafeCSS(fallbackColor)});
+      background-image: linear-gradient(0deg, var(${unsafeCSS(hoverColor)}) 0%, var(${unsafeCSS(hoverColor)}) 100%);
     }
   }
 `;
@@ -159,7 +170,7 @@ const hoverEffectSecondary = () => css`
         position: absolute;
         /* TODO: find out what this value should be */
         bottom: 0.2rem;
-        border-bottom: var(${unsafeCSS(component.button.container.border.width.hover)}) solid currentColor;
+        border-bottom: var(${unsafeCSS(component.button.container.border.width.hover)}) solid;
         right: var(${unsafeCSS(component.button.container.padding.inline)});
         left: var(${unsafeCSS(component.button.container.padding.inline)});
       }
