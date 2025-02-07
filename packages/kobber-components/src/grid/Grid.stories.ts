@@ -8,6 +8,7 @@ import { gridConfigs } from "./gridConfig";
 import { GridConfigId } from "./gridConfig/types";
 import "./story/ExampleCard";
 import { renderIndicators } from "./story/renderIndicators";
+import { globalStyles } from "../story/globalStyles";
 
 const gridConfigArray = Object.values(gridConfigs);
 
@@ -39,20 +40,6 @@ const render = (args: Args) => {
 
   return html`
     <style>
-      html {
-        box-sizing: border-box;
-      }
-
-      *,
-      *:before,
-      *:after {
-        box-sizing: inherit;
-      }
-
-      body {
-        min-width: 320px;
-      }
-
       .demo {
         padding-top: 64px;
       }
@@ -115,6 +102,7 @@ const render = (args: Args) => {
 export const GridStory: Story = {
   render,
   name: "Grid",
+  decorators: [story => html`${globalStyles}${story()}`],
   parameters: { layout: "fullscreen" },
   args: { gridConfig: gridConfigIds[0] },
 };
