@@ -10,6 +10,7 @@ import {
   hasSupplementalAlt,
   isUiColor,
 } from "./Button.core";
+import { resetButton } from "../base/styles/reset.styles";
 
 // TODO: get from tokens
 const paddingIconOnly = 12 / 16 + "rem";
@@ -28,17 +29,7 @@ const createButtonStyles = () => {
     .${unsafeCSS(buttonName)} {
       --color: inherit;
       --background-color: transparent;
-      appearance: none;
-      width: auto;
-      margin: 0;
-      text-align: inherit;
-      -webkit-font-smoothing: inherit;
-      -moz-osx-font-smoothing: inherit;
-      -webkit-tap-highlight-color: transparent;
-      &::-moz-focus-inner {
-        border: 0;
-        padding: 0;
-      }
+      ${resetButton()};
       position: relative;
       display: inline-flex;
       justify-content: center;
