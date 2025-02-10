@@ -31,20 +31,6 @@ export default meta;
 const render = (args: Args) => {
   return html`
     <style>
-      html {
-        box-sizing: border-box;
-      }
-
-      *,
-      *:before,
-      *:after {
-        box-sizing: inherit;
-      }
-
-      body {
-        min-width: 320px;
-      }
-
       .demo {
         display: grid;
         width: 80%;

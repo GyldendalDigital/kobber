@@ -9,7 +9,7 @@ import { watch } from "../base/internal/watch";
 import ShoelaceElement from "../base/internal/shoelace-element";
 import type { ShoelaceFormControl } from "../base/internal/shoelace-element";
 import { FormControlController } from "../base/internal/form";
-import formControlStyles from "../base/styles/form-control.styles";
+import formControlStyles from "./form-control.styles";
 import componentStyles from "../base/styles/component.styles";
 import { HasSlotController } from "../base/internal/slot";
 

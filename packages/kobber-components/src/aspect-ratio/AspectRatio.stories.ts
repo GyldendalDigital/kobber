@@ -3,6 +3,7 @@ import { html, unsafeCSS } from "lit";
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
 import { defaultAspectRatio } from "./AspectRatio";
 import AspectRatioWiki from "./AspectRatioWiki.mdx";
+import { globalStyles } from "../story/globalStyles";
 
 type Args = { aspectRatio: string };
 
@@ -29,20 +30,6 @@ type Story = StoryObj<Args>;
 const render = (args: Args) => {
   return html`
     <style>
-      html {
-        box-sizing: border-box;
-      }
-
-      *,
-      *:before,
-      *:after {
-        box-sizing: inherit;
-      }
-
-      body {
-        min-width: 320px;
-      }
-
       .center {
         display: flex;
         justify-content: center;
@@ -76,6 +63,7 @@ const render = (args: Args) => {
 export const AspectRatioStory: Story = {
   render,
   name: "AspectRatio",
+  decorators: [story => html`${globalStyles}${story()}`],
   parameters: { layout: "fullscreen" },
   args: { aspectRatio: defaultAspectRatio },
 };
