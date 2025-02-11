@@ -2229,7 +2229,7 @@
         "bright": {
           "description": "",
           "type": "color",
-          "value": "{global.color.identity.extended.aubergine-425}"
+          "value": "{global.color.identity.extended.wine-525}"
         },
         "midtone": {
           "description": "",
@@ -4863,14 +4863,28 @@
           },
           "color": {
             "hover": {
-              "description": "",
-              "type": "color",
-              "value": "{regional.navigation.color.midtone}"
+              "highlight": {
+                "description": "",
+                "type": "color",
+                "value": "{regional.navigation.color.midtone}"
+              },
+              "base": {
+                "description": "",
+                "type": "color",
+                "value": "{regional.navigation.color.dark}"
+              }
             },
             "action": {
-              "description": "",
-              "type": "color",
-              "value": "{regional.navigation.color.midtone}"
+              "highlight": {
+                "description": "",
+                "type": "color",
+                "value": "{regional.navigation.color.midtone}"
+              },
+              "base": {
+                "description": "",
+                "type": "color",
+                "value": "{regional.navigation.color.dark}"
+              }
             }
           }
         }
@@ -4882,16 +4896,30 @@
           "value": "{regional.navigation.visual.icon.size}"
         },
         "color": {
-          "description": "",
-          "type": "color",
-          "value": "{regional.navigation.color.midtone}"
+          "highlight": {
+            "description": "",
+            "type": "color",
+            "value": "{regional.navigation.color.midtone}"
+          },
+          "base": {
+            "description": "",
+            "type": "color",
+            "value": "{regional.navigation.color.dark}"
+          }
         }
       },
       "text": {
         "color": {
-          "description": "",
-          "type": "color",
-          "value": "{regional.navigation.color.midtone}"
+          "highlight": {
+            "description": "",
+            "type": "color",
+            "value": "{regional.navigation.color.midtone}"
+          },
+          "base": {
+            "description": "",
+            "type": "color",
+            "value": "{regional.navigation.color.dark}"
+          }
         }
       }
     },
