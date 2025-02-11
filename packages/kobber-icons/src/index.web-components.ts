@@ -47,6 +47,7 @@ export { Eraser } from "./icon/icons/eraser";
 export { Expand } from "./icon/icons/expand";
 export { ExpandResize } from "./icon/icons/expand_resize";
 export { ExternalLink } from "./icon/icons/external_link";
+export { ExternalLinkArrow } from "./icon/icons/external_link_arrow";
 export { FemaleHeadset } from "./icon/icons/female_headset";
 export { FilledCheckCircle } from "./icon/icons/filled_check_circle";
 export { FilledInformationCircle } from "./icon/icons/filled_information_circle";
