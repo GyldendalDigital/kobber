@@ -4,18 +4,18 @@ import "./text-wrapper/TextWrapper";
 import "./text-highlight/TextHighlight";
 import "./heading/Heading";
 import "./ingress/Ingress";
-import "./link/Link";
+import "./text-link/TextLink";
 import { headingPrimarySizes, headingSecondarySizes } from "./heading/Heading.core";
 import { textHighlightColors } from "./text-highlight/TextHighlight.core";
 import { storySummary } from "../story/story-summary";
 import { textWrapperStyles } from "./text-wrapper/TextWrapper.styles";
-import { linkStyles } from "./link/Link.styles";
+import { textLinkStyles } from "./text-link/TextLink.styles";
 import { textHighlightStyles } from "./text-highlight/TextHighlight.styles";
 import { getContrast, isContrastCompliant } from "../utils/contrast";
 import { ingressStyles } from "./ingress/Ingress.styles";
 import { headingStyles } from "./heading/Heading.styles";
-import { linkExtendedColors } from "./link/Link.core";
 import { regional, component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables";
+import "@gyldendal/kobber-icons/web-components";
 
 const meta: Meta = {
   title: "Text",
@@ -51,18 +51,20 @@ export const All: Story = {
       </p>
       <p>
         Uniquely
-        <kobber-link href="https://github.com/GyldendalDigital/kobber" target="_blank">reconceptualize</kobber-link>
+        <kobber-text-link href="https://github.com/GyldendalDigital/kobber" target="_blank"
+          >reconceptualize</kobber-text-link
+        >
         robust e-tailers without ethical action items. Compellingly restore resource-leveling experiences without
         exceptional technology. Assertively target 2.0 networks through state of the art e-services. Continually
         innovate ubiquitous relationships and visionary internal or "organic" sources. Interactively iterate sustainable
         users via diverse paradigms.
       </p>
       <p>
-        Energistically <kobber-link href="#">implement</kobber-link> installed base models vis-a-vis innovative
-        mindshare. Conveniently cultivate pandemic methods of empowerment and unique networks. Enthusiastically
-        negotiate one-to-one catalysts for change with principle-centered potentialities. Dynamically e-enable
-        next-generation applications rather than leveraged testing procedures. Dynamically reconceptualize B2B sources
-        rather.
+        Energistically <kobber-text-link href="#">implement</kobber-text-link> installed base models vis-a-vis
+        innovative mindshare. Conveniently cultivate pandemic methods of empowerment and unique networks.
+        Enthusiastically negotiate one-to-one catalysts for change with principle-centered potentialities. Dynamically
+        e-enable next-generation applications rather than leveraged testing procedures. Dynamically reconceptualize B2B
+        sources rather.
       </p>
       <ul>
         <li>Page: Omfavner hele siden, inkludert alle hovedelementene</li>
@@ -211,50 +213,28 @@ export const Highlight: Story = {
   },
 };
 
-const linkStates = ["idle", "active", "hover", "focus"];
+const linkStates = ["idle", "active", "hover", "focus", "disabled"];
 
 export const Link: Story = {
   argTypes: {
     external: {
       control: "boolean",
     },
-    button: {
-      control: "boolean",
-    },
-    color: {
-      options: linkExtendedColors,
-      control: { type: "select" },
-    },
   },
   args: {
     external: false,
-    button: false,
-    color: undefined,
   },
   render: args => {
     return html`<div style="max-width: 600px;">
         <kobber-text-wrapper>
           ${linkStates.map(state => {
             return html`<p>
-              <kobber-link
+              <kobber-text-link
                 class="${state}"
-                href="${args.external ? "https://github.com/GyldendalDigital/kobber" : "#"}"
-                color="${args.color}"
+                href=${state !== "disabled" && args.external ? "https://github.com/GyldendalDigital/kobber" : undefined}
               >
                 ${args.external ? "Ekstern" : "Intern"} lenke
-              </kobber-link>
-              med tilstand <code>${state}</code>
-            </p>`;
-          })}
-        </kobber-text-wrapper>
-        <br />
-        <br />
-        <kobber-text-wrapper>
-          ${linkStates.map(state => {
-            return html`<p>
-              <kobber-link class="${state}" onclick="console.log(123)" color="${args.color}">
-                ${args.external ? "Ekstern" : "Intern"} knapp
-              </kobber-link>
+              </kobber-text-link>
               med tilstand <code>${state}</code>
             </p>`;
           })}
@@ -263,14 +243,14 @@ export const Link: Story = {
 
       ${storySummary({
         summary: `Disabled er ikke en gyldig state for lenker. Da fjerner man heller href-attributten.`,
-        code: linkStyles.cssText,
+        code: textLinkStyles.cssText,
       })}`;
   },
 };
 
 export const Wrapper: Story = {
   render: () => {
-    return html`<div style="max-width: 600px;">
+    return html`<div style="width: 100%">
       <kobber-text-wrapper>
         <h1>Hvorfor et designsystem?</h2>
         <p>
