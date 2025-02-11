@@ -1,11 +1,12 @@
-import Image from "next/image"
 import {
   KobberHeading,
   KobberIngress,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
-import { damUrl } from "@/lib/damImageLoader"
+
 import { ContentLayout } from "@/components/content-layout"
+import Image from "next/image"
+import { damUrl } from "@/lib/damImageLoader"
 
 export default function TokenIntroPage() {
   return (
@@ -34,7 +35,7 @@ export default function TokenIntroPage() {
           Page
         </KobberHeading>
         <p>
-          Page-komponentet brukes som det ytterste skallet på en nettside. Vi bruker dynamiske
+          Page-komponenten brukes som det ytterste skallet på en nettside. Vi bruker dynamiske
           størrelser som vokser eller minker avhengig av skjermstørrelsen.
         </p>
       </KobberTextWrapper>
@@ -43,24 +44,24 @@ export default function TokenIntroPage() {
         width={858}
         height={543}
         className="object-contain"
-        alt="Illustrasjon av Page-komponentet"
+        alt="Illustrasjon av Page-komponenten"
       />
       <Image
         src={damUrl("04KOsT8P4WBA3JmWkkGyGi", ".svg")}
         width={858}
         height={237}
         className="object-contain"
-        alt="Liste med tokens for Main-komponentet"
+        alt="Liste med tokens for Main-komponenten"
       />
       <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Main
         </KobberHeading>
         <p>
-          Main-komponentet har samme dynamiske gap som page, men har i tillegg dynamiske
+          Main-komponenten har samme dynamiske gap som page, men har i tillegg dynamiske
           side-paddinger som samler innholdet på midten. De har altså mye av den samme
           funksjonaliteten, men page er litt mer fleksibelt med tanke på hvilke layout du ønsker.
-          For å bruke main-komponentet må alltid page-komponentet ligge på toppen.
+          For å bruke main-komponenten må alltid page-komponenten ligge på toppen.
         </p>
         <p>
           Figuren under viser et eksempel der content ligger inne i main, mens andre elementer
@@ -72,7 +73,7 @@ export default function TokenIntroPage() {
         width={858}
         height={451}
         className="object-contain"
-        alt="Illustrasjon av Main-komponentet eksempel 1"
+        alt="Illustrasjon av Main-komponenten eksempel 1"
       />
       <KobberTextWrapper>
         <p>Eksempel der sidemeny, content, header og footer ligger i main.</p>
@@ -82,14 +83,14 @@ export default function TokenIntroPage() {
         width={858}
         height={451}
         className="object-contain"
-        alt="Illustrasjon av Main-komponentet eksempel 1"
+        alt="Illustrasjon av Main-komponenten eksempel 1"
       />
       <Image
         src={damUrl("EbgWmPOV4ee84Z0yp5yO6M", ".svg")}
         width={858}
         height={335}
         className="object-contain"
-        alt="Liste med tokens for Main-komponentet"
+        alt="Liste med tokens for Main-komponenten"
       />
     </ContentLayout>
   )
