@@ -1,11 +1,12 @@
-import Image from "next/image"
 import {
   KobberHeading,
   KobberIngress,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
-import { damUrl } from "@/lib/damImageLoader"
+
 import { ContentLayout } from "@/components/content-layout"
+import Image from "next/image"
+import { damUrl } from "@/lib/damImageLoader"
 
 export default function TokenIntroPage() {
   return (
@@ -132,10 +133,10 @@ export default function TokenIntroPage() {
 
       <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
-          Base
+          Universell
         </KobberHeading>
         <p>
-          Base-tokens er tokens som kan anvendes frittstående uten at det for eksempel kommer
+          Universelle tokens er tokens som kan anvendes frittstående uten at det for eksempel kommer
           innbakt i et komponent. Et eksempel er focus-border, som av tekniske årsaker ikke kan
           lages om til et komponent.
         </p>
