@@ -18,7 +18,7 @@ export default function RetningsLinjerPage() {
         <KobberIngress>{metadata.description}</KobberIngress>
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px]">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Utforming
         </KobberHeading>
@@ -45,7 +45,7 @@ export default function RetningsLinjerPage() {
         </div>
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px]">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Størrelser
         </KobberHeading>
@@ -70,7 +70,7 @@ export default function RetningsLinjerPage() {
         </div>
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px]">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Vekt
         </KobberHeading>
@@ -104,7 +104,7 @@ export default function RetningsLinjerPage() {
         </div>
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px]">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Tekst og ikoner
         </KobberHeading>

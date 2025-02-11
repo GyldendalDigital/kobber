@@ -17,7 +17,7 @@ export default function Page() {
         <KobberIngress>{metadata.description}</KobberIngress>
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px] gap-0">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Varianter
         </KobberHeading>

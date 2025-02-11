@@ -1,8 +1,8 @@
 import Image from "next/image"
-import Link from "next/link"
 import {
   KobberHeading,
   KobberIngress,
+  KobberTextLink,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { BRANDING_MANUAL_URL, KOBBER_TEAMS_URL } from "@/lib/constants"
@@ -21,7 +21,7 @@ export default function HvordanBrukeKobber() {
         <KobberIngress>{metadata.description}</KobberIngress>
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px]">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Et felles system
         </KobberHeading>
@@ -33,21 +33,16 @@ export default function HvordanBrukeKobber() {
         </p>
         <p>
           Beskrivelser og retningslinjer for hvordan vi skal bruke merkevaren og designsystemet vår
-          finnes i{" "}
-          <Link className="underline" href={BRANDING_MANUAL_URL} target="_blank">
-            merkevaremanualen
-          </Link>{" "}
-          og på denne nettsiden.
+          finnes i <KobberTextLink href={BRANDING_MANUAL_URL}>merkevaremanualen</KobberTextLink> og
+          på denne nettsiden.
         </p>
         <p>
           Husk å følge med på oppdateringer på denne siden samt vår{" "}
-          <Link href={KOBBER_TEAMS_URL} className="underline" target="_blank">
-            teams-kanal
-          </Link>{" "}
-          der det kan komme felles beskjeder og er åpent for spørsmål.
+          <KobberTextLink href={KOBBER_TEAMS_URL}>teams-kanal</KobberTextLink> der det kan komme
+          felles beskjeder og er åpent for spørsmål.
         </p>
       </KobberTextWrapper>
-      <KobberTextWrapper className="max-w-[711px]">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Slik er Kobber satt sammen
         </KobberHeading>

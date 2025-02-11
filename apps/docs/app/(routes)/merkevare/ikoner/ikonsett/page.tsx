@@ -1,11 +1,10 @@
-import Link from "next/link"
 import {
   KobberHeading,
   KobberIngress,
+  KobberLink,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { ContentLayout } from "@/components/content-layout"
-import { IconExternalLink } from "@/components/kobber-icons"
 import { IconGrid } from "./icon-grid"
 import { metaBrandIconSet } from "./iconSet.meta"
 
@@ -23,16 +22,12 @@ export default function IkonSett() {
           «Streamline Regular», et enkelt og konsistent formspråk som tydelig kommuniserer
           handlinger og informasjon til brukeren.
         </KobberIngress>
+        <p>
+          <KobberLink href="https://dam-p-gyldendal.pqcloud.eu/?w=ZqxPo6bFjq" type="highlight">
+            Ikonsett
+          </KobberLink>
+        </p>
       </KobberTextWrapper>
-
-      <Link
-        target="_blank"
-        href={"https://dam-p-gyldendal.pqcloud.eu/?w=ZqxPo6bFjq"}
-        className="flex gap-[8px] text-[16px] leading-[1.15] text-link hover:underline"
-      >
-        Ikonsett
-        <IconExternalLink />
-      </Link>
 
       <IconGrid />
     </ContentLayout>
