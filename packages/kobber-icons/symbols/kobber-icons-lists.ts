@@ -48,6 +48,7 @@ export type IconType =
   | "kobber-expand"
   | "kobber-expand_resize"
   | "kobber-external_link"
+  | "kobber-external_link_arrow"
   | "kobber-female_headset"
   | "kobber-filled_check_circle"
   | "kobber-filled_information_circle"
@@ -217,6 +218,7 @@ export type IconType =
  "kobber-expand", 
  "kobber-expand_resize", 
  "kobber-external_link", 
+ "kobber-external_link_arrow", 
  "kobber-female_headset", 
  "kobber-filled_check_circle", 
  "kobber-filled_information_circle", 

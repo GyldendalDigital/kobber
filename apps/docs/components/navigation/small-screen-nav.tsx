@@ -65,10 +65,7 @@ export const SmallScreenNav = () => {
             >
               {/* Breadcrumbs */}
               <div className={styles["small-screen-nav-overlay-back-button"]}>
-                <NavButton
-                  onClick={() => setSelectedBrandNavigationGroup(undefined)}
-                  extendedColor="default"
-                >
+                <NavButton onClick={() => setSelectedBrandNavigationGroup(undefined)}>
                   <IconArrowLeft size={16} />
                   {metaBrand.title as string} / {selectedBrandNavigationGroup?.title}
                 </NavButton>

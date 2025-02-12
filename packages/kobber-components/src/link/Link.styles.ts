@@ -1,7 +1,7 @@
 import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
-import { linkName } from "./Link.core";
-import { resetButton } from "../../base/styles/reset.styles";
+import { LinkProps, linkName } from "./Link.core";
+import { resetButton } from "../base/styles/reset.styles";
 
 /**
  * TODO: svg from icon component
@@ -11,28 +11,21 @@ const createStyles = () => {
 
   return css`
     .${unsafeCSS(linkName)} {
-      ${resetButton()};
       position: relative;
       display: inline-flex;
       align-items: center;
       text-decoration: none;
       gap: var(${unsafeCSS(link.container.gap)});
-      line-height: var(${unsafeCSS(universal.text.primary["line-height"].body)});
-      color: var(${unsafeCSS(link.text.color)});
+      line-height: var(${unsafeCSS(universal.text.ui["line-height"].label.medium["multi-line"])});
+      color: var(${unsafeCSS(link.text.color.base)});
 
-      &.color-text {
-        color: var(${unsafeCSS(component["text-link"].text.color)});
-      }
-
-      &.color-heading {
-        color: var(${unsafeCSS(component["text-link"].text.color)});
+      &.${unsafeCSS("highlight" satisfies LinkProps["type"])} {
+        color: var(${unsafeCSS(link.text.color.highlight)});
       }
 
       &[disabled],
       &.disabled {
-        /* TODO: wait for tokens to expose percent as number, not rem */
-        /* opacity: var(${unsafeCSS(universal.disabled.container.opacity)}); */
-        opacity: 0.5;
+        opacity: var(${unsafeCSS(universal.disabled.container.opacity)});
         cursor: auto;
       }
 
@@ -76,9 +69,14 @@ const createStyles = () => {
 
       svg {
         display: inline;
-        width: 1.1rem;
-        height: 1.1rem;
       }
+    }
+
+    button.${unsafeCSS(linkName)} {
+      ${resetButton()};
+      border: 1px solid transparent;
+      background-color: transparent;
+      padding: 0;
     }
   `;
 };

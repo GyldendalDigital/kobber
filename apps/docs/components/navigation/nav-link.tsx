@@ -9,25 +9,16 @@ type LinkProps = {
 
 export const NavLink = (props: LinkProps) => {
   const { children, ...rest } = props
-  return (
-    <RouterLink extendedColor="text" {...rest}>
-      {children}
-    </RouterLink>
-  )
+  return <RouterLink {...rest}>{children}</RouterLink>
 }
 
 type ButtonProps = {
   onClick: () => void
   children: React.ReactNode
   disabled?: boolean
-  extendedColor?: "default" | "text" | "heading"
 }
 
 export const NavButton = (props: ButtonProps) => {
-  const { children, extendedColor = "text", ...rest } = props
-  return (
-    <KobberLink extendedColor={extendedColor} {...rest}>
-      {children}
-    </KobberLink>
-  )
+  const { children, ...rest } = props
+  return <KobberLink {...rest}>{children}</KobberLink>
 }

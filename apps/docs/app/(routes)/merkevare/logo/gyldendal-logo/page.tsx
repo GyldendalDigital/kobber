@@ -1,13 +1,12 @@
 import Image from "next/image"
-import Link from "next/link"
 import {
   KobberHeading,
   KobberIngress,
+  KobberTextLink,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
 import { ContentLayout } from "@/components/content-layout"
-import { IconExternalLink } from "@/components/kobber-icons"
 import { metaBrandLogoGyldendal } from "./gyldendalLogo.meta"
 
 export const metadata = metaBrandLogoGyldendal
@@ -21,25 +20,15 @@ export default function Page() {
       </KobberTextWrapper>
 
       <div className="flex flex-wrap items-center gap-4">
-        <Link
-          target="_blank"
-          href={"https://dam-p-gyldendal.pqcloud.eu/app/#/s/BI54jcT1Vj"}
-          className="flex gap-[8px] text-[16px] leading-[1.15] text-link hover:underline"
-        >
+        <KobberTextLink href="https://dam-p-gyldendal.pqcloud.eu/app/#/s/BI54jcT1Vj">
           Gyldendallogo
-          <IconExternalLink />
-        </Link>
-        <Link
-          target="_blank"
-          href={"https://dam-p-gyldendal.pqcloud.eu/?w=C7may_WNjE"}
-          className="flex gap-[8px] text-[16px] leading-[1.15] text-link hover:underline"
-        >
+        </KobberTextLink>
+        <KobberTextLink href="https://dam-p-gyldendal.pqcloud.eu/?w=C7may_WNjE">
           Logoikon
-          <IconExternalLink />
-        </Link>
+        </KobberTextLink>
       </div>
 
-      <KobberTextWrapper className="max-w-[711px] gap-0">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Primærlogo
         </KobberHeading>
@@ -61,7 +50,7 @@ export default function Page() {
         />
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px] gap-0">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Fargevarianter
         </KobberHeading>
@@ -84,7 +73,7 @@ export default function Page() {
         />
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px] gap-0">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Emblemvariant
         </KobberHeading>
@@ -106,7 +95,7 @@ export default function Page() {
         />
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px] gap-0">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Størrelse
         </KobberHeading>
@@ -115,10 +104,10 @@ export default function Page() {
           enn det som er definert under.
         </p>
 
-        <div className="flex flex-col items-center gap-[46px] md:flex-row md:items-end">
+        <div className="grid grid-cols-2">
           <Image
             src={damUrl("56ixNHqoaJbAaqY-dib4Xh", ".svg")}
-            width={386}
+            width={255}
             height={169}
             className="object-contain"
             alt="Størrelse logo"
@@ -133,7 +122,7 @@ export default function Page() {
         </div>
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px] gap-0">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Luft
         </KobberHeading>
@@ -143,7 +132,7 @@ export default function Page() {
           For digitale flater vil det finnes faste størrelsesenheter for luft som skal benyttes
           tilgjengelig via designverktøy og kode.
         </p>
-        <div className="flex flex-col items-center gap-[46px] md:flex-row md:items-end">
+        <div className="grid grid-cols-2">
           <Image
             src={damUrl("47FrxqP0q-_9mBciSzeOMu", ".svg")}
             width={377}
@@ -161,7 +150,7 @@ export default function Page() {
         </div>
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px] gap-0">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Logoikon
         </KobberHeading>
@@ -206,7 +195,7 @@ export default function Page() {
         </div>
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px]">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Unngå dette
         </KobberHeading>

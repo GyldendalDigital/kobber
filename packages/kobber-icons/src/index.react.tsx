@@ -50,6 +50,7 @@ import { Eraser } from "./icon/icons/eraser";
 import { Expand } from "./icon/icons/expand";
 import { ExpandResize } from "./icon/icons/expand_resize";
 import { ExternalLink } from "./icon/icons/external_link";
+import { ExternalLinkArrow } from "./icon/icons/external_link_arrow";
 import { FemaleHeadset } from "./icon/icons/female_headset";
 import { FilledCheckCircle } from "./icon/icons/filled_check_circle";
 import { FilledInformationCircle } from "./icon/icons/filled_information_circle";
@@ -459,6 +460,12 @@ export const IconExpandResize = createComponent({
 export const IconExternalLink = createComponent({
 	tagName: "icon-external_link",
 	elementClass: ExternalLink,
+	react: React,
+});
+
+export const IconExternalLinkArrow = createComponent({
+	tagName: "icon-external_link_arrow",
+	elementClass: ExternalLinkArrow,
 	react: React,
 });
 

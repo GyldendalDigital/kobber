@@ -21,7 +21,7 @@ export default function IdentitetsPalett() {
         <KobberIngress>{metadata.description}</KobberIngress>
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px] gap-0">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Full fargepalett
         </KobberHeading>
@@ -39,7 +39,7 @@ export default function IdentitetsPalett() {
         />
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px] gap-0">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Karmin
         </KobberHeading>
@@ -64,7 +64,7 @@ export default function IdentitetsPalett() {
         </KobberTextWrapper>
       ))}
 
-      <KobberTextWrapper className="max-w-[711px] gap-0">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Fargekombinasjoner
         </KobberHeading>
@@ -83,7 +83,7 @@ export default function IdentitetsPalett() {
         />
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px] gap-0">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           Unngå dette
         </KobberHeading>

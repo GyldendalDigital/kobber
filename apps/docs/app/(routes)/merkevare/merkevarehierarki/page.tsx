@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 import {
   KobberHeading,
   KobberIngress,
@@ -8,6 +7,7 @@ import {
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
 import { ContentLayout } from "@/components/content-layout"
+import { RouterTextLink } from "@/components/global/router-link"
 import { metaGettingStartedContact } from "../../kom-i-gang/kontakt/contact.meta"
 import { metaBrandLogo } from "../logo/logo.meta"
 import { metaBrandLevel } from "./brandLevel.meta"
@@ -22,7 +22,7 @@ export default function MerkevareHeriarkiPage() {
         <KobberIngress>{metadata.description}</KobberIngress>
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px]">
+      <KobberTextWrapper>
         <p>
           Gyldendal benytter seg av et hybridhierarki med et overordnet mormerke. Dette betyr at
           undermerkevarer skal enten være veldig tett knyttet til Gyldendal, eller fremstå
@@ -36,7 +36,7 @@ export default function MerkevareHeriarkiPage() {
         <Image src={damUrl("4WYa-6IgqHmAdCdw9SxjB3")} width={711} height={294} alt="Illustrasjon" />
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px]">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           <KobberTextHighlight>Nivå 1</KobberTextHighlight>
           <br /> Mormerke
@@ -44,11 +44,7 @@ export default function MerkevareHeriarkiPage() {
         <p>
           Nivå 1.1 består av Gyldendals primærlogo og brukes alltid som avsender på Gyldendals
           utgivelser, arrangementer og lignende. Mer informasjon om primærlogoen og bruken av den,
-          kan du finne i{" "}
-          <Link className="underline" href={metaBrandLogo.href}>
-            logo
-          </Link>
-          .
+          kan du finne i <RouterTextLink href={metaBrandLogo.href}>logo</RouterTextLink>.
         </p>
         <p>
           Nivå 1.2 består av primærlogoen kombinert med en undertittel. Denne brukes utelukkende på
@@ -69,7 +65,7 @@ export default function MerkevareHeriarkiPage() {
         />
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px]">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           <KobberTextHighlight>Nivå 2</KobberTextHighlight>
           <br /> Støttet utgivelse og verk
@@ -101,7 +97,7 @@ export default function MerkevareHeriarkiPage() {
         />
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px]">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           <KobberTextHighlight>Nivå 3</KobberTextHighlight>
           <br /> Støttet identitet
@@ -115,10 +111,7 @@ export default function MerkevareHeriarkiPage() {
           Alle tjenester som benytter seg av Gyldendal-navnet skal benytte seg av samme
           logostruktur. Vi ønsker å unngå fargedifferensiering på tjenester, men unntak gjøres i
           tilfeller hvor det gir mening i konkurransebildet. Slike unntak må søkes om; se{" "}
-          <Link className="underline" href={metaGettingStartedContact.href}>
-            kontaktsiden
-          </Link>
-          .
+          <RouterTextLink href={metaGettingStartedContact.href}>kontaktsiden</RouterTextLink>.
         </p>
         <Image
           src={damUrl("CJ8mJ2oVaqu8ww95BaQW3A")}
@@ -128,7 +121,7 @@ export default function MerkevareHeriarkiPage() {
         />
       </KobberTextWrapper>
 
-      <KobberTextWrapper className="max-w-[711px]">
+      <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
           <KobberTextHighlight>Nivå 4</KobberTextHighlight>
           <br /> Frittstående identitet

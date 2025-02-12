@@ -1,7 +1,7 @@
-import Link from "next/link"
 import {
   KobberHeading,
   KobberIngress,
+  KobberTextLink,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { InformationCardType } from "@/types/types"
@@ -61,12 +61,9 @@ export default function ContactPage() {
           ulike deler av selskapet.
         </p>
         <p>
-          Vi har en{" "}
-          <Link target="_blank" href={KOBBER_TEAMS_URL} className="underline">
-            teams-kanal
-          </Link>{" "}
-          der det er mulig å få hjelp, ta opp relevante tema, ønsker og behov. Om du har et spørsmål
-          eller en tilbakemelding kan du først sjekke om noen har tatt opp dette eller noe lignende
+          Vi har en <KobberTextLink href={KOBBER_TEAMS_URL}>teams-kanal</KobberTextLink> der det er
+          mulig å få hjelp, ta opp relevante tema, ønsker og behov. Om du har et spørsmål eller en
+          tilbakemelding kan du først sjekke om noen har tatt opp dette eller noe lignende
           tidligere.
         </p>
         <p>

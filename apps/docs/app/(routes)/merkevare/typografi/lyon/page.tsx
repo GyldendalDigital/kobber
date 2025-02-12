@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { LyonTypography } from "@/data/typography"
 import {
   KobberHeading,
@@ -7,6 +6,7 @@ import {
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
 import { ContentLayout } from "@/components/content-layout"
+import { RouterTextLink } from "@/components/global/router-link"
 import { HeroImage } from "@/components/hero-image"
 import { TypographyList } from "@/components/typography-list"
 import { metaGettingStartedContact } from "@/app/(routes)/kom-i-gang/kontakt/contact.meta"
@@ -30,18 +30,12 @@ export default function LyongPage() {
         <p>
           Lyon Display skal ikke overbrukes, men heller brukes der den gir effekt. Om du er usikker
           på når du skal bruke fonten i en kontekst; se{" "}
-          <Link href={metaGettingStartedContact.href} className="underline">
-            kontaktsiden
-          </Link>
-          .
+          <RouterTextLink href={metaGettingStartedContact.href}>kontaktsiden</RouterTextLink>.
         </p>
         <p>
           Ved bruk av Lyon Display kreves det lisens som man må søke tilgang om. Kontakt oss ved
-          behov. Bruk{" "}
-          <Link href={metaBrandTypographyArial.href} className="underline">
-            Arial
-          </Link>{" "}
-          i presentasjoner og dokumenter.
+          behov. Bruk <RouterTextLink href={metaBrandTypographyArial.href}>Arial</RouterTextLink> i
+          presentasjoner og dokumenter.
         </p>
       </KobberTextWrapper>
       <TypographyList items={LyonTypography} fontClassName="font-lyon" />

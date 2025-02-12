@@ -31,7 +31,9 @@ export function ExternalLinksGrid() {
       <ul className="flex flex-wrap items-center gap-4">
         {links.map((item, index) => (
           <li key={index}>
-            <KobberLink href={item.href}>{item.title}</KobberLink>
+            <KobberLink href={item.href} type="highlight">
+              {item.title}
+            </KobberLink>
           </li>
         ))}
       </ul>
