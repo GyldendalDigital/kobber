@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.3.75
+
+### Patch Changes
+
+- Button full width prop
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.75
+  - @gyldendal/kobber-icons@0.3.75
+
 ## 0.3.74
 
 ### Patch Changes

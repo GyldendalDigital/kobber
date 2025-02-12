@@ -1,5 +1,11 @@
 # @gyldendal/kobber-tsconfig
 
+## 0.3.75
+
+### Patch Changes
+
+- Button full width prop
+
 ## 0.3.74
 
 ### Patch Changes

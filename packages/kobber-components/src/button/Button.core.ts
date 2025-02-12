@@ -10,6 +10,7 @@ export const buttonClassNames = ({
   hasIcon = false,
   iconOnly = false,
   iconFirst = false,
+  fullWidth = false,
   isLink = false,
 }: ButtonProps & ButtonComputedProps): ButtonClassNames[] => {
   const conditionalClassNames: ButtonClassNames[] = [];
@@ -27,6 +28,10 @@ export const buttonClassNames = ({
     conditionalClassNames.push("link");
   }
 
+  if (fullWidth) {
+    conditionalClassNames.push("full-width");
+  }
+
   return [buttonName, color, replaceSpaceWithDash(variant), level, ...conditionalClassNames];
 };
 
@@ -40,6 +45,7 @@ export type ButtonProps = {
   variant?: ButtonVariant;
   level?: ButtonLevel;
   iconFirst?: boolean;
+  fullWidth?: boolean;
   href?: string;
   target?: "_blank" | "_parent" | "_self" | "_top";
 };
@@ -58,6 +64,7 @@ export type ButtonClassNames =
   | "icon"
   | "icon-only"
   | "icon-left"
+  | "full-width"
   | "link"
   | "inlined";
 

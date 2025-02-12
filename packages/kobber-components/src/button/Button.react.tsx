@@ -8,7 +8,7 @@ type Props = {
   HTMLProps<HTMLButtonElement>;
 
 export const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
-  const { color, variant, level, iconFirst, className, children, type, icon, ...rest } = props;
+  const { color, variant, level, iconFirst, fullWidth, className, children, type, icon, ...rest } = props;
   const hasIcon = !!icon;
   const iconOnly = !!icon && !children;
   const isLink = !!props.href && !props.disabled;
@@ -24,7 +24,7 @@ export const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
         {...rest}
         ref={ref}
         isLink={isLink}
-        className={[className, ...buttonClassNames({ ...props, hasIcon, iconOnly })].join(" ")}
+        className={[className, ...buttonClassNames({ ...props, hasIcon, iconOnly, fullWidth })].join(" ")}
       >
         {children}
         {icon}

@@ -44,6 +44,10 @@ const createButtonStyles = () => {
       border-radius: var(${unsafeCSS(button.container.border.radius)});
       height: var(${unsafeCSS(button.container.size.height)});
 
+      &.${unsafeCSS("full-width" satisfies ButtonClassNames)} {
+        width: 100%;
+      }
+
       ${buttonVariableStyles()}
 
       ${typographyButton()}
