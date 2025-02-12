@@ -69,7 +69,11 @@ export const Button: StoryObj<Args> = {
   parameters: {
     layout: "centered",
   },
-  render: args => `<div style="width: 600px">${renderButton(args)}</div>`,
+  render: args =>
+    args.fullWidth
+      ? `fixed container for previewing full width button
+      <div style="padding: 2rem; width: 80vw; border: 1px solid grey;">${renderButton(args)}</div>`
+      : renderButton(args),
 };
 
 export const Buttons: StoryObj<Args> = {
