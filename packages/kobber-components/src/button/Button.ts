@@ -41,6 +41,9 @@ export class Button extends LitElement implements ButtonProps {
   @property({ type: Boolean })
   disabled = false;
 
+  @property({ type: Boolean })
+  fullWidth = false;
+
   /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
   @property()
   href = "";
@@ -96,6 +99,7 @@ export class Button extends LitElement implements ButtonProps {
             hasIcon: this._hasIcon,
             iconOnly: this._iconOnly,
             iconFirst: this.iconFirst,
+            fullWidth: this.fullWidth,
             isLink: isLink,
           }),
           this.className,

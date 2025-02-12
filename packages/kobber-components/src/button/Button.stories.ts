@@ -64,11 +64,12 @@ export const Button: StoryObj<Args> = {
     state: states[0],
     icon: buttonIconSettings[1],
     link: false,
+    fullWidth: false,
   },
   parameters: {
     layout: "centered",
   },
-  render: args => renderButton(args),
+  render: args => `<div style="width: 600px">${renderButton(args)}</div>`,
 };
 
 export const Buttons: StoryObj<Args> = {
@@ -191,7 +192,7 @@ const renderVariant = (args: Args) => {
 };
 
 const renderButton = (args: Args) => {
-  const { color, variant, level, state, icon, text, link } = args;
+  const { color, variant, level, state, icon, text, link, fullWidth } = args;
 
   return `
 <kobber-button 
@@ -201,6 +202,7 @@ const renderButton = (args: Args) => {
   level="${level}" 
   ${state === "disabled" ? "disabled" : ""} 
   ${icon === "left" ? "iconFirst" : ""} 
+  ${fullWidth ? "fullWidth" : ""} 
   ${link ? "href='#' target='_blank'" : ""}
   aria-label="optional button label">
   ${text ? text : ""}
