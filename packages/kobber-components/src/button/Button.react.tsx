@@ -8,7 +8,19 @@ type Props = {
   HTMLProps<HTMLButtonElement>;
 
 export const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
-  const { color, variant, level, iconFirst, fullWidth, className, children, type, icon, ...rest } = props;
+  const {
+    color,
+    variant,
+    level,
+    iconFirst,
+    fullWidth,
+    usedInOtherInteractive,
+    className,
+    children,
+    type,
+    icon,
+    ...rest
+  } = props;
   const hasIcon = !!icon;
   const iconOnly = !!icon && !children;
   const isLink = !!props.href && !props.disabled;

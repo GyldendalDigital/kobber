@@ -48,6 +48,11 @@ const createButtonStyles = () => {
         width: 100%;
       }
 
+      &.${unsafeCSS("used-in-other-interactive" satisfies ButtonClassNames)} {
+        align-items: start;
+        height: auto;
+      }
+
       ${buttonVariableStyles()}
 
       ${typographyButton()}
