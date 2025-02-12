@@ -3,10 +3,11 @@
 Components can be used as react components or as web components.<br />
 TypeScript definitions are included.
 
+See also https://kobber.gyldendal.no/komponenter.
+
 ## Installation
 
 Run one of the following commands to add @gyldendal/kobber-components to your project:
-
 
 ```
 npm install @gyldendal/kobber-components
@@ -22,7 +23,6 @@ Depending on you usage, you might need to to install the optional peerDependenci
 
 The Inter variable font is used by default.
 It can be installed separately from [fontsource](https://fontsource.org/fonts/inter/) with one of these commands:
-
 
 ```
 npm install @fontsource-variable/inter
@@ -52,7 +52,9 @@ const App = () => <ProgressBar />;
 As a custom element:
 
 ```html
-<script>import "@gyldendal/kobber-components/web-components";</script>
+<script>
+  import "@gyldendal/kobber-components/web-components";
+</script>
 <kobber-progress-bar />
 ```
 

@@ -1,5 +1,7 @@
 # Base
 
+See also https://kobber.gyldendal.no/tokens/hva-er-tokens.
+
 ## 🛠️ Usage
 
 Design tokens can be imported as json, css variables or sass variables:
