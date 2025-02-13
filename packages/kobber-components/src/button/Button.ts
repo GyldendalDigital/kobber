@@ -73,9 +73,12 @@ export class Button extends LitElement implements ButtonProps {
     super.connectedCallback();
 
     // used for special icon only styling
+    const hasSlot = Array.from(this.shadowRoot!.host.children).filter(element => element.tagName === "SLOT").length > 0;
     const textContent = this.shadowRoot?.host.textContent?.trim();
+    const hasOtherContentThanIcon = textContent !== "" || hasSlot;
+
     this._hasIcon = this.shadowRoot?.host.querySelector("[slot=icon]") !== null;
-    this._iconOnly = textContent === "" && this._hasIcon;
+    this._iconOnly = !hasOtherContentThanIcon && this._hasIcon;
 
     // aria-label moved from host to button
     this._label = this.getAttribute("aria-label");
