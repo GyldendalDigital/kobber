@@ -62,6 +62,8 @@ export default class RadioGroup extends ShoelaceElement implements ShoelaceFormC
 
   @state() private errorMessage = "";
 
+  @state() private url = window.location.href;
+
   @property({ attribute: "current-value" }) currentValue = "";
 
   /**
@@ -114,6 +116,19 @@ export default class RadioGroup extends ShoelaceElement implements ShoelaceFormC
     }
 
     return "";
+  }
+
+  constructor() {
+    super();
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    navigation.addEventListener("navigate", (e: any) => {
+      // Experimental functionality, does not work in Firefox. Might change in the future.
+      /* eslint-enable @typescript-eslint/no-explicit-any */
+      console.log("e.destination.url");
+      console.log(e.destination.url);
+    });
   }
 
   connectedCallback() {
@@ -237,6 +252,13 @@ export default class RadioGroup extends ShoelaceElement implements ShoelaceFormC
   handleValueChange() {
     if (this.hasUpdated) {
       this.updateCheckedRadio();
+    }
+  }
+
+  @watch("url")
+  handleUrlChange() {
+    if (window.location.href !== this.url) {
+      console.info(`New url: ${this.url}`);
     }
   }
 
