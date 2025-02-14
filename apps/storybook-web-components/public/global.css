@@ -29,3 +29,17 @@ h6 {
   font-size: inherit;
   line-height: inherit;
 }
+
+figure {
+  padding: 0 1em;
+  margin: 1em 0;
+  border: 1px solid;
+  border-radius: 1em;
+}
+
+figcaption {
+  padding: 1em 0;
+  &::after {
+    content: ":";
+  }
+}
