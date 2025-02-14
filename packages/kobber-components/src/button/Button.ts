@@ -44,6 +44,10 @@ export class Button extends LitElement implements ButtonProps {
   @property({ type: Boolean })
   fullWidth = false;
 
+  /* Use only in special cases (i.e, as Radio Input) */
+  @property({ type: Boolean })
+  usedInOtherInteractive = false;
+
   /** When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`. */
   @property()
   href = "";
@@ -69,9 +73,12 @@ export class Button extends LitElement implements ButtonProps {
     super.connectedCallback();
 
     // used for special icon only styling
+    const hasSlot = Array.from(this.shadowRoot!.host.children).filter(element => element.tagName === "SLOT").length > 0;
     const textContent = this.shadowRoot?.host.textContent?.trim();
+    const hasOtherContentThanIcon = textContent !== "" || hasSlot;
+
     this._hasIcon = this.shadowRoot?.host.querySelector("[slot=icon]") !== null;
-    this._iconOnly = textContent === "" && this._hasIcon;
+    this._iconOnly = !hasOtherContentThanIcon && this._hasIcon;
 
     // aria-label moved from host to button
     this._label = this.getAttribute("aria-label");
@@ -100,6 +107,7 @@ export class Button extends LitElement implements ButtonProps {
             iconOnly: this._iconOnly,
             iconFirst: this.iconFirst,
             fullWidth: this.fullWidth,
+            usedInOtherInteractive: this.usedInOtherInteractive,
             isLink: isLink,
           }),
           this.className,
@@ -109,7 +117,7 @@ export class Button extends LitElement implements ButtonProps {
         target=${ifDefined(isLink ? this.target : undefined)}
         aria-disabled=${this.disabled ? "true" : "false"}
         aria-label=${this._label}
-        tabindex=${this.disabled ? "-1" : "0"}
+        tabindex=${this.disabled || this.usedInOtherInteractive ? "-1" : "0"}
       >
         <slot></slot>
         <slot name="icon"></slot>

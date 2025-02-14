@@ -3,6 +3,8 @@
 Icons can be used as react components or as web components.<br />
 TypeScript definitions are included.
 
+See also https://kobber.gyldendal.no/merkevare/ikoner.
+
 ## Installation
 
 Run one of the following commands to add @gyldendal/kobber-icons to your project:

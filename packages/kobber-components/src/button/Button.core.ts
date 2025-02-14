@@ -11,6 +11,7 @@ export const buttonClassNames = ({
   iconOnly = false,
   iconFirst = false,
   fullWidth = false,
+  usedInOtherInteractive = false,
   isLink = false,
 }: ButtonProps & ButtonComputedProps): ButtonClassNames[] => {
   const conditionalClassNames: ButtonClassNames[] = [];
@@ -32,6 +33,10 @@ export const buttonClassNames = ({
     conditionalClassNames.push("full-width");
   }
 
+  if (usedInOtherInteractive) {
+    conditionalClassNames.push("used-in-other-interactive");
+  }
+
   return [buttonName, color, replaceSpaceWithDash(variant), level, ...conditionalClassNames];
 };
 
@@ -46,6 +51,7 @@ export type ButtonProps = {
   level?: ButtonLevel;
   iconFirst?: boolean;
   fullWidth?: boolean;
+  usedInOtherInteractive?: boolean;
   href?: string;
   target?: "_blank" | "_parent" | "_self" | "_top";
 };
@@ -65,6 +71,7 @@ export type ButtonClassNames =
   | "icon-only"
   | "icon-left"
   | "full-width"
+  | "used-in-other-interactive"
   | "link"
   | "inlined";
 

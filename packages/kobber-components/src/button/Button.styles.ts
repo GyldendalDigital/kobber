@@ -48,6 +48,11 @@ const createButtonStyles = () => {
         width: 100%;
       }
 
+      &.${unsafeCSS("used-in-other-interactive" satisfies ButtonClassNames)} {
+        align-items: start;
+        height: auto;
+      }
+
       ${buttonVariableStyles()}
 
       ${typographyButton()}
@@ -62,8 +67,10 @@ const createButtonStyles = () => {
 
       &:focus-visible,
       &.focus {
-        outline: none;
-        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
+        &:not([aria-disabled="true"]) {
+          outline: none;
+          box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
+        }
       }
 
       &.${unsafeCSS("icon" satisfies ButtonClassNames)} {
