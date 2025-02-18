@@ -40,11 +40,6 @@ export const buttonClassNames = ({
   return [buttonName, color, replaceSpaceWithDash(variant), level, ...conditionalClassNames];
 };
 
-export const buttonClassNamesWithModule = (
-  cssModule: Record<string, string>,
-  props: ButtonProps & ButtonComputedProps,
-) => buttonClassNames(props).map(x => cssModule[x]);
-
 export type ButtonProps = {
   color?: ButtonColor;
   variant?: ButtonVariant;
