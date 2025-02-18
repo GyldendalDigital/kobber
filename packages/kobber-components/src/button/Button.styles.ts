@@ -4,7 +4,6 @@ import {
   buttonColors,
   buttonVariants,
   buttonLevels,
-  buttonName,
   ButtonClassNames,
   isValidPropCombination,
   hasSupplementalAlt,
@@ -26,7 +25,7 @@ const createButtonStyles = () => {
   const button = component.button;
 
   return css`
-    .${unsafeCSS(buttonName)} {
+    .${unsafeCSS("kobber-button" satisfies ButtonClassNames)} {
       --color: inherit;
       --background-color: transparent;
       ${resetButton()};
@@ -44,11 +43,11 @@ const createButtonStyles = () => {
       border-radius: var(${unsafeCSS(button.container.border.radius)});
       height: var(${unsafeCSS(button.container.size.height)});
 
-      &.${unsafeCSS("full-width" satisfies ButtonClassNames)} {
+      &.${unsafeCSS("kobber-button--full-width" satisfies ButtonClassNames)} {
         width: 100%;
       }
 
-      &.${unsafeCSS("used-in-other-interactive" satisfies ButtonClassNames)} {
+      &.${unsafeCSS("kobber-button--used-in-other-interactive" satisfies ButtonClassNames)} {
         align-items: start;
         height: auto;
       }
@@ -73,21 +72,21 @@ const createButtonStyles = () => {
         }
       }
 
-      &.${unsafeCSS("icon" satisfies ButtonClassNames)} {
+      &.${unsafeCSS("kobber-button--icon" satisfies ButtonClassNames)} {
         --icon-width: var(${unsafeCSS(button.icon.size.width.small)});
         --icon-height: var(${unsafeCSS(button.icon.size.height.small)});
 
-        &.${unsafeCSS("icon-left" satisfies ButtonClassNames)} {
+        &.${unsafeCSS("kobber-button--icon-left" satisfies ButtonClassNames)} {
           flex-direction: row-reverse;
         }
 
-        &.${unsafeCSS("icon-only" satisfies ButtonClassNames)} {
+        &.${unsafeCSS("kobber-button--icon-only" satisfies ButtonClassNames)} {
           aspect-ratio: 1 / 1;
           padding: 0;
         }
       }
 
-      &.${unsafeCSS("link" satisfies ButtonClassNames)} {
+      &.${unsafeCSS("kobber-button--link" satisfies ButtonClassNames)} {
         text-decoration: none;
       }
     }
@@ -177,8 +176,8 @@ const hoverEffectSecondary = () => css`
         left: var(${unsafeCSS(component.button.container.padding.inline)});
       }
 
-      &.${unsafeCSS("icon" satisfies ButtonClassNames)} {
-        &.${unsafeCSS("icon-only" satisfies ButtonClassNames)} {
+      &.${unsafeCSS("kobber-button--icon" satisfies ButtonClassNames)} {
+        &.${unsafeCSS("kobber-button--icon-only" satisfies ButtonClassNames)} {
           &:after {
             right: ${unsafeCSS(paddingIconOnly)};
             left: ${unsafeCSS(paddingIconOnly)};

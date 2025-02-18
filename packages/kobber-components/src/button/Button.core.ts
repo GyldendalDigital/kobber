@@ -17,24 +17,24 @@ export const buttonClassNames = ({
   const conditionalClassNames: ButtonClassNames[] = [];
 
   if (hasIcon) {
-    conditionalClassNames.push("icon");
+    conditionalClassNames.push("kobber-button--icon");
     if (iconOnly) {
-      conditionalClassNames.push("icon-only");
+      conditionalClassNames.push("kobber-button--icon-only");
     } else if (iconFirst) {
-      conditionalClassNames.push("icon-left");
+      conditionalClassNames.push("kobber-button--icon-left");
     }
   }
 
   if (isLink) {
-    conditionalClassNames.push("link");
+    conditionalClassNames.push("kobber-button--link");
   }
 
   if (fullWidth) {
-    conditionalClassNames.push("full-width");
+    conditionalClassNames.push("kobber-button--full-width");
   }
 
   if (usedInOtherInteractive) {
-    conditionalClassNames.push("used-in-other-interactive");
+    conditionalClassNames.push("kobber-button--used-in-other-interactive");
   }
 
   return [buttonName, color, replaceSpaceWithDash(variant), level, ...conditionalClassNames];
@@ -67,13 +67,13 @@ export type ButtonClassNames =
   | ButtonColor
   | ReplaceSpaceWithDash<ButtonVariant>
   | ButtonLevel
-  | "icon"
-  | "icon-only"
-  | "icon-left"
-  | "full-width"
-  | "used-in-other-interactive"
-  | "link"
-  | "inlined";
+  | "kobber-button--icon"
+  | "kobber-button--icon-only"
+  | "kobber-button--icon-left"
+  | "kobber-button--full-width"
+  | "kobber-button--used-in-other-interactive"
+  | "kobber-button--link"
+  | "kobber-button--inlined";
 
 export type ButtonColor = keyof typeof component.button.background.color;
 export type ButtonVariant = keyof typeof component.button.background.color.neutral;
