@@ -1,6 +1,6 @@
 import { forwardRef, HTMLProps, ReactNode, createElement } from "react";
 import { buttonStyles } from "./Button.styles";
-import { buttonClassNames, ButtonComputedProps, buttonName, ButtonProps } from "./Button.core";
+import { buttonClassNames, ButtonComputedProps, buttonName, ButtonProps, hasSupplementalAlt } from "./Button.core";
 
 type Props = {
   icon?: ReactNode;
@@ -16,14 +16,25 @@ export const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
     fullWidth,
     usedInOtherInteractive,
     className,
+    href,
+    disabled,
     children,
     type,
     icon,
+    target,
     ...rest
   } = props;
   const hasIcon = !!icon;
   const iconOnly = !!icon && !children;
-  const isLink = !!props.href && !props.disabled;
+  const _isLink = !!href && !disabled;
+  const _label = props["aria-label"];
+
+  if (iconOnly && !_label) {
+    console.warn("aria-label is required for icon only buttons");
+  }
+  if (!hasSupplementalAlt(color) && variant === "supplemental alt") {
+    console.warn("variant 'supplemental alt' must match the following function: " + hasSupplementalAlt.toString());
+  }
 
   return (
     <>
@@ -35,8 +46,14 @@ export const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
       <ButtonTag
         {...rest}
         ref={ref}
-        isLink={isLink}
+        isLink={_isLink}
         className={[className, ...buttonClassNames({ ...props, hasIcon, iconOnly, fullWidth })].join(" ")}
+        disabled={_isLink ? undefined : disabled}
+        href={_isLink && !disabled ? href : undefined}
+        target={_isLink ? target : undefined}
+        aria-disabled={disabled ? "true" : "false"}
+        aria-label={_label}
+        tabIndex={disabled || usedInOtherInteractive ? -1 : 0}
       >
         {children}
         {icon}

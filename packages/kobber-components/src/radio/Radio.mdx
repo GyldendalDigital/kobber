@@ -1,0 +1,22 @@
+import { Canvas, Story, Meta } from '@storybook/blocks';
+
+import * as RadioStories from './Radio.stories';
+import "storybook-web-components/public/global.css";
+
+<Meta of={RadioStories} />
+
+# Radio Group and Inputs
+
+A Radio Group contains more than one Radio Input, and the Radio Inputs are mutually exclusive. Radio Input must be used inside a Radio Group.
+
+Use Radio Inputs to select only one option from a list of choices.
+
+<figure>
+<figcaption>Kobber Radio Input Variants</figcaption>
+<Story of={RadioStories.Variants} />
+</figure>
+
+<figure>
+<figcaption>Kobber Radio Anatomy</figcaption>
+<img src="images/kobber-radio-anatomy.jpg" alt="Schematic image of Kobber Radio anatomy" />
+</figure>

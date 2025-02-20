@@ -6,9 +6,6 @@ export const textHighlightClassNames = ({ color = "carmine" }: TextHighlightProp
   return [textHighlightName, color];
 };
 
-export const textHighlightClassNamesWithModule = (cssModule: Record<string, string>, props: TextHighlightProps) =>
-  textHighlightClassNames(props).map(x => cssModule[x]);
-
 export type TextHighlightClassNames = typeof textHighlightName | TextHighlightColor;
 
 export type TextHighlightProps = {

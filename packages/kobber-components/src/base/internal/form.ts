@@ -88,7 +88,7 @@ export class FormControlController implements ReactiveController {
       disabled: input => input.disabled ?? false,
       reportValidity: input => (typeof input.reportValidity === "function" ? input.reportValidity() : true),
       checkValidity: input => (typeof input.checkValidity === "function" ? input.checkValidity() : true),
-      setValue: (input, value: string) => (input.value = value),
+      setValue: (input, value) => (input.value = value),
       assumeInteractionOn: ["input"],
       ...options,
     };

@@ -56,6 +56,18 @@ export class Button extends LitElement implements ButtonProps {
   @property()
   target?: "_blank" | "_parent" | "_self" | "_top";
 
+  /**
+   * The name of the button, submitted as a name/value pair with form data, but only when this button is the submitter.
+   * This attribute is ignored when `href` is present.
+   */
+  @property() name = "";
+
+  /**
+   * The value of the button, submitted as a pair with the button's name as part of the form data, but only when this
+   * button is the submitter. This attribute is ignored when `href` is present.
+   */
+  @property() value = "";
+
   @state()
   private _hasIcon = false;
 
