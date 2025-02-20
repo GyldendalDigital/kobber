@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.3.76
+
+### Patch Changes
+
+- Add radioGroup with radioInputs
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.76
+  - @gyldendal/kobber-icons@0.3.76
+
 ## 0.3.75
 
 ### Patch Changes
