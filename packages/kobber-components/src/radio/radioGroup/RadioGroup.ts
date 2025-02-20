@@ -40,17 +40,13 @@ export default class RadioGroup extends ShoelaceElement implements Props {
   disabled?: boolean | undefined;
   defaultChecked?: boolean | undefined;
   input!: HTMLInputElement;
+  validationMessage: string = "";
 
   static styles: CSSResultGroup = [componentStyles, buttonGroupStyles];
 
   protected readonly formControlController = new FormControlController(this);
   private readonly hasSlotController = new HasSlotController(this, "help-text", "label");
   private customValidityMessage = "";
-  private validationTimeout: number = 0;
-
-  @query(".radio-group__validation-input") validationInput!: HTMLInputElement;
-
-  @state() private errorMessage = "";
 
   @query("slot:not([name])") defaultSlot!: HTMLSlotElement;
 
@@ -94,20 +90,6 @@ export default class RadioGroup extends ShoelaceElement implements Props {
     }
 
     return validValidityState;
-  }
-
-  /** Gets the validation message */
-  get validationMessage() {
-    const isRequiredAndEmpty = this.required && !this.value;
-    const hasCustomValidityMessage = this.customValidityMessage !== "";
-
-    if (hasCustomValidityMessage) {
-      return this.customValidityMessage;
-    } else if (isRequiredAndEmpty) {
-      return this.validationInput.validationMessage;
-    }
-
-    return "";
   }
 
   constructor() {
@@ -194,11 +176,6 @@ export default class RadioGroup extends ShoelaceElement implements Props {
     this.focus();
   }
 
-  private handleInvalid(event: Event) {
-    this.formControlController.setValidity(false);
-    this.formControlController.emitInvalidEvent(event);
-  }
-
   private async syncRadioElements() {
     const radios = this.getAllRadios();
 
@@ -280,17 +257,7 @@ export default class RadioGroup extends ShoelaceElement implements Props {
   reportValidity(): boolean {
     const isValid = this.validity.valid;
 
-    this.errorMessage = this.customValidityMessage || isValid ? "" : this.validationInput.validationMessage;
     this.formControlController.setValidity(isValid);
-    this.validationInput.hidden = true;
-    clearTimeout(this.validationTimeout);
-
-    if (!isValid) {
-      // Show the browser's constraint validation message
-      this.validationInput.hidden = false;
-      this.validationInput.reportValidity();
-      this.validationTimeout = setTimeout(() => (this.validationInput.hidden = true), 10000) as unknown as number;
-    }
 
     return isValid;
   }
@@ -298,8 +265,6 @@ export default class RadioGroup extends ShoelaceElement implements Props {
   /** Sets a custom validation message. Pass an empty string to restore validity. */
   setCustomValidity(message = "") {
     this.customValidityMessage = message;
-    this.errorMessage = message;
-    this.validationInput.setCustomValidity(message);
     this.formControlController.updateValidity();
   }
 
@@ -347,17 +312,7 @@ export default class RadioGroup extends ShoelaceElement implements Props {
           <slot name="label">${this.label}</slot>
         </label>
 
-        <div class="${this.direction === "horizontal" ? radioGroupHorizontalClassName : ""}">
-          <div class="visually-hidden">
-            <!-- TODO: Bruker et usynlig tekstfelt for å plassere browservaliderings på ønsket plass. Lag noe bedre. -->
-            <div id="error-message" aria-live="assertive">${this.errorMessage}</div>
-            <label>
-              <input type="text" ?required=${this.required} tabindex="-1" hidden @invalid=${this.handleInvalid} />
-            </label>
-          </div>
-
-          ${defaultSlot}
-        </div>
+        <div class="${this.direction === "horizontal" ? radioGroupHorizontalClassName : ""}">${defaultSlot}</div>
 
         <div id="aria-help-text" aria-hidden=${hasHelpText ? "false" : "true"}>
           <slot name="help-text"></slot>
