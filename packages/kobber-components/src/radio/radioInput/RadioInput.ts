@@ -62,7 +62,6 @@ export class RadioInput extends ShoelaceElement implements InputProps {
 
   private handleBlur = () => {
     this.hasFocus = false;
-    this.emit("sl-blur");
   };
 
   private handleClick = () => {
@@ -76,7 +75,6 @@ export class RadioInput extends ShoelaceElement implements InputProps {
       window.location.href = this.href;
     }
     this.hasFocus = true;
-    this.emit("sl-focus");
   };
 
   private setInitialAttributes() {
