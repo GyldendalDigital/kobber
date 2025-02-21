@@ -14,7 +14,7 @@ import {
 import componentStyles from "../../base/styles/component.styles";
 import type { RadioInput } from "../radioInput/RadioInput";
 import { radioGroupName, radioInputName, radioGroupHorizontalClassName, GroupProps } from "../Radio.core";
-import { buttonGroupStyles } from "./RadioGroup.styles";
+import { radioGroupStyles } from "./RadioGroup.styles";
 
 /**
  * @summary Radio groups are used to group multiple [radios](/components/radio) or [radio buttons](/components/radio-button) so they function as a single form control.
@@ -42,7 +42,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
   input!: HTMLInputElement;
   validationMessage: string = "";
 
-  static styles: CSSResultGroup = [componentStyles, buttonGroupStyles];
+  static styles: CSSResultGroup = [componentStyles, radioGroupStyles];
 
   protected readonly formControlController = new FormControlController(this);
   private readonly hasSlotController = new HasSlotController(this, "help-text", "label");

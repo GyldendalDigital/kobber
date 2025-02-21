@@ -112,4 +112,4 @@ const typographyInput = () => {
   `;
 };
 
-export const inputStyles = createInputStyles();
+export const radioInputStyles = createInputStyles();
