@@ -1,5 +1,11 @@
 # @gyldendal/kobber-tsconfig
 
+## 0.3.77
+
+### Patch Changes
+
+- Correct kobber-radio components
+
 ## 0.3.76
 
 ### Patch Changes

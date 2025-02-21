@@ -1,14 +1,14 @@
 import { css } from "lit";
 
 export default css`
-  :root {
+  :host {
     box-sizing: border-box;
     display: block;
   }
 
-  :root *,
-  :root *::before,
-  :root *::after {
+  :host *,
+  :host *::before,
+  :host *::after {
     box-sizing: inherit;
   }
 

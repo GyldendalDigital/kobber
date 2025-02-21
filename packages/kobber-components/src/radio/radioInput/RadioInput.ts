@@ -3,7 +3,7 @@ import { customElement, property, state } from "lit/decorators.js";
 import { watch } from "../../base/internal/watch";
 import ShoelaceElement from "../../base/internal/shoelace-element";
 import componentStyles from "../../base/styles/component.styles";
-import { inputStyles } from "./RadioInput.styles";
+import { radioInputStyles } from "./RadioInput.styles";
 import type { CSSResultGroup } from "lit";
 import { inputClassNames, radioInputName, InputVariant, radioInputLabelClassName, InputProps } from "../Radio.core";
 import "../radioInputControl/RadioInputControl";
@@ -24,8 +24,8 @@ import "../../button/Button";
  */
 
 @customElement(radioInputName)
-export default class RadioInput extends ShoelaceElement implements InputProps {
-  static styles: CSSResultGroup = [componentStyles, inputStyles];
+export class RadioInput extends ShoelaceElement implements InputProps {
+  static styles: CSSResultGroup = [componentStyles, radioInputStyles];
 
   @state() protected hasFocus = false;
 
@@ -62,7 +62,6 @@ export default class RadioInput extends ShoelaceElement implements InputProps {
 
   private handleBlur = () => {
     this.hasFocus = false;
-    this.emit("sl-blur");
   };
 
   private handleClick = () => {
@@ -76,7 +75,6 @@ export default class RadioInput extends ShoelaceElement implements InputProps {
       window.location.href = this.href;
     }
     this.hasFocus = true;
-    this.emit("sl-focus");
   };
 
   private setInitialAttributes() {

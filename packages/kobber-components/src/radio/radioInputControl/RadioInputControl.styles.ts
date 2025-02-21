@@ -45,4 +45,4 @@ const buttonVariantStyles = () => {
   return unsafeCSS(variableClasses.join("\n"));
 };
 
-export const controlStyles = createInputControlStyles();
+export const radioInputControlStyles = createInputControlStyles();

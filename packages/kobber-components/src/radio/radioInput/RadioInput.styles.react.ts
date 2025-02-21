@@ -7,6 +7,7 @@ import {
   InputLabelClassNames,
   InputControlPartNames,
 } from "../Radio.core";
+import "../../base/styles/react.styles.css";
 
 /**
  * Shared styles, used in web component, React and CSS module.
@@ -98,4 +99,4 @@ const typographyButton = () => {
   `;
 };
 
-export const buttonStyles = createInputStyles();
+export const radioInputStyles = createInputStyles();

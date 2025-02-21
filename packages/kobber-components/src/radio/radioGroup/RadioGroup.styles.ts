@@ -19,4 +19,4 @@ const createRadioGroupStyles = () => {
   `;
 };
 
-export const buttonGroupStyles = createRadioGroupStyles();
+export const radioGroupStyles = createRadioGroupStyles();

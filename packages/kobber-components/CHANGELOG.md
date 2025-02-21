@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.3.77
+
+### Patch Changes
+
+- Correct kobber-radio components
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.77
+  - @gyldendal/kobber-icons@0.3.77
+
 ## 0.3.76
 
 ### Patch Changes

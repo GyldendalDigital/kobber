@@ -2,7 +2,7 @@ import { html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import ShoelaceElement from "../../base/internal/shoelace-element";
 import componentStyles from "../../base/styles/component.styles";
-import { controlStyles } from "./RadioInputControl.styles";
+import { radioInputControlStyles } from "./RadioInputControl.styles";
 import type { CSSResultGroup } from "lit";
 import "@gyldendal/kobber-icons/web-components";
 import {
@@ -24,8 +24,8 @@ import {
  */
 
 @customElement(radioInputControlName)
-export default class RadioInputControl extends ShoelaceElement implements ControlProps {
-  static styles: CSSResultGroup = [componentStyles, controlStyles];
+export class RadioInputControl extends ShoelaceElement implements ControlProps {
+  static styles: CSSResultGroup = [componentStyles, radioInputControlStyles];
 
   @property({ type: Boolean, reflect: true }) checked = false;
 

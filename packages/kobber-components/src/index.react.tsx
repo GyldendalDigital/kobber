@@ -25,7 +25,7 @@ import { Ingress } from "./text/ingress/Ingress.react";
 import { Link } from "./link/Link.react";
 import { List } from "./list/List.react";
 import { ListItem } from "./list/ListItem.react";
-import { RadioGroup, RadioInput, RadioInputControl } from "./radio";
+import { RadioGroup, RadioInput, RadioInputControl } from "./radio/index.react";
 
 export const KobberTextWrapper = TextWrapper;
 export const KobberTextHighlight = TextHighlight;
