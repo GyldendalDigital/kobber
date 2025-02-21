@@ -5,7 +5,7 @@ import { RadioInputControl } from "../radioInputControl/RadioInputControl.react"
 
 type Props = {} & InputProps & HTMLProps<HTMLButtonElement>;
 
-export const RadioInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
+export const RadioInput = forwardRef<HTMLButtonElement & HTMLInputElement, Props>((props, ref) => {
   const { checked, disabled, href, variant, children, ...rest } = props;
   const isLink = !!href;
 
