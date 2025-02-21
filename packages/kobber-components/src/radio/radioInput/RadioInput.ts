@@ -24,7 +24,7 @@ import "../../button/Button";
  */
 
 @customElement(radioInputName)
-export default class RadioInput extends ShoelaceElement implements InputProps {
+export class RadioInput extends ShoelaceElement implements InputProps {
   static styles: CSSResultGroup = [componentStyles, inputStyles];
 
   @state() protected hasFocus = false;

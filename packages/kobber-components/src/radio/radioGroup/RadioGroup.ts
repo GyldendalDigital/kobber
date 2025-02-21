@@ -12,7 +12,7 @@ import {
   valueMissingValidityState,
 } from "../../base/internal/form";
 import componentStyles from "../../base/styles/component.styles";
-import type RadioInput from "../radioInput/RadioInput";
+import type { RadioInput } from "../radioInput/RadioInput";
 import { radioGroupName, radioInputName, radioGroupHorizontalClassName, GroupProps } from "../Radio.core";
 import { buttonGroupStyles } from "./RadioGroup.styles";
 
@@ -36,7 +36,7 @@ import { buttonGroupStyles } from "./RadioGroup.styles";
 type Props = GroupProps & ShoelaceFormControl;
 
 @customElement(radioGroupName)
-export default class RadioGroup extends ShoelaceElement implements Props {
+export class RadioGroup extends ShoelaceElement implements Props {
   disabled?: boolean | undefined;
   defaultChecked?: boolean | undefined;
   input!: HTMLInputElement;

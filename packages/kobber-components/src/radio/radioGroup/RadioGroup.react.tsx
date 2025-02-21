@@ -1,20 +1,19 @@
 import * as React from "react";
 import { createComponent } from "@lit/react";
-import KobberRadioGroup from "./RadioGroup";
-import { radioGroupName } from "../Radio.core";
-const tagName = radioGroupName;
-KobberRadioGroup.define(radioGroupName);
+import { RadioGroup } from "./RadioGroup";
+const tagName = "RadioGroup";
+RadioGroup.define("RadioGroup");
 const reactWrapper = createComponent({
   tagName,
-  elementClass: KobberRadioGroup,
+  elementClass: RadioGroup,
   react: React,
   events: {
     onSlChange: "change",
     onSlInput: "input",
     onSlInvalid: "invalid",
   },
-  displayName: radioGroupName,
+  displayName: "RadioGroup",
 });
-const RadioGroup = reactWrapper;
+const KobberRadioGroup = reactWrapper;
 
 export { RadioGroup };

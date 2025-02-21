@@ -24,7 +24,7 @@ import {
  */
 
 @customElement(radioInputControlName)
-export default class RadioInputControl extends ShoelaceElement implements ControlProps {
+export class RadioInputControl extends ShoelaceElement implements ControlProps {
   static styles: CSSResultGroup = [componentStyles, controlStyles];
 
   @property({ type: Boolean, reflect: true }) checked = false;
