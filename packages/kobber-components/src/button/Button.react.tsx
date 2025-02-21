@@ -1,6 +1,7 @@
 import { forwardRef, HTMLProps, ReactNode, createElement } from "react";
 import { buttonStyles } from "./Button.styles";
 import { buttonClassNames, ButtonComputedProps, buttonName, ButtonProps, hasSupplementalAlt } from "./Button.core";
+import "../base/styles/react.styles.css";
 
 type Props = {
   icon?: ReactNode;

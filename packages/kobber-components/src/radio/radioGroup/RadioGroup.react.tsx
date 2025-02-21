@@ -2,6 +2,7 @@ import { cloneElement, forwardRef, ReactElement } from "react";
 import { GroupProps, radioGroupHorizontalClassName, radioGroupName } from "../Radio.core";
 import "../../button/Button.react";
 import { radioGroupStyles } from "./RadioGroup.styles";
+import "../../base/styles/react.styles.css";
 
 type Props = { helpText: string; children: Array<ReactElement> } & GroupProps;
 
@@ -34,7 +35,15 @@ export const RadioGroup = forwardRef<HTMLDivElement, Props>((props, ref) => {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: radioGroupStyles.cssText }}></style>
+      {/* hoists the style element into <head> and deduplicates it */}
+      {/* https://react.dev/reference/react-dom/components/style#rendering-an-inline-css-stylesheet */}
+      {/* have to use dangerousHtml because of encoding, changing ie. & into &amp; */}
+      {/* https://github.com/facebook/react/issues/13838#issuecomment-675270594 */}
+      <style
+        href={radioGroupName}
+        precedence="medium"
+        dangerouslySetInnerHTML={{ __html: radioGroupStyles.cssText }}
+      ></style>
       <fieldset
         className={radioGroupName}
         role="radiogroup"

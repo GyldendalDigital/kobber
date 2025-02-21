@@ -1,5 +1,5 @@
 import { createElement, forwardRef, HTMLProps } from "react";
-import { InputComputedProps, InputProps } from "../Radio.core";
+import { InputComputedProps, InputProps, radioInputName } from "../Radio.core";
 import "../../button/Button.react";
 import { RadioInputControl } from "../radioInputControl/RadioInputControl.react";
 import { radioInputStyles } from "./RadioInput.styles.react";
@@ -12,7 +12,15 @@ export const RadioInput = forwardRef<HTMLButtonElement & HTMLInputElement, Props
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: radioInputStyles.cssText }}></style>
+      {/* hoists the style element into <head> and deduplicates it */}
+      {/* https://react.dev/reference/react-dom/components/style#rendering-an-inline-css-stylesheet */}
+      {/* have to use dangerousHtml because of encoding, changing ie. & into &amp; */}
+      {/* https://github.com/facebook/react/issues/13838#issuecomment-675270594 */}
+      <style
+        href={radioInputName}
+        precedence="medium"
+        dangerouslySetInnerHTML={{ __html: radioInputStyles.cssText }}
+      ></style>
       <InputTag {...rest} ref={ref} isLink={isLink}>
         <RadioInputControl checked={checked}></RadioInputControl>
         {children}
