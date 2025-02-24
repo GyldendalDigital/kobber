@@ -14,7 +14,7 @@ const createInputControlStyles = () => {
       --icon-height: var(${unsafeCSS(button.shape.height)});
       --icon-width: var(${unsafeCSS(button.shape.width)});
       box-sizing: content-box; /* Avoid vertical "shrinking" effect. */
-      margin-top: 0.45em; /* Emulate vertical justification, but not when multiple lines.  */
+      margin-top: 0.2em; /* Emulate vertical justification, but not when multiple lines.  */
       width: var(--icon-width);
       height: var(--icon-height);
       color: var(--control-color);
