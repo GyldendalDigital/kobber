@@ -253,77 +253,6 @@ export const GNOExample: Story = {
   },
 };
 
-export const SmartExerciseExample: Story = {
-  render: args => {
-    return `
-      <style>
-        :root {
-          padding: 0.5rem;
-        }
-        .wrapper-theme {
-          display: flex;
-          flex-direction: column;
-          gap: 3rem;
-        }
-        .wrapper-variant {
-          display: flex;
-          gap: 0.5em;
-          border: 1px solid ${primitives.color.wine[250]};
-          border-radius: 1rem;
-          margin-bottom: 1rem;
-          padding: 1rem;
-        }
-      
-        .other-text-area { 
-          display: none;
-          flex-direction: column;
-
-          kobber-radio-input[checked] + & { 
-            display: flex;
-          }
-        }
-      </style>
-
-      <div class="wrapper-theme">
-        <kobber-radio-group current-value="${args.currentValue}">
-        <p slot="label">
-          Spør lærer
-        </p>
-        
-          <kobber-radio-input value="DontUnderstand" variant="${args.variant}">Jeg forstår ikke oppgaven</kobber-radio-input>
-          <kobber-radio-input value="SomethingWrong" variant="${args.variant}">Jeg tror det er noe feil med oppgaven</kobber-radio-input>
-          <kobber-radio-input value="Other" variant="${args.variant}">Annet</kobber-radio-input>
-          <label class="other-text-area">
-            <span>Før du kan sende oppgaven, må du skrive en kort forklaring:</span>
-            <textarea placeholder="Skriv forklaring"></textarea>
-          </label>
-        </kobber-radio-group>
-      </div>
-    `;
-  },
-  argTypes: {
-    variant: {
-      name: "variant (visible only in hover and active states)",
-      options: inputVariants,
-      control: { type: "radio" },
-    },
-    currentValue: {
-      control: "inline-radio",
-      options: ["DontUnderstand", "SomethingWrong", "Other"],
-    },
-  },
-  args: {
-    variant: inputVariants[0],
-    currentValue: "DontUnderstand",
-  },
-  parameters: {
-    actions: {
-      handles: ["input"],
-    },
-  },
-  decorators: [withActions],
-};
-
 export const SkolestudioExamples: Story = {
   render: args => {
     return `
@@ -372,4 +301,10 @@ export const SkolestudioExamples: Story = {
   args: {
     variant: inputVariants[0],
   },
+  parameters: {
+    actions: {
+      handles: ["input"],
+    },
+  },
+  decorators: [withActions],
 };
