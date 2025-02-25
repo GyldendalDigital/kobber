@@ -1,5 +1,5 @@
 import { css, unsafeCSS } from "lit";
-import { component, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, typography, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import {
   inputVariants,
   InputClassNames,
@@ -25,7 +25,7 @@ const createInputStyles = () => {
       justify-content: start;
       align-items: start;
       cursor: pointer;
-      padding-inline: var(${unsafeCSS(input.wrapper.padding)});
+      padding: var(${unsafeCSS(input.wrapper.padding)});
 
       ${typographyInput()}
       ${inputVariantStyles()}
@@ -101,14 +101,15 @@ const inputStates = () => {
 };
 
 const typographyInput = () => {
-  const text = universal.text.ui;
+  const input = typography.ui.input;
 
   return css`
-    font-size: var(${unsafeCSS(text.size.label.large)});
-    font-family: var(${unsafeCSS(text["font-family"])});
-    font-weight: var(${unsafeCSS(text.weight.label.large)});
-    font-style: normal;
-    line-height: var(${unsafeCSS(text["line-height"].label.large["multi-line"])});
+    font-size: var(${unsafeCSS(input.fontSize)});
+    font-family: var(${unsafeCSS(input.fontFamily)});
+    font-weight: var(${unsafeCSS(input.fontWeight)});
+    font-style: var(${unsafeCSS(input.fontStyle)});
+    font-stretch: var(${unsafeCSS(input.fontStretch)});
+    line-height: normal;
   `;
 };
 

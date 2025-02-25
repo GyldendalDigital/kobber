@@ -13,7 +13,7 @@ const createRadioGroupStyles = () => {
 
     .${unsafeCSS("kobber-radio-group--horizontal" satisfies GroupClassNames)} .default-slot {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(7em, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
       gap: 0.5em;
     }
   `;

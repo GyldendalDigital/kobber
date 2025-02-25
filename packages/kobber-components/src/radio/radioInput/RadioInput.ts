@@ -17,9 +17,6 @@ import "../../button/Button";
  *
  * @slot - The radio's label.
  *
- * @event sl-blur - Emitted when the control loses focus.
- * @event sl-focus - Emitted when the control gains focus.
- *
  * @csspart label - The container that wraps the radio's label.
  */
 
@@ -34,15 +31,13 @@ export class RadioInput extends ShoelaceElement implements InputProps {
   /** The radio's value. When selected, the radio group will receive this value. */
   @property() value: string = "";
 
-  @property()
-  variant?: InputVariant;
+  @property() variant?: InputVariant;
 
   /** Disables the radio. */
   @property({ type: Boolean, reflect: true }) disabled = false;
 
   /** When set, the underlying input will be rendered as an `<a>` with this `href` instead of a `<kobber-radio-input>`. */
-  @property({ type: Location })
-  href = "";
+  @property({ type: Location }) href = "";
 
   private isLink() {
     return this.href ? true : false;

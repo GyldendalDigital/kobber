@@ -17,10 +17,12 @@ const createInputControlStyles = () => {
 
     .${unsafeCSS("kobber-radio-input-control" satisfies InputControlClassNames)} {
       box-sizing: content-box; /* Avoid vertical "shrinking" effect. */
-      margin-top: 0.45em; /* Emulate vertical justification, but not when multiple lines.  */
+      margin-top: 0.2em; /* Emulate vertical justification, but not when multiple lines.  */
+
       width: var(--icon-width);
       height: var(--icon-height);
-      border: var(${unsafeCSS(button.border.width)}) solid var(--control-border-color);
+      color: var(--control-color);
+      border: var(${unsafeCSS(button.border.width)}) solid;
       outline: var(${unsafeCSS(button.outline.border.width)}) solid var(--control-outline-color);
       border-radius: 50%;
       transition: var(--transition-time) outline;
@@ -37,7 +39,7 @@ const buttonVariantStyles = () => {
     const borderColor = inputColor[variant].fallback;
     return css`
       ${unsafeCSS(variantClassName)} {
-        --control-border-color: var(${unsafeCSS(borderColor)});
+        --control-color: var(${unsafeCSS(borderColor)});
       }
     `;
   });
