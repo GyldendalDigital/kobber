@@ -1,5 +1,11 @@
 # @gyldendal/kobber-scene
 
+## 0.3.78
+
+### Patch Changes
+
+- Bump version after designers' review
+
 ## 0.3.77
 
 ### Patch Changes
