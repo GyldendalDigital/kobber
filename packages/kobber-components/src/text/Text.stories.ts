@@ -50,10 +50,7 @@ export const All: Story = {
         <kobber-text-highlight>progressive</kobber-text-highlight> mindshare.
       </p>
       <p>
-        Uniquely
-        <kobber-text-link href="https://github.com/GyldendalDigital/kobber" target="_blank"
-          >reconceptualize</kobber-text-link
-        >
+        Uniquely <kobber-text-link href="https://github.com/GyldendalDigital/kobber">reconceptualize</kobber-text-link>
         robust e-tailers without ethical action items. Compellingly restore resource-leveling experiences without
         exceptional technology. Assertively target 2.0 networks through state of the art e-services. Continually
         innovate ubiquitous relationships and visionary internal or "organic" sources. Interactively iterate sustainable
@@ -217,12 +214,12 @@ const linkStates = ["idle", "active", "hover", "focus", "disabled"];
 
 export const Link: Story = {
   argTypes: {
-    external: {
+    icon: {
       control: "boolean",
     },
   },
   args: {
-    external: false,
+    icon: false,
   },
   render: args => {
     return html`<div style="max-width: 600px;">
@@ -231,9 +228,9 @@ export const Link: Story = {
             return html`<p>
               <kobber-text-link
                 class="${state}"
-                href=${state !== "disabled" && args.external ? "https://github.com/GyldendalDigital/kobber" : undefined}
+                href=${state !== "disabled" ? "https://github.com/GyldendalDigital/kobber" : undefined}
               >
-                ${args.external ? "Ekstern" : "Intern"} lenke
+                Lenke ${args.icon ? html`<icon-external_link_arrow />` : null}
               </kobber-text-link>
               med tilstand <code>${state}</code>
             </p>`;
