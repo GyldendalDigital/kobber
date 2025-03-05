@@ -10,6 +10,7 @@ export const RadioInput = forwardRef<HTMLButtonElement & HTMLInputElement, Props
   const { checked, disabled, href, variant, children, ...rest } = props;
   const isLink = !!href;
   const role = isLink ? "" : "radio";
+  const tabIndex = checked ? 0 : -1;
 
   return (
     <>
@@ -22,7 +23,7 @@ export const RadioInput = forwardRef<HTMLButtonElement & HTMLInputElement, Props
         precedence="medium"
         dangerouslySetInnerHTML={{ __html: radioInputStyles.cssText }}
       ></style>
-      <InputTag {...rest} ref={ref} isLink={isLink} role={role}>
+      <InputTag {...rest} ref={ref} isLink={isLink} role={role} tabIndex={tabIndex}>
         <RadioInputControl checked={checked}></RadioInputControl>
         {children}
       </InputTag>

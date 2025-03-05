@@ -23,7 +23,7 @@ const createInputStyles = () => {
       justify-content: start;
       align-items: start;
       cursor: pointer;
-      padding-inline: var(${unsafeCSS(input.wrapper.padding)});
+      padding: var(--kobber-component-input-selection-wrapper-padding);
 
       ${typographyButton()}
       ${buttonVariantStyles()}
