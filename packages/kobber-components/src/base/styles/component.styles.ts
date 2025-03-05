@@ -3,7 +3,7 @@ import { css } from "lit";
 export default css`
   :host {
     box-sizing: border-box;
-    display: block;
+    /* "display: block" should not be used globally because of inline components like text link and highlight */
   }
 
   :host *,
