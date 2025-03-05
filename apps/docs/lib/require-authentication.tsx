@@ -1,11 +1,11 @@
 import { getCurrentUser } from "@/actions/auth-actions"
-import { Restricted } from "../global/restricted"
+import { Restricted } from "../components/global/restricted"
 
 type SessionProviderProps = {
   children: React.ReactNode
 }
 
-export async function SessionProvider({ children }: SessionProviderProps) {
+export async function RequireAuthentication({ children }: SessionProviderProps) {
   const { user } = await getCurrentUser()
 
   if (!user) {

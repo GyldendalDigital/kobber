@@ -3,10 +3,10 @@ import "@/styles/globals.css"
 import { cookies } from "next/headers"
 import { SessionProvider as AuthProvider } from "next-auth/react"
 import { APP_NAME } from "@/lib/constants"
+import { RequireAuthentication } from "@/lib/require-authentication"
 import Footer from "@/components/footer"
 import { IconLoader } from "@/components/kobber-icons-loader"
 import { TopNav } from "@/components/navigation/top-nav"
-import { SessionProvider } from "@/components/providers/session-provider"
 import { inter, lyon, mori } from "./fonts"
 
 /** Fallback for all pages */
@@ -37,7 +37,7 @@ export default async function RootLayout({
         <AuthProvider>
           <IconLoader />
           <TopNav />
-          <SessionProvider>{children}</SessionProvider>
+          <RequireAuthentication>{children}</RequireAuthentication>
           <Footer />
         </AuthProvider>
       </body>
