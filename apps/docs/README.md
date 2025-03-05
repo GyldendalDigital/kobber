@@ -1,6 +1,6 @@
 # kobber.gyldendal.no
 
-### Local setup (from root)
+## Local setup (from root)
 
 Build tokens and components
 
@@ -12,4 +12,13 @@ Run documentation site
 
 ```sh
 yarn dev -F docs
+```
+
+## Local build (from /apps/docs)
+
+Build, then run the built files (as they would run in production).
+
+```sh
+yarn build
+yarn start
 ```
