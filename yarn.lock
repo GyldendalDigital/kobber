@@ -1890,7 +1890,7 @@ __metadata:
     "@types/node": "npm:^20.9.0"
     style-dictionary: "npm:^4.3.2"
     tsx: "npm:^4.19.2"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
   languageName: unknown
   linkType: soft
 
@@ -1936,7 +1936,7 @@ __metadata:
     typedoc: "npm:^0.27.6"
     typedoc-github-wiki-theme: "npm:^2.1.0"
     typedoc-plugin-markdown: "npm:^4.4.1"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.15.0"
   peerDependencies:
     "@lit/react": ">=1"
@@ -1973,7 +1973,7 @@ __metadata:
     eslint-plugin-turbo: "npm:^2.4.0"
     eslint-plugin-unused-imports: "npm:^4.1.4"
     globals: "npm:^15.12.0"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.15.0"
   peerDependencies:
     "@eslint/js": ">=9"
@@ -2052,7 +2052,7 @@ __metadata:
     typedoc: "npm:^0.27.6"
     typedoc-github-wiki-theme: "npm:^2.1.0"
     typedoc-plugin-markdown: "npm:^4.4.1"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.15.0"
   peerDependencies:
     "@lit/react": ">=1"
@@ -2085,7 +2085,7 @@ __metadata:
     onchange: "npm:^7.1.0"
     react: "npm:^19.0.0"
     tsup: "npm:^8.3.6"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
   peerDependencies:
     react: ">=18"
   languageName: unknown
@@ -7375,7 +7375,7 @@ __metadata:
     tailwind-merge: "npm:^2.6.0"
     tailwindcss: "npm:^3.4.17"
     tailwindcss-animate: "npm:^1.0.7"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
     typescript-eslint: "npm:^8.15.0"
   languageName: unknown
   linkType: soft
@@ -10924,7 +10924,7 @@ __metadata:
     stylelint-config-standard: "npm:^35.0.0"
     stylelint-order: "npm:^6.0.4"
     turbo: "npm:^2.4.4"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
   languageName: unknown
   linkType: soft
 
@@ -14415,7 +14415,7 @@ __metadata:
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
     storybook: "npm:^8.6.3"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
     vite: "npm:^6.0.7"
   languageName: unknown
   linkType: soft
@@ -14438,7 +14438,7 @@ __metadata:
     "@storybook/web-components-vite": "npm:^8.6.3"
     lit-html: "npm:^3.2.1"
     storybook: "npm:^8.6.3"
-    typescript: "npm:^5.7.3"
+    typescript: "npm:^5.8.2"
     vite: "npm:^6.0.7"
   languageName: unknown
   linkType: soft
@@ -15703,13 +15703,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.7.3":
-  version: 5.7.3
-  resolution: "typescript@npm:5.7.3"
+"typescript@npm:^5.8.2":
+  version: 5.8.2
+  resolution: "typescript@npm:5.8.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/b7580d716cf1824736cc6e628ab4cd8b51877408ba2be0869d2866da35ef8366dd6ae9eb9d0851470a39be17cbd61df1126f9e211d8799d764ea7431d5435afa
+  checksum: 10c0/5c4f6fbf1c6389b6928fe7b8fcd5dc73bb2d58cd4e3883f1d774ed5bd83b151cbac6b7ecf11723de56d4676daeba8713894b1e9af56174f2f9780ae7848ec3c6
   languageName: node
   linkType: hard
 
@@ -15723,13 +15723,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.7.3#optional!builtin<compat/typescript>":
-  version: 5.7.3
-  resolution: "typescript@patch:typescript@npm%3A5.7.3#optional!builtin<compat/typescript>::version=5.7.3&hash=5786d5"
+"typescript@patch:typescript@npm%3A^5.8.2#optional!builtin<compat/typescript>":
+  version: 5.8.2
+  resolution: "typescript@patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>::version=5.8.2&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/6fd7e0ed3bf23a81246878c613423730c40e8bdbfec4c6e4d7bf1b847cbb39076e56ad5f50aa9d7ebd89877999abaee216002d3f2818885e41c907caaa192cc4
+  checksum: 10c0/5448a08e595cc558ab321e49d4cac64fb43d1fa106584f6ff9a8d8e592111b373a995a1d5c7f3046211c8a37201eb6d0f1566f15cdb7a62a5e3be01d087848e2
   languageName: node
   linkType: hard
 
