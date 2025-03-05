@@ -5,7 +5,6 @@ import { primitives } from "@gyldendal/kobber-base/themes/default/tokens";
 import { inputVariants, InputProps, radioInputName } from "./Radio.core";
 import "../text/heading/Heading";
 import "../utils/theme-context";
-import { withActions } from "@storybook/addon-actions/decorator";
 
 const formats = ["hardcover", "pocket", "ebook", "audiobook"] as const;
 const states: { [key: string]: string[] }[] = [
@@ -306,5 +305,4 @@ export const SkolestudioExamples: Story = {
       handles: ["input"],
     },
   },
-  decorators: [withActions],
 };
