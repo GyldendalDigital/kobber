@@ -20,16 +20,15 @@
     "publish-packages": "turbo run build lint && changeset version && changeset publish"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.12",
-    "drizzle-orm": "^0.36.0",
+    "@changesets/cli": "^2.28.1",
     "prettier": "^3.4.2",
     "stylelint": "^16.0.2",
     "stylelint-config-standard": "^35.0.0",
     "stylelint-order": "^6.0.4",
-    "turbo": "^2.4.0",
-    "typescript": "^5.7.3"
+    "turbo": "^2.4.4",
+    "typescript": "^5.8.2"
   },
-  "packageManager": "yarn@4.6.0",
+  "packageManager": "yarn@4.7.0",
   "engines": {
     "node": ">=18.0.0"
   }
