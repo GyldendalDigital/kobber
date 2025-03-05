@@ -13,12 +13,13 @@ const config = {
   stories: [
     "../../../packages/kobber-components/src/**/*.@(mdx)",
     "../../../packages/kobber-components/src/**/*.stories.@(js|mjs|ts)",
-    "../../../packages/kobber-icons/src/**/*.@(mdx)", // default story when storybook loads
+    "../../../packages/kobber-icons/src/**/*.@(mdx)",
     "../../../packages/kobber-icons/src/**/*.stories.@(js|mjs|ts)",
   ],
   addons: [
-    getAbsolutePath("@storybook/addon-essentials"), // 👈 Includes docs
+    getAbsolutePath("@storybook/addon-controls"),
     getAbsolutePath("@storybook/addon-a11y"),
+    getAbsolutePath("@storybook/addon-docs"),
   ],
   framework: {
     name: getAbsolutePath("@storybook/web-components-vite"),
@@ -29,6 +30,7 @@ const config = {
   },
   core: {
     disableTelemetry: true, // 👈 Disables telemetry
+    disableWhatsNewNotifications: true, // 👈 Disables what's new notifications
     builder: "@storybook/builder-vite",
   },
   staticDirs: ["../public"], //👈 Configures the static asset folder in Storybook
