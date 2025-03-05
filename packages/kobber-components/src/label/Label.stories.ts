@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { html } from "lit";
+import "./Label";
 import { labelName, LabelProps, labelSizes, labelThemes, labelVariants } from "./Label.core";
 
 interface Args extends LabelProps {

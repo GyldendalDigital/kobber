@@ -8,9 +8,10 @@ const createLabelStyles = () => {
   return css`
     .${unsafeCSS("kobber-label" satisfies LabelClassNames)} {
       --color: inherit;
-      --background-color: #00000;
+      --background-color: #000000;
       height: 20px;
       padding: var(${unsafeCSS(label.container.padding.inline)});
+      background-color: var(--background-color);
 
       ${labelVariableStyles()}
       ${typographyLabel()}
