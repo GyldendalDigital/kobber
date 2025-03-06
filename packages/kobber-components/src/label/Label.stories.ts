@@ -44,7 +44,7 @@ export const Label: StoryObj<Args> = {
   },
   render: args => {
     return html`<div
-      style="background-color:rgb(244, 244, 244); width: 500px; display: flex; align-items: center; justify-content: center; border-radius: 0.5rem; padding: 5rem;"
+      style=" width: 500px; display: flex; align-items: center; justify-content: center; border-radius: 0.5rem; padding: 5rem;"
     >
       ${renderLabel(args)}
     </div>`;
@@ -53,13 +53,13 @@ export const Label: StoryObj<Args> = {
 
 export const Variants: Story = {
   render: args => {
+    const { size, text, theme, variant } = args;
+
     return html`<style>
         :root {
         }
       </style>
-      <ol>
-        <li>Hello</li>
-      </ol> `;
+      <div style="background-color: #e3e3e3; padding: 1rem; border-radius: 0.5rem;"></div> `;
   },
 };
 

@@ -7,11 +7,17 @@ const createLabelStyles = () => {
 
   return css`
     .${unsafeCSS("kobber-label" satisfies LabelClassNames)} {
-      --color: inherit;
-      --background-color: #000000;
-      height: 20px;
-      padding: var(${unsafeCSS(label.container.padding.inline)});
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      --background-color: transparent;
+
+      border-radius: var(${unsafeCSS(label.container.border.radius)});
       background-color: var(--background-color);
+      gap: var(--gap);
+      color: var(--color);
+      padding: var(--padding);
+      font-size: var(--font-size);
 
       ${labelVariableStyles()}
       ${typographyLabel()}
@@ -24,19 +30,50 @@ const labelVariableStyles = () => {
     return labelVariants.flatMap(variant => {
       return labelSizes.flatMap(size => {
         const nestedClassNames = `&.${theme}.${variant}.${size}`;
+        const label = component.label;
+        const labelTypography = typography.primary;
+        const labelMedium = labelTypography["label medium"].fontSize;
+        const labelSmall = labelTypography["label small"].fontSize;
 
-        if (theme === "aubergine") {
-          if (variant === "main") {
-            return css`
-              ${unsafeCSS(nestedClassNames)} {
-                --background-color: var(${unsafeCSS(component.label.background.color[theme][variant])});
-              }
-            `;
-          }
+        if (variant === "supplemental" && theme === "concrete") {
+          return css`
+          ${unsafeCSS(nestedClassNames)} {
+            --background-color: var(${unsafeCSS(label.background.color.concrete)});
+            --gap: var(${unsafeCSS(label.container.gap[size])});
+            --color: var(${unsafeCSS(label.text.color.concrete)});
+            --padding: var(
+              ${unsafeCSS(size === "medium" ? label.container.padding.medium : label.container.padding.block.small)}
+            );
+            --font-size: var(${unsafeCSS(size === "medium" ? labelMedium : labelSmall)});
+        `;
         }
 
-        if (size === "small") {
-          return css``;
+        if (variant === "supplemental" && theme !== "concrete") {
+          return css`
+            ${unsafeCSS(nestedClassNames)} {
+              --background-color: var(${unsafeCSS(label.background.color[theme].supplemental)});
+              --gap: var(${unsafeCSS(label.container.gap[size])});
+              --color: var(${unsafeCSS(label.text.color[theme].supplemental)});
+              --padding: var(
+                ${unsafeCSS(size === "medium" ? label.container.padding.medium : label.container.padding.block.small)}
+              );
+              --font-size: var(${unsafeCSS(size === "medium" ? labelMedium : labelSmall)});
+            }
+          `;
+        }
+
+        if (variant === "main" && theme !== "concrete") {
+          return css`
+            ${unsafeCSS(nestedClassNames)} {
+              --background-color: var(${unsafeCSS(label.background.color[theme].main)});
+              --gap: var(${unsafeCSS(label.container.gap[size])});
+              --color: var(${unsafeCSS(label.text.color[theme].main)});
+              --padding: var(
+                ${unsafeCSS(size === "medium" ? label.container.padding.medium : label.container.padding.block.small)}
+              );
+              --font-size: var(${unsafeCSS(size === "medium" ? labelMedium : labelSmall)});
+            }
+          `;
         }
       });
     });
