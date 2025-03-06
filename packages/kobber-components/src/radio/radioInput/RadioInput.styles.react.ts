@@ -23,7 +23,8 @@ const createInputStyles = () => {
       justify-content: start;
       align-items: start;
       cursor: pointer;
-      padding: var(--kobber-component-input-selection-wrapper-padding);
+      padding: calc(var(--kobber-component-input-selection-wrapper-padding) + 0.15em)
+        var(--kobber-component-input-selection-wrapper-padding) var(--kobber-component-input-selection-wrapper-padding); /* A larger top padding emulates label being vertically aligned with idle input control, but not when multiple lines. */
 
       ${typographyButton()}
       ${buttonVariantStyles()}

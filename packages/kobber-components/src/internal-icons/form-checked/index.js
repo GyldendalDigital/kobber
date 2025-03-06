@@ -1,0 +1,31 @@
+import { internalIconsStyles } from "../InternalIcons.styles";
+
+export class FormChecked extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.heightValueFallback = "var(--kobber-global-visual-icon-size-small)";
+    this.widthValueFallback = "var(--kobber-global-visual-icon-size-small)";
+  }
+  renderComponent() {
+    const ariaLabel =
+      this.getAttribute("aria-label") ||
+      ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */
+    const ariaHidden = ariaLabel === "";
+    const role = ariaHidden ? "presentation" : "img";
+    this.shadowRoot.innerHTML = `
+      <style>
+      ${internalIconsStyles}
+      </style>
+			<svg viewBox="0 0 20 20" aria-label="${ariaLabel}" aria-hidden="${ariaHidden}" role="${role}"><path d="M9.14153 15.3415C8.89822 15.3422 8.65719 15.2946 8.4324 15.2015C8.20762 15.1084 8.00355 14.9716 7.83203 14.799L4.51603 11.4825C4.34678 11.3061 4.21409 11.0979 4.12562 10.87C4.03715 10.6421 3.99464 10.3989 4.00054 10.1545C4.00644 9.91013 4.06064 9.6693 4.16001 9.44592C4.25938 9.22255 4.40196 9.02104 4.57953 8.853C4.92372 8.5262 5.38042 8.34431 5.85503 8.345C6.33153 8.345 6.78403 8.525 7.13003 8.852L8.03553 9.75725L8.94103 10.6625L12.6315 5.742C12.8053 5.5119 13.0299 5.32516 13.2879 5.19643C13.5459 5.06769 13.8302 5.00046 14.1185 5C14.522 5 14.906 5.128 15.229 5.37C15.4245 5.51558 15.5892 5.6985 15.7135 5.90818C15.8377 6.11786 15.9192 6.35012 15.953 6.5915C15.9884 6.83274 15.9755 7.07859 15.915 7.3148C15.8546 7.55101 15.7479 7.77287 15.601 7.9675L10.6275 14.6C10.454 14.83 10.2295 15.0167 9.97165 15.1453C9.71382 15.274 9.42968 15.3411 9.14153 15.3415Z" fill="currentColor"></path></svg>`;
+  }
+  connectedCallback() {
+    this.renderComponent();
+  }
+}
+
+export const customElementName = "icon-form_checked";
+
+if (!customElements.get(customElementName)) {
+  customElements.define(customElementName, FormChecked);
+}
