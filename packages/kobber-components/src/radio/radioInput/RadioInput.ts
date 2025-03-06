@@ -73,7 +73,9 @@ export class RadioInput extends ShoelaceElement implements InputProps {
   };
 
   private setInitialAttributes() {
-    this.setAttribute("role", "radio");
+    if (!this.isLink()) {
+      this.setAttribute("role", "radio");
+    }
     this.setAttribute("tabindex", "-1");
     this.setAttribute("aria-disabled", this.disabled ? "true" : "false");
   }

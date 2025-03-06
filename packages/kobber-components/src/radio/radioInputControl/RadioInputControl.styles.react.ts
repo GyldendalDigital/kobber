@@ -11,12 +11,13 @@ const createInputControlStyles = () => {
   return css`
     .${unsafeCSS("kobber-radio-input-control" satisfies InputControlClassNames)} {
       --transition-time: 0.5s;
+      --icon-wrapper-height: var(${unsafeCSS(button.indicator.height)});
+      --icon-wrapper-width: var(${unsafeCSS(button.indicator.width)});
       --icon-height: var(${unsafeCSS(button.shape.height)});
       --icon-width: var(${unsafeCSS(button.shape.width)});
-      box-sizing: content-box; /* Avoid vertical "shrinking" effect. */
-      margin-top: 0.2em; /* Emulate vertical justification, but not when multiple lines.  */
-      width: var(--icon-width);
-      height: var(--icon-height);
+      margin-top: 0.1em; /* A top margin emulates label being vertically aligned with idle input control, but not when multiple lines. */
+      width: var(--icon-wrapper-width);
+      height: var(--icon-wrapper-height);
       color: var(--control-color);
       border: var(${unsafeCSS(button.border.width)}) solid;
       outline: var(${unsafeCSS(button.outline.border.width)}) solid var(--control-outline-color);
@@ -24,9 +25,6 @@ const createInputControlStyles = () => {
       transition: var(--transition-time) outline;
 
       ${buttonVariantStyles()}
-      &.${unsafeCSS("kobber-radio-input__control--checked" satisfies InputControlPartNames)} {
-        background-color: black;
-      }
     }
   `;
 };

@@ -4,7 +4,7 @@ import ShoelaceElement from "../../base/internal/shoelace-element";
 import componentStyles from "../../base/styles/component.styles";
 import { radioInputControlStyles } from "./RadioInputControl.styles";
 import type { CSSResultGroup } from "lit";
-import "@gyldendal/kobber-icons/web-components";
+import "../../internal-icons/form-radio";
 import {
   InputVariant,
   radioInputControlPartNameChecked,
