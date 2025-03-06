@@ -11,6 +11,8 @@ const createInputControlStyles = () => {
   return css`
     :host {
       --transition-time: 0.5s;
+      --icon-wrapper-height: var(${unsafeCSS(button.indicator.height)});
+      --icon-wrapper-width: var(${unsafeCSS(button.indicator.width)});
       --icon-height: var(${unsafeCSS(button.shape.height)});
       --icon-width: var(${unsafeCSS(button.shape.width)});
     }
@@ -19,8 +21,8 @@ const createInputControlStyles = () => {
       box-sizing: content-box; /* Avoid vertical "shrinking" effect. */
       margin-top: 0.2em; /* Emulate vertical justification, but not when multiple lines.  */
 
-      width: var(--icon-width);
-      height: var(--icon-height);
+      width: var(--icon-wrapper-width);
+      height: var(--icon-wrapper-height);
       color: var(--control-color);
       border: var(${unsafeCSS(button.border.width)}) solid;
       outline: var(${unsafeCSS(button.outline.border.width)}) solid var(--control-outline-color);
