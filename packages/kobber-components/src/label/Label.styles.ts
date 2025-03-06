@@ -35,7 +35,8 @@ const labelVariableStyles = () => {
         const labelMedium = labelTypography["label medium"].fontSize;
         const labelSmall = labelTypography["label small"].fontSize;
 
-        if (variant === "supplemental" && theme === "concrete") {
+        // Todo: Prat med dag angående struktur for concrete.
+        if (theme === "concrete") {
           return css`
           ${unsafeCSS(nestedClassNames)} {
             --background-color: var(${unsafeCSS(label.background.color.concrete)});
@@ -48,7 +49,7 @@ const labelVariableStyles = () => {
         `;
         }
 
-        if (variant === "supplemental" && theme !== "concrete") {
+        if (variant === "supplemental") {
           return css`
             ${unsafeCSS(nestedClassNames)} {
               --background-color: var(${unsafeCSS(label.background.color[theme].supplemental)});
@@ -62,7 +63,7 @@ const labelVariableStyles = () => {
           `;
         }
 
-        if (variant === "main" && theme !== "concrete") {
+        if (variant === "main") {
           return css`
             ${unsafeCSS(nestedClassNames)} {
               --background-color: var(${unsafeCSS(label.background.color[theme].main)});
