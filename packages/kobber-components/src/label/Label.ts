@@ -24,13 +24,16 @@ export class Label extends LitElement implements LabelProps {
   @property()
   text?: LabelProps["text"];
 
+  @property({ type: Boolean })
+  showStatusCircle?: LabelProps["showStatusCircle"];
+
   @state()
-  private _label?: string | null;
+  private label?: string | null;
 
   connectedCallback() {
     super.connectedCallback();
 
-    this._label = this.getAttribute("aria-label");
+    this.label = this.getAttribute("aria-label");
     this.removeAttribute("aria-label");
   }
 
@@ -41,11 +44,13 @@ export class Label extends LitElement implements LabelProps {
           variant: this.variant,
           theme: this.theme,
           size: this.size,
+          showStatusCircle: this.showStatusCircle,
         }),
         this.className,
       ].join(" ")}"
-      aria-label=${this._label}
+      aria-label=${this.label}
     >
+      <slot name="status-circle"></slot>
       <slot></slot>
     </label>`;
   }

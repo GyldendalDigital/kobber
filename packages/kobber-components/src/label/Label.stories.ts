@@ -35,12 +35,17 @@ export const Label: StoryObj<Args> = {
       options: labelVariants,
       control: { type: "select" },
     },
+    showStatusCircle: {
+      options: [true, false],
+      control: { type: "boolean" },
+    },
   },
   args: {
     text: "Label",
     size: "medium",
     theme: "aubergine",
     variant: "main",
+    showStatusCircle: false,
   },
   render: args => {
     return html`<div
@@ -64,9 +69,15 @@ export const Variants: Story = {
 };
 
 const renderLabel = (args: Args) => {
-  const { size, text, theme, variant } = args;
+  const { size, text, theme, variant, showStatusCircle } = args;
 
-  return html` <kobber-label size=${size} theme=${theme} variant=${variant} aria-label="label aria-label">
+  return html` <kobber-label
+    size=${size}
+    theme=${theme}
+    variant=${variant}
+    ?showStatusCircle=${showStatusCircle}
+    aria-label="label aria-label"
+  >
     ${text}
   </kobber-label>`;
 };

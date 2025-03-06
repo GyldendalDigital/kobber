@@ -8,8 +8,13 @@ export const labelClassNames = ({
   variant = "main",
   size = "medium",
   text = "",
+  showStatusCircle = false,
 }: LabelProps & LabelComputedProps): LabelClassNames[] => {
   const conditionalClassNames: LabelClassNames[] = [];
+
+  if (showStatusCircle) {
+    conditionalClassNames.push("kobber-label--status-circle");
+  }
 
   if (text) {
     conditionalClassNames.push(text);
@@ -23,6 +28,7 @@ export type LabelProps = {
   variant?: LabelVariant;
   size?: LabelSize;
   text?: LabelText;
+  showStatusCircle?: boolean;
 };
 
 export type LabelComputedProps = {};
@@ -32,7 +38,8 @@ export type LabelClassNames =
   | LabelTheme
   | ReplaceSpaceWithDash<LabelVariant>
   | LabelSize
-  | LabelText;
+  | LabelText
+  | "kobber-label--status-circle";
 
 export type LabelTheme = keyof typeof component.label.background.color;
 export type LabelVariant = "main" | "supplemental";
