@@ -1,6 +1,6 @@
 import { internalIconsStyles } from "../InternalIcons.styles";
 
-export class FormIndeterminate extends HTMLElement {
+export class InternalIconFormIndeterminate extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -27,5 +27,5 @@ export class FormIndeterminate extends HTMLElement {
 export const customElementName = "icon-form_indeterminate";
 
 if (!customElements.get(customElementName)) {
-  customElements.define(customElementName, FormIndeterminate);
+  customElements.define(customElementName, InternalIconFormIndeterminate);
 }

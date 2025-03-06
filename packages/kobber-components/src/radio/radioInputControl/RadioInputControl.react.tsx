@@ -8,7 +8,7 @@ import {
 } from "../Radio.core";
 import { radioInputControlStyles } from "./RadioInputControl.styles.react";
 import "../../base/styles/react.styles.css";
-import { InternalIconFormRadio } from "../../internal-icons/form-radio/index.react";
+import { IconFormRadio } from "../../internal-icons/index.react";
 
 type Props = ControlProps & HTMLProps<HTMLButtonElement>;
 
@@ -32,7 +32,7 @@ export const RadioInputControl = forwardRef<HTMLDivElement, Props>((props, ref) 
           checked ? radioInputControlPartNameChecked : "",
         ].join(" ")}
       >
-        <InternalIconFormRadio />
+        <IconFormRadio />
       </div>
     </>
   );
