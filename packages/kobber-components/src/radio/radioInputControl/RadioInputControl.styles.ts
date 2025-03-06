@@ -18,9 +18,7 @@ const createInputControlStyles = () => {
     }
 
     .${unsafeCSS("kobber-radio-input-control" satisfies InputControlClassNames)} {
-      box-sizing: content-box; /* Avoid vertical "shrinking" effect. */
-      margin-top: 0.2em; /* Emulate vertical justification, but not when multiple lines.  */
-
+      margin-top: 0.1em; /* A top margin emulates label being vertically aligned with idle input control, but not when multiple lines. */
       width: var(--icon-wrapper-width);
       height: var(--icon-wrapper-height);
       color: var(--control-color);
