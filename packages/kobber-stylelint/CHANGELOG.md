@@ -1,5 +1,11 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.79
+
+### Patch Changes
+
+- More radio button corrections
+
 ## 0.3.78
 
 ### Patch Changes

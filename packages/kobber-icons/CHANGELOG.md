@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.79
+
+### Patch Changes
+
+- More radio button corrections
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.79
+
 ## 0.3.78
 
 ### Patch Changes
