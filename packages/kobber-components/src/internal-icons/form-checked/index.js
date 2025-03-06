@@ -1,6 +1,6 @@
 import { internalIconsStyles } from "../InternalIcons.styles";
 
-export class FormChecked extends HTMLElement {
+export class IconFormChecked extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -27,5 +27,5 @@ export class FormChecked extends HTMLElement {
 export const customElementName = "icon-form_checked";
 
 if (!customElements.get(customElementName)) {
-  customElements.define(customElementName, FormChecked);
+  customElements.define(customElementName, IconFormChecked);
 }

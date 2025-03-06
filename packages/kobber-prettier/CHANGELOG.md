@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.80
+
+### Patch Changes
+
+- Correct internal icons usage
+
 ## 0.3.79
 
 ### Patch Changes

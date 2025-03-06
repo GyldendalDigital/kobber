@@ -3,7 +3,7 @@ import { internalIconsStyles } from "../InternalIcons.styles.react";
 
 type Props = { "aria-label"?: string };
 
-export const InternalIconFormIndeterminate: FunctionComponent<Props> = props => {
+export const IconFormIndeterminate: FunctionComponent<Props> = props => {
   const ariaLabel =
     props["aria-label"] || ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */
   const ariaHidden = ariaLabel === "";

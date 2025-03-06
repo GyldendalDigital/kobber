@@ -1,6 +1,6 @@
 import { internalIconsStyles } from "../InternalIcons.styles";
 
-export class FormRadio extends HTMLElement {
+export class IconFormRadio extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -27,5 +27,5 @@ export class FormRadio extends HTMLElement {
 export const customElementName = "icon-form_radio";
 
 if (!customElements.get(customElementName)) {
-  customElements.define(customElementName, FormRadio);
+  customElements.define(customElementName, IconFormRadio);
 }
