@@ -1,5 +1,11 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.81
+
+### Patch Changes
+
+- Manually remove form_radio icon
+
 ## 0.3.80
 
 ### Patch Changes
