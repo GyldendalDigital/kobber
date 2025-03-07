@@ -60,7 +60,6 @@ import { FolderBookmark } from "./icon/icons/folder_bookmark";
 import { FontExpand } from "./icon/icons/font_expand";
 import { FormChecked } from "./icon/icons/form_checked";
 import { FormIndeterminate } from "./icon/icons/form_indeterminate";
-import { FormRadio } from "./icon/icons/form_radio";
 import { FormTemplate } from "./icon/icons/form_template";
 import { FrameExpand } from "./icon/icons/frame_expand";
 import { FrameShrink } from "./icon/icons/frame_shrink";
@@ -520,12 +519,6 @@ export const IconFormChecked = createComponent({
 export const IconFormIndeterminate = createComponent({
 	tagName: "icon-form_indeterminate",
 	elementClass: FormIndeterminate,
-	react: React,
-});
-
-export const IconFormRadio = createComponent({
-	tagName: "icon-form_radio",
-	elementClass: FormRadio,
 	react: React,
 });
 

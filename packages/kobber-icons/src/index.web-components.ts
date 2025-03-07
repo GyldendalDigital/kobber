@@ -57,7 +57,6 @@ export { FolderBookmark } from "./icon/icons/folder_bookmark";
 export { FontExpand } from "./icon/icons/font_expand";
 export { FormChecked } from "./icon/icons/form_checked";
 export { FormIndeterminate } from "./icon/icons/form_indeterminate";
-export { FormRadio } from "./icon/icons/form_radio";
 export { FormTemplate } from "./icon/icons/form_template";
 export { FrameExpand } from "./icon/icons/frame_expand";
 export { FrameShrink } from "./icon/icons/frame_shrink";
