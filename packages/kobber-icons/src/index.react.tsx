@@ -17,7 +17,7 @@ import { Assets } from "./icon/icons/assets";
 import { AudioRecording } from "./icon/icons/audio_recording";
 import { Backspace } from "./icon/icons/backspace";
 import { Banned } from "./icon/icons/banned";
-import { Bincular } from "./icon/icons/bincular";
+import { Binocular } from "./icon/icons/binocular";
 import { BookFlipPage } from "./icon/icons/book_flip_page";
 import { BookOpen } from "./icon/icons/book_open";
 import { Bookmark } from "./icon/icons/bookmark";
@@ -39,7 +39,6 @@ import { ColorBrush } from "./icon/icons/color_brush";
 import { CopyPaste } from "./icon/icons/copy_paste";
 import { CursorPointer } from "./icon/icons/cursor_pointer";
 import { CursorPointerCircle } from "./icon/icons/cursor_pointer_circle";
-import { DeleteIcon } from "./icon/icons/delete_icon";
 import { Dice } from "./icon/icons/dice";
 import { Dictionary } from "./icon/icons/dictionary";
 import { Download } from "./icon/icons/download";
@@ -52,14 +51,9 @@ import { ExpandResize } from "./icon/icons/expand_resize";
 import { ExternalLink } from "./icon/icons/external_link";
 import { ExternalLinkArrow } from "./icon/icons/external_link_arrow";
 import { FemaleHeadset } from "./icon/icons/female_headset";
-import { FilledCheckCircle } from "./icon/icons/filled_check_circle";
-import { FilledInformationCircle } from "./icon/icons/filled_information_circle";
-import { FilledWarningCircle } from "./icon/icons/filled_warning_circle";
 import { FlipRight } from "./icon/icons/flip_right";
 import { FolderBookmark } from "./icon/icons/folder_bookmark";
 import { FontExpand } from "./icon/icons/font_expand";
-import { FormChecked } from "./icon/icons/form_checked";
-import { FormIndeterminate } from "./icon/icons/form_indeterminate";
 import { FormTemplate } from "./icon/icons/form_template";
 import { FrameExpand } from "./icon/icons/frame_expand";
 import { FrameShrink } from "./icon/icons/frame_shrink";
@@ -128,7 +122,6 @@ import { Remove } from "./icon/icons/remove";
 import { RetouchGraph } from "./icon/icons/retouch_graph";
 import { RibbonStar } from "./icon/icons/ribbon_star";
 import { Rocket } from "./icon/icons/rocket";
-import { SchoolTeacher } from "./icon/icons/school_teacher";
 import { Search } from "./icon/icons/search";
 import { Settings } from "./icon/icons/settings";
 import { SettingsSlider } from "./icon/icons/settings_slider";
@@ -146,6 +139,7 @@ import { SynchronizeArrowsWarning } from "./icon/icons/synchronize_arrows_warnin
 import { TabletTouch } from "./icon/icons/tablet_touch";
 import { TaskList } from "./icon/icons/task_list";
 import { TaskListClock } from "./icon/icons/task_list_clock";
+import { Teacher } from "./icon/icons/teacher";
 import { TeacherCorrect } from "./icon/icons/teacher_correct";
 import { TextBold } from "./icon/icons/text_bold";
 import { TextFormat } from "./icon/icons/text_format";
@@ -154,6 +148,7 @@ import { TextStyle } from "./icon/icons/text_style";
 import { TextSync } from "./icon/icons/text_sync";
 import { TextUnderline } from "./icon/icons/text_underline";
 import { Transfer } from "./icon/icons/transfer";
+import { Trash } from "./icon/icons/trash";
 import { Undo } from "./icon/icons/undo";
 import { User } from "./icon/icons/user";
 import { UserEdit } from "./icon/icons/user_edit";
@@ -264,9 +259,9 @@ export const IconBanned = createComponent({
 	react: React,
 });
 
-export const IconBincular = createComponent({
-	tagName: "icon-bincular",
-	elementClass: Bincular,
+export const IconBinocular = createComponent({
+	tagName: "icon-binocular",
+	elementClass: Binocular,
 	react: React,
 });
 
@@ -396,12 +391,6 @@ export const IconCursorPointerCircle = createComponent({
 	react: React,
 });
 
-export const IconDeleteIcon = createComponent({
-	tagName: "icon-delete_icon",
-	elementClass: DeleteIcon,
-	react: React,
-});
-
 export const IconDice = createComponent({
 	tagName: "icon-dice",
 	elementClass: Dice,
@@ -474,24 +463,6 @@ export const IconFemaleHeadset = createComponent({
 	react: React,
 });
 
-export const IconFilledCheckCircle = createComponent({
-	tagName: "icon-filled_check_circle",
-	elementClass: FilledCheckCircle,
-	react: React,
-});
-
-export const IconFilledInformationCircle = createComponent({
-	tagName: "icon-filled_information_circle",
-	elementClass: FilledInformationCircle,
-	react: React,
-});
-
-export const IconFilledWarningCircle = createComponent({
-	tagName: "icon-filled_warning_circle",
-	elementClass: FilledWarningCircle,
-	react: React,
-});
-
 export const IconFlipRight = createComponent({
 	tagName: "icon-flip_right",
 	elementClass: FlipRight,
@@ -507,18 +478,6 @@ export const IconFolderBookmark = createComponent({
 export const IconFontExpand = createComponent({
 	tagName: "icon-font_expand",
 	elementClass: FontExpand,
-	react: React,
-});
-
-export const IconFormChecked = createComponent({
-	tagName: "icon-form_checked",
-	elementClass: FormChecked,
-	react: React,
-});
-
-export const IconFormIndeterminate = createComponent({
-	tagName: "icon-form_indeterminate",
-	elementClass: FormIndeterminate,
 	react: React,
 });
 
@@ -930,12 +889,6 @@ export const IconRocket = createComponent({
 	react: React,
 });
 
-export const IconSchoolTeacher = createComponent({
-	tagName: "icon-school_teacher",
-	elementClass: SchoolTeacher,
-	react: React,
-});
-
 export const IconSearch = createComponent({
 	tagName: "icon-search",
 	elementClass: Search,
@@ -1038,6 +991,12 @@ export const IconTaskListClock = createComponent({
 	react: React,
 });
 
+export const IconTeacher = createComponent({
+	tagName: "icon-teacher",
+	elementClass: Teacher,
+	react: React,
+});
+
 export const IconTeacherCorrect = createComponent({
 	tagName: "icon-teacher_correct",
 	elementClass: TeacherCorrect,
@@ -1083,6 +1042,12 @@ export const IconTextUnderline = createComponent({
 export const IconTransfer = createComponent({
 	tagName: "icon-transfer",
 	elementClass: Transfer,
+	react: React,
+});
+
+export const IconTrash = createComponent({
+	tagName: "icon-trash",
+	elementClass: Trash,
 	react: React,
 });
 

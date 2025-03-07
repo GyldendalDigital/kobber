@@ -15,7 +15,7 @@ export type IconType =
   | "kobber-audio_recording"
   | "kobber-backspace"
   | "kobber-banned"
-  | "kobber-bincular"
+  | "kobber-binocular"
   | "kobber-book_flip_page"
   | "kobber-book_open"
   | "kobber-bookmark"
@@ -37,7 +37,6 @@ export type IconType =
   | "kobber-copy_paste"
   | "kobber-cursor_pointer"
   | "kobber-cursor_pointer_circle"
-  | "kobber-delete_icon"
   | "kobber-dice"
   | "kobber-dictionary"
   | "kobber-download"
@@ -50,14 +49,9 @@ export type IconType =
   | "kobber-external_link"
   | "kobber-external_link_arrow"
   | "kobber-female_headset"
-  | "kobber-filled_check_circle"
-  | "kobber-filled_information_circle"
-  | "kobber-filled_warning_circle"
   | "kobber-flip_right"
   | "kobber-folder_bookmark"
   | "kobber-font_expand"
-  | "kobber-form_checked"
-  | "kobber-form_indeterminate"
   | "kobber-form_template"
   | "kobber-frame_expand"
   | "kobber-frame_shrink"
@@ -126,7 +120,6 @@ export type IconType =
   | "kobber-retouch_graph"
   | "kobber-ribbon_star"
   | "kobber-rocket"
-  | "kobber-school_teacher"
   | "kobber-search"
   | "kobber-settings"
   | "kobber-settings_slider"
@@ -144,6 +137,7 @@ export type IconType =
   | "kobber-tablet_touch"
   | "kobber-task_list"
   | "kobber-task_list_clock"
+  | "kobber-teacher"
   | "kobber-teacher_correct"
   | "kobber-text_bold"
   | "kobber-text_format"
@@ -152,6 +146,7 @@ export type IconType =
   | "kobber-text_sync"
   | "kobber-text_underline"
   | "kobber-transfer"
+  | "kobber-trash"
   | "kobber-undo"
   | "kobber-user"
   | "kobber-user_edit"
@@ -184,7 +179,7 @@ export type IconType =
  "kobber-audio_recording", 
  "kobber-backspace", 
  "kobber-banned", 
- "kobber-bincular", 
+ "kobber-binocular", 
  "kobber-book_flip_page", 
  "kobber-book_open", 
  "kobber-bookmark", 
@@ -206,7 +201,6 @@ export type IconType =
  "kobber-copy_paste", 
  "kobber-cursor_pointer", 
  "kobber-cursor_pointer_circle", 
- "kobber-delete_icon", 
  "kobber-dice", 
  "kobber-dictionary", 
  "kobber-download", 
@@ -219,14 +213,9 @@ export type IconType =
  "kobber-external_link", 
  "kobber-external_link_arrow", 
  "kobber-female_headset", 
- "kobber-filled_check_circle", 
- "kobber-filled_information_circle", 
- "kobber-filled_warning_circle", 
  "kobber-flip_right", 
  "kobber-folder_bookmark", 
  "kobber-font_expand", 
- "kobber-form_checked", 
- "kobber-form_indeterminate", 
  "kobber-form_template", 
  "kobber-frame_expand", 
  "kobber-frame_shrink", 
@@ -295,7 +284,6 @@ export type IconType =
  "kobber-retouch_graph", 
  "kobber-ribbon_star", 
  "kobber-rocket", 
- "kobber-school_teacher", 
  "kobber-search", 
  "kobber-settings", 
  "kobber-settings_slider", 
@@ -313,6 +301,7 @@ export type IconType =
  "kobber-tablet_touch", 
  "kobber-task_list", 
  "kobber-task_list_clock", 
+ "kobber-teacher", 
  "kobber-teacher_correct", 
  "kobber-text_bold", 
  "kobber-text_format", 
@@ -321,6 +310,7 @@ export type IconType =
  "kobber-text_sync", 
  "kobber-text_underline", 
  "kobber-transfer", 
+ "kobber-trash", 
  "kobber-undo", 
  "kobber-user", 
  "kobber-user_edit", 
