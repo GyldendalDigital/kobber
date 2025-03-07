@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.3.81
+
+### Patch Changes
+
+- Manually remove form_radio icon
+- Updated dependencies
+  - @gyldendal/kobber-icons@0.3.81
+  - @gyldendal/kobber-base@0.3.81
+
 ## 0.3.80
 
 ### Patch Changes
