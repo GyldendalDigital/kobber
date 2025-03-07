@@ -14,11 +14,15 @@ Storybook for web components lets you choose between kobber-theme-default and ko
 
 ## 📦 Packages
 
-[@gyldendal/kobber-base](./packages/kobber-base/README.md)
-<br />
-[@gyldendal/kobber-components](./packages/kobber-components/README.md)
-<br />
-[@gyldendal/kobber-scene](./packages/kobber-scene/README.md)
+1. [@gyldendal/kobber-audio-recorder](./packages/kobber-audio-recorder/README.md)
+1. [@gyldendal/kobber-base](./packages/kobber-base/README.md)
+1. [@gyldendal/kobber-components](./packages/kobber-components/README.md)
+1. @gyldendal/kobber-eslint
+1. [@gyldendal/kobber-icons](./packages/kobber-icons/README.md)
+1. @gyldendal/kobber-prettier
+1. [@gyldendal/kobber-scene](./packages/kobber-scene/README.md)
+1. @gyldendal/kobber-stylelint
+1. [@gyldendal/kobber-tsconfig](./packages/kobber-tsconfig/README.md)
 
 ## 🙏 Credits
 
