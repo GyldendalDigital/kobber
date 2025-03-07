@@ -5,7 +5,9 @@ TypeScript definitions are included.
 
 See also https://kobber.gyldendal.no/merkevare/ikoner.
 
-## Installation
+## Usage
+
+### Installation
 
 Run one of the following commands to add @gyldendal/kobber-icons to your project:
 
@@ -19,20 +21,18 @@ yarn add @gyldendal/kobber-icons
 
 Depending on you usage, you might need to to install the optional peerDependencies.
 
-## Usage
+### Using the svgs
 
 Icons can be imported as react components, as web components, or as an SVG sprite.
 
-Each icon component is prefixed with `icon-`, to simplify understanding what kind of component is used.
-
-As a react component:
+#### As a react component
 
 ```jsx
 import { IconArrowRight } from "@gyldendal/kobber-icons/react";
 const App = () => <IconArrowRight />;
 ```
 
-As a custom element:
+#### As a custom element
 
 ```html
 <script>
@@ -41,30 +41,35 @@ As a custom element:
 <icon-arrow_right />
 ```
 
-Or include the sprite `@gyldendal/kobber-icons/symbols/kobber-icons.svg` in your html, and reference its symbols.
+#### Use sprite directly
+
+Include the sprite `@gyldendal/kobber-icons/symbols/kobber-icons.svg` in your html, and reference its [symbols](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol).
 The file `@gyldendal/kobber-icons/symbols/kobber-icons-lists.ts` contains a list of all icons and a type declaration, which can be useful.
 
 (Note that such ID references do not currenly work across the shadow dom barrier.)
 
 ```html
 <svg role="presentation" aria-hidden="true">
-  <use href="#arrow_right" />
+  <use href="#kobber-arrow_right" />
 </svg>
 ```
 
-## ⚡ Quick how to: Update icons
+### Styling
 
-1. Recieve svgs from a designer (all current svgs in one zipped folder is preferred).
-2. Extract svgs to folder `kobber/packages/kobber-icons/src/assets/svgs`.
-3. Run `yarn build`.
-4. Commit changes, and publish according to [changeset](../../.changeset/README.md).
+#### Color
 
-## 🧱 Icons folder structure
+Icons have set `fill=currentcolor`. This means the icon components' color will inherit from their parent element.
+
+#### Size
+
+Icons use the CSS Custom Properties `--icon-width` and `--icon-height`, which both have `--kobber-primitives-size-16: 1rem;` as fallback value.
+
+### 🧱 Icons folder structure
 
 ```
 /
 └── chunks/
-│   └── chunk.js
+│   └── chunk-[hash].js
 └── react/
 │   ├── index.js
 │   └── index.d.ts
@@ -72,14 +77,41 @@ The file `@gyldendal/kobber-icons/symbols/kobber-icons-lists.ts` contains a list
 │   ├── kobber-icons.svg
 │   └── kobber-icons-lists.ts
 └── web-components/
-│   ├── index.js
-│   └── index.d.ts
-└── svg-sprite-config.json
-└── tsup.config.ts
+    ├── index.js
+    └── index.d.ts
 ```
 
-First, the package [svg-sprite](https://github.com/svg-sprite/svg-sprite) makes the sprite `./symbols/kobber-icons.svg` from all icons in `src/assets/svgs`. `svg-sprite` uses `./svg-sprite-config.json` to make the sprite contain symbols, and ensure each symbol uses currentcolor as fill color.
+## Development
+
+### ⚡ Quick how to: Update icons
+
+1. Get all current icons from DAM:
+   - Download from [DAM](https://dam-p-gyldendal.pqcloud.eu/app/#/search//name/?path=%22%5CKobber%5CDesignelementer%5CIkoner%22&enableAssetsOfCollections=true&showAssetsOfSubfolders=true&showSubCollections=false), or
+   - Recieve svgs from a colleague with access to DAM.
+2. Delete all content in folder `kobber/packages/kobber-icons/src/assets/svgs`.
+3. Extract svgs to folder `kobber/packages/kobber-icons/src/assets/svgs`.
+4. Run `yarn build`.
+5. Commit changes, and publish according to [changeset](../../.changeset/README.md).
+
+### Building icons
+
+`yarn build` runs the `svg` script, and then the `tsup` script.
+
+#### Script `svg`
+
+`svg` uses the package [svg-sprite](https://github.com/svg-sprite/svg-sprite) to make the sprite `./symbols/kobber-icons.svg` from all icons in `src/assets/svgs` folder.
+
+svg-sprite uses `./svg-sprite-config.json` to generate the sprite containing each icon as an [svg symbol](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol).
+
+For each svg symbol, this config file:
+
+- prefixes its id with `kobber-` (to avoid collisions with any other id in the html, including svg symbols in other sprites)
+- ensures currentcolor is used as fill color
+
+#### Script `tsup`
 
 In `./tsup.config.ts`, the sprite is used as input for making `./symbols/kobber-icons-lists.ts`, the all icon components and their story files.
+
+#### Generated files
 
 All files in folders (`chunks`, `react`, `symbols` and `web-components`) are auto generated and should never be edited manually.
