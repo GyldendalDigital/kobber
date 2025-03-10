@@ -164,967 +164,967 @@ import { Warning } from "./icon/icons/warning";
 import { Youtube } from "./icon/icons/youtube"; 
 
 export const IconAdd = createComponent({
-	tagName: "icon-add",
-	elementClass: Add,
-	react: React,
+  tagName: "icon-add",
+  elementClass: Add,
+  react: React,
 });
 
 export const IconAddFigure = createComponent({
-	tagName: "icon-add_figure",
-	elementClass: AddFigure,
-	react: React,
+  tagName: "icon-add_figure",
+  elementClass: AddFigure,
+  react: React,
 });
 
 export const IconAddSquare = createComponent({
-	tagName: "icon-add_square",
-	elementClass: AddSquare,
-	react: React,
+  tagName: "icon-add_square",
+  elementClass: AddSquare,
+  react: React,
 });
 
 export const IconAlarmBell = createComponent({
-	tagName: "icon-alarm_bell",
-	elementClass: AlarmBell,
-	react: React,
+  tagName: "icon-alarm_bell",
+  elementClass: AlarmBell,
+  react: React,
 });
 
 export const IconAlarmClock = createComponent({
-	tagName: "icon-alarm_clock",
-	elementClass: AlarmClock,
-	react: React,
+  tagName: "icon-alarm_clock",
+  elementClass: AlarmClock,
+  react: React,
 });
 
 export const IconAlarmTimer = createComponent({
-	tagName: "icon-alarm_timer",
-	elementClass: AlarmTimer,
-	react: React,
+  tagName: "icon-alarm_timer",
+  elementClass: AlarmTimer,
+  react: React,
 });
 
 export const IconAnalyticBars = createComponent({
-	tagName: "icon-analytic_bars",
-	elementClass: AnalyticBars,
-	react: React,
+  tagName: "icon-analytic_bars",
+  elementClass: AnalyticBars,
+  react: React,
 });
 
 export const IconArrowBack = createComponent({
-	tagName: "icon-arrow_back",
-	elementClass: ArrowBack,
-	react: React,
+  tagName: "icon-arrow_back",
+  elementClass: ArrowBack,
+  react: React,
 });
 
 export const IconArrowDown = createComponent({
-	tagName: "icon-arrow_down",
-	elementClass: ArrowDown,
-	react: React,
+  tagName: "icon-arrow_down",
+  elementClass: ArrowDown,
+  react: React,
 });
 
 export const IconArrowLeft = createComponent({
-	tagName: "icon-arrow_left",
-	elementClass: ArrowLeft,
-	react: React,
+  tagName: "icon-arrow_left",
+  elementClass: ArrowLeft,
+  react: React,
 });
 
 export const IconArrowRight = createComponent({
-	tagName: "icon-arrow_right",
-	elementClass: ArrowRight,
-	react: React,
+  tagName: "icon-arrow_right",
+  elementClass: ArrowRight,
+  react: React,
 });
 
 export const IconArrowUp = createComponent({
-	tagName: "icon-arrow_up",
-	elementClass: ArrowUp,
-	react: React,
+  tagName: "icon-arrow_up",
+  elementClass: ArrowUp,
+  react: React,
 });
 
 export const IconAssets = createComponent({
-	tagName: "icon-assets",
-	elementClass: Assets,
-	react: React,
+  tagName: "icon-assets",
+  elementClass: Assets,
+  react: React,
 });
 
 export const IconAudioRecording = createComponent({
-	tagName: "icon-audio_recording",
-	elementClass: AudioRecording,
-	react: React,
+  tagName: "icon-audio_recording",
+  elementClass: AudioRecording,
+  react: React,
 });
 
 export const IconBackspace = createComponent({
-	tagName: "icon-backspace",
-	elementClass: Backspace,
-	react: React,
+  tagName: "icon-backspace",
+  elementClass: Backspace,
+  react: React,
 });
 
 export const IconBanned = createComponent({
-	tagName: "icon-banned",
-	elementClass: Banned,
-	react: React,
+  tagName: "icon-banned",
+  elementClass: Banned,
+  react: React,
 });
 
 export const IconBinocular = createComponent({
-	tagName: "icon-binocular",
-	elementClass: Binocular,
-	react: React,
+  tagName: "icon-binocular",
+  elementClass: Binocular,
+  react: React,
 });
 
 export const IconBookFlipPage = createComponent({
-	tagName: "icon-book_flip_page",
-	elementClass: BookFlipPage,
-	react: React,
+  tagName: "icon-book_flip_page",
+  elementClass: BookFlipPage,
+  react: React,
 });
 
 export const IconBookOpen = createComponent({
-	tagName: "icon-book_open",
-	elementClass: BookOpen,
-	react: React,
+  tagName: "icon-book_open",
+  elementClass: BookOpen,
+  react: React,
 });
 
 export const IconBookmark = createComponent({
-	tagName: "icon-bookmark",
-	elementClass: Bookmark,
-	react: React,
+  tagName: "icon-bookmark",
+  elementClass: Bookmark,
+  react: React,
 });
 
 export const IconBulletList = createComponent({
-	tagName: "icon-bullet_list",
-	elementClass: BulletList,
-	react: React,
+  tagName: "icon-bullet_list",
+  elementClass: BulletList,
+  react: React,
 });
 
 export const IconCalendar = createComponent({
-	tagName: "icon-calendar",
-	elementClass: Calendar,
-	react: React,
+  tagName: "icon-calendar",
+  elementClass: Calendar,
+  react: React,
 });
 
 export const IconCamera = createComponent({
-	tagName: "icon-camera",
-	elementClass: Camera,
-	react: React,
+  tagName: "icon-camera",
+  elementClass: Camera,
+  react: React,
 });
 
 export const IconChat = createComponent({
-	tagName: "icon-chat",
-	elementClass: Chat,
-	react: React,
+  tagName: "icon-chat",
+  elementClass: Chat,
+  react: React,
 });
 
 export const IconCheck = createComponent({
-	tagName: "icon-check",
-	elementClass: Check,
-	react: React,
+  tagName: "icon-check",
+  elementClass: Check,
+  react: React,
 });
 
 export const IconCheckCircle = createComponent({
-	tagName: "icon-check_circle",
-	elementClass: CheckCircle,
-	react: React,
+  tagName: "icon-check_circle",
+  elementClass: CheckCircle,
+  react: React,
 });
 
 export const IconChecklist = createComponent({
-	tagName: "icon-checklist",
-	elementClass: Checklist,
-	react: React,
+  tagName: "icon-checklist",
+  elementClass: Checklist,
+  react: React,
 });
 
 export const IconChevronDown = createComponent({
-	tagName: "icon-chevron_down",
-	elementClass: ChevronDown,
-	react: React,
+  tagName: "icon-chevron_down",
+  elementClass: ChevronDown,
+  react: React,
 });
 
 export const IconChevronUp = createComponent({
-	tagName: "icon-chevron_up",
-	elementClass: ChevronUp,
-	react: React,
+  tagName: "icon-chevron_up",
+  elementClass: ChevronUp,
+  react: React,
 });
 
 export const IconCircle = createComponent({
-	tagName: "icon-circle",
-	elementClass: Circle,
-	react: React,
+  tagName: "icon-circle",
+  elementClass: Circle,
+  react: React,
 });
 
 export const IconCircleShapeAdd = createComponent({
-	tagName: "icon-circle_shape_add",
-	elementClass: CircleShapeAdd,
-	react: React,
+  tagName: "icon-circle_shape_add",
+  elementClass: CircleShapeAdd,
+  react: React,
 });
 
 export const IconClock = createComponent({
-	tagName: "icon-clock",
-	elementClass: Clock,
-	react: React,
+  tagName: "icon-clock",
+  elementClass: Clock,
+  react: React,
 });
 
 export const IconClockHand = createComponent({
-	tagName: "icon-clock_hand",
-	elementClass: ClockHand,
-	react: React,
+  tagName: "icon-clock_hand",
+  elementClass: ClockHand,
+  react: React,
 });
 
 export const IconClose = createComponent({
-	tagName: "icon-close",
-	elementClass: Close,
-	react: React,
+  tagName: "icon-close",
+  elementClass: Close,
+  react: React,
 });
 
 export const IconColorBrush = createComponent({
-	tagName: "icon-color_brush",
-	elementClass: ColorBrush,
-	react: React,
+  tagName: "icon-color_brush",
+  elementClass: ColorBrush,
+  react: React,
 });
 
 export const IconCopyPaste = createComponent({
-	tagName: "icon-copy_paste",
-	elementClass: CopyPaste,
-	react: React,
+  tagName: "icon-copy_paste",
+  elementClass: CopyPaste,
+  react: React,
 });
 
 export const IconCursorPointer = createComponent({
-	tagName: "icon-cursor_pointer",
-	elementClass: CursorPointer,
-	react: React,
+  tagName: "icon-cursor_pointer",
+  elementClass: CursorPointer,
+  react: React,
 });
 
 export const IconCursorPointerCircle = createComponent({
-	tagName: "icon-cursor_pointer_circle",
-	elementClass: CursorPointerCircle,
-	react: React,
+  tagName: "icon-cursor_pointer_circle",
+  elementClass: CursorPointerCircle,
+  react: React,
 });
 
 export const IconDice = createComponent({
-	tagName: "icon-dice",
-	elementClass: Dice,
-	react: React,
+  tagName: "icon-dice",
+  elementClass: Dice,
+  react: React,
 });
 
 export const IconDictionary = createComponent({
-	tagName: "icon-dictionary",
-	elementClass: Dictionary,
-	react: React,
+  tagName: "icon-dictionary",
+  elementClass: Dictionary,
+  react: React,
 });
 
 export const IconDownload = createComponent({
-	tagName: "icon-download",
-	elementClass: Download,
-	react: React,
+  tagName: "icon-download",
+  elementClass: Download,
+  react: React,
 });
 
 export const IconDrawTablet = createComponent({
-	tagName: "icon-draw_tablet",
-	elementClass: DrawTablet,
-	react: React,
+  tagName: "icon-draw_tablet",
+  elementClass: DrawTablet,
+  react: React,
 });
 
 export const IconElements = createComponent({
-	tagName: "icon-elements",
-	elementClass: Elements,
-	react: React,
+  tagName: "icon-elements",
+  elementClass: Elements,
+  react: React,
 });
 
 export const IconEnvelope = createComponent({
-	tagName: "icon-envelope",
-	elementClass: Envelope,
-	react: React,
+  tagName: "icon-envelope",
+  elementClass: Envelope,
+  react: React,
 });
 
 export const IconEraser = createComponent({
-	tagName: "icon-eraser",
-	elementClass: Eraser,
-	react: React,
+  tagName: "icon-eraser",
+  elementClass: Eraser,
+  react: React,
 });
 
 export const IconExpand = createComponent({
-	tagName: "icon-expand",
-	elementClass: Expand,
-	react: React,
+  tagName: "icon-expand",
+  elementClass: Expand,
+  react: React,
 });
 
 export const IconExpandResize = createComponent({
-	tagName: "icon-expand_resize",
-	elementClass: ExpandResize,
-	react: React,
+  tagName: "icon-expand_resize",
+  elementClass: ExpandResize,
+  react: React,
 });
 
 export const IconExternalLink = createComponent({
-	tagName: "icon-external_link",
-	elementClass: ExternalLink,
-	react: React,
+  tagName: "icon-external_link",
+  elementClass: ExternalLink,
+  react: React,
 });
 
 export const IconExternalLinkArrow = createComponent({
-	tagName: "icon-external_link_arrow",
-	elementClass: ExternalLinkArrow,
-	react: React,
+  tagName: "icon-external_link_arrow",
+  elementClass: ExternalLinkArrow,
+  react: React,
 });
 
 export const IconFemaleHeadset = createComponent({
-	tagName: "icon-female_headset",
-	elementClass: FemaleHeadset,
-	react: React,
+  tagName: "icon-female_headset",
+  elementClass: FemaleHeadset,
+  react: React,
 });
 
 export const IconFlipRight = createComponent({
-	tagName: "icon-flip_right",
-	elementClass: FlipRight,
-	react: React,
+  tagName: "icon-flip_right",
+  elementClass: FlipRight,
+  react: React,
 });
 
 export const IconFolderBookmark = createComponent({
-	tagName: "icon-folder_bookmark",
-	elementClass: FolderBookmark,
-	react: React,
+  tagName: "icon-folder_bookmark",
+  elementClass: FolderBookmark,
+  react: React,
 });
 
 export const IconFontExpand = createComponent({
-	tagName: "icon-font_expand",
-	elementClass: FontExpand,
-	react: React,
+  tagName: "icon-font_expand",
+  elementClass: FontExpand,
+  react: React,
 });
 
 export const IconFormTemplate = createComponent({
-	tagName: "icon-form_template",
-	elementClass: FormTemplate,
-	react: React,
+  tagName: "icon-form_template",
+  elementClass: FormTemplate,
+  react: React,
 });
 
 export const IconFrameExpand = createComponent({
-	tagName: "icon-frame_expand",
-	elementClass: FrameExpand,
-	react: React,
+  tagName: "icon-frame_expand",
+  elementClass: FrameExpand,
+  react: React,
 });
 
 export const IconFrameShrink = createComponent({
-	tagName: "icon-frame_shrink",
-	elementClass: FrameShrink,
-	react: React,
+  tagName: "icon-frame_shrink",
+  elementClass: FrameShrink,
+  react: React,
 });
 
 export const IconGameController = createComponent({
-	tagName: "icon-game_controller",
-	elementClass: GameController,
-	react: React,
+  tagName: "icon-game_controller",
+  elementClass: GameController,
+  react: React,
 });
 
 export const IconGlasses = createComponent({
-	tagName: "icon-glasses",
-	elementClass: Glasses,
-	react: React,
+  tagName: "icon-glasses",
+  elementClass: Glasses,
+  react: React,
 });
 
 export const IconGraphStats = createComponent({
-	tagName: "icon-graph_stats",
-	elementClass: GraphStats,
-	react: React,
+  tagName: "icon-graph_stats",
+  elementClass: GraphStats,
+  react: React,
 });
 
 export const IconHeadphones = createComponent({
-	tagName: "icon-headphones",
-	elementClass: Headphones,
-	react: React,
+  tagName: "icon-headphones",
+  elementClass: Headphones,
+  react: React,
 });
 
 export const IconHeart = createComponent({
-	tagName: "icon-heart",
-	elementClass: Heart,
-	react: React,
+  tagName: "icon-heart",
+  elementClass: Heart,
+  react: React,
 });
 
 export const IconHome = createComponent({
-	tagName: "icon-home",
-	elementClass: Home,
-	react: React,
+  tagName: "icon-home",
+  elementClass: Home,
+  react: React,
 });
 
 export const IconHyperlink = createComponent({
-	tagName: "icon-hyperlink",
-	elementClass: Hyperlink,
-	react: React,
+  tagName: "icon-hyperlink",
+  elementClass: Hyperlink,
+  react: React,
 });
 
 export const IconImage = createComponent({
-	tagName: "icon-image",
-	elementClass: Image,
-	react: React,
+  tagName: "icon-image",
+  elementClass: Image,
+  react: React,
 });
 
 export const IconImageFlower = createComponent({
-	tagName: "icon-image_flower",
-	elementClass: ImageFlower,
-	react: React,
+  tagName: "icon-image_flower",
+  elementClass: ImageFlower,
+  react: React,
 });
 
 export const IconIndentDecrease = createComponent({
-	tagName: "icon-indent_decrease",
-	elementClass: IndentDecrease,
-	react: React,
+  tagName: "icon-indent_decrease",
+  elementClass: IndentDecrease,
+  react: React,
 });
 
 export const IconIndentIncrease = createComponent({
-	tagName: "icon-indent_increase",
-	elementClass: IndentIncrease,
-	react: React,
+  tagName: "icon-indent_increase",
+  elementClass: IndentIncrease,
+  react: React,
 });
 
 export const IconInformation = createComponent({
-	tagName: "icon-information",
-	elementClass: Information,
-	react: React,
+  tagName: "icon-information",
+  elementClass: Information,
+  react: React,
 });
 
 export const IconKeyboard = createComponent({
-	tagName: "icon-keyboard",
-	elementClass: Keyboard,
-	react: React,
+  tagName: "icon-keyboard",
+  elementClass: Keyboard,
+  react: React,
 });
 
 export const IconLayers = createComponent({
-	tagName: "icon-layers",
-	elementClass: Layers,
-	react: React,
+  tagName: "icon-layers",
+  elementClass: Layers,
+  react: React,
 });
 
 export const IconLayersBack = createComponent({
-	tagName: "icon-layers_back",
-	elementClass: LayersBack,
-	react: React,
+  tagName: "icon-layers_back",
+  elementClass: LayersBack,
+  react: React,
 });
 
 export const IconLayoutLeft = createComponent({
-	tagName: "icon-layout_left",
-	elementClass: LayoutLeft,
-	react: React,
+  tagName: "icon-layout_left",
+  elementClass: LayoutLeft,
+  react: React,
 });
 
 export const IconLayoutModule = createComponent({
-	tagName: "icon-layout_module",
-	elementClass: LayoutModule,
-	react: React,
+  tagName: "icon-layout_module",
+  elementClass: LayoutModule,
+  react: React,
 });
 
 export const IconLayoutRight = createComponent({
-	tagName: "icon-layout_right",
-	elementClass: LayoutRight,
-	react: React,
+  tagName: "icon-layout_right",
+  elementClass: LayoutRight,
+  react: React,
 });
 
 export const IconLibrary = createComponent({
-	tagName: "icon-library",
-	elementClass: Library,
-	react: React,
+  tagName: "icon-library",
+  elementClass: Library,
+  react: React,
 });
 
 export const IconLightBulb = createComponent({
-	tagName: "icon-light_bulb",
-	elementClass: LightBulb,
-	react: React,
+  tagName: "icon-light_bulb",
+  elementClass: LightBulb,
+  react: React,
 });
 
 export const IconLockLocked = createComponent({
-	tagName: "icon-lock_locked",
-	elementClass: LockLocked,
-	react: React,
+  tagName: "icon-lock_locked",
+  elementClass: LockLocked,
+  react: React,
 });
 
 export const IconLockUnlocked = createComponent({
-	tagName: "icon-lock_unlocked",
-	elementClass: LockUnlocked,
-	react: React,
+  tagName: "icon-lock_unlocked",
+  elementClass: LockUnlocked,
+  react: React,
 });
 
 export const IconLogin = createComponent({
-	tagName: "icon-login",
-	elementClass: Login,
-	react: React,
+  tagName: "icon-login",
+  elementClass: Login,
+  react: React,
 });
 
 export const IconLogout = createComponent({
-	tagName: "icon-logout",
-	elementClass: Logout,
-	react: React,
+  tagName: "icon-logout",
+  elementClass: Logout,
+  react: React,
 });
 
 export const IconMagnet = createComponent({
-	tagName: "icon-magnet",
-	elementClass: Magnet,
-	react: React,
+  tagName: "icon-magnet",
+  elementClass: Magnet,
+  react: React,
 });
 
 export const IconMenu = createComponent({
-	tagName: "icon-menu",
-	elementClass: Menu,
-	react: React,
+  tagName: "icon-menu",
+  elementClass: Menu,
+  react: React,
 });
 
 export const IconMessage = createComponent({
-	tagName: "icon-message",
-	elementClass: Message,
-	react: React,
+  tagName: "icon-message",
+  elementClass: Message,
+  react: React,
 });
 
 export const IconMessageQuestion = createComponent({
-	tagName: "icon-message_question",
-	elementClass: MessageQuestion,
-	react: React,
+  tagName: "icon-message_question",
+  elementClass: MessageQuestion,
+  react: React,
 });
 
 export const IconMessageStar = createComponent({
-	tagName: "icon-message_star",
-	elementClass: MessageStar,
-	react: React,
+  tagName: "icon-message_star",
+  elementClass: MessageStar,
+  react: React,
 });
 
 export const IconMessageTyping = createComponent({
-	tagName: "icon-message_typing",
-	elementClass: MessageTyping,
-	react: React,
+  tagName: "icon-message_typing",
+  elementClass: MessageTyping,
+  react: React,
 });
 
 export const IconMessageWarning = createComponent({
-	tagName: "icon-message_warning",
-	elementClass: MessageWarning,
-	react: React,
+  tagName: "icon-message_warning",
+  elementClass: MessageWarning,
+  react: React,
 });
 
 export const IconModuleEdit = createComponent({
-	tagName: "icon-module_edit",
-	elementClass: ModuleEdit,
-	react: React,
+  tagName: "icon-module_edit",
+  elementClass: ModuleEdit,
+  react: React,
 });
 
 export const IconModuleFour = createComponent({
-	tagName: "icon-module_four",
-	elementClass: ModuleFour,
-	react: React,
+  tagName: "icon-module_four",
+  elementClass: ModuleFour,
+  react: React,
 });
 
 export const IconMultipleUsers = createComponent({
-	tagName: "icon-multiple_users",
-	elementClass: MultipleUsers,
-	react: React,
+  tagName: "icon-multiple_users",
+  elementClass: MultipleUsers,
+  react: React,
 });
 
 export const IconNewspaper = createComponent({
-	tagName: "icon-newspaper",
-	elementClass: Newspaper,
-	react: React,
+  tagName: "icon-newspaper",
+  elementClass: Newspaper,
+  react: React,
 });
 
 export const IconNotebookPencil = createComponent({
-	tagName: "icon-notebook_pencil",
-	elementClass: NotebookPencil,
-	react: React,
+  tagName: "icon-notebook_pencil",
+  elementClass: NotebookPencil,
+  react: React,
 });
 
 export const IconNumberList = createComponent({
-	tagName: "icon-number_list",
-	elementClass: NumberList,
-	react: React,
+  tagName: "icon-number_list",
+  elementClass: NumberList,
+  react: React,
 });
 
 export const IconOption = createComponent({
-	tagName: "icon-option",
-	elementClass: Option,
-	react: React,
+  tagName: "icon-option",
+  elementClass: Option,
+  react: React,
 });
 
 export const IconPalette = createComponent({
-	tagName: "icon-palette",
-	elementClass: Palette,
-	react: React,
+  tagName: "icon-palette",
+  elementClass: Palette,
+  react: React,
 });
 
 export const IconParagraph = createComponent({
-	tagName: "icon-paragraph",
-	elementClass: Paragraph,
-	react: React,
+  tagName: "icon-paragraph",
+  elementClass: Paragraph,
+  react: React,
 });
 
 export const IconParagraphCenter = createComponent({
-	tagName: "icon-paragraph_center",
-	elementClass: ParagraphCenter,
-	react: React,
+  tagName: "icon-paragraph_center",
+  elementClass: ParagraphCenter,
+  react: React,
 });
 
 export const IconParagraphLeft = createComponent({
-	tagName: "icon-paragraph_left",
-	elementClass: ParagraphLeft,
-	react: React,
+  tagName: "icon-paragraph_left",
+  elementClass: ParagraphLeft,
+  react: React,
 });
 
 export const IconParagraphRight = createComponent({
-	tagName: "icon-paragraph_right",
-	elementClass: ParagraphRight,
-	react: React,
+  tagName: "icon-paragraph_right",
+  elementClass: ParagraphRight,
+  react: React,
 });
 
 export const IconPartyBalloon = createComponent({
-	tagName: "icon-party_balloon",
-	elementClass: PartyBalloon,
-	react: React,
+  tagName: "icon-party_balloon",
+  elementClass: PartyBalloon,
+  react: React,
 });
 
 export const IconPause = createComponent({
-	tagName: "icon-pause",
-	elementClass: Pause,
-	react: React,
+  tagName: "icon-pause",
+  elementClass: Pause,
+  react: React,
 });
 
 export const IconPenTools = createComponent({
-	tagName: "icon-pen_tools",
-	elementClass: PenTools,
-	react: React,
+  tagName: "icon-pen_tools",
+  elementClass: PenTools,
+  react: React,
 });
 
 export const IconPenWrite = createComponent({
-	tagName: "icon-pen_write",
-	elementClass: PenWrite,
-	react: React,
+  tagName: "icon-pen_write",
+  elementClass: PenWrite,
+  react: React,
 });
 
 export const IconPencil = createComponent({
-	tagName: "icon-pencil",
-	elementClass: Pencil,
-	react: React,
+  tagName: "icon-pencil",
+  elementClass: Pencil,
+  react: React,
 });
 
 export const IconPin = createComponent({
-	tagName: "icon-pin",
-	elementClass: Pin,
-	react: React,
+  tagName: "icon-pin",
+  elementClass: Pin,
+  react: React,
 });
 
 export const IconPinRemove = createComponent({
-	tagName: "icon-pin_remove",
-	elementClass: PinRemove,
-	react: React,
+  tagName: "icon-pin_remove",
+  elementClass: PinRemove,
+  react: React,
 });
 
 export const IconPlay = createComponent({
-	tagName: "icon-play",
-	elementClass: Play,
-	react: React,
+  tagName: "icon-play",
+  elementClass: Play,
+  react: React,
 });
 
 export const IconPrinter = createComponent({
-	tagName: "icon-printer",
-	elementClass: Printer,
-	react: React,
+  tagName: "icon-printer",
+  elementClass: Printer,
+  react: React,
 });
 
 export const IconQuestionCircle = createComponent({
-	tagName: "icon-question_circle",
-	elementClass: QuestionCircle,
-	react: React,
+  tagName: "icon-question_circle",
+  elementClass: QuestionCircle,
+  react: React,
 });
 
 export const IconRankingStar = createComponent({
-	tagName: "icon-ranking_star",
-	elementClass: RankingStar,
-	react: React,
+  tagName: "icon-ranking_star",
+  elementClass: RankingStar,
+  react: React,
 });
 
 export const IconRatingStarCheck = createComponent({
-	tagName: "icon-rating_star_check",
-	elementClass: RatingStarCheck,
-	react: React,
+  tagName: "icon-rating_star_check",
+  elementClass: RatingStarCheck,
+  react: React,
 });
 
 export const IconRead = createComponent({
-	tagName: "icon-read",
-	elementClass: Read,
-	react: React,
+  tagName: "icon-read",
+  elementClass: Read,
+  react: React,
 });
 
 export const IconReadHome = createComponent({
-	tagName: "icon-read_home",
-	elementClass: ReadHome,
-	react: React,
+  tagName: "icon-read_home",
+  elementClass: ReadHome,
+  react: React,
 });
 
 export const IconReadIdea = createComponent({
-	tagName: "icon-read_idea",
-	elementClass: ReadIdea,
-	react: React,
+  tagName: "icon-read_idea",
+  elementClass: ReadIdea,
+  react: React,
 });
 
 export const IconRedo = createComponent({
-	tagName: "icon-redo",
-	elementClass: Redo,
-	react: React,
+  tagName: "icon-redo",
+  elementClass: Redo,
+  react: React,
 });
 
 export const IconRefresh = createComponent({
-	tagName: "icon-refresh",
-	elementClass: Refresh,
-	react: React,
+  tagName: "icon-refresh",
+  elementClass: Refresh,
+  react: React,
 });
 
 export const IconReload = createComponent({
-	tagName: "icon-reload",
-	elementClass: Reload,
-	react: React,
+  tagName: "icon-reload",
+  elementClass: Reload,
+  react: React,
 });
 
 export const IconRemove = createComponent({
-	tagName: "icon-remove",
-	elementClass: Remove,
-	react: React,
+  tagName: "icon-remove",
+  elementClass: Remove,
+  react: React,
 });
 
 export const IconRetouchGraph = createComponent({
-	tagName: "icon-retouch_graph",
-	elementClass: RetouchGraph,
-	react: React,
+  tagName: "icon-retouch_graph",
+  elementClass: RetouchGraph,
+  react: React,
 });
 
 export const IconRibbonStar = createComponent({
-	tagName: "icon-ribbon_star",
-	elementClass: RibbonStar,
-	react: React,
+  tagName: "icon-ribbon_star",
+  elementClass: RibbonStar,
+  react: React,
 });
 
 export const IconRocket = createComponent({
-	tagName: "icon-rocket",
-	elementClass: Rocket,
-	react: React,
+  tagName: "icon-rocket",
+  elementClass: Rocket,
+  react: React,
 });
 
 export const IconSearch = createComponent({
-	tagName: "icon-search",
-	elementClass: Search,
-	react: React,
+  tagName: "icon-search",
+  elementClass: Search,
+  react: React,
 });
 
 export const IconSettings = createComponent({
-	tagName: "icon-settings",
-	elementClass: Settings,
-	react: React,
+  tagName: "icon-settings",
+  elementClass: Settings,
+  react: React,
 });
 
 export const IconSettingsSlider = createComponent({
-	tagName: "icon-settings_slider",
-	elementClass: SettingsSlider,
-	react: React,
+  tagName: "icon-settings_slider",
+  elementClass: SettingsSlider,
+  react: React,
 });
 
 export const IconShare = createComponent({
-	tagName: "icon-share",
-	elementClass: Share,
-	react: React,
+  tagName: "icon-share",
+  elementClass: Share,
+  react: React,
 });
 
 export const IconShrink = createComponent({
-	tagName: "icon-shrink",
-	elementClass: Shrink,
-	react: React,
+  tagName: "icon-shrink",
+  elementClass: Shrink,
+  react: React,
 });
 
 export const IconShuffle = createComponent({
-	tagName: "icon-shuffle",
-	elementClass: Shuffle,
-	react: React,
+  tagName: "icon-shuffle",
+  elementClass: Shuffle,
+  react: React,
 });
 
 export const IconSocialInstagram = createComponent({
-	tagName: "icon-social_instagram",
-	elementClass: SocialInstagram,
-	react: React,
+  tagName: "icon-social_instagram",
+  elementClass: SocialInstagram,
+  react: React,
 });
 
 export const IconStudyMath = createComponent({
-	tagName: "icon-study_math",
-	elementClass: StudyMath,
-	react: React,
+  tagName: "icon-study_math",
+  elementClass: StudyMath,
+  react: React,
 });
 
 export const IconSubscript = createComponent({
-	tagName: "icon-subscript",
-	elementClass: Subscript,
-	react: React,
+  tagName: "icon-subscript",
+  elementClass: Subscript,
+  react: React,
 });
 
 export const IconSubtract = createComponent({
-	tagName: "icon-subtract",
-	elementClass: Subtract,
-	react: React,
+  tagName: "icon-subtract",
+  elementClass: Subtract,
+  react: React,
 });
 
 export const IconSuperscript = createComponent({
-	tagName: "icon-superscript",
-	elementClass: Superscript,
-	react: React,
+  tagName: "icon-superscript",
+  elementClass: Superscript,
+  react: React,
 });
 
 export const IconSynchronizeArrowsSquare = createComponent({
-	tagName: "icon-synchronize__arrows__square",
-	elementClass: SynchronizeArrowsSquare,
-	react: React,
+  tagName: "icon-synchronize__arrows__square",
+  elementClass: SynchronizeArrowsSquare,
+  react: React,
 });
 
 export const IconSynchronizeArrowClock = createComponent({
-	tagName: "icon-synchronize_arrow_clock",
-	elementClass: SynchronizeArrowClock,
-	react: React,
+  tagName: "icon-synchronize_arrow_clock",
+  elementClass: SynchronizeArrowClock,
+  react: React,
 });
 
 export const IconSynchronizeArrowsWarning = createComponent({
-	tagName: "icon-synchronize_arrows_warning",
-	elementClass: SynchronizeArrowsWarning,
-	react: React,
+  tagName: "icon-synchronize_arrows_warning",
+  elementClass: SynchronizeArrowsWarning,
+  react: React,
 });
 
 export const IconTabletTouch = createComponent({
-	tagName: "icon-tablet_touch",
-	elementClass: TabletTouch,
-	react: React,
+  tagName: "icon-tablet_touch",
+  elementClass: TabletTouch,
+  react: React,
 });
 
 export const IconTaskList = createComponent({
-	tagName: "icon-task_list",
-	elementClass: TaskList,
-	react: React,
+  tagName: "icon-task_list",
+  elementClass: TaskList,
+  react: React,
 });
 
 export const IconTaskListClock = createComponent({
-	tagName: "icon-task_list_clock",
-	elementClass: TaskListClock,
-	react: React,
+  tagName: "icon-task_list_clock",
+  elementClass: TaskListClock,
+  react: React,
 });
 
 export const IconTeacher = createComponent({
-	tagName: "icon-teacher",
-	elementClass: Teacher,
-	react: React,
+  tagName: "icon-teacher",
+  elementClass: Teacher,
+  react: React,
 });
 
 export const IconTeacherCorrect = createComponent({
-	tagName: "icon-teacher_correct",
-	elementClass: TeacherCorrect,
-	react: React,
+  tagName: "icon-teacher_correct",
+  elementClass: TeacherCorrect,
+  react: React,
 });
 
 export const IconTextBold = createComponent({
-	tagName: "icon-text_bold",
-	elementClass: TextBold,
-	react: React,
+  tagName: "icon-text_bold",
+  elementClass: TextBold,
+  react: React,
 });
 
 export const IconTextFormat = createComponent({
-	tagName: "icon-text_format",
-	elementClass: TextFormat,
-	react: React,
+  tagName: "icon-text_format",
+  elementClass: TextFormat,
+  react: React,
 });
 
 export const IconTextItalic = createComponent({
-	tagName: "icon-text_italic",
-	elementClass: TextItalic,
-	react: React,
+  tagName: "icon-text_italic",
+  elementClass: TextItalic,
+  react: React,
 });
 
 export const IconTextStyle = createComponent({
-	tagName: "icon-text_style",
-	elementClass: TextStyle,
-	react: React,
+  tagName: "icon-text_style",
+  elementClass: TextStyle,
+  react: React,
 });
 
 export const IconTextSync = createComponent({
-	tagName: "icon-text_sync",
-	elementClass: TextSync,
-	react: React,
+  tagName: "icon-text_sync",
+  elementClass: TextSync,
+  react: React,
 });
 
 export const IconTextUnderline = createComponent({
-	tagName: "icon-text_underline",
-	elementClass: TextUnderline,
-	react: React,
+  tagName: "icon-text_underline",
+  elementClass: TextUnderline,
+  react: React,
 });
 
 export const IconTransfer = createComponent({
-	tagName: "icon-transfer",
-	elementClass: Transfer,
-	react: React,
+  tagName: "icon-transfer",
+  elementClass: Transfer,
+  react: React,
 });
 
 export const IconTrash = createComponent({
-	tagName: "icon-trash",
-	elementClass: Trash,
-	react: React,
+  tagName: "icon-trash",
+  elementClass: Trash,
+  react: React,
 });
 
 export const IconUndo = createComponent({
-	tagName: "icon-undo",
-	elementClass: Undo,
-	react: React,
+  tagName: "icon-undo",
+  elementClass: Undo,
+  react: React,
 });
 
 export const IconUser = createComponent({
-	tagName: "icon-user",
-	elementClass: User,
-	react: React,
+  tagName: "icon-user",
+  elementClass: User,
+  react: React,
 });
 
 export const IconUserEdit = createComponent({
-	tagName: "icon-user_edit",
-	elementClass: UserEdit,
-	react: React,
+  tagName: "icon-user_edit",
+  elementClass: UserEdit,
+  react: React,
 });
 
 export const IconUserQuestion = createComponent({
-	tagName: "icon-user_question",
-	elementClass: UserQuestion,
-	react: React,
+  tagName: "icon-user_question",
+  elementClass: UserQuestion,
+  react: React,
 });
 
 export const IconUsers = createComponent({
-	tagName: "icon-users",
-	elementClass: Users,
-	react: React,
+  tagName: "icon-users",
+  elementClass: Users,
+  react: React,
 });
 
 export const IconVideoFileAdd = createComponent({
-	tagName: "icon-video_file_add",
-	elementClass: VideoFileAdd,
-	react: React,
+  tagName: "icon-video_file_add",
+  elementClass: VideoFileAdd,
+  react: React,
 });
 
 export const IconVideoPlayer = createComponent({
-	tagName: "icon-video_player",
-	elementClass: VideoPlayer,
-	react: React,
+  tagName: "icon-video_player",
+  elementClass: VideoPlayer,
+  react: React,
 });
 
 export const IconView = createComponent({
-	tagName: "icon-view",
-	elementClass: View,
-	react: React,
+  tagName: "icon-view",
+  elementClass: View,
+  react: React,
 });
 
 export const IconViewOff = createComponent({
-	tagName: "icon-view_off",
-	elementClass: ViewOff,
-	react: React,
+  tagName: "icon-view_off",
+  elementClass: ViewOff,
+  react: React,
 });
 
 export const IconVolumeOff = createComponent({
-	tagName: "icon-volume_off",
-	elementClass: VolumeOff,
-	react: React,
+  tagName: "icon-volume_off",
+  elementClass: VolumeOff,
+  react: React,
 });
 
 export const IconVolumeOn = createComponent({
-	tagName: "icon-volume_on",
-	elementClass: VolumeOn,
-	react: React,
+  tagName: "icon-volume_on",
+  elementClass: VolumeOn,
+  react: React,
 });
 
 export const IconWarning = createComponent({
-	tagName: "icon-warning",
-	elementClass: Warning,
-	react: React,
+  tagName: "icon-warning",
+  elementClass: Warning,
+  react: React,
 });
 
 export const IconYoutube = createComponent({
-	tagName: "icon-youtube",
-	elementClass: Youtube,
-	react: React,
+  tagName: "icon-youtube",
+  elementClass: Youtube,
+  react: React,
 });

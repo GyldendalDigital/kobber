@@ -66,15 +66,42 @@ const makeIconComponents = () => {
     symbols.forEach(symbol => {
       const iconName = getIconNames(symbol.id);
 
-      const constructor = `\n\tconstructor() {\n\t\tsuper();\n\t\tthis.attachShadow({ mode: "open" });\n\t\tthis.heightValueFallback = "var(--kobber-global-visual-icon-size-small)";\n\t\tthis.widthValueFallback = "var(--kobber-global-visual-icon-size-small)";\n\t}\n\t`;
-      const attributes = `\n\t\tconst ariaLabel =
-      this.getAttribute("aria-label") || ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */\n\t\tconst ariaHidden = ariaLabel === "";\n\t\tconst role = ariaHidden ? "presentation" : "img";`;
+      const constructor = `constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.heightValueFallback = "var(--kobber-global-visual-icon-size-small)";
+    this.widthValueFallback = "var(--kobber-global-visual-icon-size-small)";
+  }
+
+`;
+      const attributes = `
+  const ariaLabel =
+      this.getAttribute("aria-label") || ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */
+  const ariaHidden = ariaLabel === "";
+  const role = ariaHidden ? "presentation" : "img";`;
       const styles =
         "<style>:host { display: flex; align-items: center; justify-content: center; }svg {width: var(--icon-width, ${this.widthValueFallback});height: var(--icon-height, ${this.heightValueFallback});}</style>";
       const svgCode = `<svg viewBox="${symbol.getAttribute("viewBox")}" aria-label="\${ariaLabel}" aria-hidden="\${ariaHidden}" role="\${role}">${symbol.innerHTML}</svg>`;
 
-      const componentCode = `export class ${iconName.unprefixedCapitalized} extends HTMLElement {${constructor}renderComponent() {${attributes}\n\t\tthis.shadowRoot.innerHTML = \`
-      ${styles}\n\t\t\t${svgCode}\`;\n\t}\n\tconnectedCallback() {\n\t\tthis.renderComponent();\n\t}\n}\n\nexport const customElementName = "${iconName.prefixed}";\n\nif (!customElements.get(customElementName)) {\n\tcustomElements.define(customElementName, ${iconName.unprefixedCapitalized});\n}\n`;
+      const componentCode = `
+export class ${iconName.unprefixedCapitalized} extends HTMLElement {
+  ${constructor}renderComponent() {${attributes}
+  this.shadowRoot.innerHTML = \`
+      ${styles}
+      ${svgCode}\`;
+  }
+  
+  connectedCallback() {
+    this.renderComponent();
+  }
+}
+
+export const customElementName = "${iconName.prefixed}";
+
+if (!customElements.get(customElementName)) {
+  customElements.define(customElementName, ${iconName.unprefixedCapitalized});
+}
+`;
 
       fs.mkdirSync(`${iconsDirectory}/${iconName.unprefixed}`);
       fs.writeFileSync(`${iconsDirectory}/${iconName.unprefixed}/index.js`, componentCode);
@@ -86,15 +113,26 @@ const makeIconComponents = () => {
     let reactExports = "\n";
     let webComponentExports = "";
 
-    const reactPreamble = 'import { createComponent } from "@lit/react";\nimport * as React from "react";\n';
+    const reactPreamble = `import { createComponent } from "@lit/react";
+import * as React from "react";
+`;
 
     symbols.forEach(symbol => {
       const iconName = getIconNames(symbol.id);
 
-      reactImports = `${reactImports}\nimport { ${iconName.unprefixedCapitalized} } from "./icon/icons/${iconName.unprefixed}";`;
-      reactExports = `${reactExports}\nexport const ${iconName.prefixedCapitalized} = createComponent({\n\ttagName: "${iconName.prefixed}",\n\telementClass: ${iconName.unprefixedCapitalized},\n\treact: React,\n});\n`;
+      reactImports += `
+import { ${iconName.unprefixedCapitalized} } from "./icon/icons/${iconName.unprefixed}";`;
 
-      webComponentExports += `export { ${iconName.unprefixedCapitalized} } from "./icon/icons/${iconName.unprefixed}";\n`;
+      reactExports += `
+export const ${iconName.prefixedCapitalized} = createComponent({
+  tagName: "${iconName.prefixed}",
+  elementClass: ${iconName.unprefixedCapitalized},
+  react: React,
+});
+`;
+
+      webComponentExports += `export { ${iconName.unprefixedCapitalized} } from "./icon/icons/${iconName.unprefixed}";
+`;
     });
     const reactString = `${reactPreamble} ${reactImports} ${reactExports}`;
     fs.writeFileSync(reactList, reactString);
@@ -102,24 +140,71 @@ const makeIconComponents = () => {
   };
 
   const makeStories = (symbols: NodeListOf<SVGSymbolElement>) => {
-    let iconGalleryMainImportsString = "import {";
+    let iconGalleryMainImportsString = "import { ";
     let iconGalleryString = "";
-    const iconGalleryFirstImportString = 'import { Meta, Title, IconGallery, IconItem } from "@storybook/blocks";\n';
-    const iconGalleryMetaString = '<Meta title="Icon/All" />\n\n# All icons\n\n<IconGallery>\n';
+    const iconGalleryFirstImportString = `import { Meta, Title, IconGallery, IconItem } from "@storybook/blocks";
+`;
+    const iconGalleryMetaString = `<Meta title="Icon/All" />
+
+# All icons
+
+<IconGallery>`;
+
     symbols.forEach(symbol => {
       const iconName = getIconNames(symbol.id);
 
-      iconGalleryMainImportsString = `${iconGalleryMainImportsString} ${iconName.unprefixedCapitalized},`;
-      iconGalleryString = `${iconGalleryString}\t<IconItem name="${iconName.prefixedCapitalized} - <${iconName.prefixed} />">\n\t\t<${iconName.prefixed} class="kobber-theme-default" />\n\t</IconItem>\n`;
+      iconGalleryMainImportsString += `
+  ${iconName.unprefixedCapitalized}, `;
 
-      const storyFileString = `import type { Args, Meta, StoryObj } from "@storybook/web-components";\nimport ".";\n\nconst meta: Meta = {\n\ttitle: "Icon/Icons",\n\tcomponent: "${iconName.prefixed}",\n\tparameters: {\n\t\tlayout: 'centered',\n\t},\n\targs: {\n\t\tariaLabel: "",\n\t},\n\tdecorators: [\n\t\t(story, storyContext) => \`\n\t\t\t<div class="\${storyContext.globals.theme}">\n\t\t\t\t\${story()}\n\t\t\t</div>\n\t\t\`,\n\t],\n};\n\nexport default meta;\ntype Story = StoryObj<typeof meta>;\n\nexport const ${iconName.unprefixed}: Story = {\n\trender: (args: Args) => \`\n\t\t<${iconName.prefixed}\n\t\t\taria-label="\${args.ariaLabel}"\n\t\t/>\n\t\`,\n};\n`;
+      iconGalleryString += `
+  <IconItem name="${iconName.prefixedCapitalized} - <${iconName.prefixed} />">
+    <${iconName.prefixed} class="kobber-theme-default" />
+  </IconItem>`;
+
+      const storyFileString = `import type { Args, Meta, StoryObj } from "@storybook/web-components";
+import ".";
+
+const meta: Meta = {
+  title: "Icon/Icons",
+  component: "${iconName.prefixed}",
+  parameters: {
+    layout: 'centered',
+  },
+  args: {
+    ariaLabel: "",
+  },
+  decorators: [
+    (story, storyContext) => \`
+      <div class="\${storyContext.globals.theme}">
+        \${story()}
+      </div>
+    \`,
+  ],
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const ${iconName.unprefixed}: Story = {
+  render: (args: Args) => \`
+    <${iconName.prefixed} aria-label="\${args.ariaLabel}" />
+  \`,
+};
+`;
+
       fs.writeFileSync(`${iconsDirectory}/${iconName.unprefixed}/index.stories.ts`, storyFileString);
     });
-    iconGalleryMainImportsString = `${iconGalleryMainImportsString}} from "../index.web-components";\n\n`;
-    iconGalleryString = `${iconGalleryString}\n</IconGallery>\n`;
+    iconGalleryMainImportsString += `
+} from "../index.web-components";
+
+`;
+    iconGalleryString += `
+</IconGallery>
+`;
+
     fs.writeFileSync(
       `${iconDirectory}/index.mdx`,
-      `${iconGalleryFirstImportString}${iconGalleryMainImportsString} ${iconGalleryMetaString}${iconGalleryString}`,
+      `${iconGalleryFirstImportString}${iconGalleryMainImportsString}${iconGalleryMetaString}${iconGalleryString}`,
     );
   };
 
@@ -140,21 +225,26 @@ const listAllSvgSymbols = () => {
   const listIconTypes = (symbols: NodeListOf<SVGSymbolElement>) => {
     let iconTypeString = "export type IconType = \n";
     symbols.forEach(symbol => {
-      iconTypeString = `${iconTypeString}  | "${symbol.id}"\n`;
+      iconTypeString += `  | "${symbol.id}"\n`;
     });
-    iconTypeString = `${iconTypeString};`;
+    iconTypeString += `; `;
     return iconTypeString;
   };
 
   const listIcons = (symbols: NodeListOf<SVGSymbolElement>) => {
-    let iconsListString = "export const iconsList = [\n";
+    let iconsListString = `export const iconsList = [
+`;
+
     symbols.forEach((symbol, index) => {
       if (index > 0) {
-        iconsListString = `${iconsListString}, \n`;
+        iconsListString += `, 
+`;
       }
-      iconsListString = `${iconsListString} "${symbol.id}"`;
+      iconsListString += ` "${symbol.id}"`;
     });
-    iconsListString = `${iconsListString}\n];`;
+    iconsListString += `
+];`;
+
     return iconsListString;
   };
 
@@ -165,7 +255,12 @@ const listAllSvgSymbols = () => {
     const iconTypeString = listIconTypes(symbols);
     const iconsListString = listIcons(symbols);
 
-    fs.writeFileSync(componentHelperFile, `${iconTypeString} \n\n ${iconsListString}`);
+    fs.writeFileSync(
+      componentHelperFile,
+      `${iconTypeString}
+
+${iconsListString}`,
+    );
   }
 };
 

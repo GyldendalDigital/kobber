@@ -1,493 +1,654 @@
 import { Meta, Title, IconGallery, IconItem } from "@storybook/blocks";
-import { Add, AddFigure, AddSquare, AlarmBell, AlarmClock, AlarmTimer, AnalyticBars, ArrowBack, ArrowDown, ArrowLeft, ArrowRight, ArrowUp, Assets, AudioRecording, Backspace, Banned, Binocular, BookFlipPage, BookOpen, Bookmark, BulletList, Calendar, Camera, Chat, Check, CheckCircle, Checklist, ChevronDown, ChevronUp, Circle, CircleShapeAdd, Clock, ClockHand, Close, ColorBrush, CopyPaste, CursorPointer, CursorPointerCircle, Dice, Dictionary, Download, DrawTablet, Elements, Envelope, Eraser, Expand, ExpandResize, ExternalLink, ExternalLinkArrow, FemaleHeadset, FlipRight, FolderBookmark, FontExpand, FormTemplate, FrameExpand, FrameShrink, GameController, Glasses, GraphStats, Headphones, Heart, Home, Hyperlink, Image, ImageFlower, IndentDecrease, IndentIncrease, Information, Keyboard, Layers, LayersBack, LayoutLeft, LayoutModule, LayoutRight, Library, LightBulb, LockLocked, LockUnlocked, Login, Logout, Magnet, Menu, Message, MessageQuestion, MessageStar, MessageTyping, MessageWarning, ModuleEdit, ModuleFour, MultipleUsers, Newspaper, NotebookPencil, NumberList, Option, Palette, Paragraph, ParagraphCenter, ParagraphLeft, ParagraphRight, PartyBalloon, Pause, PenTools, PenWrite, Pencil, Pin, PinRemove, Play, Printer, QuestionCircle, RankingStar, RatingStarCheck, Read, ReadHome, ReadIdea, Redo, Refresh, Reload, Remove, RetouchGraph, RibbonStar, Rocket, Search, Settings, SettingsSlider, Share, Shrink, Shuffle, SocialInstagram, StudyMath, Subscript, Subtract, Superscript, SynchronizeArrowsSquare, SynchronizeArrowClock, SynchronizeArrowsWarning, TabletTouch, TaskList, TaskListClock, Teacher, TeacherCorrect, TextBold, TextFormat, TextItalic, TextStyle, TextSync, TextUnderline, Transfer, Trash, Undo, User, UserEdit, UserQuestion, Users, VideoFileAdd, VideoPlayer, View, ViewOff, VolumeOff, VolumeOn, Warning, Youtube,} from "../index.web-components";
+import { 
+  Add, 
+  AddFigure, 
+  AddSquare, 
+  AlarmBell, 
+  AlarmClock, 
+  AlarmTimer, 
+  AnalyticBars, 
+  ArrowBack, 
+  ArrowDown, 
+  ArrowLeft, 
+  ArrowRight, 
+  ArrowUp, 
+  Assets, 
+  AudioRecording, 
+  Backspace, 
+  Banned, 
+  Binocular, 
+  BookFlipPage, 
+  BookOpen, 
+  Bookmark, 
+  BulletList, 
+  Calendar, 
+  Camera, 
+  Chat, 
+  Check, 
+  CheckCircle, 
+  Checklist, 
+  ChevronDown, 
+  ChevronUp, 
+  Circle, 
+  CircleShapeAdd, 
+  Clock, 
+  ClockHand, 
+  Close, 
+  ColorBrush, 
+  CopyPaste, 
+  CursorPointer, 
+  CursorPointerCircle, 
+  Dice, 
+  Dictionary, 
+  Download, 
+  DrawTablet, 
+  Elements, 
+  Envelope, 
+  Eraser, 
+  Expand, 
+  ExpandResize, 
+  ExternalLink, 
+  ExternalLinkArrow, 
+  FemaleHeadset, 
+  FlipRight, 
+  FolderBookmark, 
+  FontExpand, 
+  FormTemplate, 
+  FrameExpand, 
+  FrameShrink, 
+  GameController, 
+  Glasses, 
+  GraphStats, 
+  Headphones, 
+  Heart, 
+  Home, 
+  Hyperlink, 
+  Image, 
+  ImageFlower, 
+  IndentDecrease, 
+  IndentIncrease, 
+  Information, 
+  Keyboard, 
+  Layers, 
+  LayersBack, 
+  LayoutLeft, 
+  LayoutModule, 
+  LayoutRight, 
+  Library, 
+  LightBulb, 
+  LockLocked, 
+  LockUnlocked, 
+  Login, 
+  Logout, 
+  Magnet, 
+  Menu, 
+  Message, 
+  MessageQuestion, 
+  MessageStar, 
+  MessageTyping, 
+  MessageWarning, 
+  ModuleEdit, 
+  ModuleFour, 
+  MultipleUsers, 
+  Newspaper, 
+  NotebookPencil, 
+  NumberList, 
+  Option, 
+  Palette, 
+  Paragraph, 
+  ParagraphCenter, 
+  ParagraphLeft, 
+  ParagraphRight, 
+  PartyBalloon, 
+  Pause, 
+  PenTools, 
+  PenWrite, 
+  Pencil, 
+  Pin, 
+  PinRemove, 
+  Play, 
+  Printer, 
+  QuestionCircle, 
+  RankingStar, 
+  RatingStarCheck, 
+  Read, 
+  ReadHome, 
+  ReadIdea, 
+  Redo, 
+  Refresh, 
+  Reload, 
+  Remove, 
+  RetouchGraph, 
+  RibbonStar, 
+  Rocket, 
+  Search, 
+  Settings, 
+  SettingsSlider, 
+  Share, 
+  Shrink, 
+  Shuffle, 
+  SocialInstagram, 
+  StudyMath, 
+  Subscript, 
+  Subtract, 
+  Superscript, 
+  SynchronizeArrowsSquare, 
+  SynchronizeArrowClock, 
+  SynchronizeArrowsWarning, 
+  TabletTouch, 
+  TaskList, 
+  TaskListClock, 
+  Teacher, 
+  TeacherCorrect, 
+  TextBold, 
+  TextFormat, 
+  TextItalic, 
+  TextStyle, 
+  TextSync, 
+  TextUnderline, 
+  Transfer, 
+  Trash, 
+  Undo, 
+  User, 
+  UserEdit, 
+  UserQuestion, 
+  Users, 
+  VideoFileAdd, 
+  VideoPlayer, 
+  View, 
+  ViewOff, 
+  VolumeOff, 
+  VolumeOn, 
+  Warning, 
+  Youtube, 
+} from "../index.web-components";
 
- <Meta title="Icon/All" />
+<Meta title="Icon/All" />
 
 # All icons
 
 <IconGallery>
-	<IconItem name="IconAdd - <icon-add />">
-		<icon-add class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconAddFigure - <icon-add_figure />">
-		<icon-add_figure class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconAddSquare - <icon-add_square />">
-		<icon-add_square class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconAlarmBell - <icon-alarm_bell />">
-		<icon-alarm_bell class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconAlarmClock - <icon-alarm_clock />">
-		<icon-alarm_clock class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconAlarmTimer - <icon-alarm_timer />">
-		<icon-alarm_timer class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconAnalyticBars - <icon-analytic_bars />">
-		<icon-analytic_bars class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconArrowBack - <icon-arrow_back />">
-		<icon-arrow_back class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconArrowDown - <icon-arrow_down />">
-		<icon-arrow_down class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconArrowLeft - <icon-arrow_left />">
-		<icon-arrow_left class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconArrowRight - <icon-arrow_right />">
-		<icon-arrow_right class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconArrowUp - <icon-arrow_up />">
-		<icon-arrow_up class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconAssets - <icon-assets />">
-		<icon-assets class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconAudioRecording - <icon-audio_recording />">
-		<icon-audio_recording class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconBackspace - <icon-backspace />">
-		<icon-backspace class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconBanned - <icon-banned />">
-		<icon-banned class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconBinocular - <icon-binocular />">
-		<icon-binocular class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconBookFlipPage - <icon-book_flip_page />">
-		<icon-book_flip_page class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconBookOpen - <icon-book_open />">
-		<icon-book_open class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconBookmark - <icon-bookmark />">
-		<icon-bookmark class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconBulletList - <icon-bullet_list />">
-		<icon-bullet_list class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconCalendar - <icon-calendar />">
-		<icon-calendar class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconCamera - <icon-camera />">
-		<icon-camera class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconChat - <icon-chat />">
-		<icon-chat class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconCheck - <icon-check />">
-		<icon-check class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconCheckCircle - <icon-check_circle />">
-		<icon-check_circle class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconChecklist - <icon-checklist />">
-		<icon-checklist class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconChevronDown - <icon-chevron_down />">
-		<icon-chevron_down class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconChevronUp - <icon-chevron_up />">
-		<icon-chevron_up class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconCircle - <icon-circle />">
-		<icon-circle class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconCircleShapeAdd - <icon-circle_shape_add />">
-		<icon-circle_shape_add class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconClock - <icon-clock />">
-		<icon-clock class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconClockHand - <icon-clock_hand />">
-		<icon-clock_hand class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconClose - <icon-close />">
-		<icon-close class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconColorBrush - <icon-color_brush />">
-		<icon-color_brush class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconCopyPaste - <icon-copy_paste />">
-		<icon-copy_paste class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconCursorPointer - <icon-cursor_pointer />">
-		<icon-cursor_pointer class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconCursorPointerCircle - <icon-cursor_pointer_circle />">
-		<icon-cursor_pointer_circle class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconDice - <icon-dice />">
-		<icon-dice class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconDictionary - <icon-dictionary />">
-		<icon-dictionary class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconDownload - <icon-download />">
-		<icon-download class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconDrawTablet - <icon-draw_tablet />">
-		<icon-draw_tablet class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconElements - <icon-elements />">
-		<icon-elements class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconEnvelope - <icon-envelope />">
-		<icon-envelope class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconEraser - <icon-eraser />">
-		<icon-eraser class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconExpand - <icon-expand />">
-		<icon-expand class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconExpandResize - <icon-expand_resize />">
-		<icon-expand_resize class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconExternalLink - <icon-external_link />">
-		<icon-external_link class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconExternalLinkArrow - <icon-external_link_arrow />">
-		<icon-external_link_arrow class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconFemaleHeadset - <icon-female_headset />">
-		<icon-female_headset class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconFlipRight - <icon-flip_right />">
-		<icon-flip_right class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconFolderBookmark - <icon-folder_bookmark />">
-		<icon-folder_bookmark class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconFontExpand - <icon-font_expand />">
-		<icon-font_expand class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconFormTemplate - <icon-form_template />">
-		<icon-form_template class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconFrameExpand - <icon-frame_expand />">
-		<icon-frame_expand class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconFrameShrink - <icon-frame_shrink />">
-		<icon-frame_shrink class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconGameController - <icon-game_controller />">
-		<icon-game_controller class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconGlasses - <icon-glasses />">
-		<icon-glasses class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconGraphStats - <icon-graph_stats />">
-		<icon-graph_stats class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconHeadphones - <icon-headphones />">
-		<icon-headphones class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconHeart - <icon-heart />">
-		<icon-heart class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconHome - <icon-home />">
-		<icon-home class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconHyperlink - <icon-hyperlink />">
-		<icon-hyperlink class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconImage - <icon-image />">
-		<icon-image class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconImageFlower - <icon-image_flower />">
-		<icon-image_flower class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconIndentDecrease - <icon-indent_decrease />">
-		<icon-indent_decrease class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconIndentIncrease - <icon-indent_increase />">
-		<icon-indent_increase class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconInformation - <icon-information />">
-		<icon-information class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconKeyboard - <icon-keyboard />">
-		<icon-keyboard class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconLayers - <icon-layers />">
-		<icon-layers class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconLayersBack - <icon-layers_back />">
-		<icon-layers_back class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconLayoutLeft - <icon-layout_left />">
-		<icon-layout_left class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconLayoutModule - <icon-layout_module />">
-		<icon-layout_module class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconLayoutRight - <icon-layout_right />">
-		<icon-layout_right class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconLibrary - <icon-library />">
-		<icon-library class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconLightBulb - <icon-light_bulb />">
-		<icon-light_bulb class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconLockLocked - <icon-lock_locked />">
-		<icon-lock_locked class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconLockUnlocked - <icon-lock_unlocked />">
-		<icon-lock_unlocked class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconLogin - <icon-login />">
-		<icon-login class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconLogout - <icon-logout />">
-		<icon-logout class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconMagnet - <icon-magnet />">
-		<icon-magnet class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconMenu - <icon-menu />">
-		<icon-menu class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconMessage - <icon-message />">
-		<icon-message class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconMessageQuestion - <icon-message_question />">
-		<icon-message_question class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconMessageStar - <icon-message_star />">
-		<icon-message_star class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconMessageTyping - <icon-message_typing />">
-		<icon-message_typing class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconMessageWarning - <icon-message_warning />">
-		<icon-message_warning class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconModuleEdit - <icon-module_edit />">
-		<icon-module_edit class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconModuleFour - <icon-module_four />">
-		<icon-module_four class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconMultipleUsers - <icon-multiple_users />">
-		<icon-multiple_users class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconNewspaper - <icon-newspaper />">
-		<icon-newspaper class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconNotebookPencil - <icon-notebook_pencil />">
-		<icon-notebook_pencil class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconNumberList - <icon-number_list />">
-		<icon-number_list class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconOption - <icon-option />">
-		<icon-option class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconPalette - <icon-palette />">
-		<icon-palette class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconParagraph - <icon-paragraph />">
-		<icon-paragraph class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconParagraphCenter - <icon-paragraph_center />">
-		<icon-paragraph_center class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconParagraphLeft - <icon-paragraph_left />">
-		<icon-paragraph_left class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconParagraphRight - <icon-paragraph_right />">
-		<icon-paragraph_right class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconPartyBalloon - <icon-party_balloon />">
-		<icon-party_balloon class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconPause - <icon-pause />">
-		<icon-pause class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconPenTools - <icon-pen_tools />">
-		<icon-pen_tools class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconPenWrite - <icon-pen_write />">
-		<icon-pen_write class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconPencil - <icon-pencil />">
-		<icon-pencil class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconPin - <icon-pin />">
-		<icon-pin class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconPinRemove - <icon-pin_remove />">
-		<icon-pin_remove class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconPlay - <icon-play />">
-		<icon-play class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconPrinter - <icon-printer />">
-		<icon-printer class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconQuestionCircle - <icon-question_circle />">
-		<icon-question_circle class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconRankingStar - <icon-ranking_star />">
-		<icon-ranking_star class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconRatingStarCheck - <icon-rating_star_check />">
-		<icon-rating_star_check class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconRead - <icon-read />">
-		<icon-read class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconReadHome - <icon-read_home />">
-		<icon-read_home class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconReadIdea - <icon-read_idea />">
-		<icon-read_idea class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconRedo - <icon-redo />">
-		<icon-redo class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconRefresh - <icon-refresh />">
-		<icon-refresh class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconReload - <icon-reload />">
-		<icon-reload class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconRemove - <icon-remove />">
-		<icon-remove class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconRetouchGraph - <icon-retouch_graph />">
-		<icon-retouch_graph class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconRibbonStar - <icon-ribbon_star />">
-		<icon-ribbon_star class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconRocket - <icon-rocket />">
-		<icon-rocket class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconSearch - <icon-search />">
-		<icon-search class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconSettings - <icon-settings />">
-		<icon-settings class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconSettingsSlider - <icon-settings_slider />">
-		<icon-settings_slider class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconShare - <icon-share />">
-		<icon-share class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconShrink - <icon-shrink />">
-		<icon-shrink class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconShuffle - <icon-shuffle />">
-		<icon-shuffle class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconSocialInstagram - <icon-social_instagram />">
-		<icon-social_instagram class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconStudyMath - <icon-study_math />">
-		<icon-study_math class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconSubscript - <icon-subscript />">
-		<icon-subscript class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconSubtract - <icon-subtract />">
-		<icon-subtract class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconSuperscript - <icon-superscript />">
-		<icon-superscript class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconSynchronizeArrowsSquare - <icon-synchronize__arrows__square />">
-		<icon-synchronize__arrows__square class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconSynchronizeArrowClock - <icon-synchronize_arrow_clock />">
-		<icon-synchronize_arrow_clock class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconSynchronizeArrowsWarning - <icon-synchronize_arrows_warning />">
-		<icon-synchronize_arrows_warning class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconTabletTouch - <icon-tablet_touch />">
-		<icon-tablet_touch class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconTaskList - <icon-task_list />">
-		<icon-task_list class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconTaskListClock - <icon-task_list_clock />">
-		<icon-task_list_clock class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconTeacher - <icon-teacher />">
-		<icon-teacher class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconTeacherCorrect - <icon-teacher_correct />">
-		<icon-teacher_correct class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconTextBold - <icon-text_bold />">
-		<icon-text_bold class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconTextFormat - <icon-text_format />">
-		<icon-text_format class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconTextItalic - <icon-text_italic />">
-		<icon-text_italic class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconTextStyle - <icon-text_style />">
-		<icon-text_style class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconTextSync - <icon-text_sync />">
-		<icon-text_sync class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconTextUnderline - <icon-text_underline />">
-		<icon-text_underline class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconTransfer - <icon-transfer />">
-		<icon-transfer class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconTrash - <icon-trash />">
-		<icon-trash class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconUndo - <icon-undo />">
-		<icon-undo class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconUser - <icon-user />">
-		<icon-user class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconUserEdit - <icon-user_edit />">
-		<icon-user_edit class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconUserQuestion - <icon-user_question />">
-		<icon-user_question class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconUsers - <icon-users />">
-		<icon-users class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconVideoFileAdd - <icon-video_file_add />">
-		<icon-video_file_add class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconVideoPlayer - <icon-video_player />">
-		<icon-video_player class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconView - <icon-view />">
-		<icon-view class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconViewOff - <icon-view_off />">
-		<icon-view_off class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconVolumeOff - <icon-volume_off />">
-		<icon-volume_off class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconVolumeOn - <icon-volume_on />">
-		<icon-volume_on class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconWarning - <icon-warning />">
-		<icon-warning class="kobber-theme-default" />
-	</IconItem>
-	<IconItem name="IconYoutube - <icon-youtube />">
-		<icon-youtube class="kobber-theme-default" />
-	</IconItem>
-
+  <IconItem name="IconAdd - <icon-add />">
+    <icon-add class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconAddFigure - <icon-add_figure />">
+    <icon-add_figure class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconAddSquare - <icon-add_square />">
+    <icon-add_square class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconAlarmBell - <icon-alarm_bell />">
+    <icon-alarm_bell class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconAlarmClock - <icon-alarm_clock />">
+    <icon-alarm_clock class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconAlarmTimer - <icon-alarm_timer />">
+    <icon-alarm_timer class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconAnalyticBars - <icon-analytic_bars />">
+    <icon-analytic_bars class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconArrowBack - <icon-arrow_back />">
+    <icon-arrow_back class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconArrowDown - <icon-arrow_down />">
+    <icon-arrow_down class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconArrowLeft - <icon-arrow_left />">
+    <icon-arrow_left class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconArrowRight - <icon-arrow_right />">
+    <icon-arrow_right class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconArrowUp - <icon-arrow_up />">
+    <icon-arrow_up class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconAssets - <icon-assets />">
+    <icon-assets class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconAudioRecording - <icon-audio_recording />">
+    <icon-audio_recording class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconBackspace - <icon-backspace />">
+    <icon-backspace class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconBanned - <icon-banned />">
+    <icon-banned class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconBinocular - <icon-binocular />">
+    <icon-binocular class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconBookFlipPage - <icon-book_flip_page />">
+    <icon-book_flip_page class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconBookOpen - <icon-book_open />">
+    <icon-book_open class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconBookmark - <icon-bookmark />">
+    <icon-bookmark class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconBulletList - <icon-bullet_list />">
+    <icon-bullet_list class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconCalendar - <icon-calendar />">
+    <icon-calendar class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconCamera - <icon-camera />">
+    <icon-camera class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconChat - <icon-chat />">
+    <icon-chat class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconCheck - <icon-check />">
+    <icon-check class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconCheckCircle - <icon-check_circle />">
+    <icon-check_circle class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconChecklist - <icon-checklist />">
+    <icon-checklist class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconChevronDown - <icon-chevron_down />">
+    <icon-chevron_down class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconChevronUp - <icon-chevron_up />">
+    <icon-chevron_up class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconCircle - <icon-circle />">
+    <icon-circle class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconCircleShapeAdd - <icon-circle_shape_add />">
+    <icon-circle_shape_add class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconClock - <icon-clock />">
+    <icon-clock class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconClockHand - <icon-clock_hand />">
+    <icon-clock_hand class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconClose - <icon-close />">
+    <icon-close class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconColorBrush - <icon-color_brush />">
+    <icon-color_brush class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconCopyPaste - <icon-copy_paste />">
+    <icon-copy_paste class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconCursorPointer - <icon-cursor_pointer />">
+    <icon-cursor_pointer class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconCursorPointerCircle - <icon-cursor_pointer_circle />">
+    <icon-cursor_pointer_circle class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconDice - <icon-dice />">
+    <icon-dice class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconDictionary - <icon-dictionary />">
+    <icon-dictionary class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconDownload - <icon-download />">
+    <icon-download class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconDrawTablet - <icon-draw_tablet />">
+    <icon-draw_tablet class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconElements - <icon-elements />">
+    <icon-elements class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconEnvelope - <icon-envelope />">
+    <icon-envelope class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconEraser - <icon-eraser />">
+    <icon-eraser class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconExpand - <icon-expand />">
+    <icon-expand class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconExpandResize - <icon-expand_resize />">
+    <icon-expand_resize class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconExternalLink - <icon-external_link />">
+    <icon-external_link class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconExternalLinkArrow - <icon-external_link_arrow />">
+    <icon-external_link_arrow class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconFemaleHeadset - <icon-female_headset />">
+    <icon-female_headset class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconFlipRight - <icon-flip_right />">
+    <icon-flip_right class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconFolderBookmark - <icon-folder_bookmark />">
+    <icon-folder_bookmark class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconFontExpand - <icon-font_expand />">
+    <icon-font_expand class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconFormTemplate - <icon-form_template />">
+    <icon-form_template class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconFrameExpand - <icon-frame_expand />">
+    <icon-frame_expand class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconFrameShrink - <icon-frame_shrink />">
+    <icon-frame_shrink class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconGameController - <icon-game_controller />">
+    <icon-game_controller class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconGlasses - <icon-glasses />">
+    <icon-glasses class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconGraphStats - <icon-graph_stats />">
+    <icon-graph_stats class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconHeadphones - <icon-headphones />">
+    <icon-headphones class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconHeart - <icon-heart />">
+    <icon-heart class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconHome - <icon-home />">
+    <icon-home class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconHyperlink - <icon-hyperlink />">
+    <icon-hyperlink class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconImage - <icon-image />">
+    <icon-image class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconImageFlower - <icon-image_flower />">
+    <icon-image_flower class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconIndentDecrease - <icon-indent_decrease />">
+    <icon-indent_decrease class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconIndentIncrease - <icon-indent_increase />">
+    <icon-indent_increase class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconInformation - <icon-information />">
+    <icon-information class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconKeyboard - <icon-keyboard />">
+    <icon-keyboard class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconLayers - <icon-layers />">
+    <icon-layers class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconLayersBack - <icon-layers_back />">
+    <icon-layers_back class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconLayoutLeft - <icon-layout_left />">
+    <icon-layout_left class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconLayoutModule - <icon-layout_module />">
+    <icon-layout_module class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconLayoutRight - <icon-layout_right />">
+    <icon-layout_right class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconLibrary - <icon-library />">
+    <icon-library class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconLightBulb - <icon-light_bulb />">
+    <icon-light_bulb class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconLockLocked - <icon-lock_locked />">
+    <icon-lock_locked class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconLockUnlocked - <icon-lock_unlocked />">
+    <icon-lock_unlocked class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconLogin - <icon-login />">
+    <icon-login class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconLogout - <icon-logout />">
+    <icon-logout class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconMagnet - <icon-magnet />">
+    <icon-magnet class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconMenu - <icon-menu />">
+    <icon-menu class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconMessage - <icon-message />">
+    <icon-message class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconMessageQuestion - <icon-message_question />">
+    <icon-message_question class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconMessageStar - <icon-message_star />">
+    <icon-message_star class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconMessageTyping - <icon-message_typing />">
+    <icon-message_typing class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconMessageWarning - <icon-message_warning />">
+    <icon-message_warning class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconModuleEdit - <icon-module_edit />">
+    <icon-module_edit class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconModuleFour - <icon-module_four />">
+    <icon-module_four class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconMultipleUsers - <icon-multiple_users />">
+    <icon-multiple_users class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconNewspaper - <icon-newspaper />">
+    <icon-newspaper class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconNotebookPencil - <icon-notebook_pencil />">
+    <icon-notebook_pencil class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconNumberList - <icon-number_list />">
+    <icon-number_list class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconOption - <icon-option />">
+    <icon-option class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconPalette - <icon-palette />">
+    <icon-palette class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconParagraph - <icon-paragraph />">
+    <icon-paragraph class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconParagraphCenter - <icon-paragraph_center />">
+    <icon-paragraph_center class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconParagraphLeft - <icon-paragraph_left />">
+    <icon-paragraph_left class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconParagraphRight - <icon-paragraph_right />">
+    <icon-paragraph_right class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconPartyBalloon - <icon-party_balloon />">
+    <icon-party_balloon class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconPause - <icon-pause />">
+    <icon-pause class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconPenTools - <icon-pen_tools />">
+    <icon-pen_tools class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconPenWrite - <icon-pen_write />">
+    <icon-pen_write class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconPencil - <icon-pencil />">
+    <icon-pencil class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconPin - <icon-pin />">
+    <icon-pin class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconPinRemove - <icon-pin_remove />">
+    <icon-pin_remove class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconPlay - <icon-play />">
+    <icon-play class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconPrinter - <icon-printer />">
+    <icon-printer class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconQuestionCircle - <icon-question_circle />">
+    <icon-question_circle class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconRankingStar - <icon-ranking_star />">
+    <icon-ranking_star class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconRatingStarCheck - <icon-rating_star_check />">
+    <icon-rating_star_check class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconRead - <icon-read />">
+    <icon-read class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconReadHome - <icon-read_home />">
+    <icon-read_home class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconReadIdea - <icon-read_idea />">
+    <icon-read_idea class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconRedo - <icon-redo />">
+    <icon-redo class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconRefresh - <icon-refresh />">
+    <icon-refresh class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconReload - <icon-reload />">
+    <icon-reload class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconRemove - <icon-remove />">
+    <icon-remove class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconRetouchGraph - <icon-retouch_graph />">
+    <icon-retouch_graph class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconRibbonStar - <icon-ribbon_star />">
+    <icon-ribbon_star class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconRocket - <icon-rocket />">
+    <icon-rocket class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconSearch - <icon-search />">
+    <icon-search class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconSettings - <icon-settings />">
+    <icon-settings class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconSettingsSlider - <icon-settings_slider />">
+    <icon-settings_slider class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconShare - <icon-share />">
+    <icon-share class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconShrink - <icon-shrink />">
+    <icon-shrink class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconShuffle - <icon-shuffle />">
+    <icon-shuffle class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconSocialInstagram - <icon-social_instagram />">
+    <icon-social_instagram class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconStudyMath - <icon-study_math />">
+    <icon-study_math class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconSubscript - <icon-subscript />">
+    <icon-subscript class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconSubtract - <icon-subtract />">
+    <icon-subtract class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconSuperscript - <icon-superscript />">
+    <icon-superscript class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconSynchronizeArrowsSquare - <icon-synchronize__arrows__square />">
+    <icon-synchronize__arrows__square class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconSynchronizeArrowClock - <icon-synchronize_arrow_clock />">
+    <icon-synchronize_arrow_clock class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconSynchronizeArrowsWarning - <icon-synchronize_arrows_warning />">
+    <icon-synchronize_arrows_warning class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconTabletTouch - <icon-tablet_touch />">
+    <icon-tablet_touch class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconTaskList - <icon-task_list />">
+    <icon-task_list class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconTaskListClock - <icon-task_list_clock />">
+    <icon-task_list_clock class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconTeacher - <icon-teacher />">
+    <icon-teacher class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconTeacherCorrect - <icon-teacher_correct />">
+    <icon-teacher_correct class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconTextBold - <icon-text_bold />">
+    <icon-text_bold class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconTextFormat - <icon-text_format />">
+    <icon-text_format class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconTextItalic - <icon-text_italic />">
+    <icon-text_italic class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconTextStyle - <icon-text_style />">
+    <icon-text_style class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconTextSync - <icon-text_sync />">
+    <icon-text_sync class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconTextUnderline - <icon-text_underline />">
+    <icon-text_underline class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconTransfer - <icon-transfer />">
+    <icon-transfer class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconTrash - <icon-trash />">
+    <icon-trash class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconUndo - <icon-undo />">
+    <icon-undo class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconUser - <icon-user />">
+    <icon-user class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconUserEdit - <icon-user_edit />">
+    <icon-user_edit class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconUserQuestion - <icon-user_question />">
+    <icon-user_question class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconUsers - <icon-users />">
+    <icon-users class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconVideoFileAdd - <icon-video_file_add />">
+    <icon-video_file_add class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconVideoPlayer - <icon-video_player />">
+    <icon-video_player class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconView - <icon-view />">
+    <icon-view class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconViewOff - <icon-view_off />">
+    <icon-view_off class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconVolumeOff - <icon-volume_off />">
+    <icon-volume_off class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconVolumeOn - <icon-volume_on />">
+    <icon-volume_on class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconWarning - <icon-warning />">
+    <icon-warning class="kobber-theme-default" />
+  </IconItem>
+  <IconItem name="IconYoutube - <icon-youtube />">
+    <icon-youtube class="kobber-theme-default" />
+  </IconItem>
 </IconGallery>

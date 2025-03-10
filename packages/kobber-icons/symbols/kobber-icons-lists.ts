@@ -162,7 +162,7 @@ export type IconType =
   | "kobber-youtube"
 ; 
 
- export const iconsList = [
+export const iconsList = [
  "kobber-add", 
  "kobber-add_figure", 
  "kobber-add_square", 
