@@ -10,9 +10,11 @@ import { List } from "./list/List.react";
 import { ListItem } from "./list/ListItem.react";
 import { RadioGroup, RadioInput, RadioInputControl } from "./radio/index.react";
 import { IconFormChecked, IconFormIndeterminate, IconFormRadio } from "./internal-icons/index.react";
+import { Label } from "./label/Label.react";
 
 export const KobberTextWrapper = TextWrapper;
 export const KobberTextLink = TextLink;
+export const KobberLabel = Label;
 export const KobberHeading = Heading;
 export const KobberIngress = Ingress;
 export const KobberButton = Button;
