@@ -4,6 +4,7 @@ export { GridColumn } from "./grid/GridColumn";
 export { ProgressBar } from "./progress-bar/ProgressBar";
 export { ProgressBarItem } from "./progress-bar/ProgressBarItem";
 export { Button } from "./button/Button";
+export { Label } from "./label/Label";
 export { Dropdown } from "./dropdown/Dropdown";
 export { Badge } from "./badge/Badge";
 export { CheckboxInput } from "./checkbox/checkboxInput/CheckboxInput";
