@@ -1,6 +1,6 @@
 import { createComponent } from "@lit/react";
-import * as React from "react";
- 
+import * as React from "react"; 
+
 import { Add as KobberAdd } from "./icon/icons/add";
 import { AddFigure as KobberAddFigure } from "./icon/icons/add_figure";
 import { AddSquare as KobberAddSquare } from "./icon/icons/add_square";
