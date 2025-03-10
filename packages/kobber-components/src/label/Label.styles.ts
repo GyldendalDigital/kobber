@@ -18,17 +18,30 @@ const createLabelStyles = () => {
       padding: var(--padding);
       font-size: var(--font-size);
 
-      ${labelVariableStyles()}
-      ${typographyLabel()}
-
-      &.${unsafeCSS("kobber-label--status-circle" satisfies LabelClassNames)} {
-        background-color: #000000;
+      ::slotted([slot="status-circle"]) {
+        background-color: var(--status-circle-color, transparent);
         width: 10px;
         height: 10px;
         border-radius: 50%;
+        display: inline-block;
       }
+
+      ${labelVariableStyles()}
+      ${typographyLabel()}
     }
   `;
+};
+
+const getPaddingStyles = (size: string) => {
+  const label = component.label;
+  return size === "medium"
+    ? css`
+        --padding: var(${unsafeCSS(label.container.padding.medium)}, 8px);
+      `
+    : css`
+        --padding: var(${unsafeCSS(label.container.padding.block.small)}, 4px)
+          var(${unsafeCSS(label.container.padding.inline.small)}, 8px);
+      `;
 };
 
 const labelVariableStyles = () => {
@@ -48,9 +61,7 @@ const labelVariableStyles = () => {
             --background-color: var(${unsafeCSS(label.background.color.concrete)});
             --gap: var(${unsafeCSS(label.container.gap[size])});
             --color: var(${unsafeCSS(label.text.color.concrete)});
-            --padding: var(
-              ${unsafeCSS(size === "medium" ? label.container.padding.medium : label.container.padding.block.small)}
-            );
+                  ${getPaddingStyles(size)}
             --font-size: var(${unsafeCSS(size === "medium" ? labelMedium : labelSmall)});
         `;
         }
@@ -61,10 +72,9 @@ const labelVariableStyles = () => {
               --background-color: var(${unsafeCSS(label.background.color[theme].supplemental)});
               --gap: var(${unsafeCSS(label.container.gap[size])});
               --color: var(${unsafeCSS(label.text.color[theme].supplemental)});
-              --padding: var(
-                ${unsafeCSS(size === "medium" ? label.container.padding.medium : label.container.padding.block.small)}
-              );
+              ${getPaddingStyles(size)}
               --font-size: var(${unsafeCSS(size === "medium" ? labelMedium : labelSmall)});
+              --status-circle-color: var(${unsafeCSS(label["status-circle"].color[theme].supplemental)});
             }
           `;
         }
@@ -75,9 +85,7 @@ const labelVariableStyles = () => {
               --background-color: var(${unsafeCSS(label.background.color[theme].main)});
               --gap: var(${unsafeCSS(label.container.gap[size])});
               --color: var(${unsafeCSS(label.text.color[theme].main)});
-              --padding: var(
-                ${unsafeCSS(size === "medium" ? label.container.padding.medium : label.container.padding.block.small)}
-              );
+              ${getPaddingStyles(size)}
               --font-size: var(${unsafeCSS(size === "medium" ? labelMedium : labelSmall)});
             }
           `;
