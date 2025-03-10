@@ -21,9 +21,6 @@ export class Label extends LitElement implements LabelProps {
   @property()
   size?: LabelProps["size"];
 
-  @property()
-  text?: LabelProps["text"];
-
   @property({ type: Boolean })
   showStatusCircle?: LabelProps["showStatusCircle"];
 
@@ -50,7 +47,7 @@ export class Label extends LitElement implements LabelProps {
       ].join(" ")}"
       aria-label=${this.label}
     >
-      <slot name="status-circle"></slot>
+      ${this.showStatusCircle ? html`<slot name="status-circle"></slot>` : ""}
       <slot></slot>
     </label>`;
   }

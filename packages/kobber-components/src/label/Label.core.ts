@@ -7,17 +7,12 @@ export const labelClassNames = ({
   theme = "aubergine",
   variant = "main",
   size = "medium",
-  text = "",
   showStatusCircle = false,
 }: LabelProps & LabelComputedProps): LabelClassNames[] => {
   const conditionalClassNames: LabelClassNames[] = [];
 
   if (showStatusCircle) {
     conditionalClassNames.push("kobber-label--status-circle");
-  }
-
-  if (text) {
-    conditionalClassNames.push(text);
   }
 
   return [labelName, theme, replaceSpaceWithDash(variant), size, ...conditionalClassNames];
@@ -27,7 +22,6 @@ export type LabelProps = {
   theme?: LabelTheme;
   variant?: LabelVariant;
   size?: LabelSize;
-  text?: LabelText;
   showStatusCircle?: boolean;
 };
 
