@@ -12,14 +12,17 @@ import { labelStyles } from "./Label.styles";
 export class Label extends LitElement implements LabelProps {
   static styles: CSSResultGroup = [componentStyles, labelStyles];
 
-  @property()
+  @property({ type: String })
   variant?: LabelProps["variant"];
 
-  @property()
+  @property({ type: String })
   theme?: LabelProps["theme"];
 
-  @property()
+  @property({ type: String })
   size?: LabelProps["size"];
+
+  @property({ type: Boolean })
+  disabled?: LabelProps["disabled"];
 
   @property({ type: Boolean })
   showStatusCircle?: LabelProps["showStatusCircle"];
@@ -46,6 +49,7 @@ export class Label extends LitElement implements LabelProps {
         this.className,
       ].join(" ")}"
       aria-label=${this.label}
+      aria-disabled=${this.disabled ? "true" : "false"}
     >
       ${this.showStatusCircle ? html`<slot name="status-circle"></slot>` : ""}
       <slot></slot>

@@ -69,16 +69,17 @@ export const Variants: Story = {
 };
 
 const renderLabel = (args: Args) => {
-  const { size, text, theme, variant, showStatusCircle } = args;
+  const { size, text, theme, variant, showStatusCircle, disabled } = args;
 
   return html` <kobber-label
     size=${size}
     theme=${theme}
     variant=${variant}
     ?showStatusCircle=${showStatusCircle}
-    aria-label="label aria-label"
+    aria-label="Hello world"
+    disabled=${disabled}
   >
-    <div slot="status-circle">Hello</div>
+    <div slot="status-circle"></div>
     ${text}
   </kobber-label>`;
 };
