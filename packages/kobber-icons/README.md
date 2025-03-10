@@ -29,7 +29,7 @@ Icons can be imported as react components, as web components, or as an SVG sprit
 
 ```jsx
 import { IconArrowRight } from "@gyldendal/kobber-icons/react";
-const App = () => <IconArrowRight />;
+const App = () => <ArrowRight />;
 ```
 
 #### As a custom element
@@ -38,13 +38,17 @@ const App = () => <IconArrowRight />;
 <script>
   import "@gyldendal/kobber-icons/web-components";
 </script>
-<icon-arrow_right />
+<kobber-arrow_right />
 ```
+
+Custom element icon names are prefixed with kobber-, to ensure [valid naming](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name).
 
 #### Use sprite directly
 
 Include the sprite `@gyldendal/kobber-icons/symbols/kobber-icons.svg` in your html, and reference its [symbols](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol).
 The file `@gyldendal/kobber-icons/symbols/kobber-icons-lists.ts` contains a list of all icons and a type declaration, which can be useful.
+
+Symbol ids are prefixed with `kobber-`, to avoid collisions with any other id in the html (including svg symbols in other sprites).
 
 (Note that such ID references do not currenly work across the shadow dom barrier.)
 

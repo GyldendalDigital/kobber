@@ -15,7 +15,7 @@ const webComponentsList = "src/index.web-components.ts";
 const reactList = "src/index.react.tsx";
 
 const symbolPrefix = "kobber-";
-const componentPrefix = "icon-";
+const componentPrefix = "kobber-";
 
 const removeDirectory = (directory: string) => {
   if (!fs.existsSync(directory)) return;
@@ -118,8 +118,8 @@ if (!customElements.get(customElementName)) {
     symbols.forEach(symbol => {
       const iconName = getIconNames(symbol.id);
 
-      reactImports += `\nimport { ${iconName.unprefixedCapitalized} } from "./icon/icons/${iconName.unprefixed}";`;
-      reactExports += `\nexport const ${iconName.prefixedCapitalized} = createComponent({\n\ttagName: "${iconName.prefixed}",\n\telementClass: ${iconName.unprefixedCapitalized},\n\treact: React,\n});\n`;
+      reactImports += `\nimport { ${iconName.unprefixedCapitalized} as ${iconName.prefixedCapitalized} } from "./icon/icons/${iconName.unprefixed}";`;
+      reactExports += `\nexport const ${iconName.unprefixedCapitalized} = createComponent({\n\ttagName: "${iconName.unprefixed}",\n\telementClass: ${iconName.prefixedCapitalized},\n\treact: React,\n});\n`;
 
       webComponentExports += `export { ${iconName.unprefixedCapitalized} } from "./icon/icons/${iconName.unprefixed}";\n`;
     });
