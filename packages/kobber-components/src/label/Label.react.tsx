@@ -24,7 +24,7 @@ export const Label = forwardRef<HTMLLabelElement, LabelReactProps>(
     },
     ref,
   ) => {
-    // Derive ARIA attributes based on props
+    // Derive ARIA attributes based on prop
     const ariaDisabled = disabled ? "true" : undefined;
     const _label = props["aria-label"];
 
@@ -32,11 +32,7 @@ export const Label = forwardRef<HTMLLabelElement, LabelReactProps>(
       <label
         ref={ref}
         {...props}
-        className={[
-          className,
-          ...labelClassNames({ showStatusCircle, theme, variant, size }),
-          disabled ? "kobber-label--disabled" : "",
-        ].join(" ")}
+        className={[className, ...labelClassNames({ showStatusCircle, theme, variant, size })].join(" ")}
         aria-label={_label}
         aria-disabled={ariaDisabled}
         htmlFor={htmlFor}
