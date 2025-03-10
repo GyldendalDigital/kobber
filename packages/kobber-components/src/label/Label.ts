@@ -51,7 +51,7 @@ export class Label extends LitElement implements LabelProps {
       aria-label=${this.label}
       aria-disabled=${this.disabled ? "true" : "false"}
     >
-      ${this.showStatusCircle ? html`<slot name="status-circle"></slot>` : ""}
+      ${this.showStatusCircle ? html`<div class="status-circle"></div>` : ""}
       <slot></slot>
     </label>`;
   }

@@ -79,7 +79,6 @@ const renderLabel = (args: Args) => {
     aria-label="Hello world"
     disabled=${disabled}
   >
-    <div slot="status-circle"></div>
     ${text}
   </kobber-label>`;
 };

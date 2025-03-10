@@ -23,7 +23,33 @@ export type LabelProps = {
   variant?: LabelVariant;
   size?: LabelSize;
   showStatusCircle?: boolean;
+  disabled?: boolean; // When will our label be disabled? Example: Form field?
 };
+
+// type BaseLabelProps = {
+//   theme?: LabelTheme;
+//   variant?: LabelVariant;
+//   size?: LabelSize;
+//   disabled?: boolean; // When will our label be disabled? Example: Form field?
+// };
+
+// // Type for when status circle is allowed
+// type StatusCircleAllowedProps = BaseLabelProps & {
+//   theme: "aubergine" | "rettsdata";
+//   variant: "supplemental";
+//   showStatusCircle?: boolean;
+// };
+
+// // Type for when status circle is not allowed
+// type StatusCircleDisallowedProps = BaseLabelProps & {
+//   showStatusCircle?: never;
+// };
+
+// export type LabelProps = StatusCircleAllowedProps | StatusCircleDisallowedProps;
+
+// export const isStatusCircleAllowed = (props: BaseLabelProps): boolean => {
+//   return (props.theme === "aubergine" || props.theme === "rettsdata") && props.variant === "supplemental";
+// };
 
 export type LabelComputedProps = {};
 

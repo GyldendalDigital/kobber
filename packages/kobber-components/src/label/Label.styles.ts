@@ -17,17 +17,21 @@ const createLabelStyles = () => {
       color: var(--color);
       padding: var(--padding);
       font-size: var(--font-size);
+      font-family: var(--font-family);
+      font-weight: var(--font-weight);
+      font-style: var(--font-style);
+      font-stretch: var(--font-stretch);
+      line-height: var(--line-height);
 
-      ::slotted([slot="status-circle"]) {
+      ${labelVariableStyles()}
+
+      .${unsafeCSS("status-circle" satisfies LabelClassNames)} {
         background-color: var(--status-circle-color, transparent);
         width: 10px;
         height: 10px;
         border-radius: 50%;
         display: inline-block;
       }
-
-      ${labelVariableStyles()}
-      ${typographyLabel()}
     }
   `;
 };
@@ -50,64 +54,47 @@ const labelVariableStyles = () => {
       return labelSizes.flatMap(size => {
         const nestedClassNames = `&.${theme}.${variant}.${size}`;
         const label = component.label;
-        const labelTypography = typography.primary;
-        const labelMedium = labelTypography["label medium"].fontSize;
-        const labelSmall = labelTypography["label small"].fontSize;
+        const typographySmall = typography.ui["label small - single line"];
+        const typographyMedium = typography.ui["label medium - single line"];
 
-        // Todo: Prat med dag angående struktur for concrete.
-        if (theme === "concrete") {
-          return css`
+        return css`
           ${unsafeCSS(nestedClassNames)} {
-            --background-color: var(${unsafeCSS(label.background.color.concrete)});
+            --background-color: var(
+              ${unsafeCSS(
+                theme === "concrete" ? label.background.color.concrete : label.background.color[theme][variant],
+              )}
+            );
             --gap: var(${unsafeCSS(label.container.gap[size])});
-            --color: var(${unsafeCSS(label.text.color.concrete)});
-                  ${getPaddingStyles(size)}
-            --font-size: var(${unsafeCSS(size === "medium" ? labelMedium : labelSmall)});
+            --color: var(
+              ${unsafeCSS(theme === "concrete" ? label.text.color.concrete : label.text.color[theme][variant])}
+            );
+            ${getPaddingStyles(size)};
+            --status-circle-color: var(
+              ${unsafeCSS(
+                theme === "concrete" || variant === "main" ? null : label["status-circle"].color[theme].supplemental,
+              )}
+            );
+            --font-size: var(${unsafeCSS(size === "medium" ? typographyMedium.fontSize : typographySmall.fontSize)});
+            --font-family: var(
+              ${unsafeCSS(size === "medium" ? typographyMedium.fontFamily : typographySmall.fontFamily)}
+            );
+            --font-weight: var(
+              ${unsafeCSS(size === "medium" ? typographyMedium.fontWeight : typographySmall.fontWeight)}
+            );
+            --font-style: var(${unsafeCSS(size === "medium" ? typographyMedium.fontStyle : typographySmall.fontStyle)});
+            --font-stretch: var(
+              ${unsafeCSS(size === "medium" ? typographyMedium.fontStretch : typographySmall.fontStretch)}
+            );
+            --line-height: var(
+              ${unsafeCSS(size === "medium" ? typographyMedium.lineHeight : typographySmall.lineHeight)}
+            );
+          }
         `;
-        }
-
-        if (variant === "supplemental") {
-          return css`
-            ${unsafeCSS(nestedClassNames)} {
-              --background-color: var(${unsafeCSS(label.background.color[theme].supplemental)});
-              --gap: var(${unsafeCSS(label.container.gap[size])});
-              --color: var(${unsafeCSS(label.text.color[theme].supplemental)});
-              ${getPaddingStyles(size)}
-              --font-size: var(${unsafeCSS(size === "medium" ? labelMedium : labelSmall)});
-              --status-circle-color: var(${unsafeCSS(label["status-circle"].color[theme].supplemental)});
-            }
-          `;
-        }
-
-        if (variant === "main") {
-          return css`
-            ${unsafeCSS(nestedClassNames)} {
-              --background-color: var(${unsafeCSS(label.background.color[theme].main)});
-              --gap: var(${unsafeCSS(label.container.gap[size])});
-              --color: var(${unsafeCSS(label.text.color[theme].main)});
-              ${getPaddingStyles(size)}
-              --font-size: var(${unsafeCSS(size === "medium" ? labelMedium : labelSmall)});
-            }
-          `;
-        }
       });
     });
   });
 
   return unsafeCSS(variableClasses.join("\n"));
-};
-
-const typographyLabel = () => {
-  const label = typography.ui["label medium - single line"];
-
-  return css`
-    font-size: var(${unsafeCSS(label.fontSize)});
-    font-family: var(${unsafeCSS(label.fontFamily)});
-    font-weight: var(${unsafeCSS(label.fontWeight)});
-    font-style: var(${unsafeCSS(label.fontStyle)});
-    font-stretch: var(${unsafeCSS(label.fontStretch)});
-    line-height: normal;
-  `;
 };
 
 export const labelStyles = createLabelStyles();
