@@ -45,7 +45,7 @@ export const Label: StoryObj<Args> = {
     size: "medium",
     theme: "aubergine",
     variant: "main",
-    showStatusCircle: false,
+    showStatusCircle: true,
   },
   render: args => {
     return html`<div
