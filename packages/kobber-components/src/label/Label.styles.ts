@@ -10,7 +10,6 @@ const createLabelStyles = () => {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      --background-color: transparent;
 
       border-radius: var(${unsafeCSS(label.container.border.radius)});
       background-color: var(--background-color);
@@ -21,6 +20,13 @@ const createLabelStyles = () => {
 
       ${labelVariableStyles()}
       ${typographyLabel()}
+
+      &.${unsafeCSS("kobber-label--status-circle" satisfies LabelClassNames)} {
+        background-color: #000000;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
     }
   `;
 };
