@@ -78,6 +78,7 @@ const renderLabel = (args: Args) => {
     ?showStatusCircle=${showStatusCircle}
     aria-label="label aria-label"
   >
+    <div slot="status-circle">Hello</div>
     ${text}
   </kobber-label>`;
 };
