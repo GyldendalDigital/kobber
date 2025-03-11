@@ -27,10 +27,10 @@ const createLabelStyles = () => {
 
       .${unsafeCSS("status-circle" satisfies LabelClassNames)} {
         background-color: var(--status-circle-color, transparent);
-        width: 10px;
-        height: 10px;
+        width: var(${unsafeCSS(label["status-circle"].width)});
+        height: var(${unsafeCSS(label["status-circle"].height)});
         border-radius: 50%;
-        display: inline-block;
+        flex-shrink: 0;
       }
     }
   `;
