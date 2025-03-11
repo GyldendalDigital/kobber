@@ -8,9 +8,9 @@ type SessionProviderProps = {
 export async function RequireAuthentication({ children }: SessionProviderProps) {
   const { user } = await getCurrentUser()
 
-  // if (!user) {
-  //   return <Restricted />
-  // }
+  if (!user) {
+    return <Restricted />
+  }
 
   return <>{children}</>
 }
