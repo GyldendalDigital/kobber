@@ -27,8 +27,8 @@ const createLabelStyles = () => {
 
       .${unsafeCSS("status-circle" satisfies LabelClassNames)} {
         background-color: var(--status-circle-color, transparent);
-        width: var(${unsafeCSS(label["status-circle"].width)});
-        height: var(${unsafeCSS(label["status-circle"].height)});
+        width: var(--status-circle-width);
+        height: var(--status-circle-height);
         border-radius: 50%;
         flex-shrink: 0;
       }
@@ -88,6 +88,8 @@ const labelVariableStyles = () => {
             --line-height: var(
               ${unsafeCSS(size === "medium" ? typographyMedium.lineHeight : typographySmall.lineHeight)}
             );
+            --status-circle-width: var(${unsafeCSS(label["status-circle"].width.main)});
+            --status-circle-height: var(${unsafeCSS(label["status-circle"].height.main)});
           }
         `;
       });
