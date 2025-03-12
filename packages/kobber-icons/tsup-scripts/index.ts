@@ -57,7 +57,7 @@ export const makeComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
     const webComponentCode = makeWebComponent(symbol);
 
     fs.mkdirSync(`${iconsDirectory}/${iconNames.unprefixed}`);
-    fs.writeFileSync(`${iconsDirectory}/${iconNames.unprefixed}/index.js`, webComponentCode);
+    fs.writeFileSync(`${iconsDirectory}/${iconNames.unprefixed}/index.ts`, webComponentCode);
   });
 };
 

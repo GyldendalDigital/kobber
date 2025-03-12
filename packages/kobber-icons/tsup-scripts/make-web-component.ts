@@ -26,10 +26,14 @@ export const makeWebComponent = (symbol: SVGSymbolElement) => {
   const svgCode = `<svg viewBox="${symbol.getAttribute("viewBox")}" aria-label="\${_ariaLabel}" aria-hidden="\${_ariaHidden}" role="\${_role}">${symbol.innerHTML}</svg>`;
 
   const componentCode = `export class ${iconNames.unprefixedCapitalized} extends HTMLElement {
+  heightValueFallback: string;
+  widthValueFallback: string;
+
   ${constructor}  renderComponent() {${attributes}
-    this.shadowRoot.innerHTML = \`
-      ${styles}
-      ${svgCode}\`;
+    if(this.shadowRoot) { this.shadowRoot.innerHTML = \`
+        ${styles}
+        ${svgCode}\`;
+    }
   }
 
   connectedCallback() {
