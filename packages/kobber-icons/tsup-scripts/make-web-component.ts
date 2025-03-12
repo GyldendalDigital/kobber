@@ -26,9 +26,10 @@ export const makeWebComponent = (symbol: SVGSymbolElement) => {
 
   const componentCode = `export class ${iconNames.unprefixedCapitalized} extends HTMLElement {
   ${constructor}  renderComponent() {${attributes}
-    this.shadowRoot.innerHTML = \`
-      ${styles}
-      ${svgCode}\`;
+    if(this.shadowRoot) { this.shadowRoot.innerHTML = \`
+        ${styles}
+        ${svgCode}\`;
+    }
   }
 
   connectedCallback() {
