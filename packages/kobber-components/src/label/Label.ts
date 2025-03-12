@@ -13,13 +13,13 @@ export class Label extends LitElement implements LabelProps {
   static styles: CSSResultGroup = [componentStyles, labelStyles];
 
   @property({ type: String })
-  variant?: LabelProps["variant"];
+  variant?: LabelProps["variant"] = "main";
 
   @property({ type: String })
-  theme?: LabelProps["theme"];
+  theme?: LabelProps["theme"] = "aubergine";
 
   @property({ type: String })
-  size?: LabelProps["size"];
+  size?: LabelProps["size"] = "medium";
 
   @property({ type: Boolean })
   disabled?: LabelProps["disabled"];

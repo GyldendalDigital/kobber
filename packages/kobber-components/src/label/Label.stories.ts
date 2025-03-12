@@ -36,7 +36,6 @@ export const Label: StoryObj<Args> = {
       control: { type: "select" },
     },
     showStatusCircle: {
-      options: [true, false],
       control: { type: "boolean" },
     },
   },
@@ -46,25 +45,10 @@ export const Label: StoryObj<Args> = {
     theme: "aubergine",
     variant: "main",
     showStatusCircle: true,
+    disabled: false,
   },
   render: args => {
-    return html`<div
-      style=" width: 500px; display: flex; align-items: center; justify-content: center; border-radius: 0.5rem; padding: 5rem;"
-    >
-      ${renderLabel(args)}
-    </div>`;
-  },
-};
-
-export const Variants: Story = {
-  render: args => {
-    const { size, text, theme, variant } = args;
-
-    return html`<style>
-        :root {
-        }
-      </style>
-      <div style="background-color: #e3e3e3; padding: 1rem; border-radius: 0.5rem;"></div> `;
+    return html`${renderLabel(args)}`;
   },
 };
 
