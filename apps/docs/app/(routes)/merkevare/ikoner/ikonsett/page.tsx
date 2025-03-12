@@ -1,10 +1,10 @@
 import {
   KobberHeading,
   KobberIngress,
-  KobberLink,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { ContentLayout } from "@/components/content-layout"
+import { ExternalLink } from "@/components/global/external-link"
 import { IconGrid } from "./icon-grid"
 import { metaBrandIconSet } from "./iconSet.meta"
 
@@ -23,9 +23,9 @@ export default function IkonSett() {
           handlinger og informasjon til brukeren.
         </KobberIngress>
         <p>
-          <KobberLink href="https://dam-p-gyldendal.pqcloud.eu/?w=ZqxPo6bFjq" type="highlight">
+          <ExternalLink href="https://dam-p-gyldendal.pqcloud.eu/?w=ZqxPo6bFjq" highlighted>
             Ikonsett
-          </KobberLink>
+          </ExternalLink>
         </p>
       </KobberTextWrapper>
 

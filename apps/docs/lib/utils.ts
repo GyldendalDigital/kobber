@@ -43,3 +43,5 @@ export function toUpperCase(str: string): string {
   if (!str) return str
   return str.toUpperCase()
 }
+
+export const isExternalLink = (href?: string) => href && href.startsWith("http")

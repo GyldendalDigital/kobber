@@ -4,9 +4,29 @@ import { storySummary } from "../story/story-summary";
 import { linkStyles } from "./Link.styles";
 import "./Link";
 import "@gyldendal/kobber-icons/web-components";
+import { linkIconPositions, linkIcons, LinkProps, linkTypes } from "./Link.core";
 
-const meta: Meta = {
+interface Args extends LinkProps {
+  text?: string;
+}
+
+const meta: Meta<Args> = {
   title: "Link",
+  argTypes: {
+    type: {
+      options: linkTypes,
+      control: { type: "select" },
+    },
+    icon: {
+      options: [undefined, ...linkIcons],
+      control: { type: "radio" },
+    },
+    iconPosition: {
+      options: linkIconPositions,
+      control: { type: "radio" },
+      if: { arg: "icon", truthy: true },
+    },
+  },
   decorators: [(Story, context) => html`<div class="${context.globals.theme}">${Story()}</div>`],
   parameters: {
     layout: "centered",
@@ -14,22 +34,15 @@ const meta: Meta = {
 };
 
 export default meta;
-type Story = StoryObj;
 
 const linkStates = ["idle", "active", "hover", "focus", "disabled"];
 
-export const Link: Story = {
-  argTypes: {
-    external: {
-      control: "boolean",
-    },
-    highlighted: {
-      control: "boolean",
-    },
-  },
+export const Link: StoryObj<Args> = {
   args: {
-    external: false,
-    highlighted: false,
+    text: "",
+    type: "navigation",
+    icon: undefined,
+    iconPosition: "right",
   },
   render: args => {
     return html`<div style="max-width: 600px;">
@@ -38,12 +51,13 @@ export const Link: Story = {
             return html`<p>
               <kobber-link
                 class="${state}"
-                href=${state !== "disabled" && args.external ? "https://github.com/GyldendalDigital/kobber" : undefined}
-                type="${args.highlighted ? "highlight" : "base"}"
+                href=${state !== "disabled" ? "https://github.com/GyldendalDigital/kobber" : undefined}
+                type="${args.type}"
+                ${args.icon ? `icon=${args.icon}` : undefined}
+                ${args.iconPosition ? `icon=${args.iconPosition}` : undefined}
               >
-                ${args.external ? "Ekstern" : "Intern"} lenke
+                ${args.text || `Lenke med tilstand ${state}`}
               </kobber-link>
-              med tilstand <code>${state}</code>
             </p>`;
           })}
         </kobber-text-wrapper>
@@ -52,17 +66,22 @@ export const Link: Story = {
         <kobber-text-wrapper>
           ${linkStates.map(state => {
             return html`<p>
-              <kobber-link class="${state}" type="${args.highlighted ? "highlight" : "base"}" onclick="alert('Klikk!')">
-                ${args.external ? "Ekstern" : "Intern"} knapp
+              <kobber-link
+                class="${state}"
+                onClick="alert('Hello world!')"
+                type="${args.type}"
+                ${args.icon ? `icon=${args.icon}` : undefined}
+                ${args.iconPosition ? `icon=${args.iconPosition}` : undefined}
+              >
+                ${args.text || `Knapp med tilstand ${state}`}
               </kobber-link>
-              med tilstand <code>${state}</code>
             </p>`;
           })}
         </kobber-text-wrapper>
       </div>
 
       ${storySummary({
-        summary: `Disabled er ikke en gyldig state for lenker. Da fjerner man heller href-attributten.`,
+        summary: `Disabled er ikke en gyldig state for lenker. Disabled fjerner href-attributten.`,
         code: linkStyles.cssText,
       })}`;
   },
