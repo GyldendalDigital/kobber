@@ -1,5 +1,3 @@
-// import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
-
 export const linkName = "kobber-link";
 
 export type LinkProps = {
