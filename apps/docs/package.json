@@ -10,7 +10,8 @@
     "start": "next start",
     "lint": "yarn lint:js && yarn lint:css",
     "lint:css": "npx stylelint --f verbose \"**/*.css\"",
-    "lint:js": "next lint"
+    "lint:js": "next lint",
+    "typegen": "sanity schema extract --path=sanity/extract.json && sanity typegen generate"
   },
   "devDependencies": {
     "@gyldendal/kobber-base": "*",
@@ -55,5 +56,14 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.15.0"
+  },
+  "dependencies": {
+    "@sanity/icons": "^3.7.0",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/orderable-document-list": "^1.2.3",
+    "@sanity/vision": "^3.79.0",
+    "next-sanity": "^9.9.2",
+    "sanity": "^3.79.0",
+    "styled-components": "^6.1.15"
   }
 }
