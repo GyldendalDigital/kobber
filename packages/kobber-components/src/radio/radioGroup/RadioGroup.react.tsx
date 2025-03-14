@@ -1,4 +1,4 @@
-import { cloneElement, forwardRef, ReactElement } from "react";
+import { Children, cloneElement, forwardRef, ReactElement } from "react";
 import { GroupProps, radioGroupHorizontalClassName, radioGroupName } from "../Radio.core";
 import "../../button/Button.react";
 import { radioGroupStyles } from "./RadioGroup.styles";
@@ -8,6 +8,8 @@ type Props = { helpText: string; children: Array<ReactElement> } & GroupProps;
 
 export const RadioGroup = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { direction, helpText, label, children } = props;
+
+  const arrayChildren = Children.toArray(children) as Array<ReactElement>;
 
   const handleLabelClick = () => {
     focus();
@@ -33,6 +35,16 @@ export const RadioGroup = forwardRef<HTMLDivElement, Props>((props, ref) => {
     }
   };
 
+  const defaultSlot = (
+    <div className="default-slot">
+      {Children.map(arrayChildren, (child: ReactElement, index: number) =>
+        cloneElement(child, {
+          key: index,
+        }),
+      )}
+    </div>
+  );
+
   return (
     <>
       {/* hoists the style element into <head> and deduplicates it */}
@@ -55,13 +67,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, Props>((props, ref) => {
           {label}
         </label>
 
-        <div className={direction === "horizontal" ? radioGroupHorizontalClassName : ""}>
-          {children.map((child: ReactElement, index: number) =>
-            cloneElement(child, {
-              key: index,
-            }),
-          )}
-        </div>
+        <div className={direction === "horizontal" ? radioGroupHorizontalClassName : ""}>{defaultSlot}</div>
 
         <div id="aria-help-text" aria-hidden={helpText ? "false" : "true"}>
           {helpText}
