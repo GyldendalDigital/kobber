@@ -164,7 +164,7 @@
           "fontStyle": "normal",
           "fontStretch": "normal",
           "letterSpacing": 0,
-          "lineHeight": 35,
+          "lineHeight": 28,
           "paragraphIndent": 0,
           "paragraphSpacing": 0,
           "textCase": "none"
@@ -312,7 +312,7 @@
           "fontStyle": "normal",
           "fontStretch": "normal",
           "letterSpacing": 0,
-          "lineHeight": 35,
+          "lineHeight": 28,
           "paragraphIndent": 0,
           "paragraphSpacing": 0,
           "textCase": "none"
@@ -344,7 +344,7 @@
           "fontStyle": "normal",
           "fontStretch": "normal",
           "letterSpacing": 0,
-          "lineHeight": 35,
+          "lineHeight": 28,
           "paragraphIndent": 0,
           "paragraphSpacing": 0,
           "textCase": "none"
@@ -2122,7 +2122,7 @@
         }
       }
     },
-    "labels": {
+    "badges": {
       "color": {
         "aubergine-25": {
           "description": "",
@@ -4179,26 +4179,26 @@
         }
       }
     },
-    "label": {
+    "badge": {
       "container": {
         "padding": {
           "medium": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.space.small}"
+            "value": "{groups.badges.space.small}"
           },
           "inline": {
             "small": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.space.small}"
+              "value": "{groups.badges.space.small}"
             }
           },
           "block": {
             "small": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.space.xsmall}"
+              "value": "{groups.badges.space.xsmall}"
             }
           }
         },
@@ -4206,19 +4206,19 @@
           "medium": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.space.small}"
+            "value": "{groups.badges.space.small}"
           },
           "small": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.space.xsmall}"
+            "value": "{groups.badges.space.xsmall}"
           }
         },
         "border": {
           "radius": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.radius.medum}"
+            "value": "{groups.badges.radius.medum}"
           }
         }
       },
@@ -4228,31 +4228,31 @@
             "main": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.aubergine-50}"
+              "value": "{groups.badges.color.aubergine-50}"
             },
             "supplemental": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.aubergine-675}"
+              "value": "{groups.badges.color.aubergine-675}"
             }
           },
           "rettsdata": {
             "main": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.lawblue-10}"
+              "value": "{groups.badges.color.lawblue-10}"
             },
             "supplemental": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.lawblue-90}"
+              "value": "{groups.badges.color.lawblue-90}"
             }
           },
           "concrete": {
             "main": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.concrete-50}"
+              "value": "{groups.badges.color.concrete-50}"
             }
           }
         }
@@ -4263,31 +4263,31 @@
             "main": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.aubergine-850}"
+              "value": "{groups.badges.color.aubergine-850}"
             },
             "supplemental": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.aubergine-25}"
+              "value": "{groups.badges.color.aubergine-25}"
             }
           },
           "rettsdata": {
             "main": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.lawblue-60}"
+              "value": "{groups.badges.color.lawblue-60}"
             },
             "supplemental": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.lawblue-20}"
+              "value": "{groups.badges.color.lawblue-20}"
             }
           },
           "concrete": {
             "main": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.concrete-850}"
+              "value": "{groups.badges.color.concrete-850}"
             }
           }
         }
@@ -4298,14 +4298,14 @@
             "supplemental": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.aubergine-425}"
+              "value": "{groups.badges.color.aubergine-425}"
             }
           },
           "rettsdata": {
             "supplemental": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.lawblue-20}"
+              "value": "{groups.badges.color.lawblue-20}"
             }
           }
         },
@@ -4313,65 +4313,137 @@
           "medium": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.size.xsmall}"
+            "value": "{groups.badges.size.xsmall}"
           },
           "small": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.size.xxsmall}"
+            "value": "{groups.badges.size.xxsmall}"
           }
         },
         "height": {
           "medium": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.size.xsmall}"
+            "value": "{groups.badges.size.xsmall}"
           },
           "small": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.size.xxsmall}"
+            "value": "{groups.badges.size.xxsmall}"
           }
         }
       }
     },
-    "label-icon": {
+    "badge-icon": {
       "text": {
         "color": {
           "aubergine": {
             "main": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.aubergine-900}"
+              "value": "{groups.badges.color.aubergine-900}"
             },
             "supplemental": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.aubergine-25}"
+              "value": "{groups.badges.color.aubergine-25}"
             }
           },
           "rettsdata": {
             "main": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.lawblue-60}"
+              "value": "{groups.badges.color.lawblue-60}"
             },
             "supplemental": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.lawblue-20}"
+              "value": "{groups.badges.color.lawblue-20}"
             }
           },
           "carmine": {
             "main": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.carmine-525}"
+              "value": "{groups.badges.color.carmine-525}"
             },
             "supplemental": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.color.carmine-25}"
+              "value": "{groups.badges.color.carmine-25}"
+            }
+          },
+          "nature": {
+            "main": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.color.nature-750}"
+            },
+            "supplemental": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.color.nature-25}"
+            }
+          },
+          "fantasy": {
+            "main": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.color.fantasy-850}"
+            },
+            "supplemental": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.color.fantasy-250}"
+            }
+          },
+          "thriller": {
+            "main": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.color.thriller-900}"
+            },
+            "supplemental": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.color.thriller-250}"
+            }
+          },
+          "romance": {
+            "main": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.color.romance-750}"
+            },
+            "supplemental": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.color.romance-50}"
+            }
+          },
+          "vacation": {
+            "main": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.color.vacation-150}"
+            },
+            "supplemental": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.color.vacation-25}"
+            }
+          },
+          "nostalgia": {
+            "main": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.color.nostalgia-850}"
+            },
+            "supplemental": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.color.nostalgia-25}"
             }
           }
         }
@@ -4381,36 +4453,108 @@
           "main": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.color.aubergine-900}"
+            "value": "{groups.badges.color.aubergine-900}"
           },
           "supplemental": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.color.aubergine-25}"
+            "value": "{groups.badges.color.aubergine-25}"
           }
         },
         "rettsdata": {
           "main": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.color.lawblue-60}"
+            "value": "{groups.badges.color.lawblue-60}"
           },
           "supplemental": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.color.lawblue-20}"
+            "value": "{groups.badges.color.lawblue-20}"
           }
         },
         "carmine": {
           "main": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.color.carmine-525}"
+            "value": "{groups.badges.color.carmine-525}"
           },
           "supplemental": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.color.carmine-25}"
+            "value": "{groups.badges.color.carmine-25}"
+          }
+        },
+        "nature": {
+          "main": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.badges.color.nature-750}"
+          },
+          "supplemental": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.badges.color.nature-25}"
+          }
+        },
+        "fantasy": {
+          "main": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.badges.color.fantasy-850}"
+          },
+          "supplemental": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.badges.color.fantasy-250}"
+          }
+        },
+        "thriller": {
+          "main": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.badges.color.thriller-900}"
+          },
+          "supplemental": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.badges.color.thriller-250}"
+          }
+        },
+        "romance": {
+          "main": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.badges.color.romance-750}"
+          },
+          "supplemental": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.badges.color.romance-50}"
+          }
+        },
+        "vacation": {
+          "main": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.badges.color.vacation-150}"
+          },
+          "supplemental": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.badges.color.vacation-25}"
+          }
+        },
+        "nostalgia": {
+          "main": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.badges.color.nostalgia-850}"
+          },
+          "supplemental": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.badges.color.nostalgia-25}"
           }
         }
       },
@@ -4420,12 +4564,12 @@
             "medium": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.space.small}"
+              "value": "{groups.badges.space.small}"
             },
             "small": {
               "description": "",
               "type": "color",
-              "value": "{groups.labels.space.xsmall}"
+              "value": "{groups.badges.space.xsmall}"
             }
           }
         },
@@ -4433,206 +4577,12 @@
           "medium": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.space.small}"
+            "value": "{groups.badges.space.small}"
           },
           "small": {
             "description": "",
             "type": "color",
-            "value": "{groups.labels.space.xsmall}"
-          }
-        }
-      }
-    },
-    "label-icon-theme": {
-      "container": {
-        "padding": {
-          "block": {
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.space.small}"
-            },
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.space.xsmall}"
-            }
-          },
-          "inline": {
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.space.small}"
-            },
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.space.small}"
-            }
-          }
-        },
-        "gap": {
-          "description": "",
-          "type": "color",
-          "value": "{groups.labels.space.small}"
-        },
-        "border": {
-          "radius": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.labels.radius.small}"
-          }
-        }
-      },
-      "text": {
-        "color": {
-          "nature": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.nature-750}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.nature-25}"
-            }
-          },
-          "fantasy": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.fantasy-850}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.fantasy-250}"
-            }
-          },
-          "thriller": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.thriller-900}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.thriller-250}"
-            }
-          },
-          "romance": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.romance-750}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.romance-50}"
-            }
-          },
-          "vacation": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.vacation-150}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.vacation-25}"
-            }
-          },
-          "nostalgia": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.nostalgia-850}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.nostalgia-25}"
-            }
-          }
-        }
-      },
-      "icon": {
-        "color": {
-          "nature": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.nature-750}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.nature-25}"
-            }
-          },
-          "fantasy": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.fantasy-850}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.fantasy-250}"
-            }
-          },
-          "thriller": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.thriller-900}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.thriller-250}"
-            }
-          },
-          "romance": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.romance-750}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.romance-50}"
-            }
-          },
-          "vacation": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.vacation-150}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.vacation-25}"
-            }
-          },
-          "nostalgia": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.nostalgia-850}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.labels.color.nostalgia-25}"
-            }
+            "value": "{groups.badges.space.xsmall}"
           }
         }
       }
@@ -6338,7 +6288,7 @@
             "small": {
               "description": "",
               "type": "color",
-              "value": "{semantics.typography.line-height.35}"
+              "value": "{semantics.typography.line-height.28}"
             },
             "medium": {
               "description": "",
@@ -6559,7 +6509,7 @@
             "medium": {
               "description": "",
               "type": "color",
-              "value": "{semantics.typography.line-height.35}"
+              "value": "{semantics.typography.line-height.28}"
             },
             "small": {
               "description": "",
@@ -6968,15 +6918,15 @@
           "type": "dimension",
           "value": "{primitives.font.line-height.25}"
         },
+        "28": {
+          "description": "",
+          "type": "dimension",
+          "value": "{primitives.font.line-height.28}"
+        },
         "30": {
           "description": "",
           "type": "dimension",
           "value": "{primitives.font.line-height.30}"
-        },
-        "35": {
-          "description": "",
-          "type": "dimension",
-          "value": "{primitives.font.line-height.35}"
         },
         "40": {
           "description": "",
@@ -7988,7 +7938,7 @@
         },
         "lineHeight": {
           "type": "dimension",
-          "value": 35
+          "value": 28
         },
         "paragraphIndent": {
           "type": "dimension",
@@ -8406,7 +8356,7 @@
         },
         "lineHeight": {
           "type": "dimension",
-          "value": 35
+          "value": 28
         },
         "paragraphIndent": {
           "type": "dimension",
@@ -8498,7 +8448,7 @@
         },
         "lineHeight": {
           "type": "dimension",
-          "value": 35
+          "value": 28
         },
         "paragraphIndent": {
           "type": "dimension",
