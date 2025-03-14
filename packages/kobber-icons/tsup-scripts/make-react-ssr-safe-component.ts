@@ -4,7 +4,20 @@ export const makeSSRSafeReactComponent = (symbol: SVGSymbolElement) => {
   const iconNames = getIconNames(symbol.id);
 
   let componentCode = `import { FunctionComponent, HTMLProps } from "react";
-export const ${iconNames.unprefixedCapitalized}: FunctionComponent<HTMLProps<SVGElement>> = props => {
+import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
+import { SizeType } from "../../types/kobber-icons-types";
+
+type IconProps = {
+  iconSize?: SizeType;
+};
+
+export const ${iconNames.unprefixedCapitalized}: FunctionComponent<HTMLProps<SVGElement> & IconProps> = props => {
+  const smallSize = \`\${tokens.semantics.visual.icon.size.small / 16}rem\`;
+  const regularSize = \`\${tokens.semantics.visual.icon.size.medium / 16}rem\`;
+  const bigSize = \`\${tokens.semantics.visual.icon.size.large / 16}rem\`;
+  const widthAndHeight =
+    props.iconSize === "small" ? smallSize : props.iconSize === "regular" ? regularSize : bigSize;
+
   let _ariaLabel = props["aria-label"];
   _ariaLabel = _ariaLabel && _ariaLabel.trim();
   const _ariaHidden = !_ariaLabel;
@@ -17,8 +30,8 @@ export const ${iconNames.unprefixedCapitalized}: FunctionComponent<HTMLProps<SVG
       aria-hidden={_ariaHidden}
       role={_role}
       style={{
-        height: "var(--icon-height)",
-        width: "var(--icon-width)",
+        height: \`var(--icon-height, \${widthAndHeight})\`,
+        width: \`var(--icon-width, \${widthAndHeight})\`,
         display: "flex",
         alignItems: "center",
         justifyContent: "center"
@@ -28,6 +41,7 @@ export const ${iconNames.unprefixedCapitalized}: FunctionComponent<HTMLProps<SVG
     </svg>`;
 
   componentCode += `
+
   return (
     ${svgCode}
   );

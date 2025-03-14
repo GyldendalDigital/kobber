@@ -1,4 +1,6 @@
-export type IconType = 
+export type SizeType = "small" | "regular" | "big"
+  
+  export type IconType = 
   | "kobber-add"
   | "kobber-add_figure"
   | "kobber-add_square"

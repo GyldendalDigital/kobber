@@ -4,7 +4,6 @@ export const makeStory = (symbol: SVGSymbolElement) => {
   const iconNames = getIconNames(symbol.id);
 
   return `import type { Args, Meta, StoryObj } from "@storybook/web-components";
-import ".";
 
 const meta: Meta = {
   title: "Icon/Icons",
@@ -14,6 +13,10 @@ const meta: Meta = {
   },
   args: {
     ariaLabel: "",
+    size: "regular",
+  },
+  argTypes: {
+    size: { control: "inline-radio", options: ["small", "regular", "big"] },
   },
   decorators: [
     (story, storyContext) => \`
@@ -29,7 +32,7 @@ type Story = StoryObj<typeof meta>;
 
 export const ${iconNames.unprefixed}: Story = {
   render: (args: Args) => \`
-    <${symbol.id} aria-label="\${args.ariaLabel}" />
+    <${symbol.id} aria-label="\${args.ariaLabel}" size="\${args.size}" />
   \`,
 };
 `;
