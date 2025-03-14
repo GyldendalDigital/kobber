@@ -1,5 +1,11 @@
 # @gyldendal/kobber-audio-recorder
 
+## 0.3.82
+
+### Patch Changes
+
+- Correct kobber-radio-group after dev review
+
 ## 0.3.81
 
 ### Patch Changes
