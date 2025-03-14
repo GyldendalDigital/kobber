@@ -1,5 +1,5 @@
-import { KobberLink } from "@gyldendal/kobber-components/react-ssr-safe"
 import { BRANDING_MANUAL_URL, KOBBER_TEAMS_URL } from "@/lib/constants"
+import { ExternalLink } from "./external-link"
 
 const links = [
   {
@@ -31,9 +31,9 @@ export function ExternalLinksGrid() {
       <ul className="flex flex-wrap items-center gap-4">
         {links.map((item, index) => (
           <li key={index}>
-            <KobberLink href={item.href} type="highlight">
+            <ExternalLink href={item.href} highlighted>
               {item.title}
-            </KobberLink>
+            </ExternalLink>
           </li>
         ))}
       </ul>

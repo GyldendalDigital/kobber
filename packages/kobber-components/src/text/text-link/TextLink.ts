@@ -4,7 +4,7 @@ import { textLinkStyles } from "./TextLink.styles";
 import componentStyles from "../../base/styles/component.styles";
 import { textLinkName, TextLinkProps } from "./TextLink.core";
 import { ifDefined } from "lit/directives/if-defined.js";
-import { isExternalLink } from "../../utils/stringUtilts";
+import { isExternalLink } from "../../utils/stringUtils";
 
 @customElement(textLinkName)
 export class TextLink extends LitElement implements TextLinkProps {

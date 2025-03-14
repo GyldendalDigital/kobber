@@ -1,6 +1,6 @@
 import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
-import { LinkProps, linkName } from "./Link.core";
+import { LinkClassNames, LinkProps, linkName } from "./Link.core";
 import { resetButton } from "../base/styles/reset.styles";
 
 /**
@@ -19,7 +19,11 @@ const createStyles = () => {
       line-height: var(${unsafeCSS(universal.text.ui["line-height"].label.medium["multi-line"])});
       color: var(${unsafeCSS(link.text.color.base)});
 
-      &.${unsafeCSS("highlight" satisfies LinkProps["type"])} {
+      &.${unsafeCSS("subtle" satisfies LinkProps["type"])} {
+        color: var(${unsafeCSS(component.breadcrumb.text.color.fallback)});
+      }
+
+      &.${unsafeCSS("prominent" satisfies LinkProps["type"])} {
         color: var(${unsafeCSS(link.text.color.highlight)});
       }
 
@@ -67,6 +71,15 @@ const createStyles = () => {
         }
       }
 
+      &.${unsafeCSS("kobber-link--icon" satisfies LinkClassNames)} {
+        --icon-width: var(${unsafeCSS(link.icon.size)});
+        --icon-height: var(${unsafeCSS(link.icon.size)});
+
+        &.${unsafeCSS("kobber-link--icon-left" satisfies LinkClassNames)} {
+          flex-direction: row-reverse;
+        }
+      }
+
       svg {
         display: inline;
       }
@@ -74,6 +87,7 @@ const createStyles = () => {
 
     button.${unsafeCSS(linkName)} {
       ${resetButton()};
+      font-size: inherit;
       border: 1px solid transparent;
       background-color: transparent;
       padding: 0;

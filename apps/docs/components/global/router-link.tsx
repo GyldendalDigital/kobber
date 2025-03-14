@@ -18,7 +18,7 @@ export const RouterLink = (props: Props) => {
   return (
     <Link href={href} passHref legacyBehavior>
       <KobberLink
-        type={highlighted ? "highlight" : undefined}
+        type={highlighted ? "prominent" : undefined}
         disabled={disabled}
         className={cn({ active: pathname === href })}
         href={href}

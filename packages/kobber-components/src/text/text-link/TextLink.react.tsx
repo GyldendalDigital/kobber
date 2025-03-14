@@ -1,7 +1,7 @@
 import { forwardRef, HTMLProps } from "react";
 import { textLinkStyles } from "./TextLink.styles";
 import { textLinkName, TextLinkProps } from "./TextLink.core";
-import { isExternalLink } from "../../utils/stringUtilts";
+import { isExternalLink } from "../../utils/stringUtils";
 
 type Props = TextLinkProps & HTMLProps<HTMLAnchorElement>;
 

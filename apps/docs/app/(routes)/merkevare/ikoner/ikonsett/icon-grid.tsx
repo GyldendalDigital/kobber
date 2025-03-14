@@ -31,7 +31,9 @@ export const IconGrid = () => {
 const IconDisplayer = ({ key, component: IconComponent }: Icon) => {
   return (
     <div className="flex aspect-square flex-col items-center justify-evenly gap-[10px] rounded-[8px] bg-[#F3ECED] p-[10px] text-center">
-      <IconComponent style={{ "--icon-width": "24px" } as React.CSSProperties} />
+      <IconComponent
+        style={{ "--icon-width": "24px", "--icon-height": "24px" } as React.CSSProperties}
+      />
       {pascalToSpace(key.replace("Icon", ""))}
     </div>
   )
