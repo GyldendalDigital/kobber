@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.83
+
+### Patch Changes
+
+- Make kobber-radio-group helpText prop optional
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.83
+
 ## 0.3.82
 
 ### Patch Changes
