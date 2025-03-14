@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.82
+
+### Patch Changes
+
+- Correct kobber-radio-group after dev review
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.82
+
 ## 0.3.81
 
 ### Patch Changes
