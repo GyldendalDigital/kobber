@@ -4,7 +4,7 @@ import "../../button/Button.react";
 import { radioGroupStyles } from "./RadioGroup.styles";
 import "../../base/styles/react.styles.css";
 
-type Props = { helpText: string; children: Array<ReactElement> } & GroupProps;
+type Props = { helpText?: string; children: Array<ReactElement> } & GroupProps;
 
 export const RadioGroup = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { direction, helpText, label, children } = props;
