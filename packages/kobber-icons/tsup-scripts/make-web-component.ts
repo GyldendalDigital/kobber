@@ -6,8 +6,6 @@ export const makeWebComponent = (symbol: SVGSymbolElement) => {
   const constructor = `constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.heightValueFallback = "var(--kobber-global-visual-icon-size-small)";
-    this.widthValueFallback = "var(--kobber-global-visual-icon-size-small)";
   }
 
 `;
@@ -20,7 +18,7 @@ export const makeWebComponent = (symbol: SVGSymbolElement) => {
     const role = ariaHidden ? "presentation" : "img";`;
 
   const styles =
-    "<style>:host { display: flex; align-items: center; justify-content: center; }svg {width: var(--icon-width, ${this.widthValueFallback});height: var(--icon-height, ${this.heightValueFallback});}</style>";
+    "<style>:host { display: flex; align-items: center; justify-content: center; }svg {width: var(--icon-width, 1em);height: var(--icon-height, 1em);}</style>";
 
   const svgCode = `<svg viewBox="${symbol.getAttribute("viewBox")}" aria-label="\${ariaLabel}" aria-hidden="\${ariaHidden}" role="\${role}">${symbol.innerHTML}</svg>`;
 

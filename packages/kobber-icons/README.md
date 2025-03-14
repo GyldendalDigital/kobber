@@ -62,11 +62,16 @@ Symbol ids are prefixed with `kobber-`, to avoid collisions with any other id in
 
 #### Color
 
-Icons have set `fill=currentcolor`. This means the icon components' color will inherit from their parent element.
+Icons have `fill=currentcolor`. This means the icon components' color will inherit from their parent element.
 
-#### Size
+### Other styling
 
-Icons use the CSS Custom Properties `--icon-width` and `--icon-height`, which both have `--kobber-primitives-size-16: 1rem;` as fallback value.
+#### Web components
+
+Each icon web component :host is `display: flex;`, as this is useful for most usages. As this style is on the :host selector, consumers are free to override that style on the icon component container (when, for example, inline styling is required).
+
+Likewise, other styles can be applied to the icon component container, like stroke or stroke width.
+
 
 ### 🧱 Icons folder structure
 
