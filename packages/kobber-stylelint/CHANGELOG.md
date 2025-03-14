@@ -1,5 +1,11 @@
 # @gyldendal/kobber-stylelint
 
+## 0.3.83
+
+### Patch Changes
+
+- Make kobber-radio-group helpText prop optional
+
 ## 0.3.82
 
 ### Patch Changes
