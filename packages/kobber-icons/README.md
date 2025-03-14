@@ -72,6 +72,9 @@ Each icon web component :host is `display: flex;`, as this is useful for most us
 
 Likewise, other styles can be applied to the icon component container, like stroke or stroke width.
 
+#### React-ssr-safe components
+
+These are injected as SVG elements into HTML. This means you can style the SVG element the same way you style HTML elements.
 
 ### 🧱 Icons folder structure
 

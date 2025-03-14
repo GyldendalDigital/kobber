@@ -1,24 +1,32 @@
+import fs from "node:fs";
 import { JSDOM } from "jsdom";
-export { makeWebComponent } from "./make-web-component";
-export { listWebComponents } from "./list-web-components";
-export { listReactComponents } from "./list-react-components";
-export { makeStory } from "./make-storybook-story";
-export { makeIconGallery } from "./make-storybook-icon-gallery";
-export { listIconTypes } from "./list-icon-types";
-export { listIcons } from "./list-icons";
+import { listReactComponents } from "./list-react-components";
+import { listReactSSRSafeComponents } from "./list-react-ssr-safe-components";
+import { listWebComponents } from "./list-web-components";
+import { listIcons } from "./list-icons";
+import { listIconTypes } from "./list-icon-types";
+import { makeWebComponent } from "./make-web-component";
+import { makeSSRSafeReactComponent } from "./make-react-ssr-safe-component";
+import { makeStory } from "./make-storybook-story";
+import { makeIconGallery } from "./make-storybook-icon-gallery";
 
 const componentPrefix = "kobber-";
+const svgsAndSymbolsListsFile = `symbols/kobber-icons-lists.ts`;
+const iconDirectory = "src/icon";
+const iconsDirectory = `${iconDirectory}/icons`;
+const webComponentsExportsListFile = "src/index.web-components.ts";
+const reactExportsListFile = "src/index.react.tsx";
+const reactSSRSafeExportsListFile = "src/index.react-ssr-safe.tsx";
 
 export const getSymbols = (svgSpriteBuffer: Buffer) => {
   const svgSpriteFileAsString = svgSpriteBuffer.toString();
   const parser = new DOMParser();
   const doc = parser.parseFromString(svgSpriteFileAsString, "text/html");
   const symbols: NodeListOf<SVGSymbolElement> = doc.querySelectorAll("symbol");
-
   return symbols;
 };
 
-export class DOMParser {
+class DOMParser {
   parseFromString(s: string, contentType = "text/html") {
     return new JSDOM(s, { contentType }).window.document;
   }
@@ -47,3 +55,47 @@ export const getIconNames = (symbolName: string) => ({
   prefixedCapitalized: snakeToPascalCase(symbolName),
   unprefixedCapitalized: snakeToPascalCase(symbolName).replace(snakeToPascalCase(componentPrefix), ""),
 });
+
+export const makeComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
+  symbols.forEach(symbol => {
+    const iconNames = getIconNames(symbol.id);
+    const webComponentCode = makeWebComponent(symbol);
+    const reactCode = makeSSRSafeReactComponent(symbol);
+
+    fs.mkdirSync(`${iconsDirectory}/${iconNames.unprefixed}`);
+    fs.writeFileSync(`${iconsDirectory}/${iconNames.unprefixed}/index.ts`, webComponentCode);
+    fs.writeFileSync(`${iconsDirectory}/${iconNames.unprefixed}/index.react.tsx`, reactCode);
+  });
+};
+
+export const listComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
+  const webComponentsExportsListString = listWebComponents(symbols);
+  const reactExportsListString = listReactComponents(symbols);
+  const reactSSRSafeExportsListString = listReactSSRSafeComponents(symbols);
+
+  fs.writeFileSync(reactExportsListFile, reactExportsListString);
+  fs.writeFileSync(reactSSRSafeExportsListFile, reactSSRSafeExportsListString);
+  fs.writeFileSync(webComponentsExportsListFile, webComponentsExportsListString);
+};
+
+export const makeStories = (symbols: NodeListOf<SVGSymbolElement>) => {
+  const iconGalleryString = makeIconGallery(symbols);
+  symbols.forEach(symbol => {
+    const iconNames = getIconNames(symbol.id);
+    const storyFileString = makeStory(symbol);
+
+    fs.writeFileSync(`${iconsDirectory}/${iconNames.unprefixed}/index.stories.ts`, storyFileString);
+  });
+  fs.writeFileSync(`${iconDirectory}/index.mdx`, iconGalleryString);
+};
+
+export const listSvgSymbols = (symbols: NodeListOf<SVGSymbolElement>) => {
+  const iconTypeString = listIconTypes(symbols);
+  const iconsListString = listIcons(symbols);
+
+  const svgsAndSymbolsListsString = `${iconTypeString}
+
+${iconsListString}`;
+
+  fs.writeFileSync(svgsAndSymbolsListsFile, svgsAndSymbolsListsString);
+};

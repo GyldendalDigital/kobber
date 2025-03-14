@@ -160,9 +160,9 @@ export type IconType =
   | "kobber-volume_on"
   | "kobber-warning"
   | "kobber-youtube"
-; 
+;
 
- export const iconsList = [
+export const iconsList = [
  "kobber-add", 
  "kobber-add_figure", 
  "kobber-add_square", 
