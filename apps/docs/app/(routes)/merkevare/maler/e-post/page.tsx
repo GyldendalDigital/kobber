@@ -1,7 +1,6 @@
 import {
   KobberHeading,
   KobberIngress,
-  KobberTextHighlight,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { ContentLayout } from "@/components/content-layout"
@@ -19,7 +18,7 @@ export default function EPostTemplatePage() {
         <KobberIngress>{metadata.description}</KobberIngress>
         <p>
           Signaturen er skrevet ut i Arial og består av identitetsfarger og logo. Det skal
-          <KobberTextHighlight> ikke </KobberTextHighlight>
+          <em> ikke </em>
           gjøres endringer på malen eller tilføyes noe til signaturen, som for eksempel bilder,
           lenker, slagord, kampanjer eller annonseringer.
         </p>

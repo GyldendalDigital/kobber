@@ -1,7 +1,6 @@
 import {
   KobberHeading,
   KobberIngress,
-  KobberTextHighlight,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { cn } from "@/lib/utils"
@@ -16,7 +15,7 @@ export function Restricted() {
           Kobber
           <br />
           <KobberHeading level="span" font="secondary">
-            <KobberTextHighlight>Gyldendals Designsystem</KobberTextHighlight>
+            <em>Gyldendals Designsystem</em>
           </KobberHeading>
         </KobberHeading>
         <KobberIngress>

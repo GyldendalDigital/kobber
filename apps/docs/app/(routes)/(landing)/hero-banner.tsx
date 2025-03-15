@@ -1,9 +1,5 @@
 import Image from "next/image"
-import {
-  KobberHeading,
-  KobberTextHighlight,
-  KobberTextWrapper,
-} from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberHeading, KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
 
 export function HeroBanner() {
@@ -21,7 +17,7 @@ export function HeroBanner() {
         <KobberHeading>
           Velkommen til Kobber
           <KobberHeading level="div" font="secondary">
-            <KobberTextHighlight>Gyldendals designsystem</KobberTextHighlight>
+            <em>Gyldendals designsystem</em>
           </KobberHeading>
         </KobberHeading>
         <p>Design, bygg, og skap gode løsninger med Gyldendals designsystem.</p>

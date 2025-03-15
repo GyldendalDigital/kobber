@@ -2,7 +2,6 @@ import Image from "next/image"
 import {
   KobberHeading,
   KobberIngress,
-  KobberTextHighlight,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
@@ -38,7 +37,7 @@ export default function MerkevareHeriarkiPage() {
 
       <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
-          <KobberTextHighlight>Nivå 1</KobberTextHighlight>
+          <em>Nivå 1</em>
           <br /> Mormerke
         </KobberHeading>
         <p>
@@ -67,7 +66,7 @@ export default function MerkevareHeriarkiPage() {
 
       <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
-          <KobberTextHighlight>Nivå 2</KobberTextHighlight>
+          <em>Nivå 2</em>
           <br /> Støttet utgivelse og verk
         </KobberHeading>
         <p>
@@ -99,7 +98,7 @@ export default function MerkevareHeriarkiPage() {
 
       <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
-          <KobberTextHighlight>Nivå 3</KobberTextHighlight>
+          <em>Nivå 3</em>
           <br /> Støttet identitet
         </KobberHeading>
         <p>
@@ -123,7 +122,7 @@ export default function MerkevareHeriarkiPage() {
 
       <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
-          <KobberTextHighlight>Nivå 4</KobberTextHighlight>
+          <em>Nivå 4</em>
           <br /> Frittstående identitet
         </KobberHeading>
         <p>

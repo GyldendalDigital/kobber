@@ -86,4 +86,9 @@
         var(--kobber-component-button-container-size-height)
     );
   }
+
+  em {
+    color: var(--highlight-color);
+    font-style: normal;
+  }
 }

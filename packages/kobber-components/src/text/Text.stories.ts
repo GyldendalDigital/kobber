@@ -1,20 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { html } from "lit";
 import "./text-wrapper/TextWrapper";
-import "./text-highlight/TextHighlight";
 import "./heading/Heading";
 import "./ingress/Ingress";
 import "./text-link/TextLink";
 import { headingPrimarySizes, headingSecondarySizes } from "./heading/Heading.core";
-import { textHighlightColors } from "./text-highlight/TextHighlight.core";
 import { storySummary } from "../story/story-summary";
 import { textWrapperStyles } from "./text-wrapper/TextWrapper.styles";
 import { textLinkStyles } from "./text-link/TextLink.styles";
-import { textHighlightStyles } from "./text-highlight/TextHighlight.styles";
-import { getContrast, isContrastCompliant } from "../utils/contrast";
 import { ingressStyles } from "./ingress/Ingress.styles";
 import { headingStyles } from "./heading/Heading.styles";
-import { regional, component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables";
 import "@gyldendal/kobber-icons/web-components";
 
 const meta: Meta = {
@@ -36,18 +31,18 @@ export const All: Story = {
     <kobber-text-wrapper>
       <kobber-heading>
         Velkommen til kobber<br />
-        <kobber-text-highlight>Gyldendals designsystem</kobber-text-highlight>
+        <em>Gyldendals designsystem</em>
       </kobber-heading>
 
       <kobber-ingress>
         Phosfluorescently innovate real-time experiences vis-a-vis unique opportunities. Interactively disintermediate
-        sustainable niches before long-term <kobber-text-highlight>high-impact</kobber-text-highlight> resources.
-        Interactively deliver 2.0 infomediaries via timely.
+        sustainable niches before long-term <em>high-impact</em> resources. Interactively deliver 2.0 infomediaries via
+        timely.
       </kobber-ingress>
 
       <p>
         Rapidiously strategize integrated intellectual capital vis-a-vis
-        <kobber-text-highlight>progressive</kobber-text-highlight> mindshare.
+        <em>progressive</em> mindshare.
       </p>
       <p>
         Uniquely <kobber-text-link href="https://github.com/GyldendalDigital/kobber">reconceptualize</kobber-text-link>
@@ -82,8 +77,7 @@ export const All: Story = {
         competencies through fully tested collaboration and idea-sharing. Credibly whiteboard bleeding-edge e-services
         via real-time collaboration and idea-sharing. Compellingly myocardinate transparent e-business after superior
         users. Authoritatively reintermediate economically sound
-        <kobber-text-highlight color="rettsdata">collaboration and idea-sharing</kobber-text-highlight> after
-        cross-media benefits.
+        <em>collaboration and idea-sharing</em> after cross-media benefits.
       </p>
       <p>
         Phosfluorescently negotiate high-payoff catalysts for change without interactive partnerships. Proactively seize
@@ -117,8 +111,7 @@ export const Heading: Story = {
     h1: false,
   },
   render: args => {
-    const text = (textValue: string) =>
-      args.highlighted ? html`<kobber-text-highlight>${textValue}</kobber-text-highlight>` : textValue;
+    const text = (textValue: string) => (args.highlighted ? html`<em>${textValue}</em>` : textValue);
 
     return html`
       <div style="display: flex; gap: 2rem; margin-top: 3rem;">
@@ -170,42 +163,6 @@ export const Ingress: Story = {
       ${storySummary({
         summary: `Bruker farge fra "component.article", og typografi fra "title medium".`,
         code: ingressStyles.cssText,
-      })}`;
-  },
-};
-
-export const Highlight: Story = {
-  parameters: {
-    layout: "none",
-  },
-  render: args => {
-    return html`<div style="margin-top: 4rem">
-        <kobber-text-wrapper>
-          ${textHighlightColors.map((color, i) => {
-            const highlightValue = component.button.background.color[color].main.primary.fallback;
-            const backgroundValue = regional.navigation.color.brightest;
-            const textValue = component.body.text.color.base;
-
-            const backgroundContrast = getContrast(backgroundValue, highlightValue);
-            const backgroundContrastCompliant = isContrastCompliant(backgroundValue, highlightValue, false, "AA");
-
-            const textContrast = getContrast(textValue, highlightValue);
-
-            return html`<div style="padding: 1rem; border: 1px solid lightgray; border-radius: 0.5rem;">
-              <p style="font-family: monospace; font-size: 0.8rem;">
-                Farge: ${color} <br />
-                Kontrast mot bakgrunn: ${backgroundContrast} ${backgroundContrastCompliant ? "👍" : "👎"} <br />
-                Kontrast mot brødtekst: ${textContrast} <br />
-              </p>
-              <p>Dette er den <kobber-text-highlight color="${color}">fremhevede</kobber-text-highlight> teksten.</p>
-            </div>`;
-          })}
-        </kobber-text-wrapper>
-      </div>
-
-      ${storySummary({
-        summary: `Carmine og Rettsdata er vel de eneste som egner seg for highlighting.`,
-        code: textHighlightStyles.cssText,
       })}`;
   },
 };

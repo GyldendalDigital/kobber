@@ -31,6 +31,15 @@ const createHeadingStyles = () => {
       &.${unsafeCSS("secondary" satisfies HeadingFont)} {
         ${secondaryHeadings()}
       }
+
+      /* used in global.css em styling (Lit can't style nested slots) */
+      --highlight-color: var(${unsafeCSS(heading.text.color.highlight)});
+
+      em,
+      ::slotted(em) {
+        color: var(--highlight-color);
+        font-style: normal;
+      }
     }
   `;
 };

@@ -2,13 +2,12 @@ import Image from "next/image"
 import {
   KobberHeading,
   KobberIngress,
-  KobberTextHighlight,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
 import { ContentLayout } from "@/components/content-layout"
-import { metaGettingStartedIntro } from "./intro.meta"
 import { HeroImage } from "@/components/hero-image"
+import { metaGettingStartedIntro } from "./intro.meta"
 
 export const metadata = metaGettingStartedIntro
 
@@ -21,7 +20,7 @@ export default function Introduksjon() {
         <KobberHeading>
           Designsystemet Kobber <br />
           <KobberHeading level="div" font="secondary">
-            <KobberTextHighlight>Et verktøy for samspill og synergier</KobberTextHighlight>
+            <em>Et verktøy for samspill og synergier</em>
           </KobberHeading>
         </KobberHeading>
 
