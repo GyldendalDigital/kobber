@@ -14,9 +14,7 @@ export function InteractiveStatesSection() {
             {states.map((state) => (
               <KobberButton
                 key={"supplemental" + state}
-                color="carmine"
-                variant="supplemental"
-                level="primary"
+                variant="brand-primary-supplemental"
                 className={state}
                 disabled={state === "disabled"}
               >
@@ -28,9 +26,7 @@ export function InteractiveStatesSection() {
             {states.map((state) => (
               <KobberButton
                 key={"main" + state}
-                color="carmine"
-                variant="main"
-                level="primary"
+                variant="brand-primary-main"
                 className={state}
                 disabled={state === "disabled"}
               >

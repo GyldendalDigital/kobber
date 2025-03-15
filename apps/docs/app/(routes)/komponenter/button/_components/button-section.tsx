@@ -35,10 +35,12 @@ export function ButtonSection({ level }: { level: ButtonLevel }) {
     >
       {(mode) => (
         <KobberButton
-          color={color}
-          variant={mode === "dark" && level === "secondary" ? "supplemental" : "main"}
+          variant={
+            mode === "dark" && level === "secondary"
+              ? "brand-primary-supplemental"
+              : "brand-primary-main"
+          }
           iconFirst={iconOptions === "left"}
-          level={level}
         >
           Button
           <span slot="icon">

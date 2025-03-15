@@ -28,9 +28,7 @@ export function PracticeSection() {
 function AcceptedComponent() {
   return (
     <>
-      <KobberButton variant={"main"} level="primary" color="aubergine">
-        Handling 1
-      </KobberButton>
+      <KobberButton variant={"brand-primary-main"}>Handling 1</KobberButton>
       <RadixButton>Handling 2</RadixButton>
     </>
   )
