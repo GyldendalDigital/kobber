@@ -1,6 +1,6 @@
 import { forwardRef, HTMLProps, ReactNode, createElement } from "react";
 import { buttonStyles } from "./Button.styles";
-import { buttonClassNames, ButtonComputedProps, buttonName, ButtonProps, hasSupplementalAlt } from "./Button.core";
+import { buttonClassNames, ButtonComputedProps, buttonName, ButtonProps } from "./Button.core";
 import "../base/styles/react.styles.css";
 
 type Props = {
@@ -10,9 +10,6 @@ type Props = {
 
 export const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
   const {
-    color,
-    variant,
-    level,
     iconFirst,
     fullWidth,
     usedInOtherInteractive,
@@ -32,9 +29,6 @@ export const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
 
   if (iconOnly && !_label) {
     console.warn("aria-label is required for icon only buttons");
-  }
-  if (!hasSupplementalAlt(color) && variant === "supplemental alt") {
-    console.warn("variant 'supplemental alt' must match the following function: " + hasSupplementalAlt.toString());
   }
 
   return (

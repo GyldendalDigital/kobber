@@ -1,12 +1,11 @@
-import { component, global } from "@gyldendal/kobber-base/themes/default/tokens.js";
-import { ReplaceSpaceWithDash, replaceSpaceWithDash } from "../utils/replace";
+import { component } from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { objectKeys } from "../utils/objectKeys";
+import { concat2, concat3 } from "../utils/join";
 
 export const buttonName = "kobber-button";
 
 export const buttonClassNames = ({
-  color = "carmine",
-  variant = "main",
-  level = "primary",
+  variant = "brand-primary-main",
   hasIcon = false,
   iconOnly = false,
   iconFirst = false,
@@ -37,19 +36,16 @@ export const buttonClassNames = ({
     conditionalClassNames.push("kobber-button--used-in-other-interactive");
   }
 
-  return [buttonName, color, replaceSpaceWithDash(variant), level, ...conditionalClassNames];
+  return [buttonName, variant, ...conditionalClassNames];
 };
 
 export type ButtonProps = {
-  color?: ButtonColor;
-  variant?: ButtonVariant;
-  level?: ButtonLevel;
   iconFirst?: boolean;
   fullWidth?: boolean;
   usedInOtherInteractive?: boolean;
   href?: string;
   target?: "_blank" | "_parent" | "_self" | "_top";
-};
+} & { variant: ButtonDefaultProps | ButtonThemeProps | ButtonUiProps };
 
 export type ButtonComputedProps = {
   hasIcon?: boolean;
@@ -59,9 +55,7 @@ export type ButtonComputedProps = {
 
 export type ButtonClassNames =
   | typeof buttonName
-  | ButtonColor
-  | ReplaceSpaceWithDash<ButtonVariant>
-  | ButtonLevel
+  | ButtonProps["variant"]
   | "kobber-button--icon"
   | "kobber-button--icon-only"
   | "kobber-button--icon-left"
@@ -70,35 +64,19 @@ export type ButtonClassNames =
   | "kobber-button--link"
   | "kobber-button--inlined";
 
-export type ButtonColor = keyof typeof component.button.background.color;
-export type ButtonVariant = keyof typeof component.button.background.color.neutral;
-export type ButtonLevel = keyof typeof component.button.text.color.neutral.main;
+type ButtonDefaultProps = (typeof buttonDefaultProps)[number];
+export const buttonDefaultColors = objectKeys(component.button.background.color);
+export const buttonDefaultLevels = objectKeys(component.button.background.color.brand);
+export const buttonDefaultVariants = objectKeys(component.button.background.color.brand.secondary);
+export const buttonDefaultProps = concat3(buttonDefaultColors, buttonDefaultLevels, buttonDefaultVariants);
 
-export const buttonColors: ButtonColor[] = Object.keys(component.button.background.color) as ButtonColor[];
-export const buttonVariants: ButtonVariant[] = Object.keys(
-  component.button.background.color.neutral,
-) as ButtonVariant[];
-export const buttonLevels: ButtonLevel[] = Object.keys(component.button.text.color.neutral.main) as ButtonLevel[];
+type ButtonUiProps = (typeof buttonUiProps)[number];
+export const buttonUiColors = objectKeys(component["ui-button"]["background"]["color"]);
+export const buttonUiVariants = objectKeys(component["ui-button"]["background"]["color"].informative);
+export const buttonUiProps = concat2(buttonUiColors, buttonUiVariants);
 
-export type ButtonUiColor = keyof typeof global.color.ui;
-export const isUiColor = (color: ButtonColor | undefined): color is ButtonUiColor =>
-  !!color && color in global.color.ui;
-
-export const hasSupplementalAlt = (color: ButtonColor | undefined) =>
-  color === "aubergine" || color === "rettsdata" || color === "neutral";
-
-export const isValidPropCombination = (props: ButtonProps) => {
-  const { color, variant, level } = props;
-
-  // ui colors only have primary level
-  if (isUiColor(color) && level !== "primary") {
-    return false;
-  }
-
-  // supplemental alt variant only available for aubergine, rettsdata, and neutral colors
-  if (variant === "supplemental alt" && !hasSupplementalAlt(props.color)) {
-    return false;
-  }
-
-  return true;
-};
+type ButtonThemeProps = (typeof buttonThemeProps)[number];
+export const buttonThemeColors = objectKeys(component["theme-button"]["background"]["color"]);
+export const buttonThemeLevels = objectKeys(component["theme-button"]["background"]["color"].carmine);
+export const buttonThemeVariants = objectKeys(component["theme-button"]["background"]["color"].carmine.primary);
+export const buttonThemeProps = concat3(buttonThemeColors, buttonThemeLevels, buttonThemeVariants);

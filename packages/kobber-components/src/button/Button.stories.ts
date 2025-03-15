@@ -1,6 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { primitives } from "@gyldendal/kobber-base/themes/default/tokens";
-import { buttonColors, buttonVariants, buttonLevels, ButtonProps, hasSupplementalAlt, buttonName } from "./Button.core";
+import {
+  ButtonProps,
+  buttonDefaultColors,
+  buttonDefaultLevels,
+  buttonDefaultProps,
+  buttonDefaultVariants,
+  buttonName,
+  buttonThemeColors,
+  buttonThemeLevels,
+  buttonThemeVariants,
+  buttonUiColors,
+  buttonUiVariants,
+} from "./Button.core";
 import "./Button";
 import "../text/heading/Heading";
 import "../utils/theme-context";
@@ -16,20 +28,16 @@ interface Args extends ButtonProps {
   link: boolean;
 }
 
+const buttonColors = [...buttonDefaultColors, ...buttonUiColors, ...buttonThemeColors];
+const buttonVariants = [...buttonDefaultVariants, ...buttonUiVariants, ...buttonThemeVariants];
+const buttonLevels = [...buttonDefaultLevels, ...buttonThemeLevels];
+
 const meta: Meta<Args> = {
   title: "Button",
   component: buttonName,
   argTypes: {
-    color: {
-      options: buttonColors,
-      control: { type: "select" },
-    },
     variant: {
-      options: buttonVariants,
-      control: { type: "radio" },
-    },
-    level: {
-      options: buttonLevels,
+      options: buttonDefaultProps,
       control: { type: "radio" },
     },
     state: {
@@ -58,9 +66,7 @@ export default meta;
 export const Button: StoryObj<Args> = {
   args: {
     text: "Button text",
-    color: meta.argTypes?.color?.options?.[0],
-    variant: buttonVariants[0],
-    level: buttonLevels[0],
+    variant: buttonDefaultProps[0],
     state: states[0],
     icon: buttonIconSettings[1],
     link: false,
@@ -149,45 +155,41 @@ export const Buttons: StoryObj<Args> = {
       </style>
 
       <div class="wrapper-theme">
-        ${buttonColors.map(color => renderColor({ ...args, color })).join("")}
+        ${buttonDefaultProps.map(variant => renderVariant({ ...args, variant })).join("")}
       </div>
     `;
   },
 };
 
-// carmine, aubergine
-const renderColor = (args: Args) => `
-<div class="wrapper-color">
-  <kobber-heading variant="heading small" title="Kode: color, Figma: theme">${args.color}</kobber-heading>
-  ${buttonLevels.map(level => renderLevel({ ...args, level })).join("")}
-</div>
-`;
+// // carmine, aubergine
+// const renderColor = (args: Args) => `
+// <div class="wrapper-color">
+//   <kobber-heading variant="heading small" title="Kode: color, Figma: theme">${args.color}</kobber-heading>
+//   ${buttonLevels.map(level => renderLevel({ ...args, level })).join("")}
+// </div>
+// `;
 
-// primary, secondary
-const renderLevel = (args: Args) => {
-  const { color, level } = args;
+// // primary, secondary
+// const renderLevel = (args: Args) => {
+//   const { color, level } = args;
 
-  if (level === "secondary" && (color === "success" || color === "informative" || color === "warning")) {
-    return;
-  }
+//   if (level === "secondary" && (color === "success" || color === "informative" || color === "warning")) {
+//     return;
+//   }
 
-  return `
-<kobber-heading variant="title small" title="Level">${level}</kobber-heading>
-<div class="wrapper-level">
-  ${buttonVariants.map(variant => renderVariant({ ...args, variant })).join("")}
-</div>
-`;
-};
+//   return `
+// <kobber-heading variant="title small" title="Level">${level}</kobber-heading>
+// <div class="wrapper-level">
+//   ${buttonVariants.map(variant => renderVariant({ ...args, variant })).join("")}
+// </div>
+// `;
+// };
 
 // main, supplemental
 const renderVariant = (args: Args) => {
-  const { color, variant, level } = args;
+  const variant = args.variant;
 
-  if (!variant || (variant === "supplemental alt" && !hasSupplementalAlt(color))) {
-    return;
-  }
-
-  return `<div class="wrapper-variant ${variant.replace(" ", "-")} ${level}">
+  return `<div class="wrapper-variant">
 <small title="Variant">${variant}</small>
   ${states.map(state => renderButton({ ...args, state, text: state })).join("")}
   ${states.map(state => renderButton({ ...args, state, text: state, icon: "none" })).join("")}
@@ -196,14 +198,12 @@ const renderVariant = (args: Args) => {
 };
 
 const renderButton = (args: Args) => {
-  const { color, variant, level, state, icon, text, link, fullWidth } = args;
+  const {  variant, state, icon, text, link, fullWidth } = args;
 
   return `
 <kobber-button 
   class="${state}" 
-  color="${color}" 
   variant="${variant}" 
-  level="${level}" 
   ${state === "disabled" ? "disabled" : ""} 
   ${icon === "left" ? "iconFirst" : ""} 
   ${fullWidth ? "fullWidth" : ""} 
