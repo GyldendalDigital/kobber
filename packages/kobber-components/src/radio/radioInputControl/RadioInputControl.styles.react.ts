@@ -7,12 +7,12 @@ import { inputVariants, InputControlClassNames, InputControlPartNames } from "..
  *
  */
 const createInputControlStyles = () => {
-  const button = component.input.selection["radio-indicator"];
+  const button = component.radiobutton["radio-circle"];
   return css`
     .${unsafeCSS("kobber-radio-input-control" satisfies InputControlClassNames)} {
       --transition-time: 0.5s;
-      --icon-wrapper-height: var(${unsafeCSS(button.indicator.height)});
-      --icon-wrapper-width: var(${unsafeCSS(button.indicator.width)});
+      --icon-wrapper-height: var(${unsafeCSS(button.height)});
+      --icon-wrapper-width: var(${unsafeCSS(button.width)});
       --icon-height: var(${unsafeCSS(button.shape.height)});
       --icon-width: var(${unsafeCSS(button.shape.width)});
       margin-top: 0.1em; /* A top margin emulates label being vertically aligned with idle input control, but not when multiple lines. */
@@ -30,10 +30,10 @@ const createInputControlStyles = () => {
 };
 
 const buttonVariantStyles = () => {
-  const inputColor = component.input.selection["radio-indicator"].indicator.color;
+  const inputColor = component.radiobutton["radio-circle"].border.color;
   const variableClasses = inputVariants.flatMap(variant => {
     const variantClassName = `&.${variant}`;
-    const borderColor = inputColor[variant].fallback;
+    const borderColor = inputColor[variant];
     return css`
       ${unsafeCSS(variantClassName)} {
         --control-color: var(${unsafeCSS(borderColor)});

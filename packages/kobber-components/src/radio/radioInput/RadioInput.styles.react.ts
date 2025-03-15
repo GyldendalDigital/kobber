@@ -14,7 +14,7 @@ import "../../base/styles/react.styles.css";
  *
  */
 const createInputStyles = () => {
-  const input = component.input.selection;
+  const input = component.radiobutton;
   return css`
     .${unsafeCSS("kobber-radio-input" satisfies InputClassNames)} {
       --control-outline-color: transparent;
@@ -54,7 +54,7 @@ const buttonVariantStyles = () => {
 };
 
 const buttonStatesPerVariant = (variant: InputVariant) => {
-  const outlineColor = component.input.selection["radio-indicator"].outline.color[variant];
+  const outlineColor = component.radiobutton["radio-circle"].outline.color[variant];
   return css`
     &.hover:not(.disabled):not([disabled])
       .${unsafeCSS("kobber-radio-input__control" satisfies InputControlPartNames)} {

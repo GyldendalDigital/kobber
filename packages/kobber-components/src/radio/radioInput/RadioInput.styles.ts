@@ -13,7 +13,7 @@ import {
  *
  */
 const createInputStyles = () => {
-  const input = component.input.selection;
+  const input = component.radiobutton;
   return css`
     :host {
       --control-outline-color: transparent;
@@ -56,7 +56,7 @@ const inputVariantStyles = () => {
 };
 
 const inputStatesPerVariant = (variant: InputVariant) => {
-  const outlineColor = component.input.selection["radio-indicator"].outline.color[variant];
+  const outlineColor = component.radiobutton["radio-circle"].outline.color[variant];
   return css`
     &.hover,
     :host(:hover) & {

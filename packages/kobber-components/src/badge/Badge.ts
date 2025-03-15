@@ -14,10 +14,9 @@ export class Badge extends HTMLElement {
     this.attachShadow({ mode: "open" });
 
     const fontSize = `${tokens.typography.ui.button.fontSize / 16}rem;`;
-    const textColor =
-      this.getAttribute("text-color") ?? tokens.component.button.text.color.aubergine.main.primary.fallback;
+    const textColor = this.getAttribute("text-color") ?? tokens.component.button.text.color.brand.primary.main;
     const backgroundColor =
-      this.getAttribute("background-color") ?? tokens.component.button.background.color.aubergine.main.primary.fallback;
+      this.getAttribute("background-color") ?? tokens.component.button.background.color.brand.primary.main.fallback;
     const circleColor = this.getAttribute("circle-color");
 
     const compliantColors = getContrastCompliantColors({

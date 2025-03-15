@@ -3,7 +3,7 @@ import { css, unsafeCSS } from "lit";
 import { listItemClassNames, listItemName } from "./ListItem.core";
 
 const createListItemStyles = () => {
-  const listItem = component["docs-list-item"];
+  const listItem = component["list-item"];
   return css`
     .${unsafeCSS(listItemClassNames(listItemName))} {
       display: flex;
@@ -11,7 +11,7 @@ const createListItemStyles = () => {
       align-items: center;
       cursor: pointer;
       gap: var(${unsafeCSS(listItem.container.gap)});
-      padding: var(${unsafeCSS(listItem.container.padding.bottom)});
+      padding: var(${unsafeCSS(listItem.container.padding.block)});
       border-radius: var(${unsafeCSS(listItem.container.border.radius)});
       color: var(${unsafeCSS(listItem.text.color)});
       font-size: var(${unsafeCSS(typography.ui["label large - single line"].fontSize)});
