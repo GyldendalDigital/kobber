@@ -20,7 +20,7 @@ const createStyles = () => {
       color: var(${unsafeCSS(link.text.color.base)});
 
       &.${unsafeCSS("subtle" satisfies LinkProps["type"])} {
-        color: var(${unsafeCSS(component.breadcrumb.text.color.fallback)});
+        color: var(${unsafeCSS(link.text.color.subtle)});
       }
 
       &.${unsafeCSS("prominent" satisfies LinkProps["type"])} {
