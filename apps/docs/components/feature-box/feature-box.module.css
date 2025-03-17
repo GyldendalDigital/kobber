@@ -1,5 +1,6 @@
 .feature-box {
   display: grid;
+
   /* TODO: from tokens */
   grid-template-columns: repeat(
     auto-fill,
@@ -12,10 +13,10 @@
   position: relative;
   display: flex;
   align-items: end;
-  aspect-ratio: 100/86;
-  border-radius: 1rem;
-  overflow: hidden;
+  border-radius: 16px;
   padding: 1rem;
+  aspect-ratio: 100/86;
+  overflow: hidden;
 }
 
 .feature-box-item:hover {
@@ -23,15 +24,14 @@
 }
 
 .feature-box-item-label {
-  background-color: var(--kobber-regional-navigation-color-brightest);
-  border-radius: 0.5rem;
-  overflow: hidden;
-  padding: 0.5rem;
-  z-index: 10;
-  overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+  border-radius: 8px;
+  padding: 0.5rem;
+  background-color: var(--kobber-component-label-background-color-aubergine-main);
+  z-index: 10;
+  overflow: hidden;
 }
 
 .feature-box-item-image {

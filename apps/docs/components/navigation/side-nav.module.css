@@ -4,7 +4,7 @@
   height: calc(100vh - var(--top-nav-height));
   overflow: hidden;
 
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     display: none;
   }
 }

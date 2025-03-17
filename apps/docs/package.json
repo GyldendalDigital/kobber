@@ -8,8 +8,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "yarn lint:js",
-    "lint:css": "stylelint",
+    "lint": "yarn lint:js && lint:css",
+    "lint:css": "npx stylelint --f verbose \"**/*.css\"",
     "lint:js": "next lint"
   },
   "devDependencies": {

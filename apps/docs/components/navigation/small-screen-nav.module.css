@@ -7,22 +7,20 @@
     2 * var(--kobber-component-docs-navbar-container-padding-block) +
       var(--kobber-component-button-container-size-height)
   );
-
   position: absolute;
   inset: 0;
   top: var(--navbar-height);
-  max-height: calc(100vh - var(--navbar-height));
-
   display: flex;
   flex-direction: column;
+  max-height: calc(100vh - var(--navbar-height));
   background-color: var(--kobber-component-docs-navbar-background-color-main);
   z-index: 900;
   overflow-y: auto;
 }
 
 .small-screen-nav-overlay-back-button {
-  opacity: 0.8;
   padding-block: var(--kobber-component-docs-navbar-container-padding-block);
+  opacity: 0.8;
 }
 
 .small-screen-nav-overlay-login-button {
@@ -32,16 +30,16 @@
 .small-screen-nav-overlay-link-list-outer {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   padding-block: var(--kobber-component-docs-navbar-container-padding-block);
+  gap: 2rem;
   background-color: var(--kobber-component-docs-navbar-background-color-main);
 }
 
 .small-screen-nav-overlay-link-list-inner {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   margin-top: 1rem;
+  gap: 1rem;
 }
 
 .small-screen-nav-overlay-link-list-inner-item {
