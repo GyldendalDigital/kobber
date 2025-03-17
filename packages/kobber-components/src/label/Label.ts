@@ -38,7 +38,7 @@ export class Label extends LitElement implements LabelProps {
   }
 
   render() {
-    return html` <label
+    return html` <div
       class="${[
         ...labelClassNames({
           variant: this.variant,
@@ -53,6 +53,6 @@ export class Label extends LitElement implements LabelProps {
     >
       ${this.showStatusCircle ? html`<div class="status-circle"></div>` : ""}
       <slot></slot>
-    </label>`;
+    </div>`;
   }
 }
