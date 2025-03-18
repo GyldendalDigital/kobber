@@ -6,11 +6,12 @@
   "files": [
     "chunks/**/*",
     "react/**/*",
+    "react-ssr-safe/**/*",
     "symbols/**/*",
     "web-components/**/*"
   ],
   "scripts": {
-    "clean": "rm -rf .turbo node_modules chunks css react web-components",
+    "clean": "rm -rf .turbo node_modules chunks css react react-ssr-safe web-components",
     "lint": "yarn lint:js",
     "lint:js": "eslint",
     "prepare": "npm run build",

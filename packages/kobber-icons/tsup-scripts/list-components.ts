@@ -37,3 +37,15 @@ export const ${iconNames.unprefixedCapitalized} = createComponent({
 
   return `${reactPreamble} ${reactImports} ${reactExports}`;
 };
+
+export const listReactSSRSafeComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
+  let reactSSRSafecomponentExports = "";
+
+  symbols.forEach(symbol => {
+    const iconNames = getIconNames(symbol.id);
+    reactSSRSafecomponentExports += `export { ${iconNames.unprefixedCapitalized} } from "./icon/icons/${iconNames.unprefixed}/index.react";
+`;
+  });
+
+  return reactSSRSafecomponentExports;
+};

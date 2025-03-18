@@ -1,10 +1,11 @@
 import fs from "node:fs";
 import { JSDOM } from "jsdom";
-import { listWebComponents, listReactComponents } from "./list-components";
+import { listWebComponents, listReactSSRSafeComponents, listReactComponents } from "./list-components";
 import { listIcons, listIconTypes } from "./list-icons";
 import { makeWebComponent } from "./make-web-component";
 import { makeStory } from "./make-storybook-story";
 import { makeIconGallery } from "./make-storybook-icon-gallery";
+import { makeSSRSafeReactComponent } from "./make-react-ssr-safe-component";
 
 const componentPrefix = "kobber-";
 const svgsAndSymbolsListsFile = `symbols/kobber-icons-lists.ts`;
@@ -12,6 +13,7 @@ const iconDirectory = "src/icon";
 const iconsDirectory = `${iconDirectory}/icons`;
 const webComponentsExportsListFile = "src/index.web-components.ts";
 const reactExportsListFile = "src/index.react.tsx";
+const reactSSRSafeExportsListFile = "src/index.react-ssr-safe.tsx";
 
 export const getSymbols = (svgSpriteBuffer: Buffer) => {
   const svgSpriteFileAsString = svgSpriteBuffer.toString();
@@ -55,17 +57,21 @@ export const makeComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
   symbols.forEach(symbol => {
     const iconNames = getIconNames(symbol.id);
     const webComponentCode = makeWebComponent(symbol);
+    const reactCode = makeSSRSafeReactComponent(symbol);
 
     fs.mkdirSync(`${iconsDirectory}/${iconNames.unprefixed}`);
     fs.writeFileSync(`${iconsDirectory}/${iconNames.unprefixed}/index.ts`, webComponentCode);
+    fs.writeFileSync(`${iconsDirectory}/${iconNames.unprefixed}/index.react.tsx`, reactCode);
   });
 };
 
 export const listComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
   const webComponentsExportsListString = listWebComponents(symbols);
   const reactExportsListString = listReactComponents(symbols);
+  const reactSSRSafeExportsListString = listReactSSRSafeComponents(symbols);
 
   fs.writeFileSync(reactExportsListFile, reactExportsListString);
+  fs.writeFileSync(reactSSRSafeExportsListFile, reactSSRSafeExportsListString);
   fs.writeFileSync(webComponentsExportsListFile, webComponentsExportsListString);
 };
 

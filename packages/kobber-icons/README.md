@@ -68,6 +68,10 @@ Icons have set `fill=currentcolor`. This means the icon components' color will i
 
 Icons use the CSS Custom Properties `--icon-width` and `--icon-height`, which both have `--kobber-primitives-size-16: 1rem;` as fallback value.
 
+#### Styling react-ssr-safe components
+
+These are injected as SVG elements into HTML. This means you can style the SVG element the same way you style HTML elements.
+
 ### 🧱 Icons folder structure
 
 ```
