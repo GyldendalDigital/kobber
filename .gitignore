@@ -21,5 +21,6 @@ pnpm-debug.log*
 .yarn/install-state.gz
 
 
-# Generated icons (often with new internal indices)
+# Generated files
 **/icon/icons/
+**/dist
