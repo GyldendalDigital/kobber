@@ -85,9 +85,6 @@ export class Button extends LitElement implements ButtonProps {
     if (this._iconOnly && !this._label) {
       console.warn("aria-label is required for icon only buttons");
     }
-    // if (!hasSupplementalAlt(this.color) && this.variant === "supplemental alt") {
-    //   console.warn("variant 'supplemental alt' must match the following function: " + hasSupplementalAlt.toString());
-    // }
   }
 
   render() {

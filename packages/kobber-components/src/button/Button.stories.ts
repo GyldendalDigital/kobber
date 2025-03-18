@@ -1,18 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import { primitives } from "@gyldendal/kobber-base/themes/default/tokens";
-import {
-  ButtonProps,
-  buttonDefaultColors,
-  buttonDefaultLevels,
-  buttonDefaultProps,
-  buttonDefaultVariants,
-  buttonName,
-  buttonThemeColors,
-  buttonThemeLevels,
-  buttonThemeVariants,
-  buttonUiColors,
-  buttonUiVariants,
-} from "./Button.core";
+import { ButtonProps, buttonDefaultProps, buttonName, buttonThemeProps, buttonUiProps } from "./Button.core";
 import "./Button";
 import "../text/heading/Heading";
 import "../utils/theme-context";
@@ -28,16 +15,14 @@ interface Args extends ButtonProps {
   link: boolean;
 }
 
-const buttonColors = [...buttonDefaultColors, ...buttonUiColors, ...buttonThemeColors];
-const buttonVariants = [...buttonDefaultVariants, ...buttonUiVariants, ...buttonThemeVariants];
-const buttonLevels = [...buttonDefaultLevels, ...buttonThemeLevels];
+const buttonProps = [...buttonDefaultProps, ...buttonUiProps, ...buttonThemeProps];
 
 const meta: Meta<Args> = {
   title: "Button",
   component: buttonName,
   argTypes: {
     variant: {
-      options: buttonDefaultProps,
+      options: buttonProps,
       control: { type: "radio" },
     },
     state: {
@@ -54,6 +39,19 @@ const meta: Meta<Args> = {
   },
   decorators: [
     (Story, context) => `
+      <style>
+        .wrapper-variant {
+          display: flex;
+          padding: 0.5rem 1rem;
+          gap: 0.5rem;
+          border-radius: 0 0 1rem 1rem;
+          align-items: center;
+
+          small {
+           min-width: 7rem;
+          }
+        }
+      </style>
     <kobber-theme-context theme-id=${context.globals.theme}>
       ${Story()}
     </kobber-theme-context>
@@ -95,102 +93,79 @@ export const Buttons: StoryObj<Args> = {
   },
   render: args => {
     return `
-      <style>
-        :root {
-          padding: 0.5rem;
-        }
+        Primary
+        ${buttonDefaultProps
+          .filter(variant => variant.includes("primary"))
+          .map(variant => renderVariant({ ...args, variant }))
+          .join("")}
+        
+        <br />
+        Secondary
+        ${buttonDefaultProps
+          .filter(variant => variant.includes("secondary"))
+          .map(variant => renderVariant({ ...args, variant }))
+          .join("")}
 
-        kobber-heading {
-          text-transform: capitalize;
-        }
-
-        .wrapper-theme {
-          display: flex;
-          flex-direction: column;
-          gap: 3rem;
-        }
-
-        .wrapper-color {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .wrapper-level {
-          display: flex;
-          flex-direction: column;
-          border: 1px solid ${primitives.color.wine[250]};
-          border-radius: 1rem;
-          margin-bottom: 1rem;
-        }
-
-        .wrapper-variant {
-          display: flex;
-          padding: 0.5rem 1rem;
-          gap: 0.5rem;
-          border-radius: 0 0 1rem 1rem;
-          align-items: center;
-
-          &:first-of-type {
-            padding-top: 1rem;
-          }
-
-          &:last-of-type {
-            padding-bottom: 1rem;
-          }
-
-          &.supplemental.secondary {
-            color: white;
-            background-color:${primitives.color.wine[850]};
-          }
-
-          &.supplemental-alt.secondary {
-            display: none;
-          }
-
-          small {
-           min-width: 7rem;
-          }
-        }
-      </style>
-
-      <div class="wrapper-theme">
-        ${buttonDefaultProps.map(variant => renderVariant({ ...args, variant })).join("")}
-      </div>
+        <br />
+        Tertiary
+        ${buttonDefaultProps
+          .filter(variant => variant.includes("tertiary"))
+          .map(variant => renderVariant({ ...args, variant }))
+          .join("")}
     `;
   },
 };
 
-// // carmine, aubergine
-// const renderColor = (args: Args) => `
-// <div class="wrapper-color">
-//   <kobber-heading variant="heading small" title="Kode: color, Figma: theme">${args.color}</kobber-heading>
-//   ${buttonLevels.map(level => renderLevel({ ...args, level })).join("")}
-// </div>
-// `;
+export const UiButtons: StoryObj<Args> = {
+  parameters: {
+    layout: "none",
+    controls: {
+      exclude: /^(?!.*(icon|link)).*/g,
+    },
+  },
+  args: {
+    icon: "right",
+    link: false,
+  },
+  render: args => {
+    return `
+      ${buttonUiProps.map(variant => renderVariant({ ...args, variant })).join("")}
+    `;
+  },
+};
 
-// // primary, secondary
-// const renderLevel = (args: Args) => {
-//   const { color, level } = args;
+export const ThemeButtons: StoryObj<Args> = {
+  parameters: {
+    layout: "none",
+    controls: {
+      exclude: /^(?!.*(icon|link)).*/g,
+    },
+  },
+  args: {
+    icon: "right",
+    link: false,
+  },
+  render: args => {
+    return `
+        Primary
+        ${buttonThemeProps
+          .filter(variant => variant.includes("primary"))
+          .map(variant => renderVariant({ ...args, variant }))
+          .join("")}
+        
+        <br />
+        Secondary
+        ${buttonThemeProps
+          .filter(variant => variant.includes("secondary"))
+          .map(variant => renderVariant({ ...args, variant }))
+          .join("")}
+    `;
+  },
+};
 
-//   if (level === "secondary" && (color === "success" || color === "informative" || color === "warning")) {
-//     return;
-//   }
-
-//   return `
-// <kobber-heading variant="title small" title="Level">${level}</kobber-heading>
-// <div class="wrapper-level">
-//   ${buttonVariants.map(variant => renderVariant({ ...args, variant })).join("")}
-// </div>
-// `;
-// };
-
-// main, supplemental
 const renderVariant = (args: Args) => {
-  const variant = args.variant;
-
   return `<div class="wrapper-variant">
-<small title="Variant">${variant}</small>
+<small title="Variant">${args.variant?.replaceAll("-", "<br />")}</small>
   ${states.map(state => renderButton({ ...args, state, text: state })).join("")}
   ${states.map(state => renderButton({ ...args, state, text: state, icon: "none" })).join("")}
   ${states.map(state => renderButton({ ...args, state })).join("")}
@@ -198,7 +173,7 @@ const renderVariant = (args: Args) => {
 };
 
 const renderButton = (args: Args) => {
-  const {  variant, state, icon, text, link, fullWidth } = args;
+  const { variant, state, icon, text, link, fullWidth } = args;
 
   return `
 <kobber-button 

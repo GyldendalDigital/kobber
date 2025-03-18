@@ -45,7 +45,7 @@ export type ButtonProps = {
   usedInOtherInteractive?: boolean;
   href?: string;
   target?: "_blank" | "_parent" | "_self" | "_top";
-} & { variant: ButtonDefaultProps | ButtonThemeProps | ButtonUiProps };
+} & { variant?: ButtonDefaultProps | ButtonThemeProps | ButtonUiProps };
 
 export type ButtonComputedProps = {
   hasIcon?: boolean;
@@ -66,9 +66,20 @@ export type ButtonClassNames =
 
 type ButtonDefaultProps = (typeof buttonDefaultProps)[number];
 export const buttonDefaultColors = objectKeys(component.button.background.color);
-export const buttonDefaultLevels = objectKeys(component.button.background.color.brand);
+export const buttonDefaultLevels = [
+  ...objectKeys(component.button.background.color.brand),
+  ...objectKeys(component.button.container.border.color.brand),
+];
 export const buttonDefaultVariants = objectKeys(component.button.background.color.brand.secondary);
-export const buttonDefaultProps = concat3(buttonDefaultColors, buttonDefaultLevels, buttonDefaultVariants);
+export const buttonDefaultProps = buttonDefaultColors.flatMap(color =>
+  buttonDefaultLevels.flatMap(level => {
+    if (level === "primary" || color === "neutral") {
+      return `${color}-${level}-main` as const;
+    }
+
+    return buttonDefaultVariants.map(variant => `${color}-${level}-${variant}` as const);
+  }),
+);
 
 type ButtonUiProps = (typeof buttonUiProps)[number];
 export const buttonUiColors = objectKeys(component["ui-button"]["background"]["color"]);
