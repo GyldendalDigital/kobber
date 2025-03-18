@@ -1,15 +1,21 @@
 import fs from "node:fs";
 import { JSDOM } from "jsdom";
-import { listWebComponents, listReactSSRSafeComponents, listReactComponents } from "./list-components";
-import { listIcons, listIconTypes } from "./list-icons";
+import {
+  listIcons,
+  listWebComponents,
+  listReactSSRSafeComponents,
+  listReactComponents,
+} from "./list-icons-and-components";
+import { makeIconTypes } from "./make-types";
 import { makeWebComponent } from "./make-web-component";
 import { makeStory } from "./make-storybook-story";
 import { makeIconGallery } from "./make-storybook-icon-gallery";
 import { makeSSRSafeReactComponent } from "./make-react-ssr-safe-component";
 
 const componentPrefix = "kobber-";
-const svgsAndSymbolsListsFile = `symbols/kobber-icons-lists.ts`;
+const svgsListsFile = `dist/symbols/kobber-icons-lists.ts`;
 const iconDirectory = "src/icon";
+const svgsTypesFile = `${iconDirectory}/types/kobber-icons-types.ts`;
 const iconsDirectory = `${iconDirectory}/icons`;
 const webComponentsExportsListFile = "src/index.web-components.ts";
 const reactExportsListFile = "src/index.react.tsx";
@@ -86,13 +92,7 @@ export const makeStories = (symbols: NodeListOf<SVGSymbolElement>) => {
   fs.writeFileSync(`${iconDirectory}/index.mdx`, iconGalleryString);
 };
 
-export const listSvgSymbols = (symbols: NodeListOf<SVGSymbolElement>) => {
-  const iconTypeString = listIconTypes(symbols);
-  const iconsListString = listIcons(symbols);
-
-  const svgsAndSymbolsListsString = `${iconTypeString}
-
-${iconsListString}`;
-
-  fs.writeFileSync(svgsAndSymbolsListsFile, svgsAndSymbolsListsString);
+export const listSvgSymbolsAndTypes = (symbols: NodeListOf<SVGSymbolElement>) => {
+  fs.writeFileSync(svgsListsFile, listIcons(symbols));
+  fs.writeFileSync(svgsTypesFile, makeIconTypes(symbols));
 };

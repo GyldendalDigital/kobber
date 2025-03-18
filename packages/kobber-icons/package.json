@@ -4,12 +4,16 @@
   "license": "MIT",
   "type": "module",
   "files": [
-    "chunks/**/*",
-    "react/**/*",
-    "react-ssr-safe/**/*",
-    "symbols/**/*",
-    "web-components/**/*"
+    "dist/**/*"
   ],
+  "exports": {
+    "./react": "./dist/react/index.js",
+    "./react-ssr-safe": "./dist/react-ssr-safe/index.js",
+    "./web-components": "./dist/web-components/index.js",
+    "./symbols": [
+      "./dist/symbols/*.*"
+    ]
+  },
   "scripts": {
     "clean": "rm -rf .turbo node_modules chunks css react react-ssr-safe web-components",
     "lint": "yarn lint:js",

@@ -1,7 +1,7 @@
 {
   "mode": {
     "symbol": {
-      "dest": "symbols",
+      "dest": "dist/symbols",
       "sprite": "kobber-icons",
       "inline": true
     }

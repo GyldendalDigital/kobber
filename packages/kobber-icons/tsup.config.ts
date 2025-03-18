@@ -1,9 +1,10 @@
 import fs from "node:fs";
 import { defineConfig } from "tsup";
-import { getSymbols, listComponents, listSvgSymbols, makeComponents, makeStories } from "./tsup-scripts";
+import { getSymbols, listComponents, listSvgSymbolsAndTypes, makeComponents, makeStories } from "./tsup-scripts";
 
-const svgSpriteFile = `symbols/kobber-icons.svg`;
-
+const outDir = "dist";
+const symbolsDirectory = `symbols`;
+const svgSpriteFile = `${outDir}/${symbolsDirectory}/kobber-icons.svg`;
 const assets = "assets";
 const chunks = "chunks";
 const reactDirectory = "react";
@@ -26,7 +27,7 @@ fs.mkdirSync(iconsDirectory);
 
 makeComponents(symbols);
 makeStories(symbols);
-listSvgSymbols(symbols);
+listSvgSymbolsAndTypes(symbols);
 listComponents(symbols);
 
 export default defineConfig(() => ({
@@ -34,10 +35,11 @@ export default defineConfig(() => ({
     [`${reactDirectory}/index`]: "src/index.react.tsx",
     [`${reactSsrSafeDirectory}/index`]: "src/index.react-ssr-safe.tsx",
     [`${webComponentsDirectory}/index`]: "src/index.web-components.ts",
+    [`${symbolsDirectory}/kobber-icons-types`]: `${iconDirectory}/types/kobber-icons-types.ts`,
   },
   format: ["esm"],
   dts: true,
-  outDir: ".",
+  outDir: outDir,
   clean: false,
   external: ["react"],
   esbuildOptions(options) {
