@@ -88,6 +88,9 @@ export const buttonUiProps = concat2(buttonUiColors, buttonUiVariants);
 
 type ButtonThemeProps = (typeof buttonThemeProps)[number];
 export const buttonThemeColors = objectKeys(component["theme-button"]["background"]["color"]);
-export const buttonThemeLevels = objectKeys(component["theme-button"]["background"]["color"].carmine);
+export const buttonThemeLevels = [
+  ...objectKeys(component["theme-button"].background.color.carmine),
+  ...objectKeys(component["theme-button"].container.border.color.carmine),
+];;
 export const buttonThemeVariants = objectKeys(component["theme-button"]["background"]["color"].carmine.primary);
 export const buttonThemeProps = concat3(buttonThemeColors, buttonThemeLevels, buttonThemeVariants);
