@@ -14,6 +14,9 @@ jobs:
   build_and_deploy_job:
     runs-on: ubuntu-latest
     name: Deploy storybook
+    environment:
+      name: kobber-storybook.gyldendaldigital.no
+      url: https://kobber-storybook.gyldendaldigital.no
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
