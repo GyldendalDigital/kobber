@@ -1,31 +1,31 @@
 import { customElement, property, state } from "lit/decorators.js";
-import { labelClassNames, labelName, LabelProps } from "./Label.core";
+import { badgeClassNames, badgeName, BadgeProps } from "./Badge.core";
 import { CSSResultGroup, html, LitElement } from "lit";
 import componentStyles from "../base/styles/component.styles";
-import { labelStyles } from "./Label.styles";
+import { badgeStyles } from "./Badge.styles";
 
 /**
- * Kobber Label web-component
+ * Kobber Badge web-component
  */
 
-@customElement(labelName)
-export class Label extends LitElement implements LabelProps {
-  static styles: CSSResultGroup = [componentStyles, labelStyles];
+@customElement(badgeName)
+export class Badge extends LitElement implements BadgeProps {
+  static styles: CSSResultGroup = [componentStyles, badgeStyles];
 
   @property({ type: String })
-  variant?: LabelProps["variant"] = "main";
+  variant?: BadgeProps["variant"] = "main";
 
   @property({ type: String })
-  theme?: LabelProps["theme"] = "aubergine";
+  theme?: BadgeProps["theme"] = "aubergine";
 
   @property({ type: String })
-  size?: LabelProps["size"] = "medium";
+  size?: BadgeProps["size"] = "medium";
 
   @property({ type: Boolean })
-  disabled?: LabelProps["disabled"];
+  disabled?: BadgeProps["disabled"];
 
   @property({ type: Boolean })
-  showStatusCircle?: LabelProps["showStatusCircle"];
+  showStatusCircle?: BadgeProps["showStatusCircle"];
 
   @state()
   private label?: string | null;
@@ -40,7 +40,7 @@ export class Label extends LitElement implements LabelProps {
   render() {
     return html` <div
       class="${[
-        ...labelClassNames({
+        ...badgeClassNames({
           variant: this.variant,
           theme: this.theme,
           size: this.size,
