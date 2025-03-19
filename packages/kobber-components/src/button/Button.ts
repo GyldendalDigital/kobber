@@ -2,15 +2,7 @@ import { CSSResultGroup, LitElement } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 import componentStyles from "../base/styles/component.styles";
 import { buttonStyles } from "./Button.styles";
-import {
-  buttonClassNames,
-  ButtonColor,
-  ButtonLevel,
-  buttonName,
-  ButtonProps,
-  ButtonVariant,
-  hasSupplementalAlt,
-} from "./Button.core";
+import { buttonClassNames, buttonName, ButtonProps } from "./Button.core";
 import "@gyldendal/kobber-icons/web-components";
 import { literal, html } from "lit/static-html.js";
 import { ifDefined } from "lit/directives/if-defined.js";
@@ -27,13 +19,7 @@ export class Button extends LitElement implements ButtonProps {
   static styles: CSSResultGroup = [componentStyles, buttonStyles];
 
   @property()
-  color?: ButtonColor;
-
-  @property()
-  variant?: ButtonVariant;
-
-  @property()
-  level?: ButtonLevel;
+  variant: ButtonProps["variant"] = "brand-primary-main";
 
   @property({ type: Boolean })
   iconFirst = false;
@@ -99,9 +85,6 @@ export class Button extends LitElement implements ButtonProps {
     if (this._iconOnly && !this._label) {
       console.warn("aria-label is required for icon only buttons");
     }
-    if (!hasSupplementalAlt(this.color) && this.variant === "supplemental alt") {
-      console.warn("variant 'supplemental alt' must match the following function: " + hasSupplementalAlt.toString());
-    }
   }
 
   render() {
@@ -112,9 +95,7 @@ export class Button extends LitElement implements ButtonProps {
       <${tag}
         class=${[
           ...buttonClassNames({
-            color: this.color,
             variant: this.variant,
-            level: this.level,
             hasIcon: this._hasIcon,
             iconOnly: this._iconOnly,
             iconFirst: this.iconFirst,

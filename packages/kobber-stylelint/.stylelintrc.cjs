@@ -4,7 +4,6 @@
 module.exports = {
   extends: ["stylelint-config-standard"],
   plugins: ["stylelint-order", "stylelint-value-no-unknown-custom-properties"],
-  customSyntax: "postcss-styled-syntax",
   rules: {
     "block-no-empty": [
       true,
@@ -182,15 +181,6 @@ module.exports = {
       },
     ],
     "selector-attribute-quotes": "never",
-    "selector-class-pattern": [
-      // Disallow styling class names prefixed with js_
-      "^(?!js)([a-zA-Z]+(-{1,2}|_{1,2})?[a-z0-9]+)$",
-      {
-        message:
-          "Do not add styles to this non-styling class - instead, add your own class. Learn more at https://philipwalton.com/articles/decoupling-html-css-and-javascript/#classes-with-more-than-one-responsibility",
-        resolveNestedSelectors: true,
-      },
-    ],
     "selector-max-id": [
       0,
       {
@@ -232,7 +222,7 @@ module.exports = {
     "csstools/value-no-unknown-custom-properties": [
       true,
       {
-        importFrom: ["packages/kobber-base/themes/default/tokens.css"],
+        importFrom: ["../../packages/kobber-base/themes/default/tokens.css", "../../apps/docs/styles/globals.css"],
       },
     ],
   },

@@ -43,3 +43,8 @@ figcaption {
     content: ":";
   }
 }
+
+em {
+  color: var(--highlight-color);
+  font-style: normal;
+}

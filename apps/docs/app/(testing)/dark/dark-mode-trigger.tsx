@@ -25,7 +25,7 @@ export const DarkModeTrigger = ({ mode }: Props) => {
         For å lettere se hvor vi har glemt å bruke tokens laget vi en fake dark mode der alle farger
         er invertert.
       </p>
-      <KobberButton className={kobberTheme} onClick={handleClick}>
+      <KobberButton variant="brand-primary-main" className={kobberTheme} onClick={handleClick}>
         Skru på {oppositeMode} mode
       </KobberButton>
     </div>

@@ -19,6 +19,15 @@ const createTextWrapperStyles = () => {
       font-style: var(${unsafeCSS(bodyText.fontStyle)});
       font-stretch: var(${unsafeCSS(bodyText.fontStretch)});
       line-height: var(${unsafeCSS(bodyText.lineHeight)});
+
+      /* used in global.css em styling (Lit can't style nested slots) */
+      --highlight-color: var(${unsafeCSS(body.text.color.highlight)});
+
+      em,
+      ::slotted(em) {
+        color: var(--highlight-color);
+        font-style: normal;
+      }
     }
   `;
 };

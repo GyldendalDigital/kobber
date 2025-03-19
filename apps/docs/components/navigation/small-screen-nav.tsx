@@ -50,10 +50,10 @@ export const SmallScreenNav = () => {
       {/* Trigger */}
       <KobberButton
         className={styles["small-screen-nav-trigger"]}
-        variant="main"
-        color={isOpen ? "carmine" : "aubergine"}
+        variant={isOpen ? "brand-primary-main" : "brand-secondary-main"}
         icon={isOpen ? <X className="text-white" size={20} /> : <Menu size={20} />}
         onClick={isOpen ? onClose : onOpen}
+        aria-label={isOpen ? "Lukk meny" : "Åpne meny"}
       ></KobberButton>
 
       {/* Overlay */}

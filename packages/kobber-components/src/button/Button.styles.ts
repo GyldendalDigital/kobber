@@ -1,14 +1,7 @@
+/* eslint  @typescript-eslint/no-explicit-any: 0 */ // --> OFF
 import { css, unsafeCSS } from "lit";
 import { component, universal, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
-import {
-  buttonColors,
-  buttonVariants,
-  buttonLevels,
-  ButtonClassNames,
-  isValidPropCombination,
-  hasSupplementalAlt,
-  isUiColor,
-} from "./Button.core";
+import { ButtonClassNames, buttonDefaultProps, ButtonProps, buttonThemeProps, buttonUiProps } from "./Button.core";
 import { resetButton } from "../base/styles/reset.styles";
 
 // TODO: get from tokens
@@ -52,7 +45,11 @@ const createButtonStyles = () => {
         height: auto;
       }
 
-      ${buttonVariableStyles()}
+      ${createVariableStyles(buttonDefaultProps, "button", prop => prop?.includes("tertiary") === true)}
+
+      ${createVariableStyles(buttonUiProps, "ui-button", _ => false)}
+
+      ${createVariableStyles(buttonThemeProps, "theme-button", prop => prop?.includes("secondary") === true)}
 
       ${typographyButton()}
 
@@ -73,8 +70,8 @@ const createButtonStyles = () => {
       }
 
       &.${unsafeCSS("kobber-button--icon" satisfies ButtonClassNames)} {
-        --icon-width: var(${unsafeCSS(button.icon.size.width.small)});
-        --icon-height: var(${unsafeCSS(button.icon.size.height.small)});
+        --icon-width: var(${unsafeCSS(button.icon.size)});
+        --icon-height: var(${unsafeCSS(button.icon.size)});
 
         &.${unsafeCSS("kobber-button--icon-left" satisfies ButtonClassNames)} {
           flex-direction: row-reverse;
@@ -93,58 +90,52 @@ const createButtonStyles = () => {
   `;
 };
 
-const buttonVariableStyles = () => {
-  const variableClasses = buttonColors.flatMap(color => {
-    return buttonVariants.flatMap(variant => {
-      return buttonLevels
-        .filter(level => isValidPropCombination({ color, variant, level }))
-        .map(level => {
-          const nestedClassNames = `&.${color}.${variant}.${level}`.replace(" ", "-");
+const createVariableStyles = (
+  propArray: ButtonProps["variant"][],
+  buttonType: keyof typeof component,
+  isTransparent: (prop: ButtonProps["variant"]) => boolean,
+) => {
+  const variableClasses = propArray.map(prop => {
+    if (!prop) {
+      return;
+    }
 
-          // rules
-          // level secondary: background-color transparent, different hover effect
-          // color success, informative, warning: level secondary not available
-          // color aubergine, rettsdata, neutral: variant supplemental alt available
+    const [color = "", level = "", variant = ""] = prop.split("-");
 
-          // transparent secondary buttons with alternative hover effect
-          if (level === "secondary") {
-            if (variant === "supplemental alt" || isUiColor(color)) {
-              return;
-            }
+    const textColor =
+      (component[buttonType] as any).text.color?.[color]?.[level]?.[variant] ??
+      (component[buttonType] as any).text.color?.[color]?.[level];
+    const backgroundColor =
+      (component[buttonType] as any).background?.color?.[color]?.[level]?.[variant] ??
+      (component[buttonType] as any).background?.color?.[color]?.[level];
+    const borderColor = (component[buttonType] as any).container?.border?.color?.[color]?.[level]?.[variant];
 
-            return css`
-              ${unsafeCSS(nestedClassNames)} {
-                --color: var(${unsafeCSS(component.button.text.color[color][variant][level].fallback)});
-                ${hoverEffectSecondary()}
-              }
-            `;
-          }
+    if (
+      typeof textColor !== "string" ||
+      (typeof backgroundColor?.fallback !== "string" && typeof borderColor?.active !== "string")
+    ) {
+      console.log("Invalid prop combination", prop);
+      return;
+    }
 
-          // not all colors have supplemental alt variant
-          let textColor;
-          let backgroundColor;
-          if (variant === "supplemental alt") {
-            if (!hasSupplementalAlt(color)) {
-              return;
-            }
-            textColor = component.button.text.color[color][variant][level];
-            backgroundColor = component.button.background.color[color][variant][level];
-          } else {
-            textColor = component.button.text.color[color][variant][level];
-            backgroundColor = component.button.background.color[color][variant][level];
-          }
+    const nestedClassNames = `&.${prop satisfies ButtonClassNames}`;
 
-          return css`
-            ${unsafeCSS(nestedClassNames)} {
-              --background-color: var(${unsafeCSS(backgroundColor.fallback)});
-              --color: var(${unsafeCSS(textColor.fallback)});
+    if (isTransparent(prop)) {
+      return css`
+        ${unsafeCSS(nestedClassNames)} {
+          --color: var(${unsafeCSS(textColor)});
+          ${hoverEffectSecondary()};
+        }
+      `;
+    }
 
-              ${hoverEffectPrimary(backgroundColor.hover, backgroundColor.fallback)}
-            }
-          `;
-        })
-        .filter(x => x !== undefined);
-    });
+    return css`
+      ${unsafeCSS(nestedClassNames)} {
+        --color: var(${unsafeCSS(textColor)});
+        --background-color: var(${unsafeCSS(backgroundColor.fallback)});
+        ${hoverEffectPrimary(backgroundColor.hover, backgroundColor.fallback)};
+      }
+    `;
   });
 
   return unsafeCSS(variableClasses.join("\n"));

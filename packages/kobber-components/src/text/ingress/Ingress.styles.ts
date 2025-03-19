@@ -9,7 +9,17 @@ const createIngressStyles = () => {
   return css`
     .${unsafeCSS(ingressName)} {
       color: var(${unsafeCSS(ingress.text.color.base)});
+
       ${ingressTypography()}
+
+      /* used in global.css em styling (Lit can't style nested slots) */
+      --highlight-color: var(${unsafeCSS(ingress.text.color.highlight)});
+
+      em,
+      ::slotted(em) {
+        color: var(--highlight-color);
+        font-style: normal;
+      }
     }
   `;
 };

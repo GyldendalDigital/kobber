@@ -78,12 +78,18 @@
   }
 
   body {
+    --highlight-color: inherit;
     color: var(--kobber-component-body-text-color-base);
-    background-color: var(--kobber-regional-navigation-color-brightest);
+    background-color: var(--kobber-component-docs-navbar-background-color-main);
 
     --top-nav-height: calc(
       2 * var(--kobber-component-docs-navbar-container-padding-block) +
         var(--kobber-component-button-container-size-height)
     );
+  }
+
+  em {
+    color: var(--highlight-color);
+    font-style: normal;
   }
 }

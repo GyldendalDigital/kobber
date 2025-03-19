@@ -14,7 +14,7 @@ import "../../base/styles/react.styles.css";
  *
  */
 const createInputStyles = () => {
-  const input = component.input.selection;
+  const input = component.radiobutton;
   return css`
     .${unsafeCSS("kobber-radio-input" satisfies InputClassNames)} {
       --control-outline-color: transparent;
@@ -23,8 +23,8 @@ const createInputStyles = () => {
       justify-content: start;
       align-items: start;
       cursor: pointer;
-      padding: calc(var(--kobber-component-input-selection-wrapper-padding) + 0.15em)
-        var(--kobber-component-input-selection-wrapper-padding) var(--kobber-component-input-selection-wrapper-padding); /* A larger top padding emulates label being vertically aligned with idle input control, but not when multiple lines. */
+      padding: calc(var(${unsafeCSS(input.wrapper.padding)}) + 0.15em) var(${unsafeCSS(input.wrapper.padding)})
+        var(${unsafeCSS(input.wrapper.padding)}); /* A larger top padding emulates label being vertically aligned with idle input control, but not when multiple lines. */
 
       ${typographyButton()}
       ${buttonVariantStyles()}
@@ -54,7 +54,7 @@ const buttonVariantStyles = () => {
 };
 
 const buttonStatesPerVariant = (variant: InputVariant) => {
-  const outlineColor = component.input.selection["radio-indicator"].outline.color[variant];
+  const outlineColor = component.radiobutton["radio-circle"].outline.color[variant];
   return css`
     &.hover:not(.disabled):not([disabled])
       .${unsafeCSS("kobber-radio-input__control" satisfies InputControlPartNames)} {

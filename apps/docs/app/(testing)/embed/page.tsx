@@ -1,7 +1,6 @@
 import {
   KobberHeading,
   KobberIngress,
-  KobberTextHighlight,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { ContentLayout } from "@/components/content-layout"
@@ -16,7 +15,7 @@ export default async function Page() {
 
       <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
-          <KobberTextHighlight>Knapp</KobberTextHighlight>
+          <em>Knapp</em>
         </KobberHeading>
         <p>
           Knapper brukes for å utføre en bestemt handling eller trigge en hendelse. Den forteller
@@ -34,7 +33,7 @@ export default async function Page() {
 
       <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
-          <KobberTextHighlight>Radio</KobberTextHighlight>
+          <em>Radio</em>
         </KobberHeading>
         <p>Radioknapper lar brukeren velge ett alternativ fra en gruppe med valg.</p>
 
@@ -49,7 +48,7 @@ export default async function Page() {
 
       <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
-          <KobberTextHighlight>List</KobberTextHighlight>
+          <em>List</em>
         </KobberHeading>
 
         {/* URL fra sanity */}
@@ -63,7 +62,7 @@ export default async function Page() {
 
       <KobberTextWrapper>
         <KobberHeading level="h2" variant="title medium">
-          <KobberTextHighlight>Heading</KobberTextHighlight>
+          <em>Heading</em>
         </KobberHeading>
 
         {/* URL fra sanity */}

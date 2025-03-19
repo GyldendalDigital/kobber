@@ -7,12 +7,12 @@ import { inputVariants, InputControlClassNames } from "../Radio.core";
  *
  */
 const createInputControlStyles = () => {
-  const button = component.input.selection["radio-indicator"];
+  const button = component.radiobutton["radio-circle"];
   return css`
     :host {
       --transition-time: 0.5s;
-      --icon-wrapper-height: var(${unsafeCSS(button.indicator.height)});
-      --icon-wrapper-width: var(${unsafeCSS(button.indicator.width)});
+      --icon-wrapper-height: var(${unsafeCSS(button.height)});
+      --icon-wrapper-width: var(${unsafeCSS(button.width)});
       --icon-height: var(${unsafeCSS(button.shape.height)});
       --icon-width: var(${unsafeCSS(button.shape.width)});
     }
@@ -33,10 +33,10 @@ const createInputControlStyles = () => {
 };
 
 const buttonVariantStyles = () => {
-  const inputColor = component.input.selection["radio-indicator"].indicator.color;
+  const inputColor = component.radiobutton["radio-circle"].border.color;
   const variableClasses = inputVariants.flatMap(variant => {
     const variantClassName = `&.${variant}`;
-    const borderColor = inputColor[variant].fallback;
+    const borderColor = inputColor[variant];
     return css`
       ${unsafeCSS(variantClassName)} {
         --control-color: var(${unsafeCSS(borderColor)});

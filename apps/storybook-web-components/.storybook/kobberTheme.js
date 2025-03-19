@@ -1,7 +1,7 @@
 import { create } from "@storybook/theming";
-import { regional } from "@gyldendal/kobber-base/themes/default/tokens";
+import { semantics } from "@gyldendal/kobber-base/themes/default/tokens";
 
-const background = regional.navigation.color.darkest;
+const background = semantics.color.identity.base["aubergine-1000"];
 
 /** Options: https://storybook.js.org/docs/configure/user-interface/theming */
 export default create({
@@ -12,11 +12,11 @@ export default create({
   brandTitle: "Kobber Storybook",
   brandImage: "https://dam-prod.gyldendaldigital.no/tenants/edu/file/D_8MwlmJKANA6W4OIRWa7k/*/logo.svg",
 
-  colorSecondary: regional.navigation.color.bright,
+  colorSecondary: semantics.typography.color.bright,
 
   appBg: background,
   appContentBg: background,
-  appPreviewBg: regional.navigation.color.brightest,
+  appPreviewBg: semantics.color.identity.base["aubergine-25"],
 
   barBg: background,
 });
