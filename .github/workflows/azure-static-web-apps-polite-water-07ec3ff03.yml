@@ -9,10 +9,10 @@ on:
 jobs:
   deploy_docs_job:
     runs-on: ubuntu-latest
-    environment:
-      name: production
-      url: https://kobber.gyldendal.no
     name: Deploy kobber.gyldendal.no
+    environment:
+      name: kobber.gyldendal.no
+      url: https://kobber.gyldendal.no
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
