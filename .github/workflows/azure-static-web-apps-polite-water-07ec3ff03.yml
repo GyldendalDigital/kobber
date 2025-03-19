@@ -9,6 +9,9 @@ on:
 jobs:
   deploy_docs_job:
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://kobber.gyldendal.no
     name: Deploy kobber.gyldendal.no
     steps:
       - name: Checkout code
@@ -38,7 +41,7 @@ jobs:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
           TURBO_TEAM: ${{ vars.TURBO_TEAM }}
           # root is based on app_location
-          PRE_BUILD_COMMAND: corepack enable && yarn 
+          PRE_BUILD_COMMAND: corepack enable && yarn
           CUSTOM_BUILD_COMMAND: yarn build && cp -r .next/standalone/apps/docs/. .next/standalone
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_POLITE_WATER_07EC3FF03 }}
