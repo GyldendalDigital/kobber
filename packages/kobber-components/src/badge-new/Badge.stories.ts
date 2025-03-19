@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { html } from "lit";
-import "./Label";
-import { labelName, LabelProps, labelSizes, labelThemes, labelVariants } from "./Label.core";
+import "./Badge";
+import { badgeName, BadgeProps, badgeSizes, badgeThemes, badgeVariants } from "./Badge.core";
 
-interface Args extends LabelProps {
+interface Args extends BadgeProps {
   text?: string;
 }
 
 const meta: Meta = {
-  title: "Label",
-  component: labelName,
+  title: "Badge",
+  component: badgeName,
   decorators: [
     (Story, context) => html`<kobber-theme-context theme-id=${context.globals.theme}>${Story()}</kobber-theme-context>`,
   ],
@@ -20,18 +20,18 @@ const meta: Meta = {
 
 export default meta;
 
-export const Label: StoryObj<Args> = {
+export const Badge: StoryObj<Args> = {
   argTypes: {
     size: {
-      options: labelSizes,
+      options: badgeSizes,
       control: { type: "select" },
     },
     theme: {
-      options: labelThemes,
+      options: badgeThemes,
       control: { type: "select" },
     },
     variant: {
-      options: labelVariants,
+      options: badgeVariants,
       control: { type: "select" },
     },
     showStatusCircle: {
@@ -39,7 +39,7 @@ export const Label: StoryObj<Args> = {
     },
   },
   args: {
-    text: "Label",
+    text: "Badge",
     size: "medium",
     theme: "aubergine",
     variant: "main",
@@ -47,14 +47,14 @@ export const Label: StoryObj<Args> = {
     disabled: false,
   },
   render: args => {
-    return html`${renderLabel(args)}`;
+    return html`${renderBadge(args)}`;
   },
 };
 
-const renderLabel = (args: Args) => {
+const renderBadge = (args: Args) => {
   const { size, text, theme, variant, showStatusCircle, disabled } = args;
 
-  return html` <kobber-label
+  return html` <kobber-badge
     size=${size}
     theme=${theme}
     variant=${variant}
@@ -63,5 +63,5 @@ const renderLabel = (args: Args) => {
     disabled=${disabled}
   >
     ${text}
-  </kobber-label>`;
+  </kobber-badge>`;
 };

@@ -1,15 +1,14 @@
 import { ComponentProps, forwardRef } from "react";
-import { labelClassNames, labelName, LabelProps } from "./Label.core";
-import { labelStyles } from "./Label.styles";
-type LabelReactProps = {
+import { badgeClassNames, badgeName, BadgeProps } from "./Badge.core";
+import { badgeStyles } from "./Badge.styles";
+type BadgeReactProps = {
   children: string;
-  htmlFor?: string; // Important for associating label with form controls
   disabled?: boolean; // When will our label be disabled? Example: Form field?
   className?: string;
-} & LabelProps &
-  Omit<ComponentProps<"label">, "children">;
+} & BadgeProps &
+  Omit<ComponentProps<"div">, "children">;
 
-export const Label = forwardRef<HTMLLabelElement, LabelReactProps>(
+export const Badge = forwardRef<HTMLLabelElement, BadgeReactProps>(
   (
     {
       children,
@@ -19,7 +18,6 @@ export const Label = forwardRef<HTMLLabelElement, LabelReactProps>(
       size = "medium",
       className = "",
       disabled,
-      htmlFor,
       ...props
     },
     ref,
@@ -30,21 +28,19 @@ export const Label = forwardRef<HTMLLabelElement, LabelReactProps>(
 
     return (
       <>
-        <style href={labelName} precedence="medium" dangerouslySetInnerHTML={{ __html: labelStyles.cssText }}></style>
-        <label
-          ref={ref}
+        <style href={badgeName} precedence="medium" dangerouslySetInnerHTML={{ __html: badgeStyles.cssText }}></style>
+        <div
           {...props}
-          className={[className, ...labelClassNames({ showStatusCircle, theme, variant, size })].join(" ")}
+          className={[className, ...badgeClassNames({ showStatusCircle, theme, variant, size })].join(" ")}
           aria-label={_label}
           aria-disabled={ariaDisabled}
-          htmlFor={htmlFor}
         >
           {showStatusCircle && <div className="status-circle"></div>}
           {children}
-        </label>
+        </div>
       </>
     );
   },
 );
 
-Label.displayName = "Kobber-label";
+Badge.displayName = "Kobber-badge";

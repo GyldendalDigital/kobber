@@ -8,7 +8,7 @@ import { isValidColor } from "../utils/color";
  *
  * @deprecated Will be reimplented in a future version.
  */
-export class Badge extends HTMLElement {
+export class BadgeOld extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -57,5 +57,5 @@ export class Badge extends HTMLElement {
 export const customElementName = "kobber-badge";
 
 if (!customElements.get(customElementName)) {
-  customElements.define(customElementName, Badge);
+  customElements.define(customElementName, BadgeOld);
 }
