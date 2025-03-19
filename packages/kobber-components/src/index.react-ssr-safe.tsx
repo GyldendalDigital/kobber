@@ -15,7 +15,6 @@ import { Badge } from "./badge-new/Badge.react";
 export const KobberTextWrapper = TextWrapper;
 export const KobberTextLink = TextLink;
 export const KobberBadge = Badge;
-
 export const KobberHeading = Heading;
 export const KobberIngress = Ingress;
 export const KobberButton = Button;
