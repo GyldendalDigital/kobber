@@ -8,8 +8,8 @@ on:
 
 jobs:
   deploy_docs_job:
-    runs-on: ubuntu-latest
     name: Deploy kobber.gyldendal.no
+    runs-on: ubuntu-latest
     environment:
       name: kobber.gyldendal.no
       url: https://kobber.gyldendal.no
@@ -26,13 +26,15 @@ jobs:
       - name: Add docs secrets to .env
         run: |
           touch ./apps/docs/.env
-          echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> ./apps/docs/.env
           echo NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }} >> ./apps/docs/.env
           echo NEXTAUTH_URL=${{ vars.NEXTAUTH_URL }} >> ./apps/docs/.env
           echo ISSUER_URL=${{ secrets.ISSUER_URL }} >> ./apps/docs/.env
           echo AUTH_MICROSOFT_ENTRA_ID_ID=${{ secrets.AUTH_MICROSOFT_ENTRA_ID_ID }} >> ./apps/docs/.env
           echo AUTH_MICROSOFT_ENTRA_ID_SECRET=${{ secrets.AUTH_MICROSOFT_ENTRA_ID_SECRET }} >> ./apps/docs/.env
           echo AUTH_MICROSOFT_ENTRA_ID_ISSUER=${{ secrets.AUTH_MICROSOFT_ENTRA_ID_ISSUER }} >> ./apps/docs/.env
+          echo NEXT_PUBLIC_SANITY_PROJECT_ID=${{ vars.NEXT_PUBLIC_SANITY_PROJECT_ID }} >> ./apps/docs/.env
+          echo NEXT_PUBLIC_SANITY_DATASET=${{ vars.NEXT_PUBLIC_SANITY_DATASET }} >> ./apps/docs/.env
+          echo SANITY_API_READ_TOKEN=${{ secrets.SANITY_API_READ_TOKEN }} >> ./apps/docs/.env
 
       - name: Build and deploy docs
         id: builddeploy

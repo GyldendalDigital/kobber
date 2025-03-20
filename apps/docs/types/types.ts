@@ -81,3 +81,5 @@ export type IllustrationType = {
   width: number
   fill?: boolean
 }
+
+export type Maybe<T> = T | null | undefined;
