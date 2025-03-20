@@ -8,7 +8,7 @@ type BadgeReactProps = {
 } & BadgeProps &
   Omit<ComponentProps<"div">, "children">;
 
-export const Badge = forwardRef<HTMLLabelElement, BadgeReactProps>(
+export const Badge = forwardRef<HTMLDivElement, BadgeReactProps>(
   (
     {
       children,

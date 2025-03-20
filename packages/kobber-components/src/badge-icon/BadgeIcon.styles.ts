@@ -81,7 +81,7 @@ const badgeIconVariableStyles = () => {
     });
   });
 
-  return variableClasses;
+  return unsafeCSS(variableClasses.join("\n"));
 };
 
-export const badgeIconStyles = [createBadgeIconStyles(), badgeIconVariableStyles()];
+export const badgeIconStyles = createBadgeIconStyles();
