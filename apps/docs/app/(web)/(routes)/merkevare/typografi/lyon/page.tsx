@@ -9,7 +9,7 @@ import { ContentLayout } from "@/components/content-layout"
 import { RouterTextLink } from "@/components/global/router-link"
 import { HeroImage } from "@/components/hero-image"
 import { TypographyList } from "@/components/typography-list"
-import { metaGettingStartedContact } from "@/app/(routes)/kom-i-gang/kontakt/contact.meta"
+import { metaGettingStartedContact } from "@/app/(web)/(routes)/kom-i-gang/kontakt/contact.meta"
 import { metaBrandTypographyArial } from "../arial/arial.meta"
 import { metaBrandTypographyLyon } from "./lyon.meta"
 

@@ -1,5 +1,7 @@
+import { sanityFetch } from "@/sanity/lib/live"
+import { createSlug, isUnique } from "@/sanity/utils/slug"
 import { DocumentIcon } from "@sanity/icons"
-import { defineField, defineType } from "sanity"
+import { defineArrayMember, defineField, defineType, SlugifierFn } from "sanity"
 import { GROUP, GROUPS } from "../../utils/constant"
 import { ogFields } from "../../utils/og-fields"
 import { seoFields } from "../../utils/seo-fields"
@@ -47,6 +49,14 @@ export const page = defineType({
       name: "slug",
       type: "slug",
       title: "URL",
+      description:
+        "The web address for this page (for example, '/about-us' would create a page at yourdomain.com/about-us)",
+      group: GROUP.MAIN_CONTENT,
+      options: {
+        source: "title",
+        slugify: createSlug,
+        isUnique,
+      },
       validation: (Rule) => Rule.required().error("A URL slug is required for the page"),
     }),
     defineField({
@@ -59,6 +69,23 @@ export const page = defineType({
       options: {
         hotspot: true,
       },
+    }),
+    defineField({
+      name: "children",
+      title: "Sub pages",
+      type: "array",
+      of: [
+        defineArrayMember({
+          type: "reference",
+          to: [
+            {
+              type: "page",
+              options: { disableNew: true },
+            },
+          ],
+        }),
+      ],
+      group: GROUP.MAIN_CONTENT,
     }),
     pageBuilderField,
     ...seoFields.filter((field) => field.name !== "seoHideFromLists"),
@@ -73,7 +100,7 @@ export const page = defineType({
       hasPageBuilder: "pageBuilder",
     },
     prepare: ({ title, slug, media, isPrivate, hasPageBuilder }) => {
-      //TODO: 
+      //TODO:
       const statusEmoji = isPrivate ? "🔒" : "🌎"
       const builderEmoji = hasPageBuilder?.length ? `🧱 ${hasPageBuilder.length}` : "🏗️"
 

@@ -1,5 +1,5 @@
 import { pageMetadata } from "@/lib/metadata.utils"
-import { damUrl } from "../../../../lib/damImageLoader"
+import { damUrl } from "../../../../../lib/damImageLoader"
 
 export const metaCollections = pageMetadata(import.meta.url, {
   title: "Kolleksjoner",

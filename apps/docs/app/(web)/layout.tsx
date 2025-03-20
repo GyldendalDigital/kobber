@@ -10,7 +10,7 @@ import { DisableDraftMode } from "@/components/DisableDraftMode"
 import Footer from "@/components/footer"
 import { IconLoader } from "@/components/kobber-icons-loader"
 import { TopNav } from "@/components/navigation/top-nav"
-import { inter, lyon, mori } from "./fonts"
+import { inter, lyon, mori } from "../fonts"
 
 /** Fallback for all pages */
 export const metadata: Metadata = {
@@ -30,8 +30,8 @@ export default async function RootLayout({
   const cookieStore = await cookies()
   const mode = cookieStore.get("color-scheme")?.value || "default"
   const kobberTheme = `kobber-theme-${mode}`
-  // const draft = await draftMode()
-  // draft.enable()
+  const draft = await draftMode()
+  draft.enable()
   // console.log((await draftMode()).isEnabled)
   return (
     <html
@@ -40,19 +40,18 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body className={kobberTheme}>
-        {/* {children}
-        <SanityLive />
-        {(await draftMode()).isEnabled && (
-          <>
-            <DisableDraftMode />
-            <VisualEditing />
-          </>
-        )} */}
         <AuthProvider>
           <IconLoader />
           <TopNav />
           <RequireAuthentication>{children}</RequireAuthentication>
           <Footer />
+          <SanityLive />
+          {(await draftMode()).isEnabled && (
+            <>
+              <DisableDraftMode />
+              <VisualEditing />
+            </>
+          )}
         </AuthProvider>
       </body>
     </html>

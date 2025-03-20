@@ -181,36 +181,6 @@ export const querySlugPagePaths = defineQuery(/* groq */ `
   *[_type == "page" && defined(slug.current)].slug.current
 `)
 
-export const queryBlogIndexPageData = defineQuery(/* groq */ `
-  *[_type == "blogIndex"][0]{
-    ...,
-    _id,
-    _type,
-    title,
-    description,
-    ${pageBuilderFragment},
-    "slug": slug.current,
-    "blogs": *[_type == "blog" && (seoHideFromLists != true)] | order(orderRank asc){
-      ${blogCardFragment}
-    }
-  }
-`)
-
-export const queryBlogSlugPageData = defineQuery(/* groq */ `
-  *[_type == "blog" && slug.current == $slug][0]{
-    ...,
-    "slug": slug.current,
-    ${blogAuthorFragment},
-    ${imageFragment},
-    ${richTextFragment},
-    ${pageBuilderFragment}
-  }
-`)
-
-export const queryBlogPaths = defineQuery(`
-  *[_type == "blog" && defined(slug.current)].slug.current
-`)
-
 const ogFieldsFragment = /* groq */ `
   _id,
   _type,
@@ -239,12 +209,6 @@ export const queryHomePageOGData = defineQuery(/* groq */ `
 
 export const querySlugPageOGData = defineQuery(/* groq */ `
   *[_type == "page" && _id == $id][0]{
-    ${ogFieldsFragment}
-  }
-`)
-
-export const queryBlogPageOGData = defineQuery(/* groq */ `
-  *[_type == "blog" && _id == $id][0]{
     ${ogFieldsFragment}
   }
 `)
@@ -323,8 +287,4 @@ export const querySitemapData = defineQuery(/* groq */ `{
     "slug": slug.current,
     "lastModified": _updatedAt
   },
-  "blogPages": *[_type == "blog" && defined(slug.current)]{
-    "slug": slug.current,
-    "lastModified": _updatedAt
-  }
 }`)

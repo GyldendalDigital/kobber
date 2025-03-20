@@ -1,5 +1,5 @@
 import { pageMetadata } from "@/lib/metadata.utils"
-import { damUrl } from "../../../lib/damImageLoader"
+import { damUrl } from "../../../../lib/damImageLoader"
 import { metaTokensIntro } from "./hva-er-tokens/tokensIntro.meta"
 import { metaCollections } from "./kolleksjoner/collections.meta"
 import { metaLayout } from "./layout/tokensLayout.meta"

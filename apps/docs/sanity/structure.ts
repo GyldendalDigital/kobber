@@ -94,19 +94,6 @@ export const structure = (S: StructureBuilder, context: StructureResolverContext
       createSingleTon({ S, type: "homePage", icon: HomeIcon }),
       S.divider(),
       createList({ S, type: "page", title: "Pages" }),
-      createIndexListWithOrderableItems({
-        S,
-        index: { type: "blogIndex", icon: BookMarked },
-        list: { type: "blog", title: "Blogs", icon: FileText },
-        context,
-      }),
-      createList({
-        S,
-        type: "faq",
-        title: "FAQs",
-        icon: MessageCircleQuestion,
-      }),
-      createList({ S, type: "author", title: "Authors", icon: User }),
       S.divider(),
       S.listItem()
         .title("Site Configuration")
