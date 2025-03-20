@@ -38,11 +38,16 @@ export const BadgeIcons: StoryObj<Args> = {
   args: {
     text: "Badge Icon",
     size: "medium",
-    theme: "nature",
+    theme: "aubergine",
     variant: "main",
+    disabled: false,
   },
   render: args => {
-    return html`${renderBadgeIcon(args)}`;
+    return html`
+      <div style="background-color: #e3e3e3; height:200px; width:400px; padding: 10px; border-radius: 5px;">
+        ${renderBadgeIcon(args)}
+      </div>
+    `;
   },
 };
 

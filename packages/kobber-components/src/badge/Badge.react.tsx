@@ -9,19 +9,16 @@ type BadgeReactProps = {
   Omit<ComponentProps<"div">, "children">;
 
 export const Badge = forwardRef<HTMLDivElement, BadgeReactProps>(
-  (
-    {
-      children,
-      showStatusCircle,
-      theme = "aubergine",
-      variant = "main",
-      size = "medium",
-      className = "",
-      disabled,
-      ...props
-    },
-    ref,
-  ) => {
+  ({
+    children,
+    showStatusCircle,
+    theme = "aubergine",
+    variant = "main",
+    size = "medium",
+    className = "",
+    disabled,
+    ...props
+  }) => {
     // Derive ARIA attributes based on prop
     const ariaDisabled = disabled ? "true" : undefined;
     const _label = props["aria-label"];
