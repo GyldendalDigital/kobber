@@ -61,6 +61,7 @@ const renderBadgeIcon = (args: Args) => {
     aria-label="Hello world"
     disabled=${disabled}
   >
+    <icon-arrow_right slot="icon" />
     ${text}
   </kobber-badge-icon>`;
 };

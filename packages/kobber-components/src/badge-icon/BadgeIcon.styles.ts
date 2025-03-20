@@ -9,10 +9,17 @@ import {
   badgeIconVariants,
 } from "./BadgeIcon.core";
 
+/**
+ * Kobber Badge Icon web-component
+ */
+
 const createBadgeIconStyles = () => {
+  const badgeIcon = component["badge-icon"];
+
   return css`
     .${unsafeCSS(badgeIconName satisfies BadgeIconClassNames)} {
-      display: inline-flex;
+      display: flex;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
       background-color: transparent;
@@ -28,6 +35,11 @@ const createBadgeIconStyles = () => {
       line-height: var(--line-height);
 
       ${badgeIconVariableStyles()}
+
+      .${unsafeCSS("kobber-badge-icon--icon" satisfies BadgeIconClassNames)} {
+        width: var(--icon-width);
+        height: var(--icon-height);
+      }
     }
   `;
 };
@@ -73,6 +85,11 @@ const badgeIconVariableStyles = () => {
             --line-height: var(
               ${unsafeCSS(size === "medium" ? typographyMedium.lineHeight : typographySmall.lineHeight)}
             );
+
+            .${unsafeCSS("kobber-badge-icon--icon" satisfies BadgeIconClassNames)} {
+              --icon-width: var(${unsafeCSS(size === "medium" ? "16px" : "14px")});
+              --icon-height: var(${unsafeCSS(size === "medium" ? "16px" : "14px")});
+            }
           }
         `;
       });

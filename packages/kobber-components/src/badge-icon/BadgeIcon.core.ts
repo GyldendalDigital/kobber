@@ -24,7 +24,8 @@ export type BadgeIconClassNames =
   | typeof badgeIconName
   | BadgeIconTheme
   | ReplaceSpaceWithDash<BadgeIconVariant>
-  | BadgeIconSize;
+  | BadgeIconSize
+  | "kobber-badge-icon--icon";
 
 type BadgeIconTheme = keyof (typeof component)["badge-icon"]["text"]["color"];
 type BadgeIconVariant = keyof (typeof component)["badge-icon"]["text"]["color"][BadgeIconTheme];
