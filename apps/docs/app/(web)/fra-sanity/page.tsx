@@ -8,9 +8,9 @@ import { metaGettingStarted } from "@/app/(web)/(routes)/kom-i-gang/gettingStart
 import { metaBrandColor } from "@/app/(web)/(routes)/merkevare/farger/brandColor.meta"
 import { metaBrandLogoGyldendal } from "@/app/(web)/(routes)/merkevare/logo/gyldendal-logo/gyldendalLogo.meta"
 import { metaBrandTypography } from "@/app/(web)/(routes)/merkevare/typografi/brandTypography.meta"
-import { HeroBanner } from "../../(routes)/(landing)/hero-banner"
-import { metaLanding } from "../../(routes)/(landing)/landing.meta"
-import styles from "../../(routes)/(landing)/landing.module.css"
+import styles from "../(routes)/(landing)/landing.module.css"
+import { HeroBanner } from "../(routes)/(landing)/hero-banner"
+import { metaLanding } from "../(routes)/(landing)/landing.meta"
 
 export const metadata = metaLanding
 

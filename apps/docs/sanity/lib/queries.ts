@@ -35,91 +35,30 @@ const richTextFragment = /* groq */ `
   }
 `
 
-const blogAuthorFragment = /* groq */ `
-  authors[0]->{
-    _id,
-    name,
-    position,
-    ${imageFragment}
-  }
-`
-
-const blogCardFragment = /* groq */ `
-  _type,
-  _id,
-  title,
-  description,
-  "slug":slug.current,
-  richText,
-  orderRank,
-  ${imageFragment},
-  publishedAt,
-  ${blogAuthorFragment}
-`
-
-const buttonsFragment = /* groq */ `
-  buttons[]{
-    text,
-    variant,
-    _key,
-    _type,
-    "openInNewTab": url.openInNewTab,
-    "href": select(
-      url.type == "internal" => url.internal->slug.current,
-      url.type == "external" => url.external,
-      url.href
-    ),
-  }
-`
-
 // Page builder block fragments
-const ctaBlock = /* groq */ `
-  _type == "cta" => {
+const richTextBlock = /* groq */ `
+  _type == "richTextBlock" => {
     ...,
     ${richTextFragment},
-    ${buttonsFragment},
   }
 `
-const imageLinkCardsBlock = /* groq */ `
-  _type == "imageLinkCards" => {
+const contactListBlock = /* groq */ `
+  _type == "contactListBlock" => {
     ...,
-    ${richTextFragment},
-    ${buttonsFragment},
-    "cards": array::compact(cards[]{
-      ...,
-      "openInNewTab": url.openInNewTab,
-      "href": select(
-        url.type == "internal" => url.internal->slug.current,
-        url.type == "external" => url.external,
-        url.href
-      ),
-      ${imageFragment},
-    })
+    
   }
 `
 
 const heroBlock = /* groq */ `
-  _type == "hero" => {
+  _type == "heroBlock" => {
     ...,
     ${imageFragment},
-    ${buttonsFragment},
-    ${richTextFragment}
   }
 `
 
-const faqFragment = /* groq */ `
-  "faqs": array::compact(faqs[]->{
-    title,
-    _id,
-    _type,
-    ${richTextFragment}
-  })
-`
-
-const faqAccordionBlock = /* groq */ `
-  _type == "faqAccordion" => {
+const storybookEmbedBlock = /* groq */ `
+  _type == "storybookEmbedBlock" => {
     ...,
-    ${faqFragment},
     link{
       ...,
       "openInNewTab": url.openInNewTab,
@@ -132,29 +71,23 @@ const faqAccordionBlock = /* groq */ `
   }
 `
 
-const subscribeNewsletterBlock = /* groq */ `
-  _type == "subscribeNewsletter" => {
+const featureBoxBlock = /* groq */ `
+  _type == "featureBoxBlock" => {
     ...,
-    "subTitle": subTitle[]{
+    features[]{
       ...,
-      ${markDefsFragment}
-    },
-    "helperText": helperText[]{
-      ...,
-      ${markDefsFragment}
     }
   }
 `
-
 const pageBuilderFragment = /* groq */ `
   pageBuilder[]{
     ...,
     _type,
-    ${ctaBlock},
+    ${richTextBlock},
+    ${contactListBlock},
     ${heroBlock},
-    ${faqAccordionBlock},
-    ${subscribeNewsletterBlock},
-    ${imageLinkCardsBlock}
+    ${storybookEmbedBlock},
+    ${featureBoxBlock},
   }
 `
 
@@ -276,7 +209,6 @@ export const queryNavbarData = defineQuery(/* groq */ `
         )
       }
     },
-    ${buttonsFragment},
     "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max",
     "siteTitle": *[_type == "settings"][0].siteTitle,
   }

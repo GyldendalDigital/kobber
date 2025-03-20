@@ -6,7 +6,11 @@ import type { QueryHomePageDataResult } from "@/sanity/sanity.types"
 import { useOptimistic } from "@sanity/visual-editing/react"
 import { createDataAttribute, type SanityDocument } from "next-sanity"
 import type { PagebuilderType } from "./page-builder.types"
-import { HeroBlock } from "./sections/hero"
+import { ContactListBlock } from "./sections/contact-list-block"
+import { FeatureBoxBlock } from "./sections/feature-box-block"
+import { HeroBlock } from "./sections/hero-block"
+import { RichTextBlock } from "./sections/rich-text-block"
+import { StorybookEmbedBlock } from "./sections/storybook-embed-block"
 
 type PageBlock = NonNullable<NonNullable<QueryHomePageDataResult>["pageBuilder"]>[number]
 
@@ -23,7 +27,11 @@ type PageData = {
 }
 
 const BLOCK_COMPONENTS = {
-  hero: HeroBlock,
+  heroBlock: HeroBlock,
+  richTextBlock: RichTextBlock,
+  contactListBlock: ContactListBlock,
+  storybookEmbedBlock: StorybookEmbedBlock,
+  featureBoxBlock: FeatureBoxBlock,
 } as const
 
 type BlockType = keyof typeof BLOCK_COMPONENTS
@@ -41,8 +49,8 @@ export function PageBuilder({ pageBuilder: initialPageBuilder = [], id, type }: 
   )
 
   return (
-    <main
-      className="mx-auto my-16 flex max-w-7xl flex-col gap-16"
+    <div
+      className="page-builder-main"
       data-sanity={createDataAttribute({
         id: id,
         baseUrl: studioUrl,
@@ -82,6 +90,6 @@ export function PageBuilder({ pageBuilder: initialPageBuilder = [], id, type }: 
           </div>
         )
       })}
-    </main>
+    </div>
   )
 }
