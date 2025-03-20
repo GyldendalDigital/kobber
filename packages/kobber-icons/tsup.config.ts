@@ -15,7 +15,7 @@ const webComponentsList = "src/index.web-components.ts";
 const reactList = "src/index.react.tsx";
 
 const symbolPrefix = "kobber-";
-const componentPrefix = "icon-";
+const componentPrefix = "kobber-";
 
 const removeDirectory = (directory: string) => {
   if (!fs.existsSync(directory)) return;
@@ -121,12 +121,12 @@ import * as React from "react";
       const iconName = getIconNames(symbol.id);
 
       reactImports += `
-import { ${iconName.unprefixedCapitalized} } from "./icon/icons/${iconName.unprefixed}";`;
+import { ${iconName.unprefixedCapitalized} as ${iconName.prefixedCapitalized} } from "./icon/icons/${iconName.unprefixed}";`;
 
       reactExports += `
-export const ${iconName.prefixedCapitalized} = createComponent({
+export const ${iconName.unprefixedCapitalized} = createComponent({
   tagName: "${iconName.prefixed}",
-  elementClass: ${iconName.unprefixedCapitalized},
+  elementClass: ${iconName.prefixedCapitalized},
   react: React,
 });
 `;
@@ -157,7 +157,7 @@ export const ${iconName.prefixedCapitalized} = createComponent({
   ${iconName.unprefixedCapitalized}, `;
 
       iconGalleryString += `
-  <IconItem name="${iconName.prefixedCapitalized} - <${iconName.prefixed} />">
+  <IconItem name="${iconName.unprefixedCapitalized} - <${iconName.prefixed} />">
     <${iconName.prefixed} class="kobber-theme-default" />
   </IconItem>`;
 
