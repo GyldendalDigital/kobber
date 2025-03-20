@@ -34,6 +34,7 @@ jobs:
           echo AUTH_MICROSOFT_ENTRA_ID_ISSUER=${{ secrets.AUTH_MICROSOFT_ENTRA_ID_ISSUER }} >> ./apps/docs/.env
           echo NEXT_PUBLIC_SANITY_PROJECT_ID=${{ vars.NEXT_PUBLIC_SANITY_PROJECT_ID }} >> ./apps/docs/.env
           echo NEXT_PUBLIC_SANITY_DATASET=${{ vars.NEXT_PUBLIC_SANITY_DATASET }} >> ./apps/docs/.env
+          echo SANITY_API_READ_TOKEN=${{ secrets.SANITY_API_READ_TOKEN }} >> ./apps/docs/.env
 
       - name: Build and deploy docs
         id: builddeploy
