@@ -36,7 +36,7 @@ export type BadgeClassNames =
 
 type BadgeTheme = keyof typeof component.badge.background.color;
 type BadgeVariant = "main" | "supplemental";
-type BadgeSize = "medium" | "small";
+type BadgeSize = keyof (typeof component)["badge"]["container"]["gap"];
 type BadgeText = string;
 
 export const badgeThemes: BadgeTheme[] = Object.keys(component.badge.background.color) as BadgeTheme[];
