@@ -1,6 +1,6 @@
 import { component, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables";
 import { css, unsafeCSS } from "lit";
-import { BadgeClassNames, badgeName, badgeSizes, badgeThemes, badgeVariants } from "./Badge.core";
+import { BadgeClassNames, badgeName, BadgeProps, badgeSizes, badgeThemes, badgeVariants } from "./Badge.core";
 
 const createBadgeStyles = () => {
   const badge = component.badge;
@@ -36,7 +36,7 @@ const createBadgeStyles = () => {
   `;
 };
 
-const getPaddingStyles = (size: string) => {
+const getPaddingStyles = (size: BadgeProps["size"]) => {
   const badge = component.badge;
   return size === "medium"
     ? css`

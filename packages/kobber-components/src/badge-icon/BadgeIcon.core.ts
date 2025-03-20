@@ -26,9 +26,9 @@ export type BadgeIconClassNames =
   | ReplaceSpaceWithDash<BadgeIconVariant>
   | BadgeIconSize;
 
-type BadgeIconTheme = "nature" | "fantasy" | "thriller" | "vacation" | "nostalgia" | "Label Info"; // TODO: Wait for tokens
-type BadgeIconVariant = "main" | "supplemental";
-type BadgeIconSize = "medium" | "small";
+type BadgeIconTheme = keyof (typeof component)["badge-icon"]["text"]["color"];
+type BadgeIconVariant = keyof (typeof component)["badge-icon"]["text"]["color"][BadgeIconTheme];
+type BadgeIconSize = keyof (typeof component)["badge-icon"]["container"]["gap"];
 
 export const badgeIconThemes: BadgeIconTheme[] = [
   "nature",
@@ -36,7 +36,9 @@ export const badgeIconThemes: BadgeIconTheme[] = [
   "thriller",
   "vacation",
   "nostalgia",
-  "Label Info",
+  "aubergine",
+  "rettsdata",
+  "carmine",
 ];
 export const badgeIconVariants: BadgeIconVariant[] = ["main", "supplemental"];
 export const badgeIconSizes: BadgeIconSize[] = ["medium", "small"];
