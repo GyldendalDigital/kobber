@@ -10,7 +10,7 @@ import { List } from "./list/List.react";
 import { ListItem } from "./list/ListItem.react";
 import { RadioGroup, RadioInput, RadioInputControl } from "./radio/index.react";
 import { IconFormChecked, IconFormIndeterminate, IconFormRadio } from "./internal-icons/index.react";
-import { Badge } from "./badge-new/Badge.react";
+import { Badge } from "./badge/Badge.react";
 
 export const KobberTextWrapper = TextWrapper;
 export const KobberTextLink = TextLink;

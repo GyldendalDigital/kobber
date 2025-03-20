@@ -3,7 +3,7 @@ import { css, unsafeCSS } from "lit";
 import { BadgeClassNames, badgeName, badgeSizes, badgeThemes, badgeVariants } from "./Badge.core";
 
 const createBadgeStyles = () => {
-  const badge = component.label;
+  const badge = component.badge;
 
   return css`
     .${unsafeCSS(badgeName satisfies BadgeClassNames)} {
@@ -37,7 +37,7 @@ const createBadgeStyles = () => {
 };
 
 const getPaddingStyles = (size: string) => {
-  const badge = component.label;
+  const badge = component.badge;
   return size === "medium"
     ? css`
         --padding: var(${unsafeCSS(badge.container.padding.medium)}, 8px);
@@ -53,7 +53,7 @@ const badgeVariableStyles = () => {
     return badgeVariants.flatMap(variant => {
       return badgeSizes.flatMap(size => {
         const nestedClassNames = `&.${theme}.${variant}.${size}`;
-        const badge = component.label;
+        const badge = component.badge;
         const typographySmall = typography.ui["label small - single line"];
         const typographyMedium = typography.ui["label medium - single line"];
 
@@ -88,8 +88,8 @@ const badgeVariableStyles = () => {
             --line-height: var(
               ${unsafeCSS(size === "medium" ? typographyMedium.lineHeight : typographySmall.lineHeight)}
             );
-            --status-circle-width: var(${unsafeCSS(badge["status-circle"].width.main)});
-            --status-circle-height: var(${unsafeCSS(badge["status-circle"].height.main)});
+            --status-circle-width: var(${unsafeCSS(badge["status-circle"].width[size])});
+            --status-circle-height: var(${unsafeCSS(badge["status-circle"].height[size])});
           }
         `;
       });
