@@ -3,7 +3,7 @@ import { css, unsafeCSS } from "lit";
 import { BadgeIconClassNames, badgeIconName } from "./BadgeIcon.core";
 
 const createBadgeIconStyles = () => {
-  const labelIcon = component["label-icon"];
+  const badgeIcon = component["badge-icon"];
 
   return css`
     .${unsafeCSS(badgeIconName satisfies BadgeIconClassNames)} {
@@ -15,7 +15,7 @@ const createBadgeIconStyles = () => {
 };
 
 const badgeIconVariableStyles = () => {
-  const labelIcon = component["label-icon"];
+  const badgeIcon = component["badge-icon"];
 
   return css`
     ${unsafeCSS(badgeIconName satisfies BadgeIconClassNames)} {
