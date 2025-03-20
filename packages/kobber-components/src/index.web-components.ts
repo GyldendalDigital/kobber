@@ -5,6 +5,7 @@ export { ProgressBar } from "./progress-bar/ProgressBar";
 export { ProgressBarItem } from "./progress-bar/ProgressBarItem";
 export { Button } from "./button/Button";
 export { Badge } from "./badge/Badge";
+export { BadgeIcon } from "./badge-icon/BadgeIcon";
 export { Dropdown } from "./dropdown/Dropdown";
 export { CheckboxInput } from "./checkbox/checkboxInput/CheckboxInput";
 export { CardLayout } from "./layouts/card-layout/CardLayout";

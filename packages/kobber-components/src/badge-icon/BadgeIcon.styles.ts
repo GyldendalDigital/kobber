@@ -10,8 +10,6 @@ import {
 } from "./BadgeIcon.core";
 
 const createBadgeIconStyles = () => {
-  const badgeIcon = component["badge-icon"];
-
   return css`
     .${unsafeCSS(badgeIconName satisfies BadgeIconClassNames)} {
       display: inline-flex;
