@@ -33,7 +33,6 @@ export async function isUnique(slug: string, context: SlugValidationContext): Pr
   }
   const query = "*[!(_id in [$draft, $published]) && slug.current == $slug]"
   const result = await client.fetch(query, params)
-  console.log("🚀 ~ isUnique:", result.length === 0)
   return result.length === 0
 }
 
