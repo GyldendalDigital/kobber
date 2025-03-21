@@ -39,7 +39,7 @@ export class BadgeIcon extends LitElement implements BadgeIconProps {
     this.removeAttribute("aria-label");
   }
 
-  return() {
+  render() {
     return html` <div
       class="${[
         ...badgeIconClassNames({
