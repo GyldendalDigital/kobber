@@ -19,9 +19,9 @@ export type RouteDataType = {
 }
 
 export type FeatureBoxType = {
-  title?: null | string | TemplateString
-  image?: string
-  href?: string
+  title?: string | TemplateString | null
+  image?: string | null
+  href?: string | null
   disabled?: boolean
 }
 
@@ -82,4 +82,4 @@ export type IllustrationType = {
   fill?: boolean
 }
 
-export type Maybe<T> = T | null | undefined;
+export type Maybe<T> = T | null | undefined

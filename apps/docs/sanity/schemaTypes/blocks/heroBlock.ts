@@ -3,7 +3,7 @@ import { defineField, defineType } from "sanity"
 
 export const heroBlock = defineType({
   name: "heroBlock",
-  title: "Hero",
+  title: "Hero image",
   icon: Star,
   type: "object",
   fields: [
@@ -21,7 +21,8 @@ export const heroBlock = defineType({
       image: "image",
     },
     prepare: ({ image }) => ({
-      title: "Hero",
+      title: "Hero image",
+      image,
     }),
   },
 })

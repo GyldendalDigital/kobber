@@ -27,9 +27,20 @@ export const featureBoxBlock = defineType({
   preview: {
     select: {
       features: "features",
+      firstFeature: "features.0",
     },
-    prepare: ({ features = [] }) => ({
-      title: "Features",
-    }),
+    prepare: ({ features, firstFeature }) => {
+      if (!features?.length) {
+        return {
+          title: "Feature box",
+        }
+      }
+
+      return {
+        title: `Feature box: ${firstFeature.title}`,
+        subtitle: `Contains ${features.length} features`,
+        media: firstFeature.image,
+      }
+    },
   },
 })

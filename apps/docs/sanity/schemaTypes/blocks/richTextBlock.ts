@@ -10,11 +10,23 @@ export const richTextBlock = defineType({
   fields: [richTextField],
   preview: {
     select: {
-      title: "title",
+      richText: "richText",
     },
-    prepare: ({ title }) => ({
-      title,
-      subtitle: "Rich Text Block",
-    }),
+    prepare: ({ richText }) => {
+      const texts = richText
+        ?.filter((x) => x?.children?.find((y) => y?.text))
+        .flatMap((x) => x.children.map((y) => y.text))
+
+      if (!texts?.length) {
+        return {
+          title: "Rich text",
+        }
+      }
+
+      return {
+        title: `Rich text: ${texts[0]}`,
+        subtitle: texts[1],
+      }
+    },
   },
 })

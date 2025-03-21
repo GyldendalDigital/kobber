@@ -1,60 +1,27 @@
-import Link from "next/link";
-import {
-  PortableText,
-  type PortableTextBlock,
-  type PortableTextReactComponents,
-} from "next-sanity";
+import Link from "next/link"
+import { KobberHeading, KobberIngress } from "@gyldendal/kobber-components/react-ssr-safe"
+import { PortableText, type PortableTextBlock, type PortableTextReactComponents } from "next-sanity"
+import { SanityImage } from "./sanity-image"
 
-
-import { SanityImage } from "./sanity-image";
-import { cn } from "@/lib/utils";
-
-const parseChildrenToSlug = (s: PortableTextBlock["children"]) => s.map(x => x.text).join("");
+const parseChildrenToSlug = (s: PortableTextBlock["children"]) => s.map((x) => x.text).join("")
 
 const components: Partial<PortableTextReactComponents> = {
   block: {
+    h1: ({ children, value }) => {
+      const slug = parseChildrenToSlug(value.children)
+      return <KobberHeading id={slug}>{children}</KobberHeading>
+    },
     h2: ({ children, value }) => {
-      const slug = parseChildrenToSlug(value.children);
+      const slug = parseChildrenToSlug(value.children)
       return (
-        <h2
-          id={slug}
-          className="scroll-m-20 border-b pb-2 text-3xl font-semibold first:mt-0"
-        >
+        <KobberHeading id={slug} level="h2" variant="title medium">
           {children}
-        </h2>
-      );
+        </KobberHeading>
+      )
     },
     h3: ({ children, value }) => {
-      const slug = parseChildrenToSlug(value.children);
-      return (
-        <h3 id={slug} className="scroll-m-20 text-2xl font-semibold">
-          {children}
-        </h3>
-      );
-    },
-    h4: ({ children, value }) => {
-      const slug = parseChildrenToSlug(value.children);
-      return (
-        <h4 id={slug} className="scroll-m-20 text-xl font-semibold">
-          {children}
-        </h4>
-      );
-    },
-    h5: ({ children, value }) => {
-      const slug = parseChildrenToSlug(value.children);
-      return (
-        <h5 id={slug} className="scroll-m-20 text-lg font-semibold">
-          {children}
-        </h5>
-      );
-    },
-    h6: ({ children, value }) => {
-      const slug = parseChildrenToSlug(value.children);
-      return (
-        <h6 id={slug} className="scroll-m-20 text-base font-semibold">
-          {children}
-        </h6>
-      );
+      const slug = parseChildrenToSlug(value.children)
+      return <KobberIngress id={slug}>{children}</KobberIngress>
     },
   },
   marks: {
@@ -65,12 +32,8 @@ const components: Partial<PortableTextReactComponents> = {
     ),
     customLink: ({ children, value }) => {
       if (!value.href || value.href === "#") {
-        console.warn("🚀 link is not set", value);
-        return (
-          <span className="underline decoration-dotted underline-offset-2">
-            Link Broken
-          </span>
-        );
+        console.warn("🚀 link is not set", value)
+        return <span className="underline decoration-dotted underline-offset-2">Link Broken</span>
       }
       return (
         <Link
@@ -82,47 +45,29 @@ const components: Partial<PortableTextReactComponents> = {
         >
           {children}
         </Link>
-      );
+      )
     },
   },
   types: {
     image: ({ value }) => (
-      <div className="my-4">
-        <SanityImage
-          asset={value}
-          className="w-full h-auto rounded-lg"
-          width={1600}
-          height={900}
-        />
+      <div>
+        <SanityImage asset={value} width={1600} height={900} />
       </div>
     ),
   },
   hardBreak: () => <br />,
-};
+}
 
-export function RichText<T>({
-  richText,
-  className,
-}: {
-  richText?: T | null;
-  className?: string;
-}) {
-  if (!richText) return null;
+export function RichText<T>({ richText }: { richText?: T | null }) {
+  if (!richText) return null
 
   return (
-    <div
-      className={cn(
-        "prose prose-zinc prose-headings:scroll-m-24 prose-headings:text-opacity-90 prose-p:text-opacity-80 prose-a:decoration-dotted prose-ol:text-opacity-80 prose-ul:text-opacity-80 prose-h2:border-b prose-h2:pb-2 prose-h2:text-3xl prose-h2:font-semibold prose-h2:first:mt-0 max-w-none dark:prose-invert",
-        className,
-      )}
-    >
-      <PortableText
-        value={richText as unknown as PortableTextBlock[]}
-        components={components}
-        onMissingComponent={(_, { nodeType, type }) =>
-          console.log("missing component", nodeType, type)
-        }
-      />
-    </div>
-  );
+    <PortableText
+      value={richText as unknown as PortableTextBlock[]}
+      components={components}
+      onMissingComponent={(_, { nodeType, type }) =>
+        console.warn("missing component", nodeType, type)
+      }
+    />
+  )
 }

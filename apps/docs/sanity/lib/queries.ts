@@ -35,6 +35,14 @@ const richTextFragment = /* groq */ `
   }
 `
 
+const childPageFragment = /* groq */ `
+  {
+    title,
+    "slug": slug.current,
+    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",
+  }
+`
+
 // Page builder block fragments
 const richTextBlock = /* groq */ `
   _type == "richTextBlock" => {
@@ -66,13 +74,10 @@ const embedBlock = /* groq */ `
 const featureBoxBlock = /* groq */ `
   _type == "featureBoxBlock" => {
     ...,
-    "features": features[]->{
-      title,
-      "slug": slug.current,
-      "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",
-    }
+    "features": features[]->${childPageFragment}
   }
 `
+
 const pageBuilderFragment = /* groq */ `
   pageBuilder[]{
     ...,
@@ -99,6 +104,7 @@ export const querySlugPageData = defineQuery(/* groq */ `
   *[_type == "page" && slug.current == $slug][0]{
     ...,
     "slug": slug.current,
+    "children": children[]->${childPageFragment},
     ${pageBuilderFragment}
   }
   `)
