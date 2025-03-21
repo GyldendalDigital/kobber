@@ -43,11 +43,7 @@ export const BadgeIcons: StoryObj<Args> = {
     disabled: false,
   },
   render: args => {
-    return html`
-      <div style="background-color: #fff; height:200px; width:400px; padding: 10px; border-radius: 5px;">
-        ${renderBadgeIcon(args)}
-      </div>
-    `;
+    return html`${renderBadgeIcon(args)}`;
   },
 };
 
@@ -61,7 +57,7 @@ const renderBadgeIcon = (args: Args) => {
     aria-label="Hello world"
     disabled=${disabled}
   >
-    <icon-arrow_right slot="icon" />
-    ${text}
+    <kobber-arrow_right slot="icon"></kobber-arrow_right>
+    <span slot="text">${text}</span>
   </kobber-badge-icon>`;
 };
