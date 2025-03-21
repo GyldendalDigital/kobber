@@ -27,13 +27,8 @@ export class BadgeIcon extends LitElement implements BadgeIconProps {
   @state()
   private label?: string | null;
 
-  @state()
-  private _hasIcon = false;
-
   connectedCallback() {
     super.connectedCallback();
-
-    this._hasIcon = this.shadowRoot?.host.querySelector("[slot=icon]") !== null;
 
     this.label = this.getAttribute("aria-label");
     this.removeAttribute("aria-label");
@@ -53,7 +48,7 @@ export class BadgeIcon extends LitElement implements BadgeIconProps {
       aria-disabled=${this.disabled ? "true" : "false"}
     >
       <slot name="icon"></slot>
-      <slot></slot>
+      <slot name="text"></slot>
     </div>`;
   }
 }
