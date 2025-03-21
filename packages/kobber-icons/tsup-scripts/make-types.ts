@@ -1,5 +1,5 @@
 export const makeIconTypes = (symbols: NodeListOf<SVGSymbolElement>) => {
-  let iconTypeString = `export type SizeType = "small" | "regular" | "big"
+  let iconTypeString = `export type SizeType = "small" | "medium" | "large"
   
   `;
   iconTypeString += "export type IconType = \n";

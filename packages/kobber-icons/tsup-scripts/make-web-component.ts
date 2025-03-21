@@ -11,17 +11,17 @@ import { SizeType } from "../../types/kobber-icons-types";
   const constructor = `constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.size = (this.getAttribute("size") as SizeType) || "regular";
+    this.size = (this.getAttribute("size") as SizeType) || "medium";
   }
 
 `;
 
   const attributes = `
     const smallSize = \`\${tokens.semantics.visual.icon.size.small / 16}rem\`;
-    const regularSize = \`\${tokens.semantics.visual.icon.size.medium / 16}rem\`;
-    const bigSize = \`\${tokens.semantics.visual.icon.size.large / 16}rem\`;
+    const mediumSize = \`\${tokens.semantics.visual.icon.size.medium / 16}rem\`;
+    const largeSize = \`\${tokens.semantics.visual.icon.size.large / 16}rem\`;
     const widthAndHeight =
-      this.size === "small" ? smallSize : this.size === "regular" ? regularSize : bigSize;
+      this.size === "small" ? smallSize : this.size === "medium" ? mediumSize : largeSize;
   
     let _ariaLabel =
       this.getAttribute("aria-label") || 

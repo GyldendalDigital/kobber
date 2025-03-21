@@ -13,10 +13,10 @@ type IconProps = {
 
 export const ${iconNames.unprefixedCapitalized}: FunctionComponent<HTMLProps<SVGElement> & IconProps> = props => {
   const smallSize = \`\${tokens.semantics.visual.icon.size.small / 16}rem\`;
-  const regularSize = \`\${tokens.semantics.visual.icon.size.medium / 16}rem\`;
-  const bigSize = \`\${tokens.semantics.visual.icon.size.large / 16}rem\`;
+  const mediumSize = \`\${tokens.semantics.visual.icon.size.medium / 16}rem\`;
+  const largeSize = \`\${tokens.semantics.visual.icon.size.large / 16}rem\`;
   const widthAndHeight =
-    props.iconSize === "small" ? smallSize : props.iconSize === "regular" ? regularSize : bigSize;
+    props.iconSize === "small" ? smallSize : props.iconSize === "medium" ? mediumSize : largeSize;
 
   let _ariaLabel = props["aria-label"];
   _ariaLabel = _ariaLabel && _ariaLabel.trim();
