@@ -1,5 +1,5 @@
-import { CogIcon } from "lucide-react";
-import { defineField, defineType } from "sanity";
+import { CogIcon } from "lucide-react"
+import { defineField, defineType } from "sanity"
 
 const socialLinks = defineField({
   name: "socialLinks",
@@ -39,7 +39,7 @@ const socialLinks = defineField({
       type: "string",
     }),
   ],
-});
+})
 
 export const settings = defineType({
   name: "settings",
@@ -47,6 +47,7 @@ export const settings = defineType({
   title: "Settings",
   description: "Global settings and configuration for your website",
   icon: CogIcon,
+  hidden: true,
   fields: [
     defineField({
       name: "label",
@@ -60,8 +61,7 @@ export const settings = defineType({
       name: "siteTitle",
       type: "string",
       title: "Site Title",
-      description:
-        "The main title of your website, used in browser tabs and SEO",
+      description: "The main title of your website, used in browser tabs and SEO",
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -98,4 +98,4 @@ export const settings = defineType({
       media: CogIcon,
     }),
   },
-});
+})

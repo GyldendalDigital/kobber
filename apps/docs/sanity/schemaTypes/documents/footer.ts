@@ -1,5 +1,5 @@
-import { LayoutPanelLeft, Link, PanelBottom } from "lucide-react";
-import { defineField, defineType } from "sanity";
+import { LayoutPanelLeft, Link, PanelBottom } from "lucide-react"
+import { defineField, defineType } from "sanity"
 
 const footerColumnLink = defineField({
   name: "footerColumnLink",
@@ -26,19 +26,18 @@ const footerColumnLink = defineField({
       openInNewTab: "url.openInNewTab",
     },
     prepare({ title, externalUrl, urlType, internalUrl, openInNewTab }) {
-      const url = urlType === "external" ? externalUrl : internalUrl;
-      const newTabIndicator = openInNewTab ? " ↗" : "";
-      const truncatedUrl =
-        url?.length > 30 ? `${url.substring(0, 30)}...` : url;
+      const url = urlType === "external" ? externalUrl : internalUrl
+      const newTabIndicator = openInNewTab ? " ↗" : ""
+      const truncatedUrl = url?.length > 30 ? `${url.substring(0, 30)}...` : url
 
       return {
         title: title || "Untitled Link",
         subtitle: `${urlType === "external" ? "External" : "Internal"} • ${truncatedUrl}${newTabIndicator}`,
         media: Link,
-      };
+      }
     },
   },
-});
+})
 
 const footerColumn = defineField({
   name: "footerColumn",
@@ -68,10 +67,10 @@ const footerColumn = defineField({
       return {
         title: title || "Untitled Column",
         subtitle: `${links.length} link${links.length === 1 ? "" : "s"}`,
-      };
+      }
     },
   },
-});
+})
 
 export const footer = defineType({
   name: "footer",
@@ -111,4 +110,4 @@ export const footer = defineType({
       media: PanelBottom,
     }),
   },
-});
+})

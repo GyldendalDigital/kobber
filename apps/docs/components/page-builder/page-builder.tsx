@@ -7,10 +7,10 @@ import { useOptimistic } from "@sanity/visual-editing/react"
 import { createDataAttribute, type SanityDocument } from "next-sanity"
 import type { PagebuilderType } from "./page-builder.types"
 import { ContactListBlock } from "./sections/contact-list-block"
+import { EmbedBlock } from "./sections/embed-block"
 import { FeatureBoxBlock } from "./sections/feature-box-block"
 import { HeroBlock } from "./sections/hero-block"
 import { RichTextBlock } from "./sections/rich-text-block"
-import { StorybookEmbedBlock } from "./sections/storybook-embed-block"
 
 type PageBlock = NonNullable<NonNullable<QueryHomePageDataResult>["pageBuilder"]>[number]
 
@@ -30,7 +30,7 @@ const BLOCK_COMPONENTS = {
   heroBlock: HeroBlock,
   richTextBlock: RichTextBlock,
   contactListBlock: ContactListBlock,
-  storybookEmbedBlock: StorybookEmbedBlock,
+  embedBlock: EmbedBlock,
   featureBoxBlock: FeatureBoxBlock,
 } as const
 

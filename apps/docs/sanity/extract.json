@@ -326,7 +326,7 @@
     }
   },
   {
-    "name": "storybookEmbedBlock",
+    "name": "embedBlock",
     "type": "type",
     "value": {
       "type": "object",
@@ -335,7 +335,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "string",
-            "value": "storybookEmbedBlock"
+            "value": "embedBlock"
           }
         },
         "title": {
@@ -345,34 +345,10 @@
           },
           "optional": true
         },
-        "link": {
+        "url": {
           "type": "objectAttribute",
           "value": {
-            "type": "object",
-            "attributes": {
-              "title": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "string"
-                },
-                "optional": true
-              },
-              "description": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "string"
-                },
-                "optional": true
-              },
-              "url": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "inline",
-                  "name": "customUrl"
-                },
-                "optional": true
-              }
-            }
+            "type": "string"
           },
           "optional": true
         }
@@ -893,66 +869,10 @@
             },
             "rest": {
               "type": "inline",
-              "name": "storybookEmbedBlock"
+              "name": "embedBlock"
             }
           }
         ]
-      }
-    }
-  },
-  {
-    "name": "button",
-    "type": "type",
-    "value": {
-      "type": "object",
-      "attributes": {
-        "_type": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string",
-            "value": "button"
-          }
-        },
-        "variant": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "union",
-            "of": [
-              {
-                "type": "string",
-                "value": "default"
-              },
-              {
-                "type": "string",
-                "value": "secondary"
-              },
-              {
-                "type": "string",
-                "value": "outline"
-              },
-              {
-                "type": "string",
-                "value": "link"
-              }
-            ]
-          },
-          "optional": true
-        },
-        "text": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": true
-        },
-        "url": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "inline",
-            "name": "customUrl"
-          },
-          "optional": true
-        }
       }
     }
   },
@@ -1386,28 +1306,6 @@
           }
         },
         "optional": true
-      },
-      "buttons": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "array",
-          "of": {
-            "type": "object",
-            "attributes": {
-              "_key": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "string"
-                }
-              }
-            },
-            "rest": {
-              "type": "inline",
-              "name": "button"
-            }
-          }
-        },
-        "optional": true
       }
     }
   },
@@ -1750,17 +1648,11 @@
           "type": "string"
         }
       },
-      "title": {
+      "richText": {
         "type": "objectAttribute",
         "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
-      "description": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
+          "type": "inline",
+          "name": "richText"
         },
         "optional": true
       },

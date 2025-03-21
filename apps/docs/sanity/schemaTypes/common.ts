@@ -8,13 +8,6 @@ export const richTextField = defineField({
     "A text editor that lets you add formatting like bold text, links, and bullet points",
 })
 
-export const buttonsField = defineField({
-  name: "buttons",
-  type: "array",
-  of: [{ type: "button" }],
-  description: "Add one or more clickable buttons that visitors can use to navigate your website",
-})
-
 export const pageBuilderField = defineField({
   name: "pageBuilder",
   group: GROUP.MAIN_CONTENT,

@@ -45,7 +45,7 @@ const richTextBlock = /* groq */ `
 const contactListBlock = /* groq */ `
   _type == "contactListBlock" => {
     ...,
-    
+    title,
   }
 `
 
@@ -56,26 +56,20 @@ const heroBlock = /* groq */ `
   }
 `
 
-const storybookEmbedBlock = /* groq */ `
-  _type == "storybookEmbedBlock" => {
-    ...,
-    link{
-      ...,
-      "openInNewTab": url.openInNewTab,
-      "href": select(
-        url.type == "internal" => url.internal->slug.current,
-        url.type == "external" => url.external,
-        url.href
-      )
-    }
+const embedBlock = /* groq */ `
+  _type == "embedBlock" => {
+    title,
+    url,
   }
 `
 
 const featureBoxBlock = /* groq */ `
   _type == "featureBoxBlock" => {
     ...,
-    features[]{
-      ...,
+    "features": features[]->{
+      title,
+      "slug": slug.current,
+      "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",
     }
   }
 `
@@ -86,7 +80,7 @@ const pageBuilderFragment = /* groq */ `
     ${richTextBlock},
     ${contactListBlock},
     ${heroBlock},
-    ${storybookEmbedBlock},
+    ${embedBlock},
     ${featureBoxBlock},
   }
 `
@@ -97,8 +91,7 @@ export const queryHomePageData =
     _id,
     _type,
     "slug": slug.current,
-    title,
-    description,
+    richText,
     ${pageBuilderFragment}
   }`)
 

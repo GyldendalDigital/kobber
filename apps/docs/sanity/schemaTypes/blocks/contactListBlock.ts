@@ -10,8 +10,7 @@ export const contactListBlock = defineType({
     defineField({
       name: "title",
       type: "string",
-      title: "Link Title",
-      description: "The text to display for the link",
+      title: "Hard coded contact list requires at least one field",
     }),
   ],
 })
