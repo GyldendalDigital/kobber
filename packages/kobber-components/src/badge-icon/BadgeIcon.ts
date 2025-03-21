@@ -1,31 +1,28 @@
-import { customElement, property, state } from "lit/decorators.js";
-import { badgeClassNames, badgeName, BadgeProps } from "./Badge.core";
-import { CSSResultGroup, html, LitElement } from "lit";
-import componentStyles from "../base/styles/component.styles";
-import { badgeStyles } from "./Badge.styles";
-
 /**
- * Kobber Badge web-component
+ * Kobber Label Icon web-component
  */
 
-@customElement(badgeName)
-export class Badge extends LitElement implements BadgeProps {
-  static styles: CSSResultGroup = [componentStyles, badgeStyles];
+import { customElement, property, state } from "lit/decorators.js";
+import { badgeIconClassNames, badgeIconName, BadgeIconProps } from "./BadgeIcon.core";
+import { CSSResultGroup, html, LitElement } from "lit";
+import componentStyles from "../base/styles/component.styles";
+import { badgeIconStyles } from "./BadgeIcon.styles";
+
+@customElement(badgeIconName)
+export class BadgeIcon extends LitElement implements BadgeIconProps {
+  static styles: CSSResultGroup = [componentStyles, badgeIconStyles];
 
   @property({ type: String })
-  variant?: BadgeProps["variant"] = "main";
+  variant?: BadgeIconProps["variant"] = "main";
 
   @property({ type: String })
-  theme?: BadgeProps["theme"] = "aubergine";
+  theme?: BadgeIconProps["theme"] = "nature";
 
   @property({ type: String })
-  size?: BadgeProps["size"] = "medium";
+  size?: BadgeIconProps["size"] = "medium";
 
   @property({ type: Boolean })
-  disabled?: BadgeProps["disabled"];
-
-  @property({ type: Boolean })
-  showStatusCircle?: BadgeProps["showStatusCircle"];
+  disabled?: BadgeIconProps["disabled"];
 
   @state()
   private label?: string | null;
@@ -40,19 +37,18 @@ export class Badge extends LitElement implements BadgeProps {
   render() {
     return html` <div
       class="${[
-        ...badgeClassNames({
+        ...badgeIconClassNames({
           variant: this.variant,
           theme: this.theme,
           size: this.size,
-          showStatusCircle: this.showStatusCircle,
         }),
         this.className,
       ].join(" ")}"
       aria-label=${this.label}
       aria-disabled=${this.disabled ? "true" : "false"}
     >
-      ${this.showStatusCircle ? html`<div class="status-circle"></div>` : ""}
-      <slot></slot>
+      <slot name="icon"></slot>
+      <slot name="text"></slot>
     </div>`;
   }
 }
