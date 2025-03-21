@@ -44,7 +44,7 @@ export const BadgeIcons: StoryObj<Args> = {
   },
   render: args => {
     return html`
-      <div style="background-color: #e3e3e3; height:200px; width:400px; padding: 10px; border-radius: 5px;">
+      <div style="background-color: #fff; height:200px; width:400px; padding: 10px; border-radius: 5px;">
         ${renderBadgeIcon(args)}
       </div>
     `;
