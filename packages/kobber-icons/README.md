@@ -72,8 +72,7 @@ Example in React:
 
 ```jsx
 import { User } from "@gyldendal/kobber-icons/dist/react-ssr-safe";
-import { SizeType } from "@gyldendal/kobber-icons/dist/symbols/kobber-icons-types";
-<User iconSize={SizeType.large} />;
+<User iconSize="large" />;
 ```
 
 ### Other styling

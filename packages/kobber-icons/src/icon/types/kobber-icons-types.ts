@@ -1,4 +1,4 @@
-export type SizeType = "small" | "regular" | "big"
+export type SizeType = "small" | "medium" | "large"
   
   export type IconType = 
   | "kobber-add"

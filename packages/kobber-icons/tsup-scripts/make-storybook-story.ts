@@ -13,10 +13,10 @@ const meta: Meta = {
   },
   args: {
     ariaLabel: "",
-    size: "regular",
+    size: "medium",
   },
   argTypes: {
-    size: { control: "inline-radio", options: ["small", "regular", "big"] },
+    size: { control: "inline-radio", options: ["small", "medium", "large"] },
   },
   decorators: [
     (story, storyContext) => \`
