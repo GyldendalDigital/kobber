@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.3.85
+
+### Patch Changes
+
+- 89f22d1: Correct icon size tokens
+- Updated dependencies [89f22d1]
+  - @gyldendal/kobber-icons@0.3.85
+  - @gyldendal/kobber-base@0.3.85
+
 ## 0.3.84
 
 ### Patch Changes
