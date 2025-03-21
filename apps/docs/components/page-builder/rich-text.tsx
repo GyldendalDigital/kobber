@@ -13,8 +13,15 @@ const components: Partial<PortableTextReactComponents> = {
     },
     h2: ({ children, value }) => {
       const slug = parseChildrenToSlug(value.children)
+      console.log("h2", children, value)
+      const highlighted = value.children[0]?.marks?.includes("em")
       return (
-        <KobberHeading id={slug} level="h2" variant="title medium">
+        <KobberHeading
+          id={slug}
+          level="h2"
+          variant={highlighted ? "display small" : "title medium"}
+          font={highlighted ? "secondary" : "primary"}
+        >
           {children}
         </KobberHeading>
       )
@@ -50,8 +57,11 @@ const components: Partial<PortableTextReactComponents> = {
   },
   types: {
     image: ({ value }) => (
-      <div>
-        <SanityImage asset={value} width={1600} height={900} />
+      <div className="my-2">
+        <div className="overflow-hidden rounded-lg">
+          <SanityImage asset={value} width={1600} height={900} />
+        </div>
+        {value.caption && <small>{value.caption}</small>}
       </div>
     ),
   },

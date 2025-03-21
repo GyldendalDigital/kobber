@@ -3,6 +3,7 @@
 import type { ComponentType } from "react"
 import { dataset, projectId, studioUrl } from "@/sanity/env"
 import type { QueryHomePageDataResult } from "@/sanity/sanity.types"
+import { KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
 import { useOptimistic } from "@sanity/visual-editing/react"
 import { createDataAttribute, type SanityDocument } from "next-sanity"
 import type { PagebuilderType } from "./page-builder.types"
@@ -49,7 +50,7 @@ export function PageBuilder({ pageBuilder: initialPageBuilder = [], id, type }: 
   )
 
   return (
-    <div
+    <KobberTextWrapper
       className="page-builder-main"
       data-sanity={createDataAttribute({
         id: id,
@@ -90,6 +91,6 @@ export function PageBuilder({ pageBuilder: initialPageBuilder = [], id, type }: 
           </div>
         )
       })}
-    </div>
+    </KobberTextWrapper>
   )
 }

@@ -14,18 +14,14 @@ export const richTextBlock = defineType({
     },
     prepare: ({ richText }) => {
       const texts = richText
+        // @ts-expect-error: ignore ts(7006)
         ?.filter((x) => x?.children?.find((y) => y?.text))
+        // @ts-expect-error: ignore ts(7006)
         .flatMap((x) => x.children.map((y) => y.text))
 
-      if (!texts?.length) {
-        return {
-          title: "Rich text",
-        }
-      }
-
       return {
-        title: `Rich text: ${texts[0]}`,
-        subtitle: texts[1],
+        title: `Rich text: ${texts?.[0] ?? "Empty"}`,
+        subtitle: texts?.[1],
       }
     },
   },

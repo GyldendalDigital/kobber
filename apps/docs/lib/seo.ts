@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import type { Maybe } from "@/types/types"
+import { APP_NAME } from "./constants"
 
 interface OgImageOptions {
   type?: string
@@ -27,6 +28,7 @@ interface MetaDataInput {
   title?: Maybe<string>
   description?: Maybe<string>
   _id?: Maybe<string>
+  seoNoIndex?: boolean
 }
 
 export function getMetaData(data: MetaDataInput): Metadata {
@@ -41,25 +43,26 @@ export function getMetaData(data: MetaDataInput): Metadata {
     description: seoDescription ?? description ?? "",
   }
 
-  const ogImage = getOgImage({
-    type: _type ?? undefined,
-    id: _id ?? undefined,
-  })
+  // const ogImage = getOgImage({
+  //   type: _type ?? undefined,
+  //   id: _id ?? undefined,
+  // })
 
   return {
-    title: `${meta.title} | Roboto Studio Demo`,
+    robots: data?.seoNoIndex ? "noindex" : "index, follow",
+    title: `${meta.title} | ${APP_NAME}`,
     description: meta.description,
     metadataBase: new URL(baseUrl),
-    creator: "Roboto Studio Demo",
-    authors: [{ name: "Roboto" }],
+    creator: APP_NAME,
+    authors: [{ name: APP_NAME }],
     icons: {
       icon: `${baseUrl}/favicon.ico`,
     },
-    keywords: ["roboto", "studio", "demo", "sanity", "next", "react", "template"],
+    keywords: ["designsystem", "gyldendal", "komponenter", "komponentbibliotek"],
     twitter: {
       card: "summary_large_image",
-      images: [ogImage],
-      creator: "@studioroboto",
+      // images: [ogImage],
+      creator: "@Gyldendal_no",
       title: meta.title,
       description: meta.description,
     },
@@ -68,18 +71,19 @@ export function getMetaData(data: MetaDataInput): Metadata {
     },
     openGraph: {
       type: "website",
-      countryName: "UK",
+      countryName: "Norway",
+      locale: "nb_NO",
       description: meta.description,
       title: meta.title,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: meta.title,
-          secureUrl: ogImage,
-        },
-      ],
+      // images: [
+      //   {
+      //     url: ogImage,
+      //     width: 1200,
+      //     height: 630,
+      //     alt: meta.title,
+      //     secureUrl: ogImage,
+      //   },
+      // ],
       url: pageUrl,
     },
   }

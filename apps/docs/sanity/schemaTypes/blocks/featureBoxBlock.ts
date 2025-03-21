@@ -27,19 +27,19 @@ export const featureBoxBlock = defineType({
   preview: {
     select: {
       features: "features",
-      firstFeature: "features.0",
+      firstFeatureTitle: "features.0.title",
+      firstFeatureImage: "features.0.image",
     },
-    prepare: ({ features, firstFeature }) => {
-      if (!features?.length) {
-        return {
-          title: "Feature box",
-        }
-      }
-
+    prepare: ({ features, firstFeatureTitle, firstFeatureImage }) => {
+      const otherFeatureNames = Object.values(features)
+        .slice(1)
+        // @ts-expect-error: ignore ts(7006)
+        .map((feature) => feature.title)
+        .join(", ")
       return {
-        title: `Feature box: ${firstFeature.title}`,
-        subtitle: `Contains ${features.length} features`,
-        media: firstFeature.image,
+        title: `Feature box: ${firstFeatureTitle ?? "Empty"}`,
+        subtitle: otherFeatureNames ? `+ ${otherFeatureNames}` : undefined,
+        media: firstFeatureImage,
       }
     },
   },

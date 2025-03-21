@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { client } from "@/sanity/lib/client"
 import { sanityFetch } from "@/sanity/lib/live"
@@ -63,7 +64,7 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
             Gå til underside i stedet:
             <br />
             {pageData.children.map((child) => (
-              <RouterLink key={child._id} href={child.slug.replace("/", "")}>
+              <RouterLink key={child.slug} href={child.slug?.replace("/", "") ?? ""}>
                 {child.title}
               </RouterLink>
             ))}
