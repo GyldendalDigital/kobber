@@ -1,5 +1,11 @@
 # @gyldendal/kobber-scene
 
+## 0.3.84
+
+### Patch Changes
+
+- Make kobber-icons react-ssr-safe
+
 ## 0.3.83
 
 ### Patch Changes

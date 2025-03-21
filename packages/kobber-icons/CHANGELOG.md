@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.84
+
+### Patch Changes
+
+- Make kobber-icons react-ssr-safe
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.84
+
 ## 0.3.83
 
 ### Patch Changes
