@@ -71,6 +71,16 @@ export type Geopoint = {
   alt?: number
 }
 
+export type LinkListBlock = {
+  _type: "linkListBlock"
+  links?: Array<{
+    title?: string
+    url?: string
+    external?: boolean
+    _key: string
+  }>
+}
+
 export type EmbedBlock = {
   _type: "embedBlock"
   title?: string
@@ -161,6 +171,9 @@ export type PageBuilder = Array<
   | ({
       _key: string
     } & EmbedBlock)
+  | ({
+      _key: string
+    } & LinkListBlock)
 >
 
 export type RichText = Array<
@@ -283,9 +296,8 @@ export type HomePage = {
   _createdAt: string
   _updatedAt: string
   _rev: string
-  richText?: RichText
-  slug?: Slug
   pageBuilder?: PageBuilder
+  slug?: Slug
   seoTitle?: string
   seoDescription?: string
   seoImage?: {
@@ -310,7 +322,6 @@ export type Page = {
   _updatedAt: string
   _rev: string
   title?: string
-  description?: string
   slug?: Slug
   image?: {
     asset?: {
@@ -323,6 +334,7 @@ export type Page = {
     crop?: SanityImageCrop
     _type: "image"
   }
+  pageBuilder?: PageBuilder
   children?: Array<{
     _ref: string
     _type: "reference"
@@ -330,7 +342,7 @@ export type Page = {
     _key: string
     [internalGroqTypeReferenceTo]?: "page"
   }>
-  pageBuilder?: PageBuilder
+  description?: string
   seoTitle?: string
   seoDescription?: string
   seoImage?: {
@@ -432,6 +444,7 @@ export type AllSanitySchemaTypes =
   | SanityImageDimensions
   | SanityFileAsset
   | Geopoint
+  | LinkListBlock
   | EmbedBlock
   | FeatureBoxBlock
   | ContactListBlock
@@ -454,15 +467,13 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol
 // Source: sanity/lib/queries.ts
 // Variable: queryHomePageData
-// Query: *[_type == "homePage" && _id == "homePage"][0]{    ...,    _id,    _type,    "slug": slug.current,    richText,      pageBuilder[]{    ...,    _type,      _type == "richTextBlock" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },  },      _type == "contactListBlock" => {    ...,    title,  },      _type == "heroBlock" => {    ...,      image{    ...,    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },      _type == "embedBlock" => {    title,    url,  },      _type == "featureBoxBlock" => {    ...,    "features": features[]->  {    title,    "slug": slug.current,    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",  }  },  }  }
+// Query: *[_type == "homePage" && _id == "homePage"][0]{    ...,    _id,    _type,    "slug": slug.current,    richText,      pageBuilder[]{    ...,    _type,      _type == "richTextBlock" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },  },      _type == "contactListBlock" => {    ...,    title,  },      _type == "heroBlock" => {    ...,      image{    ...,    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },      _type == "embedBlock" => {    title,    url,  },      _type == "featureBoxBlock" => {    ...,    "features": features[]->  {    title,    "slug": slug.current,    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",  }  },      _type == "listListBlock" => {    ...,    links,  },  }  }
 export type QueryHomePageDataResult = {
   _id: string
   _type: "homePage"
   _createdAt: string
   _updatedAt: string
   _rev: string
-  richText: RichText | null
-  slug: string | null
   pageBuilder: Array<
     | {
         _key: string
@@ -501,6 +512,16 @@ export type QueryHomePageDataResult = {
           blurData: string | null
           dominantColor: string | null
         } | null
+      }
+    | {
+        _key: string
+        _type: "linkListBlock"
+        links?: Array<{
+          title?: string
+          url?: string
+          external?: boolean
+          _key: string
+        }>
       }
     | {
         _key: string
@@ -550,6 +571,7 @@ export type QueryHomePageDataResult = {
         > | null
       }
   > | null
+  slug: string | null
   seoTitle?: string
   seoDescription?: string
   seoImage?: {
@@ -565,9 +587,10 @@ export type QueryHomePageDataResult = {
   }
   ogTitle?: string
   ogDescription?: string
+  richText: null
 } | null
 // Variable: querySlugPageData
-// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    "slug": slug.current,    "children": children[]->  {    title,    "slug": slug.current,    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",  },      pageBuilder[]{    ...,    _type,      _type == "richTextBlock" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },  },      _type == "contactListBlock" => {    ...,    title,  },      _type == "heroBlock" => {    ...,      image{    ...,    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },      _type == "embedBlock" => {    title,    url,  },      _type == "featureBoxBlock" => {    ...,    "features": features[]->  {    title,    "slug": slug.current,    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",  }  },  }  }
+// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    "slug": slug.current,    "children": children[]->  {    title,    "slug": slug.current,    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",  },      pageBuilder[]{    ...,    _type,      _type == "richTextBlock" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },  },      _type == "contactListBlock" => {    ...,    title,  },      _type == "heroBlock" => {    ...,      image{    ...,    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },      _type == "embedBlock" => {    title,    url,  },      _type == "featureBoxBlock" => {    ...,    "features": features[]->  {    title,    "slug": slug.current,    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",  }  },      _type == "listListBlock" => {    ...,    links,  },  }  }
 export type QuerySlugPageDataResult = {
   _id: string
   _type: "page"
@@ -575,7 +598,6 @@ export type QuerySlugPageDataResult = {
   _updatedAt: string
   _rev: string
   title?: string
-  description?: string
   slug: string | null
   image?: {
     asset?: {
@@ -588,11 +610,6 @@ export type QuerySlugPageDataResult = {
     crop?: SanityImageCrop
     _type: "image"
   }
-  children: Array<{
-    title: string | null
-    slug: string | null
-    image: string | null
-  }> | null
   pageBuilder: Array<
     | {
         _key: string
@@ -631,6 +648,16 @@ export type QuerySlugPageDataResult = {
           blurData: string | null
           dominantColor: string | null
         } | null
+      }
+    | {
+        _key: string
+        _type: "linkListBlock"
+        links?: Array<{
+          title?: string
+          url?: string
+          external?: boolean
+          _key: string
+        }>
       }
     | {
         _key: string
@@ -680,6 +707,12 @@ export type QuerySlugPageDataResult = {
         > | null
       }
   > | null
+  children: Array<{
+    title: string | null
+    slug: string | null
+    image: string | null
+  }> | null
+  description?: string
   seoTitle?: string
   seoDescription?: string
   seoImage?: {
@@ -818,8 +851,8 @@ export type QuerySitemapDataResult = {
 
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "homePage" && _id == "homePage"][0]{\n    ...,\n    _id,\n    _type,\n    "slug": slug.current,\n    richText,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "richTextBlock" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n  }\n,\n    \n  _type == "contactListBlock" => {\n    ...,\n    title,\n  }\n,\n    \n  _type == "heroBlock" => {\n    ...,\n    \n  image{\n    ...,\n    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),\n    "blurData": asset->metadata.lqip,\n    "dominantColor": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n    \n  _type == "embedBlock" => {\n    title,\n    url,\n  }\n,\n    \n  _type == "featureBoxBlock" => {\n    ...,\n    "features": features[]->\n  {\n    title,\n    "slug": slug.current,\n    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  }\n\n  }\n,\n  }\n\n  }': QueryHomePageDataResult
-    '\n  *[_type == "page" && slug.current == $slug][0]{\n    ...,\n    "slug": slug.current,\n    "children": children[]->\n  {\n    title,\n    "slug": slug.current,\n    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  }\n,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "richTextBlock" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n  }\n,\n    \n  _type == "contactListBlock" => {\n    ...,\n    title,\n  }\n,\n    \n  _type == "heroBlock" => {\n    ...,\n    \n  image{\n    ...,\n    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),\n    "blurData": asset->metadata.lqip,\n    "dominantColor": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n    \n  _type == "embedBlock" => {\n    title,\n    url,\n  }\n,\n    \n  _type == "featureBoxBlock" => {\n    ...,\n    "features": features[]->\n  {\n    title,\n    "slug": slug.current,\n    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  }\n\n  }\n,\n  }\n\n  }\n  ': QuerySlugPageDataResult
+    '*[_type == "homePage" && _id == "homePage"][0]{\n    ...,\n    _id,\n    _type,\n    "slug": slug.current,\n    richText,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "richTextBlock" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n  }\n,\n    \n  _type == "contactListBlock" => {\n    ...,\n    title,\n  }\n,\n    \n  _type == "heroBlock" => {\n    ...,\n    \n  image{\n    ...,\n    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),\n    "blurData": asset->metadata.lqip,\n    "dominantColor": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n    \n  _type == "embedBlock" => {\n    title,\n    url,\n  }\n,\n    \n  _type == "featureBoxBlock" => {\n    ...,\n    "features": features[]->\n  {\n    title,\n    "slug": slug.current,\n    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  }\n\n  }\n,\n    \n  _type == "listListBlock" => {\n    ...,\n    links,\n  }\n,\n  }\n\n  }': QueryHomePageDataResult
+    '\n  *[_type == "page" && slug.current == $slug][0]{\n    ...,\n    "slug": slug.current,\n    "children": children[]->\n  {\n    title,\n    "slug": slug.current,\n    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  }\n,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "richTextBlock" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n  }\n,\n    \n  _type == "contactListBlock" => {\n    ...,\n    title,\n  }\n,\n    \n  _type == "heroBlock" => {\n    ...,\n    \n  image{\n    ...,\n    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),\n    "blurData": asset->metadata.lqip,\n    "dominantColor": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n    \n  _type == "embedBlock" => {\n    title,\n    url,\n  }\n,\n    \n  _type == "featureBoxBlock" => {\n    ...,\n    "features": features[]->\n  {\n    title,\n    "slug": slug.current,\n    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  }\n\n  }\n,\n    \n  _type == "listListBlock" => {\n    ...,\n    links,\n  }\n,\n  }\n\n  }\n  ': QuerySlugPageDataResult
     '\n  *[_type == "page" && defined(slug.current)].slug.current\n': QuerySlugPagePathsResult
     '\n  *[_type == "homePage" && _id == $id][0]{\n    \n  _id,\n  _type,\n  "title": select(\n    defined(ogTitle) => ogTitle,\n    defined(seoTitle) => seoTitle,\n    title\n  ),\n  "description": select(\n    defined(ogDescription) => ogDescription,\n    defined(seoDescription) => seoDescription,\n    description\n  ),\n  "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  "dominantColor": image.asset->metadata.palette.dominant.background,\n  "seoImage": seoImage.asset->url + "?w=1200&h=630&dpr=2&fit=max", \n  "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max&q=100",\n  "date": coalesce(date, _createdAt)\n\n  }\n  ': QueryHomePageOGDataResult
     '\n  *[_type == "page" && _id == $id][0]{\n    \n  _id,\n  _type,\n  "title": select(\n    defined(ogTitle) => ogTitle,\n    defined(seoTitle) => seoTitle,\n    title\n  ),\n  "description": select(\n    defined(ogDescription) => ogDescription,\n    defined(seoDescription) => seoDescription,\n    description\n  ),\n  "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  "dominantColor": image.asset->metadata.palette.dominant.background,\n  "seoImage": seoImage.asset->url + "?w=1200&h=630&dpr=2&fit=max", \n  "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max&q=100",\n  "date": coalesce(date, _createdAt)\n\n  }\n': QuerySlugPageOGDataResult

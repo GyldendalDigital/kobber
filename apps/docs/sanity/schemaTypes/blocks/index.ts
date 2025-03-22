@@ -1,8 +1,9 @@
 import { contactListBlock } from "./contactListBlock"
+import { embedBlock } from "./embedBlock"
 import { featureBoxBlock } from "./featureBoxBlock"
 import { heroBlock } from "./heroBlock"
+import { linkListBlock } from "./linkListBlock"
 import { richTextBlock } from "./richTextBlock"
-import { embedBlock } from "./embedBlock"
 
 export const pageBuilderBlocks = [
   heroBlock,
@@ -10,4 +11,5 @@ export const pageBuilderBlocks = [
   contactListBlock,
   featureBoxBlock,
   embedBlock,
+  linkListBlock,
 ]

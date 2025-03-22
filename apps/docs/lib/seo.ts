@@ -50,7 +50,7 @@ export function getMetaData(data: MetaDataInput): Metadata {
 
   return {
     robots: data?.seoNoIndex ? "noindex" : "index, follow",
-    title: `${meta.title} | ${APP_NAME}`,
+    title: meta.title,
     description: meta.description,
     metadataBase: new URL(baseUrl),
     creator: APP_NAME,

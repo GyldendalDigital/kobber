@@ -57,6 +57,13 @@ const contactListBlock = /* groq */ `
   }
 `
 
+const linkListBlock = /* groq */ `
+  _type == "listListBlock" => {
+    ...,
+    links,
+  }
+`
+
 const heroBlock = /* groq */ `
   _type == "heroBlock" => {
     ...,
@@ -87,6 +94,7 @@ const pageBuilderFragment = /* groq */ `
     ${heroBlock},
     ${embedBlock},
     ${featureBoxBlock},
+    ${linkListBlock},
   }
 `
 

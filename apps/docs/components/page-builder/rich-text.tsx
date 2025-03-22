@@ -1,6 +1,6 @@
-import Link from "next/link"
 import { KobberHeading, KobberIngress } from "@gyldendal/kobber-components/react-ssr-safe"
 import { PortableText, type PortableTextBlock, type PortableTextReactComponents } from "next-sanity"
+import { RouterTextLink } from "../global/router-link"
 import { SanityImage } from "./sanity-image"
 
 const parseChildrenToSlug = (s: PortableTextBlock["children"]) => s.map((x) => x.text).join("")
@@ -42,17 +42,8 @@ const components: Partial<PortableTextReactComponents> = {
         console.warn("🚀 link is not set", value)
         return <span className="underline decoration-dotted underline-offset-2">Link Broken</span>
       }
-      return (
-        <Link
-          className="underline decoration-dotted underline-offset-2"
-          href={value.href}
-          prefetch={false}
-          aria-label={`Link to ${value?.href}`}
-          target={value.openInNewTab ? "_blank" : "_self"}
-        >
-          {children}
-        </Link>
-      )
+
+      return <RouterTextLink href={value.href}>{children}</RouterTextLink>
     },
   },
   types: {
