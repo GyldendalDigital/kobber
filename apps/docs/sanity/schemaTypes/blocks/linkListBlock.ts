@@ -20,39 +20,34 @@ export const linkListBlock = defineType({
               title: "Title",
               type: "string",
             }),
-            // defineField({
-            //   name: "url",
-            //   title: "URL",
-            //   type: "url",
-            // }),
+            defineField({
+              name: "url",
+              title: "URL",
+              type: "url",
+            }),
             defineField({
               name: "external",
               title: "External",
               type: "boolean",
+              initialValue: true,
             }),
           ],
         }),
       ],
     }),
   ],
-  // preview: {
-  //   select: {
-  //     features: "links",
-  //     firstFeatureTitle: "links.0.title",
-  //     firstFeatureImage: "links.0.url",
-  //   },
-  //   prepare: ({ features, firstFeatureTitle, firstFeatureImage }) => {
-  //     console.log(features)
-  //     const otherFeatureNames = Object.values(features)
-  //       .slice(1)
-  //       // @ts-expect-error: ignore ts(7006)
-  //       .map((feature) => feature.title)
-  //       .join(", ")
-  //     return {
-  //       title: `Feature box: ${firstFeatureTitle ?? "Empty"}`,
-  //       subtitle: otherFeatureNames ? `+ ${otherFeatureNames}` : undefined,
-  //       media: firstFeatureImage,
-  //     }
-  //   },
-  // },
+  preview: {
+    select: {
+      links: "links",
+    },
+    prepare: ({ links }) => {
+      const linkNames = Object.values(links)
+        // @ts-expect-error: ignore ts(7006)
+        .map((link) => link.title)
+      return {
+        title: `Link list: ${linkNames[0] ?? "Empty"}`,
+        subtitle: linkNames[1] ? `+ ${linkNames.length - 1} links` : undefined,
+      }
+    },
+  },
 })

@@ -11,6 +11,7 @@ import { ContactListBlock } from "./sections/contact-list-block"
 import { EmbedBlock } from "./sections/embed-block"
 import { FeatureBoxBlock } from "./sections/feature-box-block"
 import { HeroBlock } from "./sections/hero-block"
+import { LinkListBlock } from "./sections/link-list-block"
 import { RichTextBlock } from "./sections/rich-text-block"
 
 type PageBlock = NonNullable<NonNullable<QueryHomePageDataResult>["pageBuilder"]>[number]
@@ -33,6 +34,7 @@ const BLOCK_COMPONENTS = {
   contactListBlock: ContactListBlock,
   embedBlock: EmbedBlock,
   featureBoxBlock: FeatureBoxBlock,
+  linkListBlock: LinkListBlock,
 } as const
 
 type BlockType = keyof typeof BLOCK_COMPONENTS
