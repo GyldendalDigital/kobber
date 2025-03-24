@@ -35,114 +35,53 @@ const richTextFragment = /* groq */ `
   }
 `
 
-const blogAuthorFragment = /* groq */ `
-  authors[0]->{
-    _id,
-    name,
-    position,
-    ${imageFragment}
-  }
-`
-
-const blogCardFragment = /* groq */ `
-  _type,
-  _id,
-  title,
-  description,
-  "slug":slug.current,
-  richText,
-  orderRank,
-  ${imageFragment},
-  publishedAt,
-  ${blogAuthorFragment}
-`
-
-const buttonsFragment = /* groq */ `
-  buttons[]{
-    text,
-    variant,
-    _key,
-    _type,
-    "openInNewTab": url.openInNewTab,
-    "href": select(
-      url.type == "internal" => url.internal->slug.current,
-      url.type == "external" => url.external,
-      url.href
-    ),
+const childPageFragment = /* groq */ `
+  {
+    title,
+    "slug": slug.current,
+    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",
   }
 `
 
 // Page builder block fragments
-const ctaBlock = /* groq */ `
-  _type == "cta" => {
+const richTextBlock = /* groq */ `
+  _type == "richTextBlock" => {
     ...,
     ${richTextFragment},
-    ${buttonsFragment},
   }
 `
-const imageLinkCardsBlock = /* groq */ `
-  _type == "imageLinkCards" => {
+const contactListBlock = /* groq */ `
+  _type == "contactListBlock" => {
     ...,
-    ${richTextFragment},
-    ${buttonsFragment},
-    "cards": array::compact(cards[]{
-      ...,
-      "openInNewTab": url.openInNewTab,
-      "href": select(
-        url.type == "internal" => url.internal->slug.current,
-        url.type == "external" => url.external,
-        url.href
-      ),
-      ${imageFragment},
-    })
+    title,
+  }
+`
+
+const linkListBlock = /* groq */ `
+  _type == "listListBlock" => {
+    ...,
+    links,
   }
 `
 
 const heroBlock = /* groq */ `
-  _type == "hero" => {
+  _type == "heroBlock" => {
     ...,
     ${imageFragment},
-    ${buttonsFragment},
-    ${richTextFragment}
   }
 `
 
-const faqFragment = /* groq */ `
-  "faqs": array::compact(faqs[]->{
+const embedBlock = /* groq */ `
+  _type == "embedBlock" => {
     title,
-    _id,
-    _type,
-    ${richTextFragment}
-  })
-`
-
-const faqAccordionBlock = /* groq */ `
-  _type == "faqAccordion" => {
-    ...,
-    ${faqFragment},
-    link{
-      ...,
-      "openInNewTab": url.openInNewTab,
-      "href": select(
-        url.type == "internal" => url.internal->slug.current,
-        url.type == "external" => url.external,
-        url.href
-      )
-    }
+    url,
   }
 `
 
-const subscribeNewsletterBlock = /* groq */ `
-  _type == "subscribeNewsletter" => {
+const featureBoxBlock = /* groq */ `
+  _type == "featureBoxBlock" => {
     ...,
-    "subTitle": subTitle[]{
-      ...,
-      ${markDefsFragment}
-    },
-    "helperText": helperText[]{
-      ...,
-      ${markDefsFragment}
-    }
+    "features": features[]->${childPageFragment}
   }
 `
 
@@ -150,11 +89,12 @@ const pageBuilderFragment = /* groq */ `
   pageBuilder[]{
     ...,
     _type,
-    ${ctaBlock},
+    ${richTextBlock},
+    ${contactListBlock},
     ${heroBlock},
-    ${faqAccordionBlock},
-    ${subscribeNewsletterBlock},
-    ${imageLinkCardsBlock}
+    ${embedBlock},
+    ${featureBoxBlock},
+    ${linkListBlock},
   }
 `
 
@@ -164,8 +104,7 @@ export const queryHomePageData =
     _id,
     _type,
     "slug": slug.current,
-    title,
-    description,
+    richText,
     ${pageBuilderFragment}
   }`)
 
@@ -173,6 +112,7 @@ export const querySlugPageData = defineQuery(/* groq */ `
   *[_type == "page" && slug.current == $slug][0]{
     ...,
     "slug": slug.current,
+    "children": children[]->${childPageFragment},
     ${pageBuilderFragment}
   }
   `)
@@ -276,7 +216,6 @@ export const queryNavbarData = defineQuery(/* groq */ `
         )
       }
     },
-    ${buttonsFragment},
     "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max",
     "siteTitle": *[_type == "settings"][0].siteTitle,
   }

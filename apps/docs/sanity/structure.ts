@@ -91,36 +91,35 @@ export const structure = (S: StructureBuilder, context: StructureResolverContext
   return S.list()
     .title("Content")
     .items([
-      createSingleTon({ S, type: "homePage", icon: HomeIcon }),
-      S.divider(),
       createList({ S, type: "page", title: "Pages" }),
-      S.divider(),
-      S.listItem()
-        .title("Site Configuration")
-        .icon(Settings2)
-        .child(
-          S.list()
-            .title("Site Configuration")
-            .items([
-              createSingleTon({
-                S,
-                type: "navbar",
-                title: "Navigation",
-                icon: PanelTopDashedIcon,
-              }),
-              createSingleTon({
-                S,
-                type: "footer",
-                title: "Footer",
-                icon: PanelBottomIcon,
-              }),
-              createSingleTon({
-                S,
-                type: "settings",
-                title: "Global Settings",
-                icon: CogIcon,
-              }),
-            ])
-        ),
+      createSingleTon({ S, type: "homePage", icon: HomeIcon }),
+      // S.divider(),
+      // S.listItem()
+      //   .title("Site Configuration")
+      //   .icon(Settings2)
+      //   .child(
+      //     S.list()
+      //       .title("Site Configuration")
+      //       .items([
+      //         createSingleTon({
+      //           S,
+      //           type: "navbar",
+      //           title: "Navigation",
+      //           icon: PanelTopDashedIcon,
+      //         }),
+      //         createSingleTon({
+      //           S,
+      //           type: "footer",
+      //           title: "Footer",
+      //           icon: PanelBottomIcon,
+      //         }),
+      //         createSingleTon({
+      //           S,
+      //           type: "settings",
+      //           title: "Global Settings",
+      //           icon: CogIcon,
+      //         }),
+      //       ])
+      //   ),
     ])
 }

@@ -1,18 +1,14 @@
-import { ImageIcon, LinkIcon } from "@sanity/icons";
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { ImageIcon, LinkIcon } from "@sanity/icons"
+import { defineArrayMember, defineField, defineType } from "sanity"
 
 const richTextMembers = [
   defineArrayMember({
     name: "block",
     type: "block",
     styles: [
-      { title: "Normal", value: "normal" },
+      { title: "H1", value: "h1" },
       { title: "H2", value: "h2" },
-      { title: "H3", value: "h3" },
-      { title: "H4", value: "h4" },
-      { title: "H5", value: "h5" },
-      { title: "H6", value: "h6" },
-      { title: "Inline", value: "inline" },
+      { title: "Ingress", value: "h3" },
     ],
     lists: [
       { title: "Numbered", value: "number" },
@@ -56,30 +52,30 @@ const richTextMembers = [
       }),
     ],
   }),
-];
+]
 
 export const richText = defineType({
   name: "richText",
   type: "array",
   of: richTextMembers,
-});
+})
 
-export const memberTypes = richTextMembers.map((member) => member.name);
+export const memberTypes = richTextMembers.map((member) => member.name)
 
-type Type = NonNullable<(typeof memberTypes)[number]>;
+type Type = NonNullable<(typeof memberTypes)[number]>
 
 export const customRichText = (
   type: Type[],
-  options?: { name?: string; title?: string; group?: string },
+  options?: { name?: string; title?: string; group?: string }
 ) => {
-  const { name } = options ?? {};
+  const { name } = options ?? {}
   const customMembers = richTextMembers.filter(
-    (member) => member.name && type.includes(member.name),
-  );
+    (member) => member.name && type.includes(member.name)
+  )
   return defineField({
     ...options,
     name: name ?? "richText",
     type: "array",
     of: customMembers,
-  });
-};
+  })
+}

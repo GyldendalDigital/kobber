@@ -22,6 +22,7 @@ export const RouterLink = (props: Props) => {
         disabled={disabled}
         className={cn({ active: pathname === href })}
         href={href}
+        icon={href?.startsWith("http") === true ? "external_link_arrow" : undefined}
       >
         {children}
       </KobberLink>
