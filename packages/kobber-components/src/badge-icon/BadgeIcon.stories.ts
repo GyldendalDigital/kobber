@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/web-components";
 import { html } from "lit";
 import "./BadgeIcon";
 import { badgeIconName, BadgeIconProps, badgeIconSizes, badgeIconThemes, badgeIconVariants } from "./BadgeIcon.core";
+import "@gyldendal/kobber-icons/web-components";
+import "../utils/theme-context";
 
 interface Args extends BadgeIconProps {
   text?: string;
@@ -40,7 +42,6 @@ export const BadgeIcons: StoryObj<Args> = {
     size: "medium",
     theme: "aubergine",
     variant: "main",
-    disabled: false,
   },
   render: args => {
     return html`${renderBadgeIcon(args)}`;
@@ -48,15 +49,9 @@ export const BadgeIcons: StoryObj<Args> = {
 };
 
 const renderBadgeIcon = (args: Args) => {
-  const { size, text, theme, variant, disabled } = args;
+  const { size, text, theme, variant } = args;
 
-  return html` <kobber-badge-icon
-    size=${size}
-    theme=${theme}
-    variant=${variant}
-    aria-label="Hello world"
-    disabled=${disabled}
-  >
+  return html` <kobber-badge-icon size=${size} theme=${theme} variant=${variant}>
     <kobber-arrow_right slot="icon"></kobber-arrow_right>
     <span slot="text">${text}</span>
   </kobber-badge-icon>`;

@@ -23,7 +23,6 @@ export type BadgeProps = {
   variant?: BadgeVariant;
   size?: BadgeSize;
   showStatusCircle?: boolean;
-  disabled?: boolean; // When will our label be disabled? Example: Form field?
 };
 
 export type BadgeClassNames =

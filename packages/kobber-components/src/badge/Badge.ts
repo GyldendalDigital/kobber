@@ -22,19 +22,10 @@ export class Badge extends LitElement implements BadgeProps {
   size?: BadgeProps["size"] = "medium";
 
   @property({ type: Boolean })
-  disabled?: BadgeProps["disabled"];
-
-  @property({ type: Boolean })
   showStatusCircle?: BadgeProps["showStatusCircle"];
-
-  @state()
-  private label?: string | null;
 
   connectedCallback() {
     super.connectedCallback();
-
-    this.label = this.getAttribute("aria-label");
-    this.removeAttribute("aria-label");
   }
 
   render() {
@@ -48,8 +39,6 @@ export class Badge extends LitElement implements BadgeProps {
         }),
         this.className,
       ].join(" ")}"
-      aria-label=${this.label}
-      aria-disabled=${this.disabled ? "true" : "false"}
     >
       ${this.showStatusCircle ? html`<div class="status-circle"></div>` : ""}
       <slot></slot>
