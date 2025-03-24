@@ -1,4 +1,3 @@
-import { sanityFetch } from "@/sanity/lib/live"
 import { createSlug, isUnique } from "@/sanity/utils/slug"
 import { DocumentIcon } from "@sanity/icons"
 import { defineArrayMember, defineField, defineType, SlugifierFn } from "sanity"
@@ -27,7 +26,7 @@ export const page = defineType({
     defineField({
       name: "slug",
       type: "slug",
-      title: "URL",
+      title: "Slug",
       description:
         "The web address for this page (for example, '/about-us' would create a page at yourdomain.com/about-us)",
       group: GROUP.MAIN_CONTENT,
@@ -50,10 +49,10 @@ export const page = defineType({
       },
     }),
     pageBuilderField,
-
     defineField({
       name: "children",
       title: "Sub pages",
+      description: "Used to build a navigation menu of sub pages and the url hierarchy",
       type: "array",
       of: [
         defineArrayMember({
@@ -68,7 +67,21 @@ export const page = defineType({
       ],
       group: GROUP.MAIN_CONTENT,
     }),
-    
+    defineField({
+      name: "status",
+      type: "string",
+      title: "Status",
+      group: GROUP.MAIN_CONTENT,
+      options: {
+        list: [
+          { title: "Standard", value: undefined },
+          { title: "Kommer", value: "pending" },
+          { title: "Nyhet", value: "new" },
+        ],
+        layout: "radio",
+      },
+    }),
+
     defineField({
       name: "description",
       type: "text",
@@ -93,6 +106,17 @@ export const page = defineType({
     ...seoFields.filter((field) => field.name !== "seoHideFromLists"),
     ...ogFields,
   ],
+  orderings: [
+    {
+      title: "Slug",
+      name: "slugAsc",
+      by: [
+        { field: "slug.current", direction: "asc" },
+        { field: "slug", direction: "asc" },
+        { field: "title", direction: "asc" },
+      ],
+    },
+  ],
   preview: {
     select: {
       title: "title",
@@ -102,7 +126,6 @@ export const page = defineType({
       hasPageBuilder: "pageBuilder",
     },
     prepare: ({ title, slug, media, isPrivate, hasPageBuilder }) => {
-      //TODO:
       const statusEmoji = isPrivate ? "🔒" : "🌎"
       const builderEmoji = hasPageBuilder?.length ? `🧱 ${hasPageBuilder.length}` : "🏗️ 0"
 
