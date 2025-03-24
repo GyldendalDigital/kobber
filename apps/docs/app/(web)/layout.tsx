@@ -5,7 +5,7 @@ import { SessionProvider as AuthProvider } from "next-auth/react"
 import { APP_NAME } from "@/lib/constants"
 import { RequireAuthentication } from "@/lib/require-authentication"
 import Footer from "@/components/footer"
-// import { IconLoader } from "@/components/kobber-icons-loader"
+import { IconLoader } from "@/components/kobber-icons-loader"
 import { TopNav } from "@/components/navigation/top-nav"
 import { inter, lyon, mori } from "../fonts"
 
@@ -35,7 +35,7 @@ export default async function RootLayout({
     >
       <body className={kobberTheme}>
         <AuthProvider>
-          {/* <IconLoader /> */}
+          <IconLoader />
           <TopNav />
           <RequireAuthentication>{children}</RequireAuthentication>
           <Footer />

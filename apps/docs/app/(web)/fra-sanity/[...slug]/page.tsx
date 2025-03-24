@@ -53,8 +53,6 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
 
   const { title, pageBuilder, _id, _type } = pageData ?? {}
 
-  console.log("page", pageData)
-
   return (
     <div className={cn(pageLayoutStyles["page-layout"], pageLayoutStyles["page-spacing"])}>
       <SideNav groups={metaBrandNavigationGroups} />

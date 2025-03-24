@@ -18,7 +18,6 @@ export async function generateMetadata() {
   if (!homePageData.data) {
     return getMetaData({})
   }
-  console.log("home page", homePageData.data)
   return getMetaData(homePageData.data)
 }
 
@@ -39,26 +38,3 @@ export default async function Page() {
     </main>
   )
 }
-
-// const boxes: FeatureBoxType[] = [
-//   {
-//     title: "Introduksjon av Kobber",
-//     href: metaGettingStarted.href,
-//     image: metaGettingStarted.image,
-//   },
-//   {
-//     title: "Vår nye Gyldendal-logo",
-//     image: metaBrandLogoGyldendal.image,
-//     href: metaBrandLogoGyldendal.href,
-//   },
-//   {
-//     title: "Vår nye fargepalett",
-//     image: metaBrandColor.image,
-//     href: metaBrandColor.href,
-//   },
-//   {
-//     title: "Fonter",
-//     image: metaBrandTypography.image,
-//     href: metaBrandTypography.href,
-//   },
-// ]

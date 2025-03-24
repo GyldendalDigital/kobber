@@ -13,7 +13,6 @@ const components: Partial<PortableTextReactComponents> = {
     },
     h2: ({ children, value }) => {
       const slug = parseChildrenToSlug(value.children)
-      console.log("h2", children, value)
       const highlighted = value.children[0]?.marks?.includes("em")
       return (
         <KobberHeading
