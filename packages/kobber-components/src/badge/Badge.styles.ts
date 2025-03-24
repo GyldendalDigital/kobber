@@ -1,13 +1,14 @@
 import { component, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables";
 import { css, unsafeCSS } from "lit";
-import { BadgeClassNames, badgeName, BadgeProps, badgeSizes, badgeThemes, badgeVariants } from "./Badge.core";
+import { BadgeClassNames, BadgeProps, badgeSizes, badgeThemes, badgeVariants } from "./Badge.core";
 
 const createBadgeStyles = () => {
   const badge = component.badge;
 
   return css`
-    .${unsafeCSS(badgeName satisfies BadgeClassNames)} {
-      display: inline-flex;
+    .${unsafeCSS("kobber-badge" satisfies BadgeClassNames)} {
+      display: flex;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
 
@@ -38,14 +39,17 @@ const createBadgeStyles = () => {
 
 const getPaddingStyles = (size: BadgeProps["size"]) => {
   const badge = component.badge;
-  return size === "medium"
-    ? css`
-        --padding: var(${unsafeCSS(badge.container.padding.medium)}, 8px);
-      `
-    : css`
-        --padding: var(${unsafeCSS(badge.container.padding.block.small)}, 4px)
-          var(${unsafeCSS(badge.container.padding.inline.small)}, 8px);
-      `;
+
+  if (size === "medium") {
+    return css`
+      --padding: var(${unsafeCSS(badge.container.padding.medium)}, 8px);
+    `;
+  }
+
+  return css`
+    --padding: var(${unsafeCSS(badge.container.padding.block.small)}, 4px)
+      var(${unsafeCSS(badge.container.padding.inline.small)}, 8px);
+  `;
 };
 
 const badgeVariableStyles = () => {

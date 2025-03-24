@@ -14,7 +14,6 @@ export const badgeIconClassNames = ({
 };
 
 export type BadgeIconProps = {
-  disabled?: boolean;
   variant?: BadgeIconVariant;
   theme?: BadgeIconTheme;
   size?: BadgeIconSize;

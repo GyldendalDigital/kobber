@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components";
 import { html } from "lit";
 import "./Badge";
 import { badgeName, BadgeProps, badgeSizes, badgeThemes, badgeVariants } from "./Badge.core";
+import "../utils/theme-context";
 
 interface Args extends BadgeProps {
   text?: string;
@@ -44,7 +45,6 @@ export const Badge: StoryObj<Args> = {
     theme: "aubergine",
     variant: "main",
     showStatusCircle: true,
-    disabled: false,
   },
   render: args => {
     return html`${renderBadge(args)}`;
@@ -52,16 +52,9 @@ export const Badge: StoryObj<Args> = {
 };
 
 const renderBadge = (args: Args) => {
-  const { size, text, theme, variant, showStatusCircle, disabled } = args;
+  const { size, text, theme, variant, showStatusCircle } = args;
 
-  return html` <kobber-badge
-    size=${size}
-    theme=${theme}
-    variant=${variant}
-    ?showStatusCircle=${showStatusCircle}
-    aria-label="Hello world"
-    disabled=${disabled}
-  >
+  return html` <kobber-badge size=${size} theme=${theme} variant=${variant} ?showStatusCircle=${showStatusCircle}>
     ${text}
   </kobber-badge>`;
 };
