@@ -53,7 +53,7 @@ export function PageBuilder({ pageBuilder: initialPageBuilder = [], id, type }: 
 
   return (
     <KobberTextWrapper
-      className="page-builder-main"
+      className="page-builder-main gap-4"
       data-sanity={createDataAttribute({
         id: id,
         baseUrl: studioUrl,

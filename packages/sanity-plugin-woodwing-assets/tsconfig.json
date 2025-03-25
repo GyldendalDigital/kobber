@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "esnext",
+    "jsx": "preserve",
+    "module": "preserve",
+    "rootDir": ".",
+    "outDir": "dist"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "extends": "@gyldendal/kobber-tsconfig/react.json"
+}

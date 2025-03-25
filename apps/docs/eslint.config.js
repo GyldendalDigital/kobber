@@ -1,9 +1,11 @@
 import { kobberEslintNextConfig } from "@gyldendal/kobber-eslint/next-js"
+import eslintConfigSanity from "@sanity/eslint-config-studio"
 import tailwind from "eslint-plugin-tailwindcss"
 
 /**@type {import("eslint").Linter.Config} */
 export default [
   ...kobberEslintNextConfig,
+  ...eslintConfigSanity,
   ...tailwind.configs["flat/recommended"],
   {
     settings: {
