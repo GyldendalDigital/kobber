@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Install, then build all",
+      "dependsOn": ["Install", "Build All"],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    },
+    {
+      "label": "Install",
+      "type": "npm",
+      "script": "install",
+      "path": "/",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build Base",
+      "type": "npm",
+      "script": "build",
+      "path": "/packages/kobber-base",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build Docs",
+      "dependsOn": ["Build Base"],
+      "type": "npm",
+      "script": "build",
+      "path": "/apps/docs",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build Components",
+      "dependsOn": ["Build Base"],
+      "type": "npm",
+      "script": "build",
+      "path": "/packages/kobber-components",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build Icons",
+      "dependsOn": ["Build Base"],
+      "type": "npm",
+      "script": "build",
+      "path": "/packages/kobber-icons",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build All",
+      "dependsOn": ["Build Docs", "Build Base", "Build Components", "Build Icons"],
+      "problemMatcher": []
+    }
+  ]
+}
