@@ -6251,7 +6251,7 @@
         }
       }
     },
-    "! book-item": {
+    "book-item": {
       "book-container": {
         "background": {
           "color": {
