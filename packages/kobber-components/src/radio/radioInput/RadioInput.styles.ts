@@ -8,10 +8,6 @@ import {
   InputControlPartNames,
 } from "../Radio.core";
 
-/**
- * Shared styles, used in web component, React and CSS module.
- *
- */
 const createInputStyles = () => {
   const input = component.radiobutton;
   return css`

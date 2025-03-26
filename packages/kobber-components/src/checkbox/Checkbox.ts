@@ -198,11 +198,6 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
     const hasHelpTextSlot = this.hasSlotController.test("help-text");
     const hasHelpText = this.helpText ? true : !!hasHelpTextSlot;
 
-    //
-    // NOTE: we use a <div> around the label slot because of this Chrome bug.
-    //
-    // https://bugs.chromium.org/p/chromium/issues/detail?id=1413733
-    //
     return html`
       <div
         class=${classMap({
