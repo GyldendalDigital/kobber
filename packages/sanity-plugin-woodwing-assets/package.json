@@ -1,5 +1,5 @@
 {
-  "name": "@gyldendal/sanity-plugin-woodwing-assets",
+  "name": "sanity-plugin-woodwing-assets",
   "version": "1.0.0",
   "description": "Search, preview and persist metadata from Woodwing Assets DAM",
   "keywords": [
@@ -20,6 +20,7 @@
   "type": "module",
   "exports": {
     ".": {
+      "source": "./src/index.ts",
       "default": "./dist/index.js"
     },
     "./package.json": "./package.json"
@@ -32,16 +33,20 @@
     "src",
     "v2-incompatible.js"
   ],
+  "sanityPlugin": {
+    "verifyPackage": {
+      "eslintImports": false
+    }
+  },
   "scripts": {
     "build": "plugin-kit verify-package --silent && pkg-utils build --strict --check --clean",
     "format": "prettier --write --cache --ignore-unknown .",
     "link-watch": "plugin-kit link-watch",
-    "lint": "eslint .",
+    "lint": "eslint",
     "prepublishOnly": "npm run build",
     "watch": "pkg-utils watch --strict"
   },
   "dependencies": {
-    "@sanity/eslint-config-studio": "^5.0.2",
     "@sanity/incompatible-plugin": "^1.0.5",
     "@sanity/ui": "^1.9.3"
   },
@@ -50,16 +55,12 @@
     "@sanity/pkg-utils": "^7.2.0",
     "@sanity/plugin-kit": "^4.0.19",
     "@types/react": "^19.0.12",
-    "@typescript-eslint/eslint-plugin": "^8.28.0",
     "@typescript-eslint/parser": "^8.28.0",
-    "eslint": "^8.57.1",
+    "eslint": "^9.23.0",
     "eslint-config-prettier": "^10.1.1",
-    "eslint-config-sanity": "^7.1.4",
-    "eslint-plugin-prettier": "^5.2.4",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.2.0",
     "prettier": "^3.5.3",
-    "prettier-plugin-packagejson": "^2.5.10",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sanity": "^3.80.1",

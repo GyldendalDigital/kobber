@@ -9,10 +9,8 @@ import { kobberEslintBaseConfig } from "./base.js";
 
 /**
  * Typescript best practice
- *
- * @type {import("eslint").Linter.Config}
  * */
-export const kobberEslintTsConfig = [
+export const kobberEslintTsConfig = tseslint.config([
   ...kobberEslintBaseConfig,
 
   // prettier rules
@@ -72,7 +70,7 @@ export const kobberEslintTsConfig = [
       turbo: turboPlugin,
     },
     rules: {
-      "turbo/no-undeclared-env-vars": "off",
+      "turbo/no-undeclared-env-vars": "warn",
     },
   },
-];
+]);

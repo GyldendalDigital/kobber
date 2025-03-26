@@ -1,5 +1,4 @@
 import { definePlugin } from "sanity";
-import { ReactElement } from "react";
 
 export interface WoodWingConfig {
   // WoodWing Assets API endpoint

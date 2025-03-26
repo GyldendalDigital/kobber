@@ -39,13 +39,16 @@ export const page = defineType({
     }),
     defineField({
       name: "image",
-      type: "image",
       title: "Image",
-      description:
-        "A main picture for this page that can be used when sharing on social media or in search results",
-      group: GROUP.MAIN_CONTENT,
+      type: "image",
       options: {
-        hotspot: true,
+        sources: [
+          {
+            name: "woodwing",
+            title: "WoodWing Assets",
+            component: () => import("sanity-plugin-woodwing-assets"),
+          },
+        ],
       },
     }),
     pageBuilderField,
