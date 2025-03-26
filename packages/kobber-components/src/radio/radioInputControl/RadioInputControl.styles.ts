@@ -2,10 +2,6 @@ import { css, unsafeCSS } from "lit";
 import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import { inputVariants, InputControlClassNames } from "../Radio.core";
 
-/**
- * Shared styles, used in web component, React and CSS module.
- *
- */
 const createInputControlStyles = () => {
   const button = component.radiobutton["radio-circle"];
   return css`
