@@ -40,16 +40,7 @@ export const page = defineType({
     defineField({
       name: "image",
       title: "Image",
-      type: "image",
-      options: {
-        sources: [
-          {
-            name: "woodwing",
-            title: "WoodWing Assets",
-            component: () => import("sanity-plugin-woodwing-assets"),
-          },
-        ],
-      },
+      type: "woodwingAsset",
     }),
     pageBuilderField,
     defineField({

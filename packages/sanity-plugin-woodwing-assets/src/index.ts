@@ -1,4 +1,6 @@
 import { definePlugin } from "sanity";
+export { WoodWingAssetSource } from "./components/WoodWingAssetSource";
+export { woodwingAsset } from "./schemas/woodwingAsset";
 
 export interface WoodWingConfig {
   // WoodWing Assets API endpoint
