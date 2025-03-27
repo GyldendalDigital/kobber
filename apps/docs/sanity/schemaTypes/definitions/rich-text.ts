@@ -37,20 +37,10 @@ const richTextMembers = [
     },
   }),
   defineArrayMember({
-    name: "image",
+    name: "damAsset",
+    type: "damAsset",
     title: "Image",
-    type: "image",
     icon: ImageIcon,
-    options: {
-      hotspot: true,
-    },
-    fields: [
-      defineField({
-        name: "caption",
-        type: "string",
-        title: "Caption Text",
-      }),
-    ],
   }),
 ]
 

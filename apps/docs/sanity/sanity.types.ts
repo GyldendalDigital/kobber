@@ -124,35 +124,15 @@ export type RichTextBlock = {
         _type: "block"
         _key: string
       }
-    | {
-        asset?: {
-          _ref: string
-          _type: "reference"
-          _weak?: boolean
-          [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
-        }
-        hotspot?: SanityImageHotspot
-        crop?: SanityImageCrop
-        caption?: string
-        _type: "image"
+    | ({
         _key: string
-      }
+      } & DamAsset)
   >
 }
 
 export type HeroBlock = {
   _type: "heroBlock"
-  image?: {
-    asset?: {
-      _ref: string
-      _type: "reference"
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
-    }
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: "image"
-  }
+  damAsset?: DamAsset
 }
 
 export type PageBuilder = Array<
@@ -195,19 +175,9 @@ export type RichText = Array<
       _type: "block"
       _key: string
     }
-  | {
-      asset?: {
-        _ref: string
-        _type: "reference"
-        _weak?: boolean
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
-      }
-      hotspot?: SanityImageHotspot
-      crop?: SanityImageCrop
-      caption?: string
-      _type: "image"
+  | ({
       _key: string
-    }
+    } & DamAsset)
 >
 
 export type Navbar = {
@@ -323,17 +293,7 @@ export type Page = {
   _rev: string
   title?: string
   slug?: Slug
-  image?: {
-    asset?: {
-      _ref: string
-      _type: "reference"
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
-    }
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: "image"
-  }
+  damAsset?: DamAsset
   pageBuilder?: PageBuilder
   children?: Array<{
     _ref: string
@@ -342,6 +302,7 @@ export type Page = {
     _key: string
     [internalGroqTypeReferenceTo]?: "page"
   }>
+  status?: string | "pending" | "new"
   description?: string
   seoTitle?: string
   seoDescription?: string
@@ -359,20 +320,6 @@ export type Page = {
   seoNoIndex?: boolean
   ogTitle?: string
   ogDescription?: string
-}
-
-export type CustomUrl = {
-  _type: "customUrl"
-  type?: "internal" | "external"
-  openInNewTab?: boolean
-  external?: string
-  href?: string
-  internal?: {
-    _ref: string
-    _type: "reference"
-    _weak?: boolean
-    [internalGroqTypeReferenceTo]?: "page"
-  }
 }
 
 export type SanityImageCrop = {
@@ -432,6 +379,27 @@ export type SanityImageMetadata = {
   isOpaque?: boolean
 }
 
+export type CustomUrl = {
+  _type: "customUrl"
+  type?: "internal" | "external"
+  openInNewTab?: boolean
+  external?: string
+  href?: string
+  internal?: {
+    _ref: string
+    _type: "reference"
+    _weak?: boolean
+    [internalGroqTypeReferenceTo]?: "page"
+  }
+}
+
+export type DamAsset = {
+  _type: "damAsset"
+  assetId?: string
+  name?: string
+  previewUrl?: string
+}
+
 export type Slug = {
   _type: "slug"
   current?: string
@@ -457,12 +425,13 @@ export type AllSanitySchemaTypes =
   | Settings
   | HomePage
   | Page
-  | CustomUrl
   | SanityImageCrop
   | SanityImageHotspot
   | SanityImageAsset
   | SanityAssetSourceData
   | SanityImageMetadata
+  | CustomUrl
+  | DamAsset
   | Slug
 export declare const internalGroqTypeReferenceTo: unique symbol
 // Source: sanity/lib/queries.ts
@@ -492,26 +461,14 @@ export type QueryHomePageDataResult = {
         features: Array<{
           title: string | null
           slug: string | null
-          image: string | null
+          image: null
         }> | null
       }
     | {
         _key: string
         _type: "heroBlock"
-        image: {
-          asset?: {
-            _ref: string
-            _type: "reference"
-            _weak?: boolean
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
-          }
-          hotspot?: SanityImageHotspot
-          crop?: SanityImageCrop
-          _type: "image"
-          alt: string | "Image-Broken"
-          blurData: string | null
-          dominantColor: string | null
-        } | null
+        damAsset?: DamAsset
+        image: null
       }
     | {
         _key: string
@@ -555,17 +512,11 @@ export type QueryHomePageDataResult = {
               _key: string
             }
           | {
-              asset?: {
-                _ref: string
-                _type: "reference"
-                _weak?: boolean
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
-              }
-              hotspot?: SanityImageHotspot
-              crop?: SanityImageCrop
-              caption?: string
-              _type: "image"
               _key: string
+              _type: "damAsset"
+              assetId?: string
+              name?: string
+              previewUrl?: string
               markDefs: null
             }
         > | null
@@ -599,17 +550,7 @@ export type QuerySlugPageDataResult = {
   _rev: string
   title?: string
   slug: string | null
-  image?: {
-    asset?: {
-      _ref: string
-      _type: "reference"
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
-    }
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: "image"
-  }
+  damAsset?: DamAsset
   pageBuilder: Array<
     | {
         _key: string
@@ -628,26 +569,14 @@ export type QuerySlugPageDataResult = {
         features: Array<{
           title: string | null
           slug: string | null
-          image: string | null
+          image: null
         }> | null
       }
     | {
         _key: string
         _type: "heroBlock"
-        image: {
-          asset?: {
-            _ref: string
-            _type: "reference"
-            _weak?: boolean
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
-          }
-          hotspot?: SanityImageHotspot
-          crop?: SanityImageCrop
-          _type: "image"
-          alt: string | "Image-Broken"
-          blurData: string | null
-          dominantColor: string | null
-        } | null
+        damAsset?: DamAsset
+        image: null
       }
     | {
         _key: string
@@ -691,17 +620,11 @@ export type QuerySlugPageDataResult = {
               _key: string
             }
           | {
-              asset?: {
-                _ref: string
-                _type: "reference"
-                _weak?: boolean
-                [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
-              }
-              hotspot?: SanityImageHotspot
-              crop?: SanityImageCrop
-              caption?: string
-              _type: "image"
               _key: string
+              _type: "damAsset"
+              assetId?: string
+              name?: string
+              previewUrl?: string
               markDefs: null
             }
         > | null
@@ -710,8 +633,9 @@ export type QuerySlugPageDataResult = {
   children: Array<{
     title: string | null
     slug: string | null
-    image: string | null
+    image: null
   }> | null
+  status?: string | "new" | "pending"
   description?: string
   seoTitle?: string
   seoDescription?: string
@@ -753,8 +677,8 @@ export type QuerySlugPageOGDataResult = {
   _type: "page"
   title: string | null
   description: string | null
-  image: string | null
-  dominantColor: string | null
+  image: null
+  dominantColor: null
   seoImage: string | null
   logo: string | null
   date: string
@@ -778,8 +702,8 @@ export type QueryGenericPageOGDataResult =
       _type: "page"
       title: string | null
       description: string | null
-      image: string | null
-      dominantColor: string | null
+      image: null
+      dominantColor: null
       seoImage: string | null
       logo: string | null
       date: string

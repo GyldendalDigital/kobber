@@ -28,7 +28,7 @@ export const featureBoxBlock = defineType({
     select: {
       features: "features",
       firstFeatureTitle: "features.0.title",
-      firstFeatureImage: "features.0.image",
+      firstFeatureImage: "features.0.damAsset",
     },
     prepare: ({ features, firstFeatureTitle, firstFeatureImage }) => {
       const otherFeatureNames = Object.values(features)
@@ -39,7 +39,7 @@ export const featureBoxBlock = defineType({
       return {
         title: `Feature box: ${firstFeatureTitle ?? "Empty"}`,
         subtitle: otherFeatureNames ? `+ ${otherFeatureNames}` : undefined,
-        media: firstFeatureImage,
+        media: firstFeatureImage?.previewUrl,
       }
     },
   },

@@ -8,21 +8,18 @@ export const heroBlock = defineType({
   type: "object",
   fields: [
     defineField({
-      name: "image",
-      type: "image",
+      name: "damAsset",
+      type: "damAsset",
       title: "Image",
-      options: {
-        hotspot: true,
-      },
     }),
   ],
   preview: {
     select: {
-      image: "image",
+      damAsset: "damAsset",
     },
-    prepare: ({ image }) => ({
+    prepare: ({ damAsset }) => ({
       title: "Hero image",
-      image,
+      image: damAsset?.previewUrl,
     }),
   },
 })
