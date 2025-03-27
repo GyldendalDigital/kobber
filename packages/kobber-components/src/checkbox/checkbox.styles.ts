@@ -1,103 +1,117 @@
-import { css } from "lit";
+import { css, unsafeCSS } from "lit";
+import { component, typography, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import {
+  checkboxVariants,
+  CheckboxClassNames,
+  CheckboxVariant,
+  CheckboxLabelClassNames,
+  CheckboxInputClassNames,
+  CheckboxControlClassNames,
+} from "./Checkbox.core";
 
-export default css`
-  :host {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--kobber-component-input-checkbox-gap);
-  }
+const createCheckboxStyles = () => {
+  const checkbox = component.checkbox;
+  return css`
+    :host {
+      --control-outline-color: transparent;
+    }
 
-  .checkbox {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    gap: var(--kobber-component-input-checkbox-gap);
-    cursor: pointer;
-  }
+    .${unsafeCSS("kobber-checkbox" satisfies CheckboxClassNames)} {
+      display: flex;
+      gap: var(${unsafeCSS(checkbox.container.gap)});
+      justify-content: start;
+      align-items: start;
+      cursor: pointer;
+      padding: calc(var(${unsafeCSS(checkbox.wrapper.padding)}) + 0.15em) var(${unsafeCSS(checkbox.wrapper.padding)})
+        var(${unsafeCSS(checkbox.wrapper.padding)}); /* A larger top padding emulates label being vertically aligned with idle input control, but not when multiple lines. */
 
-  /* Disabled */
-  .checkbox--disabled .checkbox__control,
-  .checkbox--disabled .checkbox__label {
-    cursor: not-allowed;
-    color: var(--kobber-component-input-color-disabled-foreground);
-  }
+      ${typographyCheckbox()}
+      ${variantStyles()}
+      ${inputStates()}
+    }
+    .${unsafeCSS("kobber-checkbox__label" satisfies CheckboxLabelClassNames)} {
+      display: block;
+    }
+    .${unsafeCSS("kobber-checkbox__control" satisfies CheckboxControlClassNames)} {
+      width: var(${unsafeCSS(checkbox.checkbox.width)});
+      height: var(${unsafeCSS(checkbox.checkbox.height)});
+      border-radius: var(${unsafeCSS(checkbox.checkbox.outline.radius)});
+      border: var(${unsafeCSS(checkbox.checkbox.border.width)}) solid
+        var(${unsafeCSS(checkbox.checkbox.border.color.success.idle)}); /* TODO: Variant? */
+      flex-shrink: 0;
+    }
+    .${unsafeCSS("native-input" satisfies CheckboxInputClassNames)} {
+      pointer-events: none;
+    }
+  `;
+};
 
-  .checkbox--disabled .checkbox__control {
-    background: var(--kobber-component-input-color-disabled-background);
-  }
+const variantStyles = () => {
+  const variantClasses = checkboxVariants.flatMap(variant => {
+    const variantClassName = `&.${variant}`;
+    return css`
+      ${unsafeCSS(variantClassName)} {
+        ${statesPerVariant(variant)}
+      }
+    `;
+  });
 
-  .checkbox__control {
-    box-sizing: border-box;
-    width: var(--kobber-component-input-checkbox-size);
-    height: var(--kobber-component-input-checkbox-size);
-    border-radius: var(--kobber-component-input-checkbox-border-radius);
-    border: 1px solid var(--kobber-component-input-color-default-foreground);
-    background: var(--kobber-component-input-color-default-background);
-    padding: var(--kobber-component-input-checkbox-padding-block) var(--kobber-component-input-checkbox-padding-inline);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+  return unsafeCSS(variantClasses.join("\n"));
+};
 
-  .checkbox__control > svg {
-    width: 100%;
-    height: 100%;
-  }
+const statesPerVariant = (variant: CheckboxVariant) => {
+  const outlineColor = component.checkbox.checkbox.outline.color[variant];
+  return css`
+    &.hover,
+    :host(:hover) & {
+      &:not(.disabled):not([disabled]) {
+        --control-outline-color: var(${unsafeCSS(outlineColor.hover)});
+      }
+    }
 
-  .checkbox__input {
-    position: absolute;
-    opacity: 0;
-    padding: 0;
-    margin: 0;
-    pointer-events: none;
-  }
+    &.active,
+    :host(:active) & {
+      &:not(.disabled):not([disabled]) {
+        --control-outline-color: var(${unsafeCSS(outlineColor.active)});
+      }
+    }
+  `;
+};
 
-  .checkbox__checked-icon,
-  .checkbox__indeterminate-icon {
-    align-self: center;
-    justify-self: center;
-    fill: var(--kobber-component-input-color-default-foreground);
-    opacity: 0;
-    display: none;
-    width: 100%;
-    height: 100%;
-  }
+const inputStates = () => {
+  return css`
+    :host([disabled]) &,
+    &.disabled {
+      /* TODO: wait for tokens to expose percent as number, not rem */
+      /* opacity: var(${unsafeCSS(universal.disabled.container.opacity)}); */
+      opacity: 0.5;
+      cursor: auto;
+    }
 
-  /* Hover */
-  .checkbox:not(.checkbox--disabled) .checkbox__control:hover {
-    border-width: 2px;
-  }
+    &:focus-visible,
+    &.focus,
+    :host(:focus) &,
+    :host(:focus-visible) & {
+      &:not(.disabled):not([disabled]) {
+        outline: none;
+        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
+        border-radius: var(${unsafeCSS(universal.focus.border.radius.xsmall)});
+      }
+    }
+  `;
+};
 
-  /* Focus */
-  .checkbox:not(.checkbox--checked):not(.checkbox--disabled) .checkbox__input:focus-visible ~ .checkbox__control {
-    box-shadow: 0px 0px 0px 3px var(--kobber-universal-color-focus);
-    outline-offset: 0px;
-  }
+const typographyCheckbox = () => {
+  const input = typography.ui.input;
 
-  /* Checked/indeterminate + focus */
-  .checkbox.checkbox--checked:not(.checkbox--disabled) .checkbox__input:focus-visible ~ .checkbox__control,
-  .checkbox.checkbox--indeterminate:not(.checkbox--disabled) .checkbox__input:focus-visible ~ .checkbox__control {
-    box-shadow: 0px 0px 0px 3px var(--kobber-universal-color-focus);
-    outline-offset: 0px;
-  }
+  return css`
+    font-size: var(${unsafeCSS(input.fontSize)});
+    font-family: var(${unsafeCSS(input.fontFamily)});
+    font-weight: var(${unsafeCSS(input.fontWeight)});
+    font-style: var(${unsafeCSS(input.fontStyle)});
+    font-stretch: var(${unsafeCSS(input.fontStretch)});
+    line-height: normal;
+  `;
+};
 
-  .checkbox__label {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1 0 0;
-    align-self: stretch;
-    color: var(--kobber-component-input-color-default-foreground);
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-  }
-
-  .form-control__help-text {
-    margin-left: calc(var(--kobber-component-input-checkbox-size) + var(--kobber-component-input-checkbox-gap));
-  }
-`;
+export const checkboxStyles = createCheckboxStyles();
