@@ -12,39 +12,17 @@ import {
   Tooltip,
 } from "@sanity/ui"
 import { PatchEvent, set, unset } from "sanity"
-import { getDamToken } from "../actions/dam"
+import { getPnpAccessToken } from "../../actions/accessTokenClient"
+import { searchAssets } from "./damClient"
+import { createPreviewUrl, DamAsset } from "./damUtils"
 
-interface DamAssetInputProps {
+type DamAssetInputProps = {
   value?: {
     assetId?: string
     name?: string
     previewUrl?: string
   }
   onChange: (patch: PatchEvent) => void
-}
-
-const DAM_BASE_URL = "https://dam-prod.gyldendaldigital.no/tenants/edu"
-const DAM_SEARCH_URL = `${DAM_BASE_URL}/services/search`
-const DAM_SEARCH_STATIC_QUERY_PARAMS = 'assetDomain: (image) AND ancestorPaths: "/Kobber"'
-
-interface DamAsset {
-  assetId: string
-  name: string
-  extension: string
-  previewUrl: string
-}
-
-type DamAssetResponse = {
-  errorcode?: number
-  totalHits: number
-  hits: {
-    id: string
-    metadata: {
-      name: string
-      assetType: string | "jpg" | "png" | "svg"
-    }
-    previewUrl: string
-  }[]
 }
 
 const DEBOUNCE_DELAY = 250
@@ -65,7 +43,7 @@ export function DamAssetInput(props: DamAssetInputProps) {
   const [tokenError, setTokenError] = useState<string | null>(null)
 
   const fetchToken = useCallback(async () => {
-    const { token, error } = await getDamToken()
+    const { token, error } = await getPnpAccessToken()
     if (error) {
       setTokenError(error)
       return null
@@ -98,43 +76,15 @@ export function DamAssetInput(props: DamAssetInputProps) {
       try {
         setBrowseLoading(true)
         setSearchError(null)
-        const searchParams = new URLSearchParams({
-          q: query,
-          start: "0",
-        })
+        const { assets, error } = await searchAssets(query, bearerToken)
 
-        const response = await fetch(`${DAM_SEARCH_URL}?${searchParams.toString()}`, {
-          headers: {
-            Authorization: `Bearer ${bearerToken}`,
-          },
-        })
-
-        if (!response.ok || response.status !== 200) {
-          if (response.status === 401) {
-            // Token might be expired, try to refresh it
-            const newToken = await fetchToken()
-            if (newToken) {
-              // Retry the request with new token
-              const retryResponse = await fetch(`${DAM_SEARCH_URL}?${searchParams.toString()}`, {
-                headers: {
-                  Authorization: `Bearer ${newToken}`,
-                },
-              })
-              if (!retryResponse.ok) {
-                throw new Error("Failed to fetch assets after token refresh")
-              }
-              const data = await retryResponse.json()
-              return transformAssets(data)
-            }
-          }
-          throw new Error("Failed to fetch assets")
+        if (error) {
+          setSearchError(error)
+          return []
         }
 
-        const data = (await response.json()) as DamAssetResponse
-        const transformedAssets = transformAssets(data)
-        console.log("data", data, "Transformed assets:", transformedAssets)
-        setAssets(transformedAssets)
-        return transformedAssets
+        setAssets(assets)
+        return assets
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : "Failed to fetch assets"
         console.error(err)
@@ -144,27 +94,12 @@ export function DamAssetInput(props: DamAssetInputProps) {
         setBrowseLoading(false)
       }
     },
-    [bearerToken, fetchToken]
+    [bearerToken]
   )
-
-  const createPreviewUrl = (id: string, extension: string) => {
-    const endpoint = extension === "svg" ? "file" : "preview"
-    return `${DAM_BASE_URL}/${endpoint}/${id}/*/${id}.${extension}`
-  }
-
-  const transformAssets = (data: DamAssetResponse): DamAsset[] => {
-    return data.hits.map((asset) => ({
-      assetId: asset.id,
-      name: asset.metadata.name,
-      extension: asset.metadata.assetType,
-      previewUrl: createPreviewUrl(asset.id, asset.metadata.assetType),
-    }))
-  }
 
   useEffect(() => {
     if (isOpen) {
-      const query = debouncedSearchQuery ? `name: *${debouncedSearchQuery}*` : "name: *"
-      fetchAssets(`${DAM_SEARCH_STATIC_QUERY_PARAMS} AND ${query}`)
+      fetchAssets(debouncedSearchQuery)
     }
   }, [isOpen, debouncedSearchQuery, fetchAssets])
 
@@ -205,7 +140,12 @@ export function DamAssetInput(props: DamAssetInputProps) {
       setManualLoading(true)
       setManualIdError(null)
       try {
-        const assets = await fetchAssets(`id: ${manualAssetId}`)
+        const { assets, error } = await searchAssets(`id: ${manualAssetId}`, bearerToken || "")
+        if (error) {
+          setManualIdError(error)
+          return
+        }
+
         if (assets.length > 0) {
           handleSelect(assets[0])
         } else if (manualAssetExtension) {
@@ -224,7 +164,7 @@ export function DamAssetInput(props: DamAssetInputProps) {
         setManualLoading(false)
       }
     }
-  }, [manualAssetId, manualAssetExtension, fetchAssets, handleSelect])
+  }, [manualAssetId, manualAssetExtension, bearerToken, handleSelect])
 
   const filteredAssets = useMemo(
     () => assets.filter((asset) => asset.name.toLowerCase().includes(searchQuery.toLowerCase())),

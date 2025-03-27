@@ -1,6 +1,6 @@
 import { Image } from "lucide-react"
 import { defineField, defineType } from "sanity"
-import { DamAssetInput } from "../../components/DamAssetInput"
+import { DamAssetInput } from "../../components/dam/DamAssetInput"
 
 export const damAsset = defineType({
   name: "damAsset",

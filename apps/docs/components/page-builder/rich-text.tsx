@@ -1,7 +1,6 @@
 import { KobberHeading, KobberIngress } from "@gyldendal/kobber-components/react-ssr-safe"
 import { PortableText, type PortableTextBlock, type PortableTextReactComponents } from "next-sanity"
 import { RouterTextLink } from "../global/router-link"
-import { SanityImage } from "./sanity-image"
 
 const parseChildrenToSlug = (s: PortableTextBlock["children"]) => s.map((x) => x.text).join("")
 
@@ -47,13 +46,11 @@ const components: Partial<PortableTextReactComponents> = {
   },
   types: {
     damAsset: ({ value }) => (
-      <div className="my-2">
-        <div className="overflow-hidden rounded-lg">
-          <img src={value.previewUrl} alt={value.name} />
-        </div>
-        {value.caption && <small>{value.caption}</small>}
-      </div>
-    )
+      <picture className="overflow-hidden rounded-lg">
+        <img src={value.previewUrl} alt={value.name} />
+      </picture>
+      // {value.caption && <small>{value.caption}</small>}
+    ),
   },
   hardBreak: () => <br />,
 }
