@@ -230,7 +230,6 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
             .checked=${live(this.checked)}
             .disabled=${this.disabled}
             .required=${this.required}
-            aria-checked=${this.checked ? "true" : "false"}
             aria-describedby="help-text"
             @click=${this.handleClick}
             @input=${this.handleInput}
