@@ -1,0 +1,20 @@
+.rich-text-block {
+  display: flex;
+  flex-direction: column;
+
+  > * {
+    margin-top: 2rem;
+  }
+
+  & :where(h1 + h2) {
+    margin-top: 0;
+  }
+
+  & :where(h2 + p) {
+    margin-top: 1rem;
+  }
+
+  & :where(p + p) {
+    margin-top: 0.5rem;
+  }
+}

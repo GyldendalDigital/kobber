@@ -38,15 +38,10 @@ export const page = defineType({
       validation: (Rule) => Rule.required().error("A URL slug is required for the page"),
     }),
     defineField({
-      name: "image",
-      type: "image",
+      name: "damAsset",
+      type: "damAsset",
       title: "Image",
-      description:
-        "A main picture for this page that can be used when sharing on social media or in search results",
       group: GROUP.MAIN_CONTENT,
-      options: {
-        hotspot: true,
-      },
     }),
     pageBuilderField,
     defineField({

@@ -46,14 +46,14 @@ const components: Partial<PortableTextReactComponents> = {
     },
   },
   types: {
-    image: ({ value }) => (
+    damAsset: ({ value }) => (
       <div className="my-2">
         <div className="overflow-hidden rounded-lg">
-          <SanityImage asset={value} width={1600} height={900} />
+          <img src={value.previewUrl} alt={value.name} />
         </div>
         {value.caption && <small>{value.caption}</small>}
       </div>
-    ),
+    )
   },
   hardBreak: () => <br />,
 }
