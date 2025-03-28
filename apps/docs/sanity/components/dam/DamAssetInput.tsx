@@ -175,7 +175,7 @@ export function DamAssetInput(props: DamAssetInputProps) {
     <Stack space={4}>
       {tokenError && (
         <Card padding={3} tone="critical">
-          <Text>Authentication Error: {tokenError}</Text>
+          <Text>Authentication error: {tokenError}</Text>
         </Card>
       )}
       <Stack space={2}>

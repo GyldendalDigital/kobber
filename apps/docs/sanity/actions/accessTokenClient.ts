@@ -22,7 +22,9 @@ export async function getPnpAccessToken() {
     const data = await response.json()
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch token: ${response.statusText}`)
+      throw new Error(
+        `Failed to fetch token: ${response.statusText}. Error: ${JSON.stringify(data)}`
+      )
     }
 
     return { token: data.access_token, error: null }
