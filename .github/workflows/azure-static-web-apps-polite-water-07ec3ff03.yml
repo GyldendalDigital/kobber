@@ -35,6 +35,10 @@ jobs:
           echo NEXT_PUBLIC_SANITY_PROJECT_ID=${{ vars.NEXT_PUBLIC_SANITY_PROJECT_ID }} >> ./apps/docs/.env
           echo NEXT_PUBLIC_SANITY_DATASET=${{ vars.NEXT_PUBLIC_SANITY_DATASET }} >> ./apps/docs/.env
           echo SANITY_API_READ_TOKEN=${{ secrets.SANITY_API_READ_TOKEN }} >> ./apps/docs/.env
+          echo PNP_TOKEN_URL=${{ vars.PNP_TOKEN_URL }} >> ./apps/docs/.env
+          echo PNP_TOKEN_PASSWORD=${{ secrets.PNP_TOKEN_PASSWORD }} >> ./apps/docs/.env
+          echo PNP_TOKEN_SCOPE=${{ vars.PNP_TOKEN_SCOPE }} >> ./apps/docs/.env
+          echo DAM_BASE_URL=${{ vars.DAM_BASE_URL }} >> ./apps/docs/.env
 
       - name: Build and deploy docs
         id: builddeploy
