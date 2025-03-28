@@ -8,6 +8,10 @@ import {
   transformAssets,
 } from "./damUtils"
 
+/**
+ * search docs
+ * https://helpcenter.woodwing.com/hc/en-us/articles/360041851432-Assets-Server-REST-API-search
+ */
 export async function searchAssets(
   searchString: string,
   bearerToken: string
@@ -16,7 +20,7 @@ export async function searchAssets(
     const searchParams = new URLSearchParams({
       q: buildSearchQuery(searchString),
       start: "0",
-      size: "25",
+      num: "24",
     })
 
     const response = await fetch(`${DAM_SEARCH_URL}?${searchParams.toString()}`, {
@@ -25,7 +29,7 @@ export async function searchAssets(
       },
     })
 
-    if (!response.ok || response.status !== 200) {
+    if (!response.ok) {
       if (response.status === 401) {
         return { assets: [], error: "Authentication failed" }
       }
@@ -33,6 +37,11 @@ export async function searchAssets(
     }
 
     const data = (await response.json()) as DamAssetResponse
+
+    if (!Array.isArray(data.hits)) {
+      return { assets: [], error: JSON.stringify(data) }
+    }
+
     const transformedAssets = transformAssets(data)
     return { assets: transformedAssets, error: null }
   } catch (err) {

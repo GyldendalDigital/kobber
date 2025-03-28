@@ -22,6 +22,10 @@ export type DamAssetResponse = {
   }[]
 }
 
+/**
+ * preview docs
+ * https://helpcenter.woodwing.com/hc/en-us/articles/360041901912-Assets-Server-API-Previews
+ */
 export function createPreviewUrl(id: string, extension: string) {
   const endpoint = extension === "svg" ? "file" : "preview"
   return `${DAM_BASE_URL}/${endpoint}/${id}/*/${id}.${extension}`
