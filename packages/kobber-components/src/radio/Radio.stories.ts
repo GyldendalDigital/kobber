@@ -159,8 +159,7 @@ const renderButton = (
   variant="${variant}" 
   ${checked ? "checked" : ""} 
   ${state === "disabled" ? "disabled" : ""} 
-  ${link ? "href='#'" : ""}
-  style="position: relative;">
+  ${link ? "href='#'" : ""}>
   ${text}
 </kobber-radio-input>
 `;
