@@ -1,5 +1,5 @@
 import { css, unsafeCSS } from "lit";
-import { component, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, typography, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import {
   inputVariants,
   InputClassNames,
@@ -26,9 +26,9 @@ const createInputStyles = () => {
       padding: calc(var(${unsafeCSS(input.wrapper.padding)}) + 0.15em) var(${unsafeCSS(input.wrapper.padding)})
         var(${unsafeCSS(input.wrapper.padding)}); /* A larger top padding emulates label being vertically aligned with idle input control, but not when multiple lines. */
 
-      ${typographyButton()}
-      ${buttonVariantStyles()}
-      ${buttonStates()}
+      ${typographyInput()}
+      ${inputVariantStyles()}
+      ${inputStates()}
       
       &.${unsafeCSS("kobber-radio-input--as-link" satisfies InputClassNames)} {
         text-decoration: none;
@@ -40,12 +40,12 @@ const createInputStyles = () => {
   `;
 };
 
-const buttonVariantStyles = () => {
+const inputVariantStyles = () => {
   const variantClasses = inputVariants.flatMap(variant => {
     const variantClassName = `&.${variant}`;
     return css`
       ${unsafeCSS(variantClassName)} {
-        ${buttonStatesPerVariant(variant)}
+        ${inputStatesPerVariant(variant)}
       }
     `;
   });
@@ -53,22 +53,20 @@ const buttonVariantStyles = () => {
   return unsafeCSS(variantClasses.join("\n"));
 };
 
-const buttonStatesPerVariant = (variant: InputVariant) => {
+const inputStatesPerVariant = (variant: InputVariant) => {
   const outlineColor = component.radiobutton["radio-circle"].outline.color[variant];
   return css`
-    &.hover:not(.disabled):not([disabled])
-      .${unsafeCSS("kobber-radio-input__control" satisfies InputControlPartNames)} {
+    &.hover:not(.disabled, [disabled]) .${unsafeCSS("kobber-radio-input__control" satisfies InputControlPartNames)} {
       --control-outline-color: var(${unsafeCSS(outlineColor.hover)});
     }
 
-    &.active:not(.disabled):not([disabled])
-      .${unsafeCSS("kobber-radio-input__control" satisfies InputControlPartNames)} {
+    &.active:not(.disabled, [disabled]) .${unsafeCSS("kobber-radio-input__control" satisfies InputControlPartNames)} {
       --control-outline-color: var(${unsafeCSS(outlineColor.active)});
     }
   `;
 };
 
-const buttonStates = () => {
+const inputStates = () => {
   return css`
     &.disabled {
       /* TODO: wait for tokens to expose percent as number, not rem */
@@ -79,7 +77,7 @@ const buttonStates = () => {
 
     &:focus-visible,
     &.focus {
-      &:not(.disabled):not([disabled]) {
+      &:not(.disabled, [disabled]) {
         outline: none;
         box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
         border-radius: var(${unsafeCSS(universal.focus.border.radius.xsmall)});
@@ -88,15 +86,16 @@ const buttonStates = () => {
   `;
 };
 
-const typographyButton = () => {
-  const text = universal.text.ui;
+const typographyInput = () => {
+  const input = typography.ui.input;
 
   return css`
-    font-size: var(${unsafeCSS(text.size.label.large)});
-    font-family: var(${unsafeCSS(text["font-family"])});
-    font-weight: var(${unsafeCSS(text.weight.label.large)});
-    font-style: normal;
-    line-height: var(${unsafeCSS(text["line-height"].label.large["multi-line"])});
+    font-size: var(${unsafeCSS(input.fontSize)});
+    font-family: var(${unsafeCSS(input.fontFamily)});
+    font-weight: var(${unsafeCSS(input.fontWeight)});
+    font-style: var(${unsafeCSS(input.fontStyle)});
+    font-stretch: var(${unsafeCSS(input.fontStretch)});
+    line-height: normal;
   `;
 };
 

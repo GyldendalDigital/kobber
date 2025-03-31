@@ -25,8 +25,7 @@ const createInputStyles = () => {
       justify-content: start;
       align-items: start;
       cursor: pointer;
-      padding: calc(var(${unsafeCSS(input.wrapper.padding)}) + 0.15em) var(${unsafeCSS(input.wrapper.padding)})
-        var(${unsafeCSS(input.wrapper.padding)}); /* A larger top padding emulates label being vertically aligned with idle input control, but not when multiple lines. */
+      padding: var(${unsafeCSS(input.wrapper.padding)});
 
       ${typographyInput()}
       ${inputVariantStyles()}
@@ -60,7 +59,7 @@ const inputStatesPerVariant = (variant: InputVariant) => {
   return css`
     &.hover,
     :host(:hover) & {
-      &:not(.disabled):not([disabled]) {
+      &:not(.disabled, [disabled]) {
         ::part(${unsafeCSS("kobber-radio-input__control" satisfies InputControlPartNames)}) {
           --control-outline-color: var(${unsafeCSS(outlineColor.hover)});
         }
@@ -69,7 +68,7 @@ const inputStatesPerVariant = (variant: InputVariant) => {
 
     &.active,
     :host(:active) & {
-      &:not(.disabled):not([disabled]) {
+      &:not(.disabled, [disabled]) {
         ::part(${unsafeCSS("kobber-radio-input__control" satisfies InputControlPartNames)}) {
           --control-outline-color: var(${unsafeCSS(outlineColor.active)});
         }
