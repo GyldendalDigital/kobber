@@ -1,17 +1,24 @@
-import { classMap } from "lit/directives/class-map.js";
-import { CSSResultGroup, html, svg } from "lit";
+import { CSSResultGroup, html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { live } from "lit/directives/live.js";
 import { customElement, property, query, state } from "lit/decorators.js";
-import styles from "./checkbox.styles";
-import { defaultValue } from "../base/internal/default-value";
-import { watch } from "../base/internal/watch";
-import ShoelaceElement from "../base/internal/shoelace-element";
-import type { ShoelaceFormControl } from "../base/internal/shoelace-element";
-import { FormControlController } from "../base/internal/form";
-import formControlStyles from "./form-control.styles";
-import componentStyles from "../base/styles/component.styles";
-import { HasSlotController } from "../base/internal/slot";
+import { checkboxStyles } from "./checkboxInput.styles";
+import { defaultValue } from "../../base/internal/default-value";
+import { watch } from "../../base/internal/watch";
+import ShoelaceElement from "../../base/internal/shoelace-element";
+import type { ShoelaceFormControl } from "../../base/internal/shoelace-element";
+import { FormControlController } from "../../base/internal/form";
+import componentStyles from "../../base/styles/component.styles";
+import { HasSlotController } from "../../base/internal/slot";
+import "../../internal-icons";
+import {
+  checkboxControlClassName,
+  nativeCheckboxInputClassName,
+  checkboxLabelClassName,
+  checkboxInputName,
+  CheckboxVariant,
+  checkboxWrapperClassName,
+} from "../Checkbox.core";
 
 /**
  * @summary Checkboxes allow the user to toggle an option on or off.
@@ -38,17 +45,9 @@ import { HasSlotController } from "../base/internal/slot";
  * @csspart form-control-help-text - The help text's wrapper.
  */
 
-const checked = svg`<svg class="checked-indicator" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-<path d="M11.6485 2.81742L5.31801 11.5167C4.84923 12.1611 4.08879 12.1611 3.61956 11.5167L0.351719 7.02544C-0.11724 6.38108 -0.11724 5.3359 0.351719 4.69142C0.820766 4.04681 1.58114 4.04681 2.04998 4.69117L4.46904 8.01569L9.94997 0.483271C10.419 -0.161335 11.1795 -0.160846 11.6483 0.483271C12.1172 1.12775 12.1172 2.17257 11.6485 2.81742Z" fill="currentColor"/>
-</svg>`;
-
-const indeterminate = svg`<svg class="indeterminate-indicator" xmlns="http://www.w3.org/2000/svg" width="12" height="3" viewBox="0 0 12 3" fill="none">
-<rect width="12" height="3" rx="1.5" fill="currentColor"/>
-</svg>`;
-
-@customElement("kobber-checkbox")
-export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
-  static styles: CSSResultGroup = [componentStyles, formControlStyles, styles];
+@customElement(checkboxInputName)
+export class CheckboxInput extends ShoelaceElement implements ShoelaceFormControl {
+  static styles: CSSResultGroup = [componentStyles, checkboxStyles];
   // static dependencies = { "sl-icon": SlIcon };
 
   private readonly formControlController = new FormControlController(this, {
@@ -65,15 +64,15 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
 
   @query('input[type="checkbox"]') input!: HTMLInputElement;
 
-  @state() private hasFocus = false;
-
   @property() title = ""; // make reactive to pass through
 
   /** The name of the checkbox, submitted as a name/value pair with form data. */
   @property() name = "";
 
   /** The current value of the checkbox, submitted as a name/value pair with form data. */
-  @property() value: string = "";
+  @property() value = "";
+
+  @property() variant: CheckboxVariant = "success";
 
   /** Disables the checkbox. */
   @property({ type: Boolean, reflect: true }) disabled = false;
@@ -124,7 +123,6 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
   }
 
   private handleBlur() {
-    this.hasFocus = false;
     this.emit("blur");
   }
 
@@ -138,7 +136,6 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
   }
 
   private handleFocus() {
-    this.hasFocus = true;
     this.emit("focus");
   }
 
@@ -196,36 +193,23 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
 
   render() {
     const hasHelpTextSlot = this.hasSlotController.test("help-text");
+    const hasAlertElementSlot = this.hasSlotController.test("alert");
     const hasHelpText = this.helpText ? true : !!hasHelpTextSlot;
+    const hasAlertElement = !!hasAlertElementSlot;
 
     return html`
-      <div
-        class=${classMap({
-          "form-control": true,
-          "form-control--has-help-text": hasHelpText,
-        })}
-      >
-        <label
-          part="base"
-          class=${classMap({
-            checkbox: true,
-            "checkbox--checked": this.checked,
-            "checkbox--disabled": this.disabled,
-            "checkbox--focused": this.hasFocus,
-            "checkbox--indeterminate": this.indeterminate,
-          })}
-        >
+      <div class="${checkboxWrapperClassName}">
+        <label part="base" class=${[checkboxInputName, this.className].join(" ")} data-variant="${this.variant}">
           <input
-            class="checkbox__input"
+            class=${[nativeCheckboxInputClassName, "visually-hidden"].join(" ")}
             type="checkbox"
             title=${this.title /* An empty title prevents browser validation tooltips from appearing on hover */}
             name=${this.name}
             value=${ifDefined(this.value)}
-            .indeterminate=${live(this.indeterminate)}
             .checked=${live(this.checked)}
             .disabled=${this.disabled}
             .required=${this.required}
-            aria-describedby="help-text"
+            aria-describedby="aria-help-text"
             @click=${this.handleClick}
             @input=${this.handleInput}
             @invalid=${this.handleInvalid}
@@ -237,23 +221,26 @@ export class Checkbox extends ShoelaceElement implements ShoelaceFormControl {
             part="control${this.checked ? " control--checked" : ""}${this.indeterminate
               ? " control--indeterminate"
               : ""}"
-            class="checkbox__control"
+            class=${checkboxControlClassName}
           >
-            ${this.checked ? checked : ""} ${!this.checked && this.indeterminate ? indeterminate : ""}
+            ${this.checked
+              ? html` <icon-form_checked part="checked-icon" /> `
+              : this.indeterminate
+                ? html` <icon-form_indeterminate part="checked-icon" /> `
+                : ""}
           </span>
 
-          <div part="label" class="checkbox__label">
+          <div part="label" class=${checkboxLabelClassName}>
             <slot></slot>
           </div>
         </label>
 
-        <div
-          aria-hidden=${hasHelpText ? "false" : "true"}
-          class="form-control__help-text"
-          id="help-text"
-          part="form-control-help-text"
-        >
+        <div aria-hidden=${hasHelpText ? "false" : "true"} id="aria-help-text">
           <slot name="help-text">${this.helpText}</slot>
+        </div>
+
+        <div aria-hidden=${hasAlertElement ? "false" : "true"}>
+          <slot name="alert"></slot>
         </div>
       </div>
     `;
