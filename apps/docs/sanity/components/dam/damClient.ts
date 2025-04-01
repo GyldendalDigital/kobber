@@ -1,12 +1,6 @@
 "use server"
 
-import {
-  buildSearchQuery,
-  DAM_SEARCH_URL,
-  DamAsset,
-  DamAssetResponse,
-  transformAssets,
-} from "./damUtils"
+import { DAM_SEARCH_URL, DamAsset, DamAssetResponse, transformAssets } from "./damUtils"
 
 /**
  * search docs
@@ -23,6 +17,7 @@ export async function searchAssets(
       num: "24",
     })
 
+    console.log(`searching for assets with query: ${query}`)
     const response = await fetch(
       `${DAM_SEARCH_URL}?${Array.from(searchParams.entries())
         .map(([key, value]) => `${key}=${value}`)
