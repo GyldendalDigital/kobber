@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import "./checkbox-input/CheckboxInput";
+import "./checkbox-group/CheckboxGroup";
 import "../theme-context-provider/ThemeContext";
 import { InputProps, CheckboxState, checkboxVariants } from "./Checkbox.core";
 import { init as initComponents } from "../base/init";
@@ -164,8 +165,8 @@ export const Checkbox: Story = {
         variant="success" 
         ${args.disabled ? "disabled" : ""}
         ${args.checked}
-        id="studentoption"
-        value="totalpoints"
+        name="studentoption"
+        id-value="totalpoints"
       >
         <span>Vis ukas totalpoeng</span>
         ${args.showHelpText ? `<span slot="help-text" style="font-style: italic;color:gray;">Læreren din har skrudd ${args.disabled ? "av" : "på"} denne innstillingen.</span>` : ""}
@@ -184,5 +185,60 @@ export const Checkbox: Story = {
     disabled: false,
     showHelpText: true,
     showAlert: true,
+  },
+};
+
+export const GNOExample: Story = {
+  render: args => {
+    return `
+      <style>
+        :root {
+          padding: 0.5rem;
+        }
+        .wrapper-theme {
+          display: flex;
+          flex-direction: column;
+          gap: 3rem;
+        }
+        .visually-hidden {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
+      </style>
+
+      <div class="wrapper-theme">
+        <kobber-checkbox-group name="categories" orientation="${args.orientation}" type="${args.type}" hierarchical-checkboxbox-label="Alle">
+          <p slot="label">Kategori</p>
+          <kobber-checkbox-input id-value="fiction">Skjønnlitteratur</kobber-checkbox-input>
+          <kobber-checkbox-input id-value="non-fiction" disabled>Sakprosa</kobber-checkbox-input>
+          <kobber-checkbox-input id-value="childrens-books">Barnebøker</kobber-checkbox-input>
+          <kobber-checkbox-input id-value="syllabi">Pensumbøker</kobber-checkbox-input>
+          <kobber-checkbox-input id-value="professional">Profesjonsbøker</kobber-checkbox-input>
+        ${args.showGroupHelpText ? `<span slot="help-text">Velg noe, da.</span>` : ""}
+        </kobber-checkbox-group>
+      </div>
+    `;
+  },
+  args: {
+    showGroupHelpText: true,
+    type: "hierarchical",
+    orientation: "vertical",
+  },
+  argTypes: {
+    orientation: {
+      control: "inline-radio",
+      options: ["horisontal", "vertical"],
+    },
+    type: {
+      control: "inline-radio",
+      options: ["equal", "hierarchical"],
+    },
   },
 };

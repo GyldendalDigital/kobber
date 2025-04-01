@@ -8,6 +8,7 @@ export { CardLayout } from "./layouts/card-layout/CardLayout";
 export { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
 export { Carousel } from "./carousel/Carousel";
 export { CarouselButton } from "./carousel/CarouselButton";
+export { CheckboxGroup } from "./checkbox/checkbox-group/CheckboxGroup";
 export { CheckboxInput } from "./checkbox/checkbox-input/CheckboxInput";
 export { Divider } from "./divider/Divider";
 export { Dropdown } from "./dropdown/Dropdown";

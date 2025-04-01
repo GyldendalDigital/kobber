@@ -53,6 +53,14 @@ globalThis.HTMLElement ??= HTMLElement;
 
 @customElement(checkboxInputName)
 export class CheckboxInput extends ShoelaceElement implements ShoelaceFormControl {
+  value: unknown;
+  defaultValue?: unknown;
+  pattern?: string | undefined;
+  min?: string | number | Date | undefined;
+  max?: string | number | Date | undefined;
+  step?: number | "any" | undefined;
+  minlength?: number | undefined;
+  maxlength?: number | undefined;
   static styles: CSSResultGroup = [componentStyles, checkboxStyles];
   // static dependencies = { "sl-icon": SlIcon };
 
@@ -76,9 +84,6 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
 
   /** The name of the checkbox, submitted as a name/value pair with form data. */
   @property() name = "";
-
-  /** The current value of the checkbox, submitted as a name/value pair with form data. */
-  @property() value = "";
 
   @property() variant: CheckboxVariant = "success";
 

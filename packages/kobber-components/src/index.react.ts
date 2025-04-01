@@ -13,6 +13,7 @@ import { CardLayout } from "./layouts/card-layout/CardLayout";
 import { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
 import { Carousel } from "./carousel/Carousel";
 import { CarouselButton } from "./carousel/CarouselButton";
+import { CheckboxGroup } from "./checkbox/checkbox-group/CheckboxGroup";
 import { CheckboxInput } from "./checkbox/checkbox-input/CheckboxInput";
 import { Divider } from "./divider/Divider";
 import { Dropdown } from "./dropdown/Dropdown";
@@ -92,6 +93,12 @@ export const KobberCarousel = createComponent({
 export const KobberCarouselButton = createComponent({
   tagName: "kobber-carousel-button",
   elementClass: CarouselButton,
+  react: React,
+});
+
+export const KobberCheckboxGroup = createComponent({
+  tagName: "kobber-checkbox-group",
+  elementClass: CheckboxGroup,
   react: React,
 });
 
