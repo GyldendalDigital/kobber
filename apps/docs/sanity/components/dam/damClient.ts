@@ -13,21 +13,26 @@ import {
  * https://helpcenter.woodwing.com/hc/en-us/articles/360041851432-Assets-Server-REST-API-search
  */
 export async function searchAssets(
-  searchString: string,
+  query: string,
   bearerToken: string
 ): Promise<{ assets: DamAsset[]; error: string | null }> {
   try {
     const searchParams = new URLSearchParams({
-      q: buildSearchQuery(searchString),
+      q: query,
       start: "0",
       num: "24",
     })
 
-    const response = await fetch(`${DAM_SEARCH_URL}?${searchParams.toString()}`, {
-      headers: {
-        Authorization: `Bearer ${bearerToken}`,
-      },
-    })
+    const response = await fetch(
+      `${DAM_SEARCH_URL}?${Array.from(searchParams.entries())
+        .map(([key, value]) => `${key}=${value}`)
+        .join("&")}`,
+      {
+        headers: {
+          Authorization: `Bearer ${bearerToken}`,
+        },
+      }
+    )
 
     if (!response.ok) {
       if (response.status === 401) {
