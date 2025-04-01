@@ -14,7 +14,7 @@ import {
 import { PatchEvent, set, unset } from "sanity"
 import { getPnpAccessToken } from "../../actions/accessTokenClient"
 import { searchAssets } from "./damClient"
-import { createPreviewUrl, DamAsset } from "./damUtils"
+import { buildSearchQuery, createPreviewUrl, DamAsset } from "./damUtils"
 
 type DamAssetInputProps = {
   value?: {
@@ -35,10 +35,10 @@ export function DamAssetInput(props: DamAssetInputProps) {
   const [searchError, setSearchError] = useState<string | null>(null)
   const [manualIdError, setManualIdError] = useState<string | null>(null)
   const [isOpen, setIsOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState("")
+  const [searchInputInstant, setSearchInputInstant] = useState("")
+  const [searchInputDebounced, setSearchInputDebounced] = useState("")
   const [manualAssetId, setManualAssetId] = useState("")
   const [manualAssetExtension, setManualAssetExtension] = useState("")
-  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("")
   const [bearerToken, setBearerToken] = useState<string | null>(null)
   const [tokenError, setTokenError] = useState<string | null>(null)
 
@@ -60,14 +60,14 @@ export function DamAssetInput(props: DamAssetInputProps) {
   // Debounce the search query
   useEffect(() => {
     const timer = setTimeout(() => {
-      setDebouncedSearchQuery(searchQuery)
+      setSearchInputDebounced(searchInputInstant)
     }, DEBOUNCE_DELAY)
 
     return () => clearTimeout(timer)
-  }, [searchQuery])
+  }, [searchInputInstant])
 
   const fetchAssets = useCallback(
-    async (query: string) => {
+    async (searchText: string) => {
       if (!bearerToken) {
         setSearchError("Authentication token not available")
         return []
@@ -76,7 +76,7 @@ export function DamAssetInput(props: DamAssetInputProps) {
       try {
         setBrowseLoading(true)
         setSearchError(null)
-        const { assets, error } = await searchAssets(query, bearerToken)
+        const { assets, error } = await searchAssets(buildSearchQuery(searchText), bearerToken)
 
         if (error) {
           setSearchError(error)
@@ -99,9 +99,9 @@ export function DamAssetInput(props: DamAssetInputProps) {
 
   useEffect(() => {
     if (isOpen) {
-      fetchAssets(debouncedSearchQuery)
+      fetchAssets(searchInputDebounced)
     }
-  }, [isOpen, debouncedSearchQuery, fetchAssets])
+  }, [isOpen, searchInputDebounced, fetchAssets])
 
   const handleSelect = useCallback(
     (asset: DamAsset) => {
@@ -129,7 +129,7 @@ export function DamAssetInput(props: DamAssetInputProps) {
 
   const handleClose = useCallback(() => {
     setIsOpen(false)
-    setSearchQuery("")
+    setSearchInputInstant("")
     setManualAssetId("")
     setSearchError(null)
     setManualIdError(null)
@@ -140,7 +140,7 @@ export function DamAssetInput(props: DamAssetInputProps) {
       setManualLoading(true)
       setManualIdError(null)
       try {
-        const { assets, error } = await searchAssets(`id: ${manualAssetId}`, bearerToken || "")
+        const { assets, error } = await searchAssets(`id:${manualAssetId}`, bearerToken || "")
         if (error) {
           setManualIdError(error)
           return
@@ -167,8 +167,9 @@ export function DamAssetInput(props: DamAssetInputProps) {
   }, [manualAssetId, manualAssetExtension, bearerToken, handleSelect])
 
   const filteredAssets = useMemo(
-    () => assets.filter((asset) => asset.name.toLowerCase().includes(searchQuery.toLowerCase())),
-    [assets, searchQuery]
+    () =>
+      assets.filter((asset) => asset.name.toLowerCase().includes(searchInputInstant.toLowerCase())),
+    [assets, searchInputInstant]
   )
 
   return (
@@ -242,8 +243,8 @@ export function DamAssetInput(props: DamAssetInputProps) {
               <Stack space={2}>
                 <Text>Search by name:</Text>
                 <TextInput
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.currentTarget.value)}
+                  value={searchInputInstant}
+                  onChange={(e) => setSearchInputInstant(e.currentTarget.value)}
                   placeholder="Enter asset name..."
                   disabled={browseLoading}
                 />
