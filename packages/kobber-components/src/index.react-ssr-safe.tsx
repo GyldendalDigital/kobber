@@ -1,5 +1,6 @@
 import { Accordion } from "./accordion/Accordion.react";
 import { Button } from "./button/Button.react";
+import { CheckboxInput } from "./checkbox/checkboxInput/CheckboxInput.react";
 import { TextWrapper } from "./text/text-wrapper/TextWrapper.react";
 import { TextLink } from "./text/text-link/TextLink.react";
 import { Heading } from "./text/heading/Heading.react";
@@ -15,6 +16,7 @@ export const KobberTextLink = TextLink;
 export const KobberHeading = Heading;
 export const KobberIngress = Ingress;
 export const KobberButton = Button;
+export const KobberCheckboxInput = CheckboxInput;
 export const KobberLink = Link;
 export const KobberAccordion = Accordion;
 export const KobberList = List;
