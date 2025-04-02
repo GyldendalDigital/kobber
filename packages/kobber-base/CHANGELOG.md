@@ -1,5 +1,11 @@
 # @gyldendal/kobber-base
 
+## 0.3.86
+
+### Patch Changes
+
+- Correct carousel icon prefix
+
 ## 0.3.85
 
 ### Patch Changes

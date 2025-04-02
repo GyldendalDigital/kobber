@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.3.86
+
+### Patch Changes
+
+- Correct carousel icon prefix
+
 ## 0.3.85
 
 ### Patch Changes
