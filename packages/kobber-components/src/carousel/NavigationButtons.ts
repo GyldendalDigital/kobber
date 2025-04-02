@@ -52,7 +52,7 @@ export class NavigationButtons extends StyledLitElement {
             disabled
             color="thriller"
             variant="main"
-            ><icon-arrow_left slot="icon"
+            ><kobber-arrow_left slot="icon"
           /></kobber-button>`
         : html`<kobber-button
             aria-label="${this.getAttribute("previous-button-aria-label")}"
@@ -60,7 +60,7 @@ export class NavigationButtons extends StyledLitElement {
             @click="${this.handlePreviousClick}"
             color="thriller"
             variant="main"
-            ><icon-arrow_left slot="icon"
+            ><kobber-arrow_left slot="icon"
           /></kobber-button>`}
       ${this.nextButtonDisabled === "true"
         ? html`<kobber-button
@@ -70,7 +70,7 @@ export class NavigationButtons extends StyledLitElement {
             disabled
             color="thriller"
             variant="main"
-            ><icon-arrow_right slot="icon"
+            ><kobber-arrow_right slot="icon"
           /></kobber-button>`
         : html`<kobber-button
             aria-label="${this.getAttribute("next-button-aria-label")}"
@@ -78,7 +78,7 @@ export class NavigationButtons extends StyledLitElement {
             @click="${this.handleNextClick}"
             color="thriller"
             variant="main"
-            ><icon-arrow_right slot="icon"
+            ><kobber-arrow_right slot="icon"
           /></kobber-button>`}
     </div>
   `;
