@@ -39,14 +39,12 @@ export const linkListBlock = defineType({
   preview: {
     select: {
       links: "links",
+      firstLinkTitle: "links.0.title",
     },
-    prepare: ({ links }) => {
-      const linkNames = Object.values(links)
-        // @ts-expect-error: ignore ts(7006)
-        .map((link) => link.title)
+    prepare: ({ links, firstLinkTitle }) => {
+      const linkCount = Object.values(links).length
       return {
-        title: `Link list: ${linkNames[0] ?? "Empty"}`,
-        subtitle: linkNames[1] ? `+ ${linkNames.length - 1} links` : undefined,
+        title: `Link list: ${firstLinkTitle ?? "Empty"}${linkCount > 1 ? ` og ${linkCount - 1} til` : ""}`,
       }
     },
   },

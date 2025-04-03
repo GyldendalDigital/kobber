@@ -30,13 +30,8 @@ export const damAsset = defineType({
   },
   preview: {
     select: {
-      assetId: "assetId",
       title: "name",
-      previewUrl: "previewUrl",
+      media: "previewUrl",
     },
-    prepare: ({ assetId, title, previewUrl }) => ({
-      title: title || assetId,
-      media: <img src={previewUrl} alt="" />,
-    }),
   },
 })

@@ -13,4 +13,10 @@ export const contactListBlock = defineType({
       title: "Hard coded contact list requires at least one field",
     }),
   ],
+  preview: {
+    prepare: () => ({
+      title: "Contact list",
+      subtitle: "Hardkoda kontaktliste inntil videre",
+    }),
+  },
 })
