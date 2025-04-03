@@ -28,3 +28,36 @@ const assertBuildComplete = (styleDictionaryConfig: Config, themeConfig: ThemeCo
     console.error(`Build failed. Files does not exist in ${tokenDirectory}`);
   }
 };
+
+export const findUnusedTokens = (themeConfig: ThemeConfig) => {
+  console.log(`Searching for unused tokens in ${themeConfig.themeName} theme`);
+  const themeTokensDirectory = `${themeDirectory}/${themeConfig.themeName}`;
+  const css = fs.readFileSync(`${themeTokensDirectory}/tokens.css`, "utf-8");
+  const cssTokens = css?.split("{")[1]?.split("}")[0]?.trim().split(";");
+  if (!cssTokens) {
+    console.error("No css tokens found in tokens.css file");
+    return;
+  }
+
+  let unusedTokens = 0;
+
+  for (const token of cssTokens) {
+    const tokenName = token.split(":")[0]?.trim();
+    if (!tokenName) {
+      continue;
+    }
+
+    if (tokenName.startsWith("--kobber-component")) {
+      continue;
+    }
+
+    const occurrences = css.split(tokenName).length - 1;
+    if (occurrences < 2) {
+      console.log(`Unused token: ${tokenName}`);
+      unusedTokens++;
+    }
+  }
+
+  console.log(`Found ${unusedTokens} unused tokens in ${themeConfig.themeName} theme`);
+  console.log(`(skipped component tokens)`);
+};

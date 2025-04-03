@@ -4,6 +4,7 @@ import { buildThemeTokens } from "./src/styleDictionary/buildThemeTokens";
 import { tokensFromFigma } from "./tokens-from-figma";
 import { cleanThemeDirectory } from "./src/utils/cleanThemeDirectory";
 import { invertColorTokens } from "./src/utils/invertColor";
+import { findUnusedTokens } from "./tests/buildThemeTokens.test";
 
 /**
  * Converts json from Figma into css, js, scss ++
@@ -23,6 +24,8 @@ const build = async () => {
 
     buildTypography(themeConfig);
   }
+
+  themeConfigs[0] && findUnusedTokens(themeConfigs[0]);
 };
 
 await build();
