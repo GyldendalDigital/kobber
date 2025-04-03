@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.28.1",
+    "@types/node": "^20",
     "prettier": "^3.4.2",
     "stylelint": "^16.0.2",
     "stylelint-config-standard": "^35.0.0",
@@ -28,8 +29,8 @@
     "turbo": "^2.4.4",
     "typescript": "^5.8.2"
   },
-  "packageManager": "yarn@4.7.0",
+  "packageManager": "yarn@4.8.1",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   }
 }
