@@ -1,5 +1,5 @@
 import { expect } from "@esm-bundle/chai";
-import { primitives } from "@gyldendal/kobber-base/themes/default/tokens";
+import { primitives } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { SafeColorOptions, getContrast, getContrastCompliantColors } from "./contrast";
 
 const getContrastCases = [

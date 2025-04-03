@@ -1,4 +1,4 @@
-import * as defaultTokens from "@gyldendal/kobber-base/themes/default/tokens";
+import * as defaultTokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { LitElement, PropertyDeclaration, css, html, unsafeCSS } from "lit";
 import { consume } from "@lit/context";
 import { themeContext } from "../utils/theme-context";

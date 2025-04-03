@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { html, unsafeCSS } from "lit";
-import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
+import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { defaultAspectRatio } from "./AspectRatio";
 import AspectRatioWiki from "./AspectRatioWiki.mdx";
 import { globalStyles } from "../story/globalStyles";

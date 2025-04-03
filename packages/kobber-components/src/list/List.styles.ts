@@ -1,4 +1,4 @@
-import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables";
+import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import { listClassNames } from "./List.core";
 

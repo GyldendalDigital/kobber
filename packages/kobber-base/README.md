@@ -7,7 +7,7 @@ See also https://kobber.gyldendal.no/tokens/hva-er-tokens.
 Design tokens can be imported as json, css variables or sass variables:
 
 ```JavaScript
-import * as tokens from "~@gyldendal/kobber-base/themes/default/tokens";
+import * as tokens from "~@gyldendal/kobber-base/themes/default/tokens.js";
 
 export const Button = styled.button`
     background-color: ${tokens.component.button.color.background};

@@ -1,4 +1,4 @@
-import { mediaQuery } from "@gyldendal/kobber-base/themes/default/tokens";
+import { mediaQuery } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { html } from "lit";
 import "./Grid";

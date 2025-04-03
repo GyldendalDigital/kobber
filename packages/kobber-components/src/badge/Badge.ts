@@ -1,4 +1,4 @@
-import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
+import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { getContrastCompliantColors } from "../utils/contrast";
 import { isValidColor } from "../utils/color";
 

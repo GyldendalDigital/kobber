@@ -1,5 +1,5 @@
 import { create } from "@storybook/theming";
-import { semantics } from "@gyldendal/kobber-base/themes/default/tokens";
+import { semantics } from "@gyldendal/kobber-base/themes/default/tokens.js";
 
 const background = semantics.color.identity.base["aubergine-1000"];
 
