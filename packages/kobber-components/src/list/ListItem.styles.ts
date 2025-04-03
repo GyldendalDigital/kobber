@@ -3,7 +3,7 @@ import { css, unsafeCSS } from "lit";
 import { listItemClassNames, listItemName } from "./ListItem.core";
 
 const createListItemStyles = () => {
-  const listItem = component["list-item"];
+  const listItem = component["menu-item"];
   return css`
     .${unsafeCSS(listItemClassNames(listItemName))} {
       display: flex;
@@ -35,7 +35,7 @@ const createListItemStyles = () => {
 
       .text {
         align-self: center;
-        line-height: calc(1rem + var(${unsafeCSS(listItem["border-bottom"].padding.top)}));
+        line-height: calc(1rem + var(${unsafeCSS(listItem["border-bottom"].padding)}));
       }
 
       &[active],
