@@ -1,5 +1,5 @@
 import { html } from "lit";
-import { semantics } from "@gyldendal/kobber-base/themes/default/tokens";
+import { semantics } from "@gyldendal/kobber-base/themes/default/tokens.js";
 
 type Props = {
   summary: string;

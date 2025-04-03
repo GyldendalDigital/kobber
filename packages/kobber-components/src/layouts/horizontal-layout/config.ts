@@ -1,4 +1,4 @@
-import { layout } from "@gyldendal/kobber-base/themes/default/tokens";
+import { layout } from "@gyldendal/kobber-base/themes/default/tokens.js";
 
 export const maxColumns = 4;
 

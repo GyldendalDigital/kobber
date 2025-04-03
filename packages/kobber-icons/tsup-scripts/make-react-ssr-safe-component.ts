@@ -4,7 +4,7 @@ export const makeSSRSafeReactComponent = (symbol: SVGSymbolElement) => {
   const iconNames = getIconNames(symbol.id);
 
   let componentCode = `import { FunctionComponent, HTMLProps } from "react";
-import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
+import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { SizeType } from "../../types/kobber-icons-types";
 
 type IconProps = {

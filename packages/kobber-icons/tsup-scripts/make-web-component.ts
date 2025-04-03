@@ -3,7 +3,7 @@ import { getIconNames } from ".";
 export const makeWebComponent = (symbol: SVGSymbolElement) => {
   const iconNames = getIconNames(symbol.id);
 
-  const preamble = `import * as tokens from "@gyldendal/kobber-base/themes/default/tokens";
+  const preamble = `import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { SizeType } from "../../types/kobber-icons-types";
 
 `;
