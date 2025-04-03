@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.3.87
+
+### Patch Changes
+
+- Correct kobber-components/checkbox, and add react-ssr-safe version
+- Updated dependencies
+  - @gyldendal/kobber-base@0.3.87
+
 ## 0.3.86
 
 ### Patch Changes
