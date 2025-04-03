@@ -1,8 +1,7 @@
 import { draftMode } from "next/headers"
 import { SanityLive } from "@/sanity/lib/live"
-import { VisualEditing } from "next-sanity"
 import { cn } from "@/lib/utils"
-import { DisableDraftMode } from "@/components/DisableDraftMode"
+import { DraftTools } from "./_draftTools/DraftTools"
 
 export default async function RootLayout({ children }: React.PropsWithChildren) {
   const draft = await draftMode()
@@ -11,12 +10,7 @@ export default async function RootLayout({ children }: React.PropsWithChildren) 
     <div className={cn("sanity-layout")}>
       {children}
       <SanityLive />
-      {(await draftMode()).isEnabled && (
-        <>
-          <DisableDraftMode />
-          <VisualEditing />
-        </>
-      )}
+      {(await draftMode()).isEnabled && <DraftTools />}
     </div>
   )
 }
