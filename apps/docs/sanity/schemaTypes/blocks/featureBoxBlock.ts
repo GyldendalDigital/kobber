@@ -28,18 +28,12 @@ export const featureBoxBlock = defineType({
     select: {
       features: "features",
       firstFeatureTitle: "features.0.title",
-      firstFeatureImage: "features.0.damAsset",
     },
-    prepare: ({ features, firstFeatureTitle, firstFeatureImage }) => {
-      const otherFeatureNames = Object.values(features)
-        .slice(1)
-        // @ts-expect-error: ignore ts(7006)
-        .map((feature) => feature.title)
-        .join(", ")
+    prepare: ({ features, firstFeatureTitle }) => {
+      const featureCount = Object.values(features).length
+
       return {
-        title: `Feature box: ${firstFeatureTitle ?? "Empty"}`,
-        subtitle: otherFeatureNames ? `+ ${otherFeatureNames}` : undefined,
-        media: firstFeatureImage?.previewUrl,
+        title: `Feature box: ${firstFeatureTitle ?? "Empty"}${featureCount > 1 ? ` og ${featureCount - 1} til` : ""}`,
       }
     },
   },
