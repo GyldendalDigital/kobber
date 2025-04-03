@@ -1,6 +1,6 @@
-import { Canvas, Story, Meta } from '@storybook/blocks';
+import { Canvas, Story, Meta } from "@storybook/blocks";
 
-import * as RadioStories from './Radio.stories';
+import * as RadioStories from "./Radio.stories";
 import "storybook-web-components/public/global.css";
 
 <Meta of={RadioStories} />
@@ -13,12 +13,23 @@ Use Radio Inputs to select only one option from a list of choices.
 
 Keyboard navigation: Use tab to reach the radio group, and <a href="https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#:~:text=A%20primary%20keyboard,multiple%20focusable%20elements.">arrow keys</a> to move focus inside the group.
 
+<details>
+  <summary>Not implemented: Validation</summary>
+  <ul>
+    <li>Reason: No use cases yet.</li>
+    <li>
+      Initial thoughts: Validation requires an amount of logic that should work similarly across groups of input
+      elements. Is that amount of logic necessary to duplicate in react version?
+    </li>
+  </ul>
+</details>
+
 <figure>
-<figcaption>Kobber Radio Input Variants (only static examples, not intended for interaction)</figcaption>
-<Story of={RadioStories.Variants} />
+  <figcaption>Kobber Radio Input Variants (only static examples, not intended for interaction)</figcaption>
+  <Story of={RadioStories.Variants} />
 </figure>
 
 <figure>
-<figcaption>Kobber Radio Anatomy</figcaption>
-<img src="images/kobber-radio-anatomy.jpg" alt="Schematic image of Kobber Radio anatomy" />
+  <figcaption>Kobber Radio Anatomy</figcaption>
+  <img src="images/kobber-radio-anatomy.jpg" alt="Schematic image of Kobber Radio anatomy" />
 </figure>

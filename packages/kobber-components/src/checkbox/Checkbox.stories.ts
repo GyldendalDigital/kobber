@@ -1,36 +1,154 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import "./Checkbox";
-import { html } from "lit";
+import "./checkboxInput/CheckboxInput";
+import "../utils/theme-context";
+import { InputProps, CheckboxState, checkboxVariants } from "./Checkbox.core";
+
+const states: { [key: string]: CheckboxState[] }[] = [
+  { "not focus": ["idle", "hover", "active", "disabled"] },
+  { focus: ["idle", "hover", "active"] },
+] as const;
+
+interface Args extends Omit<InputProps, "checked"> {
+  text: string;
+  state: CheckboxState;
+  showHelpText: boolean;
+  showLabel: boolean;
+  checked?: boolean | string;
+}
 
 const meta: Meta = {
   title: "In development 🧪/Checkbox",
   component: "kobber-checkbox",
-  tags: ["autodocs"],
-  decorators: [(story, storyContext) => html` <div class="${storyContext.globals.theme}">${story()}</div>`],
+  decorators: [
+    (Story, context) => `
+      <kobber-theme-context theme-id=${context.globals.theme}> ${Story()} </kobber-theme-context>
+    `,
+  ],
 };
 
 export default meta;
 type Story = StoryObj;
 
-export const AllStates: Story = {
-  render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 10px; min-width: 30vw;">
-      <fieldset style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
-        <legend>Test-checkbox</legend>
-        <kobber-checkbox>Unchecked</kobber-checkbox>
-        <kobber-checkbox checked>Checked</kobber-checkbox>
-        <kobber-checkbox id="cb-indeterminate">Indeterminate</kobber-checkbox>
-        <kobber-checkbox indeterminate>Indeterminate</kobber-checkbox>
-        <kobber-checkbox disabled>Disabled</kobber-checkbox>
-        <kobber-checkbox disabled checked>Checked + Disabled</kobber-checkbox>
-        <kobber-checkbox disabled id="cb-indeterminate-2">Indeterminate + Disabled</kobber-checkbox>
-      </fieldset>
-    </div>
-    <script>
-      document.getElementById("cb-indeterminate").indeterminate = true;
-      document.getElementById("cb-indeterminate-2").indeterminate = true;
-    </script>
-  `,
+export const Variants: Story = {
+  render: args => {
+    return `
+      <style>
+        :root {
+          padding: 0.5rem;
+        }
+
+        ol {
+          margin: 0;
+          padding: 0;
+          list-style-position: inside;
+        }
+
+        .focusedOrNot {
+          display: flex;
+          gap: 1em;
+          flex-wrap: wrap;
+        }
+
+        .focusedOrNot-title {
+          grid-row: 1 / 4;
+        }
+
+        .states {
+          display: grid;
+          grid-template-columns: 5em repeat(3, auto);
+          align-items: baseline;
+          gap: 1em;
+          margin: 0 0 2em;
+          border: 1px solid;
+          border-radius: 1rem;
+          width: fit-content;
+          padding: 1em;
+        }
+      </style>
+
+      <ol>
+        ${checkboxVariants
+          .map(variant =>
+            renderVariant({
+              variant,
+              state: "idle",
+              text: "idle",
+              showHelpText: args.showHelpText,
+              showLabel: args.showLabel,
+            }),
+          )
+          .join("")}
+      </ol>
+    `;
+  },
+};
+
+// variant = "success" | "aubergine"
+const renderVariant = (args: Args) => {
+  const { variant } = args;
+  const checkedOrNot = [false, true, "indeterminate"];
+
+  if (!variant) {
+    return;
+  }
+
+  return `<li>
+    ${variant}
+    <ol class="focusedOrNot">
+      ${states
+        .map(focusState =>
+          Object.keys(focusState).map(key => {
+            let focus = "";
+            const focusedOrNot = key;
+            if (focusedOrNot === "focus") {
+              focus = "focus";
+            }
+            return `<li class="states">
+            <span class="focusedOrNot-title">${focusedOrNot}:</span> ${checkedOrNot
+              .map(checked => {
+                if (typeof focusState[focusedOrNot] === "undefined") return;
+                const length = focusState[focusedOrNot].length;
+
+                return focusState[focusedOrNot]
+                  .map((state, index) => {
+                    let last = false;
+                    if (index === length - 1) {
+                      last = true;
+                    }
+                    return renderButton({ ...args, focus, state, text: state, checked, last });
+                  })
+                  .join("");
+              })
+              .join("")}
+          </li>`;
+          }),
+        )
+        .join("")}
+    </ol>
+  </li>`;
+};
+
+const renderButton = (
+  args: Args & {
+    focus: string;
+    checked: boolean | string;
+    last: boolean;
+  },
+) => {
+  const { variant, focus, state, text, checked, last } = args;
+  const className = `${focus} ${state}`;
+  const lastStyles = last ? `grid-column: -1` : "";
+  return `
+    <kobber-checkbox
+      style="${lastStyles}"
+      class="${className}"
+      variant="${variant}"
+      ${checked ? (checked === "indeterminate" ? "indeterminate" : "checked") : ""}
+      ${state === "disabled" ? "disabled" : ""}
+    >
+      ${text}
+    </kobber-checkbox>
+  `;
 };
 
 /**
@@ -38,30 +156,18 @@ export const AllStates: Story = {
  */
 export const Checkbox: Story = {
   render: args => {
-    return html`
-      <kobber-checkbox help-text="Læreren din har skrudd ${args.disabled ? "av" : "på"} denne innstillingen."
-        >${args.checked}</kobber-checkbox
+    return `
+      <kobber-checkbox 
+        variant="success" 
+        ${args.disabled ? "disabled" : ""}
+        ${args.checked}
+        id="studentoption"
+        value="totalpoints"
       >
-      <script>
-        const checkbox = document.querySelector("kobber-checkbox");
-        checkbox.checked = ${args.checked === "checked"};
-        checkbox.indeterminate = ${args.checked === "indeterminate"};
-        checkbox.disabled = ${args.disabled};
-
-        const showCustomStyling = ${args.showCustomStyling};
-
-        if (showCustomStyling) {
-          const sheet = new CSSStyleSheet();
-          sheet.replaceSync(
-            ".form-control__help-text { color: ${args.disabled
-              ? "var(--kobber-regional-action-color-default-disabled-foreground)"
-              : "var(--kobber-regional-action-color-default-default-foreground)"};font-style: italic;}",
-          );
-
-          const elemStyleSheets = checkbox.shadowRoot.adoptedStyleSheets;
-          checkbox.shadowRoot.adoptedStyleSheets = [...elemStyleSheets, sheet];
-        }
-      </script>
+        <span>Vis ukas totalpoeng</span>
+        ${args.showHelpText ? `<span slot="help-text" style="font-style: italic;color:gray;">Læreren din har skrudd ${args.disabled ? "av" : "på"} denne innstillingen.</span>` : ""}
+        ${args.showAlert ? `<div slot="alert" style="background-color:#CBFBDB;padding: 0.5em;border-radius:0.5em;"><p class="badge">TODO: Use badge component.</p></div>` : ""}
+      </kobber-checkbox>
     `;
   },
   argTypes: {
@@ -73,6 +179,7 @@ export const Checkbox: Story = {
   args: {
     checked: "checked",
     disabled: false,
-    showCustomStyling: true,
+    showHelpText: true,
+    showAlert: true,
   },
 };

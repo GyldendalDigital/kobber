@@ -2,7 +2,7 @@ import { createComponent } from "@lit/react";
 import * as React from "react";
 import { Grid } from "./grid/Grid";
 import { GridColumn } from "./grid/GridColumn";
-import { Checkbox } from "./checkbox/Checkbox";
+import { CheckboxInput } from "./checkbox/checkboxInput/CheckboxInput";
 import { GridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
 import { CardLayout } from "./layouts/card-layout/CardLayout";
 import { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
@@ -61,9 +61,9 @@ export const KobberGridColumnAspectRatio = createComponent({
   react: React,
 });
 
-export const KobberCheckbox = createComponent({
-  tagName: "kobber-checkbox",
-  elementClass: Checkbox,
+export const KobberCheckboxInput = createComponent({
+  tagName: "kobber-checkbox-input",
+  elementClass: CheckboxInput,
   react: React,
 });
 
