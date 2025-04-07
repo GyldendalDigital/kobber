@@ -1,14 +1,22 @@
-import { html } from "lit";
+import { html, unsafeStatic } from "lit/static-html.js";
 import { property, state } from "lit/decorators.js";
 import { watch } from "../../base/internal/watch";
 import ShoelaceElement from "../../base/internal/shoelace-element";
 import componentStyles from "../../base/styles/component.styles";
 import { radioInputStyles } from "./RadioInput.styles";
 import type { CSSResultGroup } from "lit";
-import { inputClassNames, radioInputName, InputVariant, radioInputLabelClassName, InputProps } from "../Radio.core";
+import {
+  inputClassNames,
+  radioInputName,
+  InputVariant,
+  radioInputLabelClassName,
+  InputProps,
+  radioInputControlName,
+} from "../Radio.core";
 import "../radioInputControl/RadioInputControl";
 import "../../button/Button";
 import { customElement } from "../../utils/customElementDecorator";
+import { buttonName } from "../../button/Button.core";
 
 /**
  * @summary Radios allow the user to select a single option from a group.
@@ -94,9 +102,11 @@ export class RadioInput extends ShoelaceElement implements InputProps {
 
   render() {
     const isLink = this.isLink();
+    const buttonElement = unsafeStatic(buttonName);
+    const radioInputControlElement = unsafeStatic(radioInputControlName);
 
     if (isLink) {
-      return html`<kobber-button
+      return html`<${buttonElement}
         class=${[
           ...inputClassNames({
             variant: this.variant,
@@ -110,13 +120,13 @@ export class RadioInput extends ShoelaceElement implements InputProps {
         usedInOtherInteractive
         iconFirst
       >
-        <kobber-radio-input-control
+        <${radioInputControlElement}
           ?checked="${this.checked}"
           variant="${this.variant}"
           slot="icon"
-        ></kobber-radio-input-control>
+        ></${radioInputControlElement}>
         <slot part="label"></slot>
-      </kobber-button>`;
+      </${buttonElement}>`;
     }
     return html`
       <div
@@ -128,7 +138,7 @@ export class RadioInput extends ShoelaceElement implements InputProps {
           this.className,
         ].join(" ")}
       >
-        <kobber-radio-input-control ?checked="${this.checked}" variant="${this.variant}"></kobber-radio-input-control>
+        <${radioInputControlElement} ?checked="${this.checked}" variant="${this.variant}"></${radioInputControlElement}>
         <slot part="label" class="${radioInputLabelClassName}"></slot>
       </div>
     `;
