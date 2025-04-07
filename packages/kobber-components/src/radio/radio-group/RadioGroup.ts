@@ -18,12 +18,12 @@ import { radioGroupStyles } from "./RadioGroup.styles";
 import { customElement } from "../../base/utilities/customElementDecorator";
 
 /**
- * @summary Radio groups are used to group multiple [radios](/components/radio) or [radio buttons](/components/radio-button) so they function as a single form control.
+ * @summary Radio groups are used to group multiple [radio inputs](/components/radio-input) so they function as a single form control.
  * @documentation https://shoelace.style/components/radio-group
  * @status stable
  * @since 2.0
  *
- * @slot - The default slot where `<kobber-radio-button>` elements are placed.
+ * @slot - The default slot where `<kobber-radio-input>` elements are placed.
  * @slot label - The radio group's label. Required for proper accessibility. Alternatively, you can use the `label`
  *  attribute.
  * @slot help-text - Text that describes how to use the radio group. Alternatively, you can use the `help-text` attribute.
@@ -96,6 +96,15 @@ export class RadioGroup extends ShoelaceElement implements Props {
   constructor() {
     super();
   }
+  defaultValue?: unknown;
+  pattern?: string | undefined;
+  min?: string | number | Date | undefined;
+  max?: string | number | Date | undefined;
+  step?: number | "any" | undefined;
+  minlength?: number | undefined;
+  maxlength?: number | undefined;
+  checked?: boolean | undefined;
+  indeterminate?: boolean | undefined;
 
   connectedCallback() {
     super.connectedCallback();
@@ -223,16 +232,14 @@ export class RadioGroup extends ShoelaceElement implements Props {
 
   @watch("value")
   handleValueChange() {
-    if (this.hasUpdated) {
-      this.updateCheckedRadio();
-    }
+    this.updateCheckedRadio();
   }
 
   @watch("url")
   handleUrlChange() {
     if (window.location.href !== this.url) {
       this.url = window.location.href;
-      this.syncRadioElements();
+      this.syncRadios();
     }
   }
 
