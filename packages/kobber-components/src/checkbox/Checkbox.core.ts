@@ -1,7 +1,7 @@
 import { component } from "@gyldendal/kobber-base/themes/default/tokens.js";
 
 export const checkboxWrapperClassName = "kobber-checkbox-wrapper";
-export const checkboxInputName = "kobber-checkbox";
+export const checkboxInputName = "kobber-checkbox-input";
 export const nativeCheckboxInputClassName = "native-input";
 export const checkboxLabelClassName = "kobber-checkbox__label";
 export const checkboxControlClassName = "kobber-checkbox__control";

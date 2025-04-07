@@ -139,7 +139,7 @@ const renderButton = (
   const className = `${focus} ${state}`;
   const lastStyles = last ? `grid-column: -1` : "";
   return `
-    <kobber-checkbox
+    <kobber-checkbox-input
       style="${lastStyles}"
       class="${className}"
       variant="${variant}"
@@ -147,7 +147,7 @@ const renderButton = (
       ${state === "disabled" ? "disabled" : ""}
     >
       ${text}
-    </kobber-checkbox>
+    </kobber-checkbox-input>
   `;
 };
 
@@ -157,7 +157,7 @@ const renderButton = (
 export const Checkbox: Story = {
   render: args => {
     return `
-      <kobber-checkbox 
+      <kobber-checkbox-input 
         variant="success" 
         ${args.disabled ? "disabled" : ""}
         ${args.checked}
@@ -167,7 +167,7 @@ export const Checkbox: Story = {
         <span>Vis ukas totalpoeng</span>
         ${args.showHelpText ? `<span slot="help-text" style="font-style: italic;color:gray;">Læreren din har skrudd ${args.disabled ? "av" : "på"} denne innstillingen.</span>` : ""}
         ${args.showAlert ? `<div slot="alert" style="background-color:#CBFBDB;padding: 0.5em;border-radius:0.5em;"><p class="badge">TODO: Use badge component.</p></div>` : ""}
-      </kobber-checkbox>
+      </kobber-checkbox-input>
     `;
   },
   argTypes: {

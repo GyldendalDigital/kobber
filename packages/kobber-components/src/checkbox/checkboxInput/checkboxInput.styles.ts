@@ -24,7 +24,7 @@ const createCheckboxStyles = () => {
       gap: var(--checkbox-inner-container-right-gap, 12px);
     }
 
-    .${unsafeCSS("kobber-checkbox" satisfies CheckboxClassNames)} {
+    .${unsafeCSS("kobber-checkbox-input" satisfies CheckboxClassNames)} {
       display: flex;
       gap: var(${unsafeCSS(checkbox.container.gap)});
       justify-content: start;
