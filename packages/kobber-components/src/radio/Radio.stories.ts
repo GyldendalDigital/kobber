@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import "./radioInput/RadioInput";
-import "./radioGroup/RadioGroup";
+import ".";
 import { primitives } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { inputVariants, InputProps, radioInputName } from "./Radio.core";
 import "../text/heading/Heading";
@@ -201,7 +200,7 @@ export const GNOExample: Story = {
 
       <div class="wrapper-theme">
         <kobber-radio-group current-value="${args.currentValue}" direction="${args.direction}">
-        <p slot="label" class="${!args.showLabel ? "visually-hidden" : ""}">
+        <p slot="label">
           Formater (ref <a href="https://en.wikipedia.org/wiki/Paperback">Wikipedia</a>):
         </p>
         
@@ -245,8 +244,6 @@ export const GNOExample: Story = {
     currentValue: "ebook",
     direction: "horizontal",
     showHelpText: true,
-    showLabel: true,
-    link: true,
     variant: inputVariants[0],
   },
 };

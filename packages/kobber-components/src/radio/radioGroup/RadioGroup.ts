@@ -18,12 +18,12 @@ import { radioGroupStyles } from "./RadioGroup.styles";
 import { customElement } from "../../utils/customElementDecorator";
 
 /**
- * @summary Radio groups are used to group multiple [radios](/components/radio) or [radio buttons](/components/radio-button) so they function as a single form control.
+ * @summary Radio groups are used to group multiple [radio inputs](/components/radio-input) so they function as a single form control.
  * @documentation https://shoelace.style/components/radio-group
  * @status stable
  * @since 2.0
  *
- * @slot - The default slot where `<kobber-radio-button>` elements are placed.
+ * @slot - The default slot where `<kobber-radio-input>` elements are placed.
  * @slot label - The radio group's label. Required for proper accessibility. Alternatively, you can use the `label`
  *  attribute.
  * @slot help-text - Text that describes how to use the radio group. Alternatively, you can use the `help-text` attribute.
