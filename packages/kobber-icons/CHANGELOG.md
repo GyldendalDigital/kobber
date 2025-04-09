@@ -1,5 +1,16 @@
 # @gyldendal/kobber-components
 
+## 0.4.0
+
+### Minor Changes
+
+- Revert packages
+
+### Patch Changes
+
+- Updated dependencies
+  - @gyldendal/kobber-base@0.4.0
+
 ## 1.0.0
 
 ### Major Changes

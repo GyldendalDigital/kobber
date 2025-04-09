@@ -1,5 +1,11 @@
 # @gyldendal/kobber-base
 
+## 0.4.0
+
+### Minor Changes
+
+- Revert packages
+
 ## 1.0.0
 
 ### Major Changes
