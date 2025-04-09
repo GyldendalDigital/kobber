@@ -29,6 +29,8 @@ import { Check as KobberCheck } from "./icon/icons/check";
 import { CheckCircle as KobberCheckCircle } from "./icon/icons/check_circle";
 import { Checklist as KobberChecklist } from "./icon/icons/checklist";
 import { ChevronDown as KobberChevronDown } from "./icon/icons/chevron_down";
+import { ChevronLeft as KobberChevronLeft } from "./icon/icons/chevron_left";
+import { ChevronRight as KobberChevronRight } from "./icon/icons/chevron_right";
 import { ChevronUp as KobberChevronUp } from "./icon/icons/chevron_up";
 import { Circle as KobberCircle } from "./icon/icons/circle";
 import { CircleShapeAdd as KobberCircleShapeAdd } from "./icon/icons/circle_shape_add";
@@ -153,6 +155,8 @@ import { Undo as KobberUndo } from "./icon/icons/undo";
 import { User as KobberUser } from "./icon/icons/user";
 import { UserEdit as KobberUserEdit } from "./icon/icons/user_edit";
 import { UserQuestion as KobberUserQuestion } from "./icon/icons/user_question";
+import { UserRemove as KobberUserRemove } from "./icon/icons/user_remove";
+import { UserTime as KobberUserTime } from "./icon/icons/user_time";
 import { Users as KobberUsers } from "./icon/icons/users";
 import { VideoFileAdd as KobberVideoFileAdd } from "./icon/icons/video_file_add";
 import { VideoPlayer as KobberVideoPlayer } from "./icon/icons/video_player";
@@ -328,6 +332,18 @@ export const Checklist = createComponent({
 export const ChevronDown = createComponent({
   tagName: "kobber-chevron_down",
   elementClass: KobberChevronDown,
+  react: React,
+});
+
+export const ChevronLeft = createComponent({
+  tagName: "kobber-chevron_left",
+  elementClass: KobberChevronLeft,
+  react: React,
+});
+
+export const ChevronRight = createComponent({
+  tagName: "kobber-chevron_right",
+  elementClass: KobberChevronRight,
   react: React,
 });
 
@@ -1072,6 +1088,18 @@ export const UserEdit = createComponent({
 export const UserQuestion = createComponent({
   tagName: "kobber-user_question",
   elementClass: KobberUserQuestion,
+  react: React,
+});
+
+export const UserRemove = createComponent({
+  tagName: "kobber-user_remove",
+  elementClass: KobberUserRemove,
+  react: React,
+});
+
+export const UserTime = createComponent({
+  tagName: "kobber-user_time",
+  elementClass: KobberUserTime,
   react: React,
 });
 

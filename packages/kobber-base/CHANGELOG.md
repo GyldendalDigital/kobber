@@ -1,5 +1,11 @@
 # @gyldendal/kobber-base
 
+## 1.0.0
+
+### Major Changes
+
+- Added chevron right and left icons
+
 ## 0.3.87
 
 ### Patch Changes
