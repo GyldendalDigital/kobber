@@ -1,5 +1,17 @@
 # @gyldendal/kobber-base
 
+## 0.4.0
+
+### Minor Changes
+
+- Revert packages
+
+## 1.0.0
+
+### Major Changes
+
+- Added chevron right and left icons
+
 ## 0.3.87
 
 ### Patch Changes

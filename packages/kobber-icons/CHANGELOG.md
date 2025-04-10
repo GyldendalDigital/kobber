@@ -1,5 +1,27 @@
 # @gyldendal/kobber-components
 
+## 0.4.0
+
+### Minor Changes
+
+- Revert packages
+
+### Patch Changes
+
+- Updated dependencies
+  - @gyldendal/kobber-base@0.4.0
+
+## 1.0.0
+
+### Major Changes
+
+- Added chevron right and left icons
+
+### Patch Changes
+
+- Updated dependencies
+  - @gyldendal/kobber-base@1.0.0
+
 ## 0.3.87
 
 ### Patch Changes
