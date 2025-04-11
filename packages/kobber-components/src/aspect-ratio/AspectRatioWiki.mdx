@@ -1,3 +1,8 @@
+import { Meta } from "@storybook/blocks";
+import * as AspectRatioStories from "./AspectRatio.stories";
+
+<Meta of={AspectRatioStories} />
+
 # AspectRatio
 
 Uses CSS `padding-top` instead of `aspect-ratio` to support [old browsers](https://caniuse.com/mdn-css_properties_aspect-ratio).
@@ -5,4 +10,3 @@ Uses CSS `padding-top` instead of `aspect-ratio` to support [old browsers](https
 For example, `aspect-ratio: 16/9` will be converted into `padding-top: calc((9 / 16) * 100%)`.
 
 When CSS `aspect-ratio` is supported everywhere, this component will no longer be needed.
-

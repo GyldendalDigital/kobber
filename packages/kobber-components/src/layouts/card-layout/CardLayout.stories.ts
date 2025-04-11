@@ -23,7 +23,7 @@ const initIndicators = (canvasElement: HTMLElement) => {
 };
 
 const meta: Meta<Args> = {
-  title: "GU/Layouts/CardLayout",
+  title: "In development 🧪/Layouts/CardLayout",
   component: "CardLayout",
   tags: ["autodocs"],
   argTypes: {

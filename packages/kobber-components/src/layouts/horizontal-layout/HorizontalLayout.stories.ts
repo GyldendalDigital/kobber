@@ -10,7 +10,7 @@ import { globalStyles } from "../../story/globalStyles";
 import { maxColumns } from "./config";
 
 const meta: Meta = {
-  title: "GU/Layouts/HorizontalLayout (Carousel)",
+  title: "In development 🧪/Layouts/HorizontalLayout (Carousel)",
   component: "HorizontalLayout",
   tags: ["autodocs"],
   decorators: [(story, storyContext) => html`<div class="${storyContext.globals.theme}">${story()}</div>`],
