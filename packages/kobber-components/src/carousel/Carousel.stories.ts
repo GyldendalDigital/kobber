@@ -13,7 +13,7 @@ interface Args {
 }
 
 const meta: Meta<Args> = {
-  title: "GU/Carousel",
+  title: "In development 🧪/Carousel",
   component: "Carousel",
   tags: ["autodocs"],
   args: {

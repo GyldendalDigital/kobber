@@ -7,7 +7,6 @@ import "./CardLayoutColumnAspectRatio";
 import { example } from "./story/example";
 import { example6columns } from "./story/example6columns";
 import { renderIndicators } from "./story/renderIndicators";
-import Wiki from "./CardLayoutWiki.mdx";
 import { globalStyles } from "../../story/globalStyles";
 
 interface Args {
@@ -23,9 +22,8 @@ const initIndicators = (canvasElement: HTMLElement) => {
 };
 
 const meta: Meta<Args> = {
-  title: "GU/Layouts/CardLayout",
+  title: "In development 🧪/Layouts/CardLayout",
   component: "CardLayout",
-  tags: ["autodocs"],
   argTypes: {
     overrideContainerWidth: {
       name: "Override container width",
@@ -38,9 +36,6 @@ const meta: Meta<Args> = {
   },
   play: ({ canvasElement }) => initIndicators(canvasElement),
   parameters: {
-    docs: {
-      page: Wiki,
-    },
     layout: "fullscreen",
     overrideContainerWidth: false,
     containerWidth: 800,

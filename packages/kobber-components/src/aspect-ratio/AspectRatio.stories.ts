@@ -8,7 +8,7 @@ import { globalStyles } from "../story/globalStyles";
 type Args = { aspectRatio: string };
 
 const meta: Meta<Args> = {
-  title: "GU/AspectRatio",
+  title: "In development 🧪/AspectRatio",
   component: "kobber-aspect-ratio",
   tags: ["autodocs"],
   parameters: {

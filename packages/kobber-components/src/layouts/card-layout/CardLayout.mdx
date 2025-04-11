@@ -1,4 +1,9 @@
-import {getAspectRatioHeightValue, ValidAspectRatioHeight, minCardWidth, validMaxColumns} from "./config";
+import { getAspectRatioHeightValue, ValidAspectRatioHeight, minCardWidth, validMaxColumns } from "./config";
+import { Meta } from "@storybook/blocks";
+
+import * as CardLayoutStories from "./CardLayout.stories";
+
+<Meta of={CardLayoutStories} />
 
 # CardLayout
 
@@ -7,14 +12,16 @@ Layout for cards and card-like surfaces such as images.
 ## Card sizes
 
 The smallest a card can get is <code>{minCardWidth}px</code> wide and about
-<code>{Math.ceil(minCardWidth * getAspectRatioHeightValue(ValidAspectRatioHeight.Default))}px</code> tall with an aspect ratio of
+
+<code>{Math.ceil(minCardWidth * getAspectRatioHeightValue(ValidAspectRatioHeight.Default))}px</code> tall with an aspect
+ratio of
 <code>1:{getAspectRatioHeightValue(ValidAspectRatioHeight.Default)}</code>.<br />
-The maximum number of grid columns can be set to {validMaxColumns.join(" or ")}, the cards will stretch to fit as many columns as possible.
+The maximum number of grid columns can be set to {validMaxColumns.join(" or ")}, the cards will stretch to fit as many
+columns as possible.
 
 ## Column gaps
 
 The grid column gaps are implemented using `padding` instead of `grid-gap` to make aspect ratios work.<br />
-
 
 ## Responsiveness
 
