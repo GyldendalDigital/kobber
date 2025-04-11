@@ -52,6 +52,7 @@
     "stylelint": "^16.0.2",
     "stylelint-config-standard": "^35.0.0",
     "stylelint-order": "^6.0.4",
+    "svg-jsx-converter": "^0.2.1",
     "svg-sprite": "^2.0.4",
     "tsup": "^8.4.0",
     "typedoc": "^0.27.6",
