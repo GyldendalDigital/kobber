@@ -1,4 +1,4 @@
-import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables";
+import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import { ReplaceSpaceWithDash, replaceSpaceWithDash } from "../utils/replace";
 
 export const badgeIconName = "kobber-badge-icon";
