@@ -1,61 +1,47 @@
-import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
-import { getContrastCompliantColors } from "../utils/contrast";
-import { isValidColor } from "../utils/color";
+import { customElement, property, state } from "lit/decorators.js";
+import { badgeClassNames, badgeName, BadgeProps } from "./Badge.core";
+import { CSSResultGroup, html, LitElement } from "lit";
+import componentStyles from "../base/styles/component.styles";
+import { badgeStyles } from "./Badge.styles";
 
 /**
- * Badges are compact elements that are used to display a small amount of information,
- * such as a number or a status indicator.
- *
- * @deprecated Will be reimplented in a future version.
+ * Kobber Badge web-component
  */
-export class Badge extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" });
 
-    const fontSize = `${tokens.typography.ui.button.fontSize / 16}rem;`;
-    const textColor = this.getAttribute("text-color") ?? tokens.component.button.text.color.brand.primary.main;
-    const backgroundColor =
-      this.getAttribute("background-color") ?? tokens.component.button.background.color.brand.primary.main.fallback;
-    const circleColor = this.getAttribute("circle-color");
+@customElement(badgeName)
+export class Badge extends LitElement implements BadgeProps {
+  static styles: CSSResultGroup = [componentStyles, badgeStyles];
 
-    const compliantColors = getContrastCompliantColors({
-      backgroundColor,
-      textColor,
-    });
+  @property({ type: String })
+  variant?: BadgeProps["variant"] = "main";
 
-    this.shadowRoot!.innerHTML = `
-     <style>
-        :host {
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          gap: ${tokens.component.button.container.gap}px;
-          padding: ${tokens.component.button.container.padding.block}px ${tokens.component.button.container.padding.inline}px;
-          font-size: ${fontSize};
-          font-family: ${tokens.typography.ui.button.fontFamily};
-          font-weight: ${tokens.typography.ui.button.fontWeight};
-          border-radius: ${10}px;
-          color: ${compliantColors.textColor};
-          background-color: ${compliantColors.backgroundColor};
-        }
-       
-        .circle {
-          display: inline-block;
-          width: ${fontSize};
-          height: ${fontSize};
-          border-radius: 50%;
-          background-color: ${circleColor};
-        }
-     </style>
-     ${circleColor && isValidColor(circleColor) ? "<span class=circle></span>" : ""}
-     <slot></slot>
-   `;
+  @property({ type: String })
+  theme?: BadgeProps["theme"] = "aubergine";
+
+  @property({ type: String })
+  size?: BadgeProps["size"] = "medium";
+
+  @property({ type: Boolean })
+  showStatusCircle?: BadgeProps["showStatusCircle"];
+
+  connectedCallback() {
+    super.connectedCallback();
   }
-}
 
-export const customElementName = "kobber-badge";
-
-if (!customElements.get(customElementName)) {
-  customElements.define(customElementName, Badge);
+  render() {
+    return html` <div
+      class="${[
+        ...badgeClassNames({
+          variant: this.variant,
+          theme: this.theme,
+          size: this.size,
+          showStatusCircle: this.showStatusCircle,
+        }),
+        this.className,
+      ].join(" ")}"
+    >
+      ${this.showStatusCircle ? html`<div class="status-circle"></div>` : ""}
+      <slot></slot>
+    </div>`;
+  }
 }

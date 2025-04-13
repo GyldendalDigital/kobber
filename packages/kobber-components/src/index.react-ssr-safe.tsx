@@ -10,9 +10,13 @@ import { List } from "./list/List.react";
 import { ListItem } from "./list/ListItem.react";
 import { RadioGroup, RadioInput, RadioInputControl } from "./radio/index.react";
 import { IconFormChecked, IconFormIndeterminate, IconFormRadio } from "./internal-icons/index.react";
+import { Badge } from "./badge/Badge.react";
+import { BadgeIcon } from "./badge-icon/BadgeIcon.react";
 
 export const KobberTextWrapper = TextWrapper;
 export const KobberTextLink = TextLink;
+export const KobberBadge = Badge;
+export const KobberBadgeIcon = BadgeIcon;
 export const KobberHeading = Heading;
 export const KobberIngress = Ingress;
 export const KobberButton = Button;
