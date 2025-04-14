@@ -8,20 +8,16 @@ type BadgeReactProps = {
   Omit<ComponentProps<"div">, "children">;
 
 export const Badge = forwardRef<HTMLDivElement, BadgeReactProps>(
-  ({
-    children,
-    showStatusCircle,
-    theme = "aubergine",
-    variant = "main",
-    size = "medium",
-    className = "",
-    ...props
-  }) => {
+  (
+    { children, showStatusCircle, theme = "aubergine", variant = "main", size = "medium", className = "", ...props },
+    ref,
+  ) => {
     return (
       <>
         <style href={badgeName} precedence="medium" dangerouslySetInnerHTML={{ __html: badgeStyles.cssText }}></style>
         <div
           {...props}
+          ref={ref}
           className={[className, ...badgeClassNames({ showStatusCircle, theme, variant, size })].join(" ")}
         >
           {showStatusCircle && <div className="status-circle"></div>}
