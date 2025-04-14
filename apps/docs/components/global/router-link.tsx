@@ -16,7 +16,7 @@ export const RouterLink = (props: Props) => {
   const { href, children, disabled, highlighted } = props
   const pathname = usePathname()
   return (
-    <Link href={href} passHref legacyBehavior>
+    <Link href={href} passHref>
       <KobberLink
         type={highlighted ? "prominent" : undefined}
         disabled={disabled}
@@ -34,7 +34,7 @@ export const RouterTextLink = (props: Props) => {
   const { href, children, disabled } = props
   const pathname = usePathname()
   return (
-    <Link href={href} passHref legacyBehavior>
+    <Link href={href} passHref>
       <KobberTextLink disabled={disabled} className={cn({ active: pathname === href })} href={href}>
         {children}
       </KobberTextLink>
