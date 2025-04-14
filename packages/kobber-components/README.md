@@ -1,48 +1,51 @@
 # Component library
 
-Components can be used as react components or as web components.<br />
+Components can be used as React components or as web components.<br />
 TypeScript definitions are included.
 
 See also https://kobber.gyldendal.no/komponenter.
 
 ## Installation
 
-Run one of the following commands to add @gyldendal/kobber-components to your project:
-
 ```
 npm install @gyldendal/kobber-components
 ```
 
-```
-yarn add @gyldendal/kobber-components
-```
-
 Depending on you usage, you might need to to install the optional peerDependencies.
 
-## Inter font
+## Fonts
 
-The Inter variable font is used by default.
-It can be installed separately from [fontsource](https://fontsource.org/fonts/inter/) with one of these commands:
+Components specifically sets font-family. You should download the fonts from DAM, add them to public folder and add the following CSS:
 
-```
-npm install @fontsource-variable/inter
+```css
+@font-face {
+  font-family: "pp mori";
+  src: url("./PPMori-Regular.woff2");
+}
+
+@font-face {
+  font-family: "lyon display";
+  src: url("./LyonDisplay-Regular-Web-2.woff2");
+}
+
+@font-face {
+  font-family: "inter";
+  src: url("./InterVariable.ttf");
+}
+
+:root {
+  /* Kobber default font is PP Mori */
+  font-family: "pp mori", Arial, sans-serif;
+}
 ```
 
-```
-yarn add @fontsource-variable/inter
-```
-
-And then imported in your project:
-
-```JavaScript
-import '@fontsource-variable/inter';
-```
+See also https://kobber.gyldendal.no/merkevare/typografi.
 
 ## Usage
 
-Components can be imported as react components or as web components.
+Components can be imported as React components or as web components.
 
-As a react component:
+As a React component:
 
 ```jsx
 import { ProgressBar } from "@gyldendal/kobber-components/react";
