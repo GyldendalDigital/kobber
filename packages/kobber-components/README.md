@@ -15,7 +15,7 @@ Depending on you usage, you might need to to install the optional peerDependenci
 
 ## Fonts
 
-Components specifically sets font-family. You should download the fonts from DAM, add them to public folder and add the following CSS:
+Components specifically sets font-family. You should [download the fonts from DAM](https://dam-p-gyldendal.pqcloud.eu/app/#/search//fileSize/?path=%22%5CKobber%5CKobber%20Team%5CFonter%5CPP%20Mori%5CWeb%22), add them to public folder and add the following CSS:
 
 ```css
 @font-face {
