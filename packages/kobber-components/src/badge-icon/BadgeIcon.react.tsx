@@ -9,7 +9,7 @@ type BadgeIConReactProps = {
   Omit<ComponentProps<"div">, "children">;
 
 export const BadgeIcon = forwardRef<HTMLDivElement, BadgeIConReactProps>(
-  ({ children, theme = "nature", variant = "main", size = "medium", className = "", ...props }) => {
+  ({ children, theme = "nature", variant = "main", size = "medium", className = "", ...props }, ref) => {
     return (
       <>
         <style
@@ -17,7 +17,7 @@ export const BadgeIcon = forwardRef<HTMLDivElement, BadgeIConReactProps>(
           precedence="medium"
           dangerouslySetInnerHTML={{ __html: badgeIconStyles.cssText }}
         ></style>
-        <div {...props} className={[className, ...badgeIconClassNames({ theme, variant, size })].join(" ")}>
+        <div {...props} ref={ref} className={[className, ...badgeIconClassNames({ theme, variant, size })].join(" ")}>
           {children}
         </div>
       </>
