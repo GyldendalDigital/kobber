@@ -63,17 +63,37 @@ export const page = defineType({
       group: GROUP.MAIN_CONTENT,
     }),
     defineField({
-      name: "status",
+      name: "subPageBehavior",
       type: "string",
-      title: "Status",
+      title: "Sub page behavior",
+      description: "Defines how the sub pages are displayed",
       group: GROUP.MAIN_CONTENT,
       options: {
         list: [
-          { title: "Standard", value: undefined },
-          { title: "Kommer", value: "pending" },
-          { title: "Nyhet", value: "new" },
+          { title: "Show as feature box grid", value: "grid" },
+          { title: "Redirect to first sub page", value: "redirect" },
         ],
-        layout: "radio",
+      },
+    }),
+    defineField({
+      name: "status",
+      type: "string",
+      title: "Status",
+      description: "If defined, displayed in a side menu indicator",
+      group: GROUP.MAIN_CONTENT,
+      options: {
+        list: ["Kommer", "Nyhet"],
+      },
+    }),
+    defineField({
+      name: "group",
+      type: "string",
+      title: "Group",
+      group: GROUP.MAIN_CONTENT,
+      description: "If defined, displayed in a side menu accordion",
+      placeholder: "Ingen gruppe",
+      options: {
+        list: ["Introduksjon", "Identitetselementer", "Maler"],
       },
     }),
 

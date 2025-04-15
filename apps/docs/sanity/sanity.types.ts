@@ -186,27 +186,13 @@ export type Navbar = {
   _createdAt: string
   _updatedAt: string
   _rev: string
-  label?: string
-  columns?: Array<
-    | {
-        title?: string
-        links?: Array<{
-          name?: string
-          description?: string
-          url?: CustomUrl
-          _type: "navbarColumnLink"
-          _key: string
-        }>
-        _type: "navbarColumn"
-        _key: string
-      }
-    | {
-        name?: string
-        url?: CustomUrl
-        _type: "navbarLink"
-        _key: string
-      }
-  >
+  children?: Array<{
+    _ref: string
+    _type: "reference"
+    _weak?: boolean
+    _key: string
+    [internalGroqTypeReferenceTo]?: "page"
+  }>
 }
 
 export type Footer = {
@@ -246,6 +232,7 @@ export type Settings = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: "image"
@@ -277,6 +264,7 @@ export type HomePage = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: "image"
@@ -302,7 +290,9 @@ export type Page = {
     _key: string
     [internalGroqTypeReferenceTo]?: "page"
   }>
-  status?: string | "pending" | "new"
+  subPageBehavior?: "grid" | "redirect"
+  status?: "Kommer" | "Nyhet"
+  group?: "Introduksjon" | "Identitetselementer" | "Maler"
   description?: string
   seoTitle?: string
   seoDescription?: string
@@ -313,6 +303,7 @@ export type Page = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: "image"
@@ -436,7 +427,7 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol
 // Source: sanity/lib/queries.ts
 // Variable: queryHomePageData
-// Query: *[_type == "homePage" && _id == "homePage"][0]{    ...,    _id,    _type,    "slug": slug.current,    richText,      pageBuilder[]{    ...,    _type,      _type == "richTextBlock" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },  },      _type == "contactListBlock" => {    ...,    title,  },      _type == "heroBlock" => {    ...,      image{    ...,    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },      _type == "embedBlock" => {    title,    url,  },      _type == "featureBoxBlock" => {    ...,    "features": features[]->  {    title,    "slug": slug.current,    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",  }  },      _type == "listListBlock" => {    ...,    links,  },  }  }
+// Query: *[_type == "homePage" && _id == "homePage"][0]{    ...,    _id,    _type,    "slug": slug.current,    richText,      pageBuilder[]{    ...,    _type,      _type == "richTextBlock" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },  },      _type == "contactListBlock" => {    ...,    title,  },      _type == "heroBlock" => {    ...,      image{    ...,    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },      _type == "embedBlock" => {    title,    url,  },      _type == "featureBoxBlock" => {    ...,    "features": features[]->  {    title,    "slug": slug.current,    "image": damAsset.previewUrl,  }  },      _type == "listListBlock" => {    ...,    links,  },  }  }
 export type QueryHomePageDataResult = {
   _id: string
   _type: "homePage"
@@ -461,7 +452,7 @@ export type QueryHomePageDataResult = {
         features: Array<{
           title: string | null
           slug: string | null
-          image: null
+          image: string | null
         }> | null
       }
     | {
@@ -532,6 +523,7 @@ export type QueryHomePageDataResult = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: "image"
@@ -541,7 +533,7 @@ export type QueryHomePageDataResult = {
   richText: null
 } | null
 // Variable: querySlugPageData
-// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    "slug": slug.current,    "children": children[]->  {    title,    "slug": slug.current,    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",  },      pageBuilder[]{    ...,    _type,      _type == "richTextBlock" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },  },      _type == "contactListBlock" => {    ...,    title,  },      _type == "heroBlock" => {    ...,      image{    ...,    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },      _type == "embedBlock" => {    title,    url,  },      _type == "featureBoxBlock" => {    ...,    "features": features[]->  {    title,    "slug": slug.current,    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",  }  },      _type == "listListBlock" => {    ...,    links,  },  }  }
+// Query: *[_type == "page" && slug.current == $slug][0]{    ...,    "slug": slug.current,    "children": children[]->  {    title,    "slug": slug.current,    "image": damAsset.previewUrl,  },    "image": damAsset.previewUrl,      pageBuilder[]{    ...,    _type,      _type == "richTextBlock" => {    ...,      richText[]{    ...,      markDefs[]{    ...,      ...customLink{    openInNewTab,    "href": select(      type == "internal" => internal->slug.current,      type == "external" => external,      "#"    ),  }  }  },  },      _type == "contactListBlock" => {    ...,    title,  },      _type == "heroBlock" => {    ...,      image{    ...,    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),    "blurData": asset->metadata.lqip,    "dominantColor": asset->metadata.palette.dominant.background,  },  },      _type == "embedBlock" => {    title,    url,  },      _type == "featureBoxBlock" => {    ...,    "features": features[]->  {    title,    "slug": slug.current,    "image": damAsset.previewUrl,  }  },      _type == "listListBlock" => {    ...,    links,  },  }  }
 export type QuerySlugPageDataResult = {
   _id: string
   _type: "page"
@@ -569,7 +561,7 @@ export type QuerySlugPageDataResult = {
         features: Array<{
           title: string | null
           slug: string | null
-          image: null
+          image: string | null
         }> | null
       }
     | {
@@ -633,9 +625,11 @@ export type QuerySlugPageDataResult = {
   children: Array<{
     title: string | null
     slug: string | null
-    image: null
+    image: string | null
   }> | null
-  status?: string | "new" | "pending"
+  subPageBehavior?: "grid" | "redirect"
+  status?: "Kommer" | "Nyhet"
+  group?: "Identitetselementer" | "Introduksjon" | "Maler"
   description?: string
   seoTitle?: string
   seoDescription?: string
@@ -646,6 +640,7 @@ export type QuerySlugPageDataResult = {
       _weak?: boolean
       [internalGroqTypeReferenceTo]?: "sanity.imageAsset"
     }
+    media?: unknown
     hotspot?: SanityImageHotspot
     crop?: SanityImageCrop
     _type: "image"
@@ -653,6 +648,7 @@ export type QuerySlugPageDataResult = {
   seoNoIndex?: boolean
   ogTitle?: string
   ogDescription?: string
+  image: string | null
 } | null
 // Variable: querySlugPagePaths
 // Query: *[_type == "page" && defined(slug.current)].slug.current
@@ -735,34 +731,31 @@ export type QueryFooterDataResult = {
   } | null
 } | null
 // Variable: queryNavbarData
-// Query: *[_type == "navbar" && _id == "navbar"][0]{    _id,    columns[]{      _key,      _type == "navbarColumn" => {        "type": "column",        title,        links[]{          _key,          name,          icon,          description,          "openInNewTab": url.openInNewTab,          "href": select(            url.type == "internal" => url.internal->slug.current,            url.type == "external" => url.external,            url.href          )        }      },      _type == "navbarLink" => {        "type": "link",        name,        description,        "openInNewTab": url.openInNewTab,        "href": select(          url.type == "internal" => url.internal->slug.current,          url.type == "external" => url.external,          url.href        )      }    },    "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max",    "siteTitle": *[_type == "settings"][0].siteTitle,  }
+// Query: *[_type == "navbar" && _id == "navbar"][0]{    _id,    "children": children[]->  {    title,    "slug": slug.current,    "image": damAsset.previewUrl,  },  }
 export type QueryNavbarDataResult = {
   _id: string
-  columns: Array<
-    | {
-        _key: string
-        type: "link"
-        name: string | null
-        description: null
-        openInNewTab: boolean | null
-        href: string | null
-      }
-    | {
-        _key: string
-        type: "column"
-        title: string | null
-        links: Array<{
-          _key: string
-          name: string | null
-          icon: null
-          description: string | null
-          openInNewTab: boolean | null
-          href: string | null
-        }> | null
-      }
-  > | null
-  logo: string | null
-  siteTitle: string | null
+  children: Array<{
+    title: string | null
+    slug: string | null
+    image: string | null
+  }> | null
+} | null
+// Variable: querySideMenuData
+// Query: *[_type == "page" && slug.current == $slug][0]{    _id,    children[]-> {...  {    title,    "slug": slug.current,    status,    group  }, children[]->   {    title,    "slug": slug.current,    status,    group  }}  }
+export type QuerySideMenuDataResult = {
+  _id: string
+  children: Array<{
+    title: string | null
+    slug: string | null
+    status: "Kommer" | "Nyhet" | null
+    group: "Identitetselementer" | "Introduksjon" | "Maler" | null
+    children: Array<{
+      title: string | null
+      slug: string | null
+      status: "Kommer" | "Nyhet" | null
+      group: "Identitetselementer" | "Introduksjon" | "Maler" | null
+    }> | null
+  }> | null
 } | null
 // Variable: querySitemapData
 // Query: {  "slugPages": *[_type == "page" && defined(slug.current)]{    "slug": slug.current,    "lastModified": _updatedAt  },}
@@ -775,14 +768,15 @@ export type QuerySitemapDataResult = {
 
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "homePage" && _id == "homePage"][0]{\n    ...,\n    _id,\n    _type,\n    "slug": slug.current,\n    richText,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "richTextBlock" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n  }\n,\n    \n  _type == "contactListBlock" => {\n    ...,\n    title,\n  }\n,\n    \n  _type == "heroBlock" => {\n    ...,\n    \n  image{\n    ...,\n    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),\n    "blurData": asset->metadata.lqip,\n    "dominantColor": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n    \n  _type == "embedBlock" => {\n    title,\n    url,\n  }\n,\n    \n  _type == "featureBoxBlock" => {\n    ...,\n    "features": features[]->\n  {\n    title,\n    "slug": slug.current,\n    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  }\n\n  }\n,\n    \n  _type == "listListBlock" => {\n    ...,\n    links,\n  }\n,\n  }\n\n  }': QueryHomePageDataResult
-    '\n  *[_type == "page" && slug.current == $slug][0]{\n    ...,\n    "slug": slug.current,\n    "children": children[]->\n  {\n    title,\n    "slug": slug.current,\n    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  }\n,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "richTextBlock" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n  }\n,\n    \n  _type == "contactListBlock" => {\n    ...,\n    title,\n  }\n,\n    \n  _type == "heroBlock" => {\n    ...,\n    \n  image{\n    ...,\n    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),\n    "blurData": asset->metadata.lqip,\n    "dominantColor": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n    \n  _type == "embedBlock" => {\n    title,\n    url,\n  }\n,\n    \n  _type == "featureBoxBlock" => {\n    ...,\n    "features": features[]->\n  {\n    title,\n    "slug": slug.current,\n    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  }\n\n  }\n,\n    \n  _type == "listListBlock" => {\n    ...,\n    links,\n  }\n,\n  }\n\n  }\n  ': QuerySlugPageDataResult
+    '*[_type == "homePage" && _id == "homePage"][0]{\n    ...,\n    _id,\n    _type,\n    "slug": slug.current,\n    richText,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "richTextBlock" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n  }\n,\n    \n  _type == "contactListBlock" => {\n    ...,\n    title,\n  }\n,\n    \n  _type == "heroBlock" => {\n    ...,\n    \n  image{\n    ...,\n    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),\n    "blurData": asset->metadata.lqip,\n    "dominantColor": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n    \n  _type == "embedBlock" => {\n    title,\n    url,\n  }\n,\n    \n  _type == "featureBoxBlock" => {\n    ...,\n    "features": features[]->\n  {\n    title,\n    "slug": slug.current,\n    "image": damAsset.previewUrl,\n  }\n\n  }\n,\n    \n  _type == "listListBlock" => {\n    ...,\n    links,\n  }\n,\n  }\n\n  }': QueryHomePageDataResult
+    '\n  *[_type == "page" && slug.current == $slug][0]{\n    ...,\n    "slug": slug.current,\n    "children": children[]->\n  {\n    title,\n    "slug": slug.current,\n    "image": damAsset.previewUrl,\n  }\n,\n    "image": damAsset.previewUrl,\n    \n  pageBuilder[]{\n    ...,\n    _type,\n    \n  _type == "richTextBlock" => {\n    ...,\n    \n  richText[]{\n    ...,\n    \n  markDefs[]{\n    ...,\n    \n  ...customLink{\n    openInNewTab,\n    "href": select(\n      type == "internal" => internal->slug.current,\n      type == "external" => external,\n      "#"\n    ),\n  }\n\n  }\n\n  }\n,\n  }\n,\n    \n  _type == "contactListBlock" => {\n    ...,\n    title,\n  }\n,\n    \n  _type == "heroBlock" => {\n    ...,\n    \n  image{\n    ...,\n    "alt": coalesce(asset->altText, asset->originalFilename, "Image-Broken"),\n    "blurData": asset->metadata.lqip,\n    "dominantColor": asset->metadata.palette.dominant.background,\n  }\n,\n  }\n,\n    \n  _type == "embedBlock" => {\n    title,\n    url,\n  }\n,\n    \n  _type == "featureBoxBlock" => {\n    ...,\n    "features": features[]->\n  {\n    title,\n    "slug": slug.current,\n    "image": damAsset.previewUrl,\n  }\n\n  }\n,\n    \n  _type == "listListBlock" => {\n    ...,\n    links,\n  }\n,\n  }\n\n  }\n': QuerySlugPageDataResult
     '\n  *[_type == "page" && defined(slug.current)].slug.current\n': QuerySlugPagePathsResult
     '\n  *[_type == "homePage" && _id == $id][0]{\n    \n  _id,\n  _type,\n  "title": select(\n    defined(ogTitle) => ogTitle,\n    defined(seoTitle) => seoTitle,\n    title\n  ),\n  "description": select(\n    defined(ogDescription) => ogDescription,\n    defined(seoDescription) => seoDescription,\n    description\n  ),\n  "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  "dominantColor": image.asset->metadata.palette.dominant.background,\n  "seoImage": seoImage.asset->url + "?w=1200&h=630&dpr=2&fit=max", \n  "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max&q=100",\n  "date": coalesce(date, _createdAt)\n\n  }\n  ': QueryHomePageOGDataResult
     '\n  *[_type == "page" && _id == $id][0]{\n    \n  _id,\n  _type,\n  "title": select(\n    defined(ogTitle) => ogTitle,\n    defined(seoTitle) => seoTitle,\n    title\n  ),\n  "description": select(\n    defined(ogDescription) => ogDescription,\n    defined(seoDescription) => seoDescription,\n    description\n  ),\n  "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  "dominantColor": image.asset->metadata.palette.dominant.background,\n  "seoImage": seoImage.asset->url + "?w=1200&h=630&dpr=2&fit=max", \n  "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max&q=100",\n  "date": coalesce(date, _createdAt)\n\n  }\n': QuerySlugPageOGDataResult
     '\n  *[ defined(slug.current) && _id == $id][0]{\n    \n  _id,\n  _type,\n  "title": select(\n    defined(ogTitle) => ogTitle,\n    defined(seoTitle) => seoTitle,\n    title\n  ),\n  "description": select(\n    defined(ogDescription) => ogDescription,\n    defined(seoDescription) => seoDescription,\n    description\n  ),\n  "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  "dominantColor": image.asset->metadata.palette.dominant.background,\n  "seoImage": seoImage.asset->url + "?w=1200&h=630&dpr=2&fit=max", \n  "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max&q=100",\n  "date": coalesce(date, _createdAt)\n\n  }\n': QueryGenericPageOGDataResult
     '\n  *[_type == "footer" && _id == "footer"][0]{\n    _id,\n    subtitle,\n    columns[]{\n      _key,\n      title,\n      links[]{\n        _key,\n        name,\n        "openInNewTab": url.openInNewTab,\n        "href": select(\n          url.type == "internal" => url.internal->slug.current,\n          url.type == "external" => url.external,\n          url.href\n        ),\n      }\n    },\n    "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max",\n    "siteTitle": *[_type == "settings"][0].siteTitle,\n    "socialLinks": *[_type == "settings"][0].socialLinks,\n  }\n': QueryFooterDataResult
-    '\n  *[_type == "navbar" && _id == "navbar"][0]{\n    _id,\n    columns[]{\n      _key,\n      _type == "navbarColumn" => {\n        "type": "column",\n        title,\n        links[]{\n          _key,\n          name,\n          icon,\n          description,\n          "openInNewTab": url.openInNewTab,\n          "href": select(\n            url.type == "internal" => url.internal->slug.current,\n            url.type == "external" => url.external,\n            url.href\n          )\n        }\n      },\n      _type == "navbarLink" => {\n        "type": "link",\n        name,\n        description,\n        "openInNewTab": url.openInNewTab,\n        "href": select(\n          url.type == "internal" => url.internal->slug.current,\n          url.type == "external" => url.external,\n          url.href\n        )\n      }\n    },\n    "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max",\n    "siteTitle": *[_type == "settings"][0].siteTitle,\n  }\n': QueryNavbarDataResult
+    '\n  *[_type == "navbar" && _id == "navbar"][0]{\n    _id,\n    "children": children[]->\n  {\n    title,\n    "slug": slug.current,\n    "image": damAsset.previewUrl,\n  }\n,\n  }\n': QueryNavbarDataResult
+    '\n  *[_type == "page" && slug.current == $slug][0]{\n    _id,\n    children[]-> {...\n  {\n    title,\n    "slug": slug.current,\n    status,\n    group\n  }\n, children[]-> \n  {\n    title,\n    "slug": slug.current,\n    status,\n    group\n  }\n}\n  }\n': QuerySideMenuDataResult
     '{\n  "slugPages": *[_type == "page" && defined(slug.current)]{\n    "slug": slug.current,\n    "lastModified": _updatedAt\n  },\n}': QuerySitemapDataResult
   }
 }
