@@ -93,6 +93,7 @@ export const structure = (S: StructureBuilder, context: StructureResolverContext
     .items([
       createList({ S, type: "page", title: "Pages" }),
       createSingleTon({ S, type: "homePage", icon: HomeIcon }),
+      createSingleTon({ S, type: "navbar", icon: Settings2 }),
       // S.divider(),
       // S.listItem()
       //   .title("Site Configuration")

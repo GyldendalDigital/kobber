@@ -39,7 +39,7 @@ const childPageFragment = /* groq */ `
   {
     title,
     "slug": slug.current,
-    "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",
+    "image": damAsset.previewUrl,
   }
 `
 
@@ -113,9 +113,10 @@ export const querySlugPageData = defineQuery(/* groq */ `
     ...,
     "slug": slug.current,
     "children": children[]->${childPageFragment},
+    "image": damAsset.previewUrl,
     ${pageBuilderFragment}
   }
-  `)
+`)
 
 export const querySlugPagePaths = defineQuery(/* groq */ `
   *[_type == "page" && defined(slug.current)].slug.current
@@ -186,38 +187,23 @@ export const queryFooterData = defineQuery(/* groq */ `
 export const queryNavbarData = defineQuery(/* groq */ `
   *[_type == "navbar" && _id == "navbar"][0]{
     _id,
-    columns[]{
-      _key,
-      _type == "navbarColumn" => {
-        "type": "column",
-        title,
-        links[]{
-          _key,
-          name,
-          icon,
-          description,
-          "openInNewTab": url.openInNewTab,
-          "href": select(
-            url.type == "internal" => url.internal->slug.current,
-            url.type == "external" => url.external,
-            url.href
-          )
-        }
-      },
-      _type == "navbarLink" => {
-        "type": "link",
-        name,
-        description,
-        "openInNewTab": url.openInNewTab,
-        "href": select(
-          url.type == "internal" => url.internal->slug.current,
-          url.type == "external" => url.external,
-          url.href
-        )
-      }
-    },
-    "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max",
-    "siteTitle": *[_type == "settings"][0].siteTitle,
+    "children": children[]->${childPageFragment},
+  }
+`)
+
+const sideMenuItemFragment = /* groq */ `
+  {
+    title,
+    "slug": slug.current,
+    status,
+    group
+  }
+`
+
+export const querySideMenuData = defineQuery(/* groq */ `
+  *[_type == "page" && slug.current == $slug][0]{
+    _id,
+    children[]-> {...${sideMenuItemFragment}, children[]-> ${sideMenuItemFragment}}
   }
 `)
 

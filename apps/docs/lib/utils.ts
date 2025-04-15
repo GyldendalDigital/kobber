@@ -9,6 +9,7 @@ type PlaceholderImageProps = {
   backgroundColor?: string
   textColor?: string
   textRows?: string[]
+  size?: string | "600x400" | "20x20"
 }
 
 /**
@@ -18,8 +19,9 @@ export const placeholderImageUrl = ({
   backgroundColor = "eae0e1",
   textColor = "691837",
   textRows = ["placeholder", "image"],
+  size = "600x400",
 }: PlaceholderImageProps) =>
-  `https://placehold.co/600x400/${backgroundColor}/${textColor}?text=${textRows.join("%5Cn")}`
+  `https://placehold.co/${size}/${backgroundColor}/${textColor}?text=${textRows.join("%5Cn")}`
 
 export const hexToRgb = (hex: string) => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)

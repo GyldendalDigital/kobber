@@ -11,7 +11,8 @@ const createListItemStyles = () => {
       align-items: center;
       cursor: pointer;
       gap: var(${unsafeCSS(listItem.container.gap)});
-      padding: var(${unsafeCSS(listItem.container.padding.block)});
+      padding-block: var(${unsafeCSS(listItem.container.padding.block)});
+      padding-inline: var(${unsafeCSS(listItem.container.padding.inline)});
       border-radius: var(${unsafeCSS(listItem.container.border.radius)});
       color: var(${unsafeCSS(listItem.text.color)});
       font-size: var(${unsafeCSS(typography.ui["label large - single line"].fontSize)});

@@ -27,12 +27,15 @@ export const LoginButton = (props: Props) => {
   const loginText = status !== "authenticated" ? "Logg inn" : "Logg ut"
 
   return (
-    <KobberButton
-      variant={cta ? "brand-primary-main" : "brand-secondary-main"}
-      icon={<IconLogin className="size-4" />}
-      onClick={status === "unauthenticated" ? handleLogin : handleLogout}
-    >
-      {loginText + textSuffix}
-    </KobberButton>
+    <div className="w-fit min-w-32">
+      <KobberButton
+        fullWidth
+        variant={cta ? "brand-primary-main" : "brand-secondary-main"}
+        icon={<IconLogin className="size-4" />}
+        onClick={status === "unauthenticated" ? handleLogin : handleLogout}
+      >
+        {loginText + textSuffix}
+      </KobberButton>
+    </div>
   )
 }
