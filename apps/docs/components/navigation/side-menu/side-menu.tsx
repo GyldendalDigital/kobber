@@ -30,7 +30,12 @@ export const SideMenu = async ({ slug }: Props) => {
         }) as SideMenuItem
     )
 
-  const groups = Object.entries(groupBy(items, (x) => x.group ?? ""))
+  const groups = Object.entries(
+    groupBy(
+      items.filter((x) => x.group),
+      (x) => x.group ?? ""
+    )
+  )
   const ungrouped = items.filter((x) => !x.group)
 
   return (
