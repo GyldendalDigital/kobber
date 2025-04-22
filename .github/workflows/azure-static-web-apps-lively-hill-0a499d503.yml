@@ -14,6 +14,7 @@ jobs:
   build_and_deploy_job:
     name: Deploy storybook
     runs-on: ubuntu-latest
+    if: github.event.pull_request.user.login != 'dependabot[bot]'
     environment:
       name: kobber-storybook.gyldendaldigital.no
       url: https://kobber-storybook.gyldendaldigital.no
