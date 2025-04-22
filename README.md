@@ -1,31 +1,90 @@
-# Kobber - Gyldendals designsystem
+<div align="center">
 
-## Run locally
+  <a href="https://kobber.gyldendal.no">
+    <img src="https://dam-prod.gyldendaldigital.no/tenants/edu/file/FO4HFrU94yn8e_pN7iIqOf/*/FO4HFrU94yn8e_pN7iIqOf.svg" height="150">
+    <h3 align="center">Gyldendals designsystem</h3>
+  </a>
 
-This project uses Yarn, so follow the directions on https://yarnpkg.com/getting-started/install to set up locally.
+  <h1 align="center">Kobber</h1>
 
-Then, run `yarn dev` for local development, or the other scripts in package.json.
+[![NPM latest version](https://img.shields.io/npm/v/@gyldendal/kobber-components/latest.svg?color=481125&labelColor=481125)](https://www.npmjs.com/package/@gyldendal/kobber-components)
+![NPM last update](https://img.shields.io/npm/last-update/%40gyldendal%2Fkobber-components?color=481125&labelColor=481125)
+[![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?logo=figma&logoColor=white&color=481125)](https://www.figma.com/design/zMcbm8ujSMldgS1VB70IMP/Kobber-Komponentbibliotek)
 
-Pull requests are deployed in Cloudflare. To view build logs, make your own Cloudflare user with your Gyldendal username, activate 2FA, and request an invitation to cloudflare@gyldendal.no. (This may take a day.)
+</div>
 
-### Storybook
+### ⚡ How to add components to your project
 
-Storybook for web components lets you choose between kobber-theme-default and kobber-theme-dark, but for now the themes are identical.
+#### Install
 
-## 📦 Packages
+```bash
+npm install @gyldendal/kobber-components
+```
 
-1. [@gyldendal/kobber-audio-recorder](./packages/kobber-audio-recorder/README.md)
-1. [@gyldendal/kobber-base](./packages/kobber-base/README.md)
-1. [@gyldendal/kobber-components](./packages/kobber-components/README.md)
-1. @gyldendal/kobber-eslint
-1. [@gyldendal/kobber-icons](./packages/kobber-icons/README.md)
-1. @gyldendal/kobber-prettier
-1. [@gyldendal/kobber-scene](./packages/kobber-scene/README.md)
-1. @gyldendal/kobber-stylelint
-1. [@gyldendal/kobber-tsconfig](./packages/kobber-tsconfig/README.md)
+#### Use
 
-## 🙏 Credits
+```html
+<script>
+  import "@gyldendal/kobber-components/web-components";
+</script>
 
-Big thanks to the [Aksel team](https://aksel.nav.no) at NAV for meeting with us, and answering all our questions.
+<div class="kobber-theme-default">
+  <kobber-button>Hello Kobber</kobber-button>
+</div>
+```
 
-Also thanks to [Vy](https://spor.vy.no) for unknowingly helping us by having an open source design system.
+> [!TIP]
+> Check [components readme](./packages/kobber-components/README.md) for adding fonts or using the React version (required for SSR apps like NextJS).
+
+<br />
+
+### 🖼️ How to add icons to your project
+
+#### Install
+
+```bash
+npm install @gyldendal/kobber-icons
+```
+
+#### Use
+
+```html
+<script>
+  import "@gyldendal/kobber-icons/web-components";
+</script>
+
+<kobber-arrow_right />
+```
+
+> [!TIP]
+> Check [icons readme](./packages/kobber-icons/README.md) for more options.
+
+<br />
+
+## Development
+
+This monorepo contains all code related to Kobber. They share dependencies and common commands can be run from root using [Turbo CLI syntax](https://turbo.build/docs/reference/run#--filter-string).
+
+### Run docs page locally
+
+```bash
+yarn install
+
+# build only this package and all its dependencies
+yarn build -F @gyldendal/kobber-components
+
+# runs the dev server for /apps/docs project (kobber.gyldendal.no)
+yarn dev -F docs
+```
+
+### Run Storybook locally
+
+```bash
+yarn install
+
+# Produce css variables from design tokens, required by components
+yarn build -F @gyldendal/kobber-base
+
+# runs the dev server for /apps/storybook-web-components (kobber-storybook.gyldendaldigital.no)
+yarn storybook
+```
