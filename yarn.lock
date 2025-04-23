@@ -3438,7 +3438,7 @@ __metadata:
   resolution: "@gyldendal/kobber-scene@workspace:packages/kobber-scene"
   dependencies:
     "@gyldendal/kobber-tsconfig": "npm:*"
-    "@lit/context": "npm:^1.1.4"
+    "@lit/context": "npm:^1.1.5"
     "@lit/react": "npm:^1.0.7"
     "@types/react": "npm:^19.1.0"
     lit: "npm:^3.2.1"
@@ -3916,12 +3916,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit/context@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "@lit/context@npm:1.1.4"
+"@lit/context@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "@lit/context@npm:1.1.5"
   dependencies:
-    "@lit/reactive-element": "npm:^1.6.2 || ^2.0.0"
-  checksum: 10c0/53bb69952e642aa4f064d8c3afe74b36e1a8e148156114523850040ff333cb99e31c5de02096fd8e8c9773ecf524bad7af901cbd19b28492960ce28ef1f421c4
+    "@lit/reactive-element": "npm:^1.6.2 || ^2.1.0"
+  checksum: 10c0/16ab105c8fa32db9407199ee5d0ef3751946490946bcdbbd6fe87ab7e09dbce1e00a58c46638340958e4520b69406b3b797ead00017c68db9b268d30c5eda5c3
   languageName: node
   linkType: hard
 
@@ -3943,12 +3943,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit/reactive-element@npm:^1.0.0 || ^2.0.0, @lit/reactive-element@npm:^1.6.2 || ^2.0.0, @lit/reactive-element@npm:^2.0.4":
+"@lit/reactive-element@npm:^1.0.0 || ^2.0.0, @lit/reactive-element@npm:^2.0.4":
   version: 2.0.4
   resolution: "@lit/reactive-element@npm:2.0.4"
   dependencies:
     "@lit-labs/ssr-dom-shim": "npm:^1.2.0"
   checksum: 10c0/359cc19ea9ee8b65e1417eb9c12f40dddba8f0a5ab32f0e5facaecee6060629e44eb4ca27d9af945fe6eda8c033aa636abaa5f0c4e6a529b224d78674acf47ba
+  languageName: node
+  linkType: hard
+
+"@lit/reactive-element@npm:^1.6.2 || ^2.1.0":
+  version: 2.1.0
+  resolution: "@lit/reactive-element@npm:2.1.0"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": "npm:^1.2.0"
+  checksum: 10c0/3cd61c4e7cc8effeb2c246d5dada8fbe0a730e9e0dd488eb38c91a4f63b773e3b7f86f8384051677298e73de470c7ca6b5634df3ca190b307f8bb8e0d51bb91c
   languageName: node
   linkType: hard
 
