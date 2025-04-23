@@ -19,7 +19,7 @@
     "@gyldendal/kobber-icons": "*",
     "@gyldendal/kobber-stylelint": "*",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
-    "@radix-ui/react-scroll-area": "^1.2.3",
+    "@radix-ui/react-scroll-area": "^1.2.4",
     "@radix-ui/react-slot": "^1.1.2",
     "@sanity/icons": "^3.7.0",
     "@sanity/image-url": "^1.1.0",
