@@ -3270,7 +3270,7 @@ __metadata:
     "@shoelace-style/shoelace": "npm:^2.14.0"
     "@types/mocha": "npm:^10.0.6"
     "@types/react": "npm:^19.1.0"
-    "@types/stylis": "npm:^4.2.4"
+    "@types/stylis": "npm:^4.2.7"
     "@typescript-eslint/eslint-plugin": "npm:^8.23.0"
     "@typescript-eslint/parser": "npm:^8.23.0"
     "@web/dev-server-esbuild": "npm:^1.0.2"
@@ -7481,10 +7481,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/stylis@npm:^4.2.4":
-  version: 4.2.6
-  resolution: "@types/stylis@npm:4.2.6"
-  checksum: 10c0/4c384a90451c5d2447ea10e6d3d483bb3de877a3d67488952f26726996929f25605b68f41c315ef0c6ecf7491e69a4f58d87c7a2009b35f2a6dde8de8ec2e8a2
+"@types/stylis@npm:^4.2.7":
+  version: 4.2.7
+  resolution: "@types/stylis@npm:4.2.7"
+  checksum: 10c0/01a9679addb3f63951a9c09729564e2205581f2db40875a28b25cc461efc52ba17a711cc50cdb5e7d3a67c5f2cd60580e078c8a69b8df7b67699d89060d2a977
   languageName: node
   linkType: hard
 
