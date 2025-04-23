@@ -5903,9 +5903,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/orderable-document-list@npm:^1.3.3":
-  version: 1.3.3
-  resolution: "@sanity/orderable-document-list@npm:1.3.3"
+"@sanity/orderable-document-list@npm:^1.3.4":
+  version: 1.3.4
+  resolution: "@sanity/orderable-document-list@npm:1.3.4"
   dependencies:
     "@hello-pangea/dnd": "npm:^18.0.1"
     "@sanity/icons": "npm:^3.5.3"
@@ -5918,7 +5918,7 @@ __metadata:
     react-dom: ^18 || ^19
     sanity: ^3.0.0
     styled-components: ^6.1
-  checksum: 10c0/8de2a38cd0b4c530e1ed006da608c1cdea45462dfd5e4df01b78b5552b3262c28f0f6bda094af320eacd0e264d5db06ba639483f56a628204336e8cd75c96397
+  checksum: 10c0/28f6a8ce1b0faeb6c06d3d8a8e9b3b1a4cf4ef03734b3bef40a49d69d17d2be59ae036d66d6fd8caa0ef97dee9b19ac4248544da33d9fdb8fd4ad841f11ef9ca
   languageName: node
   linkType: hard
 
@@ -10774,7 +10774,7 @@ __metadata:
     "@radix-ui/react-slot": "npm:^1.1.2"
     "@sanity/icons": "npm:^3.7.0"
     "@sanity/image-url": "npm:^1.1.0"
-    "@sanity/orderable-document-list": "npm:^1.3.3"
+    "@sanity/orderable-document-list": "npm:^1.3.4"
     "@sanity/vision": "npm:^3.82.0"
     "@types/react": "npm:^19.1.0"
     "@types/react-dom": "npm:^19.1.1"
