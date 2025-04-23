@@ -44,7 +44,7 @@
     "@lit/react": "^1.0.7",
     "@shoelace-style/shoelace": "^2.14.0",
     "@types/mocha": "^10.0.6",
-    "@types/react": "^19.1.0",
+    "@types/react": "^19.1.2",
     "@types/stylis": "^4.2.4",
     "@typescript-eslint/eslint-plugin": "^8.23.0",
     "@typescript-eslint/parser": "^8.23.0",

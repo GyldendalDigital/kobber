@@ -34,7 +34,7 @@
     "@gyldendal/kobber-tsconfig": "*",
     "@lit/react": "^1.0.7",
     "@types/jsdom": "^21.1.7",
-    "@types/react": "^19.1.0",
+    "@types/react": "^19.1.2",
     "@typescript-eslint/eslint-plugin": "^8.23.0",
     "@typescript-eslint/parser": "^8.23.0",
     "eslint": "^9.19.0",

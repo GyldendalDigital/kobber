@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@gyldendal/kobber-tsconfig": "*",
-    "@types/react": "^19.1.0",
+    "@types/react": "^19.1.2",
     "onchange": "^7.1.0",
     "react": "^19.1.0",
     "tsup": "^8.4.0",
