@@ -3264,7 +3264,7 @@ __metadata:
     "@gyldendal/kobber-icons": "npm:*"
     "@gyldendal/kobber-stylelint": "npm:*"
     "@gyldendal/kobber-tsconfig": "npm:*"
-    "@lit-labs/observers": "npm:^2.0.4"
+    "@lit-labs/observers": "npm:^2.0.5"
     "@lit/react": "npm:^1.0.7"
     "@shoelace-style/localize": "npm:^3.1.2"
     "@shoelace-style/shoelace": "npm:^2.14.0"
@@ -3899,13 +3899,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit-labs/observers@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "@lit-labs/observers@npm:2.0.4"
+"@lit-labs/observers@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "@lit-labs/observers@npm:2.0.5"
   dependencies:
     "@lit/reactive-element": "npm:^1.0.0 || ^2.0.0"
     lit-html: "npm:^3.2.0"
-  checksum: 10c0/2c060bf54d8066ab28aa2d14fc7df334bf5e39badef97f7d086a24f65deaedf5bd307e196a0f5fc404e7e2047d71f62fc1153fea3174b6c4cd4c458f33f0fa78
+  checksum: 10c0/a44b066d21658c3d0e40ea6aca99a2eeb1257878fd28801adb53da0e1db87d7c6e291c2154c7d99c88d723fd58259049b3340e54defd3ddb9c10e4f870c45708
   languageName: node
   linkType: hard
 
