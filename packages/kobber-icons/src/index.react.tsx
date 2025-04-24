@@ -135,8 +135,8 @@ import { StudyMath as KobberStudyMath } from "./icon/icons/study_math";
 import { Subscript as KobberSubscript } from "./icon/icons/subscript";
 import { Subtract as KobberSubtract } from "./icon/icons/subtract";
 import { Superscript as KobberSuperscript } from "./icon/icons/superscript";
-import { SynchronizeArrowsSquare as KobberSynchronizeArrowsSquare } from "./icon/icons/synchronize__arrows__square";
 import { SynchronizeArrowClock as KobberSynchronizeArrowClock } from "./icon/icons/synchronize_arrow_clock";
+import { SynchronizeArrowsSquare as KobberSynchronizeArrowsSquare } from "./icon/icons/synchronize_arrows_square";
 import { SynchronizeArrowsWarning as KobberSynchronizeArrowsWarning } from "./icon/icons/synchronize_arrows_warning";
 import { TabletTouch as KobberTabletTouch } from "./icon/icons/tablet_touch";
 import { TaskList as KobberTaskList } from "./icon/icons/task_list";
@@ -971,15 +971,15 @@ export const Superscript = createComponent({
   react: React,
 });
 
-export const SynchronizeArrowsSquare = createComponent({
-  tagName: "kobber-synchronize__arrows__square",
-  elementClass: KobberSynchronizeArrowsSquare,
-  react: React,
-});
-
 export const SynchronizeArrowClock = createComponent({
   tagName: "kobber-synchronize_arrow_clock",
   elementClass: KobberSynchronizeArrowClock,
+  react: React,
+});
+
+export const SynchronizeArrowsSquare = createComponent({
+  tagName: "kobber-synchronize_arrows_square",
+  elementClass: KobberSynchronizeArrowsSquare,
   react: React,
 });
 

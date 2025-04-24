@@ -132,7 +132,7 @@ export { StudyMath } from "./icon/icons/study_math/index.react";
 export { Subscript } from "./icon/icons/subscript/index.react";
 export { Subtract } from "./icon/icons/subtract/index.react";
 export { Superscript } from "./icon/icons/superscript/index.react";
-export { SynchronizeArrowsSquare } from "./icon/icons/synchronize__arrows__square/index.react";
+export { SynchronizeArrowsSquare } from "./icon/icons/synchronize_arrows_square/index.react";
 export { SynchronizeArrowClock } from "./icon/icons/synchronize_arrow_clock/index.react";
 export { SynchronizeArrowsWarning } from "./icon/icons/synchronize_arrows_warning/index.react";
 export { TabletTouch } from "./icon/icons/tablet_touch/index.react";
