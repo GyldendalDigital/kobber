@@ -1,6 +1,6 @@
 {
   "name": "@gyldendal/kobber-prettier",
-  "version": "0.3.87",
+  "version": "0.4.1",
   "main": "prettier.config.js",
   "license": "MIT",
   "type": "module",

@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.4.1
+
+### Patch Changes
+
+- Build react icons as actual react components
+
 ## 0.3.87
 
 ### Patch Changes
