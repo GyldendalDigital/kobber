@@ -14,6 +14,8 @@ Run documentation site
 yarn dev -F docs
 ```
 
+Also requires an .env file in the docs folder with [the following secrets in Keeper](https://keepersecurity.eu/vault/#detail/7i8pCa5I6A9YAIPYzvYTPA).
+
 ## Local build (from /apps/docs)
 
 Build, then run the built files (as they would run in production).
