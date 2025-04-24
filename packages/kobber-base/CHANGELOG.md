@@ -1,5 +1,11 @@
 # @gyldendal/kobber-base
 
+## 0.4.1
+
+### Patch Changes
+
+- Build react icons as actual react components
+
 ## 0.4.0
 
 ### Minor Changes
