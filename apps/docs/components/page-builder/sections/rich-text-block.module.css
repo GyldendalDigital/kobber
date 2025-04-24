@@ -2,17 +2,20 @@
   display: flex;
   flex-direction: column;
 
-  & :where(:not(:first-child)) {
-    margin-top: 2rem;
-  }
-
-  & :where(h1 + h2) {
-    margin-top: 0;
-  }
-
-  & :where(h2 + p),
-  & :where(h2 + picture),
-  & :where(p + p) {
+  & h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  div,
+  p,
+  picture {
     margin-top: 1rem;
+  }
+
+  & :first-child,
+  h1 + h2 {
+    margin-top: 0;
   }
 }

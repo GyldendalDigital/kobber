@@ -1,7 +1,5 @@
 .feature-box {
   display: grid;
-
-  /* TODO: from tokens */
   grid-template-columns: repeat(
     auto-fill,
     minmax(min(100%, max(13rem + clamp(0.5rem, 0.38rem + 0.63vw, 1rem), 20%)), 1fr)

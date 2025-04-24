@@ -31,7 +31,7 @@ export const damAsset = defineType({
   preview: {
     select: {
       title: "name",
-      media: "previewUrl",
+      // media: "previewUrl", // createElement tag name error
     },
   },
 })

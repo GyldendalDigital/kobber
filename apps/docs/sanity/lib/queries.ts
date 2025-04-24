@@ -64,6 +64,14 @@ const linkListBlock = /* groq */ `
   }
 `
 
+const colorListBlock = /* groq */ `
+  _type == "colorListBlock" => {
+    ...,
+    ${richTextFragment},
+    colors,
+  }
+`
+
 const heroBlock = /* groq */ `
   _type == "heroBlock" => {
     ...,
@@ -95,6 +103,7 @@ const pageBuilderFragment = /* groq */ `
     ${embedBlock},
     ${featureBoxBlock},
     ${linkListBlock},
+    ${colorListBlock},
   }
 `
 

@@ -1,3 +1,4 @@
+import { colorListBlock } from "./colorListBlock"
 import { contactListBlock } from "./contactListBlock"
 import { embedBlock } from "./embedBlock"
 import { featureBoxBlock } from "./featureBoxBlock"
@@ -12,4 +13,5 @@ export const pageBuilderBlocks = [
   featureBoxBlock,
   embedBlock,
   linkListBlock,
+  colorListBlock,
 ]

@@ -7,6 +7,7 @@ import { KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
 import { useOptimistic } from "@sanity/visual-editing/react"
 import { createDataAttribute, type SanityDocument } from "next-sanity"
 import type { PagebuilderType } from "./page-builder.types"
+import { ColorListBlock } from "./sections/color-list/color-list-block"
 import { ContactListBlock } from "./sections/contact-list-block"
 import { EmbedBlock } from "./sections/embed-block"
 import { FeatureBoxBlock } from "./sections/feature-box-block"
@@ -35,6 +36,7 @@ const BLOCK_COMPONENTS = {
   embedBlock: EmbedBlock,
   featureBoxBlock: FeatureBoxBlock,
   linkListBlock: LinkListBlock,
+  colorListBlock: ColorListBlock,
 } as const
 
 type BlockType = keyof typeof BLOCK_COMPONENTS
