@@ -10,7 +10,7 @@ import { makeIconTypes } from "./make-types";
 import { makeWebComponent } from "./make-web-component";
 import { makeStory } from "./make-storybook-story";
 import { makeIconGallery } from "./make-storybook-icon-gallery";
-import { makeSSRSafeReactComponent } from "./make-react-ssr-safe-component";
+import { makeSSRSafeReactComponentPostscript } from "./make-react-ssr-safe-component-postscript";
 
 const componentPrefix = "kobber-";
 const svgsListsFile = `dist/symbols/kobber-icons-lists.ts`;
@@ -53,8 +53,16 @@ const snakeToPascalCase = (word: string): string => {
     .join("/");
 };
 
+const snakeToKebabCase = (word: string): string => {
+  return word
+    .split("/")
+    .map(snake => snake.split("_").join("-"))
+    .join("/");
+};
+
 export const getIconNames = (symbolName: string) => ({
   unprefixed: symbolName.replace(componentPrefix, ""),
+  unprefixedKebab: snakeToKebabCase(symbolName).replace(snakeToKebabCase(componentPrefix), ""),
   prefixedCapitalized: snakeToPascalCase(symbolName),
   unprefixedCapitalized: snakeToPascalCase(symbolName).replace(snakeToPascalCase(componentPrefix), ""),
 });
@@ -63,21 +71,20 @@ export const makeComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
   symbols.forEach(symbol => {
     const iconNames = getIconNames(symbol.id);
     const webComponentCode = makeWebComponent(symbol);
-    const reactCode = makeSSRSafeReactComponent(symbol);
 
     fs.mkdirSync(`${iconsDirectory}/${iconNames.unprefixed}`);
     fs.writeFileSync(`${iconsDirectory}/${iconNames.unprefixed}/index.ts`, webComponentCode);
-    fs.writeFileSync(`${iconsDirectory}/${iconNames.unprefixed}/index.react.tsx`, reactCode);
   });
+  makeSSRSafeReactComponentPostscript(symbols);
 };
 
 export const listComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
   const webComponentsExportsListString = listWebComponents(symbols);
   const reactExportsListString = listReactComponents(symbols);
-  const reactSSRSafeExportsListString = listReactSSRSafeComponents(symbols);
+  //const reactSSRSafeExportsListString = listReactSSRSafeComponents(symbols);
 
   fs.writeFileSync(reactExportsListFile, reactExportsListString);
-  fs.writeFileSync(reactSSRSafeExportsListFile, reactSSRSafeExportsListString);
+  //fs.writeFileSync(reactSSRSafeExportsListFile, reactSSRSafeExportsListString);
   fs.writeFileSync(webComponentsExportsListFile, webComponentsExportsListString);
 };
 

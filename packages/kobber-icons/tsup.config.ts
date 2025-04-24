@@ -13,17 +13,16 @@ const webComponentsDirectory = "web-components";
 const iconDirectory = "src/icon";
 const iconsDirectory = `${iconDirectory}/icons`;
 
-const removeDirectory = (directory: string) => {
-  if (!fs.existsSync(directory)) return;
-  fs.rmdirSync(directory, { recursive: true });
+const cleanDirectory = (directory: string) => {
+  if (fs.existsSync(directory)) {
+    fs.rmSync(directory, { recursive: true });
+  }
+  fs.mkdirSync(directory);
 };
 
 const symbols = getSymbols(fs.readFileSync(svgSpriteFile));
 
-removeDirectory(assets);
-removeDirectory(iconsDirectory);
-
-fs.mkdirSync(iconsDirectory);
+cleanDirectory(iconsDirectory);
 
 makeComponents(symbols);
 makeStories(symbols);
