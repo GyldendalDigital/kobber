@@ -77,6 +77,8 @@ yarn build -F @gyldendal/kobber-components
 yarn dev -F docs
 ```
 
+Also requires an .env file in the docs folder with [the following secrets in Keeper](https://keepersecurity.eu/vault/#detail/7i8pCa5I6A9YAIPYzvYTPA).
+
 ### Run Storybook locally
 
 ```bash
