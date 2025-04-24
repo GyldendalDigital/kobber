@@ -17,11 +17,8 @@ export const SideMenuGroup = (props: Props) => {
   const { title, items } = props
   const pathname = usePathname()
   const pathnamePrefix = pathname.replace("/fra-sanity", "").split("/").slice(0, 3).join("/")
-  const slug = items.at(0)?.slug
-
-  const [expanded, setExpanded] = useState(
-    slug ? slug.startsWith(pathnamePrefix) : false
-  )
+  const initiallyExpanded = items.some((item) => item.slug?.startsWith(pathnamePrefix))
+  const [expanded, setExpanded] = useState(initiallyExpanded)
 
   return (
     <div className={styles["group-divider"]}>
