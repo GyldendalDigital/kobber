@@ -13,7 +13,7 @@ import pageLayoutStyles from "@/styles/page-layout.module.css"
 import { NavButton, NavLink } from "../nav-link"
 import styles from "./small-screen-nav.module.css"
 
-type Nav = NonNullable<QueryNavbarSmallScreenDataResult>
+type Nav = Pick<NonNullable<QueryNavbarSmallScreenDataResult>, "children">
 
 type NavigationGroup = NonNullable<Nav["children"]>[number] | undefined
 
@@ -42,7 +42,7 @@ export const SmallScreenNav = (props: Nav) => {
               <ul className={styles["small-screen-nav-link-list-inner"]}>
                 {child.children?.map((child) => (
                   <li key={child.slug} className={styles["small-screen-nav-link-list-inner-item"]}>
-                    <NavLink href={child.slug}>{child.title}</NavLink>
+                    {child.slug && <NavLink href={child.slug}>{child.title}</NavLink>}
                   </li>
                 ))}
               </ul>

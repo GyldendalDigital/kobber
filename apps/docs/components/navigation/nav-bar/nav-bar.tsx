@@ -48,7 +48,7 @@ export const NavBar = async () => {
       </div>
 
       <div className="small-screen-nav-content">
-        <SmallScreenNav {...data} />
+        {data?.children && <SmallScreenNav {...data} />}
       </div>
     </header>
   )
