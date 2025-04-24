@@ -1,0 +1,37 @@
+.small-screen-nav {
+  height: 100vh;
+  margin-block: var(--kobber-component-docs-navbar-container-padding-block);
+  overflow: auto;
+}
+
+.small-screen-nav-back-button {
+  padding-block: var(--kobber-component-docs-navbar-container-padding-block);
+  opacity: 0.8;
+}
+
+.small-screen-nav-login-button {
+  padding-block: 1rem;
+}
+
+.small-screen-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-block: var(--kobber-component-docs-navbar-container-padding-block);
+}
+
+.small-screen-nav-list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.small-screen-nav-link-list-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.small-screen-nav-link-list-inner-item {
+  display: block;
+}

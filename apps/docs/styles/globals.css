@@ -92,4 +92,12 @@
     color: var(--highlight-color);
     font-style: normal;
   }
+
+  .small-screen-nav-content {
+    display: none;
+  }
+
+  .open .small-screen-nav-content {
+    display: block;
+  }
 }
