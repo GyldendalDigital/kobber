@@ -196,7 +196,14 @@ export const queryFooterData = defineQuery(/* groq */ `
 export const queryNavbarData = defineQuery(/* groq */ `
   *[_type == "navbar" && _id == "navbar"][0]{
     _id,
-    "children": children[]->${childPageFragment},
+    children[]->${childPageFragment},
+  }
+`)
+
+export const queryNavbarSmallScreenData = defineQuery(/* groq */ `
+  *[_type == "navbar" && _id == "navbar"][0]{
+    _id,
+    children[]-> {...${childPageFragment}, children[]-> ${childPageFragment}}
   }
 `)
 

@@ -2,14 +2,20 @@
   position: sticky;
   top: 0;
   inset-inline: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  background-color: var(--kobber-component-docs-navbar-background-color-main);
+  padding-bottom: var(--kobber-component-docs-navbar-container-padding-block);
+}
+
+.bar {
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr;
-  padding-block: var(--kobber-component-docs-navbar-container-padding-block);
-  z-index: 1000;
+  width: 100%;
   gap: 1rem;
   white-space: nowrap;
-  background-color: var(--kobber-component-docs-navbar-background-color-main);
 }
 
 .inner-container {
