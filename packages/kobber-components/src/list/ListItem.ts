@@ -23,15 +23,17 @@ export class ListItem extends KobberElement {
   disabled?: boolean;
 
   override render() {
-    const role = this.role ?? (this.parentElement?.getAttribute("role")?.includes("menu") ? "menuitem" : null);
+    const parentRole = this.parentElement?.shadowRoot?.firstElementChild?.getAttribute("role");
+    const role =
+      this.role ?? (parentRole === "menubar" ? "menuitem" : null) ?? (parentRole === "list" ? "listitem" : null);
 
     return html`
       <div
         class="${[listItemClassNames(listItemName), this.className].join(" ")}"
         role=${ifDefined(role)}
-        ?active=${ifDefined(this.active)}
-        ?disabled=${ifDefined(this.disabled)}
-        ?inert=${ifDefined(this.disabled)}
+        active=${ifDefined(this.active)}
+        disabled=${ifDefined(this.disabled)}
+        inert=${ifDefined(this.disabled)}
       >
         <span class="text">
           <slot></slot>

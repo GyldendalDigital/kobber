@@ -6,7 +6,7 @@ import { HTMLProps, forwardRef } from "react";
 type Props = AccordionProps & HTMLProps<HTMLDivElement>;
 
 export const Accordion = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const { children, className, expanded, onToggle, headingLevel, title, ...rest } = props;
+  const { children, className, expanded, onToggle, title, headingLevel = 2, ...rest } = props;
   const dateNowAsElementId = new Date().toISOString();
   return (
     <>

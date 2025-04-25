@@ -1,6 +1,5 @@
 import { forwardRef, HTMLProps, ReactNode } from "react";
 import { listItemClassNames, listItemName, ListItemProps } from "./ListItem.core";
-
 import { listItemStyles } from "./ListItem.styles";
 
 type Props = {
@@ -25,8 +24,8 @@ export const ListItem = forwardRef<HTMLDivElement, Props>((props, ref) => {
           " ",
         )}
         role={rest.role}
+        inert={rest.disabled}
         aria-disabled={rest.disabled}
-        aria-inert={rest.disabled}
       >
         <span className="text">{children}</span>
         {icon}

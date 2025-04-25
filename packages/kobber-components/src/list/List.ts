@@ -1,5 +1,5 @@
 import { CSSResultGroup, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, state } from "lit/decorators.js";
 import "./ListItem";
 import KobberElement from "../base/kobber-element";
 import { listClassNames, listName, ListProps } from "./List.core";
@@ -29,14 +29,23 @@ export class List extends KobberElement implements ListProps {
   @property()
   orientation?: ListProps["orientation"];
 
-  // perhaps we need to set role on the host to let list items inherit roles
+  @state()
+  private _role?: string | null;
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    // role moved to inner container
+    this._role = this.getAttribute("role") ?? "menubar";
+    this.removeAttribute("role");
+  }
 
   override render() {
     return html`
       <div
         class="${listClassNames(listName)}"
-        role="${this.role ?? "menubar"}"
-        aria-orientation="${ifDefined(this.orientation)}"
+        role="${this._role}"
+        aria-orientation="${ifDefined(this._role === "menubar" ? this.orientation : null)}"
         tabindex="-1"
       >
         <slot></slot>
