@@ -1,7 +1,4 @@
 .rich-text-block {
-  display: flex;
-  flex-direction: column;
-
   & h1,
   h2,
   h3,
