@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
+import { ArrowLeft } from "@gyldendal/kobber-icons/react-ssr-safe"
 import { Menu, X } from "lucide-react"
 import { createPortal } from "react-dom"
 import { cn } from "@/lib/utils"
@@ -11,7 +12,6 @@ import { metaGettingStarted } from "@/app/(web)/(routes)/kom-i-gang/gettingStart
 import { metaBrand } from "@/app/(web)/(routes)/merkevare/brand.meta"
 import { metaTokens } from "../../app/(web)/(routes)/tokens/tokens.meta"
 import { LoginButton } from "../global/login-button"
-import { IconArrowLeft } from "../kobber-icons"
 import { NavButton, NavLink } from "./nav-link"
 import { metaBrandNavigationGroups, NavigationGroup } from "./navigation-map"
 import styles from "./small-screen-nav.module.css"
@@ -66,7 +66,7 @@ export const SmallScreenNav = () => {
               {/* Breadcrumbs */}
               <div className={styles["small-screen-nav-overlay-back-button"]}>
                 <NavButton onClick={() => setSelectedBrandNavigationGroup(undefined)}>
-                  <IconArrowLeft size={16} />
+                  <ArrowLeft className="size-4" />
                   {metaBrand.title as string} / {selectedBrandNavigationGroup?.title}
                 </NavButton>
               </div>
