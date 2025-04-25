@@ -9,6 +9,7 @@ const richTextMembers = [
       { title: "H1", value: "h1" },
       { title: "H2", value: "h2" },
       { title: "Ingress", value: "h3" },
+      { title: "50% bredde", value: "inline" },
     ],
     lists: [
       { title: "Numbered", value: "number" },

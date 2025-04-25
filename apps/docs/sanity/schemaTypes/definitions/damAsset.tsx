@@ -24,6 +24,12 @@ export const damAsset = defineType({
       title: "Preview URL",
       type: "string",
     }),
+    defineField({
+      name: "inline",
+      title: "50% bredde",
+      type: "boolean",
+      initialValue: false,
+    }),
   ],
   components: {
     input: DamAssetInput,

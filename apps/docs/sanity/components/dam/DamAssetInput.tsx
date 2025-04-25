@@ -3,6 +3,8 @@ import {
   Box,
   Button,
   Card,
+  Checkbox,
+  Flex,
   Grid,
   Select,
   Stack,
@@ -20,6 +22,7 @@ type DamAssetInputProps = {
     assetId?: string
     name?: string
     previewUrl?: string
+    inline?: boolean
   }
   onChange: (patch: PatchEvent) => void
 }
@@ -108,23 +111,57 @@ export function DamAssetInput(props: DamAssetInputProps) {
   }, [handleSelect, searchInput, manualAssetExtension])
 
   const handleClear = useCallback(() => {
-    onChange(PatchEvent.from([unset(["assetId"]), unset(["name"]), unset(["previewUrl"])]))
+    onChange(
+      PatchEvent.from([
+        unset(["assetId"]),
+        unset(["name"]),
+        unset(["previewUrl"]),
+        unset(["inline"]),
+      ])
+    )
     setAssets(undefined)
   }, [onChange])
 
   const filteredAssets = useMemo(
     () =>
-      assets?.filter((asset) => asset.name.toLowerCase().includes(searchInput.toLowerCase()) || asset.assetId.toLowerCase().includes(searchInput.toLowerCase())),
+      assets?.filter(
+        (asset) =>
+          asset.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+          asset.assetId.toLowerCase().includes(searchInput.toLowerCase())
+      ),
     [assets, searchInput]
   )
 
   if (value?.assetId) {
-    return <div>
-      <AssetCard asset={value as DamAsset} onClick={handleClear} onHover={(asset => <>
-        <Text style={{ textAlign: "center" }}>Click to clear</Text>
-      </>)} />
-      <small>Id: {value.assetId}</small>
-    </div>
+    return (
+      <div
+        style={{ paddingBottom: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}
+      >
+        <AssetCard
+          asset={value as DamAsset}
+          onClick={handleClear}
+          onHover={(asset) => (
+            <>
+              <Text style={{ textAlign: "center" }}>Click to clear</Text>
+            </>
+          )}
+        />
+        <small>Id: {value.assetId}</small>
+        <Flex align="center">
+          <Checkbox
+            id="checkbox"
+            style={{ display: "block" }}
+            checked={value.inline}
+            onClick={() => onChange(PatchEvent.from([set(!value.inline, ["inline"])]))}
+          />
+          <Box flex={1} paddingLeft={3}>
+            <Text>
+              <label htmlFor="checkbox">50% bredde</label>
+            </Text>
+          </Box>
+        </Flex>
+      </div>
+    )
   }
 
   return (
@@ -139,7 +176,7 @@ export function DamAssetInput(props: DamAssetInputProps) {
         <Stack space={2} style={{ flexDirection: "row" }}>
           <TextInput
             value={searchInput}
-            onKeyDown={e => {
+            onKeyDown={(e) => {
               if (e.key === "Enter") {
                 handleSearch()
               }
@@ -163,12 +200,18 @@ export function DamAssetInput(props: DamAssetInputProps) {
       ) : !filteredAssets ? null : filteredAssets.length > 0 ? (
         <Grid columns={3} gap={3}>
           {filteredAssets.map((asset) => (
-            <AssetCard key={asset.assetId} asset={asset} onClick={handleSelect} onHover={(asset => <Text>ID: {asset.assetId}</Text>)} />
+            <AssetCard
+              key={asset.assetId}
+              asset={asset}
+              onClick={handleSelect}
+              onHover={(asset) => <Text>ID: {asset.assetId}</Text>}
+            />
           ))}
         </Grid>
-      ) :
+      ) : (
         <>
-          Metadata not found. If you are certain the asset exists, you can set the correct file extension and save:
+          Metadata not found. If you are certain the asset exists, you can set the correct file
+          extension and save:
           <Grid columns={2} gap={2}>
             <Select
               value={manualAssetExtension}
@@ -185,76 +228,86 @@ export function DamAssetInput(props: DamAssetInputProps) {
             />
           </Grid>
         </>
-      }
+      )}
     </Stack>
   )
 }
 
-const AssetCard = ({ asset, onClick, onHover }: { asset: DamAsset, onClick?: (asset: DamAsset) => void, onHover?: (asset: DamAsset) => ReactNode }) => {
-  return <Tooltip
-    key={asset.assetId}
-    arrow
-    animate
-    content={
-      <Stack space={2} padding={2}>
-        {onHover && onHover(asset)}
-      </Stack>
-    }
-  >
-    <Card
-      padding={2}
-      tone="default"
-      style={{
-        cursor: "pointer",
-        position: "relative",
-        borderRadius: "8px",
-        overflow: "hidden",
-      }}
-      onClick={() => onClick && onClick(asset)}
+const AssetCard = ({
+  asset,
+  onClick,
+  onHover,
+}: {
+  asset: DamAsset
+  onClick?: (asset: DamAsset) => void
+  onHover?: (asset: DamAsset) => ReactNode
+}) => {
+  return (
+    <Tooltip
+      key={asset.assetId}
+      arrow
+      animate
+      content={
+        <Stack space={2} padding={2}>
+          {onHover && onHover(asset)}
+        </Stack>
+      }
     >
-      <div
+      <Card
+        padding={2}
+        tone="default"
         style={{
+          cursor: "pointer",
           position: "relative",
-          width: "100%",
-          height: "120px",
-          borderRadius: "6px",
+          borderRadius: "8px",
           overflow: "hidden",
         }}
+        onClick={() => onClick && onClick(asset)}
       >
-        <img
-          src={asset.previewUrl}
-          alt={asset.name}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            backgroundColor: "#f5f5f5",
-          }}
-        />
         <div
           style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            background: "rgba(0, 0, 0, 0.7)",
+            position: "relative",
+            width: "100%",
+            height: "120px",
+            borderRadius: "6px",
+            overflow: "hidden",
           }}
         >
-          <Text
-            size={1}
+          <img
+            src={asset.previewUrl}
+            alt={asset.name}
             style={{
-              color: "white",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-              padding: "0.7em 0.2em",
-              textAlign: "center",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              backgroundColor: "#f5f5f5",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              background: "rgba(0, 0, 0, 0.7)",
             }}
           >
-            {asset.name}
-          </Text>
+            <Text
+              size={1}
+              style={{
+                color: "white",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+                padding: "0.7em 0.2em",
+                textAlign: "center",
+              }}
+            >
+              {asset.name}
+            </Text>
+          </div>
         </div>
-      </div>
-    </Card>
-  </Tooltip>;
+      </Card>
+    </Tooltip>
+  )
 }
