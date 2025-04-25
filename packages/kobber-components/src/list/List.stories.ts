@@ -58,7 +58,7 @@ export const List: StoryObj<Args> = {
 
 const getNamedSlot = (icon: string) =>
   icon === "lock"
-    ? `<icon-lock_locked slot="icon" />`
+    ? `<kobber-lock_locked slot="icon" />`
     : icon === "label"
       ? `<small slot="icon" style="color:red;font-size:10px">kommer</small>`
       : "";

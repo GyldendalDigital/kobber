@@ -185,7 +185,7 @@ const renderButton = (args: Args) => {
   ${link ? "href='#' target='_blank'" : ""}
   aria-label="optional button label">
   ${text ? text : ""}
-  ${icon !== "none" ? "<icon-arrow_right slot='icon' />" : ""}
+  ${icon !== "none" ? "<kobber-arrow_right slot='icon' />" : ""}
 </kobber-button>
 `;
 };

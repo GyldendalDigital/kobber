@@ -1,6 +1,7 @@
 "use client"
 
 import { KobberLink } from "@gyldendal/kobber-components/react-ssr-safe"
+import { ExternalLinkArrow } from "@gyldendal/kobber-icons/react-ssr-safe"
 
 type Props = {
   highlighted?: boolean
@@ -16,7 +17,7 @@ export const ExternalLink = (props: Props) => {
       type={highlighted ? "prominent" : undefined}
       disabled={disabled}
       href={href}
-      icon="external_link_arrow"
+      icon={<ExternalLinkArrow />}
     >
       {children}
     </KobberLink>

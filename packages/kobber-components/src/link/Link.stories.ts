@@ -4,10 +4,13 @@ import { storySummary } from "../story/story-summary";
 import { linkStyles } from "./Link.styles";
 import "./Link";
 import "@gyldendal/kobber-icons/web-components";
-import { linkIconPositions, linkIcons, LinkProps, linkTypes } from "./Link.core";
+import { LinkProps, linkTypes } from "./Link.core";
+
+const iconSettings = ["none", "right", "left"] as const;
 
 interface Args extends LinkProps {
   text?: string;
+  icon: (typeof iconSettings)[number];
 }
 
 const meta: Meta<Args> = {
@@ -18,13 +21,8 @@ const meta: Meta<Args> = {
       control: { type: "select" },
     },
     icon: {
-      options: [undefined, ...linkIcons],
+      options: iconSettings,
       control: { type: "radio" },
-    },
-    iconPosition: {
-      options: linkIconPositions,
-      control: { type: "radio" },
-      if: { arg: "icon", truthy: true },
     },
   },
   decorators: [(Story, context) => html`<div class="${context.globals.theme}">${Story()}</div>`],
@@ -41,8 +39,7 @@ export const Link: StoryObj<Args> = {
   args: {
     text: "",
     type: "navigation",
-    icon: undefined,
-    iconPosition: "right",
+    icon: iconSettings[0],
   },
   render: args => {
     return html`<div style="max-width: 600px;">
@@ -53,10 +50,10 @@ export const Link: StoryObj<Args> = {
                 class="${state}"
                 href=${state !== "disabled" ? "https://github.com/GyldendalDigital/kobber" : undefined}
                 type="${args.type}"
-                ${args.icon ? `icon=${args.icon}` : undefined}
-                ${args.iconPosition ? `icon=${args.iconPosition}` : undefined}
+                ${args.icon === "left" ? "iconFirst" : ""}
               >
                 ${args.text || `Lenke med tilstand ${state}`}
+                ${args.icon !== "none" ? html`<kobber-arrow_right slot="icon" />` : ""}
               </kobber-link>
             </p>`;
           })}
@@ -70,10 +67,10 @@ export const Link: StoryObj<Args> = {
                 class="${state}"
                 onClick="alert('Hello world!')"
                 type="${args.type}"
-                ${args.icon ? `icon=${args.icon}` : undefined}
-                ${args.iconPosition ? `icon=${args.iconPosition}` : undefined}
+                ${args.icon === "left" ? "iconFirst" : ""}
               >
                 ${args.text || `Knapp med tilstand ${state}`}
+                ${args.icon !== "none" ? html`<kobber-arrow_right slot="icon" />` : ""}
               </kobber-link>
             </p>`;
           })}

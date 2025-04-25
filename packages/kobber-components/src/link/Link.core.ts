@@ -2,19 +2,30 @@ export const linkName = "kobber-link";
 
 export type LinkProps = {
   type?: LinkType;
-  icon?: LinkIcon;
-  iconPosition?: LinkIconPosition;
+  iconFirst?: boolean;
   href?: HTMLAnchorElement["href"];
   /** Defaults to _blank if href is external */
   target?: HTMLAnchorElement["target"];
 };
 
-export const linkClassNames = ({ type = "navigation", icon, iconPosition }: LinkProps): LinkClassNames[] => {
+export type LinkComputedProps = {
+  hasIcon?: boolean;
+  iconOnly?: boolean;
+};
+
+export const linkClassNames = ({
+  type = "navigation",
+  hasIcon = false,
+  iconOnly = false,
+  iconFirst = false,
+}: LinkProps & LinkComputedProps): LinkClassNames[] => {
   const conditionalClassNames: LinkClassNames[] = [];
 
-  if (icon) {
+  if (hasIcon) {
     conditionalClassNames.push("kobber-link--icon");
-    if (iconPosition === "left") {
+    if (iconOnly) {
+      conditionalClassNames.push("kobber-link--icon-only");
+    } else if (iconFirst) {
       conditionalClassNames.push("kobber-link--icon-left");
     }
   }
@@ -22,13 +33,12 @@ export const linkClassNames = ({ type = "navigation", icon, iconPosition }: Link
   return [linkName, type, ...conditionalClassNames];
 };
 
-export type LinkClassNames = typeof linkName | LinkType | "kobber-link--icon" | "kobber-link--icon-left";
-
-export type LinkIcon = undefined | (typeof linkIcons)[number];
-export const linkIcons = ["external_link_arrow", "download"] as const;
-
-export type LinkIconPosition = undefined | (typeof linkIconPositions)[number];
-export const linkIconPositions = ["left", "right"] as const;
+export type LinkClassNames =
+  | typeof linkName
+  | LinkType
+  | "kobber-link--icon"
+  | "kobber-link--icon-left"
+  | "kobber-link--icon-only";
 
 export type LinkType = (typeof linkTypes)[number];
 export const linkTypes = ["prominent", "navigation", "subtle"] as const;

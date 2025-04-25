@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { tryAddSanityHref } from "@/utils/sanity-temp-href"
 import { KobberLink, KobberTextLink } from "@gyldendal/kobber-components/react-ssr-safe"
+import { ExternalLinkArrow } from "@gyldendal/kobber-icons/react-ssr-safe"
 import { cn } from "@/lib/utils"
 
 type Props = {
@@ -18,13 +19,13 @@ export const RouterLink = (props: Props) => {
   const pathname = usePathname()
   const tempHref = tryAddSanityHref(pathname, href)
   return (
-    <Link href={tempHref} passHref>
+    <Link href={tempHref} passHref legacyBehavior>
       <KobberLink
         type={highlighted ? "prominent" : undefined}
         disabled={disabled}
         className={cn({ active: pathname === tempHref })}
         href={tempHref}
-        icon={href?.startsWith("http") === true ? "external_link_arrow" : undefined}
+        icon={href?.startsWith("http") === true ? <ExternalLinkArrow /> : undefined}
       >
         {children}
       </KobberLink>
