@@ -50,8 +50,8 @@ export class Accordion extends LitElement implements AccordionProps {
             @click="${this.toggle}"
             >${this.title}
             ${this.expanded
-              ? html`<icon-chevron_up slot="icon" />`
-              : html`<icon-chevron_down slot="icon" />`}</kobber-list-item
+              ? html`<kobber-chevron_up slot="icon" />`
+              : html`<kobber-chevron_down slot="icon" />`}</kobber-list-item
           >
         </div>
 

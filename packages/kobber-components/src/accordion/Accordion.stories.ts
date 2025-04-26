@@ -86,7 +86,7 @@ const getSlot = (args: StoryObj["args"], i: number) => {
 
 const getNamedSlot = (icon: string) =>
   icon === "lock"
-    ? `<icon-lock_locked slot="icon" />`
+    ? `<kobber-lock_locked slot="icon" />`
     : icon === "label"
       ? `<small slot="icon" style="color:red">kommer</small>`
       : "";

@@ -1,11 +1,12 @@
-import { CSSResultGroup, LitElement } from "lit";
-import { customElement, property, state } from "lit/decorators.js";
+import { CSSResultGroup } from "lit";
+import { customElement, property } from "lit/decorators.js";
 import componentStyles from "../base/styles/component.styles";
 import { buttonStyles } from "./Button.styles";
 import { buttonClassNames, buttonName, ButtonProps } from "./Button.core";
 import "@gyldendal/kobber-icons/web-components";
 import { literal, html } from "lit/static-html.js";
 import { ifDefined } from "lit/directives/if-defined.js";
+import KobberElementWithIcon from "../base/kobber-element-with-icon";
 
 /**
  * Button with icon slot
@@ -15,7 +16,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
  * Figma: https://www.figma.com/design/zMcbm8ujSMldgS1VB70IMP/Styles-%26-komponenter?node-id=111-158&node-type=canvas&m=dev
  */
 @customElement(buttonName)
-export class Button extends LitElement implements ButtonProps {
+export class Button extends KobberElementWithIcon implements ButtonProps {
   static styles: CSSResultGroup = [componentStyles, buttonStyles];
 
   @property()
@@ -54,37 +55,8 @@ export class Button extends LitElement implements ButtonProps {
    */
   @property() value = "";
 
-  @state()
-  private _hasIcon = false;
-
-  @state()
-  private _iconOnly = false;
-
-  @state()
-  private _label?: string | null;
-
   private isLink() {
     return this.href ? true : false;
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-
-    // used for special icon only styling
-    const hasSlot = Array.from(this.shadowRoot!.host.children).filter(element => element.tagName === "SLOT").length > 0;
-    const textContent = this.shadowRoot?.host.textContent?.trim();
-    const hasOtherContentThanIcon = textContent !== "" || hasSlot;
-
-    this._hasIcon = this.shadowRoot?.host.querySelector("[slot=icon]") !== null;
-    this._iconOnly = !hasOtherContentThanIcon && this._hasIcon;
-
-    // aria-label moved from host to button
-    this._label = this.getAttribute("aria-label");
-    this.removeAttribute("aria-label");
-
-    if (this._iconOnly && !this._label) {
-      console.warn("aria-label is required for icon only buttons");
-    }
   }
 
   render() {

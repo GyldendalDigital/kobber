@@ -187,7 +187,7 @@ export const Link: Story = {
                 class="${state}"
                 href=${state !== "disabled" ? "https://github.com/GyldendalDigital/kobber" : undefined}
               >
-                Lenke ${args.icon ? html`<icon-external_link_arrow />` : null}
+                Lenke ${args.icon ? html`<kobber-external_link_arrow />` : null}
               </kobber-text-link>
               med tilstand <code>${state}</code>
             </p>`;

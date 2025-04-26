@@ -78,6 +78,11 @@ const createStyles = () => {
         &.${unsafeCSS("kobber-link--icon-left" satisfies LinkClassNames)} {
           flex-direction: row-reverse;
         }
+
+        &.${unsafeCSS("kobber-link--icon-only" satisfies LinkClassNames)} {
+          aspect-ratio: 1 / 1;
+          padding: 0;
+        }
       }
 
       svg {
