@@ -48,11 +48,11 @@ const components: Partial<PortableTextReactComponents> = {
   },
   types: {
     damAsset: ({ value }) => (
-      <picture
+      <img
         className={cn("overflow-hidden rounded-lg", value.inline && "mr-[2%] inline-block w-[48%]")}
-      >
-        <img src={value.previewUrl} alt={value.name} />
-      </picture>
+        src={value.previewUrl}
+        alt={value.name}
+      />
       // {value.caption && <small>{value.caption}</small>}
     ),
   },

@@ -7,11 +7,16 @@
   h6,
   div,
   p,
-  picture {
+  img,
+  ul {
     margin-top: 1rem;
   }
 
-  & :first-child,
+  & h2 {
+    margin-top: 2rem;
+  }
+
+  & h1,
   h1 + h2 {
     margin-top: 0;
   }
