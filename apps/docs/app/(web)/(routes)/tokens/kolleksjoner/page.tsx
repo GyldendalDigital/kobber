@@ -1,12 +1,12 @@
+import Image from "next/image"
 import {
   KobberHeading,
   KobberIngress,
   KobberTextWrapper,
 } from "@gyldendal/kobber-components/react-ssr-safe"
-
-import { ContentLayout } from "@/components/content-layout"
-import Image from "next/image"
 import { damUrl } from "@/lib/damImageLoader"
+import { ContentLayout } from "@/components/content-layout"
+import { RouterTextLink } from "@/components/global/router-link"
 
 export default function TokenIntroPage() {
   return (
@@ -149,7 +149,7 @@ export default function TokenIntroPage() {
           Layout-kolleksjonen inneholder tokens som brukes til å lage komponenter som bestemmer
           oppførselen til layouten i brukergrensesnittet - også kalt responsivt, dynamisk eller også
           fluid design. Vi har viet et eget avsnitt om dette under fanen{" "}
-          <a href="/tokens/layout">Responsivitet</a>.
+          <RouterTextLink href="/tokens/layout">Responsivitet</RouterTextLink>.
         </p>
       </KobberTextWrapper>
       <KobberTextWrapper>
