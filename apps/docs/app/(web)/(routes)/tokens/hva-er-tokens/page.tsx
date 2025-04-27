@@ -6,6 +6,7 @@ import {
 } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
 import { ContentLayout } from "@/components/content-layout"
+import { RouterTextLink } from "@/components/global/router-link"
 
 export default function TokenIntroPage() {
   return (
@@ -52,7 +53,8 @@ export default function TokenIntroPage() {
         <p>
           Under ser vi et eksempel på en token som har fått nytt navn basert på kolleksjon og
           kontekst. Her ser vi også at token-verdier refererer til andre token-verdier. Les mer om
-          dette under fanen <a href="/tokens/kolleksjoner">Kolleksjoner</a>.
+          dette under fanen{" "}
+          <RouterTextLink href="/tokens/kolleksjoner">Kolleksjoner</RouterTextLink>.
         </p>
       </KobberTextWrapper>
 
