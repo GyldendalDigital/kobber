@@ -415,6 +415,10 @@
                           {
                             "type": "string",
                             "value": "h3"
+                          },
+                          {
+                            "type": "string",
+                            "value": "inline"
                           }
                         ]
                       },
@@ -515,6 +519,21 @@
                   "rest": {
                     "type": "inline",
                     "name": "damAsset"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "embedBlock"
                   }
                 }
               ]
@@ -667,6 +686,13 @@
           "type": "objectAttribute",
           "value": {
             "type": "string"
+          },
+          "optional": true
+        },
+        "inline": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
           },
           "optional": true
         }
@@ -846,6 +872,10 @@
                           {
                             "type": "string",
                             "value": "h3"
+                          },
+                          {
+                            "type": "string",
+                            "value": "inline"
                           }
                         ]
                       },
@@ -946,6 +976,21 @@
                   "rest": {
                     "type": "inline",
                     "name": "damAsset"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "embedBlock"
                   }
                 }
               ]
@@ -1175,6 +1220,10 @@
                     {
                       "type": "string",
                       "value": "h3"
+                    },
+                    {
+                      "type": "string",
+                      "value": "inline"
                     }
                   ]
                 },
@@ -1275,6 +1324,21 @@
             "rest": {
               "type": "inline",
               "name": "damAsset"
+            }
+          },
+          {
+            "type": "object",
+            "attributes": {
+              "_key": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "rest": {
+              "type": "inline",
+              "name": "embedBlock"
             }
           }
         ]
@@ -2553,6 +2617,13 @@
           "type": "objectAttribute",
           "value": {
             "type": "string"
+          },
+          "optional": true
+        },
+        "inline": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
           },
           "optional": true
         }

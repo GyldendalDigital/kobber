@@ -81,7 +81,7 @@ export type ColorListBlock = {
           _type: "span"
           _key: string
         }>
-        style?: "normal" | "h1" | "h2" | "h3"
+        style?: "normal" | "h1" | "h2" | "h3" | "inline"
         listItem?: "number" | "bullet"
         markDefs?: Array<{
           customLink?: CustomUrl
@@ -95,6 +95,9 @@ export type ColorListBlock = {
     | ({
         _key: string
       } & DamAsset)
+    | ({
+        _key: string
+      } & EmbedBlock)
   >
   colors?: Array<{
     title?: string
@@ -120,6 +123,7 @@ export type EmbedBlock = {
   _type: "embedBlock"
   title?: string
   url?: string
+  inline?: boolean
 }
 
 export type FeatureBoxBlock = {
@@ -148,7 +152,7 @@ export type RichTextBlock = {
           _type: "span"
           _key: string
         }>
-        style?: "normal" | "h1" | "h2" | "h3"
+        style?: "normal" | "h1" | "h2" | "h3" | "inline"
         listItem?: "number" | "bullet"
         markDefs?: Array<{
           customLink?: CustomUrl
@@ -162,6 +166,9 @@ export type RichTextBlock = {
     | ({
         _key: string
       } & DamAsset)
+    | ({
+        _key: string
+      } & EmbedBlock)
   >
 }
 
@@ -202,7 +209,7 @@ export type RichText = Array<
         _type: "span"
         _key: string
       }>
-      style?: "normal" | "h1" | "h2" | "h3"
+      style?: "normal" | "h1" | "h2" | "h3" | "inline"
       listItem?: "number" | "bullet"
       markDefs?: Array<{
         customLink?: CustomUrl
@@ -216,6 +223,9 @@ export type RichText = Array<
   | ({
       _key: string
     } & DamAsset)
+  | ({
+      _key: string
+    } & EmbedBlock)
 >
 
 export type Navbar = {
@@ -427,6 +437,7 @@ export type DamAsset = {
   assetId?: string
   name?: string
   previewUrl?: string
+  inline?: boolean
 }
 
 export type Slug = {
@@ -485,7 +496,7 @@ export type QueryHomePageDataResult = {
                 _type: "span"
                 _key: string
               }>
-              style?: "h1" | "h2" | "h3" | "normal"
+              style?: "h1" | "h2" | "h3" | "inline" | "normal"
               listItem?: "bullet" | "number"
               markDefs: Array<
                 | {
@@ -511,6 +522,15 @@ export type QueryHomePageDataResult = {
               assetId?: string
               name?: string
               previewUrl?: string
+              inline?: boolean
+              markDefs: null
+            }
+          | {
+              _key: string
+              _type: "embedBlock"
+              title?: string
+              url?: string
+              inline?: boolean
               markDefs: null
             }
         > | null
@@ -533,6 +553,7 @@ export type QueryHomePageDataResult = {
         _type: "embedBlock"
         title: string | null
         url: string | null
+        inline?: boolean
       }
     | {
         _key: string
@@ -570,7 +591,7 @@ export type QueryHomePageDataResult = {
                 _type: "span"
                 _key: string
               }>
-              style?: "h1" | "h2" | "h3" | "normal"
+              style?: "h1" | "h2" | "h3" | "inline" | "normal"
               listItem?: "bullet" | "number"
               markDefs: Array<
                 | {
@@ -596,6 +617,15 @@ export type QueryHomePageDataResult = {
               assetId?: string
               name?: string
               previewUrl?: string
+              inline?: boolean
+              markDefs: null
+            }
+          | {
+              _key: string
+              _type: "embedBlock"
+              title?: string
+              url?: string
+              inline?: boolean
               markDefs: null
             }
         > | null
@@ -643,7 +673,7 @@ export type QuerySlugPageDataResult = {
                 _type: "span"
                 _key: string
               }>
-              style?: "h1" | "h2" | "h3" | "normal"
+              style?: "h1" | "h2" | "h3" | "inline" | "normal"
               listItem?: "bullet" | "number"
               markDefs: Array<
                 | {
@@ -669,6 +699,15 @@ export type QuerySlugPageDataResult = {
               assetId?: string
               name?: string
               previewUrl?: string
+              inline?: boolean
+              markDefs: null
+            }
+          | {
+              _key: string
+              _type: "embedBlock"
+              title?: string
+              url?: string
+              inline?: boolean
               markDefs: null
             }
         > | null
@@ -691,6 +730,7 @@ export type QuerySlugPageDataResult = {
         _type: "embedBlock"
         title: string | null
         url: string | null
+        inline?: boolean
       }
     | {
         _key: string
@@ -728,7 +768,7 @@ export type QuerySlugPageDataResult = {
                 _type: "span"
                 _key: string
               }>
-              style?: "h1" | "h2" | "h3" | "normal"
+              style?: "h1" | "h2" | "h3" | "inline" | "normal"
               listItem?: "bullet" | "number"
               markDefs: Array<
                 | {
@@ -754,6 +794,15 @@ export type QuerySlugPageDataResult = {
               assetId?: string
               name?: string
               previewUrl?: string
+              inline?: boolean
+              markDefs: null
+            }
+          | {
+              _key: string
+              _type: "embedBlock"
+              title?: string
+              url?: string
+              inline?: boolean
               markDefs: null
             }
         > | null

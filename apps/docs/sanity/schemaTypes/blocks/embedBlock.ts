@@ -18,6 +18,12 @@ export const embedBlock = defineType({
       initialValue: () =>
         "https://kobber-storybook.gyldendaldigital.no/?path=/story/button--button",
     }),
+    defineField({
+      name: "inline",
+      title: "50% bredde",
+      type: "boolean",
+      initialValue: false,
+    }),
   ],
   preview: {
     select: {
