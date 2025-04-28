@@ -16,10 +16,10 @@ import { listItemStyles } from "./ListItem.styles";
 export class ListItem extends KobberElement {
   static styles: CSSResultGroup = [componentStyles, listItemStyles];
 
-  @property({ reflect: true })
+  @property({ type: Boolean, reflect: true })
   active?: boolean;
 
-  @property({ reflect: true })
+  @property({ type: Boolean, reflect: true })
   disabled?: boolean;
 
   override render() {
@@ -29,9 +29,9 @@ export class ListItem extends KobberElement {
       <div
         class="${[listItemClassNames(listItemName), this.className].join(" ")}"
         role=${ifDefined(role)}
-        ?active=${ifDefined(this.active)}
-        ?disabled=${ifDefined(this.disabled)}
-        ?inert=${ifDefined(this.disabled)}
+        data-active=${ifDefined(this.active)}
+        aria-disabled=${this.disabled ?? false}
+        .inert=${this.disabled ?? false}
       >
         <span class="text">
           <slot></slot>

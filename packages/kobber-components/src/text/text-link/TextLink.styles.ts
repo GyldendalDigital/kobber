@@ -27,7 +27,7 @@ const createStyles = () => {
         left: 0;
       }
 
-      &[disabled],
+      &[aria-disabled="true"],
       &.disabled {
         opacity: var(${unsafeCSS(universal.disabled.container.opacity)});
         opacity: 0.5;

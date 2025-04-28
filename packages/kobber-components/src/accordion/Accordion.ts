@@ -15,10 +15,10 @@ import { AccordionAriaHeadingLevel, accordionClassNames, accordionName, Accordio
 export class Accordion extends LitElement implements AccordionProps {
   static styles: CSSResultGroup = [componentStyles, accordionStyles];
 
-  @property()
+  @property({ type: Boolean })
   expanded = false;
 
-  @property()
+  @property({ type: Number })
   headingLevel: AccordionAriaHeadingLevel = 2;
 
   @query(".accordion-content")

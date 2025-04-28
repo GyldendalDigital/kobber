@@ -17,5 +17,6 @@
     "titleBar.inactiveBackground": "#5d2d2499",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "npm.packageManager": "yarn"
+  "npm.packageManager": "yarn",
+  "lit-plugin.strict": true
 }
