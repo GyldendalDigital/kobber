@@ -1,14 +1,13 @@
 import { css, unsafeCSS } from "lit";
 import { component, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
-
-export const textWrapperName = "kobber-text-wrapper";
+import { TextWrapperClassNames } from "./TextWrapper.core";
 
 const createTextWrapperStyles = () => {
   const body = component.body;
   const bodyText = typography.primary.body;
 
   return css`
-    .${unsafeCSS(textWrapperName)} {
+    .${unsafeCSS("kobber-text-wrapper" satisfies TextWrapperClassNames)} {
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -28,6 +27,10 @@ const createTextWrapperStyles = () => {
         color: var(--highlight-color);
         font-style: normal;
       }
+    }
+
+    .${unsafeCSS("reading-max-width" satisfies TextWrapperClassNames)} {
+      max-width: 75ch;
     }
   `;
 };
