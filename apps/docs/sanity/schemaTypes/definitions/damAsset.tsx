@@ -26,7 +26,7 @@ export const damAsset = defineType({
     }),
     defineField({
       name: "inline",
-      title: "50% bredde",
+      title: "50% bredde i rich text",
       type: "boolean",
       initialValue: false,
     }),
