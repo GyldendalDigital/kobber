@@ -15,20 +15,14 @@
     <script type="text/babel" data-type="module" data-presets="react">
       import React from "react";
       import { createRoot } from "react-dom/client";
-      import { KobberThemeContext, KobberButton } from "@gyldendal/kobber-components/react";
+      import { KobberButton } from "@gyldendal/kobber-components/react";
 
-      const App = () => (
-        <KobberThemeContext>
-          <KobberButton color="thriller" onClick={() => alert("hello")}>
-            Click me
-          </KobberButton>
-        </KobberThemeContext>
-      );
+      const App = () => <KobberButton onClick={() => alert("Hello Kobber!")}>Kobber button</KobberButton>;
 
-      createRoot(document.getElementById("app")).render(App());
+      createRoot(document.getElementById("app")).render(<App />);
     </script>
   </head>
-  <body>
+  <body class="kobber-theme-default">
     <div id="app"></div>
   </body>
 </html>
