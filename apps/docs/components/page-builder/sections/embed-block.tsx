@@ -1,16 +1,15 @@
 import type { PagebuilderType } from "../page-builder.types"
 
-type Props = PagebuilderType<"embedBlock">
+export type EmbedProps = { className?: string } & PagebuilderType<"embedBlock">
 
-export function EmbedBlock(props: Props) {
-  console.log("embed", props)
+export function EmbedBlock(props: EmbedProps) {
   return (
-    <div className="embed-block">
+    <div className={props.className}>
       <iframe
-        src={props.url + "&fullscreen=true&panel=right&nav=false"}
+        src={props.url + "&full=false&panel=false&nav=false&instrument=false&shortcuts=false"}
         title="kode"
         width="100%"
-        height="400"
+        height="200"
       />
     </div>
   )

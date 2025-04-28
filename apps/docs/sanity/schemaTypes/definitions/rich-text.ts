@@ -1,4 +1,4 @@
-import { ImageIcon, LinkIcon } from "@sanity/icons"
+import { CodeBlockIcon, ImageIcon, LinkIcon } from "@sanity/icons"
 import { defineArrayMember, defineField, defineType } from "sanity"
 
 const richTextMembers = [
@@ -42,6 +42,12 @@ const richTextMembers = [
     type: "damAsset",
     title: "Image",
     icon: ImageIcon,
+  }),
+  defineArrayMember({
+    name: "embedBlock",
+    type: "embedBlock",
+    title: "Embed",
+    icon: CodeBlockIcon,
   }),
 ]
 
