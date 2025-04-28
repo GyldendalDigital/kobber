@@ -19,6 +19,12 @@ const snakeToKebabCase = word => {
     .join("/");
 };
 
+/*
+ * Copy optimized svgs from svg-sprite output directory to temporary directory,
+ * that acts as input directory for svg-jsx-converter.
+ * Also, filenames remove their "kobber-" prefix (which is not needed for
+ * react), and convert to kebab-case (which is required for svg-jsx-converter).
+ */
 const copyIconFilesToKebabCaseForReact = () => {
   cleanDirectory(tmpSvgsDirectory);
   const fileNameArray = fs.readdirSync(tmpOptimizedDirectory);
