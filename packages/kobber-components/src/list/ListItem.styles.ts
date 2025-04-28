@@ -23,7 +23,7 @@ const createListItemStyles = () => {
         box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
       }
 
-      &[disabled],
+      &[aria-disabled="true"],
       &.disabled {
         pointer-events: none;
         opacity: 0.7;
@@ -39,7 +39,7 @@ const createListItemStyles = () => {
         line-height: calc(1rem + var(${unsafeCSS(listItem["border-bottom"].padding)}));
       }
 
-      &[active],
+      &[data-active="true"],
       &.active {
         .text {
           box-shadow: 0 var(${unsafeCSS(listItem["border-bottom"].width.active)}) 0 0

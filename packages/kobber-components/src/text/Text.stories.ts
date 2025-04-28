@@ -185,7 +185,7 @@ export const Link: Story = {
             return html`<p>
               <kobber-text-link
                 class="${state}"
-                href=${state !== "disabled" ? "https://github.com/GyldendalDigital/kobber" : undefined}
+                href=${state !== "disabled" ? "https://github.com/GyldendalDigital/kobber" : ""}
               >
                 Lenke ${args.icon ? html`<kobber-external_link_arrow />` : null}
               </kobber-text-link>
@@ -205,21 +205,25 @@ export const Link: Story = {
 export const Wrapper: Story = {
   render: () => {
     return html`<div style="width: 100%">
-      <kobber-text-wrapper>
-        <h1>Hvorfor et designsystem?</h2>
-        <p>
-          Designsystemet muliggjør en raskere og mer effektiv praksis for konsistent merkevarebygging, produktutvikling og kommunikasjon. Det skaper en tydeligere felles retning, og bidrar til økt kjennskap til og gjenkjennelighet av Gyldendal.
-        </p>
-        <p>
-        Det skal bidra til å styrke fellesskapsfølelsen på tvers av hele Gyldendal, ved å legge til rette for bedre samarbeid, transparens, synergier og deling av kompetanse og metoder på tvers av fagfelt, avdelinger og produkter.
-        </p>
-      </kobber-text-wrapper>
-    </div>
+        <kobber-text-wrapper>
+          <h1>Hvorfor et designsystem?</h1>
+          <p>
+            Designsystemet muliggjør en raskere og mer effektiv praksis for konsistent merkevarebygging,
+            produktutvikling og kommunikasjon. Det skaper en tydeligere felles retning, og bidrar til økt kjennskap til
+            og gjenkjennelighet av Gyldendal.
+          </p>
+          <p>
+            Det skal bidra til å styrke fellesskapsfølelsen på tvers av hele Gyldendal, ved å legge til rette for bedre
+            samarbeid, transparens, synergier og deling av kompetanse og metoder på tvers av fagfelt, avdelinger og
+            produkter.
+          </p>
+        </kobber-text-wrapper>
+      </div>
 
-  ${storySummary({
-    summary: `Wrapper bolker med tekst og gir gap på ${pxToRem(16)} (${16}px)`,
-    code: textWrapperStyles.cssText,
-  })}`;
+      ${storySummary({
+        summary: `Wrapper bolker med tekst og gir gap på ${pxToRem(16)} (${16}px)`,
+        code: textWrapperStyles.cssText,
+      })}`;
   },
 };
 

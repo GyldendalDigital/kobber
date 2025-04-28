@@ -3,7 +3,7 @@
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
-    "bierner.lit-html"
+    "runem.lit-plugin"
   ],
   "unwantedRecommendations": []
 }

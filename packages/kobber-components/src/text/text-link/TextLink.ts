@@ -25,7 +25,7 @@ export class TextLink extends LitElement implements TextLinkProps {
         class="${textLinkName} ${this.className}"
         href=${ifDefined(!isDisabled ? this.href : undefined)}
         target=${ifDefined(target)}
-        disabled=${ifDefined(isDisabled ? "" : undefined)}
+        aria-disabled=${isDisabled ? true : false}
       >
         <slot></slot>
       </a>

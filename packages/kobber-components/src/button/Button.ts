@@ -77,11 +77,11 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
           }),
           this.className,
         ].join(" ")}
-        ?disabled=${ifDefined(isLink ? undefined : this.disabled)}
+        ?disabled=${isLink ? undefined : this.disabled}
         href=${ifDefined(isLink && !this.disabled ? this.href : undefined)}
         target=${ifDefined(isLink ? this.target : undefined)}
         aria-disabled=${this.disabled ? "true" : "false"}
-        aria-label=${this._label}
+        aria-label=${ifDefined(this._label)}
         tabindex=${this.disabled || this.usedInOtherInteractive ? "-1" : "0"}
       >
         <slot></slot>
