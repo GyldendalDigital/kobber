@@ -50,6 +50,7 @@ export { ExpandResize } from "./icon/icons/expand_resize";
 export { ExternalLink } from "./icon/icons/external_link";
 export { ExternalLinkArrow } from "./icon/icons/external_link_arrow";
 export { FemaleHeadset } from "./icon/icons/female_headset";
+export { FilledCrossCircle } from "./icon/icons/filled_cross_circle";
 export { FlipRight } from "./icon/icons/flip_right";
 export { FolderBookmark } from "./icon/icons/folder_bookmark";
 export { FontExpand } from "./icon/icons/font_expand";

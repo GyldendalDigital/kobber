@@ -50,6 +50,7 @@ export { ExpandResize } from "./icon/icons/expand_resize/index.react";
 export { ExternalLink } from "./icon/icons/external_link/index.react";
 export { ExternalLinkArrow } from "./icon/icons/external_link_arrow/index.react";
 export { FemaleHeadset } from "./icon/icons/female_headset/index.react";
+export { FilledCrossCircle } from "./icon/icons/filled_cross_circle/index.react";
 export { FlipRight } from "./icon/icons/flip_right/index.react";
 export { FolderBookmark } from "./icon/icons/folder_bookmark/index.react";
 export { FontExpand } from "./icon/icons/font_expand/index.react";
