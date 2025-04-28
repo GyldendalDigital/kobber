@@ -1,4 +1,5 @@
-import { textWrapperName, textWrapperStyles } from "./text/text-wrapper/TextWrapper.styles";
+import { textWrapperName } from "./text/text-wrapper/TextWrapper.core";
+import { textWrapperStyles } from "./text/text-wrapper/TextWrapper.styles";
 import { buttonName } from "./button/Button.core";
 import { buttonStyles } from "./button/Button.styles";
 import { headingName } from "./text/heading/Heading.core";
