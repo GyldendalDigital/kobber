@@ -1,9 +1,8 @@
 import fs from "node:fs";
+import { default as paths } from "./paths.cjs";
 
-const assetsSvgsDirectory = "src/assets/svgs";
-const tmpOptimizedDirectory = "src/tmp/svgs-optimized";
-const tmpSvgsDirectory = "src/tmp/svgs-react-ssr-safe";
-const tmpIconsDirectory = "src/tmp/icons-react-ssr-safe";
+const tmpOptimizedDirectory = paths.tmpSvgsOptimized;
+const tmpSvgsDirectory = paths.tmpSvgsReactSSRSafe;
 const componentPrefix = "kobber-";
 
 const cleanDirectory = directory => {
@@ -22,8 +21,7 @@ const snakeToKebabCase = word => {
 
 const copyIconFilesToKebabCaseForReact = () => {
   cleanDirectory(tmpSvgsDirectory);
-  cleanDirectory(tmpIconsDirectory);
-  const fileNameArray = fs.readdirSync(assetsSvgsDirectory);
+  const fileNameArray = fs.readdirSync(tmpOptimizedDirectory);
 
   for (const fileName of fileNameArray) {
     fs.copyFileSync(
@@ -31,7 +29,6 @@ const copyIconFilesToKebabCaseForReact = () => {
       `${tmpSvgsDirectory}/${snakeToKebabCase(fileName).replace(snakeToKebabCase(componentPrefix), "")}`,
     );
   }
-  cleanDirectory(tmpOptimizedDirectory);
 };
 
 copyIconFilesToKebabCaseForReact();

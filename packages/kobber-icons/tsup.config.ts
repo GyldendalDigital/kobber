@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import { defineConfig } from "tsup";
 import { getSymbols, listComponents, listSvgSymbolsAndTypes, makeComponents, makeStories } from "./tsup-scripts";
+import paths from "./svg-scripts/paths.cjs";
 
 const outDir = "dist";
 const symbolsDirectory = `symbols`;
@@ -11,7 +12,7 @@ const reactDirectory = "react";
 const reactSsrSafeDirectory = "react-ssr-safe";
 const webComponentsDirectory = "web-components";
 const iconDirectory = "src/icon";
-const iconsDirectory = `${iconDirectory}/icons`;
+const iconsDirectory = paths.icons;
 
 const cleanDirectory = (directory: string) => {
   if (fs.existsSync(directory)) {

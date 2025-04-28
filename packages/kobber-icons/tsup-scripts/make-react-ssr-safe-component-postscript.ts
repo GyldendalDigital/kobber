@@ -1,9 +1,10 @@
 import fs from "node:fs";
 import { getIconNames } from ".";
+import { default as paths } from "../svg-scripts/paths.cjs";
 
-const componentExtension = "jsx";
-const tmpIconsDirectory = "src/tmp/icons-react-ssr-safe";
-const iconsDirectory = "src/icon/icons";
+const componentExtension = paths.reactSSRSafeComponentExtension;
+const tmpIconsDirectory = paths.tmpIconsReactSSRSafe;
+const iconsDirectory = paths.icons;
 
 export const makeSSRSafeReactComponentPostscript = (symbols: NodeListOf<SVGSymbolElement>) => {
   symbols.forEach(symbol => {
