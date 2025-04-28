@@ -1,6 +1,6 @@
 const DAM_BASE_URL = "https://dam-prod.gyldendaldigital.no/tenants/edu"
 export const DAM_SEARCH_URL = `${DAM_BASE_URL}/services/search`
-const DAM_SEARCH_STATIC_QUERY_PARAMS = 'assetDomain:(image) AND ancestorPaths:/Kobber'
+const DAM_SEARCH_STATIC_QUERY_PARAMS = "assetDomain:(image) AND ancestorPaths:/Kobber"
 
 export interface DamAsset {
   assetId: string
@@ -41,13 +41,14 @@ export function transformAssets(data: DamAssetResponse): DamAsset[] {
 }
 
 export const buildSearchQuery = (searchInput: string) => {
-  if (!searchInput) {
-    const randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26))
-    return `${DAM_SEARCH_STATIC_QUERY_PARAMS} AND name:${randomLetter}*`
+  if (!searchInput || searchInput.length === 0) {
+    searchInput = randomLetter()
   }
 
-  return `${DAM_SEARCH_STATIC_QUERY_PARAMS} AND (name:*${searchInput}* OR id:${searchInput}*)`
+  return `${DAM_SEARCH_STATIC_QUERY_PARAMS} AND (name:*${searchInput}* OR id:*${searchInput}*)`
 }
+
+const randomLetter = () => String.fromCharCode(65 + Math.floor(Math.random() * 26))
 
 /**
 Error from DAM API:

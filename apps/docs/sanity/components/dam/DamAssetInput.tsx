@@ -83,9 +83,7 @@ export function DamAssetInput(props: DamAssetInputProps) {
   )
 
   const handleSearch = useCallback(() => {
-    if (searchInput) {
-      fetchAssets(searchInput)
-    }
+    fetchAssets(searchInput)
   }, [searchInput, fetchAssets])
 
   const handleSelect = useCallback(
@@ -156,7 +154,7 @@ export function DamAssetInput(props: DamAssetInputProps) {
           />
           <Box flex={1} paddingLeft={3}>
             <Text>
-              <label htmlFor="checkbox">50% bredde</label>
+              <label htmlFor="checkbox">50% bredde i rich text</label>
             </Text>
           </Box>
         </Flex>
@@ -168,11 +166,13 @@ export function DamAssetInput(props: DamAssetInputProps) {
     <Stack space={4}>
       {tokenError && (
         <Card padding={3} tone="critical">
-          <Text>Authentication error: {tokenError}</Text>
+          <Text>Authentication error: {tokenError}. Try reloading page.</Text>
         </Card>
       )}
       <Stack space={2}>
-        <Text>DAM search</Text>
+        <Text>
+          DAM search (assets requires status &quot;ferdig&quot; and &quot;ready for web&quot;)
+        </Text>
         <Stack space={2} style={{ flexDirection: "row" }}>
           <TextInput
             value={searchInput}
@@ -187,7 +187,7 @@ export function DamAssetInput(props: DamAssetInputProps) {
           <Button
             text={searchLoading ? "Loading..." : "Search"}
             onClick={handleSearch}
-            disabled={!searchInput || searchLoading}
+            disabled={searchLoading}
             loading={searchLoading}
           />
         </Stack>
