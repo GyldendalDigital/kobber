@@ -75,6 +75,19 @@ We recommend using [normalize.css](https://github.com/necolas/normalize.css/) or
 
 ## Development
 
+When developing components it's usually best to run storybook from root, and see changes live:
+
+```sh
+cd ../..
+yarn storybook
+```
+
+If you're building a React-component used in the [docs app](../../apps/docs), you need to build the component every time you make a change:
+
+```sh
+yarn dev
+```
+
 ### Create components
 
 For maintainability, components should be created to consume data as children rather than props. By using props for all data, the amount of component props over time will grow unmaintanable. Most likely, you will end up with a component that needs to accept children components as props (while having to maintain possibly deprecated data props).
