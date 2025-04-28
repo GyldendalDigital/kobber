@@ -1,9 +1,10 @@
 import fs from "node:fs";
 
-const assetsDirectory = "src/assets";
-const assetsSvgsDirectory = `${assetsDirectory}/svgs`;
-const tmpAssetsDirectory = `${assetsDirectory}/tmp-svgs-react-ssr-safe`;
-const tmpIconsDirectory = "src/icon/tmp-icons-react-ssr-safe";
+const assetsSvgsDirectory = "src/assets/svgs";
+const tmpOptimizedDirectory = "src/tmp/svgs-optimized";
+const tmpSvgsDirectory = "src/tmp/svgs-react-ssr-safe";
+const tmpIconsDirectory = "src/tmp/icons-react-ssr-safe";
+const componentPrefix = "kobber-";
 
 const cleanDirectory = directory => {
   if (fs.existsSync(directory)) {
@@ -20,18 +21,17 @@ const snakeToKebabCase = word => {
 };
 
 const copyIconFilesToKebabCaseForReact = () => {
-  cleanDirectory(tmpAssetsDirectory);
+  cleanDirectory(tmpSvgsDirectory);
   cleanDirectory(tmpIconsDirectory);
   const fileNameArray = fs.readdirSync(assetsSvgsDirectory);
 
   for (const fileName of fileNameArray) {
-    const symbolName = fileName.substring(0, fileName.indexOf(".svg"));
-
     fs.copyFileSync(
-      `${assetsSvgsDirectory}/${symbolName}.svg`,
-      `${tmpAssetsDirectory}/${snakeToKebabCase(symbolName)}.svg`,
+      `${tmpOptimizedDirectory}/${fileName}`,
+      `${tmpSvgsDirectory}/${snakeToKebabCase(fileName).replace(snakeToKebabCase(componentPrefix), "")}`,
     );
   }
+  cleanDirectory(tmpOptimizedDirectory);
 };
 
 copyIconFilesToKebabCaseForReact();

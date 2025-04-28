@@ -2,9 +2,8 @@ import fs from "node:fs";
 import { getIconNames } from ".";
 
 const componentExtension = "jsx";
-const iconDirectory = "src/icon";
-const tmpIconsDirectory = `${iconDirectory}/tmp-icons-react-ssr-safe`;
-const iconsDirectory = `${iconDirectory}/icons`;
+const tmpIconsDirectory = "src/tmp/icons-react-ssr-safe";
+const iconsDirectory = "src/icon/icons";
 
 export const makeSSRSafeReactComponentPostscript = (symbols: NodeListOf<SVGSymbolElement>) => {
   symbols.forEach(symbol => {

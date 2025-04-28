@@ -81,10 +81,10 @@ export const makeComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
 export const listComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
   const webComponentsExportsListString = listWebComponents(symbols);
   const reactExportsListString = listReactComponents(symbols);
-  //const reactSSRSafeExportsListString = listReactSSRSafeComponents(symbols);
+  const reactSSRSafeExportsListString = listReactSSRSafeComponents(symbols);
 
   fs.writeFileSync(reactExportsListFile, reactExportsListString);
-  //fs.writeFileSync(reactSSRSafeExportsListFile, reactSSRSafeExportsListString);
+  fs.writeFileSync(reactSSRSafeExportsListFile, reactSSRSafeExportsListString);
   fs.writeFileSync(webComponentsExportsListFile, webComponentsExportsListString);
 };
 

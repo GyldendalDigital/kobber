@@ -1,6 +1,6 @@
 module.exports = {
-  src: "./src/assets/tmp-svgs-react-ssr-safe",
-  dest: "./src/icon/tmp-icons-react-ssr-safe",
+  src: "src/tmp/svgs-react-ssr-safe",
+  dest: "src/tmp/icons-react-ssr-safe",
   type: "jsx",
   imports: [],
   memo: false,
