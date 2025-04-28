@@ -16,11 +16,19 @@ yarn dev -F docs
 
 Also requires an .env file in the docs folder with [the following secrets in Keeper](https://keepersecurity.eu/vault/#detail/7i8pCa5I6A9YAIPYzvYTPA).
 
-## Local build (from /apps/docs)
+## Update sanity types
 
-Build, then run the built files (as they would run in production).
+Making changes in schema types or `queries.ts` will cause `sanity.types.ts` to be out of date. Use the typegen script to remedy this:
 
 ```sh
+cd apps/docs
+yarn typegen
+```
+
+## Static local build (like production)
+
+```sh
+cd apps/docs
 yarn build
 yarn start
 ```
