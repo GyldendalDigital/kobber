@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { html } from "lit";
 import "./Carousel";
+import "./CarouselButton";
 import "../layouts/horizontal-layout/HorizontalLayout";
 import "../layouts/horizontal-layout/HorizontalLayoutColumn";
 import "../story/ExampleCard";
@@ -31,6 +32,7 @@ const styles = html`<style>
   .demo {
     display: grid;
     width: 80%;
+    min-height: 320px;
     position: relative;
     margin: auto;
   }
@@ -41,7 +43,11 @@ export const CarouselStory: StoryObj<Args> = {
   render: args => html`
     ${styles}
     <div class="demo">
-      <kobber-carousel> ${args.hasManyItems ? exampleRegular : miniExample} </kobber-carousel>
+      <kobber-carousel>
+        <kobber-carousel-button slot="previous-button" variant="brand-secondary-main"></kobber-carousel-button>
+        <kobber-carousel-button slot="next-button" variant="brand-secondary-main"></kobber-carousel-button>
+        ${args.hasManyItems ? exampleRegular : miniExample}
+      </kobber-carousel>
     </div>
   `,
   decorators: [story => html`${globalStyles}${story()}`],

@@ -14,6 +14,7 @@ export { BoxLayout } from "./layouts/box-layout/BoxLayout";
 export { TextWrapper } from "./text/text-wrapper/TextWrapper";
 export { Heading } from "./text/heading/Heading";
 export { Carousel } from "./carousel/Carousel";
+export { CarouselButton } from "./carousel/CarouselButton";
 export { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 export { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
 export { RadioGroup, RadioInput, RadioInputControl } from "./radio";
