@@ -1,5 +1,3 @@
-"use client"
-
 import { SideMenuList } from "./side-menu-list"
 import { SideMenuListItemLink } from "./side-menu-list-item-link"
 import styles from "./side-menu.module.css"
@@ -22,12 +20,12 @@ export const SideMenuListItem = (props: Props) => {
     item.children.length === 0 ||
     !item.children.some((child) => child.slug?.includes(slug))
   ) {
-    return <SideMenuListItemLink item={item} />
+    return <SideMenuListItemLink item={item} slug={slug} />
   }
 
   return (
     <>
-      <SideMenuListItemLink item={item} />
+      <SideMenuListItemLink item={item} slug={slug} />
 
       <SideMenuList
         items={item.children as unknown as SideMenuItem[]}

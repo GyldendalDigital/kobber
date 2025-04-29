@@ -1,9 +1,10 @@
 import { sanityFetch } from "@/sanity/lib/live"
 import { querySideMenuData } from "@/sanity/lib/queries"
+import { stegaClean } from "next-sanity"
+import { groupBy } from "@/lib/utils"
 import { SideMenuGroup } from "./side-menu-group"
 import { SideMenuList } from "./side-menu-list"
 import styles from "./side-menu.module.css"
-import { SideMenuItem } from "./side-menu.types"
 
 type Props = {
   rootSlug: string
@@ -14,30 +15,23 @@ type Props = {
 export const SideMenu = async ({ rootSlug, slug }: Props) => {
   const { data } = await sanityFetch({
     query: querySideMenuData,
-    params: { slug: `/${rootSlug}` },
+    params: { slug: rootSlug },
   })
 
   if (!data) return null
   if (!data.children) return null
   if (data.children.length === 0) return null
 
-  const items = data.children
-    .filter((x) => x && x.slug)
-    .map(
-      (x) =>
-        ({
-          ...x,
-          group: x.group?.replace(/[^a-zA-Z]/g, ""),
-        }) as SideMenuItem
-    )
+  const allItems = data.children.filter((x) => x && x.slug)
 
   const groups = Object.entries(
     groupBy(
-      items.filter((x) => x.group),
-      (x) => x.group ?? ""
+      allItems.filter((x) => x.group),
+      (x) => stegaClean(x.group) ?? ""
     )
   )
-  const ungrouped = items.filter((x) => !x.group)
+
+  const ungrouped = allItems.filter((x) => !x.group)
 
   return (
     <nav className={styles["wrapper"]}>
@@ -46,17 +40,9 @@ export const SideMenu = async ({ rootSlug, slug }: Props) => {
           groups.map((group, i) => (
             <SideMenuGroup key={i} title={group[0]} items={group[1]} slug={slug} />
           ))}
+
         {ungrouped.length !== 0 && <SideMenuList items={ungrouped} slug={slug} showItemDivider />}
       </div>
     </nav>
   )
 }
-
-const groupBy = <T, K extends string>(arr: T[], key: (i: T) => K) =>
-  arr.reduce(
-    (groups, item) => {
-      ;(groups[key(item)] ||= []).push(item)
-      return groups
-    },
-    {} as Record<K, T[]>
-  )

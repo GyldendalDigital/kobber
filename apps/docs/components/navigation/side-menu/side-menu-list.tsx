@@ -1,6 +1,4 @@
-"use client"
-
-import { ComponentProps, ComponentPropsWithRef } from "react"
+import { ComponentPropsWithRef } from "react"
 import { KobberList } from "@gyldendal/kobber-components/react-ssr-safe"
 import { cn } from "@/lib/utils"
 import { SideMenuListItem } from "./side-menu-list-item"

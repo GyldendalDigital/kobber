@@ -1,7 +1,4 @@
-"use client"
-
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { tryAddSanityHref } from "@/utils/sanity-temp-href"
 import { KobberListItem } from "@gyldendal/kobber-components/react-ssr-safe"
 import { cn } from "@/lib/utils"
@@ -9,13 +6,13 @@ import styles from "./side-menu.module.css"
 import { SideMenuItem } from "./side-menu.types"
 
 type Props = {
+  slug: string
   item: SideMenuItem
 }
 
 export const SideMenuListItemLink = (props: Props) => {
-  const { item } = props
-  const pathname = usePathname()
-  const tempHref = tryAddSanityHref(pathname, item.slug ?? "")
+  const { item, slug } = props
+  const tempHref = tryAddSanityHref(slug, item.slug ?? "")
   return (
     <Link
       role="menuitem"
@@ -25,11 +22,8 @@ export const SideMenuListItemLink = (props: Props) => {
       <KobberListItem
         className={cn("whitespace-nowrap")}
         disabled={item.status === "Kommer" ? true : undefined}
-        active={tryAddSanityHref(pathname, item.slug ?? "") === pathname ? true : undefined}
-        // temp label
-        icon={
-          item.status ? <small className="lowercase text-[#dc134fff]">{item.status}</small> : null
-        }
+        active={tryAddSanityHref(slug, item.slug ?? "") === slug ? true : undefined}
+        icon={item.status ? <small className={styles["list-label"]}>{item.status}</small> : null}
       >
         {item.title as string}
       </KobberListItem>
