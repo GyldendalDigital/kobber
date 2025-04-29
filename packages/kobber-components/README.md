@@ -161,3 +161,7 @@ git add package.json
 git commit -m "Revert version bump"
 npm publish
 ```
+
+#### Keep it stable
+
+After a component is published, its storybook story may be embedded elsewhere (perhaps in docs). The story embed url is based on the story name and its folder name. Therefore: try not to change name of components and stories after publication.
