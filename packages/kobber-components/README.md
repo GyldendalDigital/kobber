@@ -101,7 +101,10 @@ Example of component consuming data as children:
   currentValue={value}
   direction="horizontal" // eller vertical
 >
-  <RadioInput group="format" label="Innbundet" {...}/>
+  <RadioInput group="format" value="hardcover">Innbundet</RadioInput>
+  <RadioInput group="format" value="pocket">Pocket</RadioInput>
+  <RadioInput group="format" value="ebook">Ebok</RadioInput>
+  <RadioInput group="format" value="audiobook">Lydbok</RadioInput>
 </RadioGroup>
 ```
 
@@ -130,3 +133,31 @@ After creating a new component, do the following steps to expose it to the world
 1. Export it from src/index.react.tsx and src/index.web-components.ts.
 2. Run `yarn build`.
 3. Commit changes, and publish according to [changeset](../../.changeset/README.md).
+
+#### Prerequisites
+
+- Make your own npm user (like [olabaloo](https://www.npmjs.com/~olabaloo)). You should get a token (to use in next step), and set up using an authenticator app.
+- In an .npmrc file in your personal home folder: Add `//registry.npmjs.org/:_authToken=<token>`
+
+#### Versioning
+
+- We always publish all packages (also unchanged ones). This enforces all packages to always have same verion number, which eases troubleshooting.
+- First, decide whether your change is breaking, major, minor, or a patch. When publishing: if yor are uncertain: choose patch. Progress by clicking enter (regardless of whether you have made a selection).
+
+#### Regret published version
+
+Revert the version in your package.json (to a number not previously published on NPM):
+
+```json
+{
+  "version": "0.3.88"
+}
+```
+
+Run:
+
+```bash
+git add package.json
+git commit -m "Revert version bump"
+npm publish
+```
