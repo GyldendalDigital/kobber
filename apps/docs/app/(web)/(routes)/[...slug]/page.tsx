@@ -6,7 +6,7 @@ import { querySlugPageData, querySlugPagePaths } from "@/sanity/lib/queries"
 import { tryAddSanityHref } from "@/utils/sanity-temp-href"
 import { KobberHeading, KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
 import { getMetaData } from "@/lib/seo"
-import { cn, placeholderImageUrl } from "@/lib/utils"
+import { cn, ensurePrefix, placeholderImageUrl } from "@/lib/utils"
 import { FeatureBoxGrid } from "@/components/feature-box/feature-box-grid"
 import { SideMenu } from "@/components/navigation/side-menu/side-menu"
 import { PageBuilder } from "@/components/page-builder/page-builder"
@@ -15,7 +15,7 @@ import pageLayoutStyles from "@/styles/page-layout.module.css"
 async function fetchSlugPageData(slug: string) {
   return await sanityFetch({
     query: querySlugPageData,
-    params: { slug: `/${slug}` },
+    params: { slug },
   })
 }
 
@@ -46,8 +46,8 @@ export async function generateStaticParams() {
 
 export default async function SlugPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug: slugs } = await params
-  const slug = slugs.join("/")
-  const rootSlug = slugs.at(0)
+  const slug = ensurePrefix(slugs.join("/"), "/")
+  const rootSlug = ensurePrefix(slugs.at(0), "/")
   const { data: pageData } = await fetchSlugPageData(slug)
 
   if (!pageData) {

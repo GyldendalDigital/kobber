@@ -32,3 +32,8 @@
       var(--kobber-component-button-container-padding-inline)
   );
 }
+
+.list-label {
+  text-transform: lowercase;
+  color: #dc134fff;
+}

@@ -45,3 +45,17 @@ export function toUpperCase(str: string): string {
   if (!str) return str
   return str.toUpperCase()
 }
+
+export function ensurePrefix(str: string | undefined, prefix: string): string {
+  if (!str) return prefix
+  return str.startsWith(prefix) ? str : prefix + str
+}
+
+export const groupBy = <T, K extends string>(arr: T[], key: (i: T) => K) =>
+  arr.reduce(
+    (groups, item) => {
+      ;(groups[key(item)] ||= []).push(item)
+      return groups
+    },
+    {} as Record<K, T[]>
+  )

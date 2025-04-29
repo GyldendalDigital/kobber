@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { usePathname } from "next/navigation"
 import { KobberAccordion } from "@gyldendal/kobber-components/react-ssr-safe"
 import { toUpperCase } from "@/lib/utils"
 import { SideMenuList } from "./side-menu-list"
@@ -16,9 +15,7 @@ type Props = {
 
 export const SideMenuGroup = (props: Props) => {
   const { title, items, slug } = props
-  const pathname = usePathname()
-  const pathnamePrefix = pathname.replace("/fra-sanity", "").split("/").slice(0, 3).join("/")
-  const initiallyExpanded = items.some((item) => item.slug?.startsWith(pathnamePrefix))
+  const initiallyExpanded = items.some((item) => item.slug === slug)
   const [expanded, setExpanded] = useState(initiallyExpanded)
 
   return (
