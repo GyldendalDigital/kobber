@@ -1,11 +1,17 @@
 import fs from "node:fs";
 import { getIconNames } from ".";
+import { default as paths } from "../svg-scripts/paths.cjs";
 
-const componentExtension = "jsx";
-const iconDirectory = "src/icon";
-const tmpIconsDirectory = `${iconDirectory}/tmp-icons-react-ssr-safe`;
-const iconsDirectory = `${iconDirectory}/icons`;
+const componentExtension = paths.reactSSRSafeComponentExtension;
+const tmpIconsDirectory = paths.tmpIconsReactSSRSafe;
+const iconsDirectory = paths.icons;
 
+/*
+ * Copy react SSR safe icon components from svg-jsx-converter output directory to
+ * each icon directory.
+ * The iteration is based on svg symbols names, to ensure correct folder name
+ * casing, and order (it can differ from filesystem order).
+ */
 export const makeSSRSafeReactComponentPostscript = (symbols: NodeListOf<SVGSymbolElement>) => {
   symbols.forEach(symbol => {
     const iconNames = getIconNames(symbol.id);

@@ -53,6 +53,7 @@ import { ExpandResize as KobberExpandResize } from "./icon/icons/expand_resize";
 import { ExternalLink as KobberExternalLink } from "./icon/icons/external_link";
 import { ExternalLinkArrow as KobberExternalLinkArrow } from "./icon/icons/external_link_arrow";
 import { FemaleHeadset as KobberFemaleHeadset } from "./icon/icons/female_headset";
+import { FilledCrossCircle as KobberFilledCrossCircle } from "./icon/icons/filled_cross_circle";
 import { FlipRight as KobberFlipRight } from "./icon/icons/flip_right";
 import { FolderBookmark as KobberFolderBookmark } from "./icon/icons/folder_bookmark";
 import { FontExpand as KobberFontExpand } from "./icon/icons/font_expand";
@@ -476,6 +477,12 @@ export const ExternalLinkArrow = createComponent({
 export const FemaleHeadset = createComponent({
   tagName: "kobber-female_headset",
   elementClass: KobberFemaleHeadset,
+  react: React,
+});
+
+export const FilledCrossCircle = createComponent({
+  tagName: "kobber-filled_cross_circle",
+  elementClass: KobberFilledCrossCircle,
   react: React,
 });
 

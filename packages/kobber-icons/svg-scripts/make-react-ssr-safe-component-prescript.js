@@ -1,9 +1,9 @@
 import fs from "node:fs";
+import { default as paths } from "./paths.cjs";
 
-const assetsDirectory = "src/assets";
-const assetsSvgsDirectory = `${assetsDirectory}/svgs`;
-const tmpAssetsDirectory = `${assetsDirectory}/tmp-svgs-react-ssr-safe`;
-const tmpIconsDirectory = "src/icon/tmp-icons-react-ssr-safe";
+const tmpOptimizedDirectory = paths.tmpSvgsOptimized;
+const tmpSvgsDirectory = paths.tmpSvgsReactSSRSafe;
+const componentPrefix = "kobber-";
 
 const cleanDirectory = directory => {
   if (fs.existsSync(directory)) {
@@ -19,17 +19,20 @@ const snakeToKebabCase = word => {
     .join("/");
 };
 
+/*
+ * Copy optimized svgs from svg-sprite output directory to temporary directory,
+ * that acts as input directory for svg-jsx-converter.
+ * Also, filenames remove their "kobber-" prefix (which is not needed for
+ * react), and convert to kebab-case (which is required for svg-jsx-converter).
+ */
 const copyIconFilesToKebabCaseForReact = () => {
-  cleanDirectory(tmpAssetsDirectory);
-  cleanDirectory(tmpIconsDirectory);
-  const fileNameArray = fs.readdirSync(assetsSvgsDirectory);
+  cleanDirectory(tmpSvgsDirectory);
+  const fileNameArray = fs.readdirSync(tmpOptimizedDirectory);
 
   for (const fileName of fileNameArray) {
-    const symbolName = fileName.substring(0, fileName.indexOf(".svg"));
-
     fs.copyFileSync(
-      `${assetsSvgsDirectory}/${symbolName}.svg`,
-      `${tmpAssetsDirectory}/${snakeToKebabCase(symbolName)}.svg`,
+      `${tmpOptimizedDirectory}/${fileName}`,
+      `${tmpSvgsDirectory}/${snakeToKebabCase(fileName).replace(snakeToKebabCase(componentPrefix), "")}`,
     );
   }
 };

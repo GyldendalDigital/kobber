@@ -1,7 +1,10 @@
+// eslint-disable-next-line
+const paths = require("./svg-scripts/paths.cjs");
+
 module.exports = {
-  src: "./src/assets/tmp-svgs-react-ssr-safe",
-  dest: "./src/icon/tmp-icons-react-ssr-safe",
-  type: "jsx",
+  src: paths.tmpSvgsReactSSRSafe,
+  dest: paths.tmpIconsReactSSRSafe,
+  type: paths.reactSSRSafeComponentExtension,
   imports: [],
   memo: false,
   component: false,

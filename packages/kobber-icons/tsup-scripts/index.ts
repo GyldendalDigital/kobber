@@ -11,12 +11,13 @@ import { makeWebComponent } from "./make-web-component";
 import { makeStory } from "./make-storybook-story";
 import { makeIconGallery } from "./make-storybook-icon-gallery";
 import { makeSSRSafeReactComponentPostscript } from "./make-react-ssr-safe-component-postscript";
+import paths from "../svg-scripts/paths.cjs";
 
 const componentPrefix = "kobber-";
 const svgsListsFile = `dist/symbols/kobber-icons-lists.ts`;
 const iconDirectory = "src/icon";
 const svgsTypesFile = `${iconDirectory}/types/kobber-icons-types.ts`;
-const iconsDirectory = `${iconDirectory}/icons`;
+const iconsDirectory = paths.icons;
 const webComponentsExportsListFile = "src/index.web-components.ts";
 const reactExportsListFile = "src/index.react.tsx";
 const reactSSRSafeExportsListFile = "src/index.react-ssr-safe.tsx";
@@ -81,10 +82,10 @@ export const makeComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
 export const listComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
   const webComponentsExportsListString = listWebComponents(symbols);
   const reactExportsListString = listReactComponents(symbols);
-  //const reactSSRSafeExportsListString = listReactSSRSafeComponents(symbols);
+  const reactSSRSafeExportsListString = listReactSSRSafeComponents(symbols);
 
   fs.writeFileSync(reactExportsListFile, reactExportsListString);
-  //fs.writeFileSync(reactSSRSafeExportsListFile, reactSSRSafeExportsListString);
+  fs.writeFileSync(reactSSRSafeExportsListFile, reactSSRSafeExportsListString);
   fs.writeFileSync(webComponentsExportsListFile, webComponentsExportsListString);
 };
 

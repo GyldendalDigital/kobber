@@ -15,13 +15,13 @@
     ]
   },
   "scripts": {
-    "clean": "rm -rf .turbo node_modules chunks css react react-ssr-safe web-components",
+    "clean": "rm -rf .turbo node_modules dist src/tmp",
     "lint": "yarn lint:js",
     "lint:js": "eslint",
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
     "test": "node ./src/icons.test.js",
-    "svg": "svg-sprite --config ./svg-scripts/svg-sprite-config.json src/assets/svgs/**/*.svg && node ./svg-scripts/make-react-ssr-safe-component-prescript.js",
+    "svg": "rm -rf dist src/tmp && svg-sprite --config ./svg-scripts/svg-sprite-config.json src/assets/svgs/**/*.svg && node ./svg-scripts/make-react-ssr-safe-component-prescript.js",
     "build": "yarn svg && npx sjc gen && tsup"
   },
   "dependencies": {
