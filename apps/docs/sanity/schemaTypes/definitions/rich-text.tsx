@@ -50,7 +50,9 @@ const richTextMembers = [
                 <CheckmarkCircleIcon />
                 &nbsp; {props.children}
               </>
-            ) : null
+            ) : (
+              props.children
+            )
           },
         },
         {
@@ -64,7 +66,9 @@ const richTextMembers = [
                 <CloseCircleIcon />
                 &nbsp; {props.children}
               </>
-            ) : null
+            ) : (
+              props.children
+            )
           },
         },
       ],
