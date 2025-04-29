@@ -68,7 +68,7 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
 
   return (
     <div className={cn(pageLayoutStyles["page-layout"], pageLayoutStyles["page-spacing"])}>
-      {rootSlug && <SideMenu slug={rootSlug} />}
+      {rootSlug && <SideMenu slug={slug} rootSlug={rootSlug} />}
       <main className="slug-page flex flex-col gap-4">
         {showPageBuilder && <PageBuilder pageBuilder={pageBuilder} id={_id} type={_type} />}
 

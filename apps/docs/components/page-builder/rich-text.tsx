@@ -1,5 +1,5 @@
-import { embedBlock } from "@/sanity/schemaTypes/blocks/embedBlock"
 import { KobberHeading, KobberIngress } from "@gyldendal/kobber-components/react-ssr-safe"
+import { CheckCircle, Remove } from "@gyldendal/kobber-icons/react-ssr-safe"
 import {
   PortableText,
   PortableTextTypeComponentProps,
@@ -40,10 +40,17 @@ const components: Partial<PortableTextReactComponents> = {
     inline: ({ children }) => <p className="mr-[2%] inline-block w-[48%] align-top">{children}</p>,
   },
   marks: {
-    code: ({ children }) => (
-      <code className="rounded-md border border-white/10 bg-opacity-5 p-1 text-sm lg:whitespace-nowrap">
+    iconPositive: ({ children }) => (
+      <span className={cn(styles["icon-wrapper"], styles["positive"])}>
+        <CheckCircle />
         {children}
-      </code>
+      </span>
+    ),
+    iconNegative: ({ children }) => (
+      <span className={cn(styles["icon-wrapper"], styles["negative"])}>
+        <Remove />
+        {children}
+      </span>
     ),
     customLink: ({ children, value }) => {
       if (!value.href || value.href === "#") {

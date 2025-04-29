@@ -8,12 +8,13 @@ import styles from "./side-menu.module.css"
 import { SideMenuItem } from "./side-menu.types"
 
 type Props = Omit<ComponentPropsWithRef<typeof KobberList>, "orientation"> & {
+  slug: string
   items: SideMenuItem[]
   showItemDivider?: boolean
 }
 
 export const SideMenuList = (props: Props) => {
-  const { items, showItemDivider, ...rest } = props
+  const { items, showItemDivider, slug, ...rest } = props
   return (
     <KobberList
       {...rest}
@@ -21,7 +22,7 @@ export const SideMenuList = (props: Props) => {
       className={cn(showItemDivider && styles["list-divider"], rest.className)}
     >
       {items.map((item, i) => (
-        <SideMenuListItem key={i} item={item} />
+        <SideMenuListItem key={i} item={item} slug={slug} />
       ))}
     </KobberList>
   )

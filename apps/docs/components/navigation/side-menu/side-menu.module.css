@@ -2,7 +2,7 @@
   position: sticky;
   top: var(--top-nav-height);
   height: calc(100vh - var(--top-nav-height));
-  overflow: hidden;
+  overflow: auto;
 
   @media (width <= 768px) {
     display: none;
