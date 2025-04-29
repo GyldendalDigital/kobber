@@ -27,7 +27,6 @@ export const SmallScreenNav = (props: Nav) => {
       {/* <div className={styles["small-screen-nav-back-button"]}>
         <NavButton onClick={() => setSelectedRoot(undefined)}>
           <IconArrowLeft size={16} />
-          bc
         </NavButton>
       </div> */}
 

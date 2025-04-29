@@ -15,7 +15,9 @@ type Props = {
 
 export const SideMenuGroup = (props: Props) => {
   const { title, items, slug } = props
-  const initiallyExpanded = items.some((item) => item.slug === slug)
+  const initiallyExpanded = items.some(
+    (item) => item.slug === slug || item.children?.some((x) => x.slug === slug)
+  )
   const [expanded, setExpanded] = useState(initiallyExpanded)
 
   return (

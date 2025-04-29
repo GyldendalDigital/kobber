@@ -3,7 +3,6 @@ import { notFound, redirect, RedirectType } from "next/navigation"
 import { client } from "@/sanity/lib/client"
 import { sanityFetch } from "@/sanity/lib/live"
 import { querySlugPageData, querySlugPagePaths } from "@/sanity/lib/queries"
-import { tryAddSanityHref } from "@/utils/sanity-temp-href"
 import { KobberHeading, KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
 import { getMetaData } from "@/lib/seo"
 import { cn, ensurePrefix, placeholderImageUrl } from "@/lib/utils"
@@ -22,11 +21,13 @@ async function fetchSlugPageData(slug: string) {
 async function fetchSlugPagePaths() {
   const slugs = await client.fetch(querySlugPagePaths)
   const paths: { slug: string[] }[] = []
+
   for (const slug of slugs) {
     if (!slug) continue
     const parts = slug.split("/").filter(Boolean)
     paths.push({ slug: parts })
   }
+
   return paths
 }
 
@@ -59,7 +60,7 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
   if (subPageBehavior?.includes("redirect")) {
     const firstChild = children?.[0]
     if (firstChild?.slug) {
-      return redirect(tryAddSanityHref("/fra-sanity", firstChild.slug), RedirectType.replace)
+      return redirect(firstChild.slug, RedirectType.replace)
     }
   }
 

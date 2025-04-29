@@ -21,14 +21,16 @@ const components: Partial<PortableTextReactComponents> = {
     },
     h2: ({ children, value }) => {
       const slug = parseChildrenToSlug(value.children)
-      const highlighted = value.children[0]?.marks?.includes("em")
       return (
-        <KobberHeading
-          id={slug}
-          level="h2"
-          variant={highlighted ? "display small" : "title medium"}
-          font={highlighted ? "secondary" : "primary"}
-        >
+        <KobberHeading id={slug} level="h2" variant={"title medium"} font={"primary"}>
+          {children}
+        </KobberHeading>
+      )
+    },
+    h2Italic: ({ children, value }) => {
+      const slug = parseChildrenToSlug(value.children)
+      return (
+        <KobberHeading id={slug} level="h2" variant={"display small"} font={"secondary"}>
           {children}
         </KobberHeading>
       )
@@ -37,7 +39,7 @@ const components: Partial<PortableTextReactComponents> = {
       const slug = parseChildrenToSlug(value.children)
       return <KobberIngress id={slug}>{children}</KobberIngress>
     },
-    inline: ({ children }) => <p className="mr-[2%] inline-block w-[48%] align-top">{children}</p>,
+    inline: ({ children }) => <p className={styles["inline"]}>{children}</p>,
   },
   marks: {
     iconPositive: ({ children }) => (

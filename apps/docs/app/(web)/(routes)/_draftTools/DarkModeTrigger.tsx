@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { getCookieValue, setCookie } from "@/utils/clientCookies"
+import { getCookieValue, setCookie } from "@/lib/clientCookies"
 import { KobberButton } from "@gyldendal/kobber-components/react-ssr-safe"
 import { Moon, Sun } from "lucide-react"
 

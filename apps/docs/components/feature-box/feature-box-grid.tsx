@@ -1,6 +1,12 @@
-import { FeatureBoxType } from "@/types/types"
 import { FeatureBoxGridItem } from "./feature-box-grid-item"
 import styles from "./feature-box.module.css"
+
+export type FeatureBoxType = {
+  title?: string | null
+  image?: string | null
+  href?: string | null
+  disabled?: boolean
+}
 
 type FeatureBoxGridProps = {
   items: FeatureBoxType[]

@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation"
 import { KobberButton } from "@gyldendal/kobber-components/react-ssr-safe"
 import { Login } from "@gyldendal/kobber-icons/react-ssr-safe"
 import { signOut, useSession } from "next-auth/react"
-import { ssoSignIn } from "@/hooks/use-sso-sign-in"
+import { ssoSignIn } from "@/lib/use-sso-sign-in"
 
 type Props = {
   cta?: boolean

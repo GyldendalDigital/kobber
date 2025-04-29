@@ -1,6 +1,6 @@
-import { InformationCardType } from "@/types/types"
+import Image from "next/image"
 import { damUrl } from "@/lib/damImageLoader"
-import { InformationCard } from "@/components/information-card"
+import { placeholderImageUrl } from "@/lib/utils"
 import type { PagebuilderType } from "../page-builder.types"
 
 type Props = PagebuilderType<"contactListBlock">
@@ -13,6 +13,36 @@ export function ContactListBlock(props: Props) {
           <InformationCard key={person.title} item={person} />
         ))}
       </section>
+    </div>
+  )
+}
+
+type InformationCardType = {
+  title: string
+  text?: string
+  image?: string
+}
+
+type InformationCardProps = {
+  item: InformationCardType
+}
+
+export function InformationCard({ item: { title, text, image } }: InformationCardProps) {
+  return (
+    <div className="flex h-full flex-col gap-2">
+      <div className="relative aspect-square overflow-hidden rounded-[16px] bg-muted">
+        <Image
+          src={image ?? placeholderImageUrl({})}
+          alt="Bilde"
+          fill
+          className="object-cover object-top"
+        />
+      </div>
+
+      <div className="flex min-h-[120px] flex-col items-start justify-start">
+        <h6 className="text-[22px] text-[#481125ff]">{title}</h6>
+        {text && <p className="whitespace-pre-line text-[16px] text-[#A35E70]">{text}</p>}
+      </div>
     </div>
   )
 }

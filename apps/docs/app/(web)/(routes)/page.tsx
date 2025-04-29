@@ -4,8 +4,8 @@ import { getMetaData } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 import { PageBuilder } from "@/components/page-builder/page-builder"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
-import { HeroBanner } from "../(routes)/(landing)/hero-banner"
-import styles from "../(routes)/(landing)/landing.module.css"
+import { HeroBanner } from "./_hero-banner"
+import styles from "./homePage.module.css"
 
 async function fetchHomePageData() {
   return await sanityFetch({
@@ -31,7 +31,7 @@ export default async function Page() {
   const { _id, _type, pageBuilder } = homePageData ?? {}
 
   return (
-    <main className={cn("home-page", styles.landing, pageLayoutStyles["page-spacing"])}>
+    <main className={cn(styles["home-page"], pageLayoutStyles["page-spacing"])}>
       <HeroBanner />
 
       <PageBuilder pageBuilder={pageBuilder ?? []} id={_id} type={_type} />
