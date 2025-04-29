@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.4.2
+
+### Patch Changes
+
+- Make react ssr safe icon components respect currentcolor
+- Updated dependencies
+  - @gyldendal/kobber-base@0.4.2
+  - @gyldendal/kobber-icons@0.4.2
+
 ## 0.4.1
 
 ### Patch Changes

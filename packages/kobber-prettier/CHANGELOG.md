@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.4.2
+
+### Patch Changes
+
+- Make react ssr safe icon components respect currentcolor
+
 ## 0.4.1
 
 ### Patch Changes
