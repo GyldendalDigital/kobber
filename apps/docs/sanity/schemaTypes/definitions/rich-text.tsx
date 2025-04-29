@@ -1,4 +1,10 @@
-import { CodeBlockIcon, ImageIcon, LinkIcon } from "@sanity/icons"
+import {
+  CheckmarkCircleIcon,
+  CloseCircleIcon,
+  CodeBlockIcon,
+  ImageIcon,
+  LinkIcon,
+} from "@sanity/icons"
 import { defineArrayMember, defineField, defineType } from "sanity"
 
 const richTextMembers = [
@@ -33,7 +39,38 @@ const richTextMembers = [
       decorators: [
         { title: "Strong", value: "strong" },
         { title: "Emphasis", value: "em" },
-        { title: "Code", value: "code" },
+        {
+          title: "Check",
+          value: "iconPositive",
+          icon: CheckmarkCircleIcon,
+          component: (props) => {
+            const showIcon = props.children?.props?.text?.marks?.length === 1
+            return showIcon ? (
+              <>
+                <CheckmarkCircleIcon />
+                &nbsp; {props.children}
+              </>
+            ) : (
+              props.children
+            )
+          },
+        },
+        {
+          title: "Cross",
+          value: "iconNegative",
+          icon: CloseCircleIcon,
+          component: (props) => {
+            const showIcon = props.children?.props?.text?.marks?.length === 1
+            return showIcon ? (
+              <>
+                <CloseCircleIcon />
+                &nbsp; {props.children}
+              </>
+            ) : (
+              props.children
+            )
+          },
+        },
       ],
     },
   }),

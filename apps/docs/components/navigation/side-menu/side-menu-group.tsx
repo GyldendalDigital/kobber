@@ -9,12 +9,13 @@ import styles from "./side-menu.module.css"
 import { SideMenuItem } from "./side-menu.types"
 
 type Props = {
+  slug: string
   title: string
   items: SideMenuItem[]
 }
 
 export const SideMenuGroup = (props: Props) => {
-  const { title, items } = props
+  const { title, items, slug } = props
   const pathname = usePathname()
   const pathnamePrefix = pathname.replace("/fra-sanity", "").split("/").slice(0, 3).join("/")
   const initiallyExpanded = items.some((item) => item.slug?.startsWith(pathnamePrefix))
@@ -27,7 +28,7 @@ export const SideMenuGroup = (props: Props) => {
         expanded={expanded}
         onToggle={() => setExpanded(!expanded)}
       >
-        <SideMenuList items={items} />
+        <SideMenuList items={items} slug={slug} />
       </KobberAccordion>
     </div>
   )

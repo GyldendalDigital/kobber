@@ -6,13 +6,22 @@ import styles from "./side-menu.module.css"
 import { SideMenuItem } from "./side-menu.types"
 
 type Props = {
+  slug: string
   item: SideMenuItem
 }
 
 export const SideMenuListItem = (props: Props) => {
-  const { item } = props
+  const { item, slug } = props
 
-  if (!item.children || item.children.length === 0) {
+  if (!item) {
+    return null
+  }
+
+  if (
+    !item.children ||
+    item.children.length === 0 ||
+    !item.children.some((child) => child.slug?.includes(slug))
+  ) {
     return <SideMenuListItemLink item={item} />
   }
 
@@ -20,12 +29,11 @@ export const SideMenuListItem = (props: Props) => {
     <>
       <SideMenuListItemLink item={item} />
 
-      {item.children && item.children.length !== 0 && (
-        <SideMenuList
-          items={item.children as unknown as SideMenuItem[]}
-          className={styles["sub-list-spacing"]}
-        />
-      )}
+      <SideMenuList
+        items={item.children as unknown as SideMenuItem[]}
+        className={styles["sub-list-spacing"]}
+        slug={slug}
+      />
     </>
   )
 }

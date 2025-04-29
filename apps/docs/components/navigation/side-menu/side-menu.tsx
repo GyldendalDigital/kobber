@@ -6,14 +6,15 @@ import styles from "./side-menu.module.css"
 import { SideMenuItem } from "./side-menu.types"
 
 type Props = {
+  rootSlug: string
   slug: string
 }
 
 /** Hidden on small screens. Data shown in small-screen-nav. */
-export const SideMenu = async ({ slug }: Props) => {
+export const SideMenu = async ({ rootSlug, slug }: Props) => {
   const { data } = await sanityFetch({
     query: querySideMenuData,
-    params: { slug: `/${slug}` },
+    params: { slug: `/${rootSlug}` },
   })
 
   if (!data) return null
@@ -42,8 +43,10 @@ export const SideMenu = async ({ slug }: Props) => {
     <nav className={styles["wrapper"]}>
       <div className={styles["inner-container"]}>
         {groups.length !== 0 &&
-          groups.map((group, i) => <SideMenuGroup key={i} title={group[0]} items={group[1]} />)}
-        {ungrouped.length !== 0 && <SideMenuList items={ungrouped} showItemDivider />}
+          groups.map((group, i) => (
+            <SideMenuGroup key={i} title={group[0]} items={group[1]} slug={slug} />
+          ))}
+        {ungrouped.length !== 0 && <SideMenuList items={ungrouped} slug={slug} showItemDivider />}
       </div>
     </nav>
   )

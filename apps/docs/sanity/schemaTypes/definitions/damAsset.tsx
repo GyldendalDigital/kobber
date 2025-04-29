@@ -12,7 +12,6 @@ export const damAsset = defineType({
       name: "assetId",
       title: "Asset ID",
       type: "string",
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "name",
