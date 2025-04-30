@@ -70,10 +70,7 @@ export function PageBuilder({ pageBuilder: initialPageBuilder = [], id, type }: 
 
         if (!Component) {
           return (
-            <div
-              key={`${block._type}-${block._key}`}
-              className="flex items-center justify-center rounded-lg bg-muted p-8 text-center text-muted-foreground"
-            >
+            <div key={`${block._type}-${block._key}`}>
               Component not found for block type: <code>{block._type}</code>
             </div>
           )

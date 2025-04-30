@@ -10,6 +10,7 @@ import { FeatureBoxGrid } from "@/components/feature-box/feature-box-grid"
 import { SideMenu } from "@/components/navigation/side-menu/side-menu"
 import { PageBuilder } from "@/components/page-builder/page-builder"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
+import { DraftTools } from "../_draftTools/DraftTools"
 import styles from "./slugPage.module.css"
 
 async function fetchSlugPageData(slug: string) {
@@ -71,34 +72,37 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
   const showSubPageGrid = subPageBehavior?.includes("grid") && children?.length
 
   return (
-    <div className={cn(pageLayoutStyles["page-layout"], pageLayoutStyles["page-spacing"])}>
-      {rootSlug && <SideMenu slug={slug} rootSlug={rootSlug} />}
-      <main className={styles["slug-page"]}>
-        {showPageBuilder && <PageBuilder pageBuilder={pageBuilder} id={_id} type={_type} />}
+    <>
+      <div className={cn(pageLayoutStyles["page-layout"], pageLayoutStyles["page-spacing"])}>
+        {rootSlug && <SideMenu slug={slug} rootSlug={rootSlug} />}
+        <main className={styles["slug-page"]}>
+          {showPageBuilder && <PageBuilder pageBuilder={pageBuilder} id={_id} type={_type} />}
 
-        {showSubPageGrid && (
-          <FeatureBoxGrid
-            items={children.map((x) => ({
-              ...x,
-              href: x.slug,
-              image: x.image ?? placeholderImageUrl({ textRows: ["placeholder"], size: "20x20" }),
-            }))}
-          />
-        )}
+          {showSubPageGrid && (
+            <FeatureBoxGrid
+              items={children.map((x) => ({
+                ...x,
+                href: x.slug,
+                image: x.image ?? placeholderImageUrl({ textRows: ["placeholder"], size: "20x20" }),
+              }))}
+            />
+          )}
 
-        {!showPageBuilder && !showSubPageGrid && (
-          <KobberTextWrapper>
-            <KobberHeading>{title}</KobberHeading>
-            <p>Innhold er ikke lagt til enda.</p>
-            {(await draftMode()).isEnabled && (
-              <small>
-                redigeringsmodustips: legg til innhold i page buildern eller velg sub page behavior
-                redirect
-              </small>
-            )}
-          </KobberTextWrapper>
-        )}
-      </main>
-    </div>
+          {!showPageBuilder && !showSubPageGrid && (
+            <KobberTextWrapper>
+              <KobberHeading>{title}</KobberHeading>
+              <p>Innhold er ikke lagt til enda.</p>
+              {(await draftMode()).isEnabled && (
+                <small>
+                  redigeringsmodustips: legg til innhold i page buildern eller velg sub page
+                  behavior redirect
+                </small>
+              )}
+            </KobberTextWrapper>
+          )}
+        </main>
+      </div>
+      <DraftTools pageId={_id} />
+    </>
   )
 }

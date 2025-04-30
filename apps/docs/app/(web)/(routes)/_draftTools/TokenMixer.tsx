@@ -1,8 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { KobberButton } from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
 import { Settings2Icon } from "lucide-react"
+import styles from "./DraftTools.module.css"
 
 export const TokenMixer = () => {
   const [show, setShow] = useState(false)
@@ -56,20 +57,18 @@ const TokenOverlay = ({ onClose }: { onClose: () => void }) => {
       <style href={"token-mixer" + new Date().toISOString()} precedence="medium">
         {localCss || defaultCss}
       </style>
-      <div className="fixed inset-[10vw] flex flex-col items-center justify-center gap-4 rounded-lg bg-white p-4 shadow-lg">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold">Token mixer</h2>
-          <small className="text-gray-500">
-            Endre design tokens live på siden. Trykk save for å huske innstillingene når du lukker
-            modalen.
-          </small>
-        </div>
+      <div className={styles["token-mixer-wrapper"]}>
+        <KobberHeading variant="heading small">Token mixer</KobberHeading>
+        <small>
+          Endre design tokens live på siden. Trykk save for å huske innstillingene når du lukker
+          modalen.
+        </small>
         <textarea
-          className="size-full resize-none rounded-lg border-2 border-gray-300 p-4 font-mono"
+          className={styles["token-mixer-code"]}
           value={localCss || defaultCss}
           onChange={(e) => setLocalCss(e.target.value)}
         />
-        <div className="flex gap-4">
+        <div className={styles["token-mixer-controls"]}>
           <KobberButton variant="brand-primary-main" onClick={handleSaveCss}>
             Save
           </KobberButton>

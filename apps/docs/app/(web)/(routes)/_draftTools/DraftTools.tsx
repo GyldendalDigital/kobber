@@ -5,25 +5,30 @@ import { KobberButton } from "@gyldendal/kobber-components/react-ssr-safe"
 import { Settings } from "@gyldendal/kobber-icons/react-ssr-safe"
 import { VisualEditing } from "next-sanity"
 import { DarkModeTrigger } from "./DarkModeTrigger"
-import { DisableDraftMode } from "./DisableDraftMode"
+// import { DisableDraftMode } from "./DisableDraftMode"
 import styles from "./DraftTools.module.css"
 import { TokenMixer } from "./TokenMixer"
 
-export const DraftTools = () => {
+type Props = {
+  pageId?: string
+}
+
+export const DraftTools = ({ pageId }: Props) => {
   const [open, setOpen] = useState(false)
+
   return (
     <>
       <div className={styles["panel"]}>
         {open && (
           <>
-            <DisableDraftMode />
+            {/* <DisableDraftMode /> */}
             <DarkModeTrigger />
             <TokenMixer />
             <KobberButton
               variant="vacation-primary-main"
               icon={<SanityLogo />}
               title="Åpne studio"
-              href="/studio"
+              href={pageId ? `/studio/structure/page;${pageId}` : "/studio/structure/homePage"}
             />
           </>
         )}
