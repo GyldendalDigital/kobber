@@ -1,0 +1,16 @@
+.wrapper {
+  position: relative;
+  height: 30vw;
+  max-height: 80vh;
+  overflow: hidden;
+  border-radius: 1rem;
+
+  @media (width >= 768px) {
+    height: 20vw;
+  }
+
+  img {
+    object-fit: cover;
+    object-position: top;
+  }
+}

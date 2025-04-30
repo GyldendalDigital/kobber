@@ -31,7 +31,7 @@ export default async function Page() {
   const { _id, _type, pageBuilder } = homePageData ?? {}
 
   return (
-    <main className={cn(styles["home-page"], pageLayoutStyles["page-spacing"])}>
+    <main className={cn(styles["wrapper"], pageLayoutStyles["page-spacing"])}>
       <HeroBanner />
 
       <PageBuilder pageBuilder={pageBuilder ?? []} id={_id} type={_type} />

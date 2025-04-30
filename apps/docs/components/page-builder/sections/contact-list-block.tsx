@@ -1,14 +1,16 @@
 import Image from "next/image"
+import { KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
 import { placeholderImageUrl } from "@/lib/utils"
 import type { PagebuilderType } from "../page-builder.types"
+import styles from "./contact-list-block.module.css"
 
 type Props = PagebuilderType<"contactListBlock">
 
 export function ContactListBlock(props: Props) {
   return (
     <div className="contact-list">
-      <section className="grid grid-cols-2 items-center justify-center gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <section className={styles["wrapper"]}>
         {team.map((person) => (
           <InformationCard key={person.title} item={person} />
         ))}
@@ -19,6 +21,7 @@ export function ContactListBlock(props: Props) {
 
 type InformationCardType = {
   title: string
+  subtitle?: string
   text?: string
   image?: string
 }
@@ -29,19 +32,14 @@ type InformationCardProps = {
 
 export function InformationCard({ item: { title, text, image } }: InformationCardProps) {
   return (
-    <div className="flex h-full flex-col gap-2">
-      <div className="relative aspect-square overflow-hidden rounded-[16px] bg-muted">
-        <Image
-          src={image ?? placeholderImageUrl({})}
-          alt="Bilde"
-          fill
-          className="object-cover object-top"
-        />
+    <div className={styles["card"]}>
+      <div className={styles["card-image"]}>
+        <Image src={image ?? placeholderImageUrl({})} alt="Bilde" fill />
       </div>
 
-      <div className="flex min-h-[120px] flex-col items-start justify-start">
-        <h6 className="text-[22px] text-[#481125ff]">{title}</h6>
-        {text && <p className="whitespace-pre-line text-[16px] text-[#A35E70]">{text}</p>}
+      <div className={styles["card-content"]}>
+        <KobberHeading variant="title medium">{title}</KobberHeading>
+        {text && <p>{text}</p>}
       </div>
     </div>
   )

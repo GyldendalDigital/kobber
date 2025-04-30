@@ -8,11 +8,11 @@ export default async function RootLayout({ children }: React.PropsWithChildren) 
   const draft = await draftMode()
   draft.enable()
   return (
-    <div className={cn("sanity-layout")}>
+    <>
       <NavBar />
       {children}
       <SanityLive />
       {(await draftMode()).isEnabled && <DraftTools />}
-    </div>
+    </>
   )
 }
