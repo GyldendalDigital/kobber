@@ -1,0 +1,30 @@
+import { Canvas, Story, Meta } from "@storybook/blocks";
+
+import * as CarouselStories from "./Carousel.stories";
+import "storybook-web-components/public/global.css";
+
+<Meta of={CarouselStories} />
+
+# Carousel
+
+## Basic example
+
+To add buttons to the carousel, use `<kobber-carousel-button />` and set `slot` to `previous-button` or `next-button`.
+
+`<kobber-carousel-button />` is just an extension of `<kobber-button />`, see kobber-button for supported attributes.
+
+```html
+<kobber-carousel>
+  <kobber-carousel-button slot="previous-button"></kobber-carousel-button>
+  <kobber-carousel-button slot="next-button"></kobber-carousel-button>
+  <kobber-horizontal-layout>
+    <kobber-horizontal-layout-column>
+      First slide
+    </kobber-horizontal-layout-column>
+    <kobber-horizontal-layout-column>
+      Second slide
+    </kobber-horizontal-layout-column>
+  </kobber-horizontal-layout>
+</kobber-carousel>
+```
+

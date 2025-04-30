@@ -3,24 +3,13 @@ import { css, html, unsafeCSS } from "lit";
 import { customElement, property, queryAssignedElements, state } from "lit/decorators.js";
 import { gap, minCardWidth } from "./config";
 import { StyledLitElement } from "../utils/StyledLitElement";
-import "./NavigationButtons";
+import { ContextProvider as LitContextProvider } from "@lit/context";
+import { context, defaultContext } from "./context";
 
 @customElement("kobber-carousel")
 export class Carousel extends StyledLitElement {
   @property({ attribute: "aria-role-description" })
   ariaRoleDescription = "Karusell";
-
-  @property({ attribute: "previous-button-aria-label" })
-  previousButtonAriaLabel = "Forrige";
-
-  @property({ attribute: "next-button-aria-label" })
-  nextButtonAriaLabel = "Neste";
-
-  @state()
-  private _previousButtonDisabled = true;
-
-  @state()
-  private _nextButtonDisabled = true;
 
   @state()
   private _scrolledToLeft = 0;
@@ -45,6 +34,21 @@ export class Carousel extends StyledLitElement {
 
   @queryAssignedElements() _elementsContainer?: Array<HTMLElement>;
 
+  private provider = new LitContextProvider(this, {
+    context,
+    initialValue: defaultContext,
+  });
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.provider.setValue({
+      previous: this.previous,
+      next: this.next,
+      previousIsEnabled: false,
+      nextIsEnabled: true,
+    });
+  }
+
   private _resizeController = new ResizeController(this, {
     callback: ([entry]) => entry,
   });
@@ -67,15 +71,21 @@ export class Carousel extends StyledLitElement {
     this._observeAllItemsForTeaserWidth();
 
     this._observeSingleItemWithCallback(this._elementsContainer?.[0]?.children[0], () => {
-      this._previousButtonDisabled = true;
-      this._nextButtonDisabled = false;
+      this.provider.setValue({
+        ...this.provider.value,
+        previousIsEnabled: false,
+        nextIsEnabled: true,
+      });
     });
 
     this._observeSingleItemWithCallback(
       this._elementsContainer?.[0]?.children[this._elementsContainer[0].children.length - 1],
       () => {
-        this._previousButtonDisabled = false;
-        this._nextButtonDisabled = true;
+        this.provider.setValue({
+          ...this.provider.value,
+          previousIsEnabled: true,
+          nextIsEnabled: false,
+        });
       },
     );
   }
@@ -166,7 +176,7 @@ export class Carousel extends StyledLitElement {
     return 6;
   };
 
-  private _handlePreviousClick = () => {
+  public previous = () => {
     const newScrolledToLeftValue = this._scrolledToLeft - this._widthToScroll;
     const minMovedToLeftValue = 0;
     if (newScrolledToLeftValue < minMovedToLeftValue) {
@@ -174,10 +184,13 @@ export class Carousel extends StyledLitElement {
     } else {
       this._scrolledToLeft = newScrolledToLeftValue;
     }
-    this._nextButtonDisabled = false;
+    this.provider.setValue({
+      ...this.provider.value,
+      nextIsEnabled: true,
+    });
   };
 
-  private _handleNextClick = () => {
+  public next = () => {
     const maxScrolledToLeftValue = this._carouselFullWidth - this._widthToScroll;
     const newScrolledToLeftValue = this._scrolledToLeft + this._widthToScroll;
 
@@ -186,7 +199,10 @@ export class Carousel extends StyledLitElement {
     } else {
       this._scrolledToLeft = newScrolledToLeftValue;
     }
-    this._previousButtonDisabled = false;
+    this.provider.setValue({
+      ...this.provider.value,
+      previousIsEnabled: true,
+    });
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -241,36 +257,54 @@ export class Carousel extends StyledLitElement {
       left: 100%;
       content: "";
     }
+
+    .nav {
+      position: absolute;
+      z-index: 2;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .nav-item {
+      pointer-events: auto;
+    }
   `;
 
-  render = () => html`
-    <div class="wrapper">
-      <div
-        class="carousel ${this._previousButtonDisabled ? "" : "has-previous-items"}  ${this._nextButtonDisabled
-          ? ""
-          : "has-next-items"}"
-        role="group"
-        aria-roledescription="${this.ariaRoleDescription}"
-        style="
+  render = () => {
+    return html`
+      <div class="wrapper">
+        <div
+          class="carousel ${this.provider.value.previousIsEnabled ? "has-previous-items" : ""}  ${this.provider.value
+            .nextIsEnabled
+            ? "has-next-items"
+            : ""}"
+          role="group"
+          aria-roledescription="${this.ariaRoleDescription}"
+          style="
           --horizontal-layout-column-shrink: ${this._getItemShrinkValue()};
           --horizontal-layout-column-width-calc-base: ${this._getItemShrinkWidthCalcBase()};
           --max-span: ${this._getMaxSpans()}; 
           --scrolled-to-left: -${this._scrolledToLeft}px;
         "
-      >
-        <slot @slotchange=${this._handleSlotchange}></slot>
-        ${this._getTooFewItems()
-          ? html``
-          : html`<kobber-carousel-navigation-buttons
-              previous-button-disabled="${this._previousButtonDisabled}"
-              previous-button-aria-label="${this.previousButtonAriaLabel}"
-              .handlePreviousClick="${this._handlePreviousClick}"
-              next-button-disabled="${this._nextButtonDisabled}"
-              next-button-aria-label="${this.nextButtonAriaLabel}"
-              .handleNextClick="${this._handleNextClick}"
-            >
-            </kobber-carousel-navigation-buttons>`}
+        >
+          <slot @slotchange=${this._handleSlotchange}></slot>
+          ${this._getTooFewItems()
+            ? html``
+            : html`<div class="nav">
+                <div class="nav-item">
+                  <slot name="previous-button"></slot>
+                </div>
+                <div class="nav-item">
+                  <slot name="next-button"></slot>
+                </div>
+              </div>`}
+        </div>
       </div>
-    </div>
-  `;
+    `;
+  };
 }

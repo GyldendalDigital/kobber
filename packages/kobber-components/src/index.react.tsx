@@ -12,6 +12,7 @@ import { Divider } from "./divider/Divider";
 import { ProgressBar } from "./progress-bar/ProgressBar";
 import { ProgressBarItem } from "./progress-bar/ProgressBarItem";
 import { Carousel } from "./carousel/Carousel";
+import { CarouselButton } from "./carousel/CarouselButton";
 import { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 import { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
 
@@ -112,6 +113,12 @@ export const KobberThemeContext = createComponent({
 export const KobberCarousel = createComponent({
   tagName: "kobber-carousel",
   elementClass: Carousel,
+  react: React,
+});
+
+export const KobberCarouselButton = createComponent({
+  tagName: "kobber-carousel-button",
+  elementClass: CarouselButton,
   react: React,
 });
 
