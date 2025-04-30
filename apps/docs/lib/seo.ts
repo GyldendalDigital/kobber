@@ -1,11 +1,12 @@
 import type { Metadata } from "next"
-import type { Maybe } from "@/types/types"
 import { APP_NAME } from "./constants"
 
 interface OgImageOptions {
   type?: string
   id?: string
 }
+
+export type Maybe<T> = T | null | undefined
 
 const getBaseUrl = () => {
   return process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000"

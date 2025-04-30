@@ -34,12 +34,14 @@
 .image {
   overflow: hidden;
   border-radius: 1rem;
+  max-width: 100%;
 }
 
 .inline {
   display: inline-block;
   width: 48%;
   margin-right: 2%;
+  vertical-align: top;
 }
 
 .icon-wrapper {

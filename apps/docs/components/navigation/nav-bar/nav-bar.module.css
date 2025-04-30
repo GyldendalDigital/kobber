@@ -4,13 +4,15 @@
   inset-inline: 0;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   z-index: 1000;
   background-color: var(--kobber-component-docs-navbar-background-color-main);
-  padding-bottom: var(--kobber-component-docs-navbar-container-padding-block);
+  padding-block: var(--kobber-component-docs-navbar-container-padding-block);
 }
 
 .bar {
   display: grid;
+  justify-content: center;
   align-items: center;
   grid-template-columns: auto 1fr;
   width: 100%;

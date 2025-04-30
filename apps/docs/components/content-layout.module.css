@@ -1,9 +1,0 @@
-.content-layout {
-  display: flex;
-  flex-direction: column;
-  gap: var(--kobber-layout-gap-16-48);
-
-  &.read-with {
-    max-width: 75ch;
-  }
-}

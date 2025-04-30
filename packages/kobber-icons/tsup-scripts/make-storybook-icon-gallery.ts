@@ -9,8 +9,6 @@ export const makeIconGallery = (symbols: NodeListOf<SVGSymbolElement>) => {
 
   const metaString = `<Meta title="Icon/All" />
 
-# All icons
-
 <IconGallery>`;
 
   symbols.forEach(symbol => {

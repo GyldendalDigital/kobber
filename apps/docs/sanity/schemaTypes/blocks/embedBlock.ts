@@ -19,6 +19,12 @@ export const embedBlock = defineType({
         "https://kobber-storybook.gyldendaldigital.no/?path=/story/button--button",
     }),
     defineField({
+      name: "height",
+      type: "number",
+      title: "Height",
+      initialValue: 200,
+    }),
+    defineField({
       name: "inline",
       title: "50% bredde i rich text",
       type: "boolean",

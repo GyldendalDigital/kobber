@@ -3,7 +3,6 @@ import { notFound, redirect, RedirectType } from "next/navigation"
 import { client } from "@/sanity/lib/client"
 import { sanityFetch } from "@/sanity/lib/live"
 import { querySlugPageData, querySlugPagePaths } from "@/sanity/lib/queries"
-import { tryAddSanityHref } from "@/utils/sanity-temp-href"
 import { KobberHeading, KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
 import { getMetaData } from "@/lib/seo"
 import { cn, ensurePrefix, placeholderImageUrl } from "@/lib/utils"
@@ -11,6 +10,7 @@ import { FeatureBoxGrid } from "@/components/feature-box/feature-box-grid"
 import { SideMenu } from "@/components/navigation/side-menu/side-menu"
 import { PageBuilder } from "@/components/page-builder/page-builder"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
+import styles from "./slugPage.module.css"
 
 async function fetchSlugPageData(slug: string) {
   return await sanityFetch({
@@ -22,21 +22,25 @@ async function fetchSlugPageData(slug: string) {
 async function fetchSlugPagePaths() {
   const slugs = await client.fetch(querySlugPagePaths)
   const paths: { slug: string[] }[] = []
+
   for (const slug of slugs) {
     if (!slug) continue
     const parts = slug.split("/").filter(Boolean)
     paths.push({ slug: parts })
   }
+
   return paths
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }) {
-  const { slug } = await params
-  const slugString = slug.join("/")
-  const { data: pageData } = await fetchSlugPageData(slugString)
+  const { slug: slugs } = await params
+  const slug = ensurePrefix(slugs.join("/"), "/")
+  const { data: pageData } = await fetchSlugPageData(slug)
+
   if (!pageData) {
     return getMetaData({})
   }
+
   return getMetaData(pageData)
 }
 
@@ -59,7 +63,7 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
   if (subPageBehavior?.includes("redirect")) {
     const firstChild = children?.[0]
     if (firstChild?.slug) {
-      return redirect(tryAddSanityHref("/fra-sanity", firstChild.slug), RedirectType.replace)
+      return redirect(firstChild.slug, RedirectType.replace)
     }
   }
 
@@ -69,7 +73,7 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
   return (
     <div className={cn(pageLayoutStyles["page-layout"], pageLayoutStyles["page-spacing"])}>
       {rootSlug && <SideMenu slug={slug} rootSlug={rootSlug} />}
-      <main className="slug-page flex flex-col gap-4">
+      <main className={styles["slug-page"]}>
         {showPageBuilder && <PageBuilder pageBuilder={pageBuilder} id={_id} type={_type} />}
 
         {showSubPageGrid && (

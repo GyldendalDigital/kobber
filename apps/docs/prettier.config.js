@@ -30,6 +30,5 @@ export default {
   importOrderCombineTypeAndValueImports: true,
   plugins: [
     "@ianvs/prettier-plugin-sort-imports",
-    "prettier-plugin-tailwindcss",
   ],
 };

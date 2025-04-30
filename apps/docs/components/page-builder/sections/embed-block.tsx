@@ -9,7 +9,7 @@ export function EmbedBlock(props: EmbedProps) {
         src={props.url + "&full=false&panel=false&nav=false&instrument=false&shortcuts=false"}
         title="kode"
         width="100%"
-        height="200"
+        height={props.height ?? 200}
       />
     </div>
   )

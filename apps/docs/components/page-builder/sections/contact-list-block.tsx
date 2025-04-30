@@ -1,18 +1,46 @@
-import { InformationCardType } from "@/types/types"
+import Image from "next/image"
+import { KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
 import { damUrl } from "@/lib/damImageLoader"
-import { InformationCard } from "@/components/information-card"
+import { placeholderImageUrl } from "@/lib/utils"
 import type { PagebuilderType } from "../page-builder.types"
+import styles from "./contact-list-block.module.css"
 
 type Props = PagebuilderType<"contactListBlock">
 
 export function ContactListBlock(props: Props) {
   return (
     <div className="contact-list">
-      <section className="grid grid-cols-2 items-center justify-center gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <section className={styles["wrapper"]}>
         {team.map((person) => (
           <InformationCard key={person.title} item={person} />
         ))}
       </section>
+    </div>
+  )
+}
+
+type InformationCardType = {
+  title: string
+  subtitle?: string
+  text?: string
+  image?: string
+}
+
+type InformationCardProps = {
+  item: InformationCardType
+}
+
+export function InformationCard({ item: { title, text, image } }: InformationCardProps) {
+  return (
+    <div className={styles["card"]}>
+      <div className={styles["card-image"]}>
+        <Image src={image ?? placeholderImageUrl({})} alt="Bilde" fill />
+      </div>
+
+      <div className={styles["card-content"]}>
+        <KobberHeading variant="title medium">{title}</KobberHeading>
+        {text && <p>{text}</p>}
+      </div>
     </div>
   )
 }

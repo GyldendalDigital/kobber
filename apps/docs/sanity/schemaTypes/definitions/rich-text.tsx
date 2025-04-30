@@ -16,6 +16,13 @@ const richTextMembers = [
       { title: "H2", value: "h2" },
       { title: "Ingress", value: "h3" },
       { title: "50% bredde", value: "inline" },
+      {
+        title: "H2 Lyon",
+        value: "h2Italic",
+        component: (props) => (
+          <div style={{ fontSize: "2rem", fontStyle: "italic" }}>{props.children}</div>
+        ),
+      },
     ],
     lists: [
       { title: "Numbered", value: "number" },

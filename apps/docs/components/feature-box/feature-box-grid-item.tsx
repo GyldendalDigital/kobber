@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { FeatureBoxType } from "@/types/types"
+import { FeatureBoxType } from "./feature-box-grid"
 import styles from "./feature-box.module.css"
 
 type FeatureBoxGridItemProps = {
@@ -16,7 +16,9 @@ export function FeatureBoxGridItem({
     <Link href={disabled ? "#" : url} className={styles["feature-box-item"]}>
       {title && <label className={styles["feature-box-item-label"]}>{title as string}</label>}
 
-      {image ? <Image src={image} fill alt="" className={styles["feature-box-item-image"]} /> : null}
+      {image ? (
+        <Image src={image} fill alt="" className={styles["feature-box-item-image"]} />
+      ) : null}
     </Link>
   )
 }
