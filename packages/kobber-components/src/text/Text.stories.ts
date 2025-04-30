@@ -5,11 +5,6 @@ import "./heading/Heading";
 import "./ingress/Ingress";
 import "./text-link/TextLink";
 import { headingPrimarySizes, headingSecondarySizes } from "./heading/Heading.core";
-import { storySummary } from "../story/story-summary";
-import { textWrapperStyles } from "./text-wrapper/TextWrapper.styles";
-import { textLinkStyles } from "./text-link/TextLink.styles";
-import { ingressStyles } from "./ingress/Ingress.styles";
-import { headingStyles } from "./heading/Heading.styles";
 import "@gyldendal/kobber-icons/web-components";
 
 const meta: Meta = {
@@ -18,6 +13,7 @@ const meta: Meta = {
   parameters: {
     layout: "centered",
   },
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -93,6 +89,9 @@ export const All: Story = {
   `,
 };
 
+/**
+ * Primary er PP Mori, secondary er Lyon Display.
+ */
 export const Heading: Story = {
   argTypes: {
     text: {
@@ -137,15 +136,13 @@ export const Heading: Story = {
           )}
         </kobber-text-wrapper>
       </div>
-
-      ${storySummary({
-        summary: `Primary er PP Mori, secondary er Lyon Display.`,
-        code: headingStyles.cssText,
-      })}
     `;
   },
 };
 
+/**
+ * Bruker farge fra "component.article", og typografi fra "title medium".
+ */
 export const Ingress: Story = {
   argTypes: {
     text: {
@@ -157,18 +154,16 @@ export const Ingress: Story = {
   },
   render: args => {
     return html`<div style="max-width: 600px;">
-        <kobber-ingress> ${args.text} </kobber-ingress>
-      </div>
-
-      ${storySummary({
-        summary: `Bruker farge fra "component.article", og typografi fra "title medium".`,
-        code: ingressStyles.cssText,
-      })}`;
+      <kobber-ingress> ${args.text} </kobber-ingress>
+    </div>`;
   },
 };
 
 const linkStates = ["idle", "active", "hover", "focus", "disabled"];
 
+/**
+ * Disabled er ikke en gyldig state for lenker. Da fjerner man heller href-attributten.
+ */
 export const Link: Story = {
   argTypes: {
     icon: {
@@ -180,50 +175,43 @@ export const Link: Story = {
   },
   render: args => {
     return html`<div style="max-width: 600px;">
-        <kobber-text-wrapper>
-          ${linkStates.map(state => {
-            return html`<p>
-              <kobber-text-link
-                class="${state}"
-                href=${state !== "disabled" ? "https://github.com/GyldendalDigital/kobber" : ""}
-              >
-                Lenke ${args.icon ? html`<kobber-external_link_arrow />` : null}
-              </kobber-text-link>
-              med tilstand <code>${state}</code>
-            </p>`;
-          })}
-        </kobber-text-wrapper>
-      </div>
-
-      ${storySummary({
-        summary: `Disabled er ikke en gyldig state for lenker. Da fjerner man heller href-attributten.`,
-        code: textLinkStyles.cssText,
-      })}`;
+      <kobber-text-wrapper>
+        ${linkStates.map(state => {
+          return html`<p>
+            <kobber-text-link
+              class="${state}"
+              href=${state !== "disabled" ? "https://github.com/GyldendalDigital/kobber" : ""}
+            >
+              Lenke ${args.icon ? html`<kobber-external_link_arrow />` : null}
+            </kobber-text-link>
+            med tilstand <code>${state}</code>
+          </p>`;
+        })}
+      </kobber-text-wrapper>
+    </div>`;
   },
 };
 
+/**
+ * Wrapper bolker med tekst og gir gap på 1rem (16 px).
+ */
 export const Wrapper: Story = {
   render: () => {
     return html`<div style="width: 100%">
-        <kobber-text-wrapper>
-          <h1>Hvorfor et designsystem?</h1>
-          <p>
-            Designsystemet muliggjør en raskere og mer effektiv praksis for konsistent merkevarebygging,
-            produktutvikling og kommunikasjon. Det skaper en tydeligere felles retning, og bidrar til økt kjennskap til
-            og gjenkjennelighet av Gyldendal.
-          </p>
-          <p>
-            Det skal bidra til å styrke fellesskapsfølelsen på tvers av hele Gyldendal, ved å legge til rette for bedre
-            samarbeid, transparens, synergier og deling av kompetanse og metoder på tvers av fagfelt, avdelinger og
-            produkter.
-          </p>
-        </kobber-text-wrapper>
-      </div>
-
-      ${storySummary({
-        summary: `Wrapper bolker med tekst og gir gap på ${pxToRem(16)} (${16}px)`,
-        code: textWrapperStyles.cssText,
-      })}`;
+      <kobber-text-wrapper>
+        <h1>Hvorfor et designsystem?</h1>
+        <p>
+          Designsystemet muliggjør en raskere og mer effektiv praksis for konsistent merkevarebygging, produktutvikling
+          og kommunikasjon. Det skaper en tydeligere felles retning, og bidrar til økt kjennskap til og gjenkjennelighet
+          av Gyldendal.
+        </p>
+        <p>
+          Det skal bidra til å styrke fellesskapsfølelsen på tvers av hele Gyldendal, ved å legge til rette for bedre
+          samarbeid, transparens, synergier og deling av kompetanse og metoder på tvers av fagfelt, avdelinger og
+          produkter.
+        </p>
+      </kobber-text-wrapper>
+    </div>`;
   },
 };
 
