@@ -47,7 +47,7 @@ export class RadioInputControl extends ShoelaceElement implements ControlProps {
           this.className,
         ].join(" ")}
       >
-        ${this.checked ? html` <icon-form_radio part="checked-icon" /> ` : ""}
+        ${this.checked ? html` <icon-form_radio part="checked-icon"></icon-form_radio>` : ""}
       </div>
     `;
   }
