@@ -1,12 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { getCookieValue, setCookie } from "@/lib/clientCookies"
 import { KobberButton } from "@gyldendal/kobber-components/react-ssr-safe"
 import { Moon, Sun } from "lucide-react"
+import { getCookieValue, setCookie } from "@/lib/clientCookies"
 
 export const DarkModeTrigger = () => {
   const [colorScheme, setColorScheme] = useState(getCookieValue("color-scheme") ?? "default")
+  console.log("colorScheme", colorScheme, document.cookie)
   const oppositeMode = colorScheme === "dark" ? "default" : "dark"
 
   const handleClick = () => {

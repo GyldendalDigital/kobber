@@ -5,5 +5,5 @@ export const setCookie = (name: string, value: string) => {
 export const getCookieValue = (name: string) =>
   document.cookie
     .split(";")
-    .find((row) => row.startsWith(name))
+    .find((row) => row.trim().startsWith(name))
     ?.split("=")[1]

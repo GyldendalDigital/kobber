@@ -4,6 +4,7 @@ import { getMetaData } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 import { PageBuilder } from "@/components/page-builder/page-builder"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
+import { DraftTools } from "./_draftTools/DraftTools"
 import { HeroBanner } from "./_hero-banner"
 import styles from "./homePage.module.css"
 
@@ -31,10 +32,14 @@ export default async function Page() {
   const { _id, _type, pageBuilder } = homePageData ?? {}
 
   return (
-    <main className={cn(styles["wrapper"], pageLayoutStyles["page-spacing"])}>
-      <HeroBanner />
+    <>
+      <main className={cn(styles["wrapper"], pageLayoutStyles["page-spacing"])}>
+        <HeroBanner />
 
-      <PageBuilder pageBuilder={pageBuilder ?? []} id={_id} type={_type} />
-    </main>
+        <PageBuilder pageBuilder={pageBuilder ?? []} id={_id} type={_type} />
+      </main>
+
+      <DraftTools />
+    </>
   )
 }

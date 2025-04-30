@@ -44,20 +44,20 @@ const components: Partial<PortableTextReactComponents> = {
   marks: {
     iconPositive: ({ children }) => (
       <span className={cn(styles["icon-wrapper"], styles["positive"])}>
-        <CheckCircle />
+        <CheckCircle className={cn(styles["icon"])} />
         {children}
       </span>
     ),
     iconNegative: ({ children }) => (
       <span className={cn(styles["icon-wrapper"], styles["negative"])}>
-        <Remove />
+        <Remove className={cn(styles["icon"])} />
         {children}
       </span>
     ),
     customLink: ({ children, value }) => {
       if (!value.href || value.href === "#") {
         console.warn("🚀 link is not set", value)
-        return <span className="underline decoration-dotted underline-offset-2">Link Broken</span>
+        return <span>Link Broken</span>
       }
 
       return <RouterTextLink href={value.href}>{children}</RouterTextLink>
