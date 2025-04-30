@@ -83,6 +83,8 @@ const embedBlock = /* groq */ `
   _type == "embedBlock" => {
     title,
     url,
+    height,
+    inline,
   }
 `
 

@@ -419,6 +419,10 @@
                           {
                             "type": "string",
                             "value": "inline"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h2Italic"
                           }
                         ]
                       },
@@ -689,6 +693,13 @@
           },
           "optional": true
         },
+        "height": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
         "inline": {
           "type": "objectAttribute",
           "value": {
@@ -876,6 +887,10 @@
                           {
                             "type": "string",
                             "value": "inline"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h2Italic"
                           }
                         ]
                       },
@@ -1224,6 +1239,10 @@
                     {
                       "type": "string",
                       "value": "inline"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h2Italic"
                     }
                   ]
                 },
