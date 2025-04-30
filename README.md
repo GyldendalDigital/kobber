@@ -90,3 +90,31 @@ yarn build -F @gyldendal/kobber-base
 # runs the dev server for /apps/storybook-web-components (kobber-storybook.gyldendaldigital.no)
 yarn storybook
 ```
+
+### Test Kobber locally using import aliases
+
+Methods such as `npm link` exist for testing NPM packages locally before deploying to the NPM registry.
+
+Import aliases can also be used for developing Kobber locally in parallell with other projects.
+
+In the project using Kobber, add import aliases that point to the local Kobber-repo:
+
+```js
+// vite.config.js
+
+import { resolve } from "path";
+
+export default defineConfig({
+  resolve: {
+    alias: {
+      "@gyldendal/kobber-base": resolve(__dirname, "../../../../kobber/packages/kobber-base"),
+      "@gyldendal/kobber-components": resolve(__dirname, "../../../../kobber/packages/kobber-components/dist")
+    }
+  }
+});
+```
+
+Webpack does also have an `resolve.alias` option.
+
+After updating the config it might be necessary to run vite with the force option, i.e. `vite --force`.
+
