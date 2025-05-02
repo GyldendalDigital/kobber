@@ -1,5 +1,11 @@
 # @gyldendal/kobber-eslint
 
+## 0.4.3
+
+### Patch Changes
+
+- Carousel updates
+
 ## 0.4.2
 
 ### Patch Changes
