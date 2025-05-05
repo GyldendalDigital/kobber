@@ -1,5 +1,11 @@
 # @gyldendal/kobber-eslint
 
+## 0.4.4
+
+### Patch Changes
+
+- Republish icon package
+
 ## 0.4.3
 
 ### Patch Changes
