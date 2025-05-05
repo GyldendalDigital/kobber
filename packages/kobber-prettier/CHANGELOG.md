@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.4.3
+
+### Patch Changes
+
+- Carousel updates
+
 ## 0.4.2
 
 ### Patch Changes

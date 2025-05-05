@@ -1,5 +1,13 @@
 # @gyldendal/kobber-components
 
+## 0.4.3
+
+### Patch Changes
+
+- Carousel updates
+- Updated dependencies
+  - @gyldendal/kobber-base@0.4.3
+
 ## 0.4.2
 
 ### Patch Changes
