@@ -1,5 +1,11 @@
 # @gyldendal/kobber-eslint
 
+## 0.4.5
+
+### Patch Changes
+
+- Updated changeset config
+
 ## 0.4.4
 
 ### Patch Changes
