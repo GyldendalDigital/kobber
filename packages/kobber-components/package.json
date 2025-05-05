@@ -29,8 +29,8 @@
     "test": "web-test-runner"
   },
   "dependencies": {
-    "@gyldendal/kobber-base": "*",
-    "@gyldendal/kobber-icons": "*",
+    "@gyldendal/kobber-base": "0.4.4",
+    "@gyldendal/kobber-icons": "0.4.4",
     "@lit-labs/observers": "^2.0.5",
     "@shoelace-style/localize": "^3.1.2",
     "lit": "^3.2.1",
@@ -38,9 +38,9 @@
   },
   "devDependencies": {
     "@esm-bundle/chai": "^4.3.4-fix.0",
-    "@gyldendal/kobber-eslint": "*",
-    "@gyldendal/kobber-stylelint": "*",
-    "@gyldendal/kobber-tsconfig": "*",
+    "@gyldendal/kobber-eslint": "0.4.4",
+    "@gyldendal/kobber-stylelint": "0.4.4",
+    "@gyldendal/kobber-tsconfig": "0.4.4",
     "@lit/react": "^1.0.7",
     "@shoelace-style/shoelace": "^2.14.0",
     "@types/mocha": "^10.0.10",
