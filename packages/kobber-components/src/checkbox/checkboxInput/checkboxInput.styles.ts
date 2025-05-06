@@ -21,7 +21,7 @@ const createCheckboxStyles = () => {
     .${unsafeCSS("kobber-checkbox-wrapper" satisfies WrapperClassName)} {
       display: flex;
       flex-direction: column;
-      gap: var(--checkbox-inner-container-right-gap, 12px);
+      gap: var(${unsafeCSS(checkbox["inner-container-right"].gap)});
     }
 
     .${unsafeCSS("kobber-checkbox-input" satisfies CheckboxClassNames)} {
@@ -42,6 +42,7 @@ const createCheckboxStyles = () => {
     }
     .${unsafeCSS("kobber-checkbox__label" satisfies InputLabelClassName)} {
       display: block;
+      color: var(${unsafeCSS(checkbox.text.color)});
     }
     .${unsafeCSS("kobber-checkbox__control" satisfies InputControlClassName)} {
       width: var(${unsafeCSS(checkbox.checkbox.width)});
@@ -76,11 +77,12 @@ const variantStyles = () => {
 
 const statesPerVariant = (variant: CheckboxVariant) => {
   const outlineColor = component.checkbox.checkbox.outline.color[variant];
+  const borderColor = component.checkbox.checkbox.border.color[variant];
   const bgColor = component.checkbox.checkbox.background.color[variant];
   return css`
     & {
       --control-border-color: var(
-        ${unsafeCSS(component.checkbox.checkbox.border.color[variant].idle)}
+        ${unsafeCSS(borderColor.idle)}
       ); /* Must be first, to enable being overridden by non-idle styles. */
     }
 
@@ -88,7 +90,7 @@ const statesPerVariant = (variant: CheckboxVariant) => {
     :host(:hover) & {
       &:not(.disabled, [disabled]) {
         --control-outline-color: var(${unsafeCSS(outlineColor.hover)});
-        --control-border-color: var(${unsafeCSS(component.checkbox.checkbox.border.color[variant].hover)});
+        --control-border-color: var(${unsafeCSS(borderColor.hover)});
       }
     }
 
@@ -96,7 +98,19 @@ const statesPerVariant = (variant: CheckboxVariant) => {
     :host(:active) & {
       &:not(.disabled, [disabled]) {
         --control-outline-color: var(${unsafeCSS(outlineColor.active)});
-        --control-border-color: var(${unsafeCSS(component.checkbox.checkbox.border.color[variant].active)});
+        --control-border-color: var(${unsafeCSS(borderColor.active)});
+      }
+    }
+
+    &:focus-visible,
+    &.focus,
+    :host(:focus) &,
+    :host(:focus-visible) & {
+      &:not(.disabled, [disabled]) {
+        outline: none;
+        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
+        border-radius: var(${unsafeCSS(universal.focus.border.radius.xsmall)});
+        --control-border-color: var(${unsafeCSS(borderColor.focus)});
       }
     }
 
@@ -119,17 +133,6 @@ const inputStates = () => {
       /* opacity: var(${unsafeCSS(universal.disabled.container.opacity)}); */
       opacity: 0.5;
       cursor: auto;
-    }
-
-    &:focus-visible,
-    &.focus,
-    :host(:focus) &,
-    :host(:focus-visible) & {
-      &:not(.disabled, [disabled]) {
-        outline: none;
-        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
-        border-radius: var(${unsafeCSS(universal.focus.border.radius.xsmall)});
-      }
     }
   `;
 };
