@@ -3,7 +3,9 @@ import { html } from "lit/static-html.js";
 import { customElement } from "../../utils/customElementDecorator";
 import { internalIconsStyles } from "../InternalIcons.styles";
 
-@customElement("icon-form_radio")
+export const iconFormRadioName = "icon-form_radio";
+
+@customElement(iconFormRadioName)
 export class IconFormRadio extends HTMLElement {
   static styles: CSSResultGroup = [internalIconsStyles];
 

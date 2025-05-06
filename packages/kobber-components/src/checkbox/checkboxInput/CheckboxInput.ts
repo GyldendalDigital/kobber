@@ -1,4 +1,5 @@
-import { CSSResultGroup, html } from "lit";
+import { CSSResultGroup } from "lit";
+import { html, unsafeStatic } from "lit/static-html.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { live } from "lit/directives/live.js";
 import { property, query, state } from "lit/decorators.js";
@@ -19,8 +20,8 @@ import {
   checkboxWrapperClassName,
 } from "../Checkbox.core";
 import { customElement } from "../../utils/customElementDecorator";
-
 import { HTMLElement } from "@lit-labs/ssr-dom-shim";
+import { internalIconFormCheckedName, internalIconFormIndeterminateName } from "../../index.web-components";
 
 globalThis.HTMLElement ??= HTMLElement;
 
@@ -75,6 +76,8 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
   private readonly hasSlotController = new HasSlotController(this, "help-text");
 
   @query('input[type="checkbox"]') input!: HTMLInputElement;
+
+  @property({ attribute: "id-value", reflect: true }) idValue = "";
 
   @property() title = ""; // make reactive to pass through
 
@@ -205,6 +208,11 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
     const hasAlertElementSlot = this.hasSlotController.test("alert");
     const hasHelpText = this.helpText ? true : !!hasHelpTextSlot;
     const hasAlertElement = !!hasAlertElementSlot;
+    const icon = this.checked
+      ? html`<${unsafeStatic(internalIconFormCheckedName)} class="kobber-checkbox__control--shape"></${unsafeStatic(internalIconFormCheckedName)}>`
+      : this.indeterminate
+        ? html`<${unsafeStatic(internalIconFormIndeterminateName)} class="kobber-checkbox__control--shape"></${unsafeStatic(internalIconFormIndeterminateName)}>`
+        : "";
 
     return html`
       <div class="${checkboxWrapperClassName}">
@@ -214,7 +222,7 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
             type="checkbox"
             title=${this.title /* An empty title prevents browser validation tooltips from appearing on hover */}
             name=${this.name}
-            value=${ifDefined(this.value)}
+            value=${ifDefined(this.idValue)}
             .checked=${live(this.checked)}
             .disabled=${this.disabled}
             .required=${this.required}
@@ -226,18 +234,7 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
             @focus=${this.handleFocus}
           />
 
-          <span
-            part="control${this.checked ? " control--checked" : ""}${this.indeterminate
-              ? " control--indeterminate"
-              : ""}"
-            class=${checkboxControlClassName}
-          >
-            ${this.checked
-              ? html` <icon-form_checked part="checked-icon" /> `
-              : this.indeterminate
-                ? html` <icon-form_indeterminate part="checked-icon" /> `
-                : ""}
-          </span>
+          <span class=${checkboxControlClassName}> ${icon} </span>
 
           <div part="label" class=${checkboxLabelClassName}>
             <slot></slot>

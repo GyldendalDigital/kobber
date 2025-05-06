@@ -3,7 +3,9 @@ import { html } from "lit/static-html.js";
 import { customElement } from "../../utils/customElementDecorator";
 import { internalIconsStyles } from "../InternalIcons.styles";
 
-@customElement("icon-form_checked")
+export const iconFormCheckedName = "icon-form_checked";
+
+@customElement(iconFormCheckedName)
 export class IconFormChecked extends HTMLElement {
   static styles: CSSResultGroup = [internalIconsStyles];
 

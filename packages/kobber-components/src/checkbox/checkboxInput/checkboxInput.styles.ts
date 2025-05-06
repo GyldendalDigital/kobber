@@ -8,6 +8,7 @@ import {
   NativeInputClassName,
   InputControlClassName,
   WrapperClassName,
+  CheckboxIconClassNames,
 } from "../Checkbox.core";
 
 const createCheckboxStyles = () => {
@@ -47,6 +48,9 @@ const createCheckboxStyles = () => {
     .${unsafeCSS("kobber-checkbox__control" satisfies InputControlClassName)} {
       width: var(${unsafeCSS(checkbox.checkbox.width)});
       height: var(${unsafeCSS(checkbox.checkbox.height)});
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: var(${unsafeCSS(checkbox.checkbox.outline.radius)});
       &:not([checked]) {
         border: var(${unsafeCSS(checkbox.checkbox.border.width)}) solid var(--control-border-color);
@@ -55,6 +59,10 @@ const createCheckboxStyles = () => {
       flex-shrink: 0;
       background-color: var(--control-background-color);
       transition: var(--transition-time) outline;
+    }
+    .${unsafeCSS("kobber-checkbox__control--shape" satisfies CheckboxIconClassNames)} {
+      display: flex;
+      align-items: center;
     }
     .${unsafeCSS("native-input" satisfies NativeInputClassName)} {
       pointer-events: none;

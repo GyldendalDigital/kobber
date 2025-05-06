@@ -1,9 +1,8 @@
-import { html } from "lit";
+import { html, unsafeStatic } from "lit/static-html.js";
 import type { CSSResultGroup } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";
 import ShoelaceElement from "../../base/internal/shoelace-element";
 import { HasSlotController } from "../../base/internal/slot";
-import { watch } from "../../base/internal/watch";
 import type { ShoelaceFormControl } from "../../base/internal/shoelace-element";
 import {
   customErrorValidityState,
@@ -13,12 +12,11 @@ import {
 } from "../../base/internal/form";
 import componentStyles from "../../base/styles/component.styles";
 import type { CheckboxInput } from "../checkboxInput/CheckboxInput";
-import { checkboxGroupName, checkboxInputName, checkboxGroupHorizontalClassName, GroupProps } from "../Checkbox.core";
+import { checkboxGroupName, checkboxInputName, GroupProps } from "../Checkbox.core";
 import { checkboxGroupStyles } from "./CheckboxGroup.styles";
 
 /**
- * @summary Checkbox groups are used to group multiple [checkboxes](/components/checkbox) or [checkbox buttons](/components/checkbox-button) so they function as a single form control.
- * @documentation https://shoelace.style/components/checkbox-group
+ * @summary Checkbox groups are used to group multiple [checkboxes](/components/checkbox).
  * @status stable
  * @since 2.0
  *
@@ -26,10 +24,6 @@ import { checkboxGroupStyles } from "./CheckboxGroup.styles";
  * @slot label - The checkbox group's label. Required for proper accessibility. Alternatively, you can use the `label`
  *  attribute.
  * @slot help-text - Text that describes how to use the checkbox group. Alternatively, you can use the `help-text` attribute.
- *
- * @event change - Emitted when the checkbox group's selected value changes.
- * @event input - Emitted when the checkbox group receives user input.
- * @event invalid - Emitted when the form control has been checked for validity and its constraints aren't satisfied.
  *
  */
 
@@ -50,10 +44,8 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
 
   @query("slot:not([name])") defaultSlot!: HTMLSlotElement;
 
-  @state() private url = window.location.href;
-
-  @property({ attribute: "current-value" }) currentValue = "";
-  @property({ attribute: "show-group-checkbox", type: Boolean, reflect: true }) showGroupCheckbox = false;
+  @property() type: "equal" | "hierarchical" = "equal";
+  @property({ attribute: "hierarchical-checkboxbox-label" }) hierarchicalCheckboxboxLabel = "";
 
   /**
    * The checkbox group's label. Required for proper accessibility. If you need to display HTML, use the `label` slot
@@ -64,10 +56,13 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
   /** The name of the checkbox group, submitted as a name/value pair with form data. */
   @property() name = "option";
 
-  @property() direction: "vertical" | "horizontal" = "vertical";
+  @property() orientation: "vertical" | "horizontal" = "vertical";
 
   /** The current value of the checkbox group, submitted as a name/value pair with form data. */
-  @property({ reflect: true }) value = "";
+  @state() private idValues: string[] = [];
+
+  @state() private allBoxesAreChecked = false;
+  @state() private someButNotAllBoxesAreChecked = false;
 
   /**
    * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
@@ -81,7 +76,7 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
 
   /** Gets the validity state object */
   get validity() {
-    const isRequiredAndEmpty = this.required && !this.value;
+    const isRequiredAndEmpty = this.required && !this.idValues;
     const hasCustomValidityMessage = this.customValidityMessage !== "";
 
     if (hasCustomValidityMessage) {
@@ -96,18 +91,20 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
   constructor() {
     super();
   }
+  direction?: "vertical" | "horizontal" | undefined;
+  value: string | undefined;
+  defaultValue?: unknown;
+  pattern?: string | undefined;
+  min?: string | number | Date | undefined;
+  max?: string | number | Date | undefined;
+  step?: number | "any" | undefined;
+  minlength?: number | undefined;
+  maxlength?: number | undefined;
+  checked?: boolean | undefined;
+  indeterminate?: boolean | undefined;
 
   connectedCallback() {
     super.connectedCallback();
-    this.value = this.currentValue;
-    /* eslint-disable @typescript-eslint/no-explicit-any */
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    navigation.addEventListener("navigate", (e: any) => {
-      // Experimental functionality, does not work in Firefox. Might change in the future.
-      /* eslint-enable @typescript-eslint/no-explicit-any */
-      this.handleUrlChange();
-    });
   }
 
   firstUpdated() {
@@ -118,79 +115,45 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
     return [...this.querySelectorAll<CheckboxInput>(checkboxInputName)];
   }
 
-  private handleCheckboxClick(event: MouseEvent) {
-    const target = (event.target as HTMLElement).closest<CheckboxInput>(checkboxInputName)!;
-    const checkboxes = this.getAllCheckboxes();
-    const oldValue = this.value;
-
-    if (!target || target.disabled) {
-      return;
-    }
-
-    this.value = target.value;
-    checkboxes.forEach(checkbox => (checkbox.checked = checkbox === target));
-
-    if (this.value !== oldValue) {
-      this.emit("change");
-      this.emit("input");
-    }
-  }
-
-  private handleKeyDown(event: KeyboardEvent) {
-    if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].includes(event.key)) {
-      return;
-    }
-
-    const checkboxes = this.getAllCheckboxes().filter(checkbox => !checkbox.disabled);
-    const checkedCheckbox = checkboxes.find(checkbox => checkbox.checked) ?? checkboxes[0];
-    const incr = event.key === " " ? 0 : ["ArrowUp", "ArrowLeft"].includes(event.key) ? -1 : 1;
-    const oldValue = this.value;
-    let index = checkboxes.indexOf(checkedCheckbox!) + incr;
-
-    if (index < 0) {
-      index = checkboxes.length - 1;
-    }
-
-    if (index > checkboxes.length - 1) {
-      index = 0;
-    }
-
-    this.getAllCheckboxes().forEach(checkbox => {
-      checkbox.checked = false;
-      checkbox.setAttribute("tabindex", "-1");
-    });
-
-    this.value = checkboxes[index]!.value;
-    checkboxes[index]!.checked = true;
-    this.focusOnCheckbox(checkboxes);
-    checkboxes[index]!.setAttribute("tabindex", "0");
-
-    if (this.value !== oldValue) {
-      this.emit("change");
-      this.emit("input");
-    }
-
-    event.preventDefault();
-  }
-
-  private handleLabelClick() {
-    this.focus();
-  }
-
+  /**
+   * Populate name/value pairs array?
+   */
   private async syncCheckboxElements() {
     const checkboxes = this.getAllCheckboxes();
+    const numberOfNotDisabledCheckboxes = checkboxes.filter(box => !box.disabled).length;
 
     await Promise.all(
       // Sync the checked state and size
       checkboxes.map(async checkbox => {
         await checkbox.updateComplete;
-        checkbox.checked = checkbox.value === this.value;
+
+        const index = this.idValues.findIndex(item => item === checkbox.idValue);
+        if (checkbox.checked) {
+          if (index < 0) {
+            this.idValues.push(checkbox.idValue as string);
+          }
+        } else if (index > -1) {
+          this.idValues.splice(index, 1);
+        }
       }),
     );
 
-    if (checkboxes.length > 0 && !checkboxes.some(checkbox => checkbox.checked)) {
-      checkboxes[0]!.setAttribute("tabindex", "0");
+    if (this.idValues.length > 0) {
+      if (numberOfNotDisabledCheckboxes === this.idValues.length) {
+        this.allBoxesAreChecked = true;
+        this.someButNotAllBoxesAreChecked = false;
+      } else {
+        this.allBoxesAreChecked = false;
+        this.someButNotAllBoxesAreChecked = true;
+      }
+    } else {
+      this.allBoxesAreChecked = false;
+      this.someButNotAllBoxesAreChecked = false;
     }
+  }
+
+  private hierarchicalCheckboxboxIsChecked() {
+    return this.allBoxesAreChecked;
   }
 
   private syncCheckboxes() {
@@ -206,35 +169,9 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
     }
   }
 
-  private updateCheckedCheckbox() {
-    const checkboxes = this.getAllCheckboxes();
-    checkboxes.forEach(checkbox => (checkbox.checked = checkbox.value === this.value));
-    this.formControlController.setValidity(this.validity.valid);
-  }
-
-  @watch("size", { waitUntilFirstUpdate: true })
-  handleSizeChange() {
-    this.syncCheckboxes();
-  }
-
-  @watch("value")
-  handleValueChange() {
-    if (this.hasUpdated) {
-      this.updateCheckedCheckbox();
-    }
-  }
-
-  @watch("url")
-  handleUrlChange() {
-    if (window.location.href !== this.url) {
-      this.url = window.location.href;
-      this.syncCheckboxElements();
-    }
-  }
-
   /** Checks for validity but does not show a validation message. Returns `true` when valid and `false` when invalid. */
   checkValidity() {
-    const isRequiredAndEmpty = this.required && !this.value;
+    const isRequiredAndEmpty = this.required && !this.idValues;
     const hasCustomValidityMessage = this.customValidityMessage !== "";
 
     if (isRequiredAndEmpty || hasCustomValidityMessage) {
@@ -265,34 +202,26 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
     this.formControlController.updateValidity();
   }
 
-  private focusOnCheckbox(checkboxes: CheckboxInput[], options?: FocusOptions) {
-    const checked = checkboxes.find(checkbox => checkbox.checked);
-    const firstEnabledCheckbox = checkboxes.find(checkbox => !checkbox.disabled);
-    const checkboxToFocus = checked || firstEnabledCheckbox;
-    if (checkboxToFocus) {
-      checkboxToFocus.focus(options);
-    }
-  }
-
   render() {
-    const hasLabelSlot = this.hasSlotController.test("label");
     const hasHelpTextSlot = this.hasSlotController.test("help-text");
-    const hasLabel = this.label ? true : !!hasLabelSlot;
     const hasHelpText = !!hasHelpTextSlot;
+    const isHierarchical = this.type == "hierarchical";
+    const hierarchicalCheckboxbox = isHierarchical
+      ? html`<${unsafeStatic(checkboxInputName)}
+        .checked=${this.hierarchicalCheckboxboxIsChecked()} 
+        .indeterminate=${this.someButNotAllBoxesAreChecked}>
+          ${this.hierarchicalCheckboxboxLabel}
+        </${unsafeStatic(checkboxInputName)}>`
+      : "";
     const defaultSlot = html`
-      <slot
-        class="default-slot"
-        @slotchange=${this.syncCheckboxes}
-        @click=${this.handleCheckboxClick}
-        @keydown=${this.handleKeyDown}
-      ></slot>
+      <slot class="default-slot" @slotchange=${this.syncCheckboxes} @click=${this.syncCheckboxes}></slot>
     `;
 
     return html`
       <fieldset
         class="${checkboxGroupName}"
-        role="checkboxgroup"
-        aria-labelledby="label"
+        data-orientation="${this.orientation}"
+        data-type="${this.type}"
         aria-describedby="aria-help-text"
         aria-errormessage="error-message"
       >
@@ -300,7 +229,7 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
           <slot name="label">${this.label}</slot>
         </legend>
 
-        <div class="${this.direction === "horizontal" ? checkboxGroupHorizontalClassName : ""}">${defaultSlot}</div>
+        ${hierarchicalCheckboxbox} ${defaultSlot}
 
         <div id="aria-help-text" aria-hidden=${hasHelpText ? "false" : "true"}>
           <slot name="help-text"></slot>

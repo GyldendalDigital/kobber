@@ -6,7 +6,9 @@ export const checkboxInputName = "kobber-checkbox-input";
 export const nativeCheckboxInputClassName = "native-input";
 export const checkboxLabelClassName = "kobber-checkbox__label";
 export const checkboxControlClassName = "kobber-checkbox__control";
-export const checkboxGroupHorizontalClassName = "kobber-checkbox-group--horizontal";
+export const checkboxIconClassName = "kobber-checkbox__control--shape";
+
+export type CheckboxIconClassNames = typeof checkboxIconClassName;
 
 export const checkboxInputClassNames = ({ state = "idle" }: InputProps): CheckboxClassNames[] => {
   const conditionalClassNames: CheckboxClassNames[] = [];
@@ -38,7 +40,7 @@ export type InputProps = {
   variant?: CheckboxVariant;
 };
 
-export type GroupClassNames = typeof checkboxGroupName | typeof checkboxGroupHorizontalClassName;
+export type GroupClassNames = typeof checkboxGroupName;
 export type WrapperClassName = typeof checkboxWrapperClassName;
 export type CheckboxClassNames = typeof checkboxInputName | CheckboxState;
 export type NativeInputClassName = typeof nativeCheckboxInputClassName;

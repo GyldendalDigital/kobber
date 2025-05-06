@@ -96,6 +96,15 @@ export class RadioGroup extends ShoelaceElement implements Props {
   constructor() {
     super();
   }
+  defaultValue?: unknown;
+  pattern?: string | undefined;
+  min?: string | number | Date | undefined;
+  max?: string | number | Date | undefined;
+  step?: number | "any" | undefined;
+  minlength?: number | undefined;
+  maxlength?: number | undefined;
+  checked?: boolean | undefined;
+  indeterminate?: boolean | undefined;
 
   connectedCallback() {
     super.connectedCallback();
@@ -223,16 +232,14 @@ export class RadioGroup extends ShoelaceElement implements Props {
 
   @watch("value")
   handleValueChange() {
-    if (this.hasUpdated) {
-      this.updateCheckedRadio();
-    }
+    this.updateCheckedRadio();
   }
 
   @watch("url")
   handleUrlChange() {
     if (window.location.href !== this.url) {
       this.url = window.location.href;
-      this.syncRadioElements();
+      this.syncRadios();
     }
   }
 

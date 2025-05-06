@@ -3,7 +3,9 @@ import { html } from "lit/static-html.js";
 import { customElement } from "../../utils/customElementDecorator";
 import { internalIconsStyles } from "../InternalIcons.styles";
 
-@customElement("icon-form_indeterminate")
+export const iconFormIndeterminateName = "icon-form_indeterminate";
+
+@customElement(iconFormIndeterminateName)
 export class IconFormIndeterminate extends HTMLElement {
   static styles: CSSResultGroup = [internalIconsStyles];
 

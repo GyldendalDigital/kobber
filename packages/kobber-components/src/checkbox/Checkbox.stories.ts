@@ -210,20 +210,31 @@ export const GNOExample: Story = {
       </style>
 
       <div class="wrapper-theme">
-        <kobber-checkbox-group name="categories" show-group-checkbox>
-          <p slot="label">Kategori</p>        
+        <kobber-checkbox-group name="categories" orientation="${args.orientation}" type="${args.type}" hierarchical-checkboxbox-label="Alle">
+          <p slot="label">Kategori</p>
           <kobber-checkbox-input id-value="fiction">Skjønnlitteratur</kobber-checkbox-input>
           <kobber-checkbox-input id-value="non-fiction" disabled>Sakprosa</kobber-checkbox-input>
           <kobber-checkbox-input id-value="childrens-books">Barnebøker</kobber-checkbox-input>
           <kobber-checkbox-input id-value="syllabi">Pensumbøker</kobber-checkbox-input>
           <kobber-checkbox-input id-value="professional">Profesjonsbøker</kobber-checkbox-input>
-        ${args.showGroupHelpText ? `<span class="help-text">Velg noe, da.</span>` : ""}
+        ${args.showGroupHelpText ? `<span slot="help-text">Velg noe, da.</span>` : ""}
         </kobber-checkbox-group>
       </div>
     `;
   },
   args: {
     showGroupHelpText: true,
-    showGroupCheckbox: true,
+    type: "hierarchical",
+    orientation: "vertical",
+  },
+  argTypes: {
+    orientation: {
+      control: "inline-radio",
+      options: ["horisontal", "vertical"],
+    },
+    type: {
+      control: "inline-radio",
+      options: ["equal", "hierarchical"],
+    },
   },
 };
