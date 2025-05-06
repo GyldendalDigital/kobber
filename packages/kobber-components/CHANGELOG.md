@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.4.5
+
+### Patch Changes
+
+- Updated changeset config
+- Updated dependencies
+  - @gyldendal/kobber-icons@0.4.5
+  - @gyldendal/kobber-base@0.4.5
+
 ## 0.4.4
 
 ### Patch Changes
