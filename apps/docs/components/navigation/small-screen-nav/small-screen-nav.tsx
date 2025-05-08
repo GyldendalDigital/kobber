@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { usePathname } from "next/navigation"
 import { QueryNavbarSmallScreenDataResult } from "@/sanity/sanity.types"
 import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
@@ -9,7 +9,7 @@ import { createPortal } from "react-dom"
 import { cn } from "@/lib/utils"
 import { LoginButton } from "@/components/global/login-button"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
-import { NavButton, NavLink } from "../nav-link"
+import { NavLink } from "../nav-link"
 import styles from "./small-screen-nav.module.css"
 
 type Nav = Pick<NonNullable<QueryNavbarSmallScreenDataResult>, "children">
@@ -25,9 +25,7 @@ export const SmallScreenNav = (props: Nav) => {
     <div className={styles["small-screen-nav"]}>
       {/* TODO: click on items with children should open a nested sub level */}
       {/* <div className={styles["small-screen-nav-back-button"]}>
-        <NavButton onClick={() => setSelectedRoot(undefined)}>
-          <IconArrowLeft size={16} />
-        </NavButton>
+        
       </div> */}
 
       <div className={styles["small-screen-"]}>
