@@ -1,3 +1,3 @@
-export { IconFormChecked as InternalIconFormChecked } from "./form-checked";
-export { InternalIconFormIndeterminate } from "./form-indeterminate";
-export { IconFormRadio as InternalIconFormRadio } from "./form-radio";
+export { IconFormChecked } from "./form-checked";
+export { IconFormIndeterminate } from "./form-indeterminate";
+export { IconFormRadio } from "./form-radio";
