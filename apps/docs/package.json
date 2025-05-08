@@ -14,10 +14,10 @@
     "typegen": "sanity schema extract --path=sanity/extract.json && sanity typegen generate"
   },
   "dependencies": {
-    "@gyldendal/kobber-base": "*",
-    "@gyldendal/kobber-components": "*",
-    "@gyldendal/kobber-icons": "*",
-    "@gyldendal/kobber-stylelint": "*",
+    "@gyldendal/kobber-base": "0.4.5",
+    "@gyldendal/kobber-components": "0.4.5",
+    "@gyldendal/kobber-icons": "0.4.5",
+    "@gyldendal/kobber-stylelint": "0.4.5",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "@sanity/icons": "^3.7.0",
     "@sanity/image-url": "^1.1.0",

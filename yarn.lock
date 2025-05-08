@@ -3086,7 +3086,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-components@npm:*, @gyldendal/kobber-components@workspace:packages/kobber-components":
+"@gyldendal/kobber-components@npm:*, @gyldendal/kobber-components@npm:0.4.5, @gyldendal/kobber-components@workspace:packages/kobber-components":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-components@workspace:packages/kobber-components"
   dependencies:
@@ -3284,7 +3284,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-stylelint@npm:*, @gyldendal/kobber-stylelint@npm:0.4.5, @gyldendal/kobber-stylelint@workspace:packages/kobber-stylelint":
+"@gyldendal/kobber-stylelint@npm:0.4.5, @gyldendal/kobber-stylelint@workspace:packages/kobber-stylelint":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-stylelint@workspace:packages/kobber-stylelint"
   dependencies:
@@ -10186,10 +10186,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docs@workspace:apps/docs"
   dependencies:
-    "@gyldendal/kobber-base": "npm:*"
-    "@gyldendal/kobber-components": "npm:*"
-    "@gyldendal/kobber-icons": "npm:*"
-    "@gyldendal/kobber-stylelint": "npm:*"
+    "@gyldendal/kobber-base": "npm:0.4.5"
+    "@gyldendal/kobber-components": "npm:0.4.5"
+    "@gyldendal/kobber-icons": "npm:0.4.5"
+    "@gyldendal/kobber-stylelint": "npm:0.4.5"
     "@ianvs/prettier-plugin-sort-imports": "npm:^4.4.1"
     "@sanity/icons": "npm:^3.7.0"
     "@sanity/image-url": "npm:^1.1.0"
