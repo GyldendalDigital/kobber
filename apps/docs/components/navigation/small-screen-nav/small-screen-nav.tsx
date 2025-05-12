@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { usePathname } from "next/navigation"
 import { QueryNavbarSmallScreenDataResult } from "@/sanity/sanity.types"
-import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react"
 import { Menu, X } from "lucide-react"
 import { createPortal } from "react-dom"
 import { cn } from "@/lib/utils"

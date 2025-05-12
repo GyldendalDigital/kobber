@@ -1,7 +1,11 @@
 import Link from "next/link"
 import { sanityFetch } from "@/sanity/lib/live"
 import { queryNavbarSmallScreenData } from "@/sanity/lib/queries"
-import { KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
+import {
+  KobberHeading,
+  KobberRadioGroup,
+  KobberRadioInput,
+} from "@gyldendal/kobber-components/react"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import { LoginButton } from "@/components/global/login-button"
@@ -38,6 +42,16 @@ export const NavBar = async () => {
               )}
             </ul>
           )}
+
+          <KobberRadioGroup direction="vertical">
+            <span className="text-[12px] uppercase text-text/color/primary/label-s">Målform</span>
+            <KobberRadioInput value="bokmål" className="flex items-center gap-x-2" href="#bokmål">
+              Bokmål
+            </KobberRadioInput>
+            <KobberRadioInput value="nynorsk" href="#nynorsk">
+              Nynorsk
+            </KobberRadioInput>
+          </KobberRadioGroup>
 
           <LoginButton />
         </nav>

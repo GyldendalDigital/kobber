@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react"
 import { Settings2Icon } from "lucide-react"
 import styles from "./DraftTools.module.css"
 
@@ -13,12 +13,11 @@ export const TokenMixer = () => {
   return (
     <>
       {show && <TokenOverlay onClose={() => setShow(false)} />}
-      <KobberButton
-        variant="brand-primary-main"
-        icon={<Settings2Icon />}
-        title="Token mixer"
-        onClick={handleClick}
-      />
+      <KobberButton variant="brand-primary-main" title="Token mixer" onClick={handleClick}>
+        <div slot="icon">
+          <Settings2Icon />
+        </div>
+      </KobberButton>
     </>
   )
 }
