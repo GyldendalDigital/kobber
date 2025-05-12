@@ -16,6 +16,9 @@ export class TextLink extends LitElement implements TextLinkProps {
   @property()
   target?: HTMLAnchorElement["target"];
 
+  @property({ type: Boolean })
+  disabled = false;
+
   render() {
     const isDisabled = this.hasAttribute("disabled") || !this.href || this.href.length === 0;
     const isExternal = isExternalLink(this.href);

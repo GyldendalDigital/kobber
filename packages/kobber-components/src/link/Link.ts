@@ -18,6 +18,9 @@ export class Link extends KobberElementWithIcon implements LinkProps {
   @property()
   href?: LinkProps["href"];
 
+  @property({ type: Boolean })
+  disabled = false;
+
   @property()
   target?: LinkProps["target"];
 
