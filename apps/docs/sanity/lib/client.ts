@@ -1,5 +1,8 @@
+import { HTMLElement } from "@lit-labs/ssr-dom-shim"
 import { createClient } from "next-sanity"
 import { apiVersion, dataset, projectId } from "../env"
+
+globalThis.HTMLElement ??= HTMLElement
 
 export const client = createClient({
   projectId,
