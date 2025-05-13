@@ -37,7 +37,7 @@ export class RadioInput extends ShoelaceElement implements InputProps {
   @property({ type: Boolean, reflect: true }) disabled = false;
 
   /** When set, the underlying input will be rendered as an `<a>` with this `href` instead of a `<kobber-radio-input>`. */
-  @property({ type: Location }) href = "";
+  @property({ type: String }) href = "";
 
   private isLink() {
     return this.href ? true : false;
