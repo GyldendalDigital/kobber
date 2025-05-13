@@ -10,7 +10,6 @@ import type { ShoelaceFormControl } from "../../base/internal/shoelace-element";
 import { FormControlController } from "../../base/internal/form";
 import componentStyles from "../../base/styles/component.styles";
 import { HasSlotController } from "../../base/internal/slot";
-import "../../internal-icons";
 import {
   checkboxControlClassName,
   nativeCheckboxInputClassName,
@@ -19,6 +18,10 @@ import {
   CheckboxVariant,
   checkboxWrapperClassName,
 } from "../Checkbox.core";
+
+import { HTMLElement } from "@lit-labs/ssr-dom-shim";
+
+globalThis.HTMLElement ??= HTMLElement;
 
 /**
  * @summary Checkboxes allow the user to toggle an option on or off.

@@ -3,7 +3,6 @@ import { customElement, property } from "lit/decorators.js";
 import componentStyles from "../base/styles/component.styles";
 import { buttonStyles } from "./Button.styles";
 import { buttonClassNames, buttonName, ButtonProps } from "./Button.core";
-import "@gyldendal/kobber-icons/web-components";
 import { literal, html } from "lit/static-html.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import KobberElementWithIcon from "../base/kobber-element-with-icon";

@@ -1,4 +1,3 @@
-import "@gyldendal/kobber-icons/web-components";
 import { consume } from "@lit/context";
 import { html } from "lit";
 import { customElement } from "lit/decorators.js";
