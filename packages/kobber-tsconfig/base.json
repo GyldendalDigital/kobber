@@ -9,11 +9,7 @@
     "experimentalDecorators": true,
     "incremental": false,
     "isolatedModules": true,
-    "lib": [
-      "ES2023",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "module": "Node16",
     "noEmit": true,
     "noUncheckedIndexedAccess": true,
@@ -24,7 +20,5 @@
     "target": "ES2023",
     "useDefineForClassFields": false
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

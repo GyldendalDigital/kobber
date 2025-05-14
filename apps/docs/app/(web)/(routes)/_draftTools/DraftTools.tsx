@@ -5,7 +5,6 @@ import { KobberButton } from "@gyldendal/kobber-components/react-ssr-safe"
 import { Settings } from "@gyldendal/kobber-icons/react-ssr-safe"
 import { VisualEditing } from "next-sanity"
 import { DarkModeTrigger } from "./DarkModeTrigger"
-// import { DisableDraftMode } from "./DisableDraftMode"
 import styles from "./DraftTools.module.css"
 import { TokenMixer } from "./TokenMixer"
 
@@ -21,7 +20,6 @@ export const DraftTools = ({ pageId }: Props) => {
       <div className={styles["panel"]}>
         {open && (
           <>
-            {/* <DisableDraftMode /> */}
             <DarkModeTrigger />
             <TokenMixer />
             <KobberButton
