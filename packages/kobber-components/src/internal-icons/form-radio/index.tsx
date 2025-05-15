@@ -1,6 +1,6 @@
 import { CSSResultGroup } from "lit";
 import { html } from "lit/static-html.js";
-import { customElement } from "lit/decorators.js";
+import { customElement } from "../../utils/customElementDecorator";
 import { internalIconsStyles } from "../InternalIcons.styles";
 
 @customElement("icon-form_radio")

@@ -1,7 +1,7 @@
 import { CSSResultGroup, html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { live } from "lit/directives/live.js";
-import { customElement, property, query, state } from "lit/decorators.js";
+import { property, query, state } from "lit/decorators.js";
 import { checkboxStyles } from "./checkboxInput.styles";
 import { defaultValue } from "../../base/internal/default-value";
 import { watch } from "../../base/internal/watch";
@@ -18,6 +18,7 @@ import {
   CheckboxVariant,
   checkboxWrapperClassName,
 } from "../Checkbox.core";
+import { customElement } from "../../utils/customElementDecorator";
 
 import { HTMLElement } from "@lit-labs/ssr-dom-shim";
 

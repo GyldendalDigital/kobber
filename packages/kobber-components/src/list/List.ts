@@ -1,11 +1,12 @@
 import { CSSResultGroup, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import "./ListItem";
 import KobberElement from "../base/kobber-element";
 import { listClassNames, listName, ListProps } from "./List.core";
 import componentStyles from "../base/styles/component.styles";
 import { listStyles } from "./List.styles";
 import { ifDefined } from "lit/directives/if-defined.js";
+import { customElement } from "../utils/customElementDecorator";
 
 /**
  * Vertical or horizontal display of elements.

@@ -1,11 +1,12 @@
 import { CSSResultGroup } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import componentStyles from "../base/styles/component.styles";
 import { buttonStyles } from "./Button.styles";
 import { buttonClassNames, buttonName, ButtonProps } from "./Button.core";
 import { literal, html } from "lit/static-html.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import KobberElementWithIcon from "../base/kobber-element-with-icon";
+import { customElement } from "../utils/customElementDecorator";
 
 /**
  * Button with icon slot

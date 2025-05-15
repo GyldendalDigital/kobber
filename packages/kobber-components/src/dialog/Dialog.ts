@@ -1,5 +1,5 @@
 import { CSSResultGroup, html } from "lit";
-import { customElement, property, query } from "lit/decorators.js";
+import { property, query } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import styles from "./dialog.styles";
@@ -14,6 +14,7 @@ import { getAnimation, setDefaultAnimation } from "../base/utilities/animation-r
 import { waitForEvent } from "../base/internal/event";
 import { animateTo, stopAnimations } from "../base/internal/animate";
 import { Button } from "../button/Button";
+import { customElement } from "../utils/customElementDecorator";
 
 /**
  * @summary Dialogs, sometimes called "modals", appear above the page and require the user's immediate attention.

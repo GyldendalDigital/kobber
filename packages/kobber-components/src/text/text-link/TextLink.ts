@@ -1,10 +1,11 @@
 import { CSSResultGroup, LitElement, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { textLinkStyles } from "./TextLink.styles";
 import componentStyles from "../../base/styles/component.styles";
 import { textLinkName, TextLinkProps } from "./TextLink.core";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { isExternalLink } from "../../utils/stringUtils";
+import { customElement } from "../../utils/customElementDecorator";
 
 @customElement(textLinkName)
 export class TextLink extends LitElement implements TextLinkProps {
