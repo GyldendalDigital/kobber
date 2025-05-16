@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { KobberButton } from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberButton } from "@gyldendal/kobber-components/react"
 import { Moon, Sun } from "lucide-react"
 import { getCookieValue, setCookie } from "@/lib/clientCookies"
 
@@ -22,9 +22,10 @@ export const DarkModeTrigger = () => {
     <KobberButton
       variant="brand-primary-main"
       className={kobberTheme}
-      icon={colorScheme === "dark" ? <Sun /> : <Moon />}
       onClick={handleClick}
       title={`Skru ${colorScheme === "dark" ? "av" : "på"} dark mode`}
-    />
+    >
+      <div slot="icon">{colorScheme === "dark" ? <Sun /> : <Moon />}</div>
+    </KobberButton>
   )
 }

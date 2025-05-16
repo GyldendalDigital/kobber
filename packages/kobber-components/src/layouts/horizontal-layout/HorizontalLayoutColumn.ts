@@ -1,5 +1,6 @@
 import { CSSResultGroup, LitElement, css, html, unsafeCSS } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
+import { customElement } from "../../utils/customElementDecorator";
 import { ResponsiveCssValue, responsiveValueConverter as converter } from "../../utils/responsiveCssValue";
 
 @customElement("kobber-horizontal-layout-column")

@@ -1,7 +1,7 @@
 "use client"
 
 import { usePathname } from "next/navigation"
-import { KobberButton } from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberButton } from "@gyldendal/kobber-components/react"
 import { Login } from "@gyldendal/kobber-icons/react-ssr-safe"
 import { signOut, useSession } from "next-auth/react"
 import { ssoSignIn } from "@/lib/use-sso-sign-in"
@@ -32,9 +32,9 @@ export const LoginButton = (props: Props) => {
       <KobberButton
         fullWidth
         variant={cta ? "brand-primary-main" : "brand-secondary-main"}
-        icon={<Login className={styles["icon"]} />}
         onClick={status === "unauthenticated" ? handleLogin : handleLogout}
       >
+        <Login className={styles["icon"]} slot="icon" />
         {loginText + textSuffix}
       </KobberButton>
     </div>

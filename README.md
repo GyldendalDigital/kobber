@@ -34,7 +34,7 @@ npm install @gyldendal/kobber-components
 ```
 
 > [!TIP]
-> Check [components readme](./packages/kobber-components/README.md) for adding fonts or using the React version (required for SSR apps like NextJS).
+> Check [components readme](./packages/kobber-components/README.md) for adding fonts, and using components in SSR.
 
 <br />
 
@@ -108,13 +108,12 @@ export default defineConfig({
   resolve: {
     alias: {
       "@gyldendal/kobber-base": resolve(__dirname, "../../../../kobber/packages/kobber-base"),
-      "@gyldendal/kobber-components": resolve(__dirname, "../../../../kobber/packages/kobber-components/dist")
-    }
-  }
+      "@gyldendal/kobber-components": resolve(__dirname, "../../../../kobber/packages/kobber-components/dist"),
+    },
+  },
 });
 ```
 
 Webpack does also have an `resolve.alias` option.
 
 After updating the config it might be necessary to run vite with the force option, i.e. `vite --force`.
-

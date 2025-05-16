@@ -2,11 +2,12 @@
  * Kobber Label Icon web-component
  */
 
-import { customElement, property, state } from "lit/decorators.js";
+import { property, state } from "lit/decorators.js";
 import { badgeIconClassNames, badgeIconName, BadgeIconProps } from "./BadgeIcon.core";
 import { CSSResultGroup, html, LitElement } from "lit";
 import componentStyles from "../base/styles/component.styles";
 import { badgeIconStyles } from "./BadgeIcon.styles";
+import { customElement } from "../utils/customElementDecorator";
 
 @customElement(badgeIconName)
 export class BadgeIcon extends LitElement implements BadgeIconProps {

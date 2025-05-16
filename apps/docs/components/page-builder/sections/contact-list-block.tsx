@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberHeading } from "@gyldendal/kobber-components/react"
 import { damUrl } from "@/lib/damImageLoader"
 import { placeholderImageUrl } from "@/lib/utils"
 import type { PagebuilderType } from "../page-builder.types"

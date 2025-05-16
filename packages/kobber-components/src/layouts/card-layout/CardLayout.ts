@@ -1,6 +1,7 @@
 import { ResizeController } from "@lit-labs/observers/resize-controller.js";
 import { css, html, unsafeCSS } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
+import { customElement } from "../../utils/customElementDecorator";
 import { StyledLitElement } from "../../utils/StyledLitElement";
 import { stringifyStyleObject } from "../../utils/stringifyStyleObject";
 import {

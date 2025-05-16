@@ -1,4 +1,7 @@
+import { HTMLElement } from "@lit-labs/ssr-dom-shim"
 import { RouterLink } from "../global/router-link"
+
+globalThis.HTMLElement ??= HTMLElement
 
 type LinkProps = {
   href: string

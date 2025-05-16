@@ -1,4 +1,4 @@
-import { KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberTextWrapper } from "@gyldendal/kobber-components/react"
 import type { PagebuilderType } from "../../page-builder.types"
 import { RichText } from "../../rich-text"
 import { ColorListItem } from "./color-list-block-item"

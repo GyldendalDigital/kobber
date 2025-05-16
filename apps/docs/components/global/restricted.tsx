@@ -1,8 +1,4 @@
-import {
-  KobberHeading,
-  KobberIngress,
-  KobberTextWrapper,
-} from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberHeading, KobberIngress, KobberTextWrapper } from "@gyldendal/kobber-components/react"
 import { cn } from "@/lib/utils"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
 import { LoginButton } from "./login-button"

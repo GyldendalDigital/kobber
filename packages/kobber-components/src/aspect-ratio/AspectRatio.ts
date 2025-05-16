@@ -1,5 +1,5 @@
 import { CSSResultGroup, css, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { StyledLitElement } from "../utils/StyledLitElement";
 import {
   ResponsiveCssValue,
@@ -7,6 +7,7 @@ import {
   mapResponsiveCssValue,
 } from "../utils/responsiveCssValue";
 import { stringifyStyleObject } from "../utils/stringifyStyleObject";
+import { customElement } from "../utils/customElementDecorator";
 
 export const defaultAspectRatio = "16/9";
 

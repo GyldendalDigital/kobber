@@ -1,5 +1,6 @@
 import { CSSResultGroup, LitElement, html } from "lit";
-import { customElement, property, query } from "lit/decorators.js";
+import { property, query } from "lit/decorators.js";
+import { customElement } from "../utils/customElementDecorator";
 import "../list/List";
 import "../list/ListItem";
 import componentStyles from "../base/styles/component.styles";

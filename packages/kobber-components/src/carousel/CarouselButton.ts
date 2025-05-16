@@ -1,10 +1,9 @@
-import "@gyldendal/kobber-icons/web-components";
 import { consume } from "@lit/context";
 import { html } from "lit";
-import { customElement } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { Button } from "../button/Button";
 import { Context, context, defaultContext } from "./context";
+import { customElement } from "../utils/customElementDecorator";
 
 @customElement("kobber-carousel-button")
 export class CarouselButton extends Button {

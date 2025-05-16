@@ -1,6 +1,6 @@
 import { html } from "lit";
 import type { CSSResultGroup } from "lit";
-import { customElement, property, query, state } from "lit/decorators.js";
+import { property, query, state } from "lit/decorators.js";
 import ShoelaceElement from "../../base/internal/shoelace-element";
 import { HasSlotController } from "../../base/internal/slot";
 import { watch } from "../../base/internal/watch";
@@ -15,6 +15,7 @@ import componentStyles from "../../base/styles/component.styles";
 import type { RadioInput } from "../radioInput/RadioInput";
 import { radioGroupName, radioInputName, radioGroupHorizontalClassName, GroupProps } from "../Radio.core";
 import { radioGroupStyles } from "./RadioGroup.styles";
+import { customElement } from "../../utils/customElementDecorator";
 
 /**
  * @summary Radio groups are used to group multiple [radios](/components/radio) or [radio buttons](/components/radio-button) so they function as a single form control.

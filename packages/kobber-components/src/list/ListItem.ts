@@ -1,10 +1,11 @@
 import { CSSResultGroup, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import KobberElement from "../base/kobber-element";
 import { listItemClassNames, listItemName } from "./ListItem.core";
 import { ifDefined } from "lit/directives/if-defined.js";
 import componentStyles from "../base/styles/component.styles";
 import { listItemStyles } from "./ListItem.styles";
+import { customElement } from "../utils/customElementDecorator";
 
 /**
  * Used as a child of the `kobber-list` and `kobber-accordion` components.
