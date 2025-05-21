@@ -1,5 +1,5 @@
 import { css, html } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement } from "../../utils/customElementDecorator";
 import { StyledLitElement } from "../../utils/StyledLitElement";
 import { minCardWidth } from "./config";
 

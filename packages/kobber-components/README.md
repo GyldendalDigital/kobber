@@ -52,6 +52,16 @@ import { ProgressBar } from "@gyldendal/kobber-components/react";
 const App = () => <ProgressBar />;
 ```
 
+For SSR applications, to avoid `HTMLElement is not defined` errors, using the [@lit-labs/ssr-dom-shim](https://www.npmjs.com/package/@lit-labs/ssr-dom-shim) package is required.
+
+`ssr-dom-shim` can be used like this (before any kobber-components have loaded):
+
+```js
+import { HTMLElement } from "@lit-labs/ssr-dom-shim";
+
+globalThis.HTMLElement ??= HTMLElement;
+```
+
 As a custom element:
 
 ```html

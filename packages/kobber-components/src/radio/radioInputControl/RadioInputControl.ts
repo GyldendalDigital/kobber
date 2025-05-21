@@ -1,5 +1,5 @@
 import { html } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import ShoelaceElement from "../../base/internal/shoelace-element";
 import componentStyles from "../../base/styles/component.styles";
 import { radioInputControlStyles } from "./RadioInputControl.styles";
@@ -13,6 +13,7 @@ import {
   radioInputControlPartName,
   ControlProps,
 } from "../Radio.core";
+import { customElement } from "../../utils/customElementDecorator";
 
 /**
  * @summary Radios allow the user to select a single option from a group.

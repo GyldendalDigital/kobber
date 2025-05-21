@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { KobberHeading, KobberTextWrapper } from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberHeading, KobberTextWrapper } from "@gyldendal/kobber-components/react"
 import { damUrl } from "@/lib/damImageLoader"
 import styles from "./_hero-banner.module.css"
 

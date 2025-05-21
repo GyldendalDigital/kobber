@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react"
 import { Check } from "@gyldendal/kobber-icons/react-ssr-safe"
 import { stegaClean } from "@sanity/client/stega"
 import type { PagebuilderType } from "../../page-builder.types"
@@ -63,8 +63,8 @@ export const ColorListItem = (props: ItemProps) => {
                     }
                     disabled
                     variant="brand-tertiary-main"
-                    icon={<Check />}
                   >
+                    <Check slot="icon" />
                     Kopiert
                   </KobberButton>
                 ) : (

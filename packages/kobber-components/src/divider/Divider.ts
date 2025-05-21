@@ -1,8 +1,9 @@
 import { CSSResultGroup, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { DividerVariant } from "./Divider.types";
 import { dividerBaseStyles } from "./Divider.styles";
 import KobberElement from "../base/kobber-element";
+import { customElement } from "../utils/customElementDecorator";
 
 @customElement("kobber-divider")
 export class Divider extends KobberElement {

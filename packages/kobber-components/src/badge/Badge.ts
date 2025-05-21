@@ -1,8 +1,9 @@
-import { customElement, property, state } from "lit/decorators.js";
+import { property, state } from "lit/decorators.js";
 import { badgeClassNames, badgeName, BadgeProps } from "./Badge.core";
 import { CSSResultGroup, html, LitElement } from "lit";
 import componentStyles from "../base/styles/component.styles";
 import { badgeStyles } from "./Badge.styles";
+import { customElement } from "../utils/customElementDecorator";
 
 /**
  * Kobber Badge web-component

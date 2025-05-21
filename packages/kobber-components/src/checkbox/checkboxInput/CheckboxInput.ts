@@ -1,7 +1,7 @@
 import { CSSResultGroup, html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { live } from "lit/directives/live.js";
-import { customElement, property, query, state } from "lit/decorators.js";
+import { property, query, state } from "lit/decorators.js";
 import { checkboxStyles } from "./checkboxInput.styles";
 import { defaultValue } from "../../base/internal/default-value";
 import { watch } from "../../base/internal/watch";
@@ -10,7 +10,6 @@ import type { ShoelaceFormControl } from "../../base/internal/shoelace-element";
 import { FormControlController } from "../../base/internal/form";
 import componentStyles from "../../base/styles/component.styles";
 import { HasSlotController } from "../../base/internal/slot";
-import "../../internal-icons";
 import {
   checkboxControlClassName,
   nativeCheckboxInputClassName,
@@ -19,6 +18,11 @@ import {
   CheckboxVariant,
   checkboxWrapperClassName,
 } from "../Checkbox.core";
+import { customElement } from "../../utils/customElementDecorator";
+
+import { HTMLElement } from "@lit-labs/ssr-dom-shim";
+
+globalThis.HTMLElement ??= HTMLElement;
 
 /**
  * @summary Checkboxes allow the user to toggle an option on or off.

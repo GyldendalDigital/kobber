@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { sanityFetch } from "@/sanity/lib/live"
 import { queryNavbarSmallScreenData } from "@/sanity/lib/queries"
-import { KobberHeading } from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberHeading } from "@gyldendal/kobber-components/react"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import { LoginButton } from "@/components/global/login-button"

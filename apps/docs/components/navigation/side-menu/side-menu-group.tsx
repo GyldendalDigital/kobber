@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { KobberAccordion } from "@gyldendal/kobber-components/react-ssr-safe"
+import { KobberAccordion } from "@gyldendal/kobber-components/react"
 import { toUpperCase } from "@/lib/utils"
 import { SideMenuList } from "./side-menu-list"
 import styles from "./side-menu.module.css"

@@ -1,5 +1,5 @@
 import { CSSResultGroup } from "lit";
-import { customElement, property, state } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { linkStyles } from "./Link.styles";
 import componentStyles from "../base/styles/component.styles";
 import { isButton, linkClassNames, linkName, LinkProps } from "./Link.core";
@@ -7,6 +7,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
 import { literal, html } from "lit/static-html.js";
 import { isExternalLink } from "../utils/stringUtils";
 import KobberElementWithIcon from "../base/kobber-element-with-icon";
+import { customElement } from "../utils/customElementDecorator";
 
 @customElement(linkName)
 export class Link extends KobberElementWithIcon implements LinkProps {
