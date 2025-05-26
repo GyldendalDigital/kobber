@@ -1,10 +1,12 @@
-import { CSSResultGroup } from "lit";
+import { CSSResultGroup, LitElement } from "lit";
 import { html } from "lit/static-html.js";
 import { customElement } from "../../utils/customElementDecorator";
 import { internalIconsStyles } from "../InternalIcons.styles";
 
-@customElement("icon-form_indeterminate")
-export class IconFormIndeterminate extends HTMLElement {
+export const iconFormIndeterminateName = "icon-form_indeterminate";
+
+@customElement(iconFormIndeterminateName)
+export class IconFormIndeterminate extends LitElement {
   static styles: CSSResultGroup = [internalIconsStyles];
 
   render() {

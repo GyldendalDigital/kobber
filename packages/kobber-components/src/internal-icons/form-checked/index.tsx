@@ -1,10 +1,12 @@
-import { CSSResultGroup } from "lit";
+import { CSSResultGroup, LitElement } from "lit";
 import { html } from "lit/static-html.js";
 import { customElement } from "../../utils/customElementDecorator";
 import { internalIconsStyles } from "../InternalIcons.styles";
 
-@customElement("icon-form_checked")
-export class IconFormChecked extends HTMLElement {
+export const iconFormCheckedName = "icon-form_checked";
+
+@customElement(iconFormCheckedName)
+export class IconFormChecked extends LitElement {
   static styles: CSSResultGroup = [internalIconsStyles];
 
   render() {

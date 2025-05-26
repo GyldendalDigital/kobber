@@ -54,6 +54,10 @@ export class Grid extends StyledLitElement {
     this.provider.setValue({ config });
   }
 
+  get config() {
+    return this.config;
+  }
+
   @property({ converter, attribute: "grid-template-columns" })
   override gridTemplateColumns?: ResponsiveCssValue = {
     [mediaQuery.small]: "repeat(4, 1fr)",

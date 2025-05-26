@@ -16,6 +16,7 @@ interface Args {
 const meta: Meta<Args> = {
   title: "In development 🧪/Carousel",
   component: "Carousel",
+  tags: ["autodocs"],
   args: {
     hasManyItems: true,
   },
@@ -37,6 +38,13 @@ const styles = html`<style>
   }
 </style>`;
 
+/**
+ * 
+To add buttons to the carousel, use `<kobber-carousel-button />` and set `slot` to `previous-button` or `next-button`.
+
+`<kobber-carousel-button />` is just an extension of `<kobber-button />`, see kobber-button for supported attributes.
+
+ */
 export const CarouselStory: StoryObj<Args> = {
   name: "Regular items",
   render: args => html`

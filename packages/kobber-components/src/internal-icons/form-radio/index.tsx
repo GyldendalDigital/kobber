@@ -1,15 +1,21 @@
-import { CSSResultGroup } from "lit";
+import { CSSResultGroup, LitElement } from "lit";
 import { html } from "lit/static-html.js";
 import { customElement } from "../../utils/customElementDecorator";
 import { internalIconsStyles } from "../InternalIcons.styles";
 
-@customElement("icon-form_radio")
-export class IconFormRadio extends HTMLElement {
+export const iconFormRadioName = "icon-form_radio";
+
+@customElement(iconFormRadioName)
+export class IconFormRadio extends LitElement {
   static styles: CSSResultGroup = [internalIconsStyles];
 
+  constructor() {
+    super();
+  }
+
   render() {
-    return html` <svg viewBox="0 0 20 20" aria-hidden role="presentation">
-      <circle cx="5" cy="5.5" r="5" fill="currentColor"></circle>
+    return html`<svg viewBox="0 0 10 11" aria-hidden role="presentation">
+      <circle cx="5" cy="5.5" r="5" fill="currentColor" />
     </svg>`;
   }
 }
