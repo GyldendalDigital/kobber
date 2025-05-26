@@ -1,5 +1,6 @@
 import "@gyldendal/kobber-base/themes/default/tokens.css";
 import "@gyldendal/kobber-base/themes/dark/tokens.css";
+import "@gyldendal/kobber-icons/web-components";
 
 const themes = ["kobber-theme-default", "kobber-theme-dark"];
 
