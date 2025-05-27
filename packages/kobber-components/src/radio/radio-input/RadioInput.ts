@@ -6,7 +6,7 @@ import componentStyles from "../../base/styles/component.styles";
 import { radioInputStyles } from "./RadioInput.styles";
 import type { CSSResultGroup } from "lit";
 import { inputClassNames, radioInputName, InputVariant, radioInputLabelClassName, InputProps } from "../Radio.core";
-import "../radioInputControl/RadioInputControl";
+import "../radio-input-control/RadioInputControl";
 import "../../button/Button";
 import { customElement } from "../../base/utilities/customElementDecorator";
 

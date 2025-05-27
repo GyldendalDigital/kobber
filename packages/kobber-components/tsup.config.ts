@@ -9,7 +9,7 @@ const webComponentsDirectory = "web-components";
 
 export default defineConfig(() => ({
   entry: {
-    [`${reactDirectory}/index`]: "src/index.react.tsx",
+    [`${reactDirectory}/index`]: "src/index.react.ts",
     [`${webComponentsDirectory}/index`]: "src/index.web-components.ts",
   },
   format: ["esm"],

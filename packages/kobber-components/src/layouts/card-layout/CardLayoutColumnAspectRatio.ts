@@ -1,7 +1,7 @@
 import { CSSResultGroup, LitElement, css, html, unsafeCSS } from "lit";
 import { property } from "lit/decorators.js";
 import { customElement } from "../../base/utilities/customElementDecorator";
-import { gap, minColumnWidth } from "./config";
+import { gap, minColumnWidth } from "./CardLayout.config";
 import { ResponsiveCssValue, responsiveValueConverter as converter } from "../../base/utilities/responsiveCssValue";
 
 @customElement("kobber-card-layout-column-aspect-ratio")

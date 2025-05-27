@@ -12,7 +12,7 @@ import {
   valueMissingValidityState,
 } from "../../base/internal/form";
 import componentStyles from "../../base/styles/component.styles";
-import type { RadioInput } from "../radioInput/RadioInput";
+import type { RadioInput } from "../radio-input/RadioInput";
 import { radioGroupName, radioInputName, radioGroupHorizontalClassName, GroupProps } from "../Radio.core";
 import { radioGroupStyles } from "./RadioGroup.styles";
 import { customElement } from "../../base/utilities/customElementDecorator";

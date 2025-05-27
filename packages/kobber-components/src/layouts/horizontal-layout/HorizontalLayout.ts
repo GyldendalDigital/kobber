@@ -1,7 +1,7 @@
 import { css, html } from "lit";
 import { customElement } from "../../base/utilities/customElementDecorator";
 import { StyledLitElement } from "../../base/utilities/StyledLitElement";
-import { minCardWidth } from "./config";
+import { minCardWidth } from "./HorizontalLayout.config";
 
 @customElement("kobber-horizontal-layout")
 export class HorizontalLayout extends StyledLitElement {

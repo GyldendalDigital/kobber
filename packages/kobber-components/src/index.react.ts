@@ -10,7 +10,7 @@ import { CardLayout } from "./layouts/card-layout/CardLayout";
 import { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
 import { Carousel } from "./carousel/Carousel";
 import { CarouselButton } from "./carousel/CarouselButton";
-import { CheckboxInput } from "./checkbox/checkboxInput/CheckboxInput";
+import { CheckboxInput } from "./checkbox/checkbox-input/CheckboxInput";
 import { Divider } from "./divider/Divider";
 import { Grid } from "./grid/Grid";
 import { GridColumn } from "./grid/GridColumn";
