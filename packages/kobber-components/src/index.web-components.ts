@@ -17,4 +17,6 @@ export { Carousel } from "./carousel/Carousel";
 export { CarouselButton } from "./carousel/CarouselButton";
 export { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 export { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
-export { RadioGroup, RadioInput, RadioInputControl } from "./radio";
+export { RadioGroup } from "./radio/radio-group/RadioGroup";
+export { RadioInput } from "./radio/radio-input/RadioInput";
+export { RadioInputControl } from "./radio/radio-input-control/RadioInputControl";
