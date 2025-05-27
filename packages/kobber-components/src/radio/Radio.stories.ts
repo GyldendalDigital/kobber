@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import "./radioInput/RadioInput";
-import "./radioGroup/RadioGroup";
+import "./radio-input/RadioInput";
+import "./radio-group/RadioGroup";
 import { primitives } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { inputVariants, InputProps, radioInputName } from "./Radio.core";
 import "../text/heading/Heading";

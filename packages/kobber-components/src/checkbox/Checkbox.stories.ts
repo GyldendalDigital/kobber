@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import "./checkboxInput/CheckboxInput";
+import "./checkbox-input/CheckboxInput";
 import "../theme-context-provider/ThemeContext";
 import { InputProps, CheckboxState, checkboxVariants } from "./Checkbox.core";
 

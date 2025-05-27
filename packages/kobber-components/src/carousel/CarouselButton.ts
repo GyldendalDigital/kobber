@@ -2,7 +2,7 @@ import { consume } from "@lit/context";
 import { html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { Button } from "../button/Button";
-import { Context, context, defaultContext } from "./context";
+import { Context, context, defaultContext } from "./Carousel.context";
 import { customElement } from "../base/utilities/customElementDecorator";
 
 @customElement("kobber-carousel-button")

@@ -1,9 +1,9 @@
 import { ResizeController } from "@lit-labs/observers/resize-controller.js";
 import { css, html, LitElement, unsafeCSS } from "lit";
 import { property, queryAssignedElements, state } from "lit/decorators.js";
-import { gap, minCardWidth } from "./config";
+import { gap, minCardWidth } from "./Carousel.config";
 import { ContextProvider as LitContextProvider } from "@lit/context";
-import { context, defaultContext } from "./context";
+import { context, defaultContext } from "./Carousel.context";
 import { customElement } from "../base/utilities/customElementDecorator";
 
 @customElement("kobber-carousel")

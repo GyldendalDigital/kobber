@@ -13,7 +13,7 @@ import {
   outerPadding,
   ValidAspectRatioHeight,
   validMaxColumns,
-} from "./config";
+} from "./CardLayout.config";
 
 const getGridTemplateColumns = (maxColumns: number) => {
   return `repeat(
