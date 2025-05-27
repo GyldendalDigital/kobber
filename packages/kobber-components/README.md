@@ -138,6 +138,18 @@ Example of component consuming data as props:
 />
 ```
 
+#### Naming conventions
+
+- Folder names are in kebab-case.
+- Component names are in PascalCase.
+- Component file names:
+  - File names are the same as the component name (plus extension) - don't export more than one component per file!
+  - Currently allowed extensions are ts, tsx and js.
+  - Component file names can only contain ONE dot!
+- All files not exporting components should have MORE THAN ONE dot in file name.
+
+The tsup build script uses these conventions to build lists of all components. The script ignores all content in folders named "base", "config", and "story".
+
 #### Extend LitElement
 
 Most components should be defined as `extends LitElement` (or `extends ShoelaceElement`). Extending `StyledLitElement` is only for components that need to be able to be styled in several ways.
