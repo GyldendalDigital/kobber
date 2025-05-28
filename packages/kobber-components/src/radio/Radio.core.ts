@@ -1,5 +1,5 @@
 import { component } from "@gyldendal/kobber-base/themes/default/tokens.js";
-import { ReplaceSpaceWithDash, replaceSpaceWithDash } from "../utils/replace";
+import { ReplaceSpaceWithDash, replaceSpaceWithDash } from "../base/utilities/replace";
 
 export const radioInputName = "kobber-radio-input";
 export const radioInputControlName = "kobber-radio-input-control";

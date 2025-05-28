@@ -6,7 +6,7 @@ import { listClassNames, listName, ListProps } from "./List.core";
 import componentStyles from "../base/styles/component.styles";
 import { listStyles } from "./List.styles";
 import { ifDefined } from "lit/directives/if-defined.js";
-import { customElement } from "../utils/customElementDecorator";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 /**
  * Vertical or horizontal display of elements.

@@ -5,9 +5,9 @@ import componentStyles from "../base/styles/component.styles";
 import { isButton, linkClassNames, linkName, LinkProps } from "./Link.core";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { literal, html } from "lit/static-html.js";
-import { isExternalLink } from "../utils/stringUtils";
+import { isExternalLink } from "../base/utilities/stringUtils";
 import KobberElementWithIcon from "../base/kobber-element-with-icon";
-import { customElement } from "../utils/customElementDecorator";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 @customElement(linkName)
 export class Link extends KobberElementWithIcon implements LinkProps {

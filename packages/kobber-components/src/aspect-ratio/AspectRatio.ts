@@ -1,13 +1,13 @@
 import { CSSResultGroup, css, html } from "lit";
 import { property } from "lit/decorators.js";
-import { StyledLitElement } from "../utils/StyledLitElement";
+import { StyledLitElement } from "../base/utilities/StyledLitElement";
 import {
   ResponsiveCssValue,
   responsiveValueConverter as converter,
   mapResponsiveCssValue,
-} from "../utils/responsiveCssValue";
-import { stringifyStyleObject } from "../utils/stringifyStyleObject";
-import { customElement } from "../utils/customElementDecorator";
+} from "../base/utilities/responsiveCssValue";
+import { stringifyStyleObject } from "../base/utilities/stringifyStyleObject";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 export const defaultAspectRatio = "16/9";
 
@@ -52,7 +52,6 @@ export class AspectRatio extends StyledLitElement {
       this.cssAspectRatioToPadding(ratioValue),
     );
 
-     
     const { aspectRatio, ...styles } = this.getStyles({
       paddingTop: paddingValues,
     });

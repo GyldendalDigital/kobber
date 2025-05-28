@@ -8,7 +8,7 @@ import {
   headingPrimarySizes,
   headingSecondarySizes,
 } from "./Heading.core";
-import { replaceSpaceWithDash } from "../../utils/replace";
+import { replaceSpaceWithDash } from "../../base/utilities/replace";
 import { resetHeading } from "../../base/styles/reset.styles";
 
 const createHeadingStyles = () => {

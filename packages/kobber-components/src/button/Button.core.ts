@@ -1,6 +1,6 @@
 import { component } from "@gyldendal/kobber-base/themes/default/tokens.js";
-import { objectKeys } from "../utils/objectKeys";
-import { concat2, concat3 } from "../utils/join";
+import { objectKeys } from "../base/utilities/objectKeys";
+import { concat2, concat3 } from "../base/utilities/join";
 
 export const buttonName = "kobber-button";
 
@@ -91,6 +91,6 @@ export const buttonThemeColors = objectKeys(component["theme-button"]["backgroun
 export const buttonThemeLevels = [
   ...objectKeys(component["theme-button"].background.color.carmine),
   ...objectKeys(component["theme-button"].container.border.color.carmine),
-];;
+];
 export const buttonThemeVariants = objectKeys(component["theme-button"]["background"]["color"].carmine.primary);
 export const buttonThemeProps = concat3(buttonThemeColors, buttonThemeLevels, buttonThemeVariants);

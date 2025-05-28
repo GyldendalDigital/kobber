@@ -1,7 +1,7 @@
 import { LitElement, css, html } from "lit";
 import { property } from "lit/decorators.js";
 import "../button/Button";
-import { customElement } from "../utils/customElementDecorator";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 /**
  * Dropdown (also referred to as a select) allows choosing a value from a fixed list of available options

@@ -3,7 +3,7 @@ import { badgeClassNames, badgeName, BadgeProps } from "./Badge.core";
 import { CSSResultGroup, html, LitElement } from "lit";
 import componentStyles from "../base/styles/component.styles";
 import { badgeStyles } from "./Badge.styles";
-import { customElement } from "../utils/customElementDecorator";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 /**
  * Kobber Badge web-component

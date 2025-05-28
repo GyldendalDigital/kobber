@@ -3,8 +3,8 @@ import * as tokensDefault from "@gyldendal/kobber-base/themes/default/tokens.js"
 import { createContext, provide } from "@lit/context";
 import { LitElement, html } from "lit";
 import { property } from "lit/decorators.js";
-import { customElement } from "../utils/customElementDecorator";
 import { Theme } from "./theme-context.types";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 const themes: Theme[] = [
   { id: "kobber-theme-default", tokens: tokensDefault },
@@ -14,7 +14,7 @@ const themes: Theme[] = [
 export const themeContext = createContext<Theme | undefined>("kobber-theme");
 
 @customElement("kobber-theme-context")
-export class ThemeContextProvider extends LitElement {
+export class ThemeContext extends LitElement {
   connectedCallback(): void {
     this.setTheme(this.themeId);
   }

@@ -8,7 +8,7 @@ import {
 } from "../../carousel/story/example";
 import "../story/ExampleSurface";
 import { globalStyles } from "../../story/globalStyles";
-import "../../utils/theme-context";
+import "../../theme-context-provider/ThemeContext";
 
 interface Args {
   carouselHasManyItems: boolean;

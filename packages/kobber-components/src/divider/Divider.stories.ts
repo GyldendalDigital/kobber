@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components";
 import { DividerVariant } from "./Divider.types";
 import "./Divider";
 import { html } from "lit";
-import "../utils/theme-context";
+import "../theme-context-provider/ThemeContext";
 
 const variants: DividerVariant[] = ["main", "supplemental"];
 

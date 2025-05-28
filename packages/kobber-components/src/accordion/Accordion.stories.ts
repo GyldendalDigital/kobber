@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components";
 import { accordionName } from "./Accordion.core";
 import "../accordion/Accordion";
 import "../button/Button";
-import "../utils/theme-context";
+import "../theme-context-provider/ThemeContext";
 
 export default {
   title: "kobber.gyldendal.no/Accordion",

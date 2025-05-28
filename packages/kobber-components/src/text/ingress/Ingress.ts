@@ -1,7 +1,7 @@
 import { CSSResultGroup, html, LitElement } from "lit";
 import componentStyles from "../../base/styles/component.styles";
 import { ingressName, ingressStyles } from "./Ingress.styles";
-import { customElement } from "../../utils/customElementDecorator";
+import { customElement } from "../../base/utilities/customElementDecorator";
 
 @customElement(ingressName)
 export class Ingress extends LitElement {

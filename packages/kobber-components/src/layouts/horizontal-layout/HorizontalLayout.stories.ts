@@ -7,7 +7,7 @@ import "./HorizontalLayoutColumn";
 import { exampleIrregular } from "../../carousel/story/example";
 import { renderIndicators } from "./story/renderIndicators";
 import { globalStyles } from "../../story/globalStyles";
-import { maxColumns } from "./config";
+import { maxColumns } from "./HorizontalLayout.config";
 
 const meta: Meta = {
   title: "In development 🧪/Layouts/HorizontalLayout (Carousel)",

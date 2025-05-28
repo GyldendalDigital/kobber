@@ -7,7 +7,7 @@ import { badgeIconClassNames, badgeIconName, BadgeIconProps } from "./BadgeIcon.
 import { CSSResultGroup, html, LitElement } from "lit";
 import componentStyles from "../base/styles/component.styles";
 import { badgeIconStyles } from "./BadgeIcon.styles";
-import { customElement } from "../utils/customElementDecorator";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 @customElement(badgeIconName)
 export class BadgeIcon extends LitElement implements BadgeIconProps {

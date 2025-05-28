@@ -3,7 +3,7 @@ import { property } from "lit/decorators.js";
 import { textWrapperStyles } from "./TextWrapper.styles";
 import componentStyles from "../../base/styles/component.styles";
 import { textWrapperClassNames, textWrapperName, TextWrapperProps } from "./TextWrapper.core";
-import { customElement } from "../../utils/customElementDecorator";
+import { customElement } from "../../base/utilities/customElementDecorator";
 
 @customElement(textWrapperName)
 export class TextWrapper extends LitElement implements TextWrapperProps {

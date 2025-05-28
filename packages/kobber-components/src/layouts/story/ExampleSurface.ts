@@ -1,6 +1,6 @@
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { LitElement, css, html, unsafeCSS } from "lit";
-import { customElement } from "../../utils/customElementDecorator";
+import { customElement } from "../../base/utilities/customElementDecorator";
 
 @customElement("kobber-example-surface")
 export class ExampleSurface extends LitElement {

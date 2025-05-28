@@ -1,7 +1,7 @@
 import type { Args, Meta, StoryObj } from "@storybook/web-components";
 import { customElementName as ProgressBar } from "./ProgressBar";
 import { customElementName as ProgressBarItem } from "./ProgressBarItem";
-import { getProficiencyNameByPercentage } from "../utils/progressHelpers";
+import { getProficiencyNameByPercentage } from "../base/utilities/progressHelpers";
 import "@gyldendal/kobber-base/themes/default/tokens.css";
 
 const meta: Meta = {

@@ -2,13 +2,13 @@ import { layout, mediaQuery } from "@gyldendal/kobber-base/themes/default/tokens
 import { ContextProvider as LitContextProvider } from "@lit/context";
 import { css, html } from "lit";
 import { property, state } from "lit/decorators.js";
-import { context, defaultContext } from "./context";
-import { gridConfigs } from "./gridConfig";
-import { GridConfig, GridConfigId } from "./gridConfig/types";
-import { StyledLitElement } from "../utils/StyledLitElement";
-import { ResponsiveCssValue, responsiveValueConverter as converter } from "../utils/responsiveCssValue";
-import { stringifyStyleObject } from "../utils/stringifyStyleObject";
-import { customElement } from "../utils/customElementDecorator";
+import { context, defaultContext } from "./Grid.context";
+import { gridConfigs } from "./Grid.config";
+import { GridConfig, GridConfigId } from "./config/types";
+import { StyledLitElement } from "../base/utilities/StyledLitElement";
+import { ResponsiveCssValue, responsiveValueConverter as converter } from "../base/utilities/responsiveCssValue";
+import { stringifyStyleObject } from "../base/utilities/stringifyStyleObject";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 const defaultGridStyles = {
   maxWidth: `${layout.contentMaxWidth / 16}rem`,

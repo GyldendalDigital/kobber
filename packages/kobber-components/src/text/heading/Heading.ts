@@ -4,7 +4,7 @@ import { html, unsafeStatic } from "lit/static-html.js";
 import componentStyles from "../../base/styles/component.styles";
 import { headingStyles } from "./Heading.styles";
 import { headingClassNames, headingName, HeadingProps, sanitizeHeadingLevel } from "./Heading.core";
-import { customElement } from "../../utils/customElementDecorator";
+import { customElement } from "../../base/utilities/customElementDecorator";
 
 @customElement(headingName)
 export class Heading extends LitElement implements HeadingProps {
