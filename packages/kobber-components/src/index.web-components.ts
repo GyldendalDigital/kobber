@@ -18,11 +18,3 @@ export { CarouselButton } from "./carousel/CarouselButton";
 export { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 export { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
 export { RadioGroup, RadioInput, RadioInputControl } from "./radio";
-export {
-  iconFormCheckedName as internalIconFormCheckedName,
-  IconFormChecked as InternalIconFormChecked,
-  iconFormIndeterminateName as internalIconFormIndeterminateName,
-  IconFormIndeterminate as InternalIconFormIndeterminate,
-  iconFormRadioName as internalIconFormRadioName,
-  IconFormRadio as InternalIconFormRadio,
-} from "./internal-icons";

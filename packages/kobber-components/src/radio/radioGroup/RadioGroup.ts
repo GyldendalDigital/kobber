@@ -15,7 +15,7 @@ import componentStyles from "../../base/styles/component.styles";
 import type { RadioInput } from "../radioInput/RadioInput";
 import { radioGroupName, radioInputName, radioGroupHorizontalClassName, GroupProps } from "../Radio.core";
 import { radioGroupStyles } from "./RadioGroup.styles";
-import { customElement } from "../../utils/customElementDecorator";
+import { customElement } from "../../base/utilities/customElementDecorator";
 
 /**
  * @summary Radio groups are used to group multiple [radios](/components/radio) or [radio buttons](/components/radio-button) so they function as a single form control.

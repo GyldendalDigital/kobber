@@ -4,7 +4,7 @@ import { property, queryAssignedElements, state } from "lit/decorators.js";
 import { gap, minCardWidth } from "./config";
 import { ContextProvider as LitContextProvider } from "@lit/context";
 import { context, defaultContext } from "./context";
-import { customElement } from "../utils/customElementDecorator";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 @customElement("kobber-carousel")
 export class Carousel extends LitElement {

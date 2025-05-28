@@ -8,7 +8,7 @@ import type { CSSResultGroup } from "lit";
 import { inputClassNames, radioInputName, InputVariant, radioInputLabelClassName, InputProps } from "../Radio.core";
 import "../radioInputControl/RadioInputControl";
 import "../../button/Button";
-import { customElement } from "../../utils/customElementDecorator";
+import { customElement } from "../../base/utilities/customElementDecorator";
 
 /**
  * @summary Radios allow the user to select a single option from a group.

@@ -18,7 +18,7 @@ import {
   CheckboxVariant,
   checkboxWrapperClassName,
 } from "../Checkbox.core";
-import { customElement } from "../../utils/customElementDecorator";
+import { customElement } from "../../base/utilities/customElementDecorator";
 
 import { HTMLElement } from "@lit-labs/ssr-dom-shim";
 

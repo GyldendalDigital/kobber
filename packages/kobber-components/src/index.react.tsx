@@ -2,6 +2,7 @@
 
 import { createComponent } from "@lit/react";
 import * as React from "react";
+
 import { Accordion } from "./accordion/Accordion";
 import { BoxLayout } from "./layouts/box-layout/BoxLayout";
 import { Button } from "./button/Button";
@@ -17,7 +18,6 @@ import { GridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
 import { Heading } from "./text/heading/Heading";
 import { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 import { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
-import { IconFormChecked, IconFormIndeterminate, IconFormRadio } from "./internal-icons/index";
 import { Ingress } from "./text/ingress/Ingress";
 import { Link } from "./link/Link";
 import { List } from "./list/List";
@@ -27,7 +27,7 @@ import { ProgressBarItem } from "./progress-bar/ProgressBarItem";
 import { RadioGroup, RadioInput, RadioInputControl } from "./radio/index";
 import { TextLink } from "./text/text-link/TextLink";
 import { TextWrapper } from "./text/text-wrapper/TextWrapper";
-import { ThemeContextProvider } from "./utils/theme-context";
+import { ThemeContextProvider } from "./base/utilities/theme-context";
 
 export const KobberAccordion = createComponent({
   tagName: "kobber-accordion",
@@ -116,24 +116,6 @@ export const KobberHorizontalLayout = createComponent({
 export const KobberHorizontalLayoutColumn = createComponent({
   tagName: "kobber-horizontal-layout-column",
   elementClass: HorizontalLayoutColumn,
-  react: React,
-});
-
-export const InternalIconFormChecked = createComponent({
-  tagName: "kobber-internal-icon-form-checked",
-  elementClass: IconFormChecked,
-  react: React,
-});
-
-export const InternalIconFormIndeterminate = createComponent({
-  tagName: "kobber-internal-icon-form-indeterminate",
-  elementClass: IconFormIndeterminate,
-  react: React,
-});
-
-export const InternalIconFormRadio = createComponent({
-  tagName: "kobber-internal-icon-form-radio",
-  elementClass: IconFormRadio,
   react: React,
 });
 

@@ -3,10 +3,10 @@ import { consume } from "@lit/context";
 import { CSSResultGroup, css, html } from "lit";
 import { property } from "lit/decorators.js";
 import { Context, context, defaultContext } from "./context";
-import { StyledLitElement } from "../utils/StyledLitElement";
-import { ResponsiveCssValue, responsiveValueConverter as converter } from "../utils/responsiveCssValue";
-import { stringifyStyleObject } from "../utils/stringifyStyleObject";
-import { customElement } from "../utils/customElementDecorator";
+import { StyledLitElement } from "../base/utilities/StyledLitElement";
+import { ResponsiveCssValue, responsiveValueConverter as converter } from "../base/utilities/responsiveCssValue";
+import { stringifyStyleObject } from "../base/utilities/stringifyStyleObject";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 @customElement("kobber-grid-column")
 export class GridColumn extends StyledLitElement {

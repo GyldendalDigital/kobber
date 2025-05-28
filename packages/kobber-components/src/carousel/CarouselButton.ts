@@ -3,7 +3,7 @@ import { html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { Button } from "../button/Button";
 import { Context, context, defaultContext } from "./context";
-import { customElement } from "../utils/customElementDecorator";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 @customElement("kobber-carousel-button")
 export class CarouselButton extends Button {

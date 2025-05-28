@@ -6,7 +6,7 @@ import { buttonClassNames, buttonName, ButtonProps } from "./Button.core";
 import { literal, html } from "lit/static-html.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import KobberElementWithIcon from "../base/kobber-element-with-icon";
-import { customElement } from "../utils/customElementDecorator";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 /**
  * Button with icon slot

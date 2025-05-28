@@ -5,7 +5,7 @@ import { listItemClassNames, listItemName } from "./ListItem.core";
 import { ifDefined } from "lit/directives/if-defined.js";
 import componentStyles from "../base/styles/component.styles";
 import { listItemStyles } from "./ListItem.styles";
-import { customElement } from "../utils/customElementDecorator";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 /**
  * Used as a child of the `kobber-list` and `kobber-accordion` components.
