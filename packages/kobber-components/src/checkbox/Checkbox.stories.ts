@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import "./checkboxInput/CheckboxInput";
-import "../utils/theme-context";
+import "../theme-context-provider/ThemeContext";
 import { InputProps, CheckboxState, checkboxVariants } from "./Checkbox.core";
 
 const states: { [key: string]: CheckboxState[] }[] = [

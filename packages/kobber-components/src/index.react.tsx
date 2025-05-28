@@ -26,8 +26,8 @@ import { ProgressBar } from "./progress-bar/ProgressBar";
 import { ProgressBarItem } from "./progress-bar/ProgressBarItem";
 import { RadioGroup, RadioInput, RadioInputControl } from "./radio/index";
 import { TextLink } from "./text/text-link/TextLink";
+import { ThemeContext } from "./theme-context-provider/ThemeContext";
 import { TextWrapper } from "./text/text-wrapper/TextWrapper";
-import { ThemeContextProvider } from "./base/utilities/theme-context";
 
 export const KobberAccordion = createComponent({
   tagName: "kobber-accordion",
@@ -187,6 +187,6 @@ export const KobberTextWrapper = createComponent({
 
 export const KobberThemeContext = createComponent({
   tagName: "kobber-theme-context",
-  elementClass: ThemeContextProvider,
+  elementClass: ThemeContext,
   react: React,
 });

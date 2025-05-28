@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { listName, ListProps } from "./List.core";
 import "./List";
-import "../utils/theme-context";
+import "../theme-context-provider/ThemeContext";
 
 const states = ["idle", "hover", "active", "focus", "disabled"] as const;
 
