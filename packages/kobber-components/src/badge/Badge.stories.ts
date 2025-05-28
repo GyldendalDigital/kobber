@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components";
 import { html } from "lit";
 import "./Badge";
 import { badgeName, BadgeProps, badgeSizes, badgeThemes, badgeVariants } from "./Badge.core";
-import "../utils/theme-context";
+import "../theme-context-provider/ThemeContext";
 
 interface Args extends BadgeProps {
   text?: string;

@@ -7,7 +7,7 @@ import "../layouts/horizontal-layout/HorizontalLayoutColumn";
 import "../story/ExampleCard";
 import { globalStyles } from "../story/globalStyles";
 import { exampleIrregular, exampleRegular, miniExample } from "./story/example";
-import "../utils/theme-context";
+import "../theme-context-provider/ThemeContext";
 
 interface Args {
   hasManyItems: boolean;

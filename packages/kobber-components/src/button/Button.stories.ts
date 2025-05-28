@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components";
 import { ButtonProps, buttonDefaultProps, buttonName, buttonThemeProps, buttonUiProps } from "./Button.core";
 import "./Button";
 import "../text/heading/Heading";
-import "../utils/theme-context";
+import "../theme-context-provider/ThemeContext";
 
 const states = ["idle", "hover", "active", "focus", "disabled"] as const;
 
