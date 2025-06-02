@@ -1,10 +1,10 @@
 import { CSSResultGroup, css, html } from "lit";
 import { property } from "lit/decorators.js";
 import { GridColumn } from "./GridColumn";
-import { ResponsiveCssValue, responsiveValueConverter as converter } from "../utils/responsiveCssValue";
-import { stringifyStyleObject } from "../utils/stringifyStyleObject";
+import { ResponsiveCssValue, responsiveValueConverter as converter } from "../base/utilities/responsiveCssValue";
+import { stringifyStyleObject } from "../base/utilities/stringifyStyleObject";
 import "./../aspect-ratio/AspectRatio";
-import { customElement } from "../utils/customElementDecorator";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 @customElement("kobber-grid-column-aspect-ratio")
 export class GridColumnAspectRatio extends GridColumn {

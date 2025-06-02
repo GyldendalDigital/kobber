@@ -1,14 +1,13 @@
 import { ResizeController } from "@lit-labs/observers/resize-controller.js";
-import { css, html, unsafeCSS } from "lit";
+import { css, html, LitElement, unsafeCSS } from "lit";
 import { property, queryAssignedElements, state } from "lit/decorators.js";
-import { gap, minCardWidth } from "./config";
-import { StyledLitElement } from "../utils/StyledLitElement";
+import { gap, minCardWidth } from "./Carousel.config";
 import { ContextProvider as LitContextProvider } from "@lit/context";
-import { context, defaultContext } from "./context";
-import { customElement } from "../utils/customElementDecorator";
+import { context, defaultContext } from "./Carousel.context";
+import { customElement } from "../base/utilities/customElementDecorator";
 
 @customElement("kobber-carousel")
-export class Carousel extends StyledLitElement {
+export class Carousel extends LitElement {
   @property({ attribute: "aria-role-description" })
   ariaRoleDescription = "Karusell";
 

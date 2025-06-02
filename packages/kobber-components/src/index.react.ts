@@ -2,6 +2,7 @@
 
 import { createComponent } from "@lit/react";
 import * as React from "react";
+
 import { Accordion } from "./accordion/Accordion";
 import { BoxLayout } from "./layouts/box-layout/BoxLayout";
 import { Button } from "./button/Button";
@@ -9,7 +10,7 @@ import { CardLayout } from "./layouts/card-layout/CardLayout";
 import { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
 import { Carousel } from "./carousel/Carousel";
 import { CarouselButton } from "./carousel/CarouselButton";
-import { CheckboxInput } from "./checkbox/checkboxInput/CheckboxInput";
+import { CheckboxInput } from "./checkbox/checkbox-input/CheckboxInput";
 import { Divider } from "./divider/Divider";
 import { Grid } from "./grid/Grid";
 import { GridColumn } from "./grid/GridColumn";
@@ -17,17 +18,18 @@ import { GridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
 import { Heading } from "./text/heading/Heading";
 import { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 import { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
-import { IconFormChecked, IconFormIndeterminate, IconFormRadio } from "./internal-icons/index";
 import { Ingress } from "./text/ingress/Ingress";
 import { Link } from "./link/Link";
 import { List } from "./list/List";
 import { ListItem } from "./list/ListItem";
 import { ProgressBar } from "./progress-bar/ProgressBar";
 import { ProgressBarItem } from "./progress-bar/ProgressBarItem";
-import { RadioGroup, RadioInput, RadioInputControl } from "./radio/index";
+import { RadioGroup } from "./radio/radio-group/RadioGroup";
+import { RadioInput } from "./radio/radio-input/RadioInput";
+import { RadioInputControl } from "./radio/radio-input-control/RadioInputControl";
 import { TextLink } from "./text/text-link/TextLink";
+import { ThemeContext } from "./theme-context-provider/ThemeContext";
 import { TextWrapper } from "./text/text-wrapper/TextWrapper";
-import { ThemeContextProvider } from "./utils/theme-context";
 
 export const KobberAccordion = createComponent({
   tagName: "kobber-accordion",
@@ -119,24 +121,6 @@ export const KobberHorizontalLayoutColumn = createComponent({
   react: React,
 });
 
-export const InternalIconFormChecked = createComponent({
-  tagName: "kobber-internal-icon-form-checked",
-  elementClass: IconFormChecked,
-  react: React,
-});
-
-export const InternalIconFormIndeterminate = createComponent({
-  tagName: "kobber-internal-icon-form-indeterminate",
-  elementClass: IconFormIndeterminate,
-  react: React,
-});
-
-export const InternalIconFormRadio = createComponent({
-  tagName: "kobber-internal-icon-form-radio",
-  elementClass: IconFormRadio,
-  react: React,
-});
-
 export const KobberIngress = createComponent({
   tagName: "kobber-ingress",
   elementClass: Ingress,
@@ -205,6 +189,6 @@ export const KobberTextWrapper = createComponent({
 
 export const KobberThemeContext = createComponent({
   tagName: "kobber-theme-context",
-  elementClass: ThemeContextProvider,
+  elementClass: ThemeContext,
   react: React,
 });

@@ -100,6 +100,8 @@ yarn dev
 
 ### Create components
 
+#### Children or props
+
 For maintainability, components should be created to consume data as children rather than props. By using props for all data, the amount of component props over time will grow unmaintanable. Most likely, you will end up with a component that needs to accept children components as props (while having to maintain possibly deprecated data props).
 
 Example of component consuming data as children:
@@ -135,6 +137,10 @@ Example of component consuming data as props:
   ]}
 />
 ```
+
+#### Extend LitElement
+
+Most components should be defined as `extends LitElement` (or `extends ShoelaceElement`). Extending `StyledLitElement` is only for components that need to be able to be styled in several ways.
 
 ### Publish components
 

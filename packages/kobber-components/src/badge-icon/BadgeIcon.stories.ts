@@ -3,7 +3,7 @@ import { html } from "lit";
 import "./BadgeIcon";
 import { badgeIconName, BadgeIconProps, badgeIconSizes, badgeIconThemes, badgeIconVariants } from "./BadgeIcon.core";
 import "@gyldendal/kobber-icons/web-components";
-import "../utils/theme-context";
+import "../theme-context-provider/ThemeContext";
 
 interface Args extends BadgeIconProps {
   text?: string;

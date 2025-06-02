@@ -1,9 +1,9 @@
 import { layout } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { css, html, unsafeCSS } from "lit";
 import { property } from "lit/decorators.js";
-import { StyledLitElement } from "../../utils/StyledLitElement";
-import { stringifyStyleObject } from "../../utils/stringifyStyleObject";
-import { customElement } from "../../utils/customElementDecorator";
+import { StyledLitElement } from "../../base/utilities/StyledLitElement";
+import { stringifyStyleObject } from "../../base/utilities/stringifyStyleObject";
+import { customElement } from "../../base/utilities/customElementDecorator";
 
 const validMaxWidths = ["fixed-page-header", "content"];
 
