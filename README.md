@@ -67,7 +67,7 @@ This monorepo contains all code related to Kobber. They share dependencies and c
 
 ### Prerequisites
 
-- **Node.js >=20.0.0**
+- **Node.js - Node latest LTS**
 - **Corepack enabled** (comes with Node.js): `corepack enable`
 
 ### Quick Start - Component Development
