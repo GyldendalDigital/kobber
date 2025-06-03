@@ -4,6 +4,9 @@ import { createComponent } from "@lit/react";
 import * as React from "react";
 
 import { Accordion } from "./accordion/Accordion";
+import { AspectRatio } from "./aspect-ratio/AspectRatio";
+import { Badge } from "./badge/Badge";
+import { BadgeIcon } from "./badge-icon/BadgeIcon";
 import { BoxLayout } from "./layouts/box-layout/BoxLayout";
 import { Button } from "./button/Button";
 import { CardLayout } from "./layouts/card-layout/CardLayout";
@@ -12,6 +15,7 @@ import { Carousel } from "./carousel/Carousel";
 import { CarouselButton } from "./carousel/CarouselButton";
 import { CheckboxInput } from "./checkbox/checkbox-input/CheckboxInput";
 import { Divider } from "./divider/Divider";
+import { Dropdown } from "./dropdown/Dropdown";
 import { Grid } from "./grid/Grid";
 import { GridColumn } from "./grid/GridColumn";
 import { GridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
@@ -28,12 +32,30 @@ import { RadioGroup } from "./radio/radio-group/RadioGroup";
 import { RadioInput } from "./radio/radio-input/RadioInput";
 import { RadioInputControl } from "./radio/radio-input-control/RadioInputControl";
 import { TextLink } from "./text/text-link/TextLink";
-import { ThemeContext } from "./theme-context-provider/ThemeContext";
 import { TextWrapper } from "./text/text-wrapper/TextWrapper";
+import { ThemeContext } from "./theme-context-provider/ThemeContext";
 
 export const KobberAccordion = createComponent({
   tagName: "kobber-accordion",
   elementClass: Accordion,
+  react: React,
+});
+
+export const KobberAspectRatio = createComponent({
+  tagName: "kobber-aspect-ratio",
+  elementClass: AspectRatio,
+  react: React,
+});
+
+export const KobberBadge = createComponent({
+  tagName: "kobber-badge",
+  elementClass: Badge,
+  react: React,
+});
+
+export const KobberBadgeIcon = createComponent({
+  tagName: "kobber-badge-icon",
+  elementClass: BadgeIcon,
   react: React,
 });
 
@@ -82,6 +104,12 @@ export const KobberCheckboxInput = createComponent({
 export const KobberDivider = createComponent({
   tagName: "kobber-divider",
   elementClass: Divider,
+  react: React,
+});
+
+export const KobberDropdown = createComponent({
+  tagName: "kobber-dropdown",
+  elementClass: Dropdown,
   react: React,
 });
 
