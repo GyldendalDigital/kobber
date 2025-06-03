@@ -1,4 +1,4 @@
-# @gyldendal/kobber-components
+# @gyldendal/kobber-icons
 
 ## 0.5.0
 
