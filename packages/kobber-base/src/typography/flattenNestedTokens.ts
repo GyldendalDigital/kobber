@@ -7,10 +7,8 @@ export interface Item {
   styles: any;
 }
 
-export const flattenNestedTokens = (
-  items: Record<string, any>,
-  namePrefixes: string[] = []
-) => Object.entries(items).map(flattenItem(namePrefixes)).flat();
+export const flattenNestedTokens = (items: Record<string, any>, namePrefixes: string[] = []) =>
+  Object.entries(items).map(flattenItem(namePrefixes)).flat();
 
 const flattenItem =
   (path: string[]) =>
@@ -26,5 +24,4 @@ const flattenItem =
         ]
       : flattenNestedTokens(value, [...path, name]);
 
-const isTypographyStyle = (value: any) =>
-  Object.keys(value).includes("fontSize");
+const isTypographyStyle = (value: any) => Object.keys(value).includes("fontSize");
