@@ -35,11 +35,6 @@ export const hexToRgb = (hex: string) => {
   return rgb ? `(${rgb.r}, ${rgb.g}, ${rgb.b})` : null
 }
 
-export function capitalizeFirstLetter(str: string): string {
-  if (!str) return str
-  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
-}
-
 export function toUpperCase(str: string): string {
   if (!str) return str
   return str.toUpperCase()

@@ -9,12 +9,7 @@
   "exports": {
     "./react": "./dist/react/index.js",
     "./web-components": "./dist/web-components/index.js",
-    "./vanilla": [
-      "./dist/vanilla/index.js"
-    ],
-    "./vanilla/*.css": [
-      "./dist/vanilla/*.css"
-    ],
+    "./vanilla/*.css": "./dist/vanilla/*.css",
     "./init": "./dist/init/index.js"
   },
   "scripts": {
