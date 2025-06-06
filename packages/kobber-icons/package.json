@@ -12,7 +12,8 @@
     "./web-components": "./dist/web-components/index.js",
     "./symbols": [
       "./dist/symbols/*.*"
-    ]
+    ],
+    "./init/": "./dist/init/index.js"
   },
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist src/tmp",

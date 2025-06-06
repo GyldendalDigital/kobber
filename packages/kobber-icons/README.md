@@ -41,6 +41,22 @@ const App = () => <ArrowRight />;
 <kobber-arrow_right />
 ```
 
+##### Auto-registering web components
+
+To make the web components render they need to be registered:
+
+```js
+window.customElements.define("kobber-add_figure", AddFigure);
+```
+
+This can be done automatically using the `init`-function:
+
+```js
+import { init } from "@gyldendal/kobber-icons/init";
+
+init({ autoRegisterWebComponents: true });
+```
+
 Custom element icon names are prefixed with kobber-, to ensure [valid naming](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name).
 
 #### Use sprite directly

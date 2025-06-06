@@ -5,6 +5,7 @@ export const makeWebComponent = (symbol: SVGSymbolElement) => {
 
   const preamble = `import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { SizeType } from "../../types/kobber-icons-types";
+import { getConfig } from "../../../base/config";
 
 `;
 
@@ -53,9 +54,15 @@ import { SizeType } from "../../types/kobber-icons-types";
 
 export const customElementName = "${symbol.id}";
 
-if (!customElements.get(customElementName)) {
-  customElements.define(customElementName, ${iconNames.unprefixedCapitalized});
-}
+const register = async () => {
+  const config = await getConfig();
+  if (!config.autoRegisterWebComponents) return;
+  if (!customElements.get(customElementName)) {
+    customElements.define(customElementName, ${iconNames.unprefixedCapitalized});
+  }
+};
+
+register();
 `;
 
   return componentCode;
