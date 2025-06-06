@@ -32,6 +32,7 @@ listComponents(symbols);
 
 export default defineConfig(() => ({
   entry: {
+    ["init/index"]: "src/base/init.ts",
     [`${reactDirectory}/index`]: "src/index.react.tsx",
     [`${reactSsrSafeDirectory}/index`]: "src/index.react-ssr-safe.tsx",
     [`${webComponentsDirectory}/index`]: "src/index.web-components.ts",
