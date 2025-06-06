@@ -16,6 +16,7 @@ listReactComponents(`./src/${reactListFile}`, componentObjects);
 
 export default defineConfig(() => ({
   entry: {
+    ["init/index"]: "src/base/init.ts",
     [`${reactDirectory}/index`]: `src/${reactListFile}`,
     [`${webComponentsDirectory}/index`]: `src/${webComponentListFile}`,
   },
