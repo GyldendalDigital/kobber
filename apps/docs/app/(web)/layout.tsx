@@ -3,6 +3,7 @@ import "@/styles/globals.css"
 import { cookies } from "next/headers"
 import { SessionProvider as AuthProvider } from "next-auth/react"
 import { APP_NAME } from "@/lib/constants"
+import { InitKobber } from "@/lib/InitKobber"
 import { RequireAuthentication } from "@/lib/require-authentication"
 import Footer from "@/components/footer"
 import { inter, lyon, mori } from "../fonts"
@@ -31,6 +32,7 @@ export default async function RootLayout({
       className={`${mori.className} ${mori.variable} ${lyon.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
+      <InitKobber />
       <body className={kobberTheme}>
         <AuthProvider>
           <RequireAuthentication>{children}</RequireAuthentication>

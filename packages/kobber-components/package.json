@@ -15,7 +15,7 @@
     "./vanilla/*.css": [
       "./dist/vanilla/*.css"
     ],
-    "./init/": "./dist/init/index.js"
+    "./init": "./dist/init/index.js"
   },
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist",
