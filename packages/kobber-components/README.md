@@ -79,6 +79,22 @@ const progressBar = new ProgressBar();
 document.body.appendChild(progressBar);
 ```
 
+## Auto-registering web components
+
+To make the web components render they need to be registered:
+
+```js
+window.customElements.define("kobber-button", KobberButton);
+```
+
+This can be done automatically using the `init`-function:
+
+```js
+import { init } from "@gyldendal/kobber-components/init";
+
+init({ autoRegisterWebComponents: true });
+```
+
 ## CSS
 
 We recommend using [normalize.css](https://github.com/necolas/normalize.css/) or something similar to normalize browser styles.
