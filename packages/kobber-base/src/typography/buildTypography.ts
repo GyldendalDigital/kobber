@@ -38,7 +38,7 @@ export const buildTypography = (themeConfig: ThemeConfig) => {
   const plainCss = typographyTokensFlattened
     .map(item =>
       getTypographyCssClass(
-        ["kobber", "typography", ...item.path, item.fullNameCamelCase?.replace(" ", "-")].join("-"),
+        ["kobber", "typography", ...item.path, item.fullNameCamelCase.toString().replace(" ", "-")].join("-"),
         item.styles,
       ),
     )
@@ -49,7 +49,7 @@ export const buildTypography = (themeConfig: ThemeConfig) => {
   console.info(`✔︎ ${themeTokensDirectory}/typography.css`);
 
   const moduleCss = typographyTokensFlattened
-    .map(item => getTypographyCssClass(item.fullNameCamelCase?.replace(" ", "-"), item.styles))
+    .map(item => getTypographyCssClass(item.fullNameCamelCase.toString().replace(" ", "-"), item.styles))
     .map(trimLineBreaks)
     .join("\n");
 
