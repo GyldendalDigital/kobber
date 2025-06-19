@@ -43,11 +43,12 @@ export const SmallScreenNav = (props: Nav) => {
             </ul>
           </li>
         ))}
+        <li>
+          <div className={styles["small-screen-nav-login-button"]}>
+            <LoginButton />
+          </div>
+        </li>
       </ul>
-
-      <div className={styles["small-screen-nav-login-button"]}>
-        <LoginButton />
-      </div>
     </div>
   )
 }
