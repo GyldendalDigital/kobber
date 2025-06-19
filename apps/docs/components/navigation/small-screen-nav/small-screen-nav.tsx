@@ -28,24 +28,22 @@ export const SmallScreenNav = (props: Nav) => {
         
       </div> */}
 
-      <div className={styles["small-screen-"]}>
-        <ul className={styles["small-screen-nav-list"]}>
-          {children?.map((child) => (
-            <li key={child.slug} className={styles["small-screen-nav-list-item"]}>
-              <KobberHeading level="span" variant="title medium">
-                {child.title}
-              </KobberHeading>
-              <ul className={styles["small-screen-nav-link-list-inner"]}>
-                {child.children?.map((child) => (
-                  <li key={child.slug} className={styles["small-screen-nav-link-list-inner-item"]}>
-                    {child.slug && <NavLink href={child.slug}>{child.title}</NavLink>}
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul className={styles["small-screen-nav-list"]}>
+        {children?.map((child) => (
+          <li key={child.slug} className={styles["small-screen-nav-list-item"]}>
+            <KobberHeading level="span" variant="title medium">
+              {child.title}
+            </KobberHeading>
+            <ul className={styles["small-screen-nav-link-list-inner"]}>
+              {child.children?.map((child) => (
+                <li key={child.slug} className={styles["small-screen-nav-link-list-inner-item"]}>
+                  {child.slug && <NavLink href={child.slug}>{child.title}</NavLink>}
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
 
       <div className={styles["small-screen-nav-login-button"]}>
         <LoginButton />
