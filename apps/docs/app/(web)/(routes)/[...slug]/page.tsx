@@ -11,7 +11,6 @@ import { SideMenu } from "@/components/navigation/side-menu/side-menu"
 import { PageBuilder } from "@/components/page-builder/page-builder"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
 import { DraftTools } from "../_draftTools/DraftTools"
-import styles from "./slugPage.module.css"
 
 async function fetchSlugPageData(slug: string) {
   return await sanityFetch({
@@ -75,7 +74,7 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
     <>
       <div className={cn(pageLayoutStyles["page-layout"], pageLayoutStyles["page-spacing"])}>
         {rootSlug && <SideMenu slug={slug} rootSlug={rootSlug} />}
-        <main className={styles["slug-page"]}>
+        <main>
           {showPageBuilder && <PageBuilder pageBuilder={pageBuilder} id={_id} type={_type} />}
 
           {showSubPageGrid && (
