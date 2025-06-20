@@ -3,6 +3,11 @@ import { html } from "lit";
 import "./Badge";
 import { badgeName, BadgeProps, badgeSizes, badgeThemes, badgeVariants } from "./Badge.core";
 import "../theme-context-provider/ThemeContext";
+import { init as initComponents } from "../base/init";
+import { init as initIcons } from "@gyldendal/kobber-icons/init";
+
+initComponents();
+initIcons();
 
 interface Args extends BadgeProps {
   text?: string;

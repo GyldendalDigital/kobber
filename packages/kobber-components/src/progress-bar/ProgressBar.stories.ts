@@ -3,6 +3,11 @@ import { customElementName as ProgressBar } from "./ProgressBar";
 import { customElementName as ProgressBarItem } from "./ProgressBarItem";
 import { getProficiencyNameByPercentage } from "../base/utilities/progressHelpers";
 import "@gyldendal/kobber-base/themes/default/tokens.css";
+import { init as initComponents } from "../base/init";
+import { init as initIcons } from "@gyldendal/kobber-icons/init";
+
+initComponents();
+initIcons();
 
 const meta: Meta = {
   title: "In development 🧪/Progress-Bar",

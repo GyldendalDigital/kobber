@@ -8,6 +8,11 @@ import { exampleIrregular } from "../../carousel/story/example";
 import { renderIndicators } from "./story/renderIndicators";
 import { globalStyles } from "../../story/globalStyles";
 import { maxColumns } from "./HorizontalLayout.config";
+import { init as initComponents } from "../../base/init";
+import { init as initIcons } from "@gyldendal/kobber-icons/init";
+
+initComponents();
+initIcons();
 
 const meta: Meta = {
   title: "In development 🧪/Layouts/HorizontalLayout (Carousel)",
