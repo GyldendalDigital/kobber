@@ -3,6 +3,11 @@ import { ButtonProps, buttonDefaultProps, buttonName, buttonThemeProps, buttonUi
 import "./Button";
 import "../text/heading/Heading";
 import "../theme-context-provider/ThemeContext";
+import { init as initComponents } from "../base/init";
+import { init as initIcons } from "@gyldendal/kobber-icons/init";
+
+initComponents();
+initIcons();
 
 const states = ["idle", "hover", "active", "focus", "disabled"] as const;
 

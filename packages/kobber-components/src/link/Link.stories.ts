@@ -3,6 +3,11 @@ import { html } from "lit";
 import "./Link";
 import "@gyldendal/kobber-icons/web-components";
 import { LinkProps, linkTypes } from "./Link.core";
+import { init as initComponents } from "../base/init";
+import { init as initIcons } from "@gyldendal/kobber-icons/init";
+
+initComponents();
+initIcons();
 
 const iconSettings = ["none", "right", "left"] as const;
 

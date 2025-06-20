@@ -4,6 +4,11 @@ import "./BadgeIcon";
 import { badgeIconName, BadgeIconProps, badgeIconSizes, badgeIconThemes, badgeIconVariants } from "./BadgeIcon.core";
 import "@gyldendal/kobber-icons/web-components";
 import "../theme-context-provider/ThemeContext";
+import { init as initComponents } from "../base/init";
+import { init as initIcons } from "@gyldendal/kobber-icons/init";
+
+initComponents();
+initIcons();
 
 interface Args extends BadgeIconProps {
   text?: string;

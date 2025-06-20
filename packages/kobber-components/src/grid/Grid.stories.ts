@@ -9,6 +9,11 @@ import { GridConfigId } from "./config/types";
 import "./story/ExampleCard";
 import { renderIndicators } from "./story/renderIndicators";
 import { globalStyles } from "../story/globalStyles";
+import { init as initComponents } from "../base/init";
+import { init as initIcons } from "@gyldendal/kobber-icons/init";
+
+initComponents();
+initIcons();
 
 const gridConfigArray = Object.values(gridConfigs);
 

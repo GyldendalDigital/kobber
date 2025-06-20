@@ -3,6 +3,11 @@ import { accordionName } from "./Accordion.core";
 import "../accordion/Accordion";
 import "../button/Button";
 import "../theme-context-provider/ThemeContext";
+import { init as initComponents } from "../base/init";
+import { init as initIcons } from "@gyldendal/kobber-icons/init";
+
+initComponents();
+initIcons();
 
 export default {
   title: "kobber.gyldendal.no/Accordion",
