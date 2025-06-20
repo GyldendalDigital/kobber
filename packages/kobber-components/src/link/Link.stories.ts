@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import { html } from "lit";
+import { html } from "lit/static-html.js";
 import "./Link";
 import "@gyldendal/kobber-icons/web-components";
 import { LinkProps, linkTypes } from "./Link.core";
 import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
+import { getPrintedState, linkStates } from "../story/linkStates";
 
 initComponents();
 initIcons();
@@ -37,8 +38,6 @@ const meta: Meta<Args> = {
 
 export default meta;
 
-const linkStates = ["idle", "active", "hover", "focus", "disabled"];
-
 /**
  * Disabled er ikke en gyldig state for lenker. Disabled fjerner href-attributten.
  */
@@ -59,7 +58,7 @@ export const Link: StoryObj<Args> = {
               type="${args.type}"
               ${args.icon === "left" ? "iconFirst" : ""}
             >
-              ${args.text || `Lenke med tilstand ${state}`}
+              ${args.text || html`Lenke med tilstand ${getPrintedState(state)}`}
               ${args.icon !== "none" ? html`<kobber-arrow_right slot="icon" />` : ""}
             </kobber-link>
           </p>`;
@@ -76,7 +75,7 @@ export const Link: StoryObj<Args> = {
               type="${args.type}"
               ${args.icon === "left" ? "iconFirst" : ""}
             >
-              ${args.text || `Knapp med tilstand ${state}`}
+              ${args.text || html`Knapp med tilstand ${getPrintedState(state)}`}
               ${args.icon !== "none" ? html`<kobber-arrow_right slot="icon" />` : ""}
             </kobber-link>
           </p>`;

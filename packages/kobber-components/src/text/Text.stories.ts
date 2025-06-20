@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components";
-import { html } from "lit";
+import { html } from "lit/static-html.js";
 import "./text-wrapper/TextWrapper";
 import "./heading/Heading";
 import "./ingress/Ingress";
@@ -8,6 +8,7 @@ import { headingPrimarySizes, headingSecondarySizes } from "./heading/Heading.co
 import "@gyldendal/kobber-icons/web-components";
 import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
+import { getPrintedState, linkStates } from "../story/linkStates";
 
 initComponents();
 initIcons();
@@ -164,8 +165,6 @@ export const Ingress: Story = {
   },
 };
 
-const linkStates = ["idle", "active", "hover", "focus", "disabled"];
-
 /**
  * Disabled er ikke en gyldig state for lenker. Da fjerner man heller href-attributten.
  */
@@ -189,7 +188,7 @@ export const Link: Story = {
             >
               Lenke ${args.icon ? html`<kobber-external_link_arrow />` : null}
             </kobber-text-link>
-            med tilstand <code>${state}</code>
+            med tilstand ${getPrintedState(state)}
           </p>`;
         })}
       </kobber-text-wrapper>
