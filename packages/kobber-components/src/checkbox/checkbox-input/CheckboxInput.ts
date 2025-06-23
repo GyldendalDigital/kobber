@@ -2,7 +2,7 @@ import { CSSResultGroup } from "lit";
 import { html, unsafeStatic } from "lit/static-html.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { live } from "lit/directives/live.js";
-import { property, query, state } from "lit/decorators.js";
+import { property, query } from "lit/decorators.js";
 import { checkboxStyles } from "./checkboxInput.styles";
 import { defaultValue } from "../../base/internal/default-value";
 import { watch } from "../../base/internal/watch";
@@ -110,18 +110,16 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
   /** The checkbox's help text. If you need to display HTML, use the `help-text` slot instead. */
   @property({ attribute: "help-text" }) helpText = "";
 
-  /** Gets the validity state object */
-  get validity() {
-    return this.input.validity;
-  }
-
-  /** Gets the validation message */
-  get validationMessage() {
-    return this.input.validationMessage;
-  }
-
   firstUpdated() {
     this.formControlController.updateValidity();
+  }
+
+  private handleFocus() {
+    this.emit("focus");
+  }
+
+  private handleBlur() {
+    this.emit("blur");
   }
 
   private handleClick() {
@@ -130,34 +128,8 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
     this.emit("change");
   }
 
-  private handleBlur() {
-    this.emit("blur");
-  }
-
   private handleInput() {
     this.emit("input");
-  }
-
-  private handleInvalid(event: Event) {
-    this.formControlController.setValidity(false);
-    this.formControlController.emitInvalidEvent(event);
-  }
-
-  private handleFocus() {
-    this.emit("focus");
-  }
-
-  @watch("disabled", { waitUntilFirstUpdate: true })
-  handleDisabledChange() {
-    // Disabled form controls are always valid
-    this.formControlController.setValidity(this.disabled);
-  }
-
-  @watch(["checked", "indeterminate"], { waitUntilFirstUpdate: true })
-  handleStateChange() {
-    this.input.checked = this.checked; // force a sync update
-    this.input.indeterminate = this.indeterminate; // force a sync update
-    this.formControlController.updateValidity();
   }
 
   /** Simulates a click on the checkbox. */
@@ -173,6 +145,21 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
   /** Removes focus from the checkbox. */
   blur() {
     this.input.blur();
+  }
+
+  /** Gets the validity state object */
+  get validity() {
+    return this.input.validity;
+  }
+
+  /** Gets the validation message */
+  get validationMessage() {
+    return this.input.validationMessage;
+  }
+
+  private handleInvalid(event: Event) {
+    this.formControlController.setValidity(false);
+    this.formControlController.emitInvalidEvent(event);
   }
 
   /** Checks for validity but does not show a validation message. Returns `true` when valid and `false` when invalid. */
@@ -197,6 +184,19 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
   setCustomValidity(message: string) {
     this.input.setCustomValidity(message);
     this.formControlController.updateValidity();
+  }
+
+  @watch(["checked", "indeterminate"], { waitUntilFirstUpdate: true })
+  handleStateChange() {
+    this.input.checked = this.checked; // force a sync update
+    this.input.indeterminate = this.indeterminate; // force a sync update
+    this.formControlController.updateValidity();
+  }
+
+  @watch("disabled", { waitUntilFirstUpdate: true })
+  handleDisabledChange() {
+    // Disabled form controls are always valid
+    this.formControlController.setValidity(this.disabled);
   }
 
   render() {

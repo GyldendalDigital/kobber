@@ -64,6 +64,13 @@ export class RadioInput extends ShoelaceElement implements InputProps {
     this.setInitialAttributes();
   }
 
+  private handleFocus = () => {
+    if (this.isLink()) {
+      window.location.href = this.href;
+    }
+    this.hasFocus = true;
+  };
+
   private handleBlur = () => {
     this.hasFocus = false;
   };
@@ -72,13 +79,6 @@ export class RadioInput extends ShoelaceElement implements InputProps {
     if (!this.disabled) {
       this.checked = true;
     }
-  };
-
-  private handleFocus = () => {
-    if (this.isLink()) {
-      window.location.href = this.href;
-    }
-    this.hasFocus = true;
   };
 
   private setInitialAttributes() {
