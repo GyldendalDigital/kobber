@@ -3,6 +3,11 @@ import { DividerVariant } from "./Divider.types";
 import "./Divider";
 import { html } from "lit";
 import "../theme-context-provider/ThemeContext";
+import { init as initComponents } from "../base/init";
+import { init as initIcons } from "@gyldendal/kobber-icons/init";
+
+initComponents();
+initIcons();
 
 const variants: DividerVariant[] = ["main", "supplemental"];
 

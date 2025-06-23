@@ -6,6 +6,11 @@ import "./ingress/Ingress";
 import "./text-link/TextLink";
 import { headingPrimarySizes, headingSecondarySizes } from "./heading/Heading.core";
 import "@gyldendal/kobber-icons/web-components";
+import { init as initComponents } from "../base/init";
+import { init as initIcons } from "@gyldendal/kobber-icons/init";
+
+initComponents();
+initIcons();
 
 const meta: Meta = {
   title: "Text",
