@@ -3,10 +3,8 @@ import "./checkbox-input/CheckboxInput";
 import "../theme-context-provider/ThemeContext";
 import { InputProps, CheckboxState, checkboxVariants } from "./Checkbox.core";
 import { init as initComponents } from "../base/init";
-import { init as initIcons } from "@gyldendal/kobber-icons/init";
 
 initComponents();
-initIcons();
 
 const states: { [key: string]: CheckboxState[] }[] = [
   { "not focus": ["idle", "hover", "active", "disabled"] },

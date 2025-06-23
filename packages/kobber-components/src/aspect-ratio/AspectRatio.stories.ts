@@ -5,10 +5,8 @@ import { defaultAspectRatio } from "./AspectRatio";
 import AspectRatioWiki from "./AspectRatioWiki.mdx";
 import { globalStyles } from "../story/globalStyles";
 import { init as initComponents } from "../base/init";
-import { init as initIcons } from "@gyldendal/kobber-icons/init";
 
 initComponents();
-initIcons();
 
 type Args = { aspectRatio: string };
 

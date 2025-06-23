@@ -9,10 +9,8 @@ import { globalStyles } from "../story/globalStyles";
 import { exampleIrregular, exampleRegular, miniExample } from "./story/example";
 import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
-import { init as initIcons } from "@gyldendal/kobber-icons/init";
 
 initComponents();
-initIcons();
 
 interface Args {
   hasManyItems: boolean;
