@@ -45,4 +45,8 @@
   .open .small-screen-nav-content {
     display: block;
   }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
 }

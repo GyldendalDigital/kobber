@@ -3,10 +3,8 @@ import { listName, ListProps } from "./List.core";
 import "./List";
 import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
-import { init as initIcons } from "@gyldendal/kobber-icons/init";
 
 initComponents();
-initIcons();
 
 const states = ["idle", "hover", "active", "focus", "disabled"] as const;
 

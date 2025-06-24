@@ -1,5 +1,5 @@
 .small-screen-nav {
-  height: 100vh;
+  height: 90vh;
   margin-block: var(--kobber-component-docs-navbar-container-padding-block);
   overflow: auto;
 }

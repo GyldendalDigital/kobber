@@ -2,7 +2,7 @@
 
 import { createComponent } from "@lit/react";
 import * as React from "react";
-
+ 
 import { Accordion } from "./accordion/Accordion";
 import { AspectRatio } from "./aspect-ratio/AspectRatio";
 import { Badge } from "./badge/Badge";
@@ -33,7 +33,7 @@ import { RadioInput } from "./radio/radio-input/RadioInput";
 import { RadioInputControl } from "./radio/radio-input-control/RadioInputControl";
 import { TextLink } from "./text/text-link/TextLink";
 import { TextWrapper } from "./text/text-wrapper/TextWrapper";
-import { ThemeContext } from "./theme-context-provider/ThemeContext";
+import { ThemeContext } from "./theme-context-provider/ThemeContext"; 
 
 export const KobberAccordion = createComponent({
   tagName: "kobber-accordion",

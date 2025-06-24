@@ -4,6 +4,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
 import { Button } from "../button/Button";
 import { Context, context, defaultContext } from "./Carousel.context";
 import { customElement } from "../base/utilities/customElementDecorator";
+import "@gyldendal/kobber-icons/web-components";
 
 @customElement("kobber-carousel-button")
 export class CarouselButton extends Button {

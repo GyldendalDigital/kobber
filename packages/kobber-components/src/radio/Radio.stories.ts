@@ -6,10 +6,8 @@ import { inputVariants, InputProps, radioInputName } from "./Radio.core";
 import "../text/heading/Heading";
 import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
-import { init as initIcons } from "@gyldendal/kobber-icons/init";
 
 initComponents();
-initIcons();
 
 const formats = ["hardcover", "pocket", "ebook", "audiobook"] as const;
 const states: { [key: string]: string[] }[] = [

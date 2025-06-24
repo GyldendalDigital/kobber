@@ -1,3 +1,4 @@
+/* First: Reset the reset. */
 .rich-text {
   & h1,
   h2,
@@ -29,11 +30,14 @@
       margin-top: 0.5rem;
     }
   }
+  ol {
+    list-style: revert;
+    padding: 0 1em;
+  }
 }
 
 .image {
   overflow: hidden;
-  border-radius: 1rem;
   max-width: 100%;
 }
 
@@ -50,6 +54,9 @@
     margin-right: 0.5rem;
     border-radius: 1rem;
     filter: invert(1);
+    /* Vertically center icons with text. */
+    position: relative;
+    top: 0.175em;
   }
 
   &.positive {

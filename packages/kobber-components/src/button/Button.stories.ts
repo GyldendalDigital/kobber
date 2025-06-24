@@ -5,6 +5,7 @@ import "../text/heading/Heading";
 import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
+import "@gyldendal/kobber-icons/web-components";
 
 initComponents();
 initIcons();

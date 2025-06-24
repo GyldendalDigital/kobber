@@ -1,6 +1,6 @@
-.slug-page {
+.page-builder-main {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 4.5em;
   overflow: hidden;
 }
