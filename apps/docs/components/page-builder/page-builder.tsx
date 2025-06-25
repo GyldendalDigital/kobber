@@ -1,8 +1,9 @@
 "use client"
 
-import type { ComponentType } from "react"
+import type { ComponentType, ReactNode } from "react"
 import { dataset, projectId, studioUrl } from "@/sanity/env"
 import type { QueryHomePageDataResult } from "@/sanity/sanity.types"
+import { KobberTextWrapper } from "@gyldendal/kobber-components/react"
 import { useOptimistic } from "@sanity/visual-editing/react"
 import { createDataAttribute, type SanityDocument } from "next-sanity"
 import styles from "./page-builder.module.css"
@@ -53,8 +54,29 @@ export function PageBuilder({ pageBuilder: initialPageBuilder = [], id, type }: 
     }
   )
 
+  type Props = {
+    className: string
+    "data-sanity": string
+    children: ReactNode
+  }
+
+  const Wrapper = (props: Props) => {
+    if (type === "homePage") {
+      return (
+        <div className={props.className} data-sanity={props["data-sanity"]}>
+          {props.children}
+        </div>
+      )
+    }
+    return (
+      <KobberTextWrapper className={props.className} data-sanity={props["data-sanity"]}>
+        {props.children}
+      </KobberTextWrapper>
+    )
+  }
+
   return (
-    <div
+    <Wrapper
       className={styles["page-builder-main"]}
       data-sanity={createDataAttribute({
         id: id,
@@ -92,6 +114,6 @@ export function PageBuilder({ pageBuilder: initialPageBuilder = [], id, type }: 
           </div>
         )
       })}
-    </div>
+    </Wrapper>
   )
 }

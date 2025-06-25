@@ -49,4 +49,8 @@
   .overflow-hidden {
     overflow: hidden;
   }
+
+  p:last-of-type {
+    margin-bottom: 4.5em;
+  }
 }
