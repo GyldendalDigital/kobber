@@ -56,7 +56,7 @@
   ul:last-of-type:not(:has(~ *)),
   ol:last-of-type:not(:has(~ *)),
   img:last-of-type:not(:has(~ *)),
-  header {
+  main > header {
     margin-bottom: 4.5em;
   }
 }
