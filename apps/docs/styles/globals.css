@@ -52,9 +52,11 @@
 
   /* Make spacing between paragraphs (that are not structured as paragraphs) */
   p:last-of-type:not(:has(~ *)),
+  a:last-of-type:not(:has(~ *)),
   ul:last-of-type:not(:has(~ *)),
   ol:last-of-type:not(:has(~ *)),
-  img:last-of-type:not(:has(~ *)) {
+  img:last-of-type:not(:has(~ *)),
+  header {
     margin-bottom: 4.5em;
   }
 }
