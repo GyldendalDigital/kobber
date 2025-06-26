@@ -1,5 +1,25 @@
 # @gyldendal/kobber-base
 
+## 0.5.0
+
+### Minor Changes
+
+Breaking changes:
+
+- Remove react-SSR-safe components, as also server side rendering handles using client side web components. This requires consumers to do the following:
+  - use ssr-dom-shim package (see [components readme](https://github.com/GyldendalDigital/kobber/blob/main/packages/kobber-components/README.md#usage))
+  - in some cases component usage must be changed (as in KobberButton, where icon prop must be replaced with a slot child).
+- Add init function to components and icons that consumers must call. This enables consumers to initialize different versions of components and icons in different rendering stages.
+
+Features:
+
+- Add checkbox group, with hierarchical option (for adding a group checkbox).
+
+Chores:
+
+- Automatically list components for export. This ensures that all components we make are actually exported.
+- README is improved with development setup and prerequisites.
+
 ## 0.4.5
 
 ### Patch Changes
