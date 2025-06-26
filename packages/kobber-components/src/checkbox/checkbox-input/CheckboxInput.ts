@@ -1,7 +1,8 @@
-import { CSSResultGroup, html } from "lit";
+import { CSSResultGroup } from "lit";
+import { html, unsafeStatic } from "lit/static-html.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { live } from "lit/directives/live.js";
-import { property, query, state } from "lit/decorators.js";
+import { property, query } from "lit/decorators.js";
 import { checkboxStyles } from "./checkboxInput.styles";
 import { defaultValue } from "../../base/internal/default-value";
 import { watch } from "../../base/internal/watch";
@@ -21,6 +22,7 @@ import {
 import { customElement } from "../../base/utilities/customElementDecorator";
 
 import { HTMLElement } from "@lit-labs/ssr-dom-shim";
+import { iconFormCheckedName, iconFormIndeterminateName } from "../../base/internal/icons";
 
 globalThis.HTMLElement ??= HTMLElement;
 
@@ -51,6 +53,14 @@ globalThis.HTMLElement ??= HTMLElement;
 
 @customElement(checkboxInputName)
 export class CheckboxInput extends ShoelaceElement implements ShoelaceFormControl {
+  value: unknown;
+  defaultValue?: unknown;
+  pattern?: string | undefined;
+  min?: string | number | Date | undefined;
+  max?: string | number | Date | undefined;
+  step?: number | "any" | undefined;
+  minlength?: number | undefined;
+  maxlength?: number | undefined;
   static styles: CSSResultGroup = [componentStyles, checkboxStyles];
   // static dependencies = { "sl-icon": SlIcon };
 
@@ -68,13 +78,12 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
 
   @query('input[type="checkbox"]') input!: HTMLInputElement;
 
+  @property({ attribute: "id-value", reflect: true }) idValue = "";
+
   @property() title = ""; // make reactive to pass through
 
   /** The name of the checkbox, submitted as a name/value pair with form data. */
   @property() name = "";
-
-  /** The current value of the checkbox, submitted as a name/value pair with form data. */
-  @property() value = "";
 
   @property() variant: CheckboxVariant = "success";
 
@@ -106,18 +115,16 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
   /** The checkbox's help text. If you need to display HTML, use the `help-text` slot instead. */
   @property({ attribute: "help-text" }) helpText = "";
 
-  /** Gets the validity state object */
-  get validity() {
-    return this.input.validity;
-  }
-
-  /** Gets the validation message */
-  get validationMessage() {
-    return this.input.validationMessage;
-  }
-
   firstUpdated() {
     this.formControlController.updateValidity();
+  }
+
+  private handleFocus() {
+    this.emit("focus");
+  }
+
+  private handleBlur() {
+    this.emit("blur");
   }
 
   private handleClick() {
@@ -126,34 +133,8 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
     this.emit("change");
   }
 
-  private handleBlur() {
-    this.emit("blur");
-  }
-
   private handleInput() {
     this.emit("input");
-  }
-
-  private handleInvalid(event: Event) {
-    this.formControlController.setValidity(false);
-    this.formControlController.emitInvalidEvent(event);
-  }
-
-  private handleFocus() {
-    this.emit("focus");
-  }
-
-  @watch("disabled", { waitUntilFirstUpdate: true })
-  handleDisabledChange() {
-    // Disabled form controls are always valid
-    this.formControlController.setValidity(this.disabled);
-  }
-
-  @watch(["checked", "indeterminate"], { waitUntilFirstUpdate: true })
-  handleStateChange() {
-    this.input.checked = this.checked; // force a sync update
-    this.input.indeterminate = this.indeterminate; // force a sync update
-    this.formControlController.updateValidity();
   }
 
   /** Simulates a click on the checkbox. */
@@ -169,6 +150,21 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
   /** Removes focus from the checkbox. */
   blur() {
     this.input.blur();
+  }
+
+  /** Gets the validity state object */
+  get validity() {
+    return this.input.validity;
+  }
+
+  /** Gets the validation message */
+  get validationMessage() {
+    return this.input.validationMessage;
+  }
+
+  private handleInvalid(event: Event) {
+    this.formControlController.setValidity(false);
+    this.formControlController.emitInvalidEvent(event);
   }
 
   /** Checks for validity but does not show a validation message. Returns `true` when valid and `false` when invalid. */
@@ -195,11 +191,29 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
     this.formControlController.updateValidity();
   }
 
+  @watch(["checked", "indeterminate"], { waitUntilFirstUpdate: true })
+  handleStateChange() {
+    this.input.checked = this.checked; // force a sync update
+    this.input.indeterminate = this.indeterminate; // force a sync update
+    this.formControlController.updateValidity();
+  }
+
+  @watch("disabled", { waitUntilFirstUpdate: true })
+  handleDisabledChange() {
+    // Disabled form controls are always valid
+    this.formControlController.setValidity(this.disabled);
+  }
+
   render() {
     const hasHelpTextSlot = this.hasSlotController.test("help-text");
     const hasAlertElementSlot = this.hasSlotController.test("alert");
     const hasHelpText = this.helpText ? true : !!hasHelpTextSlot;
     const hasAlertElement = !!hasAlertElementSlot;
+    const icon = this.checked
+      ? html`<${unsafeStatic(iconFormCheckedName)} class="kobber-checkbox__control--shape"></${unsafeStatic(iconFormCheckedName)}>`
+      : this.indeterminate
+        ? html`<${unsafeStatic(iconFormIndeterminateName)} class="kobber-checkbox__control--shape"></${unsafeStatic(iconFormIndeterminateName)}>`
+        : "";
 
     return html`
       <div class="${checkboxWrapperClassName}">
@@ -209,7 +223,7 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
             type="checkbox"
             title=${this.title /* An empty title prevents browser validation tooltips from appearing on hover */}
             name=${this.name}
-            value=${ifDefined(this.value)}
+            value=${ifDefined(this.idValue)}
             .checked=${live(this.checked)}
             .disabled=${this.disabled}
             .required=${this.required}
@@ -221,18 +235,7 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
             @focus=${this.handleFocus}
           />
 
-          <span
-            part="control${this.checked ? " control--checked" : ""}${this.indeterminate
-              ? " control--indeterminate"
-              : ""}"
-            class=${checkboxControlClassName}
-          >
-            ${this.checked
-              ? html` <icon-form_checked part="checked-icon" /> `
-              : this.indeterminate
-                ? html` <icon-form_indeterminate part="checked-icon" /> `
-                : ""}
-          </span>
+          <span class=${checkboxControlClassName}> ${icon} </span>
 
           <div part="label" class=${checkboxLabelClassName}>
             <slot></slot>

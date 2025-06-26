@@ -18,12 +18,12 @@ import { radioGroupStyles } from "./RadioGroup.styles";
 import { customElement } from "../../base/utilities/customElementDecorator";
 
 /**
- * @summary Radio groups are used to group multiple [radios](/components/radio) or [radio buttons](/components/radio-button) so they function as a single form control.
+ * @summary Radio groups are used to group multiple [radio inputs](/components/radio-input) so they function as a single form control.
  * @documentation https://shoelace.style/components/radio-group
  * @status stable
  * @since 2.0
  *
- * @slot - The default slot where `<kobber-radio-button>` elements are placed.
+ * @slot - The default slot where `<kobber-radio-input>` elements are placed.
  * @slot label - The radio group's label. Required for proper accessibility. Alternatively, you can use the `label`
  *  attribute.
  * @slot help-text - Text that describes how to use the radio group. Alternatively, you can use the `help-text` attribute.
@@ -51,8 +51,6 @@ export class RadioGroup extends ShoelaceElement implements Props {
 
   @query("slot:not([name])") defaultSlot!: HTMLSlotElement;
 
-  @state() private url = window.location.href;
-
   @property({ attribute: "current-value" }) currentValue = "";
 
   /**
@@ -79,6 +77,9 @@ export class RadioGroup extends ShoelaceElement implements Props {
   /** Ensures a child radio is checked before allowing the containing form to submit. */
   @property({ type: Boolean, reflect: true }) required = false;
 
+  /** Applicable when used as a button that redirects to url. */
+  @state() private url = window.location.href;
+
   /** Gets the validity state object */
   get validity() {
     const isRequiredAndEmpty = this.required && !this.value;
@@ -96,16 +97,23 @@ export class RadioGroup extends ShoelaceElement implements Props {
   constructor() {
     super();
   }
+  defaultValue?: unknown;
+  pattern?: string | undefined;
+  min?: string | number | Date | undefined;
+  max?: string | number | Date | undefined;
+  step?: number | "any" | undefined;
+  minlength?: number | undefined;
+  maxlength?: number | undefined;
+  checked?: boolean | undefined;
+  indeterminate?: boolean | undefined;
 
   connectedCallback() {
     super.connectedCallback();
     this.value = this.currentValue;
-    /* eslint-disable @typescript-eslint/no-explicit-any */
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    navigation.addEventListener("navigate", (e: any) => {
+    navigation.addEventListener("navigate", () => {
       // Experimental functionality, does not work in Firefox. Might change in the future.
-      /* eslint-enable @typescript-eslint/no-explicit-any */
       this.handleUrlChange();
     });
   }
@@ -116,6 +124,76 @@ export class RadioGroup extends ShoelaceElement implements Props {
 
   private getAllRadios() {
     return [...this.querySelectorAll<RadioInput>(radioInputName)];
+  }
+
+  private async syncRadioElements() {
+    const radios = this.getAllRadios();
+
+    await Promise.all(
+      // Sync the checked state and size
+      radios.map(async radio => {
+        await radio.updateComplete;
+        if (radio.href !== "") {
+          radio.checked = this.url.includes(radio.href);
+        } else {
+          radio.checked = radio.value === this.value;
+        }
+      }),
+    );
+
+    if (radios.length > 0 && !radios.some(radio => radio.checked)) {
+      radios[0]!.setAttribute("tabindex", "0");
+    }
+  }
+
+  private syncRadios() {
+    if (customElements.get(radioInputName)) {
+      this.syncRadioElements();
+      return;
+    }
+
+    if (customElements.get(radioInputName)) {
+      this.syncRadioElements();
+    } else {
+      customElements.whenDefined(radioInputName).then(() => this.syncRadios());
+    }
+  }
+
+  /** Checks for validity but does not show a validation message. Returns `true` when valid and `false` when invalid. */
+  checkValidity() {
+    const isRequiredAndEmpty = this.required && !this.value;
+    const hasCustomValidityMessage = this.customValidityMessage !== "";
+
+    if (isRequiredAndEmpty || hasCustomValidityMessage) {
+      this.formControlController.emitInvalidEvent();
+      return false;
+    }
+
+    return true;
+  }
+
+  /** Gets the associated form, if one exists. */
+  getForm(): HTMLFormElement | null {
+    return this.formControlController.getForm();
+  }
+
+  /** Checks for validity and shows the browser's validation message if the control is invalid. */
+  reportValidity(): boolean {
+    const isValid = this.validity.valid;
+
+    this.formControlController.setValidity(isValid);
+
+    return isValid;
+  }
+
+  /** Sets a custom validation message. Pass an empty string to restore validity. */
+  setCustomValidity(message = "") {
+    this.customValidityMessage = message;
+    this.formControlController.updateValidity();
+  }
+
+  private handleLabelClick() {
+    this.focus();
   }
 
   private handleRadioClick(event: MouseEvent) {
@@ -173,100 +251,10 @@ export class RadioGroup extends ShoelaceElement implements Props {
     event.preventDefault();
   }
 
-  private handleLabelClick() {
-    this.focus();
-  }
-
-  private async syncRadioElements() {
-    const radios = this.getAllRadios();
-
-    await Promise.all(
-      // Sync the checked state and size
-      radios.map(async radio => {
-        await radio.updateComplete;
-        if (radio.href !== "") {
-          radio.checked = this.url.includes(radio.href);
-        } else {
-          radio.checked = radio.value === this.value;
-        }
-      }),
-    );
-
-    if (radios.length > 0 && !radios.some(radio => radio.checked)) {
-      radios[0]!.setAttribute("tabindex", "0");
-    }
-  }
-
-  private syncRadios() {
-    if (customElements.get(radioInputName)) {
-      this.syncRadioElements();
-      return;
-    }
-
-    if (customElements.get(radioInputName)) {
-      this.syncRadioElements();
-    } else {
-      customElements.whenDefined(radioInputName).then(() => this.syncRadios());
-    }
-  }
-
   private updateCheckedRadio() {
     const radios = this.getAllRadios();
     radios.forEach(radio => (radio.checked = radio.value === this.value));
     this.formControlController.setValidity(this.validity.valid);
-  }
-
-  @watch("size", { waitUntilFirstUpdate: true })
-  handleSizeChange() {
-    this.syncRadios();
-  }
-
-  @watch("value")
-  handleValueChange() {
-    if (this.hasUpdated) {
-      this.updateCheckedRadio();
-    }
-  }
-
-  @watch("url")
-  handleUrlChange() {
-    if (window.location.href !== this.url) {
-      this.url = window.location.href;
-      this.syncRadioElements();
-    }
-  }
-
-  /** Checks for validity but does not show a validation message. Returns `true` when valid and `false` when invalid. */
-  checkValidity() {
-    const isRequiredAndEmpty = this.required && !this.value;
-    const hasCustomValidityMessage = this.customValidityMessage !== "";
-
-    if (isRequiredAndEmpty || hasCustomValidityMessage) {
-      this.formControlController.emitInvalidEvent();
-      return false;
-    }
-
-    return true;
-  }
-
-  /** Gets the associated form, if one exists. */
-  getForm(): HTMLFormElement | null {
-    return this.formControlController.getForm();
-  }
-
-  /** Checks for validity and shows the browser's validation message if the control is invalid. */
-  reportValidity(): boolean {
-    const isValid = this.validity.valid;
-
-    this.formControlController.setValidity(isValid);
-
-    return isValid;
-  }
-
-  /** Sets a custom validation message. Pass an empty string to restore validity. */
-  setCustomValidity(message = "") {
-    this.customValidityMessage = message;
-    this.formControlController.updateValidity();
   }
 
   /** Sets focus on the radio-group. */
@@ -284,6 +272,24 @@ export class RadioGroup extends ShoelaceElement implements Props {
     const radioToFocus = checked || firstEnabledRadio;
     if (radioToFocus) {
       radioToFocus.focus(options);
+    }
+  }
+
+  @watch("size", { waitUntilFirstUpdate: true })
+  handleSizeChange() {
+    this.syncRadios();
+  }
+
+  @watch("value")
+  handleValueChange() {
+    this.updateCheckedRadio();
+  }
+
+  @watch("url")
+  handleUrlChange() {
+    if (window.location.href !== this.url) {
+      this.url = window.location.href;
+      this.syncRadios();
     }
   }
 
