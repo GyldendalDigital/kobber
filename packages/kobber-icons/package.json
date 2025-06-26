@@ -1,6 +1,6 @@
 {
   "name": "@gyldendal/kobber-icons",
-  "version": "0.4.5",
+  "version": "0.5.0",
   "license": "MIT",
   "type": "module",
   "files": [
@@ -26,13 +26,13 @@
     "build": "yarn svg && npx sjc gen && tsup"
   },
   "dependencies": {
-    "@gyldendal/kobber-base": "0.4.5",
+    "@gyldendal/kobber-base": "0.5.0",
     "lit": "^3.2.1"
   },
   "devDependencies": {
-    "@gyldendal/kobber-eslint": "0.4.5",
-    "@gyldendal/kobber-stylelint": "0.4.5",
-    "@gyldendal/kobber-tsconfig": "0.4.5",
+    "@gyldendal/kobber-eslint": "0.5.0",
+    "@gyldendal/kobber-stylelint": "0.5.0",
+    "@gyldendal/kobber-tsconfig": "0.5.0",
     "@lit/react": "^1.0.7",
     "@types/jsdom": "^21.1.7",
     "@types/react": "^19.1.0",
