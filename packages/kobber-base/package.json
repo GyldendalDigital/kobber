@@ -4,14 +4,20 @@
   "license": "MIT",
   "type": "module",
   "files": [
-    "themes"
+    "dist"
   ],
+  "exports": {
+    "./themes/default/*.js": "./dist/themes/default/*.js",
+    "./themes/default/*.css": "./dist/themes/default/*.css",
+    "./themes/dark/*.js": "./dist/themes/dark/*.js",
+    "./themes/dark/*.css": "./dist/themes/dark/*.css",
+    "./utilities/index.js": "./dist/utilities/index.js"
+  },
   "scripts": {
-    "clean": "rm -rf .turbo node_modules themes",
-    "build": "tsx ./build.ts",
+    "clean": "rm -rf .turbo node_modules dist",
+    "build": "tsup && tsx ./build.ts",
     "test": "tsx ./tests",
-    "prepare": "npm run build",
-    "yalc": "yalc publish"
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -19,6 +25,7 @@
   },
   "devDependencies": {
     "style-dictionary": "^4.3.2",
+    "tsup": "^8.4.0",
     "tsx": "^4.19.2",
     "typescript": "^5.8.3"
   }

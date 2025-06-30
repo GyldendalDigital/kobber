@@ -5,4 +5,4 @@ export interface ThemeConfig {
   themeName: string;
 }
 
-export const themeDirectory = "./themes";
+export const themeDirectory = "./dist/themes";

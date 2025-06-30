@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import { default as paths } from "./paths.cjs";
+import { changeCaseTo, getFilenameWithoutExtension, getFileExtension } from "@gyldendal/kobber-base/utilities/index.js";
 
 const tmpOptimizedDirectory = paths.tmpSvgsOptimized;
 const tmpSvgsDirectory = paths.tmpSvgsReactSSRSafe;
@@ -10,13 +11,6 @@ const cleanDirectory = directory => {
     fs.rmSync(directory, { recursive: true });
   }
   fs.mkdirSync(directory);
-};
-
-const snakeToKebabCase = word => {
-  return word
-    .split("/")
-    .map(snake => snake.split("_").join("-"))
-    .join("/");
 };
 
 /*
@@ -30,10 +24,11 @@ const copyIconFilesToKebabCaseForReact = () => {
   const fileNameArray = fs.readdirSync(tmpOptimizedDirectory);
 
   for (const fileName of fileNameArray) {
-    fs.copyFileSync(
-      `${tmpOptimizedDirectory}/${fileName}`,
-      `${tmpSvgsDirectory}/${snakeToKebabCase(fileName).replace(snakeToKebabCase(componentPrefix), "")}`,
-    );
+    const fileNameWithoutExtension = getFilenameWithoutExtension(fileName);
+    const fileExtension = getFileExtension(fileName);
+    const unprefixedFileNameInKebabCase = `${changeCaseTo(fileNameWithoutExtension, "kebab").replace(componentPrefix, "")}.${fileExtension}`;
+
+    fs.copyFileSync(`${tmpOptimizedDirectory}/${fileName}`, `${tmpSvgsDirectory}/${unprefixedFileNameInKebabCase}`);
   }
 };
 

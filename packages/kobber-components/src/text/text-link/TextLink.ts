@@ -4,8 +4,8 @@ import { textLinkStyles } from "./TextLink.styles";
 import componentStyles from "../../base/styles/component.styles";
 import { textLinkName, TextLinkProps } from "./TextLink.core";
 import { ifDefined } from "lit/directives/if-defined.js";
-import { isExternalLink } from "../../base/utilities/stringUtils";
 import { customElement } from "../../base/utilities/customElementDecorator";
+import { isExternalLink } from "@gyldendal/kobber-base/utilities/index.js";
 
 @customElement(textLinkName)
 export class TextLink extends LitElement implements TextLinkProps {
