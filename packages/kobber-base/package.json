@@ -4,14 +4,18 @@
   "license": "MIT",
   "type": "module",
   "files": [
-    "themes"
+    "dist"
   ],
   "exports": {
-    "./themes/default/tokens.js": "./themes/default/tokens.js"
+    "./themes/default/*.js": "./dist/themes/default/*.js",
+    "./themes/default/*.css": "./dist/themes/default/*.css",
+    "./themes/dark/*.js": "./dist/themes/dark/*.js",
+    "./themes/dark/*.css": "./dist/themes/dark/*.css",
+    "./utilities/index.js": "./dist/utilities/index.js"
   },
   "scripts": {
-    "clean": "rm -rf .turbo node_modules themes",
-    "build": "tsx ./build.ts && tsup",
+    "clean": "rm -rf .turbo node_modules dist",
+    "build": "tsup && tsx ./build.ts",
     "test": "tsx ./tests",
     "prepare": "npm run build"
   },

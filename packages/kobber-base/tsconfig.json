@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "noEmit": false,
     "module": "Preserve",
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true
   },
   "extends": "@gyldendal/kobber-tsconfig/base.json"
 }
