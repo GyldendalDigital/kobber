@@ -1,4 +1,4 @@
-import * as tokensDark from "@gyldendal/kobber-base/themes/dark/tokens";
+import * as tokensDark from "@gyldendal/kobber-base/themes/dark/tokens.js";
 import * as tokensDefault from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { createContext, provide } from "@lit/context";
 import { LitElement, html } from "lit";
