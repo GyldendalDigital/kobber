@@ -11,7 +11,7 @@
   },
   "scripts": {
     "clean": "rm -rf .turbo node_modules themes",
-    "build": "tsx ./build.ts",
+    "build": "tsx ./build.ts && tsup",
     "test": "tsx ./tests",
     "prepare": "npm run build"
   },
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "style-dictionary": "^4.3.2",
+    "tsup": "^8.4.0",
     "tsx": "^4.19.2",
     "typescript": "^5.8.3"
   }
