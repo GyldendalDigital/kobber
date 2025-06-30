@@ -1,5 +1,5 @@
+import { changeCaseTo, getFileExtension, getFilenameWithoutExtension } from "@gyldendal/kobber-base/utilities/index.js";
 import fs from "node:fs";
-import { getFileExtension, getFilenameWithoutExtension, pascalCaseToKebab } from "../src/base/utilities/stringUtils";
 
 export { listWebComponents } from "./list-web-components";
 export { listReactComponents } from "./list-react-components";
@@ -59,7 +59,7 @@ const makeComponentObject = (path: string, filename: string) => {
     importComponent: filenameWithoutExtension,
     importPath: `${pathWithoutSrc}/${filenameWithoutExtension}`,
     exportName,
-    exportTagName: pascalCaseToKebab(exportName),
+    exportTagName: changeCaseTo(exportName, "kebab"),
     exportElementClass: filenameWithoutExtension,
   };
 };

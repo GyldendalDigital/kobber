@@ -1,8 +1,8 @@
 import { Item } from "./flattenNestedTokens";
-import { toCamelCase } from "./stringUtils";
+import { changeCaseTo } from "../../utilities";
 
 export const getTypographyJson = ({ path, name, styles }: Item) => ({
-  [toCamelCase([...path, name])]: {
+  [changeCaseTo([...path, name], "camel")]: {
     fontSize: `${styles.fontSize / 16}rem`,
     textDecoration: styles.textDecoration,
     fontFamily: styles.fontFamily,

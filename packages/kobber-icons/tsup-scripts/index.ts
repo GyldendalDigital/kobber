@@ -12,6 +12,7 @@ import { makeStory } from "./make-storybook-story";
 import { makeIconGallery } from "./make-storybook-icon-gallery";
 import { makeSSRSafeReactComponentPostscript } from "./make-react-ssr-safe-component-postscript";
 import paths from "../svg-scripts/paths.cjs";
+import { changeCaseTo } from "@gyldendal/kobber-base/utilities/index.js";
 
 const componentPrefix = "kobber-";
 const svgsListsFile = `dist/symbols/kobber-icons-lists.ts`;
@@ -36,36 +37,11 @@ class DOMParser {
   }
 }
 
-// Utility snakeToPascalCase - copied from https://stackoverflow.com/questions/44082153/javascript-method-for-changing-snake-case-to-pascalcase#answer-44084313
-const snakeToPascalCase = (word: string): string => {
-  return word
-    .split("/")
-    .map(snake => {
-      let pascal = snake
-        .split("_")
-        .map(substr => substr.charAt(0).toUpperCase() + substr.slice(1))
-        .join("");
-      pascal = pascal
-        .split("-")
-        .map(substr => substr.charAt(0).toUpperCase() + substr.slice(1))
-        .join("");
-      return pascal;
-    })
-    .join("/");
-};
-
-const snakeToKebabCase = (word: string): string => {
-  return word
-    .split("/")
-    .map(snake => snake.split("_").join("-"))
-    .join("/");
-};
-
 export const getIconNames = (symbolName: string) => ({
   unprefixed: symbolName.replace(componentPrefix, ""),
-  unprefixedKebab: snakeToKebabCase(symbolName).replace(snakeToKebabCase(componentPrefix), ""),
-  prefixedCapitalized: snakeToPascalCase(symbolName),
-  unprefixedCapitalized: snakeToPascalCase(symbolName).replace(snakeToPascalCase(componentPrefix), ""),
+  unprefixedKebab: changeCaseTo(symbolName, "kebab").replace(componentPrefix, ""),
+  prefixedCapitalized: changeCaseTo(symbolName, "pascal"),
+  unprefixedCapitalized: changeCaseTo(symbolName, "pascal").replace(changeCaseTo(componentPrefix, "pascal"), ""),
 });
 
 export const makeComponents = (symbols: NodeListOf<SVGSymbolElement>) => {

@@ -1,4 +1,4 @@
-import { toCamelCase } from "./stringUtils";
+import { changeCasesTo } from "../../utilities";
 
 export interface Item {
   path: string[];
@@ -18,7 +18,7 @@ const flattenItem =
           {
             path,
             name,
-            fullNameCamelCase: toCamelCase([...path, name]),
+            fullNameCamelCase: changeCasesTo([...path, name], "camel"),
             styles: value,
           },
         ]
