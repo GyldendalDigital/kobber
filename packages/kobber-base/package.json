@@ -6,6 +6,9 @@
   "files": [
     "themes"
   ],
+  "exports": {
+    "./themes/default/tokens.js": "./themes/default/tokens.js"
+  },
   "scripts": {
     "clean": "rm -rf .turbo node_modules themes",
     "build": "tsx ./build.ts",
