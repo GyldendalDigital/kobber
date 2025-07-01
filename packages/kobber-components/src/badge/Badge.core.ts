@@ -34,10 +34,10 @@ export type BadgeClassNames =
   | "kobber-label--status-circle";
 
 type BadgeTheme = keyof typeof component.badge.background.color;
-type BadgeVariant = "main" | "supplemental";
-type BadgeSize = keyof (typeof component)["badge"]["gap"];
+type BadgeVariant = keyof typeof component.badge.background.color.aubergine;
+type BadgeSize = keyof typeof component.badge.gap;
 type BadgeText = string;
 
 export const badgeThemes: BadgeTheme[] = Object.keys(component.badge.background.color) as BadgeTheme[];
-export const badgeVariants: BadgeVariant[] = ["main", "supplemental"];
-export const badgeSizes: BadgeSize[] = ["medium", "small"];
+export const badgeVariants: BadgeVariant[] = Object.keys(component.badge.text.color.aubergine) as BadgeVariant[];
+export const badgeSizes: BadgeSize[] = Object.keys(component.badge.gap) as BadgeSize[];

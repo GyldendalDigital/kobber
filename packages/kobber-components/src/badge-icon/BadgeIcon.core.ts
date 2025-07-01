@@ -30,15 +30,8 @@ type BadgeIconTheme = keyof (typeof component)["badge-icon"]["text"]["color"];
 type BadgeIconVariant = keyof (typeof component)["badge-icon"]["text"]["color"][BadgeIconTheme];
 type BadgeIconSize = keyof (typeof component)["badge-icon"]["gap"];
 
-export const badgeIconThemes: BadgeIconTheme[] = [
-  "nature",
-  "fantasy",
-  "thriller",
-  "vacation",
-  "nostalgia",
-  "aubergine",
-  "rettsdata",
-  "carmine",
-];
-export const badgeIconVariants: BadgeIconVariant[] = ["main", "supplemental"];
-export const badgeIconSizes: BadgeIconSize[] = ["medium", "small"];
+export const badgeIconThemes: BadgeIconTheme[] = Object.keys(component["badge-icon"].text.color) as BadgeIconTheme[];
+export const badgeIconVariants: BadgeIconVariant[] = Object.keys(
+  component["badge-icon"].text.color.aubergine,
+) as BadgeIconVariant[];
+export const badgeIconSizes: BadgeIconSize[] = Object.keys(component["badge-icon"].container.gap) as BadgeIconSize[];
