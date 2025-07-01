@@ -30,13 +30,11 @@ export type BadgeClassNames =
   | BadgeTheme
   | ReplaceSpaceWithDash<BadgeVariant>
   | BadgeSize
-  | BadgeText
   | "kobber-label--status-circle";
 
 type BadgeTheme = keyof typeof component.badge.background.color;
 type BadgeVariant = keyof typeof component.badge.background.color.aubergine;
 type BadgeSize = keyof typeof component.badge.gap;
-type BadgeText = string;
 
 export const badgeThemes: BadgeTheme[] = Object.keys(component.badge.background.color) as BadgeTheme[];
 export const badgeVariants: BadgeVariant[] = Object.keys(component.badge.text.color.aubergine) as BadgeVariant[];
