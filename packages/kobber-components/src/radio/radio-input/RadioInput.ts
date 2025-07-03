@@ -109,11 +109,11 @@ export class RadioInput extends ShoelaceElement implements InputProps {
       return html`<${buttonElement}
         class=${[
           ...inputClassNames({
-            variant: this.variant,
             isLink: isLink,
           }),
           this.className,
         ].join(" ")}
+        data-variant="${this.variant}"
         ?disabled="${this.disabled}"
         variant="supplemental alt"
         href="${this.href}"
