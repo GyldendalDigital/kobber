@@ -1,13 +1,12 @@
 import { component, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import {
-  BadgeIconClassNames,
+  BadgeIconClassName,
+  BadgeIconIconClassName,
   badgeIconName,
   BadgeIconSize,
   badgeIconSizes,
-  BadgeIconTheme,
   badgeIconThemes,
-  BadgeIconVariant,
   badgeIconVariants,
 } from "./BadgeIcon.core";
 
@@ -17,7 +16,7 @@ import {
 
 const createBadgeIconStyles = () => {
   return css`
-    .${unsafeCSS(badgeIconName satisfies BadgeIconClassNames)} {
+    .${unsafeCSS(badgeIconName satisfies BadgeIconClassName)} {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -37,7 +36,7 @@ const createBadgeIconStyles = () => {
       ${getThemeStyles()}
       ${getSizeDependantStyles()}
 
-      .${unsafeCSS("icon" satisfies BadgeIconClassNames)} {
+      .${unsafeCSS("icon" satisfies BadgeIconIconClassName)} {
         width: var(--icon-width);
         height: var(--icon-height);
       }
@@ -53,7 +52,7 @@ const getThemeStyles = () => {
           return badgeIconSizes.flatMap(size =>
             badgeIconVariants.flatMap(
               variant =>
-                `&.${variant}.${theme}.${size} { 
+                `&[data-variant="${variant}"][data-theme="${theme}"][data-size="${size}"] { 
                   --color: var(${unsafeCSS(component["badge-icon"].text.color[theme][variant])});
                 }`,
             ),
@@ -70,7 +69,7 @@ const getSizeDependantStyles = () => {
     ${unsafeCSS(
       badgeIconSizes
         .flatMap(
-          size => `&.${size} { 
+          size => `&[data-size="${size}"] { 
             ${typographyStyles(size)}
             --padding: var(${unsafeCSS(containerStyles.padding.block[size])});
             --gap: var(${unsafeCSS(containerStyles.gap[size])});

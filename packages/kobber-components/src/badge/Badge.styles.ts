@@ -44,12 +44,12 @@ const getThemeStyles = () => {
       badgeThemes
         .flatMap(theme => {
           if (theme === "concrete") {
-            return `&.${theme} { ${getConcreteThemeMainVariantStyles()} }`;
+            return `&[data-theme="${theme}"] { ${getConcreteThemeMainVariantStyles()} }`;
           }
           return badgeSizes.flatMap(size =>
             badgeVariants.flatMap(
               variant =>
-                `&.${variant}.${theme}.${size} { 
+                `&[data-variant="${variant}"][data-theme="${theme}"][data-size="${size}"] { 
                   ${getNotConcreteThemeVariantStyles(theme, variant)}
                   ${getNotConcreteThemeSupplementalVariantStyles(theme, variant, size)}
                 }`,
@@ -102,7 +102,7 @@ const getSizeDependantStyles = () => {
     ${unsafeCSS(
       badgeSizes
         .flatMap(
-          size => `&.${size} { 
+          size => `&[data-size="${size}"] { 
             ${spacingStyles(size)} 
             ${typographyStyles(size)}
         }`,
