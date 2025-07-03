@@ -115,7 +115,6 @@ export class RadioInput extends ShoelaceElement implements InputProps {
         ].join(" ")}
         data-variant="${this.variant}"
         ?disabled="${this.disabled}"
-        variant="supplemental alt"
         href="${this.href}"
         usedInOtherInteractive
         iconFirst
