@@ -9,7 +9,6 @@ import {
   InputVariant,
   radioInputControlPartNameChecked,
   radioInputControlName,
-  controlClassNames,
   radioInputControlPartName,
   ControlProps,
 } from "../Radio.core";
@@ -31,7 +30,7 @@ export class RadioInputControl extends ShoelaceElement implements ControlProps {
   @property({ type: Boolean, reflect: true }) checked = false;
 
   @property()
-  variant?: InputVariant;
+  variant: InputVariant = "success";
 
   connectedCallback() {
     super.connectedCallback();
@@ -40,13 +39,9 @@ export class RadioInputControl extends ShoelaceElement implements ControlProps {
   render() {
     return html`
       <div
+        class="${radioInputControlName}"
+        data-variant="${this.variant}"
         part="${`${radioInputControlPartName} ${this.checked ? radioInputControlPartNameChecked : ""}`}"
-        class=${[
-          ...controlClassNames({
-            variant: this.variant,
-          }),
-          this.className,
-        ].join(" ")}
       >
         ${this.checked ? html` <icon-form_radio part="checked-icon" /> ` : ""}
       </div>

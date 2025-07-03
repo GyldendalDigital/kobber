@@ -45,9 +45,9 @@ const createInputStyles = () => {
 
 const inputVariantStyles = () => {
   const variantClasses = inputVariants.flatMap(variant => {
-    const variantClassName = `&.${variant}`;
+    const variantSelector = `&[data-variant="${variant}"]`;
     return css`
-      ${unsafeCSS(variantClassName)} {
+      ${unsafeCSS(variantSelector)} {
         ${inputStatesPerVariant(variant)}
       }
     `;

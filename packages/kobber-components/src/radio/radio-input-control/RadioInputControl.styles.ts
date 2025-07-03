@@ -31,10 +31,10 @@ const createInputControlStyles = () => {
 const buttonVariantStyles = () => {
   const inputColor = component.radiobutton.indicator.border.color;
   const variableClasses = inputVariants.flatMap(variant => {
-    const variantClassName = `&.${variant}`;
+    const variantSelector = `&[data-variant="${variant}"]`;
     const borderColor = inputColor[variant];
     return css`
-      ${unsafeCSS(variantClassName)} {
+      ${unsafeCSS(variantSelector)} {
         --control-color: var(${unsafeCSS(borderColor)});
       }
     `;
