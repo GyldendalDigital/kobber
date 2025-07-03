@@ -3,9 +3,11 @@ import { css, unsafeCSS } from "lit";
 import {
   BadgeIconClassNames,
   badgeIconName,
-  BadgeIconProps,
+  BadgeIconSize,
   badgeIconSizes,
+  BadgeIconTheme,
   badgeIconThemes,
+  BadgeIconVariant,
   badgeIconVariants,
 } from "./BadgeIcon.core";
 
@@ -32,7 +34,8 @@ const createBadgeIconStyles = () => {
       font-stretch: var(--font-stretch);
       line-height: var(--line-height);
 
-      ${badgeIconVariableStyles()}
+      ${getThemeStyles()}
+      ${getSizeDependantStyles()}
 
       .${unsafeCSS("icon" satisfies BadgeIconClassNames)} {
         width: var(--icon-width);
@@ -42,59 +45,63 @@ const createBadgeIconStyles = () => {
   `;
 };
 
-const getPaddingStyles = (size: BadgeIconProps["size"]) => {
-  const badgeIcon = component["badge-icon"];
-
-  return size === "medium"
-    ? css`
-        --padding: var(${unsafeCSS(badgeIcon.container.padding.block.medium)}, 8px);
-      `
-    : css`
-        --padding: var(${unsafeCSS(badgeIcon.container.padding.block.small)}, 4px)
-          var(${unsafeCSS(badgeIcon.container.padding.block.small)}, 8px);
-      `;
+const getThemeStyles = () => {
+  return css`
+    ${unsafeCSS(
+      badgeIconThemes
+        .flatMap(theme => {
+          return badgeIconSizes.flatMap(size =>
+            badgeIconVariants.flatMap(
+              variant =>
+                `&.${variant}.${theme}.${size} { 
+                  --color: var(${unsafeCSS(component["badge-icon"].text.color[theme][variant])});
+                }`,
+            ),
+          );
+        })
+        .join("\n"),
+    )}
+  `;
 };
 
-const badgeIconVariableStyles = () => {
-  const variableClasses = badgeIconThemes.flatMap(theme => {
-    return badgeIconVariants.flatMap(variant => {
-      return badgeIconSizes.flatMap(size => {
-        const nestedClassNames = `&.${theme}.${variant}.${size}`;
-        const badgeIcon = component["badge-icon"];
-        const typographyMedium = typography.ui["label medium - single line"];
-        const typographySmall = typography.ui["label small - single line"];
+const getSizeDependantStyles = () => {
+  const containerStyles = component["badge-icon"].container;
+  return css`
+    ${unsafeCSS(
+      badgeIconSizes
+        .flatMap(
+          size => `&.${size} { 
+            ${typographyStyles(size)}
+            --padding: var(${unsafeCSS(containerStyles.padding.block[size])});
+            --gap: var(${unsafeCSS(containerStyles.gap[size])});
+          }`,
+        )
+        .join("\n"),
+    )}
+  `;
+};
 
-        return css`
-          ${unsafeCSS(nestedClassNames)} {
-            --gap: var(${unsafeCSS(badgeIcon.container.gap[size])});
-            --color: var(${unsafeCSS(badgeIcon.text.color[theme][variant])});
-            ${getPaddingStyles(size)};
-            --font-size: var(${unsafeCSS(size === "medium" ? typographyMedium.fontSize : typographySmall.fontSize)});
-            --font-family: var(
-              ${unsafeCSS(size === "medium" ? typographyMedium.fontFamily : typographySmall.fontFamily)}
-            );
-            --font-weight: var(
-              ${unsafeCSS(size === "medium" ? typographyMedium.fontWeight : typographySmall.fontWeight)}
-            );
-            --font-style: var(${unsafeCSS(size === "medium" ? typographyMedium.fontStyle : typographySmall.fontStyle)});
-            --font-stretch: var(
-              ${unsafeCSS(size === "medium" ? typographyMedium.fontStretch : typographySmall.fontStretch)}
-            );
-            --line-height: var(
-              ${unsafeCSS(size === "medium" ? typographyMedium.lineHeight : typographySmall.lineHeight)}
-            );
+const typographyStyles = (size: BadgeIconSize) => {
+  let typographyStyles;
+  switch (size) {
+    case "medium":
+      typographyStyles = typography.ui["label medium - single line"];
+      break;
+    case "small":
+      typographyStyles = typography.ui["label small - single line"];
+      break;
+    default:
+      return css``;
+  }
 
-            .${unsafeCSS("icon" satisfies BadgeIconClassNames)} {
-              --icon-width: var(${unsafeCSS(size === "medium" ? "16px" : "14px")});
-              --icon-height: var(${unsafeCSS(size === "medium" ? "16px" : "14px")});
-            }
-          }
-        `;
-      });
-    });
-  });
-
-  return unsafeCSS(variableClasses.join("\n"));
+  return css`
+    --font-size: var(${unsafeCSS(typographyStyles.fontSize)});
+    --font-family: var(${unsafeCSS(typographyStyles.fontFamily)});
+    --font-weight: var(${unsafeCSS(typographyStyles.fontWeight)});
+    --font-style: var(${unsafeCSS(typographyStyles.fontStyle)});
+    --font-stretch: var(${unsafeCSS(typographyStyles.fontStretch)});
+    --line-height: var(${unsafeCSS(typographyStyles.lineHeight)});
+  `;
 };
 
 export const badgeIconStyles = createBadgeIconStyles();
