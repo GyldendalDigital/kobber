@@ -1,6 +1,6 @@
 /* eslint  @typescript-eslint/no-explicit-any: 0 */ // --> OFF
 import { css, unsafeCSS } from "lit";
-import { component, universal, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import { ButtonClassNames, buttonDefaultProps, ButtonProps, buttonThemeProps, buttonUiProps } from "./Button.core";
 import { resetButton } from "../base/styles/reset.styles";
 
@@ -47,7 +47,7 @@ const createButtonStyles = () => {
 
       ${createVariableStyles(buttonThemeProps, "theme-button", prop => prop?.includes("secondary") === true)}
 
-      ${typographyButton()}
+      ${typographyStyles()}
 
       &[disabled],
       &.disabled {
@@ -173,16 +173,14 @@ const hoverEffectSecondary = () => css`
   }
 `;
 
-const typographyButton = () => {
-  const button = typography.ui.button;
-
+const typographyStyles = () => {
+  const textStyles = universal.text.ui;
   return css`
-    font-size: var(${unsafeCSS(button.fontSize)});
-    font-family: var(${unsafeCSS(button.fontFamily)});
-    font-weight: var(${unsafeCSS(button.fontWeight)});
-    font-style: var(${unsafeCSS(button.fontStyle)});
-    font-stretch: var(${unsafeCSS(button.fontStretch)});
-    line-height: normal;
+    --font-size: var(${unsafeCSS(textStyles.size.button)});
+    --font-family: var(${unsafeCSS(textStyles["font-family"])});
+    --font-weight: var(${unsafeCSS(textStyles.weight.button)});
+    --font-style: normal;
+    --line-height: normal;
   `;
 };
 

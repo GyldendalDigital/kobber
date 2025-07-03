@@ -1,5 +1,5 @@
 import { css, unsafeCSS } from "lit";
-import { component, typography, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import {
   checkboxVariants,
   CheckboxClassNames,
@@ -37,7 +37,7 @@ const createCheckboxStyles = () => {
         padding-left: calc(var(${unsafeCSS(checkbox.container.gap)}) + var(${unsafeCSS(checkbox.checkbox.width)}));
       }
 
-      ${typographyCheckbox()}
+      ${typographyStyles()}
       ${variantStyles()}
       ${inputStates()}
     }
@@ -143,16 +143,14 @@ const inputStates = () => {
   `;
 };
 
-const typographyCheckbox = () => {
-  const input = typography.ui.input;
-
+const typographyStyles = () => {
+  const textStyles = universal.text.ui;
   return css`
-    font-size: var(${unsafeCSS(input.fontSize)});
-    font-family: var(${unsafeCSS(input.fontFamily)});
-    font-weight: var(${unsafeCSS(input.fontWeight)});
-    font-style: var(${unsafeCSS(input.fontStyle)});
-    font-stretch: var(${unsafeCSS(input.fontStretch)});
-    line-height: normal;
+    --font-size: var(${unsafeCSS(textStyles.size.label.medium)});
+    --font-family: var(${unsafeCSS(textStyles["font-family"])});
+    --font-weight: var(${unsafeCSS(textStyles.weight.label.medium)});
+    --font-style: normal;
+    --line-height: var(${unsafeCSS(textStyles["line-height"].label.medium["multi-line"])});
   `;
 };
 
