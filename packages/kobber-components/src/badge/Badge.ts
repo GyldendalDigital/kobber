@@ -33,13 +33,13 @@ export class Badge extends LitElement implements BadgeProps {
     return html` <div
       class="${[
         ...badgeClassNames({
-          variant: this.variant,
-          theme: this.theme,
-          size: this.size,
           showStatusCircle: this.showStatusCircle,
         }),
         this.className,
       ].join(" ")}"
+      data-variant="${this.variant}"
+      data-size="${this.size}"
+      data-theme="${this.theme}"
     >
       ${this.showStatusCircle ? html`<div class="status-circle"></div>` : ""}
       <slot></slot>

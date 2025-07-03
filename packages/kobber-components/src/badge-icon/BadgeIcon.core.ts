@@ -1,17 +1,7 @@
 import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
-import { ReplaceSpaceWithDash, replaceSpaceWithDash } from "../base/utilities/replace";
 
 export const badgeIconName = "kobber-badge-icon";
-
-export const badgeIconClassNames = ({
-  theme = "nature",
-  variant = "main",
-  size = "medium",
-}: BadgeIconProps): BadgeIconClassNames[] => {
-  const conditionalClassNames: BadgeIconClassNames[] = [];
-
-  return [badgeIconName, theme, replaceSpaceWithDash(variant), size, ...conditionalClassNames];
-};
+export const badgeIconIconName = "icon";
 
 export type BadgeIconProps = {
   variant?: BadgeIconVariant;
@@ -19,12 +9,8 @@ export type BadgeIconProps = {
   size?: BadgeIconSize;
 };
 
-export type BadgeIconClassNames =
-  | typeof badgeIconName
-  | BadgeIconTheme
-  | ReplaceSpaceWithDash<BadgeIconVariant>
-  | BadgeIconSize
-  | "icon";
+export type BadgeIconClassName = typeof badgeIconName;
+export type BadgeIconIconClassName = typeof badgeIconIconName;
 
 export type BadgeIconTheme = keyof (typeof component)["badge-icon"]["text"]["color"];
 export type BadgeIconVariant = keyof (typeof component)["badge-icon"]["text"]["color"][BadgeIconTheme];
