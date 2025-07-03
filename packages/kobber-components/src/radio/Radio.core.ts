@@ -5,10 +5,10 @@ export const radioInputName = "kobber-radio-input";
 export const radioInputControlName = "kobber-radio-input-control";
 export const radioGroupName = "kobber-radio-group";
 
-const radioInputAsLinkClassName = "kobber-radio-input--as-link";
-export const radioInputControlPartName = "kobber-radio-input__control";
-export const radioInputControlPartNameChecked = "kobber-radio-input__control--checked";
-export const radioInputLabelClassName = "kobber-radio-input__label";
+const radioInputAsLinkClassName = "input--as-link";
+export const radioInputControlPartName = "control";
+export const radioInputControlPartNameChecked = "control--checked";
+export const radioInputLabelClassName = "label";
 export const radioGroupHorizontalClassName = "kobber-radio-group--horizontal";
 
 export const inputClassNames = ({

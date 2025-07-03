@@ -12,7 +12,7 @@ export const badgeClassNames = ({
   const conditionalClassNames: BadgeClassNames[] = [];
 
   if (showStatusCircle) {
-    conditionalClassNames.push("kobber-label--status-circle");
+    conditionalClassNames.push("status-circle");
   }
 
   return [badgeName, theme, replaceSpaceWithDash(variant), size, ...conditionalClassNames];
@@ -30,7 +30,7 @@ export type BadgeClassNames =
   | BadgeTheme
   | ReplaceSpaceWithDash<BadgeVariant>
   | BadgeSize
-  | "kobber-label--status-circle";
+  | "status-circle";
 
 type BadgeTheme = keyof typeof component.badge.background.color;
 type BadgeVariant = keyof typeof component.badge.background.color.aubergine;

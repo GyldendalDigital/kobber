@@ -34,7 +34,7 @@ const createBadgeIconStyles = () => {
 
       ${badgeIconVariableStyles()}
 
-      .${unsafeCSS("kobber-badge-icon--icon" satisfies BadgeIconClassNames)} {
+      .${unsafeCSS("icon" satisfies BadgeIconClassNames)} {
         width: var(--icon-width);
         height: var(--icon-height);
       }
@@ -84,7 +84,7 @@ const badgeIconVariableStyles = () => {
               ${unsafeCSS(size === "medium" ? typographyMedium.lineHeight : typographySmall.lineHeight)}
             );
 
-            .${unsafeCSS("kobber-badge-icon--icon" satisfies BadgeIconClassNames)} {
+            .${unsafeCSS("icon" satisfies BadgeIconClassNames)} {
               --icon-width: var(${unsafeCSS(size === "medium" ? "16px" : "14px")});
               --icon-height: var(${unsafeCSS(size === "medium" ? "16px" : "14px")});
             }

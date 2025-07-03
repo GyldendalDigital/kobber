@@ -60,7 +60,7 @@ const createCheckboxStyles = () => {
       background-color: var(--control-background-color);
       transition: var(--transition-time) outline;
     }
-    .${unsafeCSS("kobber-checkbox__control--shape" satisfies CheckboxIconClassNames)} {
+    .${unsafeCSS("control--shape" satisfies CheckboxIconClassNames)} {
       display: flex;
       align-items: center;
     }
