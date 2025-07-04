@@ -1,5 +1,5 @@
 import { css, unsafeCSS } from "lit";
-import { component, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, typography } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 
 export const ingressName = "kobber-ingress";
 

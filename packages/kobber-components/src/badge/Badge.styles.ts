@@ -1,4 +1,4 @@
-import { component, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import { BadgeClassNames, badgeSizes, badgeThemes, badgeVariants, BadgeVariant, BadgeSize } from "./Badge.core";
 
@@ -137,7 +137,6 @@ const spacingStyles = (size: BadgeSize) => {
 };
 
 const typographyStyles = (size: BadgeSize) => {
-  const textStyles = universal.text.ui;
   return css`
     --font-size: var(${unsafeCSS(textStyles.size.label[size])});
     --font-family: var(${unsafeCSS(textStyles["font-family"])});

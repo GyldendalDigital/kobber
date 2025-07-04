@@ -1,4 +1,4 @@
-import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 
 export const radioInputName = "kobber-radio-input";
 export const radioInputControlName = "kobber-radio-input-control";

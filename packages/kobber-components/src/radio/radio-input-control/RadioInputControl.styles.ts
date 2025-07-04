@@ -1,5 +1,5 @@
 import { css, unsafeCSS } from "lit";
-import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { inputVariants, InputControlClassNames } from "../Radio.core";
 
 const indicatorStyles = component._radiobutton.indicator;

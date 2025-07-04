@@ -1,4 +1,4 @@
-import { component, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import {
   BadgeIconClassName,

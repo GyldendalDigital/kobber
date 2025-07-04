@@ -1,6 +1,6 @@
 import { css, unsafeCSS } from "lit";
 import { GroupClassNames } from "../Checkbox.core";
-import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 
 /**
  * Shared styles, used in web component, React and CSS module.

@@ -52,7 +52,7 @@ export const getStyleDictionaryConfig = (
         prefix: "kobber",
         files: [
           {
-            destination: `${themeConfig.themeName}/tokens.css-variables.js`,
+            destination: `tokens.css-variables.js`,
             format: esmWithCssVariableValues.name,
             filter,
           },

@@ -1,4 +1,4 @@
-import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 
 export const badgeIconName = "kobber-badge-icon";
 export const badgeIconIconName = "icon";
