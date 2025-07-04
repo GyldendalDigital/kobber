@@ -3581,7 +3581,7 @@
           "value": "{groups.inputs.color.aubergine-850}"
         }
       },
-      "checkbox": {
+      "indicator": {
         "outline": {
           "radius": {
             "description": "",
@@ -4621,7 +4621,7 @@
         }
       }
     },
-    "radiobutton": {
+    "_radiobutton": {
       "padding": {
         "description": "",
         "type": "color",
@@ -6475,7 +6475,7 @@
         }
       }
     },
-    "radiobutton-group": {
+    "radiobutton": {
       "text-container": {
         "padding": {
           "left": {
