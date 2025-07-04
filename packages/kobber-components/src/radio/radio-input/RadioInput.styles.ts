@@ -17,11 +17,17 @@ const createInputStyles = () => {
 
     .${unsafeCSS("kobber-radio-input" satisfies InputClassNames)} {
       display: flex;
-      gap: var(${unsafeCSS(input.container.gap)});
+      gap: var(${unsafeCSS(input.gap)});
       justify-content: start;
       align-items: start;
       cursor: pointer;
-      padding: var(${unsafeCSS(input.wrapper.padding)});
+      padding: var(${unsafeCSS(input.padding)});
+
+      font-size: var(--font-size);
+      font-family: var(--font-family);
+      font-weight: var(--font-weight);
+      font-style: var(--font-style);
+      line-height: var(--line-height);
 
       ${typographyInput()}
       ${inputVariantStyles()}
@@ -51,7 +57,7 @@ const inputVariantStyles = () => {
 };
 
 const inputStatesPerVariant = (variant: InputVariant) => {
-  const outlineColor = component.radiobutton["radio-circle"].outline.color[variant];
+  const outlineColor = component.radiobutton.indicator.outline.color[variant];
   return css`
     &.hover,
     :host(:hover) & {
@@ -89,7 +95,8 @@ const inputStates = () => {
     :host(:focus-visible) & {
       &:not(.disabled):not([disabled]) {
         outline: none;
-        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
+        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)})
+          var(${unsafeCSS(universal.focus.border.color)});
         border-radius: var(${unsafeCSS(universal.focus.border.radius.xsmall)});
       }
     }
@@ -97,15 +104,14 @@ const inputStates = () => {
 };
 
 const typographyInput = () => {
-  const input = typography.ui.input;
+  const textStyles = universal.text.ui;
 
   return css`
-    font-size: var(${unsafeCSS(input.fontSize)});
-    font-family: var(${unsafeCSS(input.fontFamily)});
-    font-weight: var(${unsafeCSS(input.fontWeight)});
-    font-style: var(${unsafeCSS(input.fontStyle)});
-    font-stretch: var(${unsafeCSS(input.fontStretch)});
-    line-height: normal;
+    --font-size: var(${unsafeCSS(textStyles.size.label.medium)});
+    --font-family: var(${unsafeCSS(textStyles["font-family"])});
+    --font-weight: var(${unsafeCSS(textStyles.weight.label.medium)});
+    --font-style: normal;
+    --line-height: var(${unsafeCSS(textStyles["line-height"].label.medium["multi-line"])});
   `;
 };
 

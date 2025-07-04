@@ -3,7 +3,7 @@ import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-vari
 import { inputVariants, InputControlClassNames } from "../Radio.core";
 
 const createInputControlStyles = () => {
-  const button = component.radiobutton["radio-circle"];
+  const button = component.radiobutton.indicator;
   return css`
     :host {
       --transition-time: 0.5s;
@@ -29,7 +29,7 @@ const createInputControlStyles = () => {
 };
 
 const buttonVariantStyles = () => {
-  const inputColor = component.radiobutton["radio-circle"].border.color;
+  const inputColor = component.radiobutton.indicator.border.color;
   const variableClasses = inputVariants.flatMap(variant => {
     const variantClassName = `&.${variant}`;
     const borderColor = inputColor[variant];

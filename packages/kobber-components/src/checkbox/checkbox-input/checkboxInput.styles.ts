@@ -11,8 +11,11 @@ import {
   CheckboxIconClassNames,
 } from "../Checkbox.core";
 
+const checkbox = component._checkbox;
+const indicator = component._checkbox.checkbox;
+const textStyles = universal.text.ui;
+
 const createCheckboxStyles = () => {
-  const checkbox = component.checkbox;
   return css`
     :host {
       --control-outline-color: transparent;
@@ -22,20 +25,26 @@ const createCheckboxStyles = () => {
     .${unsafeCSS("kobber-checkbox-wrapper" satisfies WrapperClassName)} {
       display: flex;
       flex-direction: column;
-      gap: 0 var(${unsafeCSS(checkbox["inner-container-right"].gap)});
+      gap: 0 var(${unsafeCSS(checkbox["container-right"].gap)});
     }
 
     .${unsafeCSS("kobber-checkbox-input" satisfies CheckboxClassNames)} {
       display: flex;
-      gap: var(${unsafeCSS(checkbox.container.gap)});
+      gap: var(${unsafeCSS(checkbox.gap)});
       justify-content: start;
       align-items: center;
       cursor: pointer;
-      padding: var(${unsafeCSS(checkbox.wrapper.padding)});
+      padding: var(${unsafeCSS(checkbox.padding)});
 
       & ~ * {
-        padding-left: calc(var(${unsafeCSS(checkbox.container.gap)}) + var(${unsafeCSS(checkbox.checkbox.width)}));
+        padding-left: calc(var(${unsafeCSS(checkbox.gap)}) + var(${unsafeCSS(checkbox.checkbox.width)}));
       }
+
+      font-size: var(--font-size);
+      font-family: var(--font-family);
+      font-weight: var(--font-weight);
+      font-style: var(--font-style);
+      line-height: var(--line-height);
 
       ${typographyCheckbox()}
       ${variantStyles()}
@@ -84,9 +93,9 @@ const variantStyles = () => {
 };
 
 const statesPerVariant = (variant: CheckboxVariant) => {
-  const outlineColor = component.checkbox.checkbox.outline.color[variant];
-  const borderColor = component.checkbox.checkbox.border.color[variant];
-  const bgColor = component.checkbox.checkbox.background.color[variant];
+  const outlineColor = indicator.outline.color[variant];
+  const borderColor = indicator.border.color[variant];
+  const bgColor = indicator.background.color[variant];
   return css`
     & {
       --control-border-color: var(
@@ -116,7 +125,8 @@ const statesPerVariant = (variant: CheckboxVariant) => {
     :host(:focus-visible) & {
       &:not(.disabled, [disabled]) {
         outline: none;
-        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
+        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)})
+          var(${unsafeCSS(universal.focus.border.color)});
         border-radius: var(${unsafeCSS(universal.focus.border.radius.xsmall)});
         --control-border-color: var(${unsafeCSS(borderColor.focus)});
       }
@@ -146,15 +156,12 @@ const inputStates = () => {
 };
 
 const typographyCheckbox = () => {
-  const input = typography.ui.input;
-
   return css`
-    font-size: var(${unsafeCSS(input.fontSize)});
-    font-family: var(${unsafeCSS(input.fontFamily)});
-    font-weight: var(${unsafeCSS(input.fontWeight)});
-    font-style: var(${unsafeCSS(input.fontStyle)});
-    font-stretch: var(${unsafeCSS(input.fontStretch)});
-    line-height: normal;
+    --font-size: var(${unsafeCSS(textStyles.size.label.medium)});
+    --font-family: var(${unsafeCSS(textStyles["font-family"])});
+    --font-weight: var(${unsafeCSS(textStyles.weight.label.medium)});
+    --font-style: normal;
+    --line-height: var(${unsafeCSS(textStyles["line-height"].label.medium["multi-line"])});
   `;
 };
 
