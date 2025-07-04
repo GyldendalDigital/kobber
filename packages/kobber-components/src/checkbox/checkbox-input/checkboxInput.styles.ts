@@ -50,16 +50,16 @@ const createCheckboxStyles = () => {
       display: block;
       color: var(${unsafeCSS(checkbox.text.color)});
     }
-      width: var(${unsafeCSS(checkbox.checkbox.width)});
-      height: var(${unsafeCSS(checkbox.checkbox.height)});
     .${unsafeCSS("control" satisfies InputControlClassName)} {
+      width: var(${unsafeCSS(indicator.width)});
+      height: var(${unsafeCSS(indicator.height)});
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: var(${unsafeCSS(checkbox.checkbox.outline.radius)});
+      border-radius: var(${unsafeCSS(indicator.outline.radius)});
       &:not([checked]) {
-        border: var(${unsafeCSS(checkbox.checkbox.border.width)}) solid var(--control-border-color);
-        outline: var(${unsafeCSS(checkbox.checkbox.outline.width)}) solid var(--control-outline-color);
+        border: var(${unsafeCSS(indicator.border.width)}) solid var(--control-border-color);
+        outline: var(${unsafeCSS(indicator.outline.width)}) solid var(--control-outline-color);
       }
       flex-shrink: 0;
       background-color: var(--control-background-color);

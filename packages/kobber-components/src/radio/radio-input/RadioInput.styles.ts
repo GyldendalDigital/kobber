@@ -8,8 +8,10 @@ import {
   InputControlPartNames,
 } from "../Radio.core";
 
+const inputStyles = component._radiobutton;
+const textStyles = universal.text.ui;
+
 const createInputStyles = () => {
-  const input = component.radiobutton;
   return css`
     :host {
       --control-outline-color: transparent;
@@ -17,11 +19,11 @@ const createInputStyles = () => {
 
     .${unsafeCSS("kobber-radio-input" satisfies InputClassNames)} {
       display: flex;
-      gap: var(${unsafeCSS(input.gap)});
+      gap: var(${unsafeCSS(inputStyles.gap)});
       justify-content: start;
       align-items: start;
       cursor: pointer;
-      padding: var(${unsafeCSS(input.padding)});
+      padding: var(${unsafeCSS(inputStyles.padding)});
 
       ${inputVariantStyles()}
       ${inputStates()}
@@ -57,7 +59,7 @@ const inputVariantStyles = () => {
 };
 
 const inputStatesPerVariant = (variant: InputVariant) => {
-  const outlineColor = component.radiobutton.indicator.outline.color[variant];
+  const outlineColor = inputStyles.indicator.outline.color[variant];
   return css`
     &.hover,
     :host(:hover) & {
@@ -102,7 +104,6 @@ const inputStates = () => {
 };
 
 const typographyStyles = () => {
-  const textStyles = universal.text.ui;
   return css`
     --font-size: var(${unsafeCSS(textStyles.size.label.medium)});
     --font-family: var(${unsafeCSS(textStyles["font-family"])});

@@ -36,7 +36,7 @@ export type InputProps = {
   href?: string;
 };
 
-export type InputComputedProps = {
+type InputComputedProps = {
   isLink?: boolean;
 };
 
@@ -54,8 +54,6 @@ export type InputControlClassNames = typeof radioInputControlName;
 export type InputControlPartNames = typeof radioInputControlPartName | typeof radioInputControlPartNameChecked;
 
 export type InputClassNames = typeof radioInputName | typeof radioInputAsLinkClassName;
-
-export type ControlClassNames = typeof radioInputControlName | typeof radioInputAsLinkClassName;
 
 export type InputVariant = keyof (typeof component._radiobutton)["indicator"]["border"]["color"];
 
