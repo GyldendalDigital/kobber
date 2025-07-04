@@ -4,7 +4,7 @@ import { TextWrapperClassNames } from "./TextWrapper.core";
 
 const createTextWrapperStyles = () => {
   const body = component.body;
-  const bodyText = typography.primary.body;
+  const bodyText = typography["primary (mori)"].body;
 
   return css`
     .${unsafeCSS("kobber-text-wrapper" satisfies TextWrapperClassNames)} {

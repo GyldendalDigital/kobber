@@ -14,14 +14,14 @@ const createStyles = () => {
       justify-content: center;
       align-items: center;
       text-decoration: none;
-      gap: var(${unsafeCSS(component.link.container.gap)});
+      gap: var(${unsafeCSS(component["text-link"].gap)});
       line-height: normal;
       color: var(${unsafeCSS(component["text-link"].text.color)});
 
       &:after {
         content: "";
         position: absolute;
-        border-bottom: var(${unsafeCSS(component["text-link"].container.border.width)}) solid currentColor;
+        border-bottom: var(${unsafeCSS(component["text-link"].border.width)}) solid currentColor;
         bottom: 0;
         right: 0;
         left: 0;
@@ -41,8 +41,8 @@ const createStyles = () => {
         &:after {
           /* prevents hover from colliding with focus border */
           bottom: 0.2rem;
-          right: var(${unsafeCSS(component["text-link"].container.gap)});
-          left: var(${unsafeCSS(component["text-link"].container.gap)});
+          right: var(${unsafeCSS(component["text-link"].gap)});
+          left: var(${unsafeCSS(component["text-link"].gap)});
         }
       }
 

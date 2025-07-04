@@ -39,9 +39,8 @@ export default defineConfig(() => ({
     [`${symbolsDirectory}/kobber-icons-types`]: `${iconDirectory}/types/kobber-icons-types.ts`,
   },
   format: ["esm"],
-  dts: true,
-  outDir: outDir,
-  clean: false,
+  dts: false,
+  clean: false, // Avoid cleaning away symbols/kobber-icons.svg built in previous step.
   external: ["react"],
   esbuildOptions(options) {
     options.chunkNames = `${chunks}/[name]-[hash]`;

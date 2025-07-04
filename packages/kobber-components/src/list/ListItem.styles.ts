@@ -10,17 +10,18 @@ const createListItemStyles = () => {
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
-      gap: var(${unsafeCSS(listItem.container.gap)});
-      padding-block: var(${unsafeCSS(listItem.container.padding.block)});
-      padding-inline: var(${unsafeCSS(listItem.container.padding.inline)});
-      border-radius: var(${unsafeCSS(listItem.container.border.radius)});
+      gap: var(${unsafeCSS(listItem.gap)});
+      padding-block: var(${unsafeCSS(listItem.padding.block)});
+      padding-inline: var(${unsafeCSS(listItem.padding.inline)});
+      border-radius: var(${unsafeCSS(listItem.border.radius)});
       color: var(${unsafeCSS(listItem.text.color)});
       font-size: var(${unsafeCSS(typography.ui["label large - single line"].fontSize)});
 
       &:focus-visible,
       &.focus {
         outline: none;
-        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
+        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)})
+          var(${unsafeCSS(universal.focus.border.color)});
       }
 
       &[aria-disabled="true"],

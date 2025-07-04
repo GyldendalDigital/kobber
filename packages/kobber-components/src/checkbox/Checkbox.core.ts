@@ -11,6 +11,8 @@ export const checkboxIconClassName = "kobber-checkbox__control--shape";
 
 export type CheckboxIconClassNames = typeof checkboxIconClassName;
 
+const checkbox = component._checkbox.indicator;
+
 export const checkboxInputClassNames = ({ state = "idle" }: InputProps): CheckboxClassNames[] => {
   const conditionalClassNames: CheckboxClassNames[] = [];
 
@@ -48,9 +50,9 @@ export type NativeInputClassName = typeof nativeCheckboxInputClassName;
 export type InputLabelClassName = typeof checkboxLabelClassName;
 export type InputControlClassName = typeof checkboxControlClassName;
 
-export type CheckboxState = keyof typeof component.checkbox.checkbox.border.color.success | "disabled";
-export type CheckboxVariant = keyof typeof component.checkbox.checkbox.border.color;
+export type CheckboxState = keyof typeof checkbox.border.color.success | "disabled";
+export type CheckboxVariant = keyof typeof checkbox.border.color;
 
 export const checkboxVariants: CheckboxVariant[] = Object.keys(
-  component.checkbox.checkbox.border.color,
+  component._checkbox.indicator.border.color,
 ) as CheckboxVariant[];

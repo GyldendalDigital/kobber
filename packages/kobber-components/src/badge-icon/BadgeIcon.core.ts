@@ -28,7 +28,7 @@ export type BadgeIconClassNames =
 
 type BadgeIconTheme = keyof (typeof component)["badge-icon"]["text"]["color"];
 type BadgeIconVariant = keyof (typeof component)["badge-icon"]["text"]["color"][BadgeIconTheme];
-type BadgeIconSize = keyof (typeof component)["badge-icon"]["container"]["gap"];
+type BadgeIconSize = keyof (typeof component)["badge-icon"]["gap"];
 
 export const badgeIconThemes: BadgeIconTheme[] = [
   "nature",

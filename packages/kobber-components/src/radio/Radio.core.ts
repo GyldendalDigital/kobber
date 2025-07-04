@@ -1,4 +1,4 @@
-import { component } from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import { ReplaceSpaceWithDash, replaceSpaceWithDash } from "../base/utilities/replace";
 
 export const radioInputName = "kobber-radio-input";
@@ -72,8 +72,8 @@ export type ControlClassNames =
   | ReplaceSpaceWithDash<InputVariant>
   | typeof radioInputAsLinkClassName;
 
-export type InputVariant = keyof (typeof component.radiobutton)["radio-circle"]["border"]["color"];
+export type InputVariant = keyof (typeof component._radiobutton)["indicator"]["border"]["color"];
 
 export const inputVariants: InputVariant[] = Object.keys(
-  component.radiobutton["radio-circle"].border.color,
+  component._radiobutton.indicator.border.color,
 ) as InputVariant[];

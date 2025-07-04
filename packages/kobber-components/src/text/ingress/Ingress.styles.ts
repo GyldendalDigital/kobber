@@ -10,7 +10,7 @@ const createIngressStyles = () => {
     .${unsafeCSS(ingressName)} {
       color: var(${unsafeCSS(ingress.text.color.base)});
 
-      ${ingressTypography()}
+      ${ingressTypography()};
 
       /* used in global.css em styling (Lit can't style nested slots) */
       --highlight-color: var(${unsafeCSS(ingress.text.color.highlight)});
@@ -25,7 +25,7 @@ const createIngressStyles = () => {
 };
 
 const ingressTypography = () => {
-  const ingress = typography.primary["title medium"];
+  const ingress = typography["primary (mori)"]["title medium"];
 
   return css`
     font-size: var(${unsafeCSS(ingress.fontSize)});

@@ -12,7 +12,7 @@ const createBadgeStyles = () => {
       align-items: center;
       justify-content: center;
 
-      border-radius: var(${unsafeCSS(badge.container.border.radius)});
+      border-radius: var(${unsafeCSS(badge.border.radius)});
       background-color: var(--background-color);
       gap: var(--gap);
       color: var(--color);
@@ -42,13 +42,12 @@ const getPaddingStyles = (size: BadgeProps["size"]) => {
 
   if (size === "medium") {
     return css`
-      --padding: var(${unsafeCSS(badge.container.padding.medium)}, 8px);
+      --padding: var(${unsafeCSS(badge.padding.medium)}, 8px);
     `;
   }
 
   return css`
-    --padding: var(${unsafeCSS(badge.container.padding.block.small)}, 4px)
-      var(${unsafeCSS(badge.container.padding.inline.small)}, 8px);
+    --padding: var(${unsafeCSS(badge.padding.block.small)}, 4px) var(${unsafeCSS(badge.padding.inline.small)}, 8px);
   `;
 };
 
@@ -68,7 +67,7 @@ const badgeVariableStyles = () => {
                 theme === "concrete" ? badge.background.color.concrete : badge.background.color[theme][variant],
               )}
             );
-            --gap: var(${unsafeCSS(badge.container.gap[size])});
+            --gap: var(${unsafeCSS(badge.gap[size])});
             --color: var(
               ${unsafeCSS(theme === "concrete" ? badge.text.color.concrete : badge.text.color[theme][variant])}
             );

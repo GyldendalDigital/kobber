@@ -25,11 +25,11 @@ const createHeadingStyles = () => {
       }
 
       &.${unsafeCSS("primary" satisfies HeadingFont)} {
-        ${primaryHeadings()}
+        ${primaryHeadings()};
       }
 
       &.${unsafeCSS("secondary" satisfies HeadingFont)} {
-        ${secondaryHeadings()}
+        ${secondaryHeadings()};
       }
 
       /* used in global.css em styling (Lit can't style nested slots) */
@@ -46,7 +46,7 @@ const createHeadingStyles = () => {
 
 const primaryHeadings = () => {
   const classes = headingPrimarySizes.flatMap(size => {
-    const heading = typography.primary[size];
+    const heading = typography["primary (mori)"][size];
     return css`
       &.${unsafeCSS(replaceSpaceWithDash(size) satisfies HeadingClassNames)} {
         font-family: var(${unsafeCSS(heading.fontFamily)});
@@ -64,7 +64,7 @@ const primaryHeadings = () => {
 
 const secondaryHeadings = () => {
   const classes = headingSecondarySizes.flatMap(size => {
-    const heading = typography.secondary[size];
+    const heading = typography["secondary (lyon)"][size];
     return css`
       &.${unsafeCSS(replaceSpaceWithDash(size) satisfies HeadingClassNames)} {
         font-family: var(${unsafeCSS(heading.fontFamily)});

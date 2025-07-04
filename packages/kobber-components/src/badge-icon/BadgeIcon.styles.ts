@@ -47,11 +47,11 @@ const getPaddingStyles = (size: BadgeIconProps["size"]) => {
 
   return size === "medium"
     ? css`
-        --padding: var(${unsafeCSS(badgeIcon.container.padding.block.medium)}, 8px);
+        --padding: var(${unsafeCSS(badgeIcon.padding.block.medium)}, 8px);
       `
     : css`
-        --padding: var(${unsafeCSS(badgeIcon.container.padding.block.small)}, 4px)
-          var(${unsafeCSS(badgeIcon.container.padding.block.small)}, 8px);
+        --padding: var(${unsafeCSS(badgeIcon.padding.block.small)}, 4px)
+          var(${unsafeCSS(badgeIcon.padding.block.small)}, 8px);
       `;
 };
 
@@ -66,7 +66,7 @@ const badgeIconVariableStyles = () => {
 
         return css`
           ${unsafeCSS(nestedClassNames)} {
-            --gap: var(${unsafeCSS(badgeIcon.container.gap[size])});
+            --gap: var(${unsafeCSS(badgeIcon.gap[size])});
             --color: var(${unsafeCSS(badgeIcon.text.color[theme][variant])});
             ${getPaddingStyles(size)};
             --font-size: var(${unsafeCSS(size === "medium" ? typographyMedium.fontSize : typographySmall.fontSize)});

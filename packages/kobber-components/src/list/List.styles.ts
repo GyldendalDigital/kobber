@@ -9,7 +9,7 @@ const createListStyles = () => {
       flex-direction: column;
       align-items: stretch;
       list-style-type: none;
-      gap: var(${unsafeCSS(component["docs-side-menu"].container.gap)});
+      gap: var(${unsafeCSS(component["docs-side-menu"].gap)});
       width: 100%;
       font-family: PP Mori;
 
