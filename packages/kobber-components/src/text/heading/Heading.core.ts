@@ -1,4 +1,4 @@
-import { typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { typography, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import { ReplaceSpaceWithDash, replaceSpaceWithDash } from "../../base/utilities/replace";
 
 export const headingName = "kobber-heading";
@@ -40,7 +40,7 @@ export const headingPrimarySizes = [
   "heading small",
   "title medium",
   "title small",
-] as const satisfies (keyof typeof typography.primary)[];
+] as const satisfies (keyof (typeof typography)["primary (mori)"])[];
 
 export const headingSecondarySizes = [
   "display large",
@@ -48,6 +48,6 @@ export const headingSecondarySizes = [
   "display small",
   "heading medium",
   "heading small",
-] as const satisfies (keyof typeof typography.secondary)[];
+] as const satisfies (keyof (typeof typography)["secondary (lyon)"])[];
 
-export const headingFonts = ["primary", "secondary"] satisfies (keyof typeof typography)[];
+export const headingFonts = ["primary", "secondary"] satisfies (keyof (typeof universal)["text"])[];
