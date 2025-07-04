@@ -7,7 +7,7 @@ import { resetButton } from "../base/styles/reset.styles";
  * TODO: svg from icon component
  */
 const createStyles = () => {
-  const link = component.link;
+  const link = component["nav-link"];
 
   return css`
     .${unsafeCSS(linkName)} {
@@ -15,7 +15,7 @@ const createStyles = () => {
       display: inline-flex;
       align-items: center;
       text-decoration: none;
-      gap: var(${unsafeCSS(link.container.gap)});
+      gap: var(${unsafeCSS(link.gap)});
       line-height: var(${unsafeCSS(universal.text.ui["line-height"].label.medium["multi-line"])});
       color: var(${unsafeCSS(link.text.color.base)});
 
@@ -41,7 +41,7 @@ const createStyles = () => {
           &:after {
             content: "";
             position: absolute;
-            border-bottom: var(${unsafeCSS(link.container.border.width.hover)}) solid currentColor;
+            border-bottom: var(${unsafeCSS(link.border.width.hover)}) solid currentColor;
             bottom: 0;
             right: 0;
             left: 0;
@@ -53,8 +53,9 @@ const createStyles = () => {
       &.focus {
         outline: none;
         border-radius: var(${unsafeCSS(universal.focus.border.radius.xsmall)});
-        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
-        padding-inline: var(${unsafeCSS(link.container.gap)});
+        box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)})
+          var(${unsafeCSS(universal.focus.border.color)});
+        padding-inline: var(${unsafeCSS(link.gap)});
 
         &:active,
         &.active,
@@ -64,8 +65,8 @@ const createStyles = () => {
             &:after {
               /* prevents hover from colliding with focus border */
               bottom: 0.2rem;
-              right: var(${unsafeCSS(link.container.gap)});
-              left: var(${unsafeCSS(link.container.gap)});
+              right: var(${unsafeCSS(link.gap)});
+              left: var(${unsafeCSS(link.gap)});
             }
           }
         }
