@@ -30,11 +30,11 @@ const createButtonStyles = () => {
       border: 1px solid transparent;
       color: var(--color);
       background-color: var(--background-color);
-      gap: var(${unsafeCSS(button.container.gap)});
-      /* see TODO: padding-block: var(${unsafeCSS(button.container.padding.block)}); */
-      padding-inline: var(${unsafeCSS(button.container.padding.inline)});
-      border-radius: var(${unsafeCSS(button.container.border.radius)});
-      height: var(${unsafeCSS(button.container.size.height)});
+      gap: var(${unsafeCSS(button.gap)});
+      /* see TODO: padding-block: var(${unsafeCSS(button.padding.block)}); */
+      padding-inline: var(${unsafeCSS(button.padding.inline)});
+      border-radius: var(${unsafeCSS(button.border.radius)});
+      height: var(${unsafeCSS(button.size.height)});
 
       &.${unsafeCSS("kobber-button--full-width" satisfies ButtonClassNames)} {
         width: 100%;
@@ -65,7 +65,8 @@ const createButtonStyles = () => {
       &.focus {
         &:not([aria-disabled="true"]) {
           outline: none;
-          box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)}) var(${unsafeCSS(universal.focus.color)});
+          box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)})
+            var(${unsafeCSS(universal.focus.border.color)});
         }
       }
 
@@ -108,7 +109,7 @@ const createVariableStyles = (
     const backgroundColor =
       (component[buttonType] as any).background?.color?.[color]?.[level]?.[variant] ??
       (component[buttonType] as any).background?.color?.[color]?.[level];
-    const borderColor = (component[buttonType] as any).container?.border?.color?.[color]?.[level]?.[variant];
+    const borderColor = (component[buttonType] as any)?.border?.color?.[color]?.[level]?.[variant];
 
     if (
       typeof textColor !== "string" ||
@@ -162,9 +163,9 @@ const hoverEffectSecondary = () => css`
         position: absolute;
         /* TODO: find out what this value should be */
         bottom: 0.2rem;
-        border-bottom: var(${unsafeCSS(component.button.container.border.width.hover)}) solid;
-        right: var(${unsafeCSS(component.button.container.padding.inline)});
-        left: var(${unsafeCSS(component.button.container.padding.inline)});
+        border-bottom: var(${unsafeCSS(component.button.border.width.hover)}) solid;
+        right: var(${unsafeCSS(component.button.padding.inline)});
+        left: var(${unsafeCSS(component.button.padding.inline)});
       }
 
       &.${unsafeCSS("kobber-button--icon" satisfies ButtonClassNames)} {
