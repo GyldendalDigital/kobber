@@ -72,8 +72,8 @@ export type ControlClassNames =
   | ReplaceSpaceWithDash<InputVariant>
   | typeof radioInputAsLinkClassName;
 
-export type InputVariant = keyof (typeof component.radiobutton)["indicator"]["border"]["color"];
+export type InputVariant = keyof (typeof component._radiobutton)["indicator"]["border"]["color"];
 
 export const inputVariants: InputVariant[] = Object.keys(
-  component.radiobutton.indicator.border.color,
+  component._radiobutton.indicator.border.color,
 ) as InputVariant[];

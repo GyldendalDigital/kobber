@@ -12,7 +12,7 @@ import {
 } from "../Checkbox.core";
 
 const checkbox = component._checkbox;
-const indicator = component._checkbox.checkbox;
+const indicator = component._checkbox.indicator;
 const textStyles = universal.text.ui;
 
 const createCheckboxStyles = () => {
@@ -35,10 +35,6 @@ const createCheckboxStyles = () => {
       align-items: center;
       cursor: pointer;
       padding: var(${unsafeCSS(checkbox.padding)});
-
-      & ~ * {
-        padding-left: calc(var(${unsafeCSS(checkbox.gap)}) + var(${unsafeCSS(checkbox.checkbox.width)}));
-      }
 
       font-size: var(--font-size);
       font-family: var(--font-family);
