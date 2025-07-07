@@ -4,6 +4,7 @@ import {
   BadgeIconClassName,
   BadgeIconIconClassName,
   badgeIconName,
+  BadgeIconSize,
   badgeIconSizes,
   badgeIconThemes,
   badgeIconVariants,
@@ -77,14 +78,13 @@ const getSizeDependantStyles = () => {
   `;
 };
 
-const typographyStyles = () => {
+const typographyStyles = (size: BadgeIconSize) => {
   return css`
-    --font-size: var(${unsafeCSS(textStyles.fontSize)});
-    --font-family: var(${unsafeCSS(textStyles.fontFamily)});
-    --font-weight: var(${unsafeCSS(textStyles.fontWeight)});
-    --font-style: var(${unsafeCSS(textStyles.fontStyle)});
-    --font-stretch: var(${unsafeCSS(textStyles.fontStretch)});
-    --line-height: var(${unsafeCSS(textStyles.lineHeight)});
+    --font-size: var(${unsafeCSS(textStyles.size.label[size])});
+    --font-family: var(${unsafeCSS(textStyles["font-family"])});
+    --font-weight: var(${unsafeCSS(textStyles.weight.label[size])});
+    --font-style: normal;
+    --line-height: normal;
   `;
 };
 

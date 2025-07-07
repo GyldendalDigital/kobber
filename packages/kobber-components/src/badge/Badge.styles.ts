@@ -1,4 +1,4 @@
-import { component, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import { BadgeClassNames, badgeSizes, badgeThemes, badgeVariants, BadgeVariant, BadgeSize } from "./Badge.core";
 
@@ -137,25 +137,13 @@ const spacingStyles = (size: BadgeSize) => {
 };
 
 const typographyStyles = (size: BadgeSize) => {
-  let typographyStyles;
-  switch (size) {
-    case "medium":
-      typographyStyles = typography.ui["label medium - single line"];
-      break;
-    case "small":
-      typographyStyles = typography.ui["label small - single line"];
-      break;
-    default:
-      return css``;
-  }
-
+  const textStyles = universal.text.ui;
   return css`
-    --font-size: var(${unsafeCSS(typographyStyles.fontSize)});
-    --font-family: var(${unsafeCSS(typographyStyles.fontFamily)});
-    --font-weight: var(${unsafeCSS(typographyStyles.fontWeight)});
-    --font-style: var(${unsafeCSS(typographyStyles.fontStyle)});
-    --font-stretch: var(${unsafeCSS(typographyStyles.fontStretch)});
-    --line-height: var(${unsafeCSS(typographyStyles.lineHeight)});
+    --font-size: var(${unsafeCSS(textStyles.size.label[size])});
+    --font-family: var(${unsafeCSS(textStyles["font-family"])});
+    --font-weight: var(${unsafeCSS(textStyles.weight.label[size])});
+    --font-style: normal;
+    --line-height: normal;
   `;
 };
 
