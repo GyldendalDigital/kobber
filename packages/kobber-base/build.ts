@@ -2,7 +2,6 @@ import { themeConfigs } from "./buildConfig";
 import { buildTypography } from "./src/typography/buildTypography";
 import { buildThemeTokens } from "./src/styleDictionary/buildThemeTokens";
 import { tokensFromFigma } from "./tokens-from-figma";
-import { cleanThemeDirectory } from "./src/utils/cleanThemeDirectory";
 import { invertColorTokens } from "./src/utils/invertColor";
 import { findUnusedTokens } from "./tests/buildThemeTokens.test";
 
@@ -12,8 +11,6 @@ import { findUnusedTokens } from "./tests/buildThemeTokens.test";
  * Run by the build script in package.json
  */
 const build = async () => {
-  cleanThemeDirectory();
-
   for (const themeConfig of themeConfigs) {
     // create fake dark theme
     if (themeConfig.themeName === "dark") {
