@@ -1,5 +1,5 @@
 import { css, unsafeCSS } from "lit";
-import { component, typography, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import {
   checkboxVariants,
   CheckboxClassNames,
@@ -42,7 +42,7 @@ const createCheckboxStyles = () => {
       font-style: var(--font-style);
       line-height: var(--line-height);
 
-      ${typographyCheckbox()}
+      ${typographyStyles()}
       ${variantStyles()}
       ${inputStates()}
     }
@@ -149,7 +149,7 @@ const inputStates = () => {
   `;
 };
 
-const typographyCheckbox = () => {
+const typographyStyles = () => {
   return css`
     --font-size: var(${unsafeCSS(textStyles.size.label.medium)});
     --font-family: var(${unsafeCSS(textStyles["font-family"])});

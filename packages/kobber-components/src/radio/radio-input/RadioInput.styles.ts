@@ -1,5 +1,5 @@
 import { css, unsafeCSS } from "lit";
-import { component, typography, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import {
   inputVariants,
   InputClassNames,
@@ -23,13 +23,6 @@ const createInputStyles = () => {
       cursor: pointer;
       padding: var(${unsafeCSS(input.padding)});
 
-      font-size: var(--font-size);
-      font-family: var(--font-family);
-      font-weight: var(--font-weight);
-      font-style: var(--font-style);
-      line-height: var(--line-height);
-
-      ${typographyInput()}
       ${inputVariantStyles()}
       ${inputStates()}
       
@@ -39,6 +32,13 @@ const createInputStyles = () => {
     }
     .${unsafeCSS("label" satisfies InputLabelClassNames)} {
       display: block;
+      font-size: var(--font-size);
+      font-family: var(--font-family);
+      font-weight: var(--font-weight);
+      font-style: var(--font-style);
+      line-height: var(--line-height);
+
+      ${typographyStyles()}
     }
   `;
 };
@@ -101,9 +101,8 @@ const inputStates = () => {
   `;
 };
 
-const typographyInput = () => {
+const typographyStyles = () => {
   const textStyles = universal.text.ui;
-
   return css`
     --font-size: var(${unsafeCSS(textStyles.size.label.medium)});
     --font-family: var(${unsafeCSS(textStyles["font-family"])});
