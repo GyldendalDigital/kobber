@@ -22,7 +22,7 @@ const createCheckboxStyles = () => {
       --icon-width: 1.2em;
       --icon-height: var(--icon-width);
     }
-    .${unsafeCSS("kobber-checkbox-wrapper" satisfies WrapperClassName)} {
+    .${unsafeCSS("wrapper" satisfies WrapperClassName)} {
       display: flex;
       flex-direction: column;
       gap: 0 var(${unsafeCSS(checkbox["container-right"].gap)});
@@ -46,13 +46,13 @@ const createCheckboxStyles = () => {
       ${variantStyles()}
       ${inputStates()}
     }
-    .${unsafeCSS("kobber-checkbox__label" satisfies InputLabelClassName)} {
+    .${unsafeCSS("label" satisfies InputLabelClassName)} {
       display: block;
       color: var(${unsafeCSS(checkbox.text.color)});
     }
-    .${unsafeCSS("kobber-checkbox__control" satisfies InputControlClassName)} {
       width: var(${unsafeCSS(checkbox.checkbox.width)});
       height: var(${unsafeCSS(checkbox.checkbox.height)});
+    .${unsafeCSS("control" satisfies InputControlClassName)} {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -65,7 +65,7 @@ const createCheckboxStyles = () => {
       background-color: var(--control-background-color);
       transition: var(--transition-time) outline;
     }
-    .${unsafeCSS("kobber-checkbox__control--shape" satisfies CheckboxIconClassNames)} {
+    .${unsafeCSS("control--shape" satisfies CheckboxIconClassNames)} {
       display: flex;
       align-items: center;
     }

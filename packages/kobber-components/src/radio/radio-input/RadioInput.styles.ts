@@ -33,11 +33,11 @@ const createInputStyles = () => {
       ${inputVariantStyles()}
       ${inputStates()}
       
-      &.${unsafeCSS("kobber-radio-input--as-link" satisfies InputClassNames)} {
+      &.${unsafeCSS("input--as-link" satisfies InputClassNames)} {
         text-decoration: none;
       }
     }
-    .${unsafeCSS("kobber-radio-input__label" satisfies InputLabelClassNames)} {
+    .${unsafeCSS("label" satisfies InputLabelClassNames)} {
       display: block;
     }
   `;
@@ -62,7 +62,7 @@ const inputStatesPerVariant = (variant: InputVariant) => {
     &.hover,
     :host(:hover) & {
       &:not(.disabled, [disabled]) {
-        ::part(${unsafeCSS("kobber-radio-input__control" satisfies InputControlPartNames)}) {
+        ::part(${unsafeCSS("control" satisfies InputControlPartNames)}) {
           --control-outline-color: var(${unsafeCSS(outlineColor.hover)});
         }
       }
@@ -71,7 +71,7 @@ const inputStatesPerVariant = (variant: InputVariant) => {
     &.active,
     :host(:active) & {
       &:not(.disabled, [disabled]) {
-        ::part(${unsafeCSS("kobber-radio-input__control" satisfies InputControlPartNames)}) {
+        ::part(${unsafeCSS("control" satisfies InputControlPartNames)}) {
           --control-outline-color: var(${unsafeCSS(outlineColor.active)});
         }
       }
