@@ -83,9 +83,7 @@ const inputStates = () => {
   return css`
     :host([disabled]) &,
     &.disabled {
-      /* TODO: wait for tokens to expose percent as number, not rem */
-      /* opacity: var(${unsafeCSS(universal.disabled.container.opacity)}); */
-      opacity: 0.5;
+      opacity: var(${unsafeCSS(universal.disabled.container.opacity)});
       cursor: auto;
     }
 
