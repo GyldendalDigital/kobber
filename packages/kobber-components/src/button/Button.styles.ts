@@ -4,15 +4,11 @@ import { component, universal, typography } from "@gyldendal/kobber-base/themes/
 import { ButtonClassNames, buttonDefaultProps, ButtonProps, buttonThemeProps, buttonUiProps } from "./Button.core";
 import { resetButton } from "../base/styles/reset.styles";
 
-// TODO: get from tokens
-const paddingIconOnly = 12 / 16 + "rem";
-
 /**
  * Shared styles, used in web component, React and CSS module.
  *
  * TODO:
  * - choose between padding block or fixed height. Both are not needed.
- * - padding as icon only should be a token, or use fixed width same as height
  */
 const createButtonStyles = () => {
   const button = component.button;
@@ -31,7 +27,6 @@ const createButtonStyles = () => {
       color: var(--color);
       background-color: var(--background-color);
       gap: var(${unsafeCSS(button.gap)});
-      /* see TODO: padding-block: var(${unsafeCSS(button.padding.block)}); */
       padding-inline: var(${unsafeCSS(button.padding.inline)});
       border-radius: var(${unsafeCSS(button.border.radius)});
       height: var(${unsafeCSS(button.size.height)});
@@ -55,9 +50,7 @@ const createButtonStyles = () => {
 
       &[disabled],
       &.disabled {
-        /* TODO: wait for tokens to expose percent as number, not rem */
-        /* opacity: var(${unsafeCSS(universal.disabled.container.opacity)}); */
-        opacity: 0.5;
+        opacity: var(${unsafeCSS(universal.disabled.container.opacity)});
         cursor: auto;
       }
 
@@ -171,8 +164,8 @@ const hoverEffectSecondary = () => css`
       &.${unsafeCSS("kobber-button--icon" satisfies ButtonClassNames)} {
         &.${unsafeCSS("kobber-button--icon-only" satisfies ButtonClassNames)} {
           &:after {
-            right: ${unsafeCSS(paddingIconOnly)};
-            left: ${unsafeCSS(paddingIconOnly)};
+            right: ${unsafeCSS(component.button.container.padding.block["icon-only"])};
+            left: ${unsafeCSS(component.button.container.padding.block["icon-only"])};
           }
         }
       }
