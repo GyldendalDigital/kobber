@@ -1,5 +1,5 @@
 import { css, unsafeCSS } from "lit";
-import { component, typography, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import {
   checkboxVariants,
   CheckboxClassNames,
@@ -22,7 +22,7 @@ const createCheckboxStyles = () => {
       --icon-width: 1.2em;
       --icon-height: var(--icon-width);
     }
-    .${unsafeCSS("kobber-checkbox-wrapper" satisfies WrapperClassName)} {
+    .${unsafeCSS("wrapper" satisfies WrapperClassName)} {
       display: flex;
       flex-direction: column;
       gap: 0 var(${unsafeCSS(checkbox["container-right"].gap)});
@@ -42,30 +42,30 @@ const createCheckboxStyles = () => {
       font-style: var(--font-style);
       line-height: var(--line-height);
 
-      ${typographyCheckbox()}
+      ${typographyStyles()}
       ${variantStyles()}
       ${inputStates()}
     }
-    .${unsafeCSS("kobber-checkbox__label" satisfies InputLabelClassName)} {
+    .${unsafeCSS("label" satisfies InputLabelClassName)} {
       display: block;
       color: var(${unsafeCSS(checkbox.text.color)});
     }
-    .${unsafeCSS("kobber-checkbox__control" satisfies InputControlClassName)} {
-      width: var(${unsafeCSS(checkbox.checkbox.width)});
-      height: var(${unsafeCSS(checkbox.checkbox.height)});
+    .${unsafeCSS("control" satisfies InputControlClassName)} {
+      width: var(${unsafeCSS(indicator.width)});
+      height: var(${unsafeCSS(indicator.height)});
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: var(${unsafeCSS(checkbox.checkbox.outline.radius)});
+      border-radius: var(${unsafeCSS(indicator.outline.radius)});
       &:not([checked]) {
-        border: var(${unsafeCSS(checkbox.checkbox.border.width)}) solid var(--control-border-color);
-        outline: var(${unsafeCSS(checkbox.checkbox.outline.width)}) solid var(--control-outline-color);
+        border: var(${unsafeCSS(indicator.border.width)}) solid var(--control-border-color);
+        outline: var(${unsafeCSS(indicator.outline.width)}) solid var(--control-outline-color);
       }
       flex-shrink: 0;
       background-color: var(--control-background-color);
       transition: var(--transition-time) outline;
     }
-    .${unsafeCSS("kobber-checkbox__control--shape" satisfies CheckboxIconClassNames)} {
+    .${unsafeCSS("control--shape" satisfies CheckboxIconClassNames)} {
       display: flex;
       align-items: center;
     }
@@ -143,15 +143,13 @@ const inputStates = () => {
   return css`
     :host([disabled]) &,
     &.disabled {
-      /* TODO: wait for tokens to expose percent as number, not rem */
-      /* opacity: var(${unsafeCSS(universal.disabled.container.opacity)}); */
-      opacity: 0.5;
+      opacity: var(${unsafeCSS(universal.disabled.container.opacity)});
       cursor: auto;
     }
   `;
 };
 
-const typographyCheckbox = () => {
+const typographyStyles = () => {
   return css`
     --font-size: var(${unsafeCSS(textStyles.size.label.medium)});
     --font-family: var(${unsafeCSS(textStyles["font-family"])});

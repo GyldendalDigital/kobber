@@ -1,27 +1,22 @@
 import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
-import { ReplaceSpaceWithDash, replaceSpaceWithDash } from "../base/utilities/replace";
 
 export const radioInputName = "kobber-radio-input";
 export const radioInputControlName = "kobber-radio-input-control";
 export const radioGroupName = "kobber-radio-group";
 
-const radioInputAsLinkClassName = "kobber-radio-input--as-link";
-export const radioInputControlPartName = "kobber-radio-input__control";
-export const radioInputControlPartNameChecked = "kobber-radio-input__control--checked";
-export const radioInputLabelClassName = "kobber-radio-input__label";
-export const radioGroupHorizontalClassName = "kobber-radio-group--horizontal";
+const radioInputAsLinkClassName = "input--as-link";
+export const radioInputControlPartName = "control";
+export const radioInputControlPartNameChecked = "control--checked";
+export const radioInputLabelClassName = "label";
 
-export const inputClassNames = ({
-  variant = "success",
-  isLink = false,
-}: InputProps & InputComputedProps): InputClassNames[] => {
+export const inputClassNames = ({ isLink = false }: InputProps & InputComputedProps): InputClassNames[] => {
   const conditionalClassNames: InputClassNames[] = [];
 
   if (isLink) {
     conditionalClassNames.push(radioInputAsLinkClassName);
   }
 
-  return [radioInputName, replaceSpaceWithDash(variant), ...conditionalClassNames];
+  return [radioInputName, ...conditionalClassNames];
 };
 
 export type GroupProps = {
@@ -41,20 +36,16 @@ export type InputProps = {
   href?: string;
 };
 
-export type InputComputedProps = {
+type InputComputedProps = {
   isLink?: boolean;
-};
-
-export const controlClassNames = ({ variant = "success" }: ControlProps): ControlClassNames[] => {
-  return [radioInputControlName, replaceSpaceWithDash(variant)];
 };
 
 export type ControlProps = {
   checked?: boolean;
-  variant?: InputVariant;
+  variant: InputVariant;
 };
 
-export type GroupClassNames = typeof radioGroupName | typeof radioGroupHorizontalClassName;
+export type GroupClassNames = typeof radioGroupName;
 
 export type InputLabelClassNames = typeof radioInputLabelClassName;
 
@@ -62,15 +53,7 @@ export type InputControlClassNames = typeof radioInputControlName;
 
 export type InputControlPartNames = typeof radioInputControlPartName | typeof radioInputControlPartNameChecked;
 
-export type InputClassNames =
-  | typeof radioInputName
-  | ReplaceSpaceWithDash<InputVariant>
-  | typeof radioInputAsLinkClassName;
-
-export type ControlClassNames =
-  | typeof radioInputControlName
-  | ReplaceSpaceWithDash<InputVariant>
-  | typeof radioInputAsLinkClassName;
+export type InputClassNames = typeof radioInputName | typeof radioInputAsLinkClassName;
 
 export type InputVariant = keyof (typeof component._radiobutton)["indicator"]["border"]["color"];
 

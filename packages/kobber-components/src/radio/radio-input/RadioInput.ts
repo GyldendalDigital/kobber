@@ -40,7 +40,7 @@ export class RadioInput extends ShoelaceElement implements InputProps {
   /** The radio's value. When selected, the radio group will receive this value. */
   @property() value: string = "";
 
-  @property() variant?: InputVariant;
+  @property() variant: InputVariant = "success";
 
   /** Disables the radio. */
   @property({ type: Boolean, reflect: true }) disabled = false;
@@ -109,13 +109,12 @@ export class RadioInput extends ShoelaceElement implements InputProps {
       return html`<${buttonElement}
         class=${[
           ...inputClassNames({
-            variant: this.variant,
             isLink: isLink,
           }),
           this.className,
         ].join(" ")}
+        data-variant="${this.variant}"
         ?disabled="${this.disabled}"
-        variant="supplemental alt"
         href="${this.href}"
         usedInOtherInteractive
         iconFirst
@@ -132,11 +131,11 @@ export class RadioInput extends ShoelaceElement implements InputProps {
       <div
         class=${[
           ...inputClassNames({
-            variant: this.variant,
             isLink: isLink,
           }),
           this.className,
         ].join(" ")}
+        data-variant="${this.variant}"
       >
         <${radioInputControlElement} ?checked="${this.checked}" variant="${this.variant}"></${radioInputControlElement}>
         <slot part="label" class="${radioInputLabelClassName}"></slot>

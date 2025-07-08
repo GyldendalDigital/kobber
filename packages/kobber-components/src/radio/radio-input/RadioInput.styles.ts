@@ -1,5 +1,5 @@
 import { css, unsafeCSS } from "lit";
-import { component, typography, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
 import {
   inputVariants,
   InputClassNames,
@@ -8,8 +8,10 @@ import {
   InputControlPartNames,
 } from "../Radio.core";
 
+const inputStyles = component._radiobutton;
+const textStyles = universal.text.ui;
+
 const createInputStyles = () => {
-  const input = component.radiobutton;
   return css`
     :host {
       --control-outline-color: transparent;
@@ -17,37 +19,37 @@ const createInputStyles = () => {
 
     .${unsafeCSS("kobber-radio-input" satisfies InputClassNames)} {
       display: flex;
-      gap: var(${unsafeCSS(input.gap)});
+      gap: var(${unsafeCSS(inputStyles.gap)});
       justify-content: start;
       align-items: start;
       cursor: pointer;
-      padding: var(${unsafeCSS(input.padding)});
+      padding: var(${unsafeCSS(inputStyles.padding)});
 
+      ${inputVariantStyles()}
+      ${inputStates()}
+      
+      &.${unsafeCSS("input--as-link" satisfies InputClassNames)} {
+        text-decoration: none;
+      }
+    }
+    .${unsafeCSS("label" satisfies InputLabelClassNames)} {
+      display: block;
       font-size: var(--font-size);
       font-family: var(--font-family);
       font-weight: var(--font-weight);
       font-style: var(--font-style);
       line-height: var(--line-height);
 
-      ${typographyInput()}
-      ${inputVariantStyles()}
-      ${inputStates()}
-      
-      &.${unsafeCSS("kobber-radio-input--as-link" satisfies InputClassNames)} {
-        text-decoration: none;
-      }
-    }
-    .${unsafeCSS("kobber-radio-input__label" satisfies InputLabelClassNames)} {
-      display: block;
+      ${typographyStyles()}
     }
   `;
 };
 
 const inputVariantStyles = () => {
   const variantClasses = inputVariants.flatMap(variant => {
-    const variantClassName = `&.${variant}`;
+    const variantSelector = `&[data-variant="${variant}"]`;
     return css`
-      ${unsafeCSS(variantClassName)} {
+      ${unsafeCSS(variantSelector)} {
         ${inputStatesPerVariant(variant)}
       }
     `;
@@ -57,12 +59,12 @@ const inputVariantStyles = () => {
 };
 
 const inputStatesPerVariant = (variant: InputVariant) => {
-  const outlineColor = component.radiobutton.indicator.outline.color[variant];
+  const outlineColor = inputStyles.indicator.outline.color[variant];
   return css`
     &.hover,
     :host(:hover) & {
       &:not(.disabled, [disabled]) {
-        ::part(${unsafeCSS("kobber-radio-input__control" satisfies InputControlPartNames)}) {
+        ::part(${unsafeCSS("control" satisfies InputControlPartNames)}) {
           --control-outline-color: var(${unsafeCSS(outlineColor.hover)});
         }
       }
@@ -71,7 +73,7 @@ const inputStatesPerVariant = (variant: InputVariant) => {
     &.active,
     :host(:active) & {
       &:not(.disabled, [disabled]) {
-        ::part(${unsafeCSS("kobber-radio-input__control" satisfies InputControlPartNames)}) {
+        ::part(${unsafeCSS("control" satisfies InputControlPartNames)}) {
           --control-outline-color: var(${unsafeCSS(outlineColor.active)});
         }
       }
@@ -83,9 +85,7 @@ const inputStates = () => {
   return css`
     :host([disabled]) &,
     &.disabled {
-      /* TODO: wait for tokens to expose percent as number, not rem */
-      /* opacity: var(${unsafeCSS(universal.disabled.container.opacity)}); */
-      opacity: 0.5;
+      opacity: var(${unsafeCSS(universal.disabled.container.opacity)});
       cursor: auto;
     }
 
@@ -103,9 +103,7 @@ const inputStates = () => {
   `;
 };
 
-const typographyInput = () => {
-  const textStyles = universal.text.ui;
-
+const typographyStyles = () => {
   return css`
     --font-size: var(${unsafeCSS(textStyles.size.label.medium)});
     --font-family: var(${unsafeCSS(textStyles["font-family"])});
