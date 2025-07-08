@@ -6,7 +6,7 @@ const background = semantics.color.identity.base["aubergine-1000"];
 /** Options: https://storybook.js.org/docs/configure/user-interface/theming */
 export default create({
   base: "dark",
-  fontBase: "PP Mori, sans-serif",
+  fontBase: "pp-mori, sans-serif",
   fontCode: "monospace",
 
   brandTitle: "Kobber Storybook",

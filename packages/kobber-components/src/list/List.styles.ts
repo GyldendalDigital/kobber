@@ -11,7 +11,6 @@ const createListStyles = () => {
       list-style-type: none;
       gap: var(${unsafeCSS(component["docs-side-menu"].gap)});
       width: 100%;
-      font-family: PP Mori;
 
       &[aria-orientation="horizontal"] {
         flex-direction: row;

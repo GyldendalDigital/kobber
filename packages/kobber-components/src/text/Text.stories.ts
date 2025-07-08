@@ -96,7 +96,7 @@ export const All: Story = {
 };
 
 /**
- * Primary er PP Mori, secondary er Lyon Display.
+ * Primary er pp-mori, secondary er Lyon Display.
  */
 export const Heading: Story = {
   argTypes: {

@@ -19,7 +19,7 @@ Components specifically sets font-family. You should [download the fonts from DA
 
 ```css
 @font-face {
-  font-family: "pp mori";
+  font-family: "pp-mori";
   src: url("./PPMori-Regular.woff2");
 }
 
@@ -34,8 +34,8 @@ Components specifically sets font-family. You should [download the fonts from DA
 }
 
 :root {
-  /* Kobber default font is PP Mori */
-  font-family: "pp mori", Arial, sans-serif;
+  /* Kobber default font is pp-mori */
+  font-family: "pp-mori", Arial, sans-serif;
 }
 ```
 
