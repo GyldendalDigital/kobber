@@ -2,11 +2,6 @@ import { css, unsafeCSS } from "lit";
 import { GroupClassNames } from "../Checkbox.core";
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 
-/**
- * Shared styles, used in web component, React and CSS module.
- *
- */
-
 const _checkbox = component._checkbox;
 const checkbox = component.checkbox;
 
@@ -34,7 +29,6 @@ const createCheckboxGroupStyles = () => {
         gap: var(${unsafeCSS(checkbox["input-container"].gap.row)});
       }
     }
-    /* /TOOD */
   `;
 };
 

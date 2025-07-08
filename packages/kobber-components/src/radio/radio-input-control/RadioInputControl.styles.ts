@@ -16,7 +16,7 @@ const createInputControlStyles = () => {
     }
 
     .${unsafeCSS("kobber-radio-input-control" satisfies InputControlClassNames)} {
-      margin-top: 0.4em; /* A top margin emulates label being vertically aligned with idle input control, but not when multiple lines. */
+      margin-top: 0.3em; /* A top margin emulates label being vertically aligned with idle input control, but not when multiple lines. */
       width: var(--icon-wrapper-width);
       height: var(--icon-wrapper-height);
       color: var(--control-color);

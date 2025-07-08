@@ -1,13 +1,13 @@
 import { CSSResultGroup, LitElement } from "lit";
 import { html } from "lit/static-html.js";
-import { internalIconsStyles } from "../InternalIcons.styles";
+import { formCheckedIconStyles } from "./index.styles";
 import { customElement } from "../../../utilities/customElementDecorator";
 
 export const iconFormCheckedName = "icon-form_checked";
 
 @customElement(iconFormCheckedName)
 export class IconFormChecked extends LitElement {
-  static styles: CSSResultGroup = [internalIconsStyles];
+  static styles: CSSResultGroup = [formCheckedIconStyles];
 
   render() {
     return html` <svg viewBox="0 0 20 20" aria-hidden role="presentation">
