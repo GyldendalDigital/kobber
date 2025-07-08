@@ -19,7 +19,6 @@ interface Args {
 const meta: Meta<Args> = {
   title: "In development 🧪/Carousel",
   component: "Carousel",
-  tags: ["autodocs"],
   args: {
     hasManyItems: true,
   },

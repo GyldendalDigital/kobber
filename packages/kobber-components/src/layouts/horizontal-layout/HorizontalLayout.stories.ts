@@ -15,7 +15,6 @@ initComponents();
 const meta: Meta = {
   title: "In development 🧪/Layouts/HorizontalLayout (Carousel)",
   component: "HorizontalLayout",
-  tags: ["autodocs"],
   decorators: [(story, storyContext) => html`<div class="${storyContext.globals.theme}">${story()}</div>`],
 };
 

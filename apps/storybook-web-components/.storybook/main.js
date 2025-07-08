@@ -25,9 +25,6 @@ const config = {
     name: getAbsolutePath("@storybook/web-components-vite"),
     options: {},
   },
-  docs: {
-    autodocs: "tag",
-  },
   core: {
     disableTelemetry: true, // 👈 Disables telemetry
     disableWhatsNewNotifications: true, // 👈 Disables what's new notifications

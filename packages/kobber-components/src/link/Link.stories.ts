@@ -29,7 +29,6 @@ const meta: Meta<Args> = {
       control: { type: "radio" },
     },
   },
-  tags: ["autodocs"],
   decorators: [(Story, context) => html`<div class="${context.globals.theme}">${Story()}</div>`],
   parameters: {
     layout: "centered",

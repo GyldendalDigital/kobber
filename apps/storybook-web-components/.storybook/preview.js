@@ -41,6 +41,8 @@ const themes = ["kobber-theme-default", "kobber-theme-dark"];
       return story;
     },
   ],
+  //👇 Enables auto-generated documentation for all stories
+  tags: ["autodocs"],
 };
 
 export default preview;

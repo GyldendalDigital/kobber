@@ -20,7 +20,6 @@ const gridConfigIds = gridConfigArray.map(({ id }) => id);
 const meta: Meta = {
   title: "In development 🧪/Layouts/Grid",
   component: "kobber-grid",
-  tags: ["autodocs"],
   argTypes: {
     gridConfig: {
       name: "gridConfig",

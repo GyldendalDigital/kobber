@@ -13,7 +13,6 @@ type Args = { aspectRatio: string };
 const meta: Meta<Args> = {
   title: "In development 🧪/AspectRatio",
   component: "kobber-aspect-ratio",
-  tags: ["autodocs"],
   parameters: {
     docs: {
       page: AspectRatioWiki,

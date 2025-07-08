@@ -10,7 +10,6 @@ initComponents();
 const meta: Meta = {
   title: "In development 🧪/Progress-Bar",
   component: "kobber-progress-bar",
-  tags: ["autodocs"],
   args: {
     height: "default",
   },
