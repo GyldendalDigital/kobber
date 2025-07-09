@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit";
 import "../box-layout/BoxLayout";
 import "../story/ExampleCard";

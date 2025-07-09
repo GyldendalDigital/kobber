@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import "./radio-input/RadioInput";
 import "./radio-group/RadioGroup";
 import { primitives } from "@gyldendal/kobber-base/themes/default/tokens.js";

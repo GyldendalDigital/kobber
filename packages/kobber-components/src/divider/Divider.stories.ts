@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { DividerVariant } from "./Divider.types";
 import "./Divider";
 import { html } from "lit";

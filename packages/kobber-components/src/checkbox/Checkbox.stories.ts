@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import "./checkbox-input/CheckboxInput";
 import "./checkbox-group/CheckboxGroup";
 import "../theme-context-provider/ThemeContext";

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { ButtonProps, buttonDefaultProps, buttonName, buttonThemeProps, buttonUiProps } from "./Button.core";
 import "./Button";
 import "../text/heading/Heading";

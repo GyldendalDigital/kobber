@@ -3,7 +3,7 @@ import "@gyldendal/kobber-base/themes/dark/tokens.css";
 
 const themes = ["kobber-theme-default", "kobber-theme-dark"];
 
-/** @type { import('@storybook/web-components').Preview } */ const preview = {
+/** @type { import('@storybook/web-components-vite').Preview } */ const preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {

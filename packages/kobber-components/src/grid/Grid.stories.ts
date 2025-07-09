@@ -1,5 +1,5 @@
 import { mediaQuery } from "@gyldendal/kobber-base/themes/default/tokens.js";
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
 import "./Grid";
 import "./GridColumn";

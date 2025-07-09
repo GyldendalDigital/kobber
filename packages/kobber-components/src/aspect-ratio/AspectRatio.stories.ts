@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html, unsafeCSS } from "lit";
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { defaultAspectRatio } from "./AspectRatio";

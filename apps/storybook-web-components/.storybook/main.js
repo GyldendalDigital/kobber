@@ -17,9 +17,8 @@ const config = {
     "../../../packages/kobber-icons/src/**/*.stories.@(js|mjs|ts)",
   ],
   addons: [
-    getAbsolutePath("@storybook/addon-controls"),
     getAbsolutePath("@storybook/addon-a11y"),
-    getAbsolutePath("@storybook/addon-docs"),
+    getAbsolutePath("@storybook/addon-docs")
   ],
   framework: {
     name: getAbsolutePath("@storybook/web-components-vite"),
@@ -28,7 +27,7 @@ const config = {
   core: {
     disableTelemetry: true, // 👈 Disables telemetry
     disableWhatsNewNotifications: true, // 👈 Disables what's new notifications
-    builder: "@storybook/builder-vite",
+    builder: getAbsolutePath("@storybook/builder-vite"),
   },
   staticDirs: ["../public"], //👈 Configures the static asset folder in Storybook
 };
