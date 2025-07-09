@@ -12,7 +12,6 @@ interface Args extends BadgeProps {
 }
 
 const meta: Meta = {
-  title: "Badge",
   component: badgeName,
   decorators: [
     (Story, context) => html`<kobber-theme-context theme-id=${context.globals.theme}>${Story()}</kobber-theme-context>`,

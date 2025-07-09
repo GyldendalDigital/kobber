@@ -18,7 +18,6 @@ interface Args extends LinkProps {
 }
 
 const meta: Meta<Args> = {
-  title: "Link",
   argTypes: {
     type: {
       options: linkTypes,

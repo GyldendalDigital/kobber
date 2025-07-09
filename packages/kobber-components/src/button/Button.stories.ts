@@ -24,7 +24,6 @@ interface Args extends ButtonProps {
 const buttonProps = [...buttonDefaultProps, ...buttonUiProps, ...buttonThemeProps];
 
 const meta: Meta<Args> = {
-  title: "Button",
   component: buttonName,
   argTypes: {
     variant: {
