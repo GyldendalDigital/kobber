@@ -13,7 +13,7 @@ const themes = ["kobber-theme-default", "kobber-theme-dark"];
     },
     options: {
       storySort: {
-        order: ["*", "In development 🧪", "kobber.gyldendal.no", "GU"],
+        order: ["*", "In development 🔵", "kobber.gyldendal.no", "GU"],
       },
     },
   },

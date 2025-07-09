@@ -8,7 +8,7 @@ import { init as initComponents } from "../base/init";
 initComponents();
 
 const meta: Meta = {
-  title: "In development 🧪/Progress-Bar",
+  title: "In development 🔵/Progress-Bar",
   component: "kobber-progress-bar",
   args: {
     height: "default",

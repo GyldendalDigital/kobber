@@ -17,7 +17,7 @@ interface Args {
 }
 
 const meta: Meta<Args> = {
-  title: "In development 🧪/Carousel",
+  title: "In development 🔵/Carousel",
   component: "Carousel",
   args: {
     hasManyItems: true,

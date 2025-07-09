@@ -13,7 +13,7 @@ import { init as initComponents } from "../../base/init";
 initComponents();
 
 const meta: Meta = {
-  title: "In development 🧪/Layouts/HorizontalLayout (Carousel)",
+  title: "In development 🔵/Layouts/HorizontalLayout (Carousel)",
   component: "HorizontalLayout",
   decorators: [(story, storyContext) => html`<div class="${storyContext.globals.theme}">${story()}</div>`],
 };

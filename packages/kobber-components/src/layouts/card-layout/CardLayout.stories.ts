@@ -25,7 +25,7 @@ const initIndicators = (canvasElement: HTMLElement) => {
 };
 
 const meta: Meta<Args> = {
-  title: "In development 🧪/Layouts/CardLayout",
+  title: "In development 🔵/Layouts/CardLayout",
   component: "CardLayout",
   argTypes: {
     overrideContainerWidth: {

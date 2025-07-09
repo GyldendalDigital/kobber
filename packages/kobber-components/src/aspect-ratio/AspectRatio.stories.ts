@@ -11,7 +11,7 @@ initComponents();
 type Args = { aspectRatio: string };
 
 const meta: Meta<Args> = {
-  title: "In development 🧪/AspectRatio",
+  title: "In development 🔵/AspectRatio",
   component: "kobber-aspect-ratio",
   parameters: {
     docs: {
