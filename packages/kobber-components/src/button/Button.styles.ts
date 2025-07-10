@@ -153,21 +153,25 @@ const hoverEffectSecondary = () => css`
   &:hover,
   &.hover {
     &:not([disabled]) {
-      &:after {
-        content: "";
-        position: absolute;
-        /* TODO: find out what this value should be */
-        bottom: 0.2rem;
-        border-bottom: var(${unsafeCSS(component.button.border.width.hover)}) solid;
-        right: var(${unsafeCSS(component.button.padding.inline)});
-        left: var(${unsafeCSS(component.button.padding.inline)});
+      [name="icon"] {
+        position: relative;
+        display: block;
+        &:after {
+          content: "";
+          position: absolute;
+          /* TODO: find out what this value should be */
+          bottom: -0.4rem;
+          border-bottom: var(${unsafeCSS(button.border.width.hover)}) solid;
+          right: var(${unsafeCSS(button.padding.inline)});
+          left: var(${unsafeCSS(button.padding.inline)});
+        }
       }
 
       &.${unsafeCSS("kobber-button--icon" satisfies ButtonClassNames)} {
         &.${unsafeCSS("kobber-button--icon-only" satisfies ButtonClassNames)} {
-          &:after {
-            right: ${unsafeCSS(component.button.container.padding.block["icon-only"])};
-            left: ${unsafeCSS(component.button.container.padding.block["icon-only"])};
+          [name="icon"]:after {
+            right: 0;
+            left: 0;
           }
         }
       }
