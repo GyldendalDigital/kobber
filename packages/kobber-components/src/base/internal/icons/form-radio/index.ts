@@ -1,13 +1,13 @@
 import { CSSResultGroup, LitElement } from "lit";
 import { html } from "lit/static-html.js";
-import { internalIconsStyles } from "../InternalIcons.styles";
+import { formRadioIconStyles } from "./index.styles";
 import { customElement } from "../../../utilities/customElementDecorator";
 
 export const iconFormRadioName = "icon-form_radio";
 
 @customElement(iconFormRadioName)
 export class IconFormRadio extends LitElement {
-  static styles: CSSResultGroup = [internalIconsStyles];
+  static styles: CSSResultGroup = [formRadioIconStyles];
 
   constructor() {
     super();

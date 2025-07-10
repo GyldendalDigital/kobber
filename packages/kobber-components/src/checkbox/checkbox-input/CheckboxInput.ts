@@ -217,7 +217,7 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
 
     return html`
       <div class="${checkboxWrapperClassName}">
-        <label part="base" class=${[checkboxInputName, this.className].join(" ")} data-variant="${this.variant}">
+        <label part="base" class=${checkboxInputName} data-variant="${this.variant}">
           <input
             class=${[nativeCheckboxInputClassName, "visually-hidden"].join(" ")}
             type="checkbox"

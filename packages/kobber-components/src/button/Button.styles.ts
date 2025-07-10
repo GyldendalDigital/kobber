@@ -1,6 +1,6 @@
 /* eslint  @typescript-eslint/no-explicit-any: 0 */ // --> OFF
 import { css, unsafeCSS } from "lit";
-import { component, universal, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, universal, typography } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { ButtonClassNames, buttonDefaultProps, ButtonProps, buttonThemeProps, buttonUiProps } from "./Button.core";
 import { resetButton } from "../base/styles/reset.styles";
 

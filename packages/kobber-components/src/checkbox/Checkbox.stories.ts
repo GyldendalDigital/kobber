@@ -21,7 +21,7 @@ interface Args extends Omit<InputProps, "checked"> {
 }
 
 const meta: Meta = {
-  title: "In development 🧪/Checkbox",
+  title: "Checkbox",
   component: "kobber-checkbox",
   decorators: [
     (Story, context) => `

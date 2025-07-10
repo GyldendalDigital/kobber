@@ -35,7 +35,10 @@ export const transformValuesToCssVariables = (
   }
 
   if (object.hasOwnProperty("value") && isToken(object)) {
-    object.value = cssTransform(object).split(":", 1)[0].trim();
+    const firstSplitStringArray = cssTransform(object).split(":", 1)[0];
+    if (firstSplitStringArray) {
+      object.value = firstSplitStringArray.trim();
+    }
     return object.value;
   }
 
@@ -43,7 +46,7 @@ export const transformValuesToCssVariables = (
 
   for (const name in object) {
     if (object.hasOwnProperty(name)) {
-      const value = transformValuesToCssVariables(object[name], cssTransform);
+      const value = transformValuesToCssVariables(object[name] as TransformedTokens, cssTransform);
       if (value) {
         transformed[name] = value;
       }

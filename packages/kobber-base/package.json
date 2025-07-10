@@ -7,6 +7,7 @@
     "dist"
   ],
   "exports": {
+    "./themes/*.js": "./dist/themes/*.js",
     "./themes/default/*.js": "./dist/themes/default/*.js",
     "./themes/default/*.css": "./dist/themes/default/*.css",
     "./themes/dark/*.js": "./dist/themes/dark/*.js",

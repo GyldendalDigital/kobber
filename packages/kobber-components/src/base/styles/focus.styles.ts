@@ -1,5 +1,5 @@
 import { css, unsafeCSS } from "lit";
-import { universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 
 export default css`
   outline: none;

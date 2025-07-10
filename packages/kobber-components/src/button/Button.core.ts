@@ -1,4 +1,4 @@
-import { component } from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { objectKeys } from "../base/utilities/objectKeys";
 import { concat2, concat3 } from "../base/utilities/join";
 
