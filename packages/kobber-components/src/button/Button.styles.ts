@@ -1,22 +1,20 @@
 /* eslint  @typescript-eslint/no-explicit-any: 0 */ // --> OFF
 import { css, unsafeCSS } from "lit";
-import { component, universal, typography } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { ButtonClassNames, buttonDefaultProps, ButtonProps, buttonThemeProps, buttonUiProps } from "./Button.core";
 import { resetButton } from "../base/styles/reset.styles";
-
-// TODO: get from tokens
-const paddingIconOnly = 12 / 16 + "rem";
 
 /**
  * Shared styles, used in web component, React and CSS module.
  *
  * TODO:
  * - choose between padding block or fixed height. Both are not needed.
- * - padding as icon only should be a token, or use fixed width same as height
  */
-const createButtonStyles = () => {
-  const button = component.button;
 
+const button = component.button;
+const textStyles = universal.text.ui;
+
+const createButtonStyles = () => {
   return css`
     .${unsafeCSS("kobber-button" satisfies ButtonClassNames)} {
       --color: inherit;
@@ -31,7 +29,6 @@ const createButtonStyles = () => {
       color: var(--color);
       background-color: var(--background-color);
       gap: var(${unsafeCSS(button.gap)});
-      /* see TODO: padding-block: var(${unsafeCSS(button.padding.block)}); */
       padding-inline: var(${unsafeCSS(button.padding.inline)});
       border-radius: var(${unsafeCSS(button.border.radius)});
       height: var(${unsafeCSS(button.size.height)});
@@ -51,13 +48,11 @@ const createButtonStyles = () => {
 
       ${createVariableStyles(buttonThemeProps, "theme-button", prop => prop?.includes("secondary") === true)}
 
-      ${typographyButton()}
+      ${typographyStyles()}
 
       &[disabled],
       &.disabled {
-        /* TODO: wait for tokens to expose percent as number, not rem */
-        /* opacity: var(${unsafeCSS(universal.disabled.container.opacity)}); */
-        opacity: 0.5;
+        opacity: var(${unsafeCSS(universal.disabled.container.opacity)});
         cursor: auto;
       }
 
@@ -158,21 +153,25 @@ const hoverEffectSecondary = () => css`
   &:hover,
   &.hover {
     &:not([disabled]) {
-      &:after {
-        content: "";
-        position: absolute;
-        /* TODO: find out what this value should be */
-        bottom: 0.2rem;
-        border-bottom: var(${unsafeCSS(component.button.border.width.hover)}) solid;
-        right: var(${unsafeCSS(component.button.padding.inline)});
-        left: var(${unsafeCSS(component.button.padding.inline)});
+      [name="icon"] {
+        position: relative;
+        display: block;
+        &:after {
+          content: "";
+          position: absolute;
+          /* TODO: find out what this value should be */
+          bottom: -0.4rem;
+          border-bottom: var(${unsafeCSS(button.border.width.hover)}) solid;
+          right: var(${unsafeCSS(button.padding.inline)});
+          left: var(${unsafeCSS(button.padding.inline)});
+        }
       }
 
       &.${unsafeCSS("kobber-button--icon" satisfies ButtonClassNames)} {
         &.${unsafeCSS("kobber-button--icon-only" satisfies ButtonClassNames)} {
-          &:after {
-            right: ${unsafeCSS(paddingIconOnly)};
-            left: ${unsafeCSS(paddingIconOnly)};
+          [name="icon"]:after {
+            right: 0;
+            left: 0;
           }
         }
       }
@@ -180,16 +179,13 @@ const hoverEffectSecondary = () => css`
   }
 `;
 
-const typographyButton = () => {
-  const button = typography.ui.button;
-
+const typographyStyles = () => {
   return css`
-    font-size: var(${unsafeCSS(button.fontSize)});
-    font-family: var(${unsafeCSS(button.fontFamily)});
-    font-weight: var(${unsafeCSS(button.fontWeight)});
-    font-style: var(${unsafeCSS(button.fontStyle)});
-    font-stretch: var(${unsafeCSS(button.fontStretch)});
-    line-height: normal;
+    --font-size: var(${unsafeCSS(textStyles.size.button)});
+    --font-family: var(${unsafeCSS(textStyles["font-family"])});
+    --font-weight: var(${unsafeCSS(textStyles.weight.button)});
+    --font-style: normal;
+    --line-height: normal;
   `;
 };
 
