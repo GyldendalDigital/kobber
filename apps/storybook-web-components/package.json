@@ -7,7 +7,6 @@
   "devDependencies": {
     "@gyldendal/kobber-base": "*",
     "lit-html": "^3.2.1",
-    "storybook": "^9.0.16",
     "typescript": "^5.8.3",
     "vite": "^7.0.1"
   },

@@ -3289,7 +3289,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-components@npm:0.5.0, @gyldendal/kobber-components@workspace:packages/kobber-components":
+"@gyldendal/kobber-components@npm:*, @gyldendal/kobber-components@npm:0.5.0, @gyldendal/kobber-components@workspace:packages/kobber-components":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-components@workspace:packages/kobber-components"
   dependencies:
@@ -3414,7 +3414,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-icons@npm:0.5.0, @gyldendal/kobber-icons@workspace:packages/kobber-icons":
+"@gyldendal/kobber-icons@npm:*, @gyldendal/kobber-icons@npm:0.5.0, @gyldendal/kobber-icons@workspace:packages/kobber-icons":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-icons@workspace:packages/kobber-icons"
   dependencies:
@@ -4062,6 +4062,18 @@ __metadata:
   version: 4.2.1
   resolution: "@mdn/browser-compat-data@npm:4.2.1"
   checksum: 10c0/04716159dd7012a85b60df1eafb62e28ef3e304871977ffbeb153312ed03eaf6a486db885511b44be529ab3015e80c99ecd355c62ce03ba3b2d66e6d4e5cc5d6
+  languageName: node
+  linkType: hard
+
+"@mdx-js/react@npm:^3.0.0":
+  version: 3.1.0
+  resolution: "@mdx-js/react@npm:3.1.0"
+  dependencies:
+    "@types/mdx": "npm:^2.0.0"
+  peerDependencies:
+    "@types/react": ">=16"
+    react: ">=16"
+  checksum: 10c0/381ed1211ba2b8491bf0ad9ef0d8d1badcdd114e1931d55d44019d4b827cc2752586708f9c7d2f9c3244150ed81f1f671a6ca95fae0edd5797fb47a22e06ceca
   languageName: node
   linkType: hard
 
@@ -5902,8 +5914,8 @@ __metadata:
   linkType: hard
 
 "@sanity/ui@npm:^2.10.11":
-  version: 2.16.2
-  resolution: "@sanity/ui@npm:2.16.2"
+  version: 2.16.3
+  resolution: "@sanity/ui@npm:2.16.3"
   dependencies:
     "@floating-ui/react-dom": "npm:^2.1.3"
     "@juggle/resize-observer": "npm:^3.4.0"
@@ -5919,7 +5931,7 @@ __metadata:
     react-dom: ^18 || >=19.0.0-0
     react-is: ^18 || >=19.0.0-0
     styled-components: ^5.2 || ^6
-  checksum: 10c0/5c58aa0de36c0c6d4389929dc2853aaf0ffdb3bb9ad90f89a6232421fdf8c63b55b3540c3f43bcd0823625eecf838c041bcd711fa7967c174a1457e5475681f5
+  checksum: 10c0/2d59cd80811b2ab3313adf29df47be9bb4bb0c98f5be50d10f9c31826f122f4c7633b170e611d1b2d3764d2e51aee5fd970b41bdcffd80dddf294af042963e28
   languageName: node
   linkType: hard
 
@@ -6309,6 +6321,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/addon-a11y@npm:^9.0.16":
+  version: 9.0.16
+  resolution: "@storybook/addon-a11y@npm:9.0.16"
+  dependencies:
+    "@storybook/global": "npm:^5.0.0"
+    axe-core: "npm:^4.2.0"
+  peerDependencies:
+    storybook: ^9.0.16
+  checksum: 10c0/502f2656d6d2b06dea982eb1a5308b386a77d5288314a78e9a203674decd55e54b967138b5da9acb7b55121f78de283995607cef5acdd32dc7ca91ba95646f6f
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-docs@npm:^9.0.16":
+  version: 9.0.16
+  resolution: "@storybook/addon-docs@npm:9.0.16"
+  dependencies:
+    "@mdx-js/react": "npm:^3.0.0"
+    "@storybook/csf-plugin": "npm:9.0.16"
+    "@storybook/icons": "npm:^1.2.12"
+    "@storybook/react-dom-shim": "npm:9.0.16"
+    react: "npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+    react-dom: "npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+    ts-dedent: "npm:^2.0.0"
+  peerDependencies:
+    storybook: ^9.0.16
+  checksum: 10c0/80d8c14d67c9d5b4dc2b530317aea07d2e83c6d3e0a4ee87d88daa36a7966f7f1af822af8b596ad9a2f66b866b54fff3e2d5d85595339572a65c8610cc0a1cf2
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-highlight@npm:8.6.12":
   version: 8.6.12
   resolution: "@storybook/addon-highlight@npm:8.6.12"
@@ -6393,6 +6434,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/builder-vite@npm:9.0.16, @storybook/builder-vite@npm:^9.0.16":
+  version: 9.0.16
+  resolution: "@storybook/builder-vite@npm:9.0.16"
+  dependencies:
+    "@storybook/csf-plugin": "npm:9.0.16"
+    ts-dedent: "npm:^2.0.0"
+  peerDependencies:
+    storybook: ^9.0.16
+    vite: ^5.0.0 || ^6.0.0 || ^7.0.0
+  checksum: 10c0/86e5cb9be27bb863474fe37073ba84461b255aa9d9f098a471d91db463863397d9e3813cc85a3c76b18e9df0d1515d4bb2710bf97f9c6aa760c12a72cf155611
+  languageName: node
+  linkType: hard
+
 "@storybook/builder-vite@npm:^8.6.12":
   version: 8.6.14
   resolution: "@storybook/builder-vite@npm:8.6.14"
@@ -6468,6 +6522,17 @@ __metadata:
   peerDependencies:
     storybook: ^8.6.14
   checksum: 10c0/3f2cebd6046aea554d2e740c4d262005c580018dfcbcca8d9a589f9e893d407da405ace235595b3e110fb6ed21b840ff1645508a98764017ca5d1d4c56027172
+  languageName: node
+  linkType: hard
+
+"@storybook/csf-plugin@npm:9.0.16":
+  version: 9.0.16
+  resolution: "@storybook/csf-plugin@npm:9.0.16"
+  dependencies:
+    unplugin: "npm:^1.3.1"
+  peerDependencies:
+    storybook: ^9.0.16
+  checksum: 10c0/fb94682e1a83e53f2a9c63274d1663e676cbd626c620a6f96c0be5f041ee0a7aa8cd454a39520faf1d14b4a266269a0ad60aff95a3e31df095f2e8794d80390c
   languageName: node
   linkType: hard
 
@@ -6564,6 +6629,17 @@ __metadata:
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
     storybook: ^8.6.14
   checksum: 10c0/6e54c05ab19be1c34084e8acd133d8d358c3b6824db01b4aff159be3f818bd12c3a17217fe1947244c4576d7d02875b486578f011edb0e2290cb62541a263c5f
+  languageName: node
+  linkType: hard
+
+"@storybook/react-dom-shim@npm:9.0.16":
+  version: 9.0.16
+  resolution: "@storybook/react-dom-shim@npm:9.0.16"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    storybook: ^9.0.16
+  checksum: 10c0/275b73ec446a4952b71ed3d22f8c16bb7f17d3a9ea5a17f054911f4606bc19ba08c51e7fa8a57d6a811784570fa2fb39a4ed35ee31b1dfc8ccf1d0bbd1971015
   languageName: node
   linkType: hard
 
@@ -6675,6 +6751,32 @@ __metadata:
   peerDependencies:
     storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
   checksum: 10c0/765bfbfedcbdcdb719b164a14bb61b8ad60819c6124d0e1f243b6b45e62de877ec8dff6259092207a58d6c2771f4883650e9784a2be1aaf7e0ef0fe75465db0d
+  languageName: node
+  linkType: hard
+
+"@storybook/web-components-vite@npm:^9.0.16":
+  version: 9.0.16
+  resolution: "@storybook/web-components-vite@npm:9.0.16"
+  dependencies:
+    "@storybook/builder-vite": "npm:9.0.16"
+    "@storybook/web-components": "npm:9.0.16"
+  peerDependencies:
+    storybook: ^9.0.16
+  checksum: 10c0/3c43f0b391058e836fb02c093a687aa4cbc5b770c565cb089d42cc663042c0e24e34e3cbe52f0bfb31ad920b575d0c31a587633173bd815778e1d902a3c703c9
+  languageName: node
+  linkType: hard
+
+"@storybook/web-components@npm:9.0.16":
+  version: 9.0.16
+  resolution: "@storybook/web-components@npm:9.0.16"
+  dependencies:
+    "@storybook/global": "npm:^5.0.0"
+    tiny-invariant: "npm:^1.3.1"
+    ts-dedent: "npm:^2.0.0"
+  peerDependencies:
+    lit: ^2.0.0 || ^3.0.0
+    storybook: ^9.0.16
+  checksum: 10c0/5202d1744aa80880f1f86d247c44ec6f64d4a906549e99c4320462f495033d1f6c93f9544f55ac24d03b5c034ec64937d80c4f0b41a17c60ec803fa911464dee
   languageName: node
   linkType: hard
 
@@ -7223,6 +7325,13 @@ __metadata:
     "@types/koa-compose": "npm:*"
     "@types/node": "npm:*"
   checksum: 10c0/3fd591e25ecffc32ffa7cb152d2c5caeccefe5a72cb09d187102d8f41101bdaeeb802a07a6672eac58f805fa59892e79c1cc203ca7b27b0de75d7eac508c2b47
+  languageName: node
+  linkType: hard
+
+"@types/mdx@npm:^2.0.0":
+  version: 2.0.13
+  resolution: "@types/mdx@npm:2.0.13"
+  checksum: 10c0/5edf1099505ac568da55f9ae8a93e7e314e8cbc13d3445d0be61b75941226b005e1390d9b95caecf5dcb00c9d1bab2f1f60f6ff9876dc091a48b547495007720
   languageName: node
   linkType: hard
 
@@ -15579,8 +15688,16 @@ __metadata:
   resolution: "kobber@workspace:."
   dependencies:
     "@changesets/cli": "npm:^2.28.1"
+    "@gyldendal/kobber-base": "npm:*"
+    "@gyldendal/kobber-components": "npm:*"
+    "@gyldendal/kobber-icons": "npm:*"
+    "@storybook/addon-a11y": "npm:^9.0.16"
+    "@storybook/addon-docs": "npm:^9.0.16"
+    "@storybook/builder-vite": "npm:^9.0.16"
+    "@storybook/web-components-vite": "npm:^9.0.16"
     "@types/node": "npm:^20"
     prettier: "npm:^3.4.2"
+    storybook: "npm:^9.0.16"
     stylelint: "npm:^16.0.2"
     stylelint-config-standard: "npm:^35.0.0"
     stylelint-order: "npm:^6.0.4"
@@ -18977,7 +19094,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^19.1.0":
+"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react-dom@npm:^19.1.0":
   version: 19.1.0
   resolution: "react-dom@npm:19.1.0"
   dependencies:
@@ -19107,7 +19224,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^19.1.0":
+"react@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react@npm:^19.1.0":
   version: 19.1.0
   resolution: "react@npm:19.1.0"
   checksum: 10c0/530fb9a62237d54137a13d2cfb67a7db6a2156faed43eecc423f4713d9b20c6f2728b026b45e28fcd72e8eadb9e9ed4b089e99f5e295d2f0ad3134251bdd3698
@@ -21083,7 +21200,6 @@ __metadata:
   dependencies:
     "@gyldendal/kobber-base": "npm:*"
     lit-html: "npm:^3.2.1"
-    storybook: "npm:^9.0.16"
     typescript: "npm:^5.8.3"
     vite: "npm:^7.0.1"
   languageName: unknown
@@ -22036,7 +22152,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tiny-invariant@npm:^1.0.6, tiny-invariant@npm:^1.3.3":
+"tiny-invariant@npm:^1.0.6, tiny-invariant@npm:^1.3.1, tiny-invariant@npm:^1.3.3":
   version: 1.3.3
   resolution: "tiny-invariant@npm:1.3.3"
   checksum: 10c0/65af4a07324b591a059b35269cd696aba21bef2107f29b9f5894d83cc143159a204b299553435b03874ebb5b94d019afa8b8eff241c8a4cfee95872c2e1c1c4a
