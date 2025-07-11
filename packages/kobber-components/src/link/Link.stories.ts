@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit/static-html.js";
 import "./Link";
 import "@gyldendal/kobber-icons/web-components";
@@ -18,7 +18,6 @@ interface Args extends LinkProps {
 }
 
 const meta: Meta<Args> = {
-  title: "Link",
   argTypes: {
     type: {
       options: linkTypes,
@@ -29,7 +28,6 @@ const meta: Meta<Args> = {
       control: { type: "radio" },
     },
   },
-  tags: ["autodocs"],
   decorators: [(Story, context) => html`<div class="${context.globals.theme}">${Story()}</div>`],
   parameters: {
     layout: "centered",

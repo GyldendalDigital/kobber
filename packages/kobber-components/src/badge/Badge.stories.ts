@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
 import "./Badge";
 import { badgeName, BadgeProps, badgeSizes, badgeThemes, badgeVariants } from "./Badge.core";
@@ -12,7 +12,6 @@ interface Args extends BadgeProps {
 }
 
 const meta: Meta = {
-  title: "Badge",
   component: badgeName,
   decorators: [
     (Story, context) => html`<kobber-theme-context theme-id=${context.globals.theme}>${Story()}</kobber-theme-context>`,

@@ -1,5 +1,5 @@
 import { mediaQuery } from "@gyldendal/kobber-base/themes/default/tokens.js";
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
 import "./Grid";
 import "./GridColumn";
@@ -18,9 +18,8 @@ const gridConfigArray = Object.values(gridConfigs);
 const gridConfigIds = gridConfigArray.map(({ id }) => id);
 
 const meta: Meta = {
-  title: "In development 🧪/Layouts/Grid",
+  title: "In development 🔵/Layouts/Grid",
   component: "kobber-grid",
-  tags: ["autodocs"],
   argTypes: {
     gridConfig: {
       name: "gridConfig",

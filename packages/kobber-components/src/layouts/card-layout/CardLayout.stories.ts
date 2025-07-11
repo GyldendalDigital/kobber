@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { TemplateResult, html } from "lit";
 import "../box-layout/BoxLayout";
 import "../story/ExampleCard";
@@ -25,7 +25,7 @@ const initIndicators = (canvasElement: HTMLElement) => {
 };
 
 const meta: Meta<Args> = {
-  title: "In development 🧪/Layouts/CardLayout",
+  title: "In development 🔵/Layouts/CardLayout",
   component: "CardLayout",
   argTypes: {
     overrideContainerWidth: {

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import "./radio-input/RadioInput";
 import "./radio-group/RadioGroup";
 import { primitives } from "@gyldendal/kobber-base/themes/default/tokens.js";
@@ -34,7 +34,6 @@ interface Args extends InputProps {
 }
 
 const meta: Meta<Args> = {
-  title: "Radio",
   component: radioInputName,
   decorators: [
     (Story, context) => `

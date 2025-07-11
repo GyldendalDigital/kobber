@@ -25,9 +25,6 @@ const config = {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
-  docs: {
-    autodocs: "tag",
-  },
   core: {
     disableTelemetry: true, // 👈 Disables telemetry
     builder: "@storybook/builder-vite",

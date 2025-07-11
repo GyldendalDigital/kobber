@@ -134,7 +134,6 @@ const render: ArgsStoryFn<ReactRenderer, SceneWithAdditionalControls> = (args: S
 export default {
   component: Wrapper as unknown as ComponentType<SceneWithAdditionalControls>,
   title: "scene/scene",
-  tags: ["autodocs"],
   argTypes: {
     calculatePadding_sceneWhitespace: {
       control: "inline-radio",

@@ -4,7 +4,7 @@ export const makeIconGallery = (symbols: NodeListOf<SVGSymbolElement>) => {
   let iconGalleryString = "";
   let mainImportsString = "import { ";
 
-  const firstImportString = `import { Meta, Title, IconGallery, IconItem } from "@storybook/blocks";
+  const firstImportString = `import { Meta, Title, IconGallery, IconItem } from "@storybook/addon-docs/blocks";
 `;
 
   const metaString = `<Meta title="Icon/All" />

@@ -1,4 +1,4 @@
-import { addons } from "@storybook/manager-api";
+import { addons } from "storybook/manager-api";
 import kobberTheme from "./kobberTheme";
 
 /** Options: https://storybook.js.org/docs/configure/user-interface/features-and-behavior */

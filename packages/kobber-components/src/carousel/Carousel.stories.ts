@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
 import "./Carousel";
 import "./CarouselButton";
@@ -17,9 +17,8 @@ interface Args {
 }
 
 const meta: Meta<Args> = {
-  title: "In development 🧪/Carousel",
+  title: "In development 🔵/Carousel",
   component: "Carousel",
-  tags: ["autodocs"],
   args: {
     hasManyItems: true,
   },
