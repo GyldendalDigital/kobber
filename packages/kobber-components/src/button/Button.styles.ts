@@ -33,6 +33,14 @@ const createButtonStyles = () => {
       border-radius: var(${unsafeCSS(button.border.radius)});
       height: var(${unsafeCSS(button.size.height)});
 
+      font-size: var(--font-size);
+      font-family: var(--font-family);
+      font-weight: var(--font-weight);
+      font-style: var(--font-style);
+      line-height: var(--line-height);
+
+      ${typographyStyles()}
+
       &.${unsafeCSS("kobber-button--full-width" satisfies ButtonClassNames)} {
         width: 100%;
       }
@@ -47,8 +55,6 @@ const createButtonStyles = () => {
       ${createVariableStyles(buttonUiProps, "ui-button", _ => false)}
 
       ${createVariableStyles(buttonThemeProps, "theme-button", prop => prop?.includes("secondary") === true)}
-
-      ${typographyStyles()}
 
       &[disabled],
       &.disabled {
