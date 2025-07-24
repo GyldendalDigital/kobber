@@ -53,15 +53,5 @@
         }
       }
     }
-  },
-  "typography": {
-    "primary": {
-      "display l": {
-        "fontSize": {
-          "type": "dimension",
-          "value": 64
-        }
-      }
-    }
   }
 }

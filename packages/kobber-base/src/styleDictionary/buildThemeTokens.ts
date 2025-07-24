@@ -41,6 +41,8 @@ export const buildThemeTokens = async (
 const getAllTokens = (tokensFromFigma: any, themeConfig: ThemeConfig, includeAdditionalTokens = true) => {
   const sanitizedJson = sanitizeJsonFromFigma(JSON.stringify(tokensFromFigma), themeConfig);
 
+  delete sanitizedJson.typography;
+
   if (includeAdditionalTokens) {
     return {
       ...sanitizedJson,

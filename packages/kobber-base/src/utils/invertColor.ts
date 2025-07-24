@@ -1,4 +1,4 @@
-export const invertColor = (hex: string) => {
+const invertColor = (hex: string) => {
   if (hex.indexOf("#") === 0) {
     hex = hex.slice(1);
   }
