@@ -24,7 +24,7 @@ export type HeadingProps = {
 
 export type HeadingClassNames = typeof headingName | HeadingLevel | ReplaceSpaceWithDash<HeadingVariant> | HeadingFont;
 
-export type HeadingLevel = (typeof headingLevels)[number];
+type HeadingLevel = (typeof headingLevels)[number];
 export type HeadingVariant = HeadingPrimarySize | HeadingSecondarySize;
 export type HeadingPrimarySize = (typeof headingPrimarySizes)[number];
 export type HeadingSecondarySize = (typeof headingSecondarySizes)[number];
