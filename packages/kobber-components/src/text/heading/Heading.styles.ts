@@ -3,7 +3,6 @@ import { component, typography } from "@gyldendal/kobber-base/themes/tokens.css-
 import {
   HeadingClassNames,
   HeadingFont,
-  HeadingLevel,
   headingName,
   headingPrimarySizes,
   headingSecondarySizes,
@@ -19,10 +18,6 @@ const createHeadingStyles = () => {
       ${resetHeading()};
 
       color: var(${unsafeCSS(heading.text.color.base)});
-
-      &.${unsafeCSS("h1" satisfies HeadingLevel)} {
-        color: var(${unsafeCSS(heading.text.color.base)});
-      }
 
       &.${unsafeCSS("primary" satisfies HeadingFont)} {
         ${primaryHeadings()};

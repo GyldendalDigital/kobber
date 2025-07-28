@@ -75,19 +75,11 @@ export const Button: StoryObj<Args> = {
     link: false,
     fullWidth: false,
   },
-  parameters: {
-    layout: "centered",
-  },
-  render: args =>
-    args.fullWidth
-      ? `fixed container for previewing full width button
-      <div style="padding: 2rem; width: 80vw; border: 1px solid grey;">${renderButton(args)}</div>`
-      : renderButton(args),
+  render: args => renderButton(args),
 };
 
 export const Buttons: StoryObj<Args> = {
   parameters: {
-    layout: "none",
     controls: {
       exclude: /^(?!.*(icon|link)).*/g,
     },
@@ -123,7 +115,6 @@ export const Buttons: StoryObj<Args> = {
 
 export const UiButtons: StoryObj<Args> = {
   parameters: {
-    layout: "none",
     controls: {
       exclude: /^(?!.*(icon|link)).*/g,
     },
@@ -141,7 +132,6 @@ export const UiButtons: StoryObj<Args> = {
 
 export const ThemeButtons: StoryObj<Args> = {
   parameters: {
-    layout: "none",
     controls: {
       exclude: /^(?!.*(icon|link)).*/g,
     },
