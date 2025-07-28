@@ -1,6 +1,6 @@
 import { CSSResultGroup, html } from "lit";
 import { property } from "lit/decorators.js";
-import { DividerVariant } from "./Divider.types";
+import { DividerVariant } from "./Divider.core";
 import { dividerBaseStyles } from "./Divider.styles";
 import KobberElement from "../base/kobber-element";
 import { customElement } from "../base/utilities/customElementDecorator";
