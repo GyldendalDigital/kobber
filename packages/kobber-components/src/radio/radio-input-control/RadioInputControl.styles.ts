@@ -1,6 +1,6 @@
 import { css, unsafeCSS } from "lit";
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { inputVariants, InputControlClassNames } from "../Radio.core";
+import { inputVariants, InputControlClassName } from "../Radio.core";
 
 const indicatorStyles = component._radiobutton.indicator;
 const inputColor = indicatorStyles.border.color;
@@ -15,7 +15,7 @@ const createInputControlStyles = () => {
       --icon-width: var(${unsafeCSS(indicatorStyles.shape.width)});
     }
 
-    .${unsafeCSS("kobber-radio-input-control" satisfies InputControlClassNames)} {
+    .${unsafeCSS("kobber-radio-input-control" satisfies InputControlClassName)} {
       margin-top: 0.3em; /* A top margin emulates label being vertically aligned with idle input control, but not when multiple lines. */
       width: var(--icon-wrapper-width);
       height: var(--icon-wrapper-height);

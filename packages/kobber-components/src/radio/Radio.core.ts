@@ -9,6 +9,8 @@ export const radioInputControlPartName = "control";
 export const radioInputControlPartNameChecked = "control--checked";
 export const radioInputLabelClassName = "label";
 
+const radioTokens = component._radiobutton;
+
 export const inputClassNames = ({ isLink = false }: InputProps & InputComputedProps): InputClassNames[] => {
   const conditionalClassNames: InputClassNames[] = [];
 
@@ -45,18 +47,11 @@ export type ControlProps = {
   variant: InputVariant;
 };
 
-export type GroupClassNames = typeof radioGroupName;
-
-export type InputLabelClassNames = typeof radioInputLabelClassName;
-
-export type InputControlClassNames = typeof radioInputControlName;
-
+export type GroupClassName = typeof radioGroupName;
+export type InputLabelClassName = typeof radioInputLabelClassName;
+export type InputControlClassName = typeof radioInputControlName;
 export type InputControlPartNames = typeof radioInputControlPartName | typeof radioInputControlPartNameChecked;
-
 export type InputClassNames = typeof radioInputName | typeof radioInputAsLinkClassName;
+export type InputVariant = keyof (typeof radioTokens)["indicator"]["border"]["color"];
 
-export type InputVariant = keyof (typeof component._radiobutton)["indicator"]["border"]["color"];
-
-export const inputVariants: InputVariant[] = Object.keys(
-  component._radiobutton.indicator.border.color,
-) as InputVariant[];
+export const inputVariants = Object.keys(radioTokens.indicator.border.color) as InputVariant[];
