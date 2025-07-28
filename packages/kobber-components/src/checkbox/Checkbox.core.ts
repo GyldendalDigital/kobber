@@ -8,15 +8,7 @@ export const checkboxLabelClassName = "label";
 export const checkboxControlClassName = "control";
 export const checkboxIconClassName = "control--shape";
 
-export type CheckboxIconClassNames = typeof checkboxIconClassName;
-
-const checkbox = component._checkbox.indicator;
-
-export const checkboxInputClassNames = ({ state = "idle" }: InputProps): CheckboxClassNames[] => {
-  const conditionalClassNames: CheckboxClassNames[] = [];
-
-  return [checkboxInputName, state, ...conditionalClassNames];
-};
+const checkboxTokens = component._checkbox.indicator;
 
 export type GroupProps = {
   direction?: "vertical" | "horizontal";
@@ -44,14 +36,13 @@ export type InputProps = {
 
 export type GroupClassNames = typeof checkboxGroupName;
 export type WrapperClassName = typeof checkboxWrapperClassName;
-export type CheckboxClassNames = typeof checkboxInputName | CheckboxState;
+export type CheckboxClassName = typeof checkboxInputName;
 export type NativeInputClassName = typeof nativeCheckboxInputClassName;
 export type InputLabelClassName = typeof checkboxLabelClassName;
 export type InputControlClassName = typeof checkboxControlClassName;
+export type IconClassName = typeof checkboxIconClassName;
 
-export type CheckboxState = keyof typeof checkbox.border.color.success | "disabled";
-export type CheckboxVariant = keyof typeof checkbox.border.color;
+export type CheckboxState = keyof typeof checkboxTokens.border.color.success | "disabled";
+export type CheckboxVariant = keyof typeof checkboxTokens.border.color;
 
-export const checkboxVariants: CheckboxVariant[] = Object.keys(
-  component._checkbox.indicator.border.color,
-) as CheckboxVariant[];
+export const checkboxVariants = Object.keys(component._checkbox.indicator.border.color) as CheckboxVariant[];

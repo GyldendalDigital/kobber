@@ -1,5 +1,5 @@
 import { css, unsafeCSS } from "lit";
-import { GroupClassNames } from "../Radio.core";
+import { GroupClassName } from "../Radio.core";
 
 /**
  * Shared styles, used in web component, React and CSS module.
@@ -7,7 +7,7 @@ import { GroupClassNames } from "../Radio.core";
  */
 const createRadioGroupStyles = () => {
   return css`
-    .${unsafeCSS("kobber-radio-group" satisfies GroupClassNames)} {
+    .${unsafeCSS("kobber-radio-group" satisfies GroupClassName)} {
       border: none;
     }
 

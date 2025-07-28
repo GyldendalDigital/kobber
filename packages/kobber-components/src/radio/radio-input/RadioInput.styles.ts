@@ -4,7 +4,7 @@ import {
   inputVariants,
   InputClassNames,
   InputVariant,
-  InputLabelClassNames,
+  InputLabelClassName,
   InputControlPartNames,
 } from "../Radio.core";
 
@@ -32,7 +32,7 @@ const createInputStyles = () => {
         text-decoration: none;
       }
     }
-    .${unsafeCSS("label" satisfies InputLabelClassNames)} {
+    .${unsafeCSS("label" satisfies InputLabelClassName)} {
       display: block;
       font-size: var(--font-size);
       font-family: var(--font-family);

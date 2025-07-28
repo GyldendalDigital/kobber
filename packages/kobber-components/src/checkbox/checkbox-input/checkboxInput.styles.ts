@@ -2,13 +2,13 @@ import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import {
   checkboxVariants,
-  CheckboxClassNames,
+  CheckboxClassName,
   CheckboxVariant,
   InputLabelClassName,
   NativeInputClassName,
   InputControlClassName,
   WrapperClassName,
-  CheckboxIconClassNames,
+  IconClassName,
 } from "../Checkbox.core";
 
 const checkbox = component._checkbox;
@@ -28,7 +28,7 @@ const createCheckboxStyles = () => {
       gap: 0 var(${unsafeCSS(checkbox["container-right"].gap)});
     }
 
-    .${unsafeCSS("kobber-checkbox-input" satisfies CheckboxClassNames)} {
+    .${unsafeCSS("kobber-checkbox-input" satisfies CheckboxClassName)} {
       display: flex;
       gap: var(${unsafeCSS(checkbox.gap)});
       justify-content: start;
@@ -65,7 +65,7 @@ const createCheckboxStyles = () => {
       background-color: var(--control-background-color);
       transition: var(--transition-time) outline;
     }
-    .${unsafeCSS("control--shape" satisfies CheckboxIconClassNames)} {
+    .${unsafeCSS("control--shape" satisfies IconClassName)} {
       display: flex;
       align-items: center;
     }
@@ -129,7 +129,7 @@ const statesPerVariant = (variant: CheckboxVariant) => {
     }
 
     :host([checked]) & {
-      :host(.${unsafeCSS("idle" satisfies CheckboxClassNames)}) & {
+      :host(.${unsafeCSS("idle" satisfies CheckboxClassName)}) & {
         --control-background-color: var(${unsafeCSS(bgColor.idle)});
       }
       :host([disabled]) & {
