@@ -57,7 +57,9 @@ const TokenOverlay = ({ onClose }: { onClose: () => void }) => {
         {localCss || defaultCss}
       </style>
       <div className={styles["token-mixer-wrapper"]}>
-        <KobberHeading variant="heading small">Token mixer</KobberHeading>
+        <KobberHeading element="heading" size="small">
+          Token mixer
+        </KobberHeading>
         <small>
           Endre design tokens live på siden. Trykk save for å huske innstillingene når du lukker
           modalen.

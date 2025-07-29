@@ -14,16 +14,24 @@ export class Heading extends LitElement implements HeadingProps {
   level: HeadingProps["level"];
 
   @property({ type: String })
-  variant: HeadingProps["variant"];
+  element: HeadingProps["element"] = "display";
 
   @property({ type: String })
-  font: HeadingProps["font"];
+  variant: HeadingProps["variant"] = "primary";
+
+  @property({ type: String })
+  size: HeadingProps["size"] = "small";
 
   render() {
     const tag = sanitizeHeadingLevel(this.level);
 
     return html`
-      <${unsafeStatic(tag)} class="${headingClassNames(this).join(" ")}">
+      <${unsafeStatic(tag)} class="${headingClassNames().join(" ")}"
+        data-level="${this.level}"
+        data-element="${this.element}"
+        data-variant="${this.variant}"
+        data-size="${this.size}"
+      >
         <slot></slot>
       </${unsafeStatic(tag)}>
     `;
