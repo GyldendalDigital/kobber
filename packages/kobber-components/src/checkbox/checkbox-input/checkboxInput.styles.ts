@@ -22,6 +22,7 @@ const createCheckboxStyles = () => {
       --icon-width: 1.2em;
       --icon-height: var(--icon-width);
     }
+
     .${unsafeCSS("wrapper" satisfies WrapperClassName)} {
       display: flex;
       flex-direction: column;
@@ -36,6 +37,14 @@ const createCheckboxStyles = () => {
       cursor: pointer;
       padding: var(${unsafeCSS(checkbox.padding)});
 
+      ${variantStyles()}
+      ${inputStates()}
+    }
+
+    .${unsafeCSS("label" satisfies InputLabelClassName)} {
+      display: block;
+      color: var(${unsafeCSS(checkbox.text.color)});
+
       font-size: var(--font-size);
       font-family: var(--font-family);
       font-weight: var(--font-weight);
@@ -43,13 +52,8 @@ const createCheckboxStyles = () => {
       line-height: var(--line-height);
 
       ${typographyStyles()}
-      ${variantStyles()}
-      ${inputStates()}
     }
-    .${unsafeCSS("label" satisfies InputLabelClassName)} {
-      display: block;
-      color: var(${unsafeCSS(checkbox.text.color)});
-    }
+
     .${unsafeCSS("control" satisfies InputControlClassName)} {
       width: var(${unsafeCSS(indicator.width)});
       height: var(${unsafeCSS(indicator.height)});
@@ -65,10 +69,12 @@ const createCheckboxStyles = () => {
       background-color: var(--control-background-color);
       transition: var(--transition-time) outline;
     }
+
     .${unsafeCSS("control--shape" satisfies IconClassName)} {
       display: flex;
       align-items: center;
     }
+
     .${unsafeCSS("native-input" satisfies NativeInputClassName)} {
       pointer-events: none;
     }
@@ -129,7 +135,7 @@ const statesPerVariant = (variant: CheckboxVariant) => {
     }
 
     :host([checked]) & {
-      :host(.${unsafeCSS("idle" satisfies CheckboxClassName)}) & {
+      :host(.${unsafeCSS("idle" satisfies CheckboxState)}) & {
         --control-background-color: var(${unsafeCSS(bgColor.idle)});
       }
       :host([disabled]) & {
