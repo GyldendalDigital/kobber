@@ -129,7 +129,7 @@ const statesPerVariant = (variant: CheckboxVariant) => {
     }
 
     :host([checked]) & {
-      :host(.${unsafeCSS("idle" satisfies CheckboxClassName)}) & {
+      :host(.${unsafeCSS("idle" satisfies CheckboxState)}) & {
         --control-background-color: var(${unsafeCSS(bgColor.idle)});
       }
       :host([disabled]) & {
