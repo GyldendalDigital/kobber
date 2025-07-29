@@ -32,8 +32,11 @@ const createInputStyles = () => {
         text-decoration: none;
       }
     }
+
     .${unsafeCSS("label" satisfies InputLabelClassName)} {
       display: block;
+      color: var(${unsafeCSS(inputStyles.text.color)});
+
       font-size: var(--font-size);
       font-family: var(--font-family);
       font-weight: var(--font-weight);
