@@ -7,9 +7,9 @@ import {
   InputLabelClassName,
   InputControlPartNames,
 } from "../Radio.core";
+import { getTypographyStyles } from "../../base/getTypographyStyles";
 
 const inputStyles = component._radiobutton;
-const textStyles = universal.text.ui;
 
 const createInputStyles = () => {
   return css`
@@ -37,13 +37,14 @@ const createInputStyles = () => {
       display: block;
       color: var(${unsafeCSS(inputStyles.text.color)});
 
-      font-size: var(--font-size);
-      font-family: var(--font-family);
-      font-weight: var(--font-weight);
-      font-style: var(--font-style);
-      line-height: var(--line-height);
+      font-size: var(--typography-font-size);
+      font-family: var(--typography-font-family);
+      font-weight: var(--typography-font-weight);
+      font-style: var(--typography-font-style);
+      font-stretch: var(--typography-font-stretch);
+      line-height: var(--typography-line-height);
 
-      ${typographyStyles()}
+      ${unsafeCSS(getTypographyStyles("label" satisfies InputLabelClassName, "ui", "medium"))}
     }
   `;
 };
@@ -103,16 +104,6 @@ const inputStates = () => {
         border-radius: var(${unsafeCSS(universal.focus.border.radius.xsmall)});
       }
     }
-  `;
-};
-
-const typographyStyles = () => {
-  return css`
-    --font-size: var(${unsafeCSS(textStyles.size.label.medium)});
-    --font-family: var(${unsafeCSS(textStyles["font-family"])});
-    --font-weight: var(${unsafeCSS(textStyles.weight.label.medium)});
-    --font-style: normal;
-    --line-height: var(${unsafeCSS(textStyles["line-height"].label.medium["multi-line"])});
   `;
 };
 

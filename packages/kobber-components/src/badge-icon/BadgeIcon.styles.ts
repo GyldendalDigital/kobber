@@ -9,6 +9,7 @@ import {
   badgeIconThemes,
   badgeIconVariants,
 } from "./BadgeIcon.core";
+import { getTypographyStyles } from "../base/getTypographyStyles";
 
 const containerStyles = component["badge-icon"];
 const textStyles = universal.text.ui;
@@ -25,12 +26,13 @@ const createBadgeIconStyles = () => {
       gap: var(--gap);
       color: var(--color);
       padding: var(--padding);
-      font-size: var(--font-size);
-      font-family: var(--font-family);
-      font-weight: var(--font-weight);
-      font-style: var(--font-style);
-      font-stretch: var(--font-stretch);
-      line-height: var(--line-height);
+
+      font-size: var(--typography-font-size);
+      font-family: var(--typography-font-family);
+      font-weight: var(--typography-font-weight);
+      font-style: var(--typography-font-style);
+      font-stretch: var(--typography-font-stretch);
+      line-height: var(--typography-line-height);
 
       ${getThemeStyles()}
       ${getSizeDependantStyles()}
@@ -68,23 +70,13 @@ const getSizeDependantStyles = () => {
       badgeIconSizes
         .flatMap(
           size => `&[data-size="${size}"] { 
-            ${typographyStyles(size)}
+            ${getTypographyStyles("badge-icon", "ui", size)}
             --padding: var(${unsafeCSS(containerStyles.padding.block[size])});
             --gap: var(${unsafeCSS(containerStyles.gap[size])});
           }`,
         )
         .join("\n"),
     )}
-  `;
-};
-
-const typographyStyles = (size: BadgeIconSize) => {
-  return css`
-    --font-size: var(${unsafeCSS(textStyles.size.label[size])});
-    --font-family: var(${unsafeCSS(textStyles["font-family"])});
-    --font-weight: var(${unsafeCSS(textStyles.weight.label[size])});
-    --font-style: normal;
-    --line-height: normal;
   `;
 };
 

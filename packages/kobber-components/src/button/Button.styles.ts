@@ -3,6 +3,7 @@ import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { ButtonClassNames, buttonDefaultProps, ButtonProps, buttonThemeProps, buttonUiProps } from "./Button.core";
 import { resetButton } from "../base/styles/reset.styles";
+import { getTypographyStyles } from "../base/getTypographyStyles";
 
 /**
  * Shared styles, used in web component, React and CSS module.
@@ -33,13 +34,14 @@ const createButtonStyles = () => {
       border-radius: var(${unsafeCSS(button.border.radius)});
       height: var(${unsafeCSS(button.size.height)});
 
-      font-size: var(--font-size);
-      font-family: var(--font-family);
-      font-weight: var(--font-weight);
-      font-style: var(--font-style);
-      line-height: var(--line-height);
+      font-size: var(--typography-font-size);
+      font-family: var(--typography-font-family);
+      font-weight: var(--typography-font-weight);
+      font-style: var(--typography-font-style);
+      font-stretch: var(--typography-font-stretch);
+      line-height: var(--typography-line-height);
 
-      ${typographyStyles()}
+      ${unsafeCSS(getTypographyStyles("button", "ui"))}
 
       &.${unsafeCSS("kobber-button--full-width" satisfies ButtonClassNames)} {
         width: 100%;
@@ -184,15 +186,5 @@ const hoverEffectSecondary = () => css`
     }
   }
 `;
-
-const typographyStyles = () => {
-  return css`
-    --font-size: var(${unsafeCSS(textStyles.size.button)});
-    --font-family: var(${unsafeCSS(textStyles["font-family"])});
-    --font-weight: var(${unsafeCSS(textStyles.weight.button)});
-    --font-style: normal;
-    --line-height: normal;
-  `;
-};
 
 export const buttonStyles = createButtonStyles();

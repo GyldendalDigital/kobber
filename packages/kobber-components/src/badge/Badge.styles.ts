@@ -1,6 +1,8 @@
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { universal as UniversalType } from "@gyldendal/kobber-base/dist/themes/default/tokens.d.ts";
 import { css, unsafeCSS } from "lit";
 import { BadgeClassNames, badgeSizes, badgeThemes, badgeVariants, BadgeVariant, BadgeSize } from "./Badge.core";
+import { getTypographyStyles } from "../base/getTypographyStyles";
 
 const badge = component.badge;
 const textStyles = universal.text.ui;
@@ -15,15 +17,15 @@ const createBadgeStyles = () => {
 
       border-radius: var(${unsafeCSS(badge.border.radius)});
       background-color: var(--background-color);
-      gap: var(--gap);
       color: var(--color);
+      gap: var(--gap);
       padding: var(--padding);
-      font-size: var(--font-size);
-      font-family: var(--font-family);
-      font-weight: var(--font-weight);
-      font-style: var(--font-style);
-      font-stretch: var(--font-stretch);
-      line-height: var(--line-height);
+      font-size: var(--typography-font-size);
+      font-family: var(--typography-font-family);
+      font-weight: var(--typography-font-weight);
+      font-style: var(--typography-font-style);
+      font-stretch: var(--typography-font-stretch);
+      line-height: var(--typography-line-height);
 
       ${getThemeStyles()}
       ${getSizeDependantStyles()}
@@ -105,7 +107,7 @@ const getSizeDependantStyles = () => {
         .flatMap(
           size => `&[data-size="${size}"] { 
             ${spacingStyles(size)} 
-            ${typographyStyles(size)}
+            ${getTypographyStyles("badge", "ui", size)}
         }`,
         )
         .join("\n"),
@@ -133,16 +135,6 @@ const spacingStyles = (size: BadgeSize) => {
       --padding: ${unsafeCSS(paddingStyles)};
       --gap: var(${unsafeCSS(containerStyles.gap[size])});
     `)}
-  `;
-};
-
-const typographyStyles = (size: BadgeSize) => {
-  return css`
-    --font-size: var(${unsafeCSS(textStyles.size.label[size])});
-    --font-family: var(${unsafeCSS(textStyles["font-family"])});
-    --font-weight: var(${unsafeCSS(textStyles.weight.label[size])});
-    --font-style: normal;
-    --line-height: normal;
   `;
 };
 
