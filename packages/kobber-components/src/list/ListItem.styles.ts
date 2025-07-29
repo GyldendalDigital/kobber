@@ -1,4 +1,4 @@
-import { component, typography, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import { listItemClassNames, listItemName } from "./ListItem.core";
 
@@ -15,7 +15,8 @@ const createListItemStyles = () => {
       padding-inline: var(${unsafeCSS(listItem.padding.inline)});
       border-radius: var(${unsafeCSS(listItem.border.radius)});
       color: var(${unsafeCSS(listItem.text.color)});
-      font-size: var(${unsafeCSS(typography.ui["label large - single line"].fontSize)});
+
+      font-size: var(${unsafeCSS(universal.text.ui.size.label.large)});
 
       &:focus-visible,
       &.focus {
