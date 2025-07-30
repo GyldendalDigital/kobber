@@ -10,7 +10,7 @@ export function Restricted() {
         <KobberHeading>
           Kobber
           <br />
-          <KobberHeading level="span" font="secondary">
+          <KobberHeading level="span" variant="secondary">
             <em>Gyldendals Designsystem</em>
           </KobberHeading>
         </KobberHeading>

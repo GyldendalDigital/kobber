@@ -38,7 +38,9 @@ export function InformationCard({ item: { title, text, image } }: InformationCar
       </div>
 
       <div className={styles["card-content"]}>
-        <KobberHeading variant="title medium">{title}</KobberHeading>
+        <KobberHeading element="title" size="medium">
+          {title}
+        </KobberHeading>
         {text && <p>{text}</p>}
       </div>
     </div>

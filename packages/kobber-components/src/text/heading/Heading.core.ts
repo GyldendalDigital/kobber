@@ -1,16 +1,13 @@
-import { typography, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { ReplaceSpaceWithDash, replaceSpaceWithDash } from "../../base/utilities/replace";
+import { universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+
+const headingTokens = universal.text;
 
 export const headingName = "kobber-heading";
 
-export const headingLevelFallback = "h1";
+const headingLevelFallback = "h1";
 
-export const headingClassNames = ({
-  level = "h1",
-  variant = "display small",
-  font = "primary",
-}: HeadingProps): HeadingClassNames[] => {
-  return [headingName, sanitizeHeadingLevel(level), replaceSpaceWithDash(variant), font];
+export const headingClassNames = (): HeadingClassNames[] => {
+  return [headingName];
 };
 
 export const sanitizeHeadingLevel = (level: HeadingLevel | undefined): HeadingLevel =>
@@ -18,36 +15,21 @@ export const sanitizeHeadingLevel = (level: HeadingLevel | undefined): HeadingLe
 
 export type HeadingProps = {
   level?: HeadingLevel;
+  element?: HeadingElement;
   variant?: HeadingVariant;
-  font?: HeadingFont;
+  size?: HeadingSize;
 };
 
-export type HeadingClassNames = typeof headingName | HeadingLevel | ReplaceSpaceWithDash<HeadingVariant> | HeadingFont;
-
+type HeadingClassNames = typeof headingName;
 type HeadingLevel = (typeof headingLevels)[number];
-export type HeadingVariant = HeadingPrimarySize | HeadingSecondarySize;
-export type HeadingPrimarySize = (typeof headingPrimarySizes)[number];
-export type HeadingSecondarySize = (typeof headingSecondarySizes)[number];
-export type HeadingFont = (typeof headingFonts)[number];
+type HeadingElement = (typeof headingElements)[number];
+type HeadingVariant = (typeof headingVariants)[number];
+type HeadingSize = (typeof headingSizes)[number];
 
-export const headingLevels = ["h1", "h2", "h3", "h4", "h5", "h6", "span", "div"] as const;
+const headingLevels = ["h1", "h2", "h3", "h4", "h5", "h6", "span", "div"] as const;
 
-export const headingPrimarySizes = [
-  "display large",
-  "display medium",
-  "display small",
-  "heading medium",
-  "heading small",
-  "title medium",
-  "title small",
-] as const satisfies (keyof (typeof typography)["primary (mori)"])[];
+export const headingElements = ["display", "heading", "title"] satisfies (keyof typeof headingTokens.primary.size)[];
 
-export const headingSecondarySizes = [
-  "display large",
-  "display medium",
-  "display small",
-  "heading medium",
-  "heading small",
-] as const satisfies (keyof (typeof typography)["secondary (lyon)"])[];
+export const headingVariants = ["primary", "secondary"] satisfies (keyof typeof headingTokens)[];
 
-export const headingFonts = ["primary", "secondary"] satisfies (keyof (typeof universal)["text"])[];
+export const headingSizes = ["medium", "small"] satisfies (keyof typeof headingTokens.primary.size.heading)[];

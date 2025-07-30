@@ -21,7 +21,7 @@ export const NavBar = async () => {
     <header className={cn(styles["wrapper"], pageLayoutStyles["page-spacing"])}>
       <div className={styles["bar"]}>
         <Link href="/">
-          <KobberHeading level="div" variant="title small">
+          <KobberHeading level="div" element="title" size="small">
             {APP_NAME}
           </KobberHeading>
         </Link>

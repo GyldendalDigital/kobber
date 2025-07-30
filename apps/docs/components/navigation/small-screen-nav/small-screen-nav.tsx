@@ -31,7 +31,7 @@ export const SmallScreenNav = (props: Nav) => {
       <ul className={styles["small-screen-nav-list"]}>
         {children?.map((child) => (
           <li key={child.slug} className={styles["small-screen-nav-list-item"]}>
-            <KobberHeading level="span" variant="title medium">
+            <KobberHeading level="span" element="title" size="medium">
               {child.title}
             </KobberHeading>
             <ul className={styles["small-screen-nav-link-list-inner"]}>

@@ -9,11 +9,12 @@ import {
   InputControlClassName,
   WrapperClassName,
   IconClassName,
+  CheckboxState,
 } from "../Checkbox.core";
+import { getTypographyStyles } from "../../base/getTypographyStyles";
 
 const checkbox = component._checkbox;
 const indicator = component._checkbox.indicator;
-const textStyles = universal.text.ui;
 
 const createCheckboxStyles = () => {
   return css`
@@ -45,13 +46,14 @@ const createCheckboxStyles = () => {
       display: block;
       color: var(${unsafeCSS(checkbox.text.color)});
 
-      font-size: var(--font-size);
-      font-family: var(--font-family);
-      font-weight: var(--font-weight);
-      font-style: var(--font-style);
-      line-height: var(--line-height);
+      font-size: var(--typography-font-size);
+      font-family: var(--typography-font-family);
+      font-weight: var(--typography-font-weight);
+      font-style: var(--typography-font-style);
+      font-stretch: var(--typography-font-stretch);
+      line-height: var(--typography-line-height);
 
-      ${typographyStyles()}
+      ${unsafeCSS(getTypographyStyles("label" satisfies InputLabelClassName, "ui", "medium"))}
     }
 
     .${unsafeCSS("control" satisfies InputControlClassName)} {
@@ -152,16 +154,6 @@ const inputStates = () => {
       opacity: var(${unsafeCSS(universal.disabled.container.opacity)});
       cursor: auto;
     }
-  `;
-};
-
-const typographyStyles = () => {
-  return css`
-    --font-size: var(${unsafeCSS(textStyles.size.label.medium)});
-    --font-family: var(${unsafeCSS(textStyles["font-family"])});
-    --font-weight: var(${unsafeCSS(textStyles.weight.label.medium)});
-    --font-style: normal;
-    --line-height: var(${unsafeCSS(textStyles["line-height"].label.medium["multi-line"])});
   `;
 };
 
