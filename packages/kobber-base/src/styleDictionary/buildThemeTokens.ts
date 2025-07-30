@@ -36,6 +36,7 @@ export const buildThemeTokens = async (tokensFromFigma: any, themeConfig: ThemeC
 const getAllTokens = (tokensFromFigma: any, themeConfig: ThemeConfig) => {
   const sanitizedJson = sanitizeJsonFromFigma(JSON.stringify(tokensFromFigma), themeConfig);
 
+  delete sanitizedJson.grid;
   delete sanitizedJson.typography;
 
   return sanitizedJson;
