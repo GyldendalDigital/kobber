@@ -1,15 +1,15 @@
 .page-spacing {
   margin-inline: auto;
-  padding-top: var(--kobber-layout-gap-16-44);
-  padding-inline: var(--kobber-layout-gap-16-32);
-  max-width: var(--kobber-layout-max-width);
-  min-width: var(--kobber-layout-min-width);
+  padding-top: var(--todo-kobber-layout-gap-16-44);
+  padding-inline: var(--todo-kobber-layout-gap-16-32);
+  max-width: var(--todo-kobber-layout-max-width);
+  min-width: var(--todo-kobber-layout-min-width);
 }
 
 .page-layout {
   display: grid;
   grid-template-columns: 280px auto;
-  gap: var(--kobber-layout-gap-16-72);
+  gap: var(--todo-kobber-layout-gap-16-72);
 
   @media (width <= 768px) {
     grid-template-columns: 1fr;
