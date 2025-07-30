@@ -1,4 +1,3 @@
-import { layout, mediaQuery } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { ContextProvider as LitContextProvider } from "@lit/context";
 import { css, html } from "lit";
 import { property, state } from "lit/decorators.js";
@@ -9,6 +8,7 @@ import { StyledLitElement } from "../base/utilities/StyledLitElement";
 import { ResponsiveCssValue, responsiveValueConverter as converter } from "../base/utilities/responsiveCssValue";
 import { stringifyStyleObject } from "../base/utilities/stringifyStyleObject";
 import { customElement } from "../base/utilities/customElementDecorator";
+import { layout } from "./config/getCardGridBase";
 
 const defaultGridStyles = {
   maxWidth: `${layout.contentMaxWidth / 16}rem`,
@@ -60,9 +60,9 @@ export class Grid extends StyledLitElement {
 
   @property({ converter, attribute: "grid-template-columns" })
   override gridTemplateColumns?: ResponsiveCssValue = {
-    [mediaQuery.small]: "repeat(4, 1fr)",
-    [mediaQuery.medium]: "repeat(6, 1fr)",
-    [mediaQuery.large]: "repeat(12, 1fr)",
+    "(max-width: 639px)": "repeat(4, 1fr)",
+    "(min-width: 640px) and (max-width: 1599px)": "repeat(6, 1fr)",
+    "(min-width: 1600px)": "repeat(12, 1fr)",
   };
 
   @property({ converter, attribute: "gap" })

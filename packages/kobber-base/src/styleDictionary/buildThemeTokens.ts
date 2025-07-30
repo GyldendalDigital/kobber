@@ -5,7 +5,6 @@ import { tsDeclarationsFormat } from "./formats/tsDeclarations";
 import { getStyleDictionaryConfig } from "./getStyleDictionaryConfig";
 import { registerFormats } from "./registerFormats";
 import { sanitizeJsonFromFigma } from "./sanitizeJsonFromFigma";
-import { additionalTokens } from "./additionalTokens";
 import { esmWithCssVariableValues } from "./formats/esmWithCssVariableValues";
 import { registerTransforms } from "./registerTransforms";
 import { fluidClampTransform } from "./transforms/fluidClamp";
@@ -13,15 +12,11 @@ import { fluidClampTransform } from "./transforms/fluidClamp";
 /**
  * Convert Figma modes into themes
  */
-export const buildThemeTokens = async (
-  tokensFromFigma: any,
-  themeConfig: ThemeConfig,
-  includeAdditionalTokens = true,
-) => {
+export const buildThemeTokens = async (tokensFromFigma: any, themeConfig: ThemeConfig) => {
   registerFormats([esmFormat, tsDeclarationsFormat, esmWithCssVariableValues]);
   registerTransforms([fluidClampTransform]);
 
-  const allTokens = getAllTokens(tokensFromFigma, themeConfig, includeAdditionalTokens);
+  const allTokens = getAllTokens(tokensFromFigma, themeConfig);
 
   const styleDictionaryConfig = getStyleDictionaryConfig(allTokens, themeConfig);
 
@@ -38,17 +33,10 @@ export const buildThemeTokens = async (
 };
 
 // Merge tokens from Figma and temporary, hardcoded tokens
-const getAllTokens = (tokensFromFigma: any, themeConfig: ThemeConfig, includeAdditionalTokens = true) => {
+const getAllTokens = (tokensFromFigma: any, themeConfig: ThemeConfig) => {
   const sanitizedJson = sanitizeJsonFromFigma(JSON.stringify(tokensFromFigma), themeConfig);
 
   delete sanitizedJson.typography;
-
-  if (includeAdditionalTokens) {
-    return {
-      ...sanitizedJson,
-      ...additionalTokens,
-    };
-  }
 
   return sanitizedJson;
 };

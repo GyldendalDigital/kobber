@@ -1,10 +1,20 @@
-import { layout } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { GridConfig } from "./types";
 
 interface GetCardGridBaseOptions {
   maxColumns: number;
   aspectRatioHeight: number;
 }
+
+export const layout = {
+  contentMaxWidth: 1344,
+  gap: {
+    "8-16": "clamp(0.5rem, calc(0.38rem + 0.63vw), 1rem)",
+    "8-24": "clamp(0.5rem, calc(0.25rem + 1.25vw), 1.5rem)",
+    "8-96": "clamp(0.5rem, calc(-0.88rem + 6.88vw), 6rem)",
+    "16-32": "clamp(1rem, calc(0.75rem + 1.25vw), 2rem)",
+  },
+  maxWidth: 1280,
+};
 
 export const getCardGridBase = ({ maxColumns, aspectRatioHeight }: GetCardGridBaseOptions): GridConfig => {
   const outerPadding = layout.gap["8-96"];

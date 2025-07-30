@@ -1,4 +1,3 @@
-import { layout } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { consume } from "@lit/context";
 import { CSSResultGroup, css, html } from "lit";
 import { property } from "lit/decorators.js";
@@ -7,6 +6,7 @@ import { StyledLitElement } from "../base/utilities/StyledLitElement";
 import { ResponsiveCssValue, responsiveValueConverter as converter } from "../base/utilities/responsiveCssValue";
 import { stringifyStyleObject } from "../base/utilities/stringifyStyleObject";
 import { customElement } from "../base/utilities/customElementDecorator";
+import { layout } from "./config/getCardGridBase";
 
 @customElement("kobber-grid-column")
 export class GridColumn extends StyledLitElement {
