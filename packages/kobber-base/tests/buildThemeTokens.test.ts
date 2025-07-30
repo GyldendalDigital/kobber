@@ -50,6 +50,9 @@ export const findUnusedTokens = (themeConfig: ThemeConfig) => {
     if (tokenName.startsWith("--kobber-component")) {
       continue;
     }
+    if (tokenName.startsWith("--kobber-universal")) {
+      continue;
+    }
 
     const occurrences = css.split(tokenName).length - 1;
     if (occurrences < 2) {
