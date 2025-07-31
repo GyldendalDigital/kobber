@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-import { DividerVariant } from "./Divider.types";
+import { DividerVariant } from "./Divider.core";
 import "./Divider";
 import { html } from "lit";
 import "../theme-context-provider/ThemeContext";
