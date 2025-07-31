@@ -47,7 +47,7 @@ export const Link: StoryObj<Args> = {
   },
   render: args => {
     return html`<div style="max-width: 600px;">
-      <kobber-text-wrapper>
+      <kobber-text-wrapper style="display: grid; gap: 1em;">
         ${linkStates.map(state => {
           return html`<p>
             <kobber-link
@@ -64,7 +64,7 @@ export const Link: StoryObj<Args> = {
       </kobber-text-wrapper>
       <br />
       <br />
-      <kobber-text-wrapper>
+      <kobber-text-wrapper style="display: grid; gap: 1em;">
         ${linkStates.map(state => {
           return html`<p>
             <kobber-link

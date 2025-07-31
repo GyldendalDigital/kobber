@@ -1,4 +1,3 @@
-import { layout } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { css, html, unsafeCSS } from "lit";
 import { property } from "lit/decorators.js";
 import { StyledLitElement } from "../../base/utilities/StyledLitElement";
@@ -6,6 +5,12 @@ import { stringifyStyleObject } from "../../base/utilities/stringifyStyleObject"
 import { customElement } from "../../base/utilities/customElementDecorator";
 
 const validMaxWidths = ["fixed-page-header", "content"];
+
+const layout = {
+  contentMaxWidth: 1344,
+  fixedPageHeaderMaxWidth: 1472,
+  gap: { "16-32": "clamp(1rem, calc(0.75rem + 1.25vw), 2rem)" },
+};
 
 @customElement("kobber-box-layout")
 export class BoxLayout extends StyledLitElement {

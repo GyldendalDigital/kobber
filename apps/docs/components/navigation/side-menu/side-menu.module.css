@@ -10,26 +10,26 @@
 }
 
 .inner-container {
-  border-right: 1px solid var(--kobber-component-divider-background-color-main);
-  padding: var(--kobber-component-docs-side-menu-container-padding);
+  border-right: 1px solid var(--todo-kobber-component-divider-background-color-main);
+  padding: var(--todo-kobber-component-docs-side-menu-container-padding);
 }
 
 .group-divider {
-  border-bottom: 1px solid var(--kobber-component-divider-background-color-main);
-  padding-block: var(--kobber-component-docs-side-menu-container-padding);
+  border-bottom: 1px solid var(--todo-kobber-component-divider-background-color-main);
+  padding-block: var(--todo-kobber-component-docs-side-menu-container-padding);
 }
 
 .list-divider {
   & > *:not(:last-child) {
-    border-bottom: 1px solid var(--kobber-component-divider-background-color-main);
-    padding-bottom: var(--kobber-component-docs-side-menu-container-padding);
+    border-bottom: 1px solid var(--todo-kobber-component-divider-background-color-main);
+    padding-bottom: var(--todo-kobber-component-docs-side-menu-container-padding);
   }
 }
 
 .sub-list-spacing {
   padding-left: calc(
-    var(--kobber-component-menu-item-container-padding-left-nested) -
-      var(--kobber-component-button-container-padding-inline)
+    var(--todo-kobber-component-menu-item-container-padding-left-nested) -
+      var(--todo-kobber-component-button-container-padding-inline)
   );
 }
 

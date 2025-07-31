@@ -9,8 +9,10 @@
   "exports": {
     "./themes/*.js": "./dist/themes/*.js",
     "./themes/default/*.js": "./dist/themes/default/*.js",
+    "./themes/default/*.ts": "./dist/themes/default/*.ts",
     "./themes/default/*.css": "./dist/themes/default/*.css",
     "./themes/dark/*.js": "./dist/themes/dark/*.js",
+    "./themes/dark/*.ts": "./dist/themes/dark/*.ts",
     "./themes/dark/*.css": "./dist/themes/dark/*.css",
     "./utilities/index.js": "./dist/utilities/index.js"
   },

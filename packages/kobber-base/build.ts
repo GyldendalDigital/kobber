@@ -1,5 +1,4 @@
 import { themeConfigs } from "./buildConfig";
-import { buildTypography } from "./src/typography/buildTypography";
 import { buildThemeTokens } from "./src/styleDictionary/buildThemeTokens";
 import { tokensFromFigma } from "./tokens-from-figma";
 import { invertColorTokens } from "./src/utils/invertColor";
@@ -18,8 +17,6 @@ const build = async () => {
     }
 
     await buildThemeTokens(tokensFromFigma, themeConfig);
-
-    buildTypography(themeConfig);
   }
 
   themeConfigs[0] && findUnusedTokens(themeConfigs[0]);

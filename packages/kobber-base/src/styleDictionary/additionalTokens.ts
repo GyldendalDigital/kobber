@@ -46,20 +46,6 @@ const createGaps = () => {
 };
 
 export const additionalTokens = {
-  mediaQuery: {
-    small: {
-      type: "string",
-      value: `(max-width: ${viewportWidth.small.max.value}px)`,
-    },
-    medium: {
-      type: "string",
-      value: `(min-width: ${viewportWidth.medium.min.value}px) and (max-width: ${viewportWidth.medium.max.value}px)`,
-    },
-    large: {
-      type: "string",
-      value: `(min-width: ${viewportWidth.large.min.value}px)`,
-    },
-  },
   layout: {
     minWidth: { type: "dimension", value: minWidth },
     maxWidth: { type: "dimension", value: 1280 },

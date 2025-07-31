@@ -6,7 +6,7 @@
   gap: 2rem;
   overflow: hidden;
   border-radius: 1rem;
-  background-color: var(--kobber-universal-hover-container-darken);
+  background-color: var(--todo-kobber-universal-hover-container-darken);
   padding-block: 2rem;
   padding-inline: 1rem;
 

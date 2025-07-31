@@ -1,4 +1,10 @@
-import { layout } from "@gyldendal/kobber-base/themes/default/tokens.js";
+const layout = {
+  contentMaxWidth: 1344,
+  gap: {
+    "8-16": "clamp(0.5rem, calc(0.38rem + 0.63vw), 1rem)",
+    "8-96": "clamp(0.5rem, calc(-0.88rem + 6.88vw), 6rem)",
+  },
+};
 
 export const validMaxColumns = [4, 6];
 

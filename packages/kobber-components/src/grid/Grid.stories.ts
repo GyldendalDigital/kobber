@@ -1,4 +1,3 @@
-import { mediaQuery } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
 import "./Grid";
@@ -88,9 +87,9 @@ const render = (args: Args) => {
 
       <kobber-grid
         grid-template-columns="${JSON.stringify({
-          [mediaQuery.small]: "repeat(4, 1fr)",
-          [mediaQuery.medium]: "repeat(6, 1fr)",
-          [mediaQuery.large]: "repeat(12, 1fr)",
+          "(max-width: 639px)": "repeat(4, 1fr)",
+          "(min-width: 640px) and (max-width: 1599px)": "repeat(6, 1fr)",
+          "(min-width: 1600px)": "repeat(12, 1fr)",
         })}"
       >
         <kobber-grid-column> Column 1 </kobber-grid-column>

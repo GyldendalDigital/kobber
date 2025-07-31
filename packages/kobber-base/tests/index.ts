@@ -1,5 +1,4 @@
 import { buildThemeTokensTest } from "./buildThemeTokens.test";
-import { buildTypographyTest } from "./buildTypography.test";
 import { tokensFromFigma } from "../tokens-from-figma";
 import simpleTokens from "./test-data-simple.json";
 import { ThemeConfig } from "../src/types";
@@ -10,7 +9,6 @@ const simpleTest: ThemeConfig = {
 };
 
 await buildThemeTokensTest(simpleTokens, simpleTest);
-buildTypographyTest(simpleTest);
 
 const fullTest: ThemeConfig = {
   figmaMode: "mode 1",
@@ -18,4 +16,3 @@ const fullTest: ThemeConfig = {
 };
 
 await buildThemeTokensTest(tokensFromFigma, fullTest);
-buildTypographyTest(fullTest);
