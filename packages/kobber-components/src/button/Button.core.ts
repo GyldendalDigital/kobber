@@ -65,14 +65,14 @@ export type ButtonClassNames =
   | "kobber-button--inlined";
 
 type ButtonDefaultProps = (typeof buttonDefaultProps)[number];
-export const buttonDefaultColors = objectKeys(component.button.background.color);
-export const buttonDefaultLevels = [
+export const buttonDefaultColorThemes = objectKeys(component.button.background.color);
+export const buttonDefaultColorLevels = [
   ...objectKeys(component.button.background.color.brand),
   ...objectKeys(component.button.border.color.brand),
 ];
-export const buttonDefaultVariants = objectKeys(component.button.background.color.brand.secondary);
-export const buttonDefaultProps = buttonDefaultColors.flatMap(color =>
-  buttonDefaultLevels.flatMap(level => {
+export const buttonDefaultColorVariants = objectKeys(component.button.background.color.brand.secondary);
+export const buttonDefaultProps = buttonDefaultColorThemes.flatMap(color =>
+  buttonDefaultColorLevels.flatMap(level => {
     if (level === "primary" || color === "neutral") {
       return `${color}-${level}-main` as const;
     }
@@ -82,15 +82,16 @@ export const buttonDefaultProps = buttonDefaultColors.flatMap(color =>
 );
 
 type ButtonUiProps = (typeof buttonUiProps)[number];
-export const buttonUiColors = objectKeys(component["ui-button"]["background"]["color"]);
-export const buttonUiVariants = objectKeys(component["ui-button"]["background"]["color"].informative);
-export const buttonUiProps = concat2(buttonUiColors, buttonUiVariants);
+export const buttonUiColorThemes = objectKeys(component["ui-button"]["background"]["color"]);
+export const buttonUiColorVariants = objectKeys(component["ui-button"]["background"]["color"].informative);
+export const buttonUiProps = concat2(buttonUiColorThemes, buttonUiColorVariants);
 
 type ButtonThemeProps = (typeof buttonThemeProps)[number];
-export const buttonThemeColors = objectKeys(component["theme-button"]["background"]["color"]);
-export const buttonThemeLevels = [
+export const buttonThemeColorThemes = objectKeys(component["theme-button"]["background"]["color"]);
+export const buttonThemeColorLevels = [
   ...objectKeys(component["theme-button"].background.color.carmine),
   ...objectKeys(component["theme-button"].border.color.carmine),
 ];
-export const buttonThemeVariants = objectKeys(component["theme-button"]["background"]["color"].carmine.primary);
-export const buttonThemeProps = concat3(buttonThemeColors, buttonThemeLevels, buttonThemeVariants);
+export const buttonThemeColorVariants = objectKeys(component["theme-button"]["background"]["color"].carmine.primary);
+export const buttonThemeProps = concat3(buttonThemeColorThemes, buttonThemeColorLevels, buttonThemeColorVariants);
+
