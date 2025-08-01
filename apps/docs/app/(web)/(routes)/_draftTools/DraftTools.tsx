@@ -23,7 +23,9 @@ export const DraftTools = ({ pageId }: Props) => {
             <DarkModeTrigger />
             <TokenMixer />
             <KobberButton
-              variant="vacation-primary-main"
+              color-theme="vacation"
+              color-level="primary"
+              color-variant="main"
               title="Åpne studio"
               href={pageId ? `/studio/structure/page;${pageId}` : "/studio/structure/homePage"}
             >
@@ -36,7 +38,9 @@ export const DraftTools = ({ pageId }: Props) => {
 
         <KobberButton
           className={styles["trigger"]}
-          variant="brand-secondary-main"
+          color-theme="brand"
+          color-level="secondary"
+          color-variant="main"
           onClick={() => setOpen(!open)}
           title={`${open ? "Lukk" : "Åpne"} draft tools`}
         >

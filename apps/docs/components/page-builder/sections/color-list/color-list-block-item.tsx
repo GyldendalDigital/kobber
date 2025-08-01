@@ -62,7 +62,9 @@ export const ColorListItem = (props: ItemProps) => {
                       } as React.CSSProperties
                     }
                     disabled
-                    variant="brand-tertiary-main"
+                    color-theme="brand"
+                    color-level="tertiary"
+                    color-variant="main"
                   >
                     <Check slot="icon" />
                     Kopiert
@@ -76,7 +78,9 @@ export const ColorListItem = (props: ItemProps) => {
                         height: "1.5rem",
                       } as React.CSSProperties
                     }
-                    variant="brand-tertiary-main"
+                    color-theme="brand"
+                    color-level="tertiary"
+                    color-variant="main"
                     onClick={() => copyToClipboard(color.value)}
                   >
                     Kopier

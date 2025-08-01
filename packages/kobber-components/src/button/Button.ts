@@ -20,7 +20,16 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
   static styles: CSSResultGroup = [componentStyles, buttonStyles];
 
   @property()
-  variant: ButtonProps["variant"] = "brand-primary-main";
+  type: ButtonProps["type"] = "button";
+
+  @property({ attribute: "color-theme" })
+  colorTheme: ButtonProps["colorTheme"] = "brand";
+
+  @property({ attribute: "color-level" })
+  colorLevel: ButtonProps["colorLevel"] = "primary";
+
+  @property({ attribute: "color-variant" })
+  colorVariant: ButtonProps["colorVariant"] = "main";
 
   @property({ type: Boolean })
   iconFirst = false;
@@ -67,7 +76,6 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
       <${tag}
         class=${[
           ...buttonClassNames({
-            variant: this.variant,
             hasIcon: this._hasIcon,
             iconOnly: this._iconOnly,
             iconFirst: this.iconFirst,
@@ -77,6 +85,10 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
           }),
           this.className,
         ].join(" ")}
+        data-button-type="${this.type}"
+        data-color-theme="${this.colorTheme}"
+        data-color-level="${this.colorLevel}"
+        data-color-variant="${this.colorVariant}"
         ?disabled=${isLink ? undefined : this.disabled}
         href=${ifDefined(isLink && !this.disabled ? this.href : undefined)}
         target=${ifDefined(isLink ? this.target : undefined)}

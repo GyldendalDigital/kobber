@@ -1,11 +1,37 @@
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { objectKeys } from "../base/utilities/objectKeys";
-import { concat2, concat3 } from "../base/utilities/join";
+
+type ButtonComputedProps = {
+  hasIcon?: boolean;
+  iconOnly?: boolean;
+  isLink?: boolean;
+};
+
+const buttonDefaultColorThemes = objectKeys(component.button.background.color);
+const buttonDefaultColorLevels = [
+  ...objectKeys(component.button.background.color.brand),
+  ...objectKeys(component.button.border.color.brand),
+];
+const buttonDefaultColorVariants = objectKeys(component.button.background.color.brand.secondary);
+
+const buttonUiColorThemes = objectKeys(component["ui-button"]["background"]["color"]);
+const buttonUiColorVariants = objectKeys(component["ui-button"]["background"]["color"].informative);
+
+const buttonThemeColorThemes = objectKeys(component["theme-button"]["background"]["color"]);
+const buttonThemeColorLevels = [
+  ...objectKeys(component["theme-button"].background.color.carmine),
+  ...objectKeys(component["theme-button"].border.color.carmine),
+];
+const buttonThemeColorVariants = objectKeys(component["theme-button"]["background"]["color"].carmine.primary);
+
+type ButtonColorProperties = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key in ButtonType]: any[];
+};
 
 export const buttonName = "kobber-button";
 
 export const buttonClassNames = ({
-  variant = "brand-primary-main",
   hasIcon = false,
   iconOnly = false,
   iconFirst = false,
@@ -36,26 +62,38 @@ export const buttonClassNames = ({
     conditionalClassNames.push("kobber-button--used-in-other-interactive");
   }
 
-  return [buttonName, variant, ...conditionalClassNames];
+  return [buttonName, ...conditionalClassNames];
 };
 
 export type ButtonProps = {
+  colorTheme?: ButtonColorTheme;
+  colorLevel?: ButtonColorLevel;
+  colorVariant?: ButtonColorVariant;
   iconFirst?: boolean;
   fullWidth?: boolean;
   usedInOtherInteractive?: boolean;
   href?: string;
+  type?: ButtonType;
   target?: "_blank" | "_parent" | "_self" | "_top";
-} & { variant?: ButtonDefaultProps | ButtonThemeProps | ButtonUiProps };
-
-export type ButtonComputedProps = {
-  hasIcon?: boolean;
-  iconOnly?: boolean;
-  isLink?: boolean;
 };
+
+export const buttonTypes: ButtonType[] = ["button", "ui-button", "theme-button"];
+export type ButtonType = "button" | "ui-button" | "theme-button";
+
+export type ButtonColorLevel = (typeof buttonDefaultColorLevels)[number] | (typeof buttonThemeColorLevels)[number];
+
+export type ButtonColorTheme =
+  | (typeof buttonDefaultColorThemes)[number]
+  | (typeof buttonUiColorThemes)[number]
+  | (typeof buttonThemeColorThemes)[number];
+
+export type ButtonColorVariant =
+  | (typeof buttonDefaultColorVariants)[number]
+  | (typeof buttonUiColorVariants)[number]
+  | (typeof buttonThemeColorVariants)[number];
 
 export type ButtonClassNames =
   | typeof buttonName
-  | ButtonProps["variant"]
   | "kobber-button--icon"
   | "kobber-button--icon-only"
   | "kobber-button--icon-left"
@@ -64,33 +102,20 @@ export type ButtonClassNames =
   | "kobber-button--link"
   | "kobber-button--inlined";
 
-type ButtonDefaultProps = (typeof buttonDefaultProps)[number];
-export const buttonDefaultColors = objectKeys(component.button.background.color);
-export const buttonDefaultLevels = [
-  ...objectKeys(component.button.background.color.brand),
-  ...objectKeys(component.button.border.color.brand),
-];
-export const buttonDefaultVariants = objectKeys(component.button.background.color.brand.secondary);
-export const buttonDefaultProps = buttonDefaultColors.flatMap(color =>
-  buttonDefaultLevels.flatMap(level => {
-    if (level === "primary" || color === "neutral") {
-      return `${color}-${level}-main` as const;
-    }
+export const buttonColorLevels: ButtonColorProperties = {
+  button: buttonDefaultColorLevels,
+  "ui-button": [],
+  "theme-button": buttonThemeColorLevels,
+};
 
-    return buttonDefaultVariants.map(variant => `${color}-${level}-${variant}` as const);
-  }),
-);
+export const buttonColorThemes: ButtonColorProperties = {
+  button: buttonDefaultColorThemes,
+  "ui-button": buttonUiColorThemes,
+  "theme-button": buttonThemeColorThemes,
+};
 
-type ButtonUiProps = (typeof buttonUiProps)[number];
-export const buttonUiColors = objectKeys(component["ui-button"]["background"]["color"]);
-export const buttonUiVariants = objectKeys(component["ui-button"]["background"]["color"].informative);
-export const buttonUiProps = concat2(buttonUiColors, buttonUiVariants);
-
-type ButtonThemeProps = (typeof buttonThemeProps)[number];
-export const buttonThemeColors = objectKeys(component["theme-button"]["background"]["color"]);
-export const buttonThemeLevels = [
-  ...objectKeys(component["theme-button"].background.color.carmine),
-  ...objectKeys(component["theme-button"].border.color.carmine),
-];
-export const buttonThemeVariants = objectKeys(component["theme-button"]["background"]["color"].carmine.primary);
-export const buttonThemeProps = concat3(buttonThemeColors, buttonThemeLevels, buttonThemeVariants);
+export const buttonColorVariants: ButtonColorProperties = {
+  button: buttonDefaultColorVariants,
+  "ui-button": buttonUiColorVariants,
+  "theme-button": buttonThemeColorVariants,
+};

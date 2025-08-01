@@ -20,7 +20,9 @@ export const DarkModeTrigger = () => {
 
   return (
     <KobberButton
-      variant="brand-primary-main"
+      color-theme="brand"
+      color-level="primary"
+      color-variant="main"
       className={kobberTheme}
       onClick={handleClick}
       title={`Skru ${colorScheme === "dark" ? "av" : "på"} dark mode`}

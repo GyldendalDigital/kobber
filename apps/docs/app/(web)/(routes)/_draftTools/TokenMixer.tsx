@@ -13,7 +13,13 @@ export const TokenMixer = () => {
   return (
     <>
       {show && <TokenOverlay onClose={() => setShow(false)} />}
-      <KobberButton variant="brand-primary-main" title="Token mixer" onClick={handleClick}>
+      <KobberButton
+        color-theme="brand"
+        color-level="primary"
+        color-variant="main"
+        title="Token mixer"
+        onClick={handleClick}
+      >
         <div slot="icon">
           <Settings2Icon />
         </div>
@@ -70,13 +76,28 @@ const TokenOverlay = ({ onClose }: { onClose: () => void }) => {
           onChange={(e) => setLocalCss(e.target.value)}
         />
         <div className={styles["token-mixer-controls"]}>
-          <KobberButton variant="brand-primary-main" onClick={handleSaveCss}>
+          <KobberButton
+            color-theme="brand"
+            color-level="primary"
+            color-variant="main"
+            onClick={handleSaveCss}
+          >
             Save
           </KobberButton>
-          <KobberButton variant="brand-secondary-main" onClick={handleResetCss}>
+          <KobberButton
+            color-theme="brand"
+            color-level="secondary"
+            color-variant="main"
+            onClick={handleResetCss}
+          >
             Reset
           </KobberButton>
-          <KobberButton variant="brand-tertiary-main" onClick={onClose}>
+          <KobberButton
+            color-theme="brand"
+            color-level="tertiary"
+            color-variant="main"
+            onClick={onClose}
+          >
             Close
           </KobberButton>
         </div>
