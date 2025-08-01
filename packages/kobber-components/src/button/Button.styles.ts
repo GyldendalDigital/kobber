@@ -13,7 +13,6 @@ import { getTypographyStyles } from "../base/getTypographyStyles";
  */
 
 const button = component.button;
-const textStyles = universal.text.ui;
 
 const createButtonStyles = () => {
   return css`
@@ -52,11 +51,11 @@ const createButtonStyles = () => {
         height: auto;
       }
 
-      ${createVariableStyles(buttonDefaultProps, "button", prop => prop?.includes("tertiary") === true)}
+      ${createVariableStyles(buttonDefaultProps, "button")}
 
-      ${createVariableStyles(buttonUiProps, "ui-button", _ => false)}
+      ${createVariableStyles(buttonUiProps, "ui-button")}
 
-      ${createVariableStyles(buttonThemeProps, "theme-button", prop => prop?.includes("secondary") === true)}
+      ${createVariableStyles(buttonThemeProps, "theme-button")}
 
       &[disabled],
       &.disabled {
@@ -94,11 +93,7 @@ const createButtonStyles = () => {
   `;
 };
 
-const createVariableStyles = (
-  propArray: ButtonProps["variant"][],
-  buttonType: keyof typeof component,
-  isTransparent: (prop: ButtonProps["variant"]) => boolean,
-) => {
+const createVariableStyles = (propArray: ButtonProps["variant"][], buttonType: keyof typeof component) => {
   const variableClasses = propArray.map(prop => {
     if (!prop) {
       return;
@@ -124,20 +119,11 @@ const createVariableStyles = (
 
     const nestedClassNames = `&.${prop satisfies ButtonClassNames}`;
 
-    if (isTransparent(prop)) {
-      return css`
-        ${unsafeCSS(nestedClassNames)} {
-          --color: var(${unsafeCSS(textColor)});
-          ${hoverEffectSecondary()};
-        }
-      `;
-    }
-
     return css`
       ${unsafeCSS(nestedClassNames)} {
         --color: var(${unsafeCSS(textColor)});
         --background-color: var(${unsafeCSS(backgroundColor.fallback)});
-        ${hoverEffectPrimary(backgroundColor.hover, backgroundColor.fallback)};
+        ${hoverPrimary(backgroundColor.hover, backgroundColor.fallback)};
       }
     `;
   });
@@ -145,44 +131,12 @@ const createVariableStyles = (
   return unsafeCSS(variableClasses.join("\n"));
 };
 
-const hoverEffectPrimary = (hoverColor: string, fallbackColor: string) => css`
+const hoverPrimary = (hoverColor: string, fallbackColor: string) => css`
   &:hover,
   &.hover {
     &:not([disabled]) {
       --background-color: var(${unsafeCSS(fallbackColor)});
       background-image: linear-gradient(0deg, var(${unsafeCSS(hoverColor)}) 0%, var(${unsafeCSS(hoverColor)}) 100%);
-    }
-  }
-`;
-
-const hoverEffectSecondary = () => css`
-  &:active,
-  &.active,
-  &:hover,
-  &.hover {
-    &:not([disabled]) {
-      [name="icon"] {
-        position: relative;
-        display: block;
-        &:after {
-          content: "";
-          position: absolute;
-          /* TODO: find out what this value should be */
-          bottom: -0.4rem;
-          border-bottom: var(${unsafeCSS(button.border.width.hover)}) solid;
-          right: var(${unsafeCSS(button.padding.inline)});
-          left: var(${unsafeCSS(button.padding.inline)});
-        }
-      }
-
-      &.${unsafeCSS("kobber-button--icon" satisfies ButtonClassNames)} {
-        &.${unsafeCSS("kobber-button--icon-only" satisfies ButtonClassNames)} {
-          [name="icon"]:after {
-            right: 0;
-            left: 0;
-          }
-        }
-      }
     }
   }
 `;
