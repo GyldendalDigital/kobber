@@ -31,7 +31,9 @@ export const LoginButton = (props: Props) => {
     <div className={styles["wrapper"]}>
       <KobberButton
         fullWidth
-        variant={cta ? "brand-primary-main" : "brand-secondary-main"}
+        color-theme="brand"
+        color-level={cta ? "primary" : "secondary"}
+        color-variant="main"
         onClick={status === "unauthenticated" ? handleLogin : handleLogout}
       >
         <Login className={styles["icon"]} slot="icon" />

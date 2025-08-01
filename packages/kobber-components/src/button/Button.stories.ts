@@ -1,5 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-import { ButtonProps, buttonDefaultProps, buttonName, buttonThemeProps, buttonUiProps } from "./Button.core";
+import {
+  ButtonColorLevel,
+  ButtonProps,
+  ButtonColorTheme,
+  ButtonColorVariant,
+  buttonDefaultProps,
+  buttonName,
+  buttonColorLevels,
+  buttonThemeProps,
+  buttonColorThemes,
+  buttonUiProps,
+  buttonColorVariants,
+} from "./Button.core";
 import "./Button";
 import "../text/heading/Heading";
 import "../theme-context-provider/ThemeContext";
@@ -19,16 +31,25 @@ interface Args extends ButtonProps {
   state: (typeof states)[number];
   icon: (typeof buttonIconSettings)[number];
   link: boolean;
+  colorTheme: ButtonColorTheme;
+  colorPriority: ButtonColorLevel;
+  colorVariant: ButtonColorVariant;
 }
-
-const buttonProps = [...buttonDefaultProps, ...buttonUiProps, ...buttonThemeProps];
 
 const meta: Meta<Args> = {
   component: buttonName,
   argTypes: {
-    variant: {
-      options: buttonProps,
-      control: { type: "radio" },
+    colorTheme: {
+      options: buttonColorThemes,
+      control: { type: "inline-radio" },
+    },
+    colorPriority: {
+      options: buttonColorLevels,
+      control: { type: "inline-radio" },
+    },
+    colorVariant: {
+      options: buttonColorVariants,
+      control: { type: "inline-radio" },
     },
     state: {
       options: states,
@@ -69,7 +90,9 @@ export default meta;
 export const Button: StoryObj<Args> = {
   args: {
     text: "Button text",
-    variant: buttonDefaultProps[0],
+    colorTheme: buttonColorThemes[0],
+    colorPriority: buttonColorLevels[0],
+    colorVariant: buttonColorVariants[0],
     state: states[0],
     icon: buttonIconSettings[1],
     link: false,
@@ -91,23 +114,23 @@ export const Buttons: StoryObj<Args> = {
   render: args => {
     return `
         Primary
-        ${buttonDefaultProps
-          .filter(variant => variant.includes("primary"))
-          .map(variant => renderVariant({ ...args, variant }))
+        ${buttonColorLevels
+          .filter(colorPriority => colorPriority === "primary")
+          .map(colorPriority => renderVariant({ ...args, colorPriority }))
           .join("")}
         
         <br />
         Secondary
-        ${buttonDefaultProps
-          .filter(variant => variant.includes("secondary"))
-          .map(variant => renderVariant({ ...args, variant }))
+        ${buttonColorLevels
+          .filter(priority => priority === "secondary")
+          .map(colorPriority => renderVariant({ ...args, colorPriority }))
           .join("")}
 
         <br />
         Tertiary
-        ${buttonDefaultProps
-          .filter(variant => variant.includes("tertiary"))
-          .map(variant => renderVariant({ ...args, variant }))
+        ${buttonColorLevels
+          .filter(priority => priority === "tertiary")
+          .map(colorPriority => renderVariant({ ...args, colorPriority }))
           .join("")}
     `;
   },
@@ -168,17 +191,19 @@ const renderVariant = (args: Args) => {
 };
 
 const renderButton = (args: Args) => {
-  const { variant, state, icon, text, link, fullWidth } = args;
+  const { colorTheme, colorPriority, colorVariant, state, icon, text, link, fullWidth } = args;
 
   return `
 <kobber-button 
   class="${state}" 
-  variant="${variant}" 
+  colorTheme="${colorTheme}" 
+  colorPriority="${colorPriority}" 
+  colorVariant="${colorVariant}" 
   ${state === "disabled" ? "disabled" : ""} 
   ${icon === "left" ? "iconFirst" : ""} 
   ${fullWidth ? "fullWidth" : ""} 
   ${link ? "href='#' target='_blank'" : ""}
-  aria-label="optional button label">
+  aria-label="">
   ${text ? text : ""}
   ${icon !== "none" ? "<kobber-arrow_right slot='icon' />" : ""}
 </kobber-button>

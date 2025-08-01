@@ -5,7 +5,6 @@ import { concat2, concat3 } from "../base/utilities/join";
 export const buttonName = "kobber-button";
 
 export const buttonClassNames = ({
-  variant = "brand-primary-main",
   hasIcon = false,
   iconOnly = false,
   iconFirst = false,
@@ -36,16 +35,19 @@ export const buttonClassNames = ({
     conditionalClassNames.push("kobber-button--used-in-other-interactive");
   }
 
-  return [buttonName, variant, ...conditionalClassNames];
+  return [buttonName, ...conditionalClassNames];
 };
 
 export type ButtonProps = {
+  colorTheme?: ButtonColorTheme;
+  colorLevel?: ButtonColorLevel;
+  colorVariant?: ButtonColorVariant;
   iconFirst?: boolean;
   fullWidth?: boolean;
   usedInOtherInteractive?: boolean;
   href?: string;
   target?: "_blank" | "_parent" | "_self" | "_top";
-} & { variant?: ButtonDefaultProps | ButtonThemeProps | ButtonUiProps };
+};
 
 export type ButtonComputedProps = {
   hasIcon?: boolean;
@@ -53,9 +55,22 @@ export type ButtonComputedProps = {
   isLink?: boolean;
 };
 
+export type ButtonType = "button" | "ui-button" | "theme-button";
+
+export type ButtonColorLevel = (typeof buttonDefaultColorLevels)[number] | (typeof buttonThemeColorLevels)[number];
+
+export type ButtonColorTheme =
+  | (typeof buttonDefaultColorThemes)[number]
+  | (typeof buttonUiColorThemes)[number]
+  | (typeof buttonThemeColorThemes)[number];
+
+export type ButtonColorVariant =
+  | (typeof buttonDefaultColorVariants)[number]
+  | (typeof buttonUiColorVariants)[number]
+  | (typeof buttonThemeColorVariants)[number];
+
 export type ButtonClassNames =
   | typeof buttonName
-  | ButtonProps["variant"]
   | "kobber-button--icon"
   | "kobber-button--icon-only"
   | "kobber-button--icon-left"
@@ -64,7 +79,6 @@ export type ButtonClassNames =
   | "kobber-button--link"
   | "kobber-button--inlined";
 
-type ButtonDefaultProps = (typeof buttonDefaultProps)[number];
 export const buttonDefaultColorThemes = objectKeys(component.button.background.color);
 export const buttonDefaultColorLevels = [
   ...objectKeys(component.button.background.color.brand),
@@ -77,16 +91,14 @@ export const buttonDefaultProps = buttonDefaultColorThemes.flatMap(color =>
       return `${color}-${level}-main` as const;
     }
 
-    return buttonDefaultVariants.map(variant => `${color}-${level}-${variant}` as const);
+    return buttonDefaultColorVariants.map(variant => `${color}-${level}-${variant}` as const);
   }),
 );
 
-type ButtonUiProps = (typeof buttonUiProps)[number];
 export const buttonUiColorThemes = objectKeys(component["ui-button"]["background"]["color"]);
 export const buttonUiColorVariants = objectKeys(component["ui-button"]["background"]["color"].informative);
 export const buttonUiProps = concat2(buttonUiColorThemes, buttonUiColorVariants);
 
-type ButtonThemeProps = (typeof buttonThemeProps)[number];
 export const buttonThemeColorThemes = objectKeys(component["theme-button"]["background"]["color"]);
 export const buttonThemeColorLevels = [
   ...objectKeys(component["theme-button"].background.color.carmine),
@@ -95,3 +107,16 @@ export const buttonThemeColorLevels = [
 export const buttonThemeColorVariants = objectKeys(component["theme-button"]["background"]["color"].carmine.primary);
 export const buttonThemeProps = concat3(buttonThemeColorThemes, buttonThemeColorLevels, buttonThemeColorVariants);
 
+export const buttonColorLevels: ButtonColorLevel[] = [...buttonDefaultColorLevels, ...buttonThemeColorLevels];
+
+export const buttonColorThemes: ButtonColorTheme[] = [
+  ...buttonDefaultColorThemes,
+  ...buttonUiColorThemes,
+  ...buttonThemeColorThemes,
+];
+
+export const buttonColorVariants: ButtonColorVariant[] = [
+  ...buttonDefaultColorVariants,
+  ...buttonUiColorVariants,
+  ...buttonThemeColorVariants,
+];

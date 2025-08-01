@@ -1,7 +1,17 @@
 /* eslint  @typescript-eslint/no-explicit-any: 0 */ // --> OFF
 import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { ButtonClassNames, buttonDefaultProps, ButtonProps, buttonThemeProps, buttonUiProps } from "./Button.core";
+import {
+  ButtonClassNames,
+  buttonColorLevels,
+  buttonColorThemes,
+  buttonColorVariants,
+  buttonDefaultProps,
+  ButtonProps,
+  buttonThemeProps,
+  ButtonType,
+  buttonUiProps,
+} from "./Button.core";
 import { resetButton } from "../base/styles/reset.styles";
 import { getTypographyStyles } from "../base/getTypographyStyles";
 
@@ -51,12 +61,10 @@ const createButtonStyles = () => {
         height: auto;
       }
 
-      ${createVariableStyles(buttonDefaultProps, "button")}
-
-      ${createVariableStyles(buttonUiProps, "ui-button")}
-
-      ${createVariableStyles(buttonThemeProps, "theme-button")}
-
+      ${getThemeSizeVariantStyles("button")}
+      ${getThemeSizeVariantStyles("ui-button")}
+      ${getThemeSizeVariantStyles("theme-button")}
+      
       &[disabled],
       &.disabled {
         opacity: var(${unsafeCSS(universal.disabled.container.opacity)});
@@ -93,45 +101,48 @@ const createButtonStyles = () => {
   `;
 };
 
-const createVariableStyles = (propArray: ButtonProps["variant"][], buttonType: keyof typeof component) => {
-  const variableClasses = propArray.map(prop => {
-    if (!prop) {
-      return;
-    }
+const getThemeSizeVariantStyles = (buttonType: ButtonType) => {
+  console.info(`buttonType: ${buttonType}`);
+  return css`
+    ${unsafeCSS(
+      buttonColorThemes
+        .flatMap(colorTheme =>
+          buttonColorLevels.flatMap(colorLevel =>
+            buttonColorVariants.flatMap(colorVariant => {
+              const textColor =
+                (component[buttonType] as any).text.color?.[colorTheme]?.[colorLevel]?.[colorVariant] ??
+                (component[buttonType] as any).text.color?.[colorTheme]?.[colorLevel];
+              const backgroundColor =
+                (component[buttonType] as any).background?.color?.[colorTheme]?.[colorLevel]?.[colorVariant] ??
+                (component[buttonType] as any).background?.color?.[colorTheme]?.[colorVariant];
+              const borderColor = (component[buttonType] as any)?.border?.color?.[colorTheme]?.[colorLevel]?.[
+                colorVariant
+              ];
 
-    const [color = "", level = "", variant = ""] = prop.split("-");
+              console.info(
+                `backgroundColor (colorTheme: ${colorTheme}, colorLevel: ${colorLevel}, colorVariant: ${colorVariant})`,
+              );
+              console.info(backgroundColor);
 
-    const textColor =
-      (component[buttonType] as any).text.color?.[color]?.[level]?.[variant] ??
-      (component[buttonType] as any).text.color?.[color]?.[level];
-    const backgroundColor =
-      (component[buttonType] as any).background?.color?.[color]?.[level]?.[variant] ??
-      (component[buttonType] as any).background?.color?.[color]?.[level];
-    const borderColor = (component[buttonType] as any)?.border?.color?.[color]?.[level]?.[variant];
-
-    if (
-      typeof textColor !== "string" ||
-      (typeof backgroundColor?.fallback !== "string" && typeof borderColor?.active !== "string")
-    ) {
-      console.log("Invalid prop combination", prop);
-      return;
-    }
-
-    const nestedClassNames = `&.${prop satisfies ButtonClassNames}`;
-
-    return css`
-      ${unsafeCSS(nestedClassNames)} {
-        --color: var(${unsafeCSS(textColor)});
-        --background-color: var(${unsafeCSS(backgroundColor.fallback)});
-        ${hoverPrimary(backgroundColor.hover, backgroundColor.fallback)};
-      }
-    `;
-  });
-
-  return unsafeCSS(variableClasses.join("\n"));
+              return css`
+                ${unsafeCSS(`
+                  &[data-color-variant="${colorVariant}"][data-color-theme="${colorTheme}"][data-color-level="${colorLevel}"] {
+                    --color: var(${unsafeCSS(textColor)});
+                    --border-color: var(${unsafeCSS(borderColor)});
+                    --background-color: var(${unsafeCSS(backgroundColor.fallback)});
+                    ${hover(backgroundColor.hover, backgroundColor.fallback)};
+                  }
+                `)}
+              `;
+            }),
+          ),
+        )
+        .join("\n"),
+    )}
+  `;
 };
 
-const hoverPrimary = (hoverColor: string, fallbackColor: string) => css`
+const hover = (hoverColor: string, fallbackColor: string) => css`
   &:hover,
   &.hover {
     &:not([disabled]) {
