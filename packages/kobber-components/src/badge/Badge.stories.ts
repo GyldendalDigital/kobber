@@ -39,6 +39,7 @@ export const Badge: StoryObj<Args> = {
     },
     showStatusCircle: {
       control: { type: "boolean" },
+      name: "Show status circle (only for supplemental variant of aubergine and rettsdata thems)",
     },
   },
   args: {
@@ -60,7 +61,7 @@ const renderBadge = (args: Args) => {
     size=${size}
     color-theme=${colorTheme}
     color-variant=${colorVariant}
-    ?showStatusCircle=${showStatusCircle}
+    ?show-status-circle=${showStatusCircle}
   >
     ${text}
   </kobber-badge>`;
