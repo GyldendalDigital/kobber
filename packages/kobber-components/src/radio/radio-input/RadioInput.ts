@@ -8,7 +8,6 @@ import type { CSSResultGroup } from "lit";
 import {
   inputClassNames,
   radioInputName,
-  InputVariant,
   radioInputLabelClassName,
   InputProps,
   radioInputControlName,
@@ -40,7 +39,8 @@ export class RadioInput extends ShoelaceElement implements InputProps {
   /** The radio's value. When selected, the radio group will receive this value. */
   @property() value: string = "";
 
-  @property() variant: InputVariant = "success";
+  @property({ attribute: "color-theme" })
+  colorTheme?: InputProps["colorTheme"] = "success";
 
   /** Disables the radio. */
   @property({ type: Boolean, reflect: true }) disabled = false;
@@ -113,7 +113,7 @@ export class RadioInput extends ShoelaceElement implements InputProps {
           }),
           this.className,
         ].join(" ")}
-        data-variant="${this.variant}"
+        data-color-theme="${this.colorTheme}"
         ?disabled="${this.disabled}"
         href="${this.href}"
         usedInOtherInteractive
@@ -121,7 +121,7 @@ export class RadioInput extends ShoelaceElement implements InputProps {
       >
         <${radioInputControlElement}
           ?checked="${this.checked}"
-          variant="${this.variant}"
+          color-theme="${this.colorTheme}"
           slot="icon"
         ></${radioInputControlElement}>
         <slot part="label"></slot>
@@ -135,9 +135,9 @@ export class RadioInput extends ShoelaceElement implements InputProps {
           }),
           this.className,
         ].join(" ")}
-        data-variant="${this.variant}"
+        data-color-theme="${this.colorTheme}"
       >
-        <${radioInputControlElement} ?checked="${this.checked}" variant="${this.variant}"></${radioInputControlElement}>
+        <${radioInputControlElement} ?checked="${this.checked}" color-theme="${this.colorTheme}"></${radioInputControlElement}>
         <slot part="label" class="${radioInputLabelClassName}"></slot>
       </div>
     `;

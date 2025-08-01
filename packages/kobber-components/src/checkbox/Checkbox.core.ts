@@ -1,4 +1,5 @@
 import { component } from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { objectKeys } from "../base/utilities/objectKeys";
 
 export const checkboxGroupName = "kobber-checkbox-group";
 export const checkboxWrapperClassName = "wrapper";
@@ -31,18 +32,18 @@ export type InputProps = {
   state?: CheckboxState;
   title?: string;
   value?: string;
-  variant?: CheckboxVariant;
+  colorTheme?: CheckboxColorTheme;
 };
 
 export type GroupClassNames = typeof checkboxGroupName;
-export type WrapperClassName = typeof checkboxWrapperClassName;
-export type CheckboxClassName = typeof checkboxInputName;
-export type NativeInputClassName = typeof nativeCheckboxInputClassName;
-export type InputLabelClassName = typeof checkboxLabelClassName;
-export type InputControlClassName = typeof checkboxControlClassName;
-export type IconClassName = typeof checkboxIconClassName;
+export type WrapperClassNames = typeof checkboxWrapperClassName;
+export type CheckboxClassNames = typeof checkboxInputName;
+export type NativeInputClassNames = typeof nativeCheckboxInputClassName;
+export type InputLabelClassNames = typeof checkboxLabelClassName;
+export type InputControlClassNames = typeof checkboxControlClassName;
+export type IconClassNames = typeof checkboxIconClassName;
 
 export type CheckboxState = keyof typeof checkboxTokens.border.color.success | "disabled";
-export type CheckboxVariant = keyof typeof checkboxTokens.border.color;
+export type CheckboxColorTheme = (typeof checkboxColorThemes)[number];
 
-export const checkboxVariants = Object.keys(component._checkbox.indicator.border.color) as CheckboxVariant[];
+export const checkboxColorThemes = objectKeys(component._checkbox.indicator.border.color);

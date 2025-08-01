@@ -14,21 +14,21 @@ const createDividerStyles = () => {
       width: 100%;
       height: 1px;
       background-color: var(--divider-background-color);
-      ${variantStyles()}
+      ${colorVariantStyles()}
     }
   `;
 };
 
-const variantStyles = () => {
-  const variants = dividerVariants.flatMap(variant => {
+const colorVariantStyles = () => {
+  const colorVariants = dividerVariants.flatMap(colorVariant => {
     return css`
-      ${unsafeCSS(`&[data-variant="${variant}"]`)} {
-        --divider-background-color: var(${unsafeCSS(dividerTokens.background.color[variant])});
+      ${unsafeCSS(`&[data-color-variant="${colorVariant}"]`)} {
+        --divider-background-color: var(${unsafeCSS(dividerTokens.background.color[colorVariant])});
       }
     `;
   });
 
-  return unsafeCSS(variants.join("\n"));
+  return unsafeCSS(colorVariants.join("\n"));
 };
 
 export const dividerStyles = createDividerStyles();

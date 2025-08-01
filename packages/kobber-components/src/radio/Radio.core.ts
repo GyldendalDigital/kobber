@@ -1,4 +1,5 @@
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { objectKeys } from "../base/utilities/objectKeys";
 
 export const radioInputName = "kobber-radio-input";
 export const radioInputControlName = "kobber-radio-input-control";
@@ -34,7 +35,7 @@ export type GroupProps = {
 export type InputProps = {
   checked?: boolean;
   disabled?: boolean;
-  variant?: InputVariant;
+  colorTheme?: InputColorTheme;
   href?: string;
 };
 
@@ -44,14 +45,15 @@ type InputComputedProps = {
 
 export type ControlProps = {
   checked?: boolean;
-  variant: InputVariant;
+  colorTheme: InputColorTheme;
 };
 
-export type GroupClassName = typeof radioGroupName;
-export type InputLabelClassName = typeof radioInputLabelClassName;
-export type InputControlClassName = typeof radioInputControlName;
+export type GroupClassNames = typeof radioGroupName;
+export type InputLabelClassNames = typeof radioInputLabelClassName;
+export type InputControlClassNames = typeof radioInputControlName;
 export type InputControlPartNames = typeof radioInputControlPartName | typeof radioInputControlPartNameChecked;
 export type InputClassNames = typeof radioInputName | typeof radioInputAsLinkClassName;
-export type InputVariant = keyof (typeof radioTokens)["indicator"]["border"]["color"];
 
-export const inputVariants = Object.keys(radioTokens.indicator.border.color) as InputVariant[];
+export type InputColorTheme = (typeof inputColorThemes)[number];
+
+export const inputColorThemes = objectKeys(radioTokens.indicator.border.color);

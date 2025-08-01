@@ -1,14 +1,14 @@
 import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import {
-  checkboxVariants,
-  CheckboxClassName,
-  CheckboxVariant,
-  InputLabelClassName,
-  NativeInputClassName,
-  InputControlClassName,
-  WrapperClassName,
-  IconClassName,
+  checkboxColorThemes,
+  CheckboxClassNames,
+  CheckboxColorTheme,
+  InputLabelClassNames,
+  NativeInputClassNames,
+  InputControlClassNames,
+  WrapperClassNames,
+  IconClassNames,
   CheckboxState,
 } from "../Checkbox.core";
 import { getTypographyStyles } from "../../base/getTypographyStyles";
@@ -24,13 +24,13 @@ const createCheckboxStyles = () => {
       --icon-height: var(--icon-width);
     }
 
-    .${unsafeCSS("wrapper" satisfies WrapperClassName)} {
+    .${unsafeCSS("wrapper" satisfies WrapperClassNames)} {
       display: flex;
       flex-direction: column;
       gap: 0 var(${unsafeCSS(checkbox["container-right"].gap)});
     }
 
-    .${unsafeCSS("kobber-checkbox-input" satisfies CheckboxClassName)} {
+    .${unsafeCSS("kobber-checkbox-input" satisfies CheckboxClassNames)} {
       display: flex;
       gap: var(${unsafeCSS(checkbox.gap)});
       justify-content: start;
@@ -38,11 +38,11 @@ const createCheckboxStyles = () => {
       cursor: pointer;
       padding: var(${unsafeCSS(checkbox.padding)});
 
-      ${variantStyles()}
+      ${colorThemeStyles()}
       ${inputStates()}
     }
 
-    .${unsafeCSS("label" satisfies InputLabelClassName)} {
+    .${unsafeCSS("label" satisfies InputLabelClassNames)} {
       display: block;
       color: var(${unsafeCSS(checkbox.text.color)});
 
@@ -53,10 +53,10 @@ const createCheckboxStyles = () => {
       font-stretch: var(--typography-font-stretch);
       line-height: var(--typography-line-height);
 
-      ${unsafeCSS(getTypographyStyles("label" satisfies InputLabelClassName, "ui", "medium"))}
+      ${unsafeCSS(getTypographyStyles("label" satisfies InputLabelClassNames, "ui", "medium"))}
     }
 
-    .${unsafeCSS("control" satisfies InputControlClassName)} {
+    .${unsafeCSS("control" satisfies InputControlClassNames)} {
       width: var(${unsafeCSS(indicator.width)});
       height: var(${unsafeCSS(indicator.height)});
       display: flex;
@@ -72,34 +72,34 @@ const createCheckboxStyles = () => {
       transition: var(--transition-time) outline;
     }
 
-    .${unsafeCSS("control--shape" satisfies IconClassName)} {
+    .${unsafeCSS("control--shape" satisfies IconClassNames)} {
       display: flex;
       align-items: center;
     }
 
-    .${unsafeCSS("native-input" satisfies NativeInputClassName)} {
+    .${unsafeCSS("native-input" satisfies NativeInputClassNames)} {
       pointer-events: none;
     }
   `;
 };
 
-const variantStyles = () => {
-  const variants = checkboxVariants.flatMap(variant => {
-    const variantSelector = `&[data-variant="${variant}"]`;
+const colorThemeStyles = () => {
+  const colorThemes = checkboxColorThemes.flatMap(colorTheme => {
+    const themeSelector = `&[data-color-theme="${colorTheme}"]`;
     return css`
-      ${unsafeCSS(variantSelector)} {
-        ${statesPerVariant(variant)}
+      ${unsafeCSS(themeSelector)} {
+        ${statesPerColorTheme(colorTheme)}
       }
     `;
   });
 
-  return unsafeCSS(variants.join("\n"));
+  return unsafeCSS(colorThemes.join("\n"));
 };
 
-const statesPerVariant = (variant: CheckboxVariant) => {
-  const outlineColor = indicator.outline.color[variant];
-  const borderColor = indicator.border.color[variant];
-  const bgColor = indicator.background.color[variant];
+const statesPerColorTheme = (colorTheme: CheckboxColorTheme) => {
+  const outlineColor = indicator.outline.color[colorTheme];
+  const borderColor = indicator.border.color[colorTheme];
+  const bgColor = indicator.background.color[colorTheme];
   return css`
     & {
       --control-border-color: var(

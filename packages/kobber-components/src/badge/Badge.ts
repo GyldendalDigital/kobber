@@ -13,16 +13,16 @@ import { customElement } from "../base/utilities/customElementDecorator";
 export class Badge extends LitElement implements BadgeProps {
   static styles: CSSResultGroup = [componentStyles, badgeStyles];
 
-  @property({ type: String })
-  variant?: BadgeProps["variant"] = "main";
+  @property({ attribute: "color-theme" })
+  colorTheme?: BadgeProps["colorTheme"] = "aubergine";
 
-  @property({ type: String })
-  theme?: BadgeProps["theme"] = "aubergine";
+  @property({ attribute: "color-variant" })
+  colorVariant?: BadgeProps["colorVariant"] = "main";
 
-  @property({ type: String })
+  @property()
   size?: BadgeProps["size"] = "medium";
 
-  @property({ type: Boolean })
+  @property()
   showStatusCircle?: BadgeProps["showStatusCircle"];
 
   connectedCallback() {
@@ -37,9 +37,9 @@ export class Badge extends LitElement implements BadgeProps {
         }),
         this.className,
       ].join(" ")}"
-      data-variant="${this.variant}"
+      data-color-variant="${this.colorVariant}"
+      data-color-theme="${this.colorTheme}"
       data-size="${this.size}"
-      data-theme="${this.theme}"
     >
       ${this.showStatusCircle ? html`<div class="status-circle"></div>` : ""}
       <slot></slot>

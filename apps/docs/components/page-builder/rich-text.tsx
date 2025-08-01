@@ -22,7 +22,7 @@ const components: Partial<PortableTextReactComponents> = {
     h2: ({ children, value }) => {
       const slug = parseChildrenToSlug(value.children)
       return (
-        <KobberHeading id={slug} level="h2" element="title" size="medium" variant="primary">
+        <KobberHeading id={slug} level="h2" element="title" size="medium" color-level="primary">
           {children}
         </KobberHeading>
       )
@@ -30,7 +30,7 @@ const components: Partial<PortableTextReactComponents> = {
     h2Italic: ({ children, value }) => {
       const slug = parseChildrenToSlug(value.children)
       return (
-        <KobberHeading id={slug} level="h2" element="display" size="small" variant="secondary">
+        <KobberHeading id={slug} level="h2" element="display" size="small" color-level="secondary">
           {children}
         </KobberHeading>
       )

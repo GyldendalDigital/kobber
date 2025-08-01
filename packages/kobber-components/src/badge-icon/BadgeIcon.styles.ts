@@ -1,18 +1,16 @@
-import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import {
   BadgeIconClassName,
   BadgeIconIconClassName,
   badgeIconName,
-  BadgeIconSize,
   badgeIconSizes,
-  badgeIconThemes,
-  badgeIconVariants,
+  badgeIconColorThemes,
+  badgeIconColorVariants,
 } from "./BadgeIcon.core";
 import { getTypographyStyles } from "../base/getTypographyStyles";
 
 const containerStyles = component["badge-icon"];
-const textStyles = universal.text.ui;
 
 const createBadgeIconStyles = () => {
   return css`
@@ -48,13 +46,13 @@ const createBadgeIconStyles = () => {
 const getThemeStyles = () => {
   return css`
     ${unsafeCSS(
-      badgeIconThemes
-        .flatMap(theme => {
+      badgeIconColorThemes
+        .flatMap(colorTheme => {
           return badgeIconSizes.flatMap(size =>
-            badgeIconVariants.flatMap(
-              variant =>
-                `&[data-variant="${variant}"][data-theme="${theme}"][data-size="${size}"] { 
-                  --color: var(${unsafeCSS(component["badge-icon"].text.color[theme][variant])});
+            badgeIconColorVariants.flatMap(
+              colorVariant =>
+                `&[data-color-variant="${colorVariant}"][data-color-theme="${colorTheme}"][data-size="${size}"] { 
+                  --color: var(${unsafeCSS(component["badge-icon"].text.color[colorTheme][colorVariant])});
                 }`,
             ),
           );

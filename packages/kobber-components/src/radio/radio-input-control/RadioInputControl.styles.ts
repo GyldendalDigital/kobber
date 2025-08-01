@@ -1,6 +1,6 @@
 import { css, unsafeCSS } from "lit";
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { inputVariants, InputControlClassName } from "../Radio.core";
+import { inputColorThemes, InputControlClassNames } from "../Radio.core";
 
 const indicatorStyles = component._radiobutton.indicator;
 const inputColor = indicatorStyles.border.color;
@@ -15,7 +15,7 @@ const createInputControlStyles = () => {
       --icon-width: var(${unsafeCSS(indicatorStyles.shape.width)});
     }
 
-    .${unsafeCSS("kobber-radio-input-control" satisfies InputControlClassName)} {
+    .${unsafeCSS("kobber-radio-input-control" satisfies InputControlClassNames)} {
       margin-top: 0.3em; /* A top margin emulates label being vertically aligned with idle input control, but not when multiple lines. */
       width: var(--icon-wrapper-width);
       height: var(--icon-wrapper-height);
@@ -25,17 +25,17 @@ const createInputControlStyles = () => {
       border-radius: 50%;
       transition: var(--transition-time) outline;
 
-      ${buttonVariantStyles()}
+      ${buttonColorThemeStyles()}
     }
   `;
 };
 
-const buttonVariantStyles = () => {
-  const variableClasses = inputVariants.flatMap(variant => {
-    const variantSelector = `&[data-variant="${variant}"]`;
-    const borderColor = inputColor[variant];
+const buttonColorThemeStyles = () => {
+  const variableClasses = inputColorThemes.flatMap(colorTheme => {
+    const colorThemeSelector = `&[data-color-theme="${colorTheme}"]`;
+    const borderColor = inputColor[colorTheme];
     return css`
-      ${unsafeCSS(variantSelector)} {
+      ${unsafeCSS(colorThemeSelector)} {
         --control-color: var(${unsafeCSS(borderColor)});
       }
     `;

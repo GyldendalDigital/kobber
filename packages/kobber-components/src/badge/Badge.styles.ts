@@ -1,11 +1,16 @@
-import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { universal as UniversalType } from "@gyldendal/kobber-base/dist/themes/default/tokens.d.ts";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
-import { BadgeClassNames, badgeSizes, badgeThemes, badgeVariants, BadgeVariant, BadgeSize } from "./Badge.core";
+import {
+  BadgeClassNames,
+  badgeSizes,
+  badgeColorThemes,
+  badgeColorVariants,
+  BadgeColorVariant,
+  BadgeSize,
+} from "./Badge.core";
 import { getTypographyStyles } from "../base/getTypographyStyles";
 
 const badge = component.badge;
-const textStyles = universal.text.ui;
 
 const createBadgeStyles = () => {
   return css`
@@ -44,17 +49,17 @@ const createBadgeStyles = () => {
 const getThemeStyles = () => {
   return css`
     ${unsafeCSS(
-      badgeThemes
-        .flatMap(theme => {
-          if (theme === "concrete") {
-            return `&[data-theme="${theme}"] { ${getConcreteThemeMainVariantStyles()} }`;
+      badgeColorThemes
+        .flatMap(colorTheme => {
+          if (colorTheme === "concrete") {
+            return `&[data-color-theme="${colorTheme}"] { ${getConcreteThemeMainVariantStyles()} }`;
           }
           return badgeSizes.flatMap(size =>
-            badgeVariants.flatMap(
-              variant =>
-                `&[data-variant="${variant}"][data-theme="${theme}"][data-size="${size}"] { 
-                  ${getNotConcreteThemeVariantStyles(theme, variant)}
-                  ${getNotConcreteThemeSupplementalVariantStyles(theme, variant, size)}
+            badgeColorVariants.flatMap(
+              colorVariant =>
+                `&[data-color-variant="${colorVariant}"][data-color-theme="${colorTheme}"][data-size="${size}"] { 
+                  ${getNotConcreteThemeVariantStyles(colorTheme, colorVariant)}
+                  ${getNotConcreteThemeSupplementalVariantStyles(colorTheme, colorVariant, size)}
                 }`,
             ),
           );
@@ -73,25 +78,25 @@ const getConcreteThemeMainVariantStyles = () => {
   `;
 };
 
-const getNotConcreteThemeVariantStyles = (theme: "aubergine" | "rettsdata", variant: BadgeVariant) => {
+const getNotConcreteThemeVariantStyles = (colorTheme: "aubergine" | "rettsdata", colorVariant: BadgeColorVariant) => {
   return css`
     ${unsafeCSS(`
-      --background-color: var(${unsafeCSS(badge.background.color[theme][variant])});
-      --color: var(${unsafeCSS(badge.text.color[theme][variant])});
+      --background-color: var(${unsafeCSS(badge.background.color[colorTheme][colorVariant])});
+      --color: var(${unsafeCSS(badge.text.color[colorTheme][colorVariant])});
       `)}
   `;
 };
 
 const getNotConcreteThemeSupplementalVariantStyles = (
-  theme: "aubergine" | "rettsdata",
-  variant: BadgeVariant,
+  colorTheme: "aubergine" | "rettsdata",
+  colorVariant: BadgeColorVariant,
   size: BadgeSize,
 ) => {
-  if (variant === "supplemental") {
+  if (colorVariant === "supplemental") {
     const circleStyles = component.badge["status-circle"];
     return css`
       ${unsafeCSS(`
-        --status-circle-color: var(${unsafeCSS(circleStyles.color[theme].supplemental)});
+        --status-circle-color: var(${unsafeCSS(circleStyles.color[colorTheme].supplemental)});
         --status-circle-width: var(${unsafeCSS(circleStyles.width[size])});
         --status-circle-height: var(${unsafeCSS(circleStyles.height[size])});
       `)}

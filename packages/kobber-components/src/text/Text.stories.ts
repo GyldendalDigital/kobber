@@ -4,7 +4,7 @@ import "./text-wrapper/TextWrapper";
 import "./heading/Heading";
 import "./ingress/Ingress";
 import "./text-link/TextLink";
-import { headingElements, headingSizes, headingVariants } from "./heading/Heading.core";
+import { headingElements, headingSizes, headingColorLevels } from "./heading/Heading.core";
 import "@gyldendal/kobber-icons/web-components";
 import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
@@ -136,15 +136,15 @@ export const Heading: Story = {
                         padding: 1em;"
                 >
                   <em style="grid-area: element-and-size;">${element} - ${size}</em>
-                  ${headingVariants.map(
-                    variant => html`
-                      <p style="grid-area: ${variant};">${variant}</p>
+                  ${headingColorLevels.map(
+                    colorVariant => html`
+                      <p style="grid-area: ${colorVariant};">${colorVariant}</p>
                       <kobber-heading
                         level="${args.h1 ? "h1" : "h2"}"
                         element="${element}"
-                        variant="${variant}"
+                        color-variant="${colorVariant}"
                         size="${size}"
-                        style="grid-area: sample-${variant};"
+                        style="grid-area: sample-${colorVariant};"
                       >
                         ${text(args.text || "Heading")}
                       </kobber-heading>
