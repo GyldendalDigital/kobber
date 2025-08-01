@@ -51,7 +51,6 @@ export class CarouselButton extends Button {
           onClick();
         }}"
         ?disabled=${this.disabled || !enabled}
-        variant=${ifDefined(this.variant)}
       >
         <slot></slot>
         ${children}

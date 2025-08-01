@@ -53,8 +53,8 @@ export const CarouselStory: StoryObj<Args> = {
     ${styles}
     <div class="demo">
       <kobber-carousel>
-        <kobber-carousel-button slot="previous-button" variant="brand-secondary-main"></kobber-carousel-button>
-        <kobber-carousel-button slot="next-button" variant="brand-secondary-main"></kobber-carousel-button>
+        <kobber-carousel-button slot="previous-button"></kobber-carousel-button>
+        <kobber-carousel-button slot="next-button"></kobber-carousel-button>
         ${args.hasManyItems ? exampleRegular : miniExample}
       </kobber-carousel>
     </div>
