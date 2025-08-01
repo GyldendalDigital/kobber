@@ -7,12 +7,12 @@ import { customElement } from "../base/utilities/customElementDecorator";
 
 @customElement("kobber-divider")
 export class Divider extends KobberElement {
-  @property({ type: String })
-  variant: DividerVariant = "main";
+  @property({ type: String, attribute: "color-variant" })
+  colorVariant: DividerVariant = "main";
 
   static styles: CSSResultGroup = [dividerStyles];
 
   render() {
-    return html`<div class="${dividerClassnames().join(" ")}" data-variant="${this.variant}"></div> `;
+    return html`<div class="${dividerClassnames().join(" ")}" data-color-variant="${this.colorVariant}"></div> `;
   }
 }

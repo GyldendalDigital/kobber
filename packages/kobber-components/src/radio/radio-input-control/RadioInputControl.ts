@@ -6,7 +6,7 @@ import { radioInputControlStyles } from "./RadioInputControl.styles";
 import type { CSSResultGroup } from "lit";
 import "../../base/internal/icons";
 import {
-  InputVariant,
+  InputColorTheme,
   radioInputControlPartNameChecked,
   radioInputControlName,
   radioInputControlPartName,
@@ -29,8 +29,8 @@ export class RadioInputControl extends ShoelaceElement implements ControlProps {
 
   @property({ type: Boolean, reflect: true }) checked = false;
 
-  @property()
-  variant: InputVariant = "success";
+  @property({ attribute: "color-theme" })
+  colorTheme: ControlProps["colorTheme"] = "success";
 
   connectedCallback() {
     super.connectedCallback();
@@ -40,7 +40,7 @@ export class RadioInputControl extends ShoelaceElement implements ControlProps {
     return html`
       <div
         class="${radioInputControlName}"
-        data-variant="${this.variant}"
+        data-color-theme="${this.colorTheme}"
         part="${`${radioInputControlPartName} ${this.checked ? radioInputControlPartNameChecked : ""}`}"
       >
         ${this.checked ? html` <icon-form_radio part="checked-icon" /> ` : ""}

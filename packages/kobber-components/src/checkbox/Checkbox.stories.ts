@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import "./checkbox-input/CheckboxInput";
 import "./checkbox-group/CheckboxGroup";
 import "../theme-context-provider/ThemeContext";
-import { InputProps, CheckboxState, checkboxVariants } from "./Checkbox.core";
+import { InputProps, CheckboxState, checkboxColorThemes } from "./Checkbox.core";
 import { init as initComponents } from "../base/init";
 
 initComponents();
@@ -32,7 +32,7 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-export const Variants: Story = {
+export const Themes: Story = {
   render: args => {
     return `
       <style>
@@ -70,10 +70,10 @@ export const Variants: Story = {
       </style>
 
       <ol>
-        ${checkboxVariants
-          .map(variant =>
-            renderVariant({
-              variant,
+        ${checkboxColorThemes
+          .map(colorTheme =>
+            renderColorTheme({
+              colorTheme,
               state: "idle",
               text: "idle",
               showHelpText: args.showHelpText,
@@ -86,17 +86,17 @@ export const Variants: Story = {
   },
 };
 
-// variant = "success" | "aubergine"
-const renderVariant = (args: Args) => {
-  const { variant } = args;
+// colorTheme = "success" | "aubergine"
+const renderColorTheme = (args: Args) => {
+  const { colorTheme } = args;
   const checkedOrNot = [false, true, "indeterminate"];
 
-  if (!variant) {
+  if (!colorTheme) {
     return;
   }
 
   return `<li>
-    ${variant}
+    ${colorTheme}
     <ol class="focusedOrNot">
       ${states
         .map(focusState =>
@@ -138,14 +138,14 @@ const renderButton = (
     last: boolean;
   },
 ) => {
-  const { variant, focus, state, text, checked, last } = args;
+  const { colorTheme, focus, state, text, checked, last } = args;
   const className = `${focus} ${state}`;
   const lastStyles = last ? `grid-column: -1` : "";
   return `
     <kobber-checkbox-input
       style="${lastStyles}"
       class="${className}"
-      variant="${variant}"
+      color-theme="${colorTheme}"
       ${checked ? (checked === "indeterminate" ? "indeterminate" : "checked") : ""}
       ${state === "disabled" ? "disabled" : ""}
     >
@@ -161,7 +161,7 @@ export const Checkbox: Story = {
   render: args => {
     return `
       <kobber-checkbox-input 
-        variant="success" 
+        color-theme="success" 
         ${args.disabled ? "disabled" : ""}
         ${args.checked}
         name="studentoption"

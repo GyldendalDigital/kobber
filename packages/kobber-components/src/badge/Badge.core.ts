@@ -1,4 +1,5 @@
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { objectKeys } from "../base/utilities/objectKeys";
 
 const badgeTokens = component.badge;
 
@@ -15,17 +16,17 @@ export const badgeClassNames = ({ showStatusCircle = false }: BadgeProps): Badge
 };
 
 export type BadgeProps = {
-  theme?: BadgeTheme;
-  variant?: BadgeVariant;
+  colorTheme?: BadgeColorTheme;
+  colorVariant?: BadgeColorVariant;
   size?: BadgeSize;
   showStatusCircle?: boolean;
 };
 
 export type BadgeClassNames = typeof badgeName | "status-circle";
-export type BadgeTheme = keyof typeof badgeTokens.background.color;
-export type BadgeVariant = keyof typeof badgeTokens.background.color.aubergine;
-export type BadgeSize = keyof typeof badgeTokens.gap;
+export type BadgeColorTheme = (typeof badgeColorThemes)[number];
+export type BadgeColorVariant = (typeof badgeColorVariants)[number];
+export type BadgeSize = (typeof badgeSizes)[number];
 
-export const badgeThemes = Object.keys(badgeTokens.background.color) as BadgeTheme[];
-export const badgeVariants = Object.keys(badgeTokens.text.color.aubergine) as BadgeVariant[];
-export const badgeSizes = Object.keys(badgeTokens.gap) as BadgeSize[];
+export const badgeColorThemes = objectKeys(badgeTokens.background.color);
+export const badgeColorVariants = objectKeys(badgeTokens.text.color.aubergine);
+export const badgeSizes = objectKeys(badgeTokens.gap);

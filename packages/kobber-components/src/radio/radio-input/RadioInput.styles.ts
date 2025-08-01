@@ -1,10 +1,10 @@
 import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import {
-  inputVariants,
+  inputColorThemes,
   InputClassNames,
-  InputVariant,
-  InputLabelClassName,
+  InputColorTheme,
+  InputLabelClassNames,
   InputControlPartNames,
 } from "../Radio.core";
 import { getTypographyStyles } from "../../base/getTypographyStyles";
@@ -25,7 +25,7 @@ const createInputStyles = () => {
       cursor: pointer;
       padding: var(${unsafeCSS(inputStyles.padding)});
 
-      ${inputVariantStyles()}
+      ${inputColorThemeStyles()}
       ${inputStates()}
       
       &.${unsafeCSS("input--as-link" satisfies InputClassNames)} {
@@ -33,7 +33,7 @@ const createInputStyles = () => {
       }
     }
 
-    .${unsafeCSS("label" satisfies InputLabelClassName)} {
+    .${unsafeCSS("label" satisfies InputLabelClassNames)} {
       display: block;
       color: var(${unsafeCSS(inputStyles.text.color)});
 
@@ -44,26 +44,26 @@ const createInputStyles = () => {
       font-stretch: var(--typography-font-stretch);
       line-height: var(--typography-line-height);
 
-      ${unsafeCSS(getTypographyStyles("label" satisfies InputLabelClassName, "ui", "medium"))}
+      ${unsafeCSS(getTypographyStyles("label" satisfies InputLabelClassNames, "ui", "medium"))}
     }
   `;
 };
 
-const inputVariantStyles = () => {
-  const variantClasses = inputVariants.flatMap(variant => {
-    const variantSelector = `&[data-variant="${variant}"]`;
+const inputColorThemeStyles = () => {
+  const colorThemeClasses = inputColorThemes.flatMap(colorTheme => {
+    const colorThemeSelector = `&[data-color-theme="${colorTheme}"]`;
     return css`
-      ${unsafeCSS(variantSelector)} {
-        ${inputStatesPerVariant(variant)}
+      ${unsafeCSS(colorThemeSelector)} {
+        ${inputStatesPerColorTheme(colorTheme)}
       }
     `;
   });
 
-  return unsafeCSS(variantClasses.join("\n"));
+  return unsafeCSS(colorThemeClasses.join("\n"));
 };
 
-const inputStatesPerVariant = (variant: InputVariant) => {
-  const outlineColor = inputStyles.indicator.outline.color[variant];
+const inputStatesPerColorTheme = (colorTheme: InputColorTheme) => {
+  const outlineColor = inputStyles.indicator.outline.color[colorTheme];
   return css`
     &.hover,
     :host(:hover) & {

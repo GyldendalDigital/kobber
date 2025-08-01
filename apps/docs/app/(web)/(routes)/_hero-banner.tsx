@@ -19,7 +19,7 @@ export function HeroBanner() {
       <KobberTextWrapper>
         <KobberHeading>
           Velkommen til Kobber
-          <KobberHeading level="div" variant="secondary">
+          <KobberHeading level="div" color-level="secondary">
             <em>Gyldendals designsystem</em>
           </KobberHeading>
         </KobberHeading>

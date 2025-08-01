@@ -1,7 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
 import "./BadgeIcon";
-import { badgeIconName, BadgeIconProps, badgeIconSizes, badgeIconThemes, badgeIconVariants } from "./BadgeIcon.core";
+import {
+  badgeIconName,
+  BadgeIconProps,
+  badgeIconSizes,
+  badgeIconColorThemes,
+  badgeIconColorVariants,
+} from "./BadgeIcon.core";
 import "@gyldendal/kobber-icons/web-components";
 import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
@@ -33,20 +39,20 @@ export const BadgeIcons: StoryObj<Args> = {
       options: badgeIconSizes,
       control: { type: "select" },
     },
-    theme: {
-      options: badgeIconThemes,
+    colorTheme: {
+      options: badgeIconColorThemes,
       control: { type: "select" },
     },
-    variant: {
-      options: badgeIconVariants,
+    colorVariant: {
+      options: badgeIconColorVariants,
       control: { type: "select" },
     },
   },
   args: {
     text: "Badge Icon",
     size: "medium",
-    theme: "aubergine",
-    variant: "main",
+    colorTheme: "aubergine",
+    colorVariant: "main",
   },
   render: args => {
     return html`${renderBadgeIcon(args)}`;
@@ -54,9 +60,9 @@ export const BadgeIcons: StoryObj<Args> = {
 };
 
 const renderBadgeIcon = (args: Args) => {
-  const { size, text, theme, variant } = args;
+  const { size, text, colorTheme, colorVariant } = args;
 
-  return html` <kobber-badge-icon size=${size} theme=${theme} variant=${variant}>
+  return html` <kobber-badge-icon size=${size} color-theme=${colorTheme} color-variant=${colorVariant}>
     <kobber-arrow_right slot="icon"></kobber-arrow_right>
     <span slot="text">${text}</span>
   </kobber-badge-icon>`;

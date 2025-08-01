@@ -9,13 +9,13 @@ import { customElement } from "../base/utilities/customElementDecorator";
 export class BadgeIcon extends LitElement implements BadgeIconProps {
   static styles: CSSResultGroup = [componentStyles, badgeIconStyles];
 
-  @property({ type: String })
-  variant?: BadgeIconProps["variant"] = "main";
+  @property({ attribute: "color-theme" })
+  colorTheme: BadgeIconProps["colorTheme"] = "aubergine";
 
-  @property({ type: String })
-  theme?: BadgeIconProps["theme"] = "nature";
+  @property({ attribute: "color-variant" })
+  colorVariant: BadgeIconProps["colorVariant"] = "main";
 
-  @property({ type: String })
+  @property()
   size?: BadgeIconProps["size"] = "medium";
 
   connectedCallback() {
@@ -25,9 +25,9 @@ export class BadgeIcon extends LitElement implements BadgeIconProps {
   render() {
     return html` <div
       class="${badgeIconName}"
-      data-variant="${this.variant}"
+      data-color-variant="${this.colorVariant}"
+      data-color-theme="${this.colorTheme}"
       data-size="${this.size}"
-      data-theme="${this.theme}"
     >
       <slot name="icon"></slot>
       <slot name="text"></slot>

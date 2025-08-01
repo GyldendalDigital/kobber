@@ -1,6 +1,6 @@
 import { css, unsafeCSS } from "lit";
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { headingName, headingElements, headingSizes, headingVariants } from "./Heading.core";
+import { headingName, headingElements, headingSizes, headingColorLevels } from "./Heading.core";
 import { resetHeading } from "../../base/styles/reset.styles";
 import { getTypographyStyles } from "../../base/getTypographyStyles";
 
@@ -46,13 +46,13 @@ const typographyStyles = () => {
       headingElements
         .flatMap(
           element =>
-            `&[data-element="${element}"] {${headingVariants
+            `&[data-element="${element}"] {${headingColorLevels
               .flatMap(
-                variant =>
-                  `&[data-variant="${variant}"] {${headingSizes
+                colorLevel =>
+                  `&[data-color-level="${colorLevel}"] {${headingSizes
                     .flatMap(size => {
                       return `&[data-size="${size}"] {
-                  ${getTypographyStyles(element, variant, size)}}`;
+                  ${getTypographyStyles(element, colorLevel, size)}}`;
                     })
                     .join("")}}`,
               )
