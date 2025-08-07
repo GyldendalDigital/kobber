@@ -1,5 +1,5 @@
 import { KobberHeading, KobberIngress } from "@gyldendal/kobber-components/react"
-import { CheckCircle, Remove } from "@gyldendal/kobber-icons/react-ssr-safe"
+import { CheckCircle, Remove } from "@gyldendal/kobber-icons/react"
 import {
   PortableText,
   PortableTextTypeComponentProps,

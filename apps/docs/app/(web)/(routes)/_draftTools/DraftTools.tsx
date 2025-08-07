@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { KobberButton } from "@gyldendal/kobber-components/react"
-import { Settings } from "@gyldendal/kobber-icons/react-ssr-safe"
+import { Settings } from "@gyldendal/kobber-icons/react"
 import { VisualEditing } from "next-sanity"
 import { DarkModeTrigger } from "./DarkModeTrigger"
 import styles from "./DraftTools.module.css"
