@@ -1,9 +1,19 @@
-/* eslint  @typescript-eslint/no-explicit-any: 0 */ // --> OFF
 import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { ButtonClassNames, buttonDefaultProps, ButtonProps, buttonThemeProps, buttonUiProps } from "./Button.core";
+import {
+  ButtonClassNames,
+  ButtonColorLevel,
+  ButtonColorTheme,
+  ButtonColorVariant,
+  ButtonType,
+  buttonTypes,
+  buttonColorLevels,
+  buttonColorVariants,
+  buttonColorThemes,
+} from "./Button.core";
 import { resetButton } from "../base/styles/reset.styles";
 import { getTypographyStyles } from "../base/getTypographyStyles";
+import { isValidPropCombination } from "../base/internal/buttonUtils";
 
 /**
  * Shared styles, used in web component, React and CSS module.
@@ -13,7 +23,6 @@ import { getTypographyStyles } from "../base/getTypographyStyles";
  */
 
 const button = component.button;
-const textStyles = universal.text.ui;
 
 const createButtonStyles = () => {
   return css`
@@ -52,11 +61,7 @@ const createButtonStyles = () => {
         height: auto;
       }
 
-      ${createVariableStyles(buttonDefaultProps, "button", prop => prop?.includes("tertiary") === true)}
-
-      ${createVariableStyles(buttonUiProps, "ui-button", _ => false)}
-
-      ${createVariableStyles(buttonThemeProps, "theme-button", prop => prop?.includes("secondary") === true)}
+      ${getTypeThemeVariantLevelStyles()}
 
       &[disabled],
       &.disabled {
@@ -94,58 +99,29 @@ const createButtonStyles = () => {
   `;
 };
 
-const createVariableStyles = (
-  propArray: ButtonProps["variant"][],
-  buttonType: keyof typeof component,
-  isTransparent: (prop: ButtonProps["variant"]) => boolean,
-) => {
-  const variableClasses = propArray.map(prop => {
-    if (!prop) {
-      return;
-    }
-
-    const [color = "", level = "", variant = ""] = prop.split("-");
-
-    const textColor =
-      (component[buttonType] as any).text.color?.[color]?.[level]?.[variant] ??
-      (component[buttonType] as any).text.color?.[color]?.[level];
-    const backgroundColor =
-      (component[buttonType] as any).background?.color?.[color]?.[level]?.[variant] ??
-      (component[buttonType] as any).background?.color?.[color]?.[level];
-    const borderColor = (component[buttonType] as any)?.border?.color?.[color]?.[level]?.[variant];
-
-    if (
-      typeof textColor !== "string" ||
-      (typeof backgroundColor?.fallback !== "string" && typeof borderColor?.active !== "string")
-    ) {
-      console.log("Invalid prop combination", prop);
-      return;
-    }
-
-    const nestedClassNames = `&.${prop satisfies ButtonClassNames}`;
-
-    if (isTransparent(prop)) {
-      return css`
-        ${unsafeCSS(nestedClassNames)} {
-          --color: var(${unsafeCSS(textColor)});
-          ${hoverEffectSecondary()};
-        }
-      `;
-    }
-
-    return css`
-      ${unsafeCSS(nestedClassNames)} {
-        --color: var(${unsafeCSS(textColor)});
-        --background-color: var(${unsafeCSS(backgroundColor.fallback)});
-        ${hoverEffectPrimary(backgroundColor.hover, backgroundColor.fallback)};
-      }
-    `;
-  });
-
-  return unsafeCSS(variableClasses.join("\n"));
+const getTypeThemeVariantLevelStyles = () => {
+  return css`
+    ${unsafeCSS(
+      buttonTypes
+        .flatMap((buttonType: ButtonType) =>
+          buttonColorThemes[buttonType].flatMap((colorTheme: ButtonColorTheme) =>
+            buttonColorVariants[buttonType].flatMap(colorVariant => {
+              if (buttonColorLevels[buttonType].length > 0) {
+                return buttonColorLevels[buttonType].flatMap(colorLevel =>
+                  getColorStyles(buttonType, component, colorTheme, colorVariant, colorLevel),
+                );
+              } else {
+                return getColorStyles(buttonType, component, colorTheme, colorVariant);
+              }
+            }),
+          ),
+        )
+        .join("\n"),
+    )}
+  `;
 };
 
-const hoverEffectPrimary = (hoverColor: string, fallbackColor: string) => css`
+const hover = (hoverColor: string, fallbackColor: string) => css`
   &:hover,
   &.hover {
     &:not([disabled]) {
@@ -155,36 +131,46 @@ const hoverEffectPrimary = (hoverColor: string, fallbackColor: string) => css`
   }
 `;
 
-const hoverEffectSecondary = () => css`
-  &:active,
-  &.active,
-  &:hover,
-  &.hover {
-    &:not([disabled]) {
-      [name="icon"] {
-        position: relative;
-        display: block;
-        &:after {
-          content: "";
-          position: absolute;
-          /* TODO: find out what this value should be */
-          bottom: -0.4rem;
-          border-bottom: var(${unsafeCSS(button.border.width.hover)}) solid;
-          right: var(${unsafeCSS(button.padding.inline)});
-          left: var(${unsafeCSS(button.padding.inline)});
-        }
-      }
-
-      &.${unsafeCSS("kobber-button--icon" satisfies ButtonClassNames)} {
-        &.${unsafeCSS("kobber-button--icon-only" satisfies ButtonClassNames)} {
-          [name="icon"]:after {
-            right: 0;
-            left: 0;
-          }
-        }
-      }
-    }
+const getColorStyles = (
+  buttonType: ButtonType,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  component: any,
+  colorTheme: ButtonColorTheme,
+  colorVariant: ButtonColorVariant,
+  colorLevel?: ButtonColorLevel,
+) => {
+  if (!isValidPropCombination(buttonType, component, colorTheme, colorVariant, colorLevel)) {
+    return;
   }
-`;
+
+  let textColor, backgroundColor, borderColor;
+  if (colorLevel) {
+    textColor =
+      component[buttonType].text.color?.[colorTheme]?.[colorLevel]?.[colorVariant] ??
+      component[buttonType].text.color?.[colorTheme]?.[colorLevel];
+    backgroundColor = component[buttonType].background?.color?.[colorTheme]?.[colorLevel]?.[colorVariant];
+    borderColor = component[buttonType].border?.color?.[colorTheme]?.[colorLevel]?.[colorVariant];
+  } else {
+    textColor = component[buttonType].text.color?.[colorTheme]?.[colorVariant];
+    backgroundColor = component[buttonType].background?.color?.[colorTheme]?.[colorVariant];
+    borderColor = component[buttonType].border?.color?.[colorTheme]?.[colorVariant];
+  }
+
+  let selectorString = `&[data-color-variant="${colorVariant}"][data-color-theme="${colorTheme}"]`;
+  if (colorLevel) {
+    selectorString += `[data-color-level="${colorLevel}"]`;
+  }
+
+  return css`
+    ${unsafeCSS(`
+      ${selectorString} {
+        --color: var(${unsafeCSS(textColor)});
+        --border-color: var(${unsafeCSS(borderColor?.active)});
+        --background-color: var(${unsafeCSS(backgroundColor?.fallback)});
+        ${hover(backgroundColor?.hover, backgroundColor?.fallback)};
+      }
+    `)}
+  `;
+};
 
 export const buttonStyles = createButtonStyles();

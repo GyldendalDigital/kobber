@@ -34,13 +34,25 @@ export const SmallScreenNavTrigger = () => {
   }, [isOpen])
 
   return isOpen ? (
-    <KobberButton variant={"brand-primary-main"} onClick={onClose} aria-label={"Lukk meny"}>
+    <KobberButton
+      color-theme="brand"
+      color-level="primary"
+      color-variant="main"
+      onClick={onClose}
+      aria-label={"Lukk meny"}
+    >
       <div slot="icon">
         <X size={20} />
       </div>
     </KobberButton>
   ) : (
-    <KobberButton variant={"brand-secondary-main"} onClick={onOpen} aria-label={"Åpne meny"}>
+    <KobberButton
+      color-theme="brand"
+      color-level="secondary"
+      color-variant="main"
+      onClick={onOpen}
+      aria-label={"Åpne meny"}
+    >
       <div slot="icon">
         <Menu size={20} />
       </div>

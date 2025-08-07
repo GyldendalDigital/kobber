@@ -1,52 +1,93 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-import { ButtonProps, buttonDefaultProps, buttonName, buttonThemeProps, buttonUiProps } from "./Button.core";
+import {
+  ButtonColorLevel,
+  ButtonProps,
+  ButtonColorTheme,
+  ButtonColorVariant,
+  buttonName,
+  ButtonType,
+  buttonColorVariants,
+  buttonColorLevels,
+  buttonColorThemes,
+} from "./Button.core";
 import "./Button";
 import "../text/heading/Heading";
 import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import "@gyldendal/kobber-icons/web-components";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { isValidPropCombination } from "../base/internal/buttonUtils";
 
 initComponents();
 initIcons();
 
 const states = ["idle", "hover", "active", "focus", "disabled"] as const;
 
-const buttonIconSettings = ["none", "right", "left"] as const;
+const buttonIconSettings = ["none", "left", "right"] as const;
 
+const allButtonColorThemes = [
+  ...buttonColorThemes.button,
+  ...buttonColorThemes["ui-button"],
+  ...buttonColorThemes["theme-button"],
+];
+
+const allButtonColorLevels = [
+  ...buttonColorLevels.button,
+  ...buttonColorLevels["ui-button"],
+  ...buttonColorLevels["theme-button"],
+];
+
+const allButtonColorVariants = [
+  ...buttonColorVariants.button,
+  ...buttonColorVariants["ui-button"],
+  ...buttonColorVariants["theme-button"],
+];
 interface Args extends ButtonProps {
   text?: string;
   state: (typeof states)[number];
   icon: (typeof buttonIconSettings)[number];
   link: boolean;
+  type: ButtonType;
+  colorLevel: ButtonColorLevel;
+  colorTheme: ButtonColorTheme;
+  colorVariant: ButtonColorVariant;
 }
-
-const buttonProps = [...buttonDefaultProps, ...buttonUiProps, ...buttonThemeProps];
 
 const meta: Meta<Args> = {
   component: buttonName,
   argTypes: {
-    variant: {
-      options: buttonProps,
-      control: { type: "radio" },
+    colorTheme: {
+      options: allButtonColorThemes,
+      control: { type: "inline-radio" },
+    },
+    colorLevel: {
+      options: allButtonColorLevels,
+      control: { type: "inline-radio" },
+    },
+    colorVariant: {
+      options: allButtonColorVariants,
+      control: { type: "inline-radio" },
     },
     state: {
       options: states,
-      control: { type: "select" },
+      control: { type: "inline-radio" },
     },
     icon: {
       options: buttonIconSettings,
-      control: { type: "radio" },
+      control: { type: "inline-radio" },
     },
-    link: {
-      control: { type: "boolean" },
-    },
+  },
+  args: {
+    icon: "right",
+    link: false,
   },
   decorators: [
     (Story, context) => `
       <style>
         .wrapper-variant {
-          display: flex;
+          display: grid;
+          grid-template-columns: 8em repeat(15, 1fr);
           padding: 0.5rem 1rem;
           gap: 0.5rem;
           border-radius: 0 0 1rem 1rem;
@@ -69,11 +110,12 @@ export default meta;
 export const Button: StoryObj<Args> = {
   args: {
     text: "Button text",
-    variant: buttonDefaultProps[0],
+    colorTheme: allButtonColorThemes[0],
+    colorLevel: allButtonColorLevels[0],
+    colorVariant: allButtonColorVariants[0],
     state: states[0],
-    icon: buttonIconSettings[1],
-    link: false,
     fullWidth: false,
+    type: "button",
   },
   render: args => renderButton(args),
 };
@@ -85,32 +127,9 @@ export const Buttons: StoryObj<Args> = {
     },
   },
   args: {
-    icon: "right",
-    link: false,
+    type: "button",
   },
-  render: args => {
-    return `
-        Primary
-        ${buttonDefaultProps
-          .filter(variant => variant.includes("primary"))
-          .map(variant => renderVariant({ ...args, variant }))
-          .join("")}
-        
-        <br />
-        Secondary
-        ${buttonDefaultProps
-          .filter(variant => variant.includes("secondary"))
-          .map(variant => renderVariant({ ...args, variant }))
-          .join("")}
-
-        <br />
-        Tertiary
-        ${buttonDefaultProps
-          .filter(variant => variant.includes("tertiary"))
-          .map(variant => renderVariant({ ...args, variant }))
-          .join("")}
-    `;
-  },
+  render: args => renderAllColors(args),
 };
 
 export const UiButtons: StoryObj<Args> = {
@@ -120,14 +139,9 @@ export const UiButtons: StoryObj<Args> = {
     },
   },
   args: {
-    icon: "right",
-    link: false,
+    type: "ui-button",
   },
-  render: args => {
-    return `
-      ${buttonUiProps.map(variant => renderVariant({ ...args, variant })).join("")}
-    `;
-  },
+  render: args => renderAllColors(args),
 };
 
 export const ThemeButtons: StoryObj<Args> = {
@@ -137,48 +151,65 @@ export const ThemeButtons: StoryObj<Args> = {
     },
   },
   args: {
-    icon: "right",
-    link: false,
+    type: "theme-button",
   },
-  render: args => {
-    return `
-        Primary
-        ${buttonThemeProps
-          .filter(variant => variant.includes("primary"))
-          .map(variant => renderVariant({ ...args, variant }))
-          .join("")}
-        
-        <br />
-        Secondary
-        ${buttonThemeProps
-          .filter(variant => variant.includes("secondary"))
-          .map(variant => renderVariant({ ...args, variant }))
-          .join("")}
-    `;
-  },
+  render: args => renderAllColors(args),
 };
 
-const renderVariant = (args: Args) => {
-  return `<div class="wrapper-variant">
-<small title="Variant">${args.variant?.replaceAll("-", "<br />")}</small>
-  ${states.map(state => renderButton({ ...args, state, text: state })).join("")}
-  ${states.map(state => renderButton({ ...args, state, text: state, icon: "none" })).join("")}
-  ${states.map(state => renderButton({ ...args, state })).join("")}
-</div>`;
+const renderAllColors = (args: Args) => {
+  const colorLevels = buttonColorLevels[args.type];
+
+  if (colorLevels.length > 0) {
+    return colorLevels
+      .flatMap(colorLevel => {
+        args = { ...args, colorLevel };
+        return `<div>${colorLevel}
+      ${renderThemeAndVariantColors(args)}</div>`;
+      })
+      .join("");
+  }
+  return renderThemeAndVariantColors(args);
+};
+
+const renderThemeAndVariantColors = (args: Args) => {
+  const colorThemes = buttonColorThemes[args.type];
+  const colorVariants = buttonColorVariants[args.type];
+
+  return colorThemes
+    .flatMap(
+      colorTheme => `
+      ${colorVariants
+        .flatMap(colorVariant => {
+          args = { ...args, colorTheme, colorVariant };
+          if (isValidPropCombination(args.type, component, args.colorTheme, args.colorVariant, args.colorLevel)) {
+            return `<div class="wrapper-variant">${colorTheme} ${colorVariant}
+              ${states.map(state => renderButton({ ...args, state, text: state })).join("")}
+              ${states.map(state => renderButton({ ...args, state, text: state, icon: "none" })).join("")}
+              ${states.map(state => renderButton({ ...args, state })).join("")}
+            </div>`;
+          }
+          return;
+        })
+        .join("")}`,
+    )
+    .join("");
 };
 
 const renderButton = (args: Args) => {
-  const { variant, state, icon, text, link, fullWidth } = args;
+  const { type, colorLevel, colorTheme, colorVariant, state, icon, text, link, fullWidth } = args;
 
   return `
 <kobber-button 
   class="${state}" 
-  variant="${variant}" 
+  color-theme="${colorTheme}" 
+  color-level="${colorLevel}" 
+  color-variant="${colorVariant}" 
+  type="${type ? type : "default"}"
+  aria-label="#"
   ${state === "disabled" ? "disabled" : ""} 
   ${icon === "left" ? "iconFirst" : ""} 
   ${fullWidth ? "fullWidth" : ""} 
-  ${link ? "href='#' target='_blank'" : ""}
-  aria-label="optional button label">
+  ${link ? "href='#' target='_blank'" : ""}>
   ${text ? text : ""}
   ${icon !== "none" ? "<kobber-arrow_right slot='icon' />" : ""}
 </kobber-button>
