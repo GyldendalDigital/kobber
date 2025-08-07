@@ -207,8 +207,8 @@ const renderButton = (args: Args) => {
   type="${type ? type : "default"}"
   aria-label="#"
   ${state === "disabled" ? "disabled" : ""} 
-  ${icon === "left" ? "iconFirst" : ""} 
-  ${fullWidth ? "fullWidth" : ""} 
+  ${icon === "left" ? "icon-first" : ""} 
+  ${fullWidth ? "full-width" : ""} 
   ${link ? "href='#' target='_blank'" : ""}>
   ${text ? text : ""}
   ${icon !== "none" ? "<kobber-arrow_right slot='icon' />" : ""}

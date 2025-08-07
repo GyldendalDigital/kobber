@@ -31,13 +31,13 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
   @property({ attribute: "color-variant" })
   colorVariant: ButtonProps["colorVariant"] = "main";
 
-  @property({ type: Boolean })
+  @property({ type: Boolean, attribute: "icon-first" })
   iconFirst = false;
 
   @property({ type: Boolean })
   disabled = false;
 
-  @property({ type: Boolean })
+  @property({ type: Boolean, attribute: "full-width" })
   fullWidth = false;
 
   /* Use only in special cases (i.e, as Radio Input) */
