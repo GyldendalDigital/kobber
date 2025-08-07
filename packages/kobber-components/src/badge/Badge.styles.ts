@@ -32,7 +32,7 @@ const createBadgeStyles = () => {
       font-stretch: var(--typography-font-stretch);
       line-height: var(--typography-line-height);
 
-      ${getThemeStyles()}
+      ${getThemeSizeVariantStyles()}
       ${getSizeDependantStyles()}
 
       .${unsafeCSS("status-circle" satisfies BadgeClassNames)} {
@@ -46,7 +46,7 @@ const createBadgeStyles = () => {
   `;
 };
 
-const getThemeStyles = () => {
+const getThemeSizeVariantStyles = () => {
   return css`
     ${unsafeCSS(
       badgeColorThemes
@@ -59,7 +59,7 @@ const getThemeStyles = () => {
               colorVariant =>
                 `&[data-color-variant="${colorVariant}"][data-color-theme="${colorTheme}"][data-size="${size}"] { 
                   ${getNotConcreteThemeVariantStyles(colorTheme, colorVariant)}
-                  ${getNotConcreteThemeSupplementalVariantStyles(colorTheme, colorVariant, size)}
+                  ${getStatusCircleStyles(colorTheme, colorVariant, size)}
                 }`,
             ),
           );
@@ -87,7 +87,7 @@ const getNotConcreteThemeVariantStyles = (colorTheme: "aubergine" | "rettsdata",
   `;
 };
 
-const getNotConcreteThemeSupplementalVariantStyles = (
+const getStatusCircleStyles = (
   colorTheme: "aubergine" | "rettsdata",
   colorVariant: BadgeColorVariant,
   size: BadgeSize,

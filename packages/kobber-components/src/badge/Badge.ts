@@ -22,7 +22,7 @@ export class Badge extends LitElement implements BadgeProps {
   @property()
   size?: BadgeProps["size"] = "medium";
 
-  @property()
+  @property({ type: Boolean, attribute: "show-status-circle" })
   showStatusCircle?: BadgeProps["showStatusCircle"];
 
   connectedCallback() {
