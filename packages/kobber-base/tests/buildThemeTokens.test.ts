@@ -5,7 +5,7 @@ import { buildThemeTokens } from "../src/styleDictionary/buildThemeTokens";
 
 /** Assert various steps of token build */
 export const buildThemeTokensTest = async (tokensFromFigma: any, themeConfig: ThemeConfig) => {
-  const { allTokens, styleDictionaryConfig } = await buildThemeTokens(tokensFromFigma, themeConfig, false);
+  const { allTokens, styleDictionaryConfig } = await buildThemeTokens(tokensFromFigma, themeConfig);
 
   assertSanitized(allTokens, themeConfig);
 
