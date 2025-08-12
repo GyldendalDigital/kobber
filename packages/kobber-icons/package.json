@@ -10,7 +10,8 @@
     "./react": "./dist/react/index.js",
     "./react-ssr-safe": "./dist/react-ssr-safe/index.js",
     "./web-components": "./dist/web-components/index.js",
-    "./symbols": "./dist/symbols/*.*",
+    "./symbols/*.svg": "./dist/symbols/*.svg",
+    "./symbols/*.ts": "./dist/symbols/*.ts",
     "./init": "./dist/init/index.js"
   },
   "scripts": {
