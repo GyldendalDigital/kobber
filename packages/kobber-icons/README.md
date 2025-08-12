@@ -87,7 +87,7 @@ Icons take the `size` prop for sizing (in react: `iconSize`).
 Example in React:
 
 ```jsx
-import { User } from "@gyldendal/kobber-icons/dist/react-ssr-safe";
+import { User } from "@gyldendal/kobber-icons/dist/react";
 <User iconSize="large" />;
 ```
 

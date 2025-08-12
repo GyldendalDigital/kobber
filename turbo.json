@@ -20,7 +20,6 @@
         "out/**",
         ".next/**",
         "react/**",
-        "react-ssr-safe/**",
         "web-components/**",
         "chunks/**",
         "src/icon/icons/**",

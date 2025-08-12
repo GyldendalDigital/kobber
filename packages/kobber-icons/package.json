@@ -8,7 +8,6 @@
   ],
   "exports": {
     "./react": "./dist/react/index.js",
-    "./react-ssr-safe": "./dist/react-ssr-safe/index.js",
     "./web-components": "./dist/web-components/index.js",
     "./symbols/*.svg": "./dist/symbols/*.svg",
     "./symbols/*.ts": "./dist/symbols/*.ts",
@@ -21,8 +20,8 @@
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
     "test": "node ./src/icons.test.js",
-    "svg": "rm -rf dist src/tmp && svg-sprite --config ./svg-scripts/svg-sprite-config.json src/assets/svgs/**/*.svg && node ./svg-scripts/make-react-ssr-safe-component-prescript.js",
-    "build": "yarn svg && npx sjc gen && tsup"
+    "svg": "rm -rf dist src/tmp && svg-sprite --config ./svg-scripts/svg-sprite-config.json src/assets/svgs/**/*.svg",
+    "build": "yarn svg && tsup"
   },
   "dependencies": {
     "@gyldendal/kobber-base": "0.5.0",
@@ -52,7 +51,6 @@
     "stylelint": "^16.0.2",
     "stylelint-config-standard": "^35.0.0",
     "stylelint-order": "^6.0.4",
-    "svg-jsx-converter": "^0.2.1",
     "svg-sprite": "^2.0.4",
     "tsup": "^8.4.0",
     "typedoc": "^0.27.6",
