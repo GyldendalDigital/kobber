@@ -17,7 +17,7 @@ import { changeCaseTo } from "@gyldendal/kobber-base/utilities/index.js";
 const componentPrefix = "kobber-";
 const svgsListsFile = `dist/symbols/kobber-icons-lists.ts`;
 const iconDirectory = "src/icon";
-const svgsTypesFile = `${iconDirectory}/types/kobber-icons-types.ts`;
+const svgsTypesFile = `dist/symbols/kobber-icons-types.ts`;
 const iconsDirectory = paths.icons;
 const webComponentsExportsListFile = "src/index.web-components.ts";
 const reactExportsListFile = "src/index.react.tsx";

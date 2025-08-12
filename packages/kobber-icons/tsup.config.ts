@@ -36,7 +36,6 @@ export default defineConfig(() => ({
     [`${reactDirectory}/index`]: "src/index.react.tsx",
     [`${reactSsrSafeDirectory}/index`]: "src/index.react-ssr-safe.tsx",
     [`${webComponentsDirectory}/index`]: "src/index.web-components.ts",
-    [`${symbolsDirectory}/kobber-icons-types`]: `${iconDirectory}/types/kobber-icons-types.ts`,
   },
   format: ["esm"],
   dts: false,
