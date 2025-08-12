@@ -9,6 +9,7 @@ import {
   buttonColorVariants,
   buttonColorLevels,
   buttonColorThemes,
+  buttonTypes,
 } from "./Button.core";
 import "./Button";
 import "../text/heading/Heading";
@@ -74,6 +75,10 @@ const meta: Meta<Args> = {
     },
     state: {
       options: states,
+      control: { type: "inline-radio" },
+    },
+    type: {
+      options: buttonTypes,
       control: { type: "inline-radio" },
     },
     iconPosition: {
@@ -212,7 +217,7 @@ const renderButton = (args: Args) => {
   color-theme="${colorTheme}" 
   color-level="${colorLevel}" 
   color-variant="${colorVariant}" 
-  type="${type ? type : "default"}"
+  type="${type ? type : "button"}"
   aria-label="#"
   ${state === "disabled" ? "disabled" : ""} 
   ${iconPosition === "left" ? "icon-first" : ""} 
