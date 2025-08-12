@@ -16,6 +16,8 @@ import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import "@gyldendal/kobber-icons/web-components";
+import { IconType } from "@gyldendal/kobber-icons/symbols/kobber-icons-types.ts";
+import { iconsList } from "@gyldendal/kobber-icons/symbols/kobber-icons-lists.ts";
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { isValidPropCombination } from "../base/internal/buttonUtils";
 
@@ -46,7 +48,8 @@ const allButtonColorVariants = [
 interface Args extends ButtonProps {
   text?: string;
   state: (typeof states)[number];
-  icon: (typeof buttonIconSettings)[number];
+  icon?: IconType;
+  iconPosition: (typeof buttonIconSettings)[number];
   link: boolean;
   type: ButtonType;
   colorLevel: ButtonColorLevel;
@@ -73,14 +76,19 @@ const meta: Meta<Args> = {
       options: states,
       control: { type: "inline-radio" },
     },
-    icon: {
+    iconPosition: {
       options: buttonIconSettings,
       control: { type: "inline-radio" },
     },
+    icon: {
+      options: iconsList,
+      control: { type: "select" },
+    },
   },
   args: {
-    icon: "right",
+    iconPosition: "right",
     link: false,
+    icon: "kobber-arrow_right",
   },
   decorators: [
     (Story, context) => `
@@ -184,7 +192,7 @@ const renderThemeAndVariantColors = (args: Args) => {
           if (isValidPropCombination(args.type, component, args.colorTheme, args.colorVariant, args.colorLevel)) {
             return `<div class="wrapper-variant">${colorTheme} ${colorVariant}
               ${states.map(state => renderButton({ ...args, state, text: state })).join("")}
-              ${states.map(state => renderButton({ ...args, state, text: state, icon: "none" })).join("")}
+              ${states.map(state => renderButton({ ...args, state, text: state, iconPosition: "none" })).join("")}
               ${states.map(state => renderButton({ ...args, state })).join("")}
             </div>`;
           }
@@ -196,7 +204,7 @@ const renderThemeAndVariantColors = (args: Args) => {
 };
 
 const renderButton = (args: Args) => {
-  const { type, colorLevel, colorTheme, colorVariant, state, icon, text, link, fullWidth } = args;
+  const { type, colorLevel, colorTheme, colorVariant, state, icon, iconPosition, text, link, fullWidth } = args;
 
   return `
 <kobber-button 
@@ -207,11 +215,11 @@ const renderButton = (args: Args) => {
   type="${type ? type : "default"}"
   aria-label="#"
   ${state === "disabled" ? "disabled" : ""} 
-  ${icon === "left" ? "icon-first" : ""} 
+  ${iconPosition === "left" ? "icon-first" : ""} 
   ${fullWidth ? "full-width" : ""} 
   ${link ? "href='#' target='_blank'" : ""}>
   ${text ? text : ""}
-  ${icon !== "none" ? "<kobber-arrow_right slot='icon' />" : ""}
+  ${icon !== undefined && iconPosition !== "none" ? `<${icon} slot='icon' />` : ""}
 </kobber-button>
 `;
 };
