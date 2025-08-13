@@ -82,10 +82,6 @@ const createButtonStyles = () => {
         --icon-width: var(${unsafeCSS(button.icon.size)});
         --icon-height: var(${unsafeCSS(button.icon.size)});
 
-        &.${unsafeCSS("kobber-button--icon-left" satisfies ButtonClassNames)} {
-          flex-direction: row-reverse;
-        }
-
         &.${unsafeCSS("kobber-button--icon-only" satisfies ButtonClassNames)} {
           aspect-ratio: 1 / 1;
           padding: 0;
@@ -156,7 +152,7 @@ const getColorStyles = (
     borderColor = component[buttonType].border?.color?.[colorTheme]?.[colorVariant];
   }
 
-  let selectorString = `&[data-color-variant="${colorVariant}"][data-color-theme="${colorTheme}"]`;
+  let selectorString = `&[data-button-type="${buttonType}"][data-color-variant="${colorVariant}"][data-color-theme="${colorTheme}"]`;
   if (colorLevel) {
     selectorString += `[data-color-level="${colorLevel}"]`;
   }

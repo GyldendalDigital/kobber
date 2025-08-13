@@ -31,13 +31,13 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
   @property({ attribute: "color-variant" })
   colorVariant: ButtonProps["colorVariant"] = "main";
 
-  @property({ type: Boolean })
+  @property({ type: Boolean, attribute: "icon-first" })
   iconFirst = false;
 
   @property({ type: Boolean })
   disabled = false;
 
-  @property({ type: Boolean })
+  @property({ type: Boolean, attribute: "full-width" })
   fullWidth = false;
 
   /* Use only in special cases (i.e, as Radio Input) */
@@ -96,8 +96,10 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
         aria-label=${ifDefined(this._label)}
         tabindex=${this.disabled || this.usedInOtherInteractive ? "-1" : "0"}
       >
+      ${this.iconFirst ? html`<slot name="icon"></slot>` : ""}
         <slot></slot>
-        <slot name="icon"></slot>
+      ${!this.iconFirst ? html`<slot name="icon"></slot>` : ""}
+
       </${tag}>
     `;
   }
