@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { KobberLink, KobberTextLink } from "@gyldendal/kobber-components/react"
-import { ExternalLinkArrow } from "@gyldendal/kobber-icons/react-ssr-safe"
+import { ExternalLinkArrow } from "@gyldendal/kobber-icons/react"
 import { cn } from "@/lib/utils"
 
 type Props = {

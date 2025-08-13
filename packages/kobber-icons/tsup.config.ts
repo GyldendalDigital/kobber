@@ -9,7 +9,6 @@ const svgSpriteFile = `${outDir}/${symbolsDirectory}/kobber-icons.svg`;
 const assets = "assets";
 const chunks = "chunks";
 const reactDirectory = "react";
-const reactSsrSafeDirectory = "react-ssr-safe";
 const webComponentsDirectory = "web-components";
 const iconDirectory = "src/icon";
 const iconsDirectory = paths.icons;
@@ -34,9 +33,7 @@ export default defineConfig(() => ({
   entry: {
     ["init/index"]: "src/base/init.ts",
     [`${reactDirectory}/index`]: "src/index.react.tsx",
-    [`${reactSsrSafeDirectory}/index`]: "src/index.react-ssr-safe.tsx",
     [`${webComponentsDirectory}/index`]: "src/index.web-components.ts",
-    [`${symbolsDirectory}/kobber-icons-types`]: `${iconDirectory}/types/kobber-icons-types.ts`,
   },
   format: ["esm"],
   dts: false,

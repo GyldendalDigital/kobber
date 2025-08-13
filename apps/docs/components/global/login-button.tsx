@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation"
 import { KobberButton } from "@gyldendal/kobber-components/react"
-import { Login } from "@gyldendal/kobber-icons/react-ssr-safe"
+import { Login } from "@gyldendal/kobber-icons/react"
 import { signOut, useSession } from "next-auth/react"
 import { ssoSignIn } from "@/lib/use-sso-sign-in"
 import styles from "./login-button.module.css"
