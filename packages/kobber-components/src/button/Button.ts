@@ -96,8 +96,10 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
         aria-label=${ifDefined(this._label)}
         tabindex=${this.disabled || this.usedInOtherInteractive ? "-1" : "0"}
       >
+      ${this.iconFirst ? html`<slot name="icon"></slot>` : ""}
         <slot></slot>
-        <slot name="icon"></slot>
+      ${!this.iconFirst ? html`<slot name="icon"></slot>` : ""}
+
       </${tag}>
     `;
   }
