@@ -82,10 +82,6 @@ const createButtonStyles = () => {
         --icon-width: var(${unsafeCSS(button.icon.size)});
         --icon-height: var(${unsafeCSS(button.icon.size)});
 
-        &.${unsafeCSS("kobber-button--icon-left" satisfies ButtonClassNames)} {
-          flex-direction: row-reverse;
-        }
-
         &.${unsafeCSS("kobber-button--icon-only" satisfies ButtonClassNames)} {
           aspect-ratio: 1 / 1;
           padding: 0;
