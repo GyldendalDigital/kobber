@@ -13,7 +13,7 @@ import { isExternalLink } from "@gyldendal/kobber-base/utilities/index.js";
 export class Link extends KobberElementWithIcon implements LinkProps {
   static styles: CSSResultGroup = [componentStyles, linkStyles];
 
-  @property({ type: Boolean })
+  @property({ type: Boolean, attribute: "icon-first" })
   iconFirst = false;
 
   @property()
@@ -43,8 +43,9 @@ export class Link extends KobberElementWithIcon implements LinkProps {
       }).join(" ")} ${this.className}" 
         href=${ifDefined(!isDisabled ? this.href : undefined)}
         target=${ifDefined(target)}>
+        ${this.iconFirst ? html`<slot name="icon"></slot>` : ""}
         <slot></slot>
-        <slot name="icon"></slot>
+        ${!this.iconFirst ? html`<slot name="icon"></slot>` : ""}
       </${tag}>
     `;
   }
