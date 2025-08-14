@@ -81,10 +81,6 @@ const createStyles = () => {
           padding: 0;
         }
       }
-
-      svg {
-        display: inline;
-      }
     }
 
     button.${unsafeCSS(linkName)} {
