@@ -131,7 +131,9 @@ export const Heading: Story = {
                         grid-template-areas: 
                           'element-and-size .'
                           'primary sample-primary'
-                          'secondary sample-secondary';
+                          'secondary sample-secondary'
+                          'reading sample-reading'
+                          'ui sample-ui';
                         border: 1px solid;
                         padding: 1em;"
                 >
