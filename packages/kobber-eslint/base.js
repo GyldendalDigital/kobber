@@ -1,6 +1,7 @@
 import js from "@eslint/js";
 import eslintPluginImportX from "eslint-plugin-import-x";
 import unusedImports from "eslint-plugin-unused-imports";
+import lit from "eslint-plugin-lit";
 
 /**
  * Javascript best practice
@@ -10,6 +11,7 @@ import unusedImports from "eslint-plugin-unused-imports";
 export const kobberEslintBaseConfig = [
   js.configs.recommended,
   eslintPluginImportX.flatConfigs.recommended,
+  lit.configs["flat/recommended"],
   {
     files: ["**/*.{js,mjs,cjs}"],
     languageOptions: {
