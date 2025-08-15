@@ -12,3 +12,7 @@ export const dividerClassnames = (): DividerClassNames[] => {
 };
 
 export const dividerVariants = Object.keys(dividerTokens.background.color) as DividerVariant[];
+
+export type DividerProps = {
+  colorVariant?: DividerVariant;
+};

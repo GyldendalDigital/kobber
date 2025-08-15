@@ -1,14 +1,14 @@
 import { CSSResultGroup, html } from "lit";
 import { property } from "lit/decorators.js";
-import { dividerClassnames, DividerVariant } from "./Divider.core";
+import { dividerClassnames, DividerProps, DividerVariant } from "./Divider.core";
 import { dividerStyles } from "./Divider.styles";
 import KobberElement from "../base/kobber-element";
 import { customElement } from "../base/utilities/customElementDecorator";
 
 @customElement("kobber-divider")
-export class Divider extends KobberElement {
+export class Divider extends KobberElement implements DividerProps {
   @property({ type: String, attribute: "color-variant" })
-  colorVariant: DividerVariant = "main";
+  colorVariant: DividerProps["colorVariant"] = "main";
 
   static styles: CSSResultGroup = [dividerStyles];
 
