@@ -29,6 +29,5 @@ export const isValidPropCombination = (
   ) {
     return true;
   }
-  console.log("Invalid prop combination");
   return false;
 };
