@@ -25,7 +25,9 @@ export const listWebComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
 };
 
 export const listReactComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
-  const reactPreamble = `import { createComponent } from "@lit/react";
+  const reactPreamble = `"use client"
+
+import { createComponent } from "@lit/react";
 import * as React from "react";
 `;
 

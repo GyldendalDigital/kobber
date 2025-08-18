@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect, useState } from "react"
 import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react"
 import { Settings2Icon } from "lucide-react"
