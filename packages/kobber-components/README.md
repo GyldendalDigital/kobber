@@ -95,6 +95,11 @@ import { init } from "@gyldendal/kobber-components/init";
 init({ autoRegisterWebComponents: true });
 ```
 
+If using kobber-components in concert with kobber-icons, both components and icons should be registered at the same time. If kobber-icons are registered at a later time, kobber-components will not be able to set the components' classes that are needed to present icons within them.
+
+> [!TIP]
+> Check [icons readme](./packages/kobber-icons/README.md) on registering icons, and more options.
+
 ## CSS
 
 We recommend using [normalize.css](https://github.com/necolas/normalize.css/) or something similar to normalize browser styles.

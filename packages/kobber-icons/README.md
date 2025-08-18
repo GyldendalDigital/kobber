@@ -28,11 +28,13 @@ Icons can be imported as react components, as web components, or as an SVG sprit
 #### As a react component
 
 ```jsx
-import { IconArrowRight } from "@gyldendal/kobber-icons/react";
+import { ArrowRight } from "@gyldendal/kobber-icons/react";
 const App = () => <ArrowRight />;
 ```
 
 #### As a custom element
+
+Custom element icon names are prefixed with kobber-, to ensure [valid naming](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name).
 
 ```html
 <script>
@@ -57,7 +59,10 @@ import { init } from "@gyldendal/kobber-icons/init";
 init({ autoRegisterWebComponents: true });
 ```
 
-Custom element icon names are prefixed with kobber-, to ensure [valid naming](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name).
+If using kobber-components in concert with kobber-icons, both components and icons should be registered at the same time. If kobber-icons are registered at a later time, kobber-components will not be able to set the components' classes that are needed to present icons within them.
+
+> [!TIP]
+> Check [icons readme](./packages/kobber-icons/README.md) on registering icons, and more options.
 
 #### Use sprite directly
 
@@ -82,13 +87,13 @@ Icons have `fill=currentcolor`. This means the icon components' color will inher
 
 #### Size
 
-Icons take the `size` prop for sizing (in react: `iconSize`).
+Icons take the `size` prop for sizing.
 
-Example in React:
+Example:
 
 ```jsx
-import { User } from "@gyldendal/kobber-icons/dist/react";
-<User iconSize="large" />;
+import { User } from "@gyldendal/kobber-icons/dist/web-components";
+<User size="large" />;
 ```
 
 ### Other styling
