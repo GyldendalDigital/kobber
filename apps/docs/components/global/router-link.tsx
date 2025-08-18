@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { KobberLink, KobberTextLink } from "@gyldendal/kobber-components/react"
+import { Link as KobberLink, TextLink } from "@gyldendal/kobber-components/react"
 import { ExternalLinkArrow } from "@gyldendal/kobber-icons/react"
 import { cn } from "@/lib/utils"
 
@@ -38,9 +38,9 @@ export const RouterTextLink = (props: Props) => {
   const pathname = usePathname()
   return (
     <Link href={href} passHref>
-      <KobberTextLink disabled={disabled} className={cn({ active: pathname === href })} href={href}>
+      <TextLink disabled={disabled} className={cn({ active: pathname === href })} href={href}>
         {children}
-      </KobberTextLink>
+      </TextLink>
     </Link>
   )
 }

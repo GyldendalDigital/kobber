@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { usePathname } from "next/navigation"
 import { QueryNavbarSmallScreenDataResult } from "@/sanity/sanity.types"
-import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react"
+import { Heading } from "@gyldendal/kobber-components/react"
 import { Menu, X } from "lucide-react"
 import { createPortal } from "react-dom"
 import { cn } from "@/lib/utils"
@@ -31,9 +31,9 @@ export const SmallScreenNav = (props: Nav) => {
       <ul className={styles["small-screen-nav-list"]}>
         {children?.map((child) => (
           <li key={child.slug} className={styles["small-screen-nav-list-item"]}>
-            <KobberHeading level="span" element="title" size="medium">
+            <Heading level="span" element="title" size="medium">
               {child.title}
-            </KobberHeading>
+            </Heading>
             <ul className={styles["small-screen-nav-link-list-inner"]}>
               {child.children?.map((child) => (
                 <li key={child.slug} className={styles["small-screen-nav-link-list-inner-item"]}>
