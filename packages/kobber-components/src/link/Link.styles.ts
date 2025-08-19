@@ -76,18 +76,10 @@ const createStyles = () => {
         --icon-width: var(${unsafeCSS(link.icon.size)});
         --icon-height: var(${unsafeCSS(link.icon.size)});
 
-        &.${unsafeCSS("kobber-link--icon-left" satisfies LinkClassNames)} {
-          flex-direction: row-reverse;
-        }
-
         &.${unsafeCSS("kobber-link--icon-only" satisfies LinkClassNames)} {
           aspect-ratio: 1 / 1;
           padding: 0;
         }
-      }
-
-      svg {
-        display: inline;
       }
     }
 
