@@ -1,5 +1,30 @@
 # @gyldendal/kobber-stylelint
 
+## 0.6.0
+
+### Minor Changes
+
+Breaking changes:
+
+- Remove react-SSR-safe icons. React consumers should now import icons from @gyødendal/kobber-icons/react.
+- Remove prefix "Kobber" from react components. The readme examples show component usage without these prefixes, and kobber-icons don't have them. The prefix is redundant in react components, but must be present in web components, as custom elemens must contain a dash in the element name.
+- Give color attributes more semantic names: color-theme, color-level and color-variant, which is easier to read and more consistent across components. This includes splitting the complex Button component variant into simpler attributes, and avoids using wrong attribute names (as in Heading, where variant was really (color) level, but that crashed with Heading level).
+
+Features:
+
+- Add "use client" to kobber-icons. This avoids that consumers must write "use client" in every file importing kobber-icons.
+- Add text truncating with ellipsis to Button. Since buttons have a fixed height, and will never be wider than their containers, they need this to handle more text content that that space allows.
+
+Bug fixes:
+
+- When Buttons have icons to the left, we now avoid reversing all button flexbox content. Reversing content does not yield correct result when the button text contains html elements (like em).
+
+Chores:
+
+- Remove tokens that we should not use. The number of reported unused tokens is reduced from 801 to 84. To easily get typography styles, the utility getTypographyStyles is added, to make CSS Custom Properties for all typography styles for a component.
+- Components now internally use more data-attributes as css selectors, rather than less semantic class names.
+- Upgrade storybook.
+
 ## 0.5.0
 
 ### Minor Changes
