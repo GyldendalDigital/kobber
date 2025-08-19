@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react"
+import { Button, Heading } from "@gyldendal/kobber-components/react"
 import { Settings2Icon } from "lucide-react"
 import styles from "./DraftTools.module.css"
 
@@ -13,7 +13,7 @@ export const TokenMixer = () => {
   return (
     <>
       {show && <TokenOverlay onClose={() => setShow(false)} />}
-      <KobberButton
+      <Button
         color-theme="brand"
         color-level="primary"
         color-variant="main"
@@ -23,7 +23,7 @@ export const TokenMixer = () => {
         <div slot="icon">
           <Settings2Icon />
         </div>
-      </KobberButton>
+      </Button>
     </>
   )
 }
@@ -63,9 +63,9 @@ const TokenOverlay = ({ onClose }: { onClose: () => void }) => {
         {localCss || defaultCss}
       </style>
       <div className={styles["token-mixer-wrapper"]}>
-        <KobberHeading element="heading" size="small">
+        <Heading element="heading" size="small">
           Token mixer
-        </KobberHeading>
+        </Heading>
         <small>
           Endre design tokens live på siden. Trykk save for å huske innstillingene når du lukker
           modalen.
@@ -76,30 +76,25 @@ const TokenOverlay = ({ onClose }: { onClose: () => void }) => {
           onChange={(e) => setLocalCss(e.target.value)}
         />
         <div className={styles["token-mixer-controls"]}>
-          <KobberButton
+          <Button
             color-theme="brand"
             color-level="primary"
             color-variant="main"
             onClick={handleSaveCss}
           >
             Save
-          </KobberButton>
-          <KobberButton
+          </Button>
+          <Button
             color-theme="brand"
             color-level="secondary"
             color-variant="main"
             onClick={handleResetCss}
           >
             Reset
-          </KobberButton>
-          <KobberButton
-            color-theme="brand"
-            color-level="tertiary"
-            color-variant="main"
-            onClick={onClose}
-          >
+          </Button>
+          <Button color-theme="brand" color-level="tertiary" color-variant="main" onClick={onClose}>
             Close
-          </KobberButton>
+          </Button>
         </div>
       </div>
     </>

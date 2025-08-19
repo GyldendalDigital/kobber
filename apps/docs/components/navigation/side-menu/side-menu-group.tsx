@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { KobberAccordion } from "@gyldendal/kobber-components/react"
+import { Accordion } from "@gyldendal/kobber-components/react"
 import { toUpperCase } from "@/lib/utils"
 import { SideMenuList } from "./side-menu-list"
 import styles from "./side-menu.module.css"
@@ -22,13 +22,13 @@ export const SideMenuGroup = (props: Props) => {
 
   return (
     <div className={styles["group-divider"]}>
-      <KobberAccordion
+      <Accordion
         title={toUpperCase(title)}
         expanded={expanded}
         onToggle={() => setExpanded(!expanded)}
       >
         <SideMenuList items={items} slug={slug} />
-      </KobberAccordion>
+      </Accordion>
     </div>
   )
 }

@@ -15,9 +15,9 @@
     <script type="text/babel" data-type="module" data-presets="react">
       import React from "react";
       import { createRoot } from "react-dom/client";
-      import { KobberButton } from "@gyldendal/kobber-components/react";
+      import { Button } from "@gyldendal/kobber-components/react";
 
-      const App = () => <KobberButton onClick={() => alert("Hello Kobber!")}>Kobber button</KobberButton>;
+      const App = () => <Button onClick={() => alert("Hello Kobber!")}>Kobber button</Button>;
 
       createRoot(document.getElementById("app")).render(<App />);
     </script>
