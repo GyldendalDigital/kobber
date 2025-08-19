@@ -35,6 +35,7 @@ const createButtonStyles = () => {
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      max-width: 100%;
       border: 1px solid transparent;
       color: var(--color);
       background-color: var(--background-color);
@@ -90,6 +91,13 @@ const createButtonStyles = () => {
 
       &.${unsafeCSS("kobber-button--link" satisfies ButtonClassNames)} {
         text-decoration: none;
+      }
+
+      &:not(.${unsafeCSS("kobber-button--icon-only" satisfies ButtonClassNames)}) slot:not([name]) {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        display: block;
       }
     }
   `;

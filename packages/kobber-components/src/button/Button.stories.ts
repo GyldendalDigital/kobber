@@ -89,6 +89,9 @@ const meta: Meta<Args> = {
       options: iconsList,
       control: { type: "select" },
     },
+    text: {
+      name: "Text (do not leave angle brackets open)",
+    },
   },
   args: {
     iconPosition: "right",
