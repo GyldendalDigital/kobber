@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { Button } from "@gyldendal/kobber-components/react"
 import { Moon, Sun } from "lucide-react"
