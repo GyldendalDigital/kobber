@@ -48,8 +48,8 @@ Components can be imported as React components or as web components.
 As a React component:
 
 ```jsx
-import { ProgressBar } from "@gyldendal/kobber-components/react";
-const App = () => <ProgressBar />;
+import { Button } from "@gyldendal/kobber-components/react";
+const App = () => <Button />;
 ```
 
 For SSR applications, to avoid `HTMLElement is not defined` errors, using the [@lit-labs/ssr-dom-shim](https://www.npmjs.com/package/@lit-labs/ssr-dom-shim) package is required.
@@ -68,15 +68,15 @@ As a custom element:
 <script>
   import "@gyldendal/kobber-components/web-components";
 </script>
-<kobber-progress-bar />
+<kobber-button />
 ```
 
 As a web component:
 
 ```JavaScript
-import { ProgressBar } from "@gyldendal/kobber-components/web-components";
-const progressBar = new ProgressBar();
-document.body.appendChild(progressBar);
+import { Button } from "@gyldendal/kobber-components/web-components";
+const button = new Button();
+document.body.appendChild(button);
 ```
 
 ## Auto-registering web components
@@ -99,10 +99,6 @@ If using kobber-components in concert with kobber-icons, both components and ico
 
 > [!TIP]
 > Check [icons readme](./packages/kobber-icons/README.md) on registering icons, and more options.
-
-## CSS
-
-We recommend using [normalize.css](https://github.com/necolas/normalize.css/) or something similar to normalize browser styles.
 
 ## Development
 
