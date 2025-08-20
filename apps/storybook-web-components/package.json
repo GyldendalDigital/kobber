@@ -6,6 +6,7 @@
   "private": true,
   "devDependencies": {
     "@gyldendal/kobber-base": "*",
+    "@types/react": "^19.1.0",
     "lit-html": "^3.2.1"
   },
   "scripts": {
