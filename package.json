@@ -35,7 +35,8 @@
     "stylelint-config-standard": "^35.0.0",
     "stylelint-order": "^6.0.4",
     "turbo": "^2.5.4",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vite": "^7.1.0"
   },
   "packageManager": "yarn@4.9.1",
   "engines": {
