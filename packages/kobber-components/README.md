@@ -171,6 +171,18 @@ The tsup build script uses these conventions to build lists of all components. T
 
 Most components should be defined as `extends LitElement` (or `extends ShoelaceElement`). Extending `StyledLitElement` is only for components that need to be able to be styled in several ways.
 
+### Style components
+
+Styling across the shadow dom barrier is restricted. To circumvent this, we use attributes that can be made into a components' internal styles.
+
+#### Prefer data-attributes over class names
+
+Use data-attributes as selectors for components' styling. These are more semantic and readable than class names.
+
+##### Background on CSS selectors
+
+By using class names, one often ends up with [loose class names](https://csswizardry.com/2012/11/code-smells-in-css/#loose-class-names) that do not make sense without first knowing the whole component code. To cope with this, it is possible to use class name conventions like [BEM](https://bem-cheat-sheet.9elements.com/) to add semantics to CSS Selectors. With BEM, you often end up with multiple class names that are long strings, reducing readability. Using data-attributes solves this problem more elegantly.
+
 ### Publish components
 
 After creating a new component, do the following steps to expose it to the world:
