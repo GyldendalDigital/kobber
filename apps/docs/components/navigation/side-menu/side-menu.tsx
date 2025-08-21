@@ -22,23 +22,28 @@ export const SideMenu = async ({ rootSlug, slug }: Props) => {
   if (!data.children) return null
   if (data.children.length === 0) return null
 
-  const allItems = data.children.filter((x) => x && x.slug)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const allItems = data.children.filter((x: any) => x && x.slug)
 
   const groups = Object.entries(
     groupBy(
-      allItems.filter((x) => x.group),
-      (x) => stegaClean(x.group) ?? ""
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      allItems.filter((x: any) => x.group),
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (x) => stegaClean((x as any).group) ?? ""
     )
   )
 
-  const ungrouped = allItems.filter((x) => !x.group)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const ungrouped = allItems.filter((x: any) => !x.group)
 
   return (
     <nav className={styles["wrapper"]}>
       <div className={styles["inner-container"]}>
         {groups.length !== 0 &&
           groups.map((group, i) => (
-            <SideMenuGroup key={i} title={group[0]} items={group[1]} slug={slug} />
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            <SideMenuGroup key={i} title={group[0]} items={group[1] as any} slug={slug} />
           ))}
 
         {ungrouped.length !== 0 && <SideMenuList items={ungrouped} slug={slug} showItemDivider />}
