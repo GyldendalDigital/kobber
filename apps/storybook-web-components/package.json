@@ -6,9 +6,8 @@
   "private": true,
   "devDependencies": {
     "@gyldendal/kobber-base": "*",
-    "lit-html": "^3.2.1",
-    "typescript": "^5.8.3",
-    "vite": "^7.1.0"
+    "@types/react": "^19.1.0",
+    "lit-html": "^3.2.1"
   },
   "scripts": {
     "clean": "rm -rf node_modules storybook-static",

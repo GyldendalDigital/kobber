@@ -79,7 +79,8 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
 
           {showSubPageGrid && (
             <FeatureBoxGrid
-              items={children.map((x) => ({
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              items={children.map((x: any) => ({
                 ...x,
                 href: x.slug,
                 image: x.image ?? placeholderImageUrl({ textRows: ["placeholder"], size: "20x20" }),

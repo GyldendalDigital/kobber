@@ -29,13 +29,16 @@ export const NavBar = async () => {
         <nav className={styles["inner-container"]}>
           {data?.children && (
             <ul className={styles["inner-container-links"]}>
-              {data.children.map((item) =>
-                item.slug && item.title ? (
-                  <li key={item.slug}>
-                    <RouterLink href={item.slug}>{item.title}</RouterLink>
-                  </li>
-                ) : null
-              )}
+              {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                data.children.map((item: any) =>
+                  item.slug && item.title ? (
+                    <li key={item.slug}>
+                      <RouterLink href={item.slug}>{item.title}</RouterLink>
+                    </li>
+                  ) : null
+                )
+              }
             </ul>
           )}
 

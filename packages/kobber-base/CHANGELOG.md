@@ -1,5 +1,11 @@
 # @gyldendal/kobber-base
 
+## 0.6.1
+
+### Patch Changes
+
+- Update readmes and upgrade packages
+
 ## 0.6.0
 
 ### Minor Changes

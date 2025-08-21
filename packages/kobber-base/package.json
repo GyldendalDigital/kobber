@@ -1,6 +1,6 @@
 {
   "name": "@gyldendal/kobber-base",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "license": "MIT",
   "type": "module",
   "files": [
@@ -27,7 +27,7 @@
     "url": "https://github.com/GyldendalDigital/kobber"
   },
   "devDependencies": {
-    "style-dictionary": "^4.3.2",
+    "style-dictionary": "^5.0.2",
     "tsup": "^8.4.0",
     "tsx": "^4.19.2",
     "typescript": "^5.8.3"

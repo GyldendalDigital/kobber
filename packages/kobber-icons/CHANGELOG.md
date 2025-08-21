@@ -1,5 +1,13 @@
 # @gyldendal/kobber-icons
 
+## 0.6.1
+
+### Patch Changes
+
+- Update readmes and upgrade packages
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.1
+
 ## 0.6.0
 
 ### Minor Changes
