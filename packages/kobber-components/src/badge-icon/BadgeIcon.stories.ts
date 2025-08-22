@@ -65,10 +65,10 @@ const renderBadgeIcon = (args: Args) => {
 
   return html` <kobber-badge-icon
     size=${ifDefined(size)}
-    color-theme=${ifDefined(colorTheme)}
-    color-variant=${ifDefined(colorVariant)}
+    color-theme="${ifDefined(colorTheme)}"
+    color-variant="${ifDefined(colorVariant)}"
   >
     <kobber-arrow_right slot="icon"></kobber-arrow_right>
-    <span slot="text">${text}</span>
+    <span>${text}</span>
   </kobber-badge-icon>`;
 };

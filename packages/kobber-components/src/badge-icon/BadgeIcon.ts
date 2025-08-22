@@ -4,6 +4,7 @@ import { CSSResultGroup, html, LitElement } from "lit";
 import componentStyles from "../base/styles/component.styles";
 import { badgeIconStyles } from "./BadgeIcon.styles";
 import { customElement } from "../base/utilities/customElementDecorator";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 @customElement(badgeIconName)
 export class BadgeIcon extends LitElement implements BadgeIconProps {
@@ -25,12 +26,12 @@ export class BadgeIcon extends LitElement implements BadgeIconProps {
   render() {
     return html` <div
       class="${badgeIconName}"
-      data-color-variant="${this.colorVariant}"
-      data-color-theme="${this.colorTheme}"
-      data-size="${this.size}"
+      data-color-variant="${ifDefined(this.colorVariant)}"
+      data-color-theme="${ifDefined(this.colorTheme)}"
+      data-size="${ifDefined(this.size)}"
     >
       <slot name="icon"></slot>
-      <slot name="text"></slot>
+      <slot></slot>
     </div>`;
   }
 }
