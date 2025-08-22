@@ -1,16 +1,16 @@
 import { css, unsafeCSS } from "lit";
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { DividerClassName, dividerVariants } from "./Divider.core";
+import { DividerClassNames, dividerVariants } from "./Divider.core";
 
 const dividerTokens = component.divider;
 
 const createDividerStyles = () => {
   return css`
-    host: {
+    :host {
       display: block;
     }
 
-    .${unsafeCSS("kobber-divider" satisfies DividerClassName)} {
+    .${unsafeCSS("kobber-divider" satisfies DividerClassNames)} {
       width: 100%;
       height: 1px;
       background-color: var(--divider-background-color);
