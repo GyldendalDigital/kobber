@@ -12,6 +12,7 @@ import "@gyldendal/kobber-icons/web-components";
 import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 initComponents();
 initIcons();
@@ -62,7 +63,11 @@ export const BadgeIcons: StoryObj<Args> = {
 const renderBadgeIcon = (args: Args) => {
   const { size, text, colorTheme, colorVariant } = args;
 
-  return html` <kobber-badge-icon size=${size} color-theme=${colorTheme} color-variant=${colorVariant}>
+  return html` <kobber-badge-icon
+    size=${ifDefined(size)}
+    color-theme=${ifDefined(colorTheme)}
+    color-variant=${ifDefined(colorVariant)}
+  >
     <kobber-arrow_right slot="icon"></kobber-arrow_right>
     <span slot="text">${text}</span>
   </kobber-badge-icon>`;

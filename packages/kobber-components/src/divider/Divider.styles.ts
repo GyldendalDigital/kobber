@@ -22,7 +22,7 @@ const createDividerStyles = () => {
 const colorVariantStyles = () => {
   const colorVariants = dividerVariants.flatMap(colorVariant => {
     return css`
-      ${unsafeCSS(`&[data-color-variant="${colorVariant}"]`)} {
+      ${unsafeCSS(`&[data-color-variant="${String(colorVariant)}"]`)} {
         --divider-background-color: var(${unsafeCSS(dividerTokens.background.color[colorVariant])});
       }
     `;

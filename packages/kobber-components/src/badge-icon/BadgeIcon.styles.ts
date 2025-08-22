@@ -51,7 +51,7 @@ const getThemeStyles = () => {
           return badgeIconSizes.flatMap(size =>
             badgeIconColorVariants.flatMap(
               colorVariant =>
-                `&[data-color-variant="${colorVariant}"][data-color-theme="${colorTheme}"][data-size="${size}"] { 
+                `&[data-color-variant="${String(colorVariant)}"][data-color-theme="${String(colorTheme)}"][data-size="${String(size)}"] { 
                   --color: var(${unsafeCSS(component["badge-icon"].text.color[colorTheme][colorVariant])});
                 }`,
             ),
