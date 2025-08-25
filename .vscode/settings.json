@@ -12,6 +12,7 @@
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "editor.detectIndentation": false,
+  "lit-plugin.rules.no-invalid-css": "off",
   "workbench.colorCustomizations": {
     "titleBar.activeBackground": "#5d2d24",
     "titleBar.activeForeground": "#e7e7e7",
