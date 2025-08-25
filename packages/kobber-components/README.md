@@ -117,9 +117,40 @@ yarn dev
 
 ### Create components
 
+#### Make a new component from scratch
+
+The easiest is to copy-paste the folder of an existing component, and alter the name and content to your needs.
+
+All component folders should contain the following files:
+
+- Component.ts - the component itself.
+- Component.styles.ts - the component styles, imported into Component.ts.
+- Component.core.ts - all code that is used in both Component.ts and Component.styles.ts.
+- Component.stories.ts - storybook stories.
+
+#### Naming conventions
+
+- Folder names are in kebab-case.
+- Component names are in PascalCase.
+- Component file names:
+  - File names are the same as the component name (plus extension) - don't export more than one component per file!
+  - Currently allowed extensions are ts, tsx and js.
+  - Component file names can only contain ONE dot!
+- All files not exporting components should have MORE THAN ONE dot in file name.
+
+The tsup build script uses these conventions to build lists of all components. The script ignores all content in folders named "base", "config", and "story".
+
+#### Extend LitElement
+
+Most components should be defined as `extends LitElement` (or `extends ShoelaceElement`). Extending `StyledLitElement` is only for components that need to be able to be styled in several ways.
+
 #### Children or props
 
-For maintainability, components should be created to consume data as children rather than props. By using props for all data, the amount of component props over time will grow unmaintanable. Most likely, you will end up with a component that needs to accept children components as props (while having to maintain possibly deprecated data props).
+For maintainability, components should be created to consume data as children rather than props.
+
+A downside with using props for all data, is that the amount of component props over time will grow unmantainable. Most likely, you will end up with a component that needs to accept children components as props (while having to maintain possibly deprecated data props).
+
+The upside with using props for all data is that the component fully controls all of its content. In a system of general components, however, this is not necessarily an upside.
 
 Example of component consuming data as children:
 
@@ -155,23 +186,7 @@ Example of component consuming data as props:
 />
 ```
 
-#### Naming conventions
-
-- Folder names are in kebab-case.
-- Component names are in PascalCase.
-- Component file names:
-  - File names are the same as the component name (plus extension) - don't export more than one component per file!
-  - Currently allowed extensions are ts, tsx and js.
-  - Component file names can only contain ONE dot!
-- All files not exporting components should have MORE THAN ONE dot in file name.
-
-The tsup build script uses these conventions to build lists of all components. The script ignores all content in folders named "base", "config", and "story".
-
-#### Extend LitElement
-
-Most components should be defined as `extends LitElement` (or `extends ShoelaceElement`). Extending `StyledLitElement` is only for components that need to be able to be styled in several ways.
-
-### Style components
+### Styling components
 
 Styling across the shadow dom barrier is restricted. To circumvent this, we use attributes that can be made into a components' internal styles.
 
@@ -182,6 +197,17 @@ Use data-attributes as selectors for components' styling. These are more semanti
 ##### Background on CSS selectors
 
 By using class names, one often ends up with [loose class names](https://csswizardry.com/2012/11/code-smells-in-css/#loose-class-names) that do not make sense without first knowing the whole component code. To cope with this, it is possible to use class name conventions like [BEM](https://bem-cheat-sheet.9elements.com/) to add semantics to CSS Selectors. With BEM, you often end up with multiple class names that are long strings, reducing readability. Using data-attributes solves this problem more elegantly.
+
+### Writing components' storybook stories
+
+Storybook stories should be as readable and non-abstract as possible, as they serve as documentation for Kobber consumers. Often, however, they need to contain some logic for presenting all variants of a component.
+
+When writing stories, you should document not only simple happy-path cases. Show how your component works (or does not work) with much content, and little and none.
+
+Other moments:
+
+- All attributes should be possible to change with args.
+- It should be possible to see the code necessary to use the component in storybook web page.
 
 ### Publish components
 

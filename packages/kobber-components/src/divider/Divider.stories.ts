@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-import { DividerVariant as DividerColorVariant } from "./Divider.core";
+import { DividerVariant as DividerColorVariant, dividerVariants } from "./Divider.core";
 import "./Divider";
 import { html } from "lit";
 import "../theme-context-provider/ThemeContext";
@@ -7,7 +7,7 @@ import { init as initComponents } from "../base/init";
 
 initComponents();
 
-const colorVariants: DividerColorVariant[] = ["main", "supplemental"];
+const colorVariants: DividerColorVariant[] = dividerVariants;
 
 const meta: Meta = {
   component: "kobber-divider",
