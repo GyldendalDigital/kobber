@@ -16,6 +16,7 @@ import "../radio-input-control/RadioInputControl";
 import "../../button/Button";
 import { buttonName } from "../../button/Button.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 /**
  * @summary Radios allow the user to select a single option from a group.
@@ -111,7 +112,6 @@ export class RadioInput extends ShoelaceElement implements InputProps {
           ...inputClassNames({
             isLink: isLink,
           }),
-          this.className,
         ].join(" ")}
         data-color-theme="${this.colorTheme}"
         ?disabled="${this.disabled}"
@@ -133,9 +133,8 @@ export class RadioInput extends ShoelaceElement implements InputProps {
           ...inputClassNames({
             isLink: isLink,
           }),
-          this.className,
         ].join(" ")}
-        data-color-theme="${this.colorTheme}"
+        data-color-theme="${ifDefined(this.colorTheme)}"
       >
         <${radioInputControlElement} ?checked="${this.checked}" color-theme="${this.colorTheme}"></${radioInputControlElement}>
         <slot part="label" class="${radioInputLabelClassName}"></slot>

@@ -85,9 +85,8 @@ const createCheckboxStyles = () => {
 
 const colorThemeStyles = () => {
   const colorThemes = checkboxColorThemes.flatMap(colorTheme => {
-    const themeSelector = `&[data-color-theme="${colorTheme}"]`;
     return css`
-      ${unsafeCSS(themeSelector)} {
+      ${unsafeCSS(`&[data-color-theme="${String(colorTheme)}"]`)} {
         ${statesPerColorTheme(colorTheme)}
       }
     `;
@@ -107,7 +106,7 @@ const statesPerColorTheme = (colorTheme: CheckboxColorTheme) => {
       ); /* Must be first, to enable being overridden by non-idle styles. */
     }
 
-    &.hover,
+    :host(.hover) &,
     :host(:hover) & {
       &:not(.disabled, [disabled]) {
         --control-outline-color: var(${unsafeCSS(outlineColor.hover)});
@@ -115,7 +114,7 @@ const statesPerColorTheme = (colorTheme: CheckboxColorTheme) => {
       }
     }
 
-    &.active,
+    :host(.active) &,
     :host(:active) & {
       &:not(.disabled, [disabled]) {
         --control-outline-color: var(${unsafeCSS(outlineColor.active)});
@@ -123,10 +122,9 @@ const statesPerColorTheme = (colorTheme: CheckboxColorTheme) => {
       }
     }
 
-    &:focus-visible,
-    &.focus,
+    :host(.focus) &,
     :host(:focus) &,
-    :host(:focus-visible) & {
+    :host(.focus-visible) & :host(:focus-visible) & {
       &:not(.disabled, [disabled]) {
         outline: none;
         box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)})
