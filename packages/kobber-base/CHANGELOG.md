@@ -1,10 +1,19 @@
 # @gyldendal/kobber-base
 
+## 0.6.2
+
+### Patch Changes
+
+- Correct Button icon-only styles for Safari
+
 ## 0.6.1
 
 ### Patch Changes
 
-- Update readmes and upgrade packages
+- Correct Button icon-only styles for Safari
+- Remove Kobber prefix for web components
+- Correct Checkbox and Radio hover styles
+- Disable lit-plugin css rule
 
 ## 0.6.0
 
