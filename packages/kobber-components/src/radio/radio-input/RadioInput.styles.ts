@@ -65,7 +65,7 @@ const inputColorThemeStyles = () => {
 const inputStatesPerColorTheme = (colorTheme: InputColorTheme) => {
   const outlineColor = inputStyles.indicator.outline.color[colorTheme];
   return css`
-    &.hover,
+    :host(.hover) &,
     :host(:hover) & {
       &:not(.disabled, [disabled]) {
         ::part(${unsafeCSS("control" satisfies InputControlPartNames)}) {
@@ -74,7 +74,7 @@ const inputStatesPerColorTheme = (colorTheme: InputColorTheme) => {
       }
     }
 
-    &.active,
+    :host(.active) &,
     :host(:active) & {
       &:not(.disabled, [disabled]) {
         ::part(${unsafeCSS("control" satisfies InputControlPartNames)}) {
@@ -93,9 +93,9 @@ const inputStates = () => {
       cursor: auto;
     }
 
-    &:focus-visible,
-    &.focus,
+    :host(.focus) &,
     :host(:focus) &,
+    :host(.focus-visible) &,
     :host(:focus-visible) & {
       &:not(.disabled):not([disabled]) {
         outline: none;

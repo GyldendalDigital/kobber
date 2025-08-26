@@ -158,7 +158,7 @@ const renderButton = (
 <kobber-radio-input 
   style="${lastStyles}"
   class="${className}" 
-  colorTheme="${colorTheme}" 
+  colorTheme="${String(colorTheme)}" 
   ${checked ? "checked" : ""} 
   ${state === "disabled" ? "disabled" : ""} 
   ${link ? "href='#'" : ""}>
