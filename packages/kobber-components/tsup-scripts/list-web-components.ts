@@ -5,7 +5,7 @@ export const listWebComponents = (webComponentListFilename: string, componentObj
   let webComponentListString = "";
 
   componentObjects.map(object => {
-    webComponentListString += `export { ${object.importComponent} } from "${object.importPath}";
+    webComponentListString += `export { ${object.exportName} } from "${object.importPath}";
 `;
   });
 
