@@ -84,8 +84,11 @@ const createButtonStyles = () => {
         --icon-height: var(${unsafeCSS(button.icon.size)});
 
         &.${unsafeCSS("kobber-button--icon-only" satisfies ButtonClassNames)} {
-          aspect-ratio: 1 / 1;
           padding: 0;
+          aspect-ratio: 1 / 1;
+          min-width: var(
+            ${unsafeCSS(button.size.height)}
+          ); /* Implements aspect-ratio, that does not always work in Safari. */
         }
       }
 

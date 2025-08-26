@@ -134,6 +134,22 @@ export const Button: StoryObj<Args> = {
     type: "button",
   },
   render: args => renderButton(args),
+  decorators: [
+    (Story, context) => `
+      <style>
+        .narrow-cointainer {
+display: flex;
+        }
+        .wide-sibling {
+          flex-grow: 1;
+        }
+      </style>
+    <div class="narrow-cointainer">
+      ${Story()}
+      <div class="wide-sibling"></div>
+      </div>
+    `,
+  ],
 };
 
 export const Buttons: StoryObj<Args> = {
