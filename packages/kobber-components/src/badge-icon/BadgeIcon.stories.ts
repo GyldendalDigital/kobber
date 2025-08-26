@@ -22,7 +22,7 @@ interface Args extends BadgeIconProps {
 }
 
 const meta: Meta = {
-  title: "Badge Icon",
+  title: "Indicators/Badge Icon",
   component: badgeIconName,
   decorators: [
     (Story, context) => html`<kobber-theme-context theme-id=${context.globals.theme}>${Story()}</kobber-theme-context>`,

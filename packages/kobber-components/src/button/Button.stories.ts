@@ -59,6 +59,7 @@ interface Args extends ButtonProps {
 }
 
 const meta: Meta<Args> = {
+  title: "Base/Button",
   component: buttonName,
   argTypes: {
     colorTheme: {

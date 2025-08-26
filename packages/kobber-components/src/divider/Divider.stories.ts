@@ -10,6 +10,7 @@ initComponents();
 const colorVariants: DividerColorVariant[] = dividerVariants;
 
 const meta: Meta = {
+  title: "Styles and Foundation/Divider",
   component: "kobber-divider",
   argTypes: {
     colorVariant: {
