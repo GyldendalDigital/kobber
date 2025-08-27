@@ -11,6 +11,7 @@ function getAbsolutePath(value) {
 /** @type { import('@storybook/web-components-vite').StorybookConfig } */
 const config = {
   stories: [
+    "../../../packages/kobber-components/src/**/introduction.@(mdx)",
     "../../../packages/kobber-components/src/**/*.@(mdx)",
     "../../../packages/kobber-components/src/**/*.stories.@(js|mjs|ts)",
     "../../../packages/kobber-icons/src/**/*.@(mdx)",
