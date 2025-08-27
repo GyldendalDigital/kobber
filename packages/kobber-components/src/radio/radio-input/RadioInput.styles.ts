@@ -67,7 +67,7 @@ const inputStatesPerColorTheme = (colorTheme: InputColorTheme) => {
   return css`
     :host(.hover) &,
     :host(:hover) & {
-      &:not(.disabled, [disabled]) {
+      :host(:not(.disabled, [disabled])) & {
         ::part(${unsafeCSS("control" satisfies InputControlPartNames)}) {
           --control-outline-color: var(${unsafeCSS(outlineColor.hover)});
         }
@@ -76,7 +76,7 @@ const inputStatesPerColorTheme = (colorTheme: InputColorTheme) => {
 
     :host(.active) &,
     :host(:active) & {
-      &:not(.disabled, [disabled]) {
+      :host(:not(.disabled, [disabled])) & {
         ::part(${unsafeCSS("control" satisfies InputControlPartNames)}) {
           --control-outline-color: var(${unsafeCSS(outlineColor.active)});
         }
@@ -97,7 +97,7 @@ const inputStates = () => {
     :host(:focus) &,
     :host(.focus-visible) &,
     :host(:focus-visible) & {
-      &:not(.disabled):not([disabled]) {
+      :host(:not(.disabled, [disabled])) & {
         outline: none;
         box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)})
           var(${unsafeCSS(universal.focus.border.color)});

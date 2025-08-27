@@ -108,7 +108,7 @@ const statesPerColorTheme = (colorTheme: CheckboxColorTheme) => {
 
     :host(.hover) &,
     :host(:hover) & {
-      &:not(.disabled, [disabled]) {
+      :host(:not(.disabled, [disabled])) & {
         --control-outline-color: var(${unsafeCSS(outlineColor.hover)});
         --control-border-color: var(${unsafeCSS(borderColor.hover)});
       }
@@ -116,7 +116,7 @@ const statesPerColorTheme = (colorTheme: CheckboxColorTheme) => {
 
     :host(.active) &,
     :host(:active) & {
-      &:not(.disabled, [disabled]) {
+      :host(:not(.disabled, [disabled])) & {
         --control-outline-color: var(${unsafeCSS(outlineColor.active)});
         --control-border-color: var(${unsafeCSS(borderColor.active)});
       }
@@ -125,7 +125,7 @@ const statesPerColorTheme = (colorTheme: CheckboxColorTheme) => {
     :host(.focus) &,
     :host(:focus) &,
     :host(.focus-visible) & :host(:focus-visible) & {
-      &:not(.disabled, [disabled]) {
+      :host(:not(.disabled, [disabled])) & {
         outline: none;
         box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)})
           var(${unsafeCSS(universal.focus.border.color)});
