@@ -17,6 +17,7 @@ interface Args extends LinkProps {
 }
 
 const meta: Meta<Args> = {
+  title: "Navigation/Link",
   argTypes: {
     type: {
       options: linkTypes,

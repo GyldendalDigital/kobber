@@ -1,6 +1,6 @@
 # Component library
 
-Components can be used as React components or as web components.<br />
+Components can be used as web components, or as React components.<br />
 TypeScript definitions are included.
 
 See also https://kobber.gyldendal.no/komponenter.
@@ -117,6 +117,8 @@ yarn dev
 
 ### Create components
 
+Kobber Components are ["autonomous custom elements"](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#types_of_custom_element), that inherit from HTMLElement base class. Custom elements inheriting other HTML elements is not supported by Safari.
+
 #### Make a new component from scratch
 
 The easiest is to copy-paste the folder of an existing component, and alter the name and content to your needs.
@@ -130,7 +132,8 @@ All component folders should contain the following files:
 
 #### Naming conventions
 
-- Folder names are in kebab-case.
+- Folder names are element names, which [must be in kebab-case](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#registering_a_custom_element).
+- Attribute names are in kebab-case.
 - Component names are in PascalCase.
 - Component file names:
   - File names are the same as the component name (plus extension) - don't export more than one component per file!
@@ -138,11 +141,17 @@ All component folders should contain the following files:
   - Component file names can only contain ONE dot!
 - All files not exporting components should have MORE THAN ONE dot in file name.
 
-The tsup build script uses these conventions to build lists of all components. The script ignores all content in folders named "base", "config", and "story".
+The tsup build script uses these conventions to build lists of all components. The script ignores content in folders with the following names:
 
-#### Extend LitElement
+- base
+- config
+- story
 
-Most components should be defined as `extends LitElement` (or `extends ShoelaceElement`). Extending `StyledLitElement` is only for components that need to be able to be styled in several ways.
+#### Using libraries etc
+
+Small, simple components can avoid using libraries. Most components, however, `extends LitElement` (or `extends ShoelaceElement`). Extending `StyledLitElement` is only for components that need to be able to be styled in several ways.
+
+Dependencies for Kobber consumers should be kept at an absolute minimum.
 
 #### Children or props
 

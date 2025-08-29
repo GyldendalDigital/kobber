@@ -11,15 +11,13 @@ function getAbsolutePath(value) {
 /** @type { import('@storybook/web-components-vite').StorybookConfig } */
 const config = {
   stories: [
+    "../../../packages/kobber-components/src/**/introduction.@(mdx)",
     "../../../packages/kobber-components/src/**/*.@(mdx)",
     "../../../packages/kobber-components/src/**/*.stories.@(js|mjs|ts)",
     "../../../packages/kobber-icons/src/**/*.@(mdx)",
     "../../../packages/kobber-icons/src/**/*.stories.@(js|mjs|ts)",
   ],
-  addons: [
-    getAbsolutePath("@storybook/addon-a11y"),
-    getAbsolutePath("@storybook/addon-docs")
-  ],
+  addons: [getAbsolutePath("@storybook/addon-a11y"), getAbsolutePath("@storybook/addon-docs")],
   framework: {
     name: getAbsolutePath("@storybook/web-components-vite"),
     options: {},

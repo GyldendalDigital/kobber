@@ -59,6 +59,7 @@ interface Args extends ButtonProps {
 }
 
 const meta: Meta<Args> = {
+  title: "Base/Button",
   component: buttonName,
   argTypes: {
     colorTheme: {
@@ -74,6 +75,7 @@ const meta: Meta<Args> = {
       control: { type: "inline-radio" },
     },
     state: {
+      name: "State (only disabled should be used as attribute, the others are only for storybook use)",
       options: states,
       control: { type: "inline-radio" },
     },
@@ -101,19 +103,40 @@ const meta: Meta<Args> = {
   decorators: [
     (Story, context) => `
       <style>
-        .wrapper-variant {
-          display: grid;
-          grid-template-columns: 8em repeat(15, 1fr);
-          padding: 0.5rem 1rem;
-          gap: 0.5rem;
-          border-radius: 0 0 1rem 1rem;
-          align-items: center;
+      .level-group {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+      }
+      .wrapper-variant {
+        display: grid;
+        grid-template-columns: 7em auto;
+        grid-template-areas: 
+          "theme theme"
+          "variant-0 button-group-0"
+          "variant-1 button-group-1";
+        align-items: center;
 
-          small {
-           min-width: 7rem;
-          }
+        small {
+         min-width: 7rem;
         }
-      </style>
+      }
+      .wrapper-buttons {
+        display: grid;
+        grid-template-columns: 33em 26em 14em;
+        grid-template-areas: 
+          "buttons-iconRight-0 buttons-0 buttons-iconOnly-0"
+          "buttons-iconRight-1 buttons-1 buttons-iconOnly-1";
+        padding: 0.5rem 1rem;
+        gap: 0.5rem;
+        border-radius: 0 0 1rem 1rem;
+        align-items: center;
+
+        small {
+         min-width: 7rem;
+        }
+      }
+    </style>
     <kobber-theme-context theme-id=${context.globals.theme}>
       ${Story()}
     </kobber-theme-context>
@@ -135,19 +158,19 @@ export const Button: StoryObj<Args> = {
   },
   render: args => renderButton(args),
   decorators: [
-    (Story, context) => `
-      <style>
-        .narrow-cointainer {
-display: flex;
-        }
-        .wide-sibling {
-          flex-grow: 1;
-        }
-      </style>
+    Story => `
+    <style>
+      .narrow-cointainer {
+        display: flex;
+      }
+      .wide-sibling {
+        flex-grow: 1;
+      }
+    </style>
     <div class="narrow-cointainer">
       ${Story()}
       <div class="wide-sibling"></div>
-      </div>
+    </div>
     `,
   ],
 };
@@ -195,7 +218,8 @@ const renderAllColors = (args: Args) => {
     return colorLevels
       .flatMap(colorLevel => {
         args = { ...args, colorLevel };
-        return `<div>${colorLevel}
+        return `<div class="level-group">
+        <kobber-heading level="h1" element="heading" color-variant="primary" size="medium">color-level: ${colorLevel}</kobber-heading>
       ${renderThemeAndVariantColors(args)}</div>`;
       })
       .join("");
@@ -209,20 +233,28 @@ const renderThemeAndVariantColors = (args: Args) => {
 
   return colorThemes
     .flatMap(
-      colorTheme => `
+      colorTheme => `<div class="wrapper-variant">
+      <kobber-heading level="h2" element="title" color-variant="primary" size="medium" style="grid-area: theme;">color-theme: ${colorTheme}</kobber-heading>
       ${colorVariants
-        .flatMap(colorVariant => {
+        .flatMap((colorVariant, index) => {
           args = { ...args, colorTheme, colorVariant };
           if (isValidPropCombination(args.type, component, args.colorTheme, args.colorVariant, args.colorLevel)) {
-            return `<div class="wrapper-variant">${colorTheme} ${colorVariant}
-              ${states.map(state => renderButton({ ...args, state, text: state })).join("")}
-              ${states.map(state => renderButton({ ...args, state, text: state, iconPosition: "none" })).join("")}
-              ${states.map(state => renderButton({ ...args, state })).join("")}
+            return `<span class="group-title" style="grid-area: variant-${index};">color-variant: ${colorVariant}</span>
+            <div class="wrapper-buttons" style="grid-area: button-group-${index};">
+              <div style="grid-area: buttons-iconRight-${index};">
+                ${states.map(state => renderButton({ ...args, state, text: state })).join("")}
+              </div>
+              <div style="grid-area: buttons-${index};">
+                ${states.map(state => renderButton({ ...args, state, text: state, iconPosition: "none" })).join("")}
+              </div>
+              <div style="grid-area: buttons-iconOnly-${index};">
+                ${states.map(state => renderButton({ ...args, state })).join("")}
+              </div>
             </div>`;
           }
           return;
         })
-        .join("")}`,
+        .join("")}</div>`,
     )
     .join("");
 };
@@ -233,9 +265,9 @@ const renderButton = (args: Args) => {
   return `
 <kobber-button 
   class="${state}" 
-  color-theme="${colorTheme}" 
-  color-level="${colorLevel}" 
-  color-variant="${colorVariant}" 
+  color-theme="${String(colorTheme)}" 
+  color-level="${String(colorLevel)}" 
+  color-variant="${String(colorVariant)}" 
   type="${type ? type : "button"}"
   aria-label="#"
   ${state === "disabled" ? "disabled" : ""} 

@@ -34,6 +34,7 @@ interface Args extends InputProps {
 }
 
 const meta: Meta<Args> = {
+  title: "Base/Inputs/Radio",
   component: radioInputName,
   decorators: [
     (Story, context) => `
