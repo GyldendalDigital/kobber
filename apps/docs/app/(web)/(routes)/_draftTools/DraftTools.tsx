@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { KobberButton } from "@gyldendal/kobber-components/react"
-import { Settings } from "@gyldendal/kobber-icons/react-ssr-safe"
+import { Button } from "@gyldendal/kobber-components/react"
+import { Settings } from "@gyldendal/kobber-icons/react"
 import { VisualEditing } from "next-sanity"
 import { DarkModeTrigger } from "./DarkModeTrigger"
 import styles from "./DraftTools.module.css"
@@ -22,26 +22,30 @@ export const DraftTools = ({ pageId }: Props) => {
           <>
             <DarkModeTrigger />
             <TokenMixer />
-            <KobberButton
-              variant="vacation-primary-main"
+            <Button
+              color-theme="vacation"
+              color-level="primary"
+              color-variant="main"
               title="Åpne studio"
               href={pageId ? `/studio/structure/page;${pageId}` : "/studio/structure/homePage"}
             >
               <div slot="icon">
                 <SanityLogo />
               </div>
-            </KobberButton>
+            </Button>
           </>
         )}
 
-        <KobberButton
+        <Button
           className={styles["trigger"]}
-          variant="brand-secondary-main"
+          color-theme="brand"
+          color-level="secondary"
+          color-variant="main"
           onClick={() => setOpen(!open)}
           title={`${open ? "Lukk" : "Åpne"} draft tools`}
         >
           <Settings slot="icon" />
-        </KobberButton>
+        </Button>
       </div>
 
       <VisualEditing />

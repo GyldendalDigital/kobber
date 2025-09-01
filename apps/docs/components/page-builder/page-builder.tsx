@@ -3,7 +3,7 @@
 import type { ComponentType, ReactNode } from "react"
 import { dataset, projectId, studioUrl } from "@/sanity/env"
 import type { QueryHomePageDataResult } from "@/sanity/sanity.types"
-import { KobberTextWrapper } from "@gyldendal/kobber-components/react"
+import { TextWrapper } from "@gyldendal/kobber-components/react"
 import { useOptimistic } from "@sanity/visual-editing/react"
 import { createDataAttribute, type SanityDocument } from "next-sanity"
 import styles from "./page-builder.module.css"
@@ -69,9 +69,9 @@ export function PageBuilder({ pageBuilder: initialPageBuilder = [], id, type }: 
       )
     }
     return (
-      <KobberTextWrapper className={props.className} data-sanity={props["data-sanity"]}>
+      <TextWrapper className={props.className} data-sanity={props["data-sanity"]}>
         {props.children}
-      </KobberTextWrapper>
+      </TextWrapper>
     )
   }
 

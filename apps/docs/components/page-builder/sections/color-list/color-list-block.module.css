@@ -11,7 +11,7 @@
 }
 
 .color-list-item-image {
-  border: 1px solid var(--kobber-primitives-color-wine-150);
+  border: 1px solid var(--todo-kobber-primitives-color-wine-150);
   border-radius: 1rem;
   aspect-ratio: 1 / 1;
 }
@@ -21,7 +21,6 @@
   flex-direction: column;
   gap: 0.25rem;
   font-size: 0.75rem;
-  --kobber-typography-ui-button-font-size: 0.75rem;
   white-space: nowrap;
   overflow: hidden;
 

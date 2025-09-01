@@ -1,5 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
-import { html } from "lit/static-html.js";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import "./Link";
 import "@gyldendal/kobber-icons/web-components";
 import { LinkProps, linkTypes } from "./Link.core";
@@ -18,7 +17,7 @@ interface Args extends LinkProps {
 }
 
 const meta: Meta<Args> = {
-  title: "Link",
+  title: "Navigation/Link",
   argTypes: {
     type: {
       options: linkTypes,
@@ -29,8 +28,7 @@ const meta: Meta<Args> = {
       control: { type: "radio" },
     },
   },
-  tags: ["autodocs"],
-  decorators: [(Story, context) => html`<div class="${context.globals.theme}">${Story()}</div>`],
+  decorators: [(Story, context) => `<div class="${context.globals.theme}">${Story()}</div>`],
   parameters: {
     layout: "centered",
   },
@@ -48,38 +46,42 @@ export const Link: StoryObj<Args> = {
     icon: iconSettings[0],
   },
   render: args => {
-    return html`<div style="max-width: 600px;">
-      <kobber-text-wrapper>
-        ${linkStates.map(state => {
-          return html`<p>
+    return `<div style="max-width: 600px;">
+      <kobber-text-wrapper style="display: grid; gap: 1em;">
+        ${linkStates
+          .map(state => {
+            return `<p>
             <kobber-link
               class="${state}"
               href=${state !== "disabled" ? "https://github.com/GyldendalDigital/kobber" : undefined}
               type="${args.type}"
-              ${args.icon === "left" ? "iconFirst" : ""}
+              ${args.icon === "left" ? "icon-first" : ""}
             >
-              ${args.text || html`Lenke med tilstand ${getPrintedState(state)}`}
-              ${args.icon !== "none" ? html`<kobber-arrow_right slot="icon" />` : ""}
+              ${args.text || `Lenke med tilstand ${getPrintedState(state)}`}
+              ${args.icon !== "none" ? `<kobber-arrow_right slot="icon" />` : ""}
             </kobber-link>
           </p>`;
-        })}
+          })
+          .join("")}
       </kobber-text-wrapper>
       <br />
       <br />
-      <kobber-text-wrapper>
-        ${linkStates.map(state => {
-          return html`<p>
+      <kobber-text-wrapper style="display: grid; gap: 1em;">
+        ${linkStates
+          .map(state => {
+            return `<p>
             <kobber-link
               class="${state}"
               onClick="alert('Hello world!')"
               type="${args.type}"
-              ${args.icon === "left" ? "iconFirst" : ""}
+              ${args.icon === "left" ? "icon-first" : ""}
             >
-              ${args.text || html`Knapp med tilstand ${getPrintedState(state)}`}
-              ${args.icon !== "none" ? html`<kobber-arrow_right slot="icon" />` : ""}
+              ${args.text || `Knapp med tilstand ${getPrintedState(state)}`}
+              ${args.icon !== "none" ? `<kobber-arrow_right slot="icon" />` : ""}
             </kobber-link>
           </p>`;
-        })}
+          })
+          .join("")}
       </kobber-text-wrapper>
     </div>`;
   },

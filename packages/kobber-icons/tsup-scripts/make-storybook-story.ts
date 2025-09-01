@@ -4,6 +4,10 @@ export const makeStory = (symbol: SVGSymbolElement) => {
   const iconNames = getIconNames(symbol.id);
 
   return `import type { Args, Meta, StoryObj } from "@storybook/web-components";
+import { init as initIcons } from "@gyldendal/kobber-icons/init";
+import "@gyldendal/kobber-icons/web-components";
+
+initIcons();
 
 const meta: Meta = {
   title: "Icon/Icons",

@@ -1,4 +1,4 @@
-import { create } from "@storybook/theming";
+import { create } from "storybook/theming";
 import { semantics } from "@gyldendal/kobber-base/themes/default/tokens.js";
 
 const background = semantics.color.identity.base["aubergine-1000"];
@@ -6,7 +6,7 @@ const background = semantics.color.identity.base["aubergine-1000"];
 /** Options: https://storybook.js.org/docs/configure/user-interface/theming */
 export default create({
   base: "dark",
-  fontBase: "PP Mori, sans-serif",
+  fontBase: "pp-mori, sans-serif",
   fontCode: "monospace",
 
   brandTitle: "Kobber Storybook",

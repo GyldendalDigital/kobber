@@ -6,21 +6,8 @@
   "private": true,
   "devDependencies": {
     "@gyldendal/kobber-base": "*",
-    "@gyldendal/kobber-components": "*",
-    "@gyldendal/kobber-icons": "*",
-    "@storybook/addon-a11y": "^8.6.12",
-    "@storybook/addon-controls": "^8.6.12",
-    "@storybook/addon-docs": "^8.6.12",
-    "@storybook/blocks": "^8.6.12",
-    "@storybook/builder-vite": "^8.6.12",
-    "@storybook/manager-api": "^8.6.12",
-    "@storybook/theming": "^8.6.12",
-    "@storybook/web-components": "^8.6.12",
-    "@storybook/web-components-vite": "^8.6.12",
-    "lit-html": "^3.2.1",
-    "storybook": "^8.6.12",
-    "typescript": "^5.8.3",
-    "vite": "^7.0.0"
+    "@types/react": "^19.1.0",
+    "lit-html": "^3.2.1"
   },
   "scripts": {
     "clean": "rm -rf node_modules storybook-static",

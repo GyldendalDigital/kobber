@@ -1,15 +1,8 @@
 import { css, unsafeCSS } from "lit";
-import { component, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
-import {
-  HeadingClassNames,
-  HeadingFont,
-  HeadingLevel,
-  headingName,
-  headingPrimarySizes,
-  headingSecondarySizes,
-} from "./Heading.core";
-import { replaceSpaceWithDash } from "../../base/utilities/replace";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { headingName, headingElements, headingSizes, headingColorLevels } from "./Heading.core";
 import { resetHeading } from "../../base/styles/reset.styles";
+import { getTypographyStyles } from "../../base/getTypographyStyles";
 
 const createHeadingStyles = () => {
   const heading = component.heading;
@@ -20,21 +13,24 @@ const createHeadingStyles = () => {
 
       color: var(${unsafeCSS(heading.text.color.base)});
 
-      &.${unsafeCSS("h1" satisfies HeadingLevel)} {
-        color: var(${unsafeCSS(heading.text.color.base)});
-      }
+      font-size: var(--typography-font-size);
+      font-family: var(--typography-font-family);
+      font-weight: var(--typography-font-weight);
+      font-style: var(--typography-font-style);
+      font-stretch: var(--typography-font-stretch);
+      line-height: var(--typography-line-height);
 
-      &.${unsafeCSS("primary" satisfies HeadingFont)} {
-        ${primaryHeadings()};
-      }
-
-      &.${unsafeCSS("secondary" satisfies HeadingFont)} {
-        ${secondaryHeadings()};
-      }
+      ${typographyStyles()}
 
       /* used in global.css em styling (Lit can't style nested slots) */
       --highlight-color: var(${unsafeCSS(heading.text.color.highlight)});
 
+      &:after {
+        content: var(--storybook-unused-style-content);
+        background-color: white;
+        position: relative;
+        left: -4.5em;
+      }
       em,
       ::slotted(em) {
         color: var(--highlight-color);
@@ -44,40 +40,27 @@ const createHeadingStyles = () => {
   `;
 };
 
-const primaryHeadings = () => {
-  const classes = headingPrimarySizes.flatMap(size => {
-    const heading = typography["primary (mori)"][size];
-    return css`
-      &.${unsafeCSS(replaceSpaceWithDash(size) satisfies HeadingClassNames)} {
-        font-family: var(${unsafeCSS(heading.fontFamily)});
-        font-size: var(${unsafeCSS(heading.fontSize)});
-        font-weight: var(${unsafeCSS(heading.fontWeight)});
-        font-style: var(${unsafeCSS(heading.fontStyle)});
-        font-stretch: var(${unsafeCSS(heading.fontStretch)});
-        line-height: var(${unsafeCSS(heading.lineHeight)});
-      }
-    `;
-  });
-
-  return unsafeCSS(classes.join("\n"));
-};
-
-const secondaryHeadings = () => {
-  const classes = headingSecondarySizes.flatMap(size => {
-    const heading = typography["secondary (lyon)"][size];
-    return css`
-      &.${unsafeCSS(replaceSpaceWithDash(size) satisfies HeadingClassNames)} {
-        font-family: var(${unsafeCSS(heading.fontFamily)});
-        font-size: var(${unsafeCSS(heading.fontSize)});
-        font-weight: var(${unsafeCSS(heading.fontWeight)});
-        font-style: var(${unsafeCSS(heading.fontStyle)});
-        font-stretch: var(${unsafeCSS(heading.fontStretch)});
-        line-height: var(${unsafeCSS(heading.lineHeight)});
-      }
-    `;
-  });
-
-  return unsafeCSS(classes.join("\n"));
+const typographyStyles = () => {
+  return css`
+    ${unsafeCSS(
+      headingElements
+        .flatMap(
+          element =>
+            `&[data-element="${element}"] {${headingColorLevels
+              .flatMap(
+                colorLevel =>
+                  `&[data-color-level="${colorLevel}"] {${headingSizes
+                    .flatMap(size => {
+                      return `&[data-size="${size}"] {
+                  ${getTypographyStyles(element, colorLevel, size)}}`;
+                    })
+                    .join("")}}`,
+              )
+              .join("")}}`,
+        )
+        .join("\n"),
+    )}
+  `;
 };
 
 export const headingStyles = createHeadingStyles();

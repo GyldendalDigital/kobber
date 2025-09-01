@@ -1,43 +1,32 @@
-import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
-import { ReplaceSpaceWithDash, replaceSpaceWithDash } from "../base/utilities/replace";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { objectKeys } from "../base/utilities/objectKeys";
+
+const badgeTokens = component.badge;
 
 export const badgeName = "kobber-badge";
 
-export const badgeClassNames = ({
-  theme = "aubergine",
-  variant = "main",
-  size = "medium",
-  showStatusCircle = false,
-}: BadgeProps): BadgeClassNames[] => {
+export const badgeClassNames = ({ showStatusCircle = false }: BadgeProps): BadgeClassNames[] => {
   const conditionalClassNames: BadgeClassNames[] = [];
 
   if (showStatusCircle) {
-    conditionalClassNames.push("kobber-label--status-circle");
+    conditionalClassNames.push("status-circle");
   }
 
-  return [badgeName, theme, replaceSpaceWithDash(variant), size, ...conditionalClassNames];
+  return [badgeName, ...conditionalClassNames];
 };
 
 export type BadgeProps = {
-  theme?: BadgeTheme;
-  variant?: BadgeVariant;
+  colorTheme?: BadgeColorTheme;
+  colorVariant?: BadgeColorVariant;
   size?: BadgeSize;
   showStatusCircle?: boolean;
 };
 
-export type BadgeClassNames =
-  | typeof badgeName
-  | BadgeTheme
-  | ReplaceSpaceWithDash<BadgeVariant>
-  | BadgeSize
-  | BadgeText
-  | "kobber-label--status-circle";
+export type BadgeClassNames = typeof badgeName | "status-circle";
+export type BadgeColorTheme = (typeof badgeColorThemes)[number];
+export type BadgeColorVariant = (typeof badgeColorVariants)[number];
+export type BadgeSize = (typeof badgeSizes)[number];
 
-type BadgeTheme = keyof typeof component.badge.background.color;
-type BadgeVariant = "main" | "supplemental";
-type BadgeSize = keyof (typeof component)["badge"]["gap"];
-type BadgeText = string;
-
-export const badgeThemes: BadgeTheme[] = Object.keys(component.badge.background.color) as BadgeTheme[];
-export const badgeVariants: BadgeVariant[] = ["main", "supplemental"];
-export const badgeSizes: BadgeSize[] = ["medium", "small"];
+export const badgeColorThemes = objectKeys(badgeTokens.background.color);
+export const badgeColorVariants = objectKeys(badgeTokens.text.color.aubergine);
+export const badgeSizes = objectKeys(badgeTokens.gap);

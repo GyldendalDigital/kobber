@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
 import "../box-layout/BoxLayout";
 import { example as cardLayoutExample } from "../card-layout/story/example";
@@ -18,7 +18,7 @@ interface Args {
 }
 
 const meta: Meta<Args> = {
-  title: "In development 🧪/Layouts/Patterns",
+  title: "In development 🔵/Layouts/Patterns",
   component: "Patterns",
   args: {
     carouselHasManyItems: true,

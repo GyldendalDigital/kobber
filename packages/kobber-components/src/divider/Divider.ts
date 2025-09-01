@@ -1,34 +1,18 @@
 import { CSSResultGroup, html } from "lit";
 import { property } from "lit/decorators.js";
-import { DividerVariant } from "./Divider.types";
-import { dividerBaseStyles } from "./Divider.styles";
+import { dividerClassnames, DividerProps, DividerVariant } from "./Divider.core";
+import { dividerStyles } from "./Divider.styles";
 import KobberElement from "../base/kobber-element";
 import { customElement } from "../base/utilities/customElementDecorator";
 
 @customElement("kobber-divider")
-export class Divider extends KobberElement {
-  @property({ type: String })
-  variant: DividerVariant = "main";
+export class Divider extends KobberElement implements DividerProps {
+  @property({ type: String, attribute: "color-variant" })
+  colorVariant: DividerProps["colorVariant"] = "main";
 
-  static styles: CSSResultGroup = [dividerBaseStyles];
+  static styles: CSSResultGroup = [dividerStyles];
 
   render() {
-    this.applyThemeStyles();
-    return html` <div class="divider ${this.variant}"></div> `;
-  }
-
-  applyThemeStyles() {
-    const component = this.tokens().component.divider;
-
-    const style = document.createElement("style");
-
-    style.textContent = `
-    :host {
-        --divider-main-background-color: ${component.background.color.main};
-        --divider-supplemental-background-color: ${component.background.color.supplemental};
-    }
-    `;
-
-    this.shadowRoot?.appendChild(style);
+    return html`<div class="${dividerClassnames().join(" ")}" data-color-variant="${this.colorVariant}"></div> `;
   }
 }

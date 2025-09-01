@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import "./radio-input/RadioInput";
 import "./radio-group/RadioGroup";
 import { primitives } from "@gyldendal/kobber-base/themes/default/tokens.js";
-import { inputVariants, InputProps, radioInputName } from "./Radio.core";
+import { inputColorThemes, InputProps, radioInputName } from "./Radio.core";
 import "../text/heading/Heading";
 import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
@@ -34,7 +34,7 @@ interface Args extends InputProps {
 }
 
 const meta: Meta<Args> = {
-  title: "Radio",
+  title: "Base/Inputs/Radio",
   component: radioInputName,
   decorators: [
     (Story, context) => `
@@ -47,7 +47,7 @@ const meta: Meta<Args> = {
 export default meta;
 type Story = StoryObj;
 
-export const Variants: Story = {
+export const Themes: Story = {
   render: args => {
     return `
       <style>
@@ -85,10 +85,10 @@ export const Variants: Story = {
       </style>
 
       <ol>
-        ${inputVariants
-          .map(variant =>
-            renderVariant({
-              variant,
+        ${inputColorThemes
+          .map(colorTheme =>
+            renderColorTheme({
+              colorTheme,
               state: "idle",
               text: "idle",
               link: false,
@@ -104,16 +104,16 @@ export const Variants: Story = {
   },
 };
 
-// variant = "success" | "aubergine"
-const renderVariant = (args: Args) => {
-  const { variant } = args;
+// colorTheme = "success" | "aubergine"
+const renderColorTheme = (args: Args) => {
+  const { colorTheme } = args;
   const checkedOrNot = [false, true];
 
-  if (!variant) {
+  if (!colorTheme) {
     return;
   }
 
-  return `<li>${variant}
+  return `<li>${colorTheme}
   <ol class="focusedOrNot">${states
     .map(focusState =>
       Object.keys(focusState).map(key => {
@@ -152,14 +152,14 @@ const renderButton = (
     last: boolean;
   },
 ) => {
-  const { variant, focus, state, text, link, checked, last } = args;
+  const { colorTheme, focus, state, text, link, checked, last } = args;
   const className = `${focus} ${state}`;
   const lastStyles = last ? `grid-column: -1` : "";
   return `
 <kobber-radio-input 
   style="${lastStyles}"
   class="${className}" 
-  variant="${variant}" 
+  colorTheme="${String(colorTheme)}" 
   ${checked ? "checked" : ""} 
   ${state === "disabled" ? "disabled" : ""} 
   ${link ? "href='#'" : ""}>
@@ -209,17 +209,17 @@ export const GNOExample: Story = {
         </p>
         
           <kobber-radio-input value="hardcover" ${args.link ? `href="#format-innbundet"` : ""}
-             variant="${args.variant}"><div>Innbundet – <em style="text-wrap: nowrap">kr 2 339,-</em></div></kobber-radio-input
+             color-theme="${args.colorTheme}"><div>Innbundet – <em style="text-wrap: nowrap">kr 2 339,-</em></div></kobber-radio-input
           >
           <kobber-radio-input value="pocket" ${args.link ? `href="#format-pocket"` : ""} disabled
-             variant="${args.variant}"><div>Pocket – <em style="text-wrap: nowrap">kr 339,-</em><p class="alert">Utsolgt</p></div></kobber-radio-input
+             color-theme="${args.colorTheme}"><div>Pocket – <em style="text-wrap: nowrap">kr 339,-</em><p class="alert">Utsolgt</p></div></kobber-radio-input
           >
           <kobber-radio-input value="ebook" ${args.link ? `href="#format-ebok"` : ""}
-             variant="${args.variant}"><div>Ebok (med label som er så lang <br />
+             color-theme="${args.colorTheme}"><div>Ebok (med label som er så lang <br />
             at den går over flere linjer) – <em style="text-wrap: nowrap">kr 39,-</em></div></kobber-radio-input
           >
           <kobber-radio-input value="audiobook" ${args.link ? `href="#format-lydbok"` : ""}
-             variant="${args.variant}"><div>Lydbok – <em style="text-wrap: nowrap">kr 339,-</em></div></kobber-radio-input
+             color-theme="${args.colorTheme}"><div>Lydbok – <em style="text-wrap: nowrap">kr 339,-</em></div></kobber-radio-input
           >
           ${args.showHelpText ? helpTextElement : ""}
         </kobber-radio-group>
@@ -227,9 +227,9 @@ export const GNOExample: Story = {
     `;
   },
   argTypes: {
-    variant: {
-      name: "variant (visible only in hover and active states)",
-      options: inputVariants,
+    colorTheme: {
+      name: "color-theme (visible only in hover and active states)",
+      options: inputColorThemes,
       control: { type: "radio" },
     },
     link: {
@@ -248,7 +248,7 @@ export const GNOExample: Story = {
     currentValue: "ebook",
     direction: "horizontal",
     showHelpText: true,
-    variant: inputVariants[0],
+    colorTheme: inputColorThemes[0],
   },
 };
 
@@ -277,28 +277,28 @@ export const SkolestudioExamples: Story = {
       <div class="wrapper-theme">
         <kobber-radio-group direction="horizontal" current-value="no-bm">
         <p slot="label">Målform</p>
-          <kobber-radio-input value="no-bm" variant="${args.variant}">Bokmål</kobber-radio-input>
-          <kobber-radio-input value="no-nn" variant="${args.variant}">Nynorsk</kobber-radio-input>
+          <kobber-radio-input value="no-bm" color-theme="${args.colorTheme}">Bokmål</kobber-radio-input>
+          <kobber-radio-input value="no-nn" color-theme="${args.colorTheme}">Nynorsk</kobber-radio-input>
         </kobber-radio-group>
 
         <kobber-radio-group direction="horizontal" current-value="level11-13">
         <p slot="label">Trinn</p>
-          <kobber-radio-input value="level1-7" variant="${args.variant}">1.–7. trinn</kobber-radio-input>
-          <kobber-radio-input value="level8-10" variant="${args.variant}">8.–10. trinn</kobber-radio-input>
-          <kobber-radio-input value="level11-13" variant="${args.variant}">VG1–VG3</kobber-radio-input>
+          <kobber-radio-input value="level1-7" color-theme="${args.colorTheme}">1.–7. trinn</kobber-radio-input>
+          <kobber-radio-input value="level8-10" color-theme="${args.colorTheme}">8.–10. trinn</kobber-radio-input>
+          <kobber-radio-input value="level11-13" color-theme="${args.colorTheme}">VG1–VG3</kobber-radio-input>
         </kobber-radio-group>
       </div>
     `;
   },
   argTypes: {
-    variant: {
-      name: "variant (visible only in hover and active states)",
-      options: inputVariants,
+    colorTheme: {
+      name: "color-theme (visible only in hover and active states)",
+      options: inputColorThemes,
       control: { type: "radio" },
     },
   },
   args: {
-    variant: inputVariants[0],
+    colorTheme: inputColorThemes[0],
   },
   parameters: {
     actions: {

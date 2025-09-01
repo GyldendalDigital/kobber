@@ -1,21 +1,34 @@
-import { css } from "lit";
+import { css, unsafeCSS } from "lit";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { DividerClassNames, dividerVariants } from "./Divider.core";
 
-export const dividerBaseStyles = css`
-  host: {
-    display: block;
-  }
+const dividerTokens = component.divider;
 
-  .divider {
-    width: 100%;
-    height: 1px;
-    background-color: var(--divider-main-background-color, #ccc);
-  }
+const createDividerStyles = () => {
+  return css`
+    :host {
+      display: block;
+    }
 
-  .divider.main {
-    background-color: var(--divider-main-background-color);
-  }
+    .${unsafeCSS("kobber-divider" satisfies DividerClassNames)} {
+      width: 100%;
+      height: 1px;
+      background-color: var(--divider-background-color);
+      ${colorVariantStyles()}
+    }
+  `;
+};
 
-  .divider.supplemental {
-    background-color: var(--divider-supplemental-background-color);
-  }
-`;
+const colorVariantStyles = () => {
+  const colorVariants = dividerVariants.flatMap(colorVariant => {
+    return css`
+      ${unsafeCSS(`&[data-color-variant="${String(colorVariant)}"]`)} {
+        --divider-background-color: var(${unsafeCSS(dividerTokens.background.color[colorVariant])});
+      }
+    `;
+  });
+
+  return unsafeCSS(colorVariants.join("\n"));
+};
+
+export const dividerStyles = createDividerStyles();

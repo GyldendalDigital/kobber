@@ -53,13 +53,13 @@ const isFileAComponent = (filename: string) => {
 const makeComponentObject = (path: string, filename: string) => {
   const filenameWithoutExtension = getFilenameWithoutExtension(filename);
   const pathWithoutSrc = path.replace("src/", "");
-  const exportName = `Kobber${filenameWithoutExtension}`;
+  const prefixedComponentName = `Kobber${filenameWithoutExtension}`;
 
   return {
-    importComponent: filenameWithoutExtension,
+    importComponent: `${filenameWithoutExtension} as ${prefixedComponentName}`,
     importPath: `${pathWithoutSrc}/${filenameWithoutExtension}`,
-    exportName,
-    exportTagName: changeCaseTo(exportName, "kebab"),
-    exportElementClass: filenameWithoutExtension,
+    exportName: filenameWithoutExtension,
+    exportTagName: changeCaseTo(prefixedComponentName, "kebab"),
+    exportElementClass: prefixedComponentName,
   };
 };

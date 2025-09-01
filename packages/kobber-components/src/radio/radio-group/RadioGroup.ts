@@ -13,7 +13,7 @@ import {
 } from "../../base/internal/form";
 import componentStyles from "../../base/styles/component.styles";
 import type { RadioInput } from "../radio-input/RadioInput";
-import { radioGroupName, radioInputName, radioGroupHorizontalClassName, GroupProps } from "../Radio.core";
+import { radioGroupName, radioInputName, GroupProps } from "../Radio.core";
 import { radioGroupStyles } from "./RadioGroup.styles";
 import { customElement } from "../../base/utilities/customElementDecorator";
 
@@ -62,7 +62,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
   /** The name of the radio group, submitted as a name/value pair with form data. */
   @property() name = "option";
 
-  @property() direction: "vertical" | "horizontal" = "vertical";
+  @property() orientation: "vertical" | "horizontal" = "vertical";
 
   /** The current value of the radio group, submitted as a name/value pair with form data. */
   @property({ reflect: true }) value = "";
@@ -319,7 +319,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
           <slot name="label">${this.label}</slot>
         </label>
 
-        <div class="${this.direction === "horizontal" ? radioGroupHorizontalClassName : ""}">${defaultSlot}</div>
+        <div data-orientation="${this.orientation}">${defaultSlot}</div>
 
         <div id="aria-help-text" aria-hidden=${hasHelpText ? "false" : "true"}>
           <slot name="help-text"></slot>

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
 import "./Carousel";
 import "./CarouselButton";
@@ -17,9 +17,8 @@ interface Args {
 }
 
 const meta: Meta<Args> = {
-  title: "In development 🧪/Carousel",
+  title: "In development 🔵/Carousel",
   component: "Carousel",
-  tags: ["autodocs"],
   args: {
     hasManyItems: true,
   },
@@ -54,8 +53,8 @@ export const CarouselStory: StoryObj<Args> = {
     ${styles}
     <div class="demo">
       <kobber-carousel>
-        <kobber-carousel-button slot="previous-button" variant="brand-secondary-main"></kobber-carousel-button>
-        <kobber-carousel-button slot="next-button" variant="brand-secondary-main"></kobber-carousel-button>
+        <kobber-carousel-button slot="previous-button"></kobber-carousel-button>
+        <kobber-carousel-button slot="next-button"></kobber-carousel-button>
         ${args.hasManyItems ? exampleRegular : miniExample}
       </kobber-carousel>
     </div>

@@ -16,8 +16,8 @@ import {
   nativeCheckboxInputClassName,
   checkboxLabelClassName,
   checkboxInputName,
-  CheckboxVariant,
   checkboxWrapperClassName,
+  InputProps,
 } from "../Checkbox.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
 
@@ -85,7 +85,8 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
   /** The name of the checkbox, submitted as a name/value pair with form data. */
   @property() name = "";
 
-  @property() variant: CheckboxVariant = "success";
+  @property({ attribute: "color-theme" })
+  colorTheme: InputProps["colorTheme"] = "success";
 
   /** Disables the checkbox. */
   @property({ type: Boolean, reflect: true }) disabled = false;
@@ -217,7 +218,7 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
 
     return html`
       <div class="${checkboxWrapperClassName}">
-        <label part="base" class=${[checkboxInputName, this.className].join(" ")} data-variant="${this.variant}">
+        <label part="base" class=${checkboxInputName} data-color-theme="${ifDefined(this.colorTheme)}">
           <input
             class=${[nativeCheckboxInputClassName, "visually-hidden"].join(" ")}
             type="checkbox"

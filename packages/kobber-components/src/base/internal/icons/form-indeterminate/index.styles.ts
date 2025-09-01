@@ -3,8 +3,9 @@ import { css } from "lit";
 const createIconStyles = () => {
   return css`
     :host {
-      display: block;
-      transform: translate(1px, 1px); /* Necessary for Safari */
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
       height: 100%;
     }
@@ -16,4 +17,4 @@ const createIconStyles = () => {
   `;
 };
 
-export const internalIconsStyles = createIconStyles();
+export const formIndeterminateIconStyles = createIconStyles();

@@ -8,9 +8,7 @@
   display: block;
   color: var(--kobber-component-body-text-color-base);
   background-color: var(--kobber-regional-navigation-color-brightest);
-  font-family:
-    PP Mori,
-    sans-serif;
+  font-family: pp-mori, sans-serif;
 }
 
 p {

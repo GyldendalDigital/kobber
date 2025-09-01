@@ -1,19 +1,20 @@
 import { css, unsafeCSS } from "lit";
-import { component, typography, universal } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import {
-  checkboxVariants,
+  checkboxColorThemes,
   CheckboxClassNames,
-  CheckboxVariant,
-  InputLabelClassName,
-  NativeInputClassName,
-  InputControlClassName,
-  WrapperClassName,
-  CheckboxIconClassNames,
+  CheckboxColorTheme,
+  InputLabelClassNames,
+  NativeInputClassNames,
+  InputControlClassNames,
+  WrapperClassNames,
+  IconClassNames,
+  CheckboxState,
 } from "../Checkbox.core";
+import { getTypographyStyles } from "../../base/getTypographyStyles";
 
 const checkbox = component._checkbox;
-const indicator = component._checkbox.checkbox;
-const textStyles = universal.text.ui;
+const indicator = component._checkbox.indicator;
 
 const createCheckboxStyles = () => {
   return css`
@@ -22,7 +23,8 @@ const createCheckboxStyles = () => {
       --icon-width: 1.2em;
       --icon-height: var(--icon-width);
     }
-    .${unsafeCSS("kobber-checkbox-wrapper" satisfies WrapperClassName)} {
+
+    .${unsafeCSS("wrapper" satisfies WrapperClassNames)} {
       display: flex;
       flex-direction: column;
       gap: 0 var(${unsafeCSS(checkbox["container-right"].gap)});
@@ -36,66 +38,67 @@ const createCheckboxStyles = () => {
       cursor: pointer;
       padding: var(${unsafeCSS(checkbox.padding)});
 
-      & ~ * {
-        padding-left: calc(var(${unsafeCSS(checkbox.gap)}) + var(${unsafeCSS(checkbox.checkbox.width)}));
-      }
-
-      font-size: var(--font-size);
-      font-family: var(--font-family);
-      font-weight: var(--font-weight);
-      font-style: var(--font-style);
-      line-height: var(--line-height);
-
-      ${typographyCheckbox()}
-      ${variantStyles()}
+      ${colorThemeStyles()}
       ${inputStates()}
     }
-    .${unsafeCSS("kobber-checkbox__label" satisfies InputLabelClassName)} {
+
+    .${unsafeCSS("label" satisfies InputLabelClassNames)} {
       display: block;
       color: var(${unsafeCSS(checkbox.text.color)});
+
+      font-size: var(--typography-font-size);
+      font-family: var(--typography-font-family);
+      font-weight: var(--typography-font-weight);
+      font-style: var(--typography-font-style);
+      font-stretch: var(--typography-font-stretch);
+      line-height: var(--typography-line-height);
+
+      ${unsafeCSS(getTypographyStyles("label" satisfies InputLabelClassNames, "ui", "medium"))}
     }
-    .${unsafeCSS("kobber-checkbox__control" satisfies InputControlClassName)} {
-      width: var(${unsafeCSS(checkbox.checkbox.width)});
-      height: var(${unsafeCSS(checkbox.checkbox.height)});
+
+    .${unsafeCSS("control" satisfies InputControlClassNames)} {
+      width: var(${unsafeCSS(indicator.width)});
+      height: var(${unsafeCSS(indicator.height)});
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: var(${unsafeCSS(checkbox.checkbox.outline.radius)});
+      border-radius: var(${unsafeCSS(indicator.outline.radius)});
       &:not([checked]) {
-        border: var(${unsafeCSS(checkbox.checkbox.border.width)}) solid var(--control-border-color);
-        outline: var(${unsafeCSS(checkbox.checkbox.outline.width)}) solid var(--control-outline-color);
+        border: var(${unsafeCSS(indicator.border.width)}) solid var(--control-border-color);
+        outline: var(${unsafeCSS(indicator.outline.width)}) solid var(--control-outline-color);
       }
       flex-shrink: 0;
       background-color: var(--control-background-color);
       transition: var(--transition-time) outline;
     }
-    .${unsafeCSS("kobber-checkbox__control--shape" satisfies CheckboxIconClassNames)} {
+
+    .${unsafeCSS("control--shape" satisfies IconClassNames)} {
       display: flex;
       align-items: center;
     }
-    .${unsafeCSS("native-input" satisfies NativeInputClassName)} {
+
+    .${unsafeCSS("native-input" satisfies NativeInputClassNames)} {
       pointer-events: none;
     }
   `;
 };
 
-const variantStyles = () => {
-  const variants = checkboxVariants.flatMap(variant => {
-    const variantSelector = `&[data-variant="${variant}"]`;
+const colorThemeStyles = () => {
+  const colorThemes = checkboxColorThemes.flatMap(colorTheme => {
     return css`
-      ${unsafeCSS(variantSelector)} {
-        ${statesPerVariant(variant)}
+      ${unsafeCSS(`&[data-color-theme="${String(colorTheme)}"]`)} {
+        ${statesPerColorTheme(colorTheme)}
       }
     `;
   });
 
-  return unsafeCSS(variants.join("\n"));
+  return unsafeCSS(colorThemes.join("\n"));
 };
 
-const statesPerVariant = (variant: CheckboxVariant) => {
-  const outlineColor = indicator.outline.color[variant];
-  const borderColor = indicator.border.color[variant];
-  const bgColor = indicator.background.color[variant];
+const statesPerColorTheme = (colorTheme: CheckboxColorTheme) => {
+  const outlineColor = indicator.outline.color[colorTheme];
+  const borderColor = indicator.border.color[colorTheme];
+  const bgColor = indicator.background.color[colorTheme];
   return css`
     & {
       --control-border-color: var(
@@ -103,27 +106,26 @@ const statesPerVariant = (variant: CheckboxVariant) => {
       ); /* Must be first, to enable being overridden by non-idle styles. */
     }
 
-    &.hover,
+    :host(.hover) &,
     :host(:hover) & {
-      &:not(.disabled, [disabled]) {
+      :host(:not(.disabled, [disabled])) & {
         --control-outline-color: var(${unsafeCSS(outlineColor.hover)});
         --control-border-color: var(${unsafeCSS(borderColor.hover)});
       }
     }
 
-    &.active,
+    :host(.active) &,
     :host(:active) & {
-      &:not(.disabled, [disabled]) {
+      :host(:not(.disabled, [disabled])) & {
         --control-outline-color: var(${unsafeCSS(outlineColor.active)});
         --control-border-color: var(${unsafeCSS(borderColor.active)});
       }
     }
 
-    &:focus-visible,
-    &.focus,
+    :host(.focus) &,
     :host(:focus) &,
-    :host(:focus-visible) & {
-      &:not(.disabled, [disabled]) {
+    :host(.focus-visible) & :host(:focus-visible) & {
+      :host(:not(.disabled, [disabled])) & {
         outline: none;
         box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)})
           var(${unsafeCSS(universal.focus.border.color)});
@@ -133,7 +135,7 @@ const statesPerVariant = (variant: CheckboxVariant) => {
     }
 
     :host([checked]) & {
-      :host(.${unsafeCSS("idle" satisfies CheckboxClassNames)}) & {
+      :host(.${unsafeCSS("idle" satisfies CheckboxState)}) & {
         --control-background-color: var(${unsafeCSS(bgColor.idle)});
       }
       :host([disabled]) & {
@@ -147,21 +149,9 @@ const inputStates = () => {
   return css`
     :host([disabled]) &,
     &.disabled {
-      /* TODO: wait for tokens to expose percent as number, not rem */
-      /* opacity: var(${unsafeCSS(universal.disabled.container.opacity)}); */
-      opacity: 0.5;
+      opacity: var(${unsafeCSS(universal.disabled.container.opacity)});
       cursor: auto;
     }
-  `;
-};
-
-const typographyCheckbox = () => {
-  return css`
-    --font-size: var(${unsafeCSS(textStyles.size.label.medium)});
-    --font-family: var(${unsafeCSS(textStyles["font-family"])});
-    --font-weight: var(${unsafeCSS(textStyles.weight.label.medium)});
-    --font-style: normal;
-    --line-height: var(${unsafeCSS(textStyles["line-height"].label.medium["multi-line"])});
   `;
 };
 

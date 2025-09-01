@@ -3,7 +3,7 @@ import "@gyldendal/kobber-base/themes/dark/tokens.css";
 
 const themes = ["kobber-theme-default", "kobber-theme-dark"];
 
-/** @type { import('@storybook/web-components').Preview } */ const preview = {
+/** @type { import('@storybook/web-components-vite').Preview } */ const preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
@@ -13,7 +13,7 @@ const themes = ["kobber-theme-default", "kobber-theme-dark"];
     },
     options: {
       storySort: {
-        order: ["*", "In development 🧪", "kobber.gyldendal.no", "GU"],
+        order: ["*", "In development 🔵", "kobber.gyldendal.no", "GU"],
       },
     },
   },
@@ -41,6 +41,8 @@ const themes = ["kobber-theme-default", "kobber-theme-dark"];
       return story;
     },
   ],
+  //👇 Enables auto-generated documentation for all stories
+  tags: ["autodocs"],
 };
 
 export default preview;

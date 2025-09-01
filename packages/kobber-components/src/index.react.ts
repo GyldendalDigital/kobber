@@ -3,227 +3,227 @@
 import { createComponent } from "@lit/react";
 import * as React from "react";
  
-import { Accordion } from "./accordion/Accordion";
-import { AspectRatio } from "./aspect-ratio/AspectRatio";
-import { Badge } from "./badge/Badge";
-import { BadgeIcon } from "./badge-icon/BadgeIcon";
-import { BoxLayout } from "./layouts/box-layout/BoxLayout";
-import { Button } from "./button/Button";
-import { CardLayout } from "./layouts/card-layout/CardLayout";
-import { CardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
-import { Carousel } from "./carousel/Carousel";
-import { CarouselButton } from "./carousel/CarouselButton";
-import { CheckboxGroup } from "./checkbox/checkbox-group/CheckboxGroup";
-import { CheckboxInput } from "./checkbox/checkbox-input/CheckboxInput";
-import { Divider } from "./divider/Divider";
-import { Dropdown } from "./dropdown/Dropdown";
-import { Grid } from "./grid/Grid";
-import { GridColumn } from "./grid/GridColumn";
-import { GridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
-import { Heading } from "./text/heading/Heading";
-import { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
-import { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
-import { Ingress } from "./text/ingress/Ingress";
-import { Link } from "./link/Link";
-import { List } from "./list/List";
-import { ListItem } from "./list/ListItem";
-import { ProgressBar } from "./progress-bar/ProgressBar";
-import { ProgressBarItem } from "./progress-bar/ProgressBarItem";
-import { RadioGroup } from "./radio/radio-group/RadioGroup";
-import { RadioInput } from "./radio/radio-input/RadioInput";
-import { RadioInputControl } from "./radio/radio-input-control/RadioInputControl";
-import { TextLink } from "./text/text-link/TextLink";
-import { TextWrapper } from "./text/text-wrapper/TextWrapper";
-import { ThemeContext } from "./theme-context-provider/ThemeContext"; 
+import { Accordion as KobberAccordion } from "./accordion/Accordion";
+import { AspectRatio as KobberAspectRatio } from "./aspect-ratio/AspectRatio";
+import { Badge as KobberBadge } from "./badge/Badge";
+import { BadgeIcon as KobberBadgeIcon } from "./badge-icon/BadgeIcon";
+import { BoxLayout as KobberBoxLayout } from "./layouts/box-layout/BoxLayout";
+import { Button as KobberButton } from "./button/Button";
+import { CardLayout as KobberCardLayout } from "./layouts/card-layout/CardLayout";
+import { CardLayoutColumnAspectRatio as KobberCardLayoutColumnAspectRatio } from "./layouts/card-layout/CardLayoutColumnAspectRatio";
+import { Carousel as KobberCarousel } from "./carousel/Carousel";
+import { CarouselButton as KobberCarouselButton } from "./carousel/CarouselButton";
+import { CheckboxGroup as KobberCheckboxGroup } from "./checkbox/checkbox-group/CheckboxGroup";
+import { CheckboxInput as KobberCheckboxInput } from "./checkbox/checkbox-input/CheckboxInput";
+import { Divider as KobberDivider } from "./divider/Divider";
+import { Dropdown as KobberDropdown } from "./dropdown/Dropdown";
+import { Grid as KobberGrid } from "./grid/Grid";
+import { GridColumn as KobberGridColumn } from "./grid/GridColumn";
+import { GridColumnAspectRatio as KobberGridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
+import { Heading as KobberHeading } from "./text/heading/Heading";
+import { HorizontalLayout as KobberHorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
+import { HorizontalLayoutColumn as KobberHorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
+import { Ingress as KobberIngress } from "./text/ingress/Ingress";
+import { Link as KobberLink } from "./link/Link";
+import { List as KobberList } from "./list/List";
+import { ListItem as KobberListItem } from "./list/ListItem";
+import { ProgressBar as KobberProgressBar } from "./progress-bar/ProgressBar";
+import { ProgressBarItem as KobberProgressBarItem } from "./progress-bar/ProgressBarItem";
+import { RadioGroup as KobberRadioGroup } from "./radio/radio-group/RadioGroup";
+import { RadioInput as KobberRadioInput } from "./radio/radio-input/RadioInput";
+import { RadioInputControl as KobberRadioInputControl } from "./radio/radio-input-control/RadioInputControl";
+import { TextLink as KobberTextLink } from "./text/text-link/TextLink";
+import { TextWrapper as KobberTextWrapper } from "./text/text-wrapper/TextWrapper";
+import { ThemeContext as KobberThemeContext } from "./theme-context-provider/ThemeContext"; 
 
-export const KobberAccordion = createComponent({
+export const Accordion = createComponent({
   tagName: "kobber-accordion",
-  elementClass: Accordion,
+  elementClass: KobberAccordion,
   react: React,
 });
 
-export const KobberAspectRatio = createComponent({
+export const AspectRatio = createComponent({
   tagName: "kobber-aspect-ratio",
-  elementClass: AspectRatio,
+  elementClass: KobberAspectRatio,
   react: React,
 });
 
-export const KobberBadge = createComponent({
+export const Badge = createComponent({
   tagName: "kobber-badge",
-  elementClass: Badge,
+  elementClass: KobberBadge,
   react: React,
 });
 
-export const KobberBadgeIcon = createComponent({
+export const BadgeIcon = createComponent({
   tagName: "kobber-badge-icon",
-  elementClass: BadgeIcon,
+  elementClass: KobberBadgeIcon,
   react: React,
 });
 
-export const KobberBoxLayout = createComponent({
+export const BoxLayout = createComponent({
   tagName: "kobber-box-layout",
-  elementClass: BoxLayout,
+  elementClass: KobberBoxLayout,
   react: React,
 });
 
-export const KobberButton = createComponent({
+export const Button = createComponent({
   tagName: "kobber-button",
-  elementClass: Button,
+  elementClass: KobberButton,
   react: React,
 });
 
-export const KobberCardLayout = createComponent({
+export const CardLayout = createComponent({
   tagName: "kobber-card-layout",
-  elementClass: CardLayout,
+  elementClass: KobberCardLayout,
   react: React,
 });
 
-export const KobberCardLayoutColumnAspectRatio = createComponent({
+export const CardLayoutColumnAspectRatio = createComponent({
   tagName: "kobber-card-layout-column-aspect-ratio",
-  elementClass: CardLayoutColumnAspectRatio,
+  elementClass: KobberCardLayoutColumnAspectRatio,
   react: React,
 });
 
-export const KobberCarousel = createComponent({
+export const Carousel = createComponent({
   tagName: "kobber-carousel",
-  elementClass: Carousel,
+  elementClass: KobberCarousel,
   react: React,
 });
 
-export const KobberCarouselButton = createComponent({
+export const CarouselButton = createComponent({
   tagName: "kobber-carousel-button",
-  elementClass: CarouselButton,
+  elementClass: KobberCarouselButton,
   react: React,
 });
 
-export const KobberCheckboxGroup = createComponent({
+export const CheckboxGroup = createComponent({
   tagName: "kobber-checkbox-group",
-  elementClass: CheckboxGroup,
+  elementClass: KobberCheckboxGroup,
   react: React,
 });
 
-export const KobberCheckboxInput = createComponent({
+export const CheckboxInput = createComponent({
   tagName: "kobber-checkbox-input",
-  elementClass: CheckboxInput,
+  elementClass: KobberCheckboxInput,
   react: React,
 });
 
-export const KobberDivider = createComponent({
+export const Divider = createComponent({
   tagName: "kobber-divider",
-  elementClass: Divider,
+  elementClass: KobberDivider,
   react: React,
 });
 
-export const KobberDropdown = createComponent({
+export const Dropdown = createComponent({
   tagName: "kobber-dropdown",
-  elementClass: Dropdown,
+  elementClass: KobberDropdown,
   react: React,
 });
 
-export const KobberGrid = createComponent({
+export const Grid = createComponent({
   tagName: "kobber-grid",
-  elementClass: Grid,
+  elementClass: KobberGrid,
   react: React,
 });
 
-export const KobberGridColumn = createComponent({
+export const GridColumn = createComponent({
   tagName: "kobber-grid-column",
-  elementClass: GridColumn,
+  elementClass: KobberGridColumn,
   react: React,
 });
 
-export const KobberGridColumnAspectRatio = createComponent({
+export const GridColumnAspectRatio = createComponent({
   tagName: "kobber-grid-column-aspect-ratio",
-  elementClass: GridColumnAspectRatio,
+  elementClass: KobberGridColumnAspectRatio,
   react: React,
 });
 
-export const KobberHeading = createComponent({
+export const Heading = createComponent({
   tagName: "kobber-heading",
-  elementClass: Heading,
+  elementClass: KobberHeading,
   react: React,
 });
 
-export const KobberHorizontalLayout = createComponent({
+export const HorizontalLayout = createComponent({
   tagName: "kobber-horizontal-layout",
-  elementClass: HorizontalLayout,
+  elementClass: KobberHorizontalLayout,
   react: React,
 });
 
-export const KobberHorizontalLayoutColumn = createComponent({
+export const HorizontalLayoutColumn = createComponent({
   tagName: "kobber-horizontal-layout-column",
-  elementClass: HorizontalLayoutColumn,
+  elementClass: KobberHorizontalLayoutColumn,
   react: React,
 });
 
-export const KobberIngress = createComponent({
+export const Ingress = createComponent({
   tagName: "kobber-ingress",
-  elementClass: Ingress,
+  elementClass: KobberIngress,
   react: React,
 });
 
-export const KobberLink = createComponent({
+export const Link = createComponent({
   tagName: "kobber-link",
-  elementClass: Link,
+  elementClass: KobberLink,
   react: React,
 });
 
-export const KobberList = createComponent({
+export const List = createComponent({
   tagName: "kobber-list",
-  elementClass: List,
+  elementClass: KobberList,
   react: React,
 });
 
-export const KobberListItem = createComponent({
+export const ListItem = createComponent({
   tagName: "kobber-list-item",
-  elementClass: ListItem,
+  elementClass: KobberListItem,
   react: React,
 });
 
-export const KobberProgressBar = createComponent({
+export const ProgressBar = createComponent({
   tagName: "kobber-progress-bar",
-  elementClass: ProgressBar,
+  elementClass: KobberProgressBar,
   react: React,
 });
 
-export const KobberProgressBarItem = createComponent({
+export const ProgressBarItem = createComponent({
   tagName: "kobber-progress-bar-item",
-  elementClass: ProgressBarItem,
+  elementClass: KobberProgressBarItem,
   react: React,
 });
 
-export const KobberRadioGroup = createComponent({
+export const RadioGroup = createComponent({
   tagName: "kobber-radio-group",
-  elementClass: RadioGroup,
+  elementClass: KobberRadioGroup,
   react: React,
 });
 
-export const KobberRadioInput = createComponent({
+export const RadioInput = createComponent({
   tagName: "kobber-radio-input",
-  elementClass: RadioInput,
+  elementClass: KobberRadioInput,
   react: React,
 });
 
-export const KobberRadioInputControl = createComponent({
+export const RadioInputControl = createComponent({
   tagName: "kobber-radio-input-control",
-  elementClass: RadioInputControl,
+  elementClass: KobberRadioInputControl,
   react: React,
 });
 
-export const KobberTextLink = createComponent({
+export const TextLink = createComponent({
   tagName: "kobber-text-link",
-  elementClass: TextLink,
+  elementClass: KobberTextLink,
   react: React,
 });
 
-export const KobberTextWrapper = createComponent({
+export const TextWrapper = createComponent({
   tagName: "kobber-text-wrapper",
-  elementClass: TextWrapper,
+  elementClass: KobberTextWrapper,
   react: React,
 });
 
-export const KobberThemeContext = createComponent({
+export const ThemeContext = createComponent({
   tagName: "kobber-theme-context",
-  elementClass: ThemeContext,
+  elementClass: KobberThemeContext,
   react: React,
 });

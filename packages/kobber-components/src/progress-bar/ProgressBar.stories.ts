@@ -1,4 +1,4 @@
-import type { Args, Meta, StoryObj } from "@storybook/web-components";
+import type { Args, Meta, StoryObj } from "@storybook/web-components-vite";
 import { customElementName as ProgressBar } from "./ProgressBar";
 import { customElementName as ProgressBarItem } from "./ProgressBarItem";
 import { getProficiencyNameByPercentage } from "../base/utilities/progressHelpers";
@@ -8,9 +8,8 @@ import { init as initComponents } from "../base/init";
 initComponents();
 
 const meta: Meta = {
-  title: "In development 🧪/Progress-Bar",
+  title: "In development 🔵/Progress-Bar",
   component: "kobber-progress-bar",
-  tags: ["autodocs"],
   args: {
     height: "default",
   },

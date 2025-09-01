@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { KobberHeading } from "@gyldendal/kobber-components/react"
+import { Heading } from "@gyldendal/kobber-components/react"
 import { damUrl } from "@/lib/damImageLoader"
 import { placeholderImageUrl } from "@/lib/utils"
 import type { PagebuilderType } from "../page-builder.types"
@@ -38,7 +38,9 @@ export function InformationCard({ item: { title, text, image } }: InformationCar
       </div>
 
       <div className={styles["card-content"]}>
-        <KobberHeading variant="title medium">{title}</KobberHeading>
+        <Heading element="title" size="medium">
+          {title}
+        </Heading>
         {text && <p>{text}</p>}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { accordionName } from "./Accordion.core";
 import "../accordion/Accordion";
 import "../button/Button";

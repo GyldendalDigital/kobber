@@ -34,7 +34,7 @@ npm install @gyldendal/kobber-components
 ```
 
 > [!TIP]
-> Check [components readme](./packages/kobber-components/README.md) for adding fonts, and using components in SSR.
+> Check [components readme](./packages/kobber-components/README.md) on registering components, and adding fonts.
 
 <br />
 
@@ -57,7 +57,7 @@ npm install @gyldendal/kobber-icons
 ```
 
 > [!TIP]
-> Check [icons readme](./packages/kobber-icons/README.md) for more options.
+> Check [icons readme](./packages/kobber-icons/README.md) on registering icons, and more options.
 
 <br />
 

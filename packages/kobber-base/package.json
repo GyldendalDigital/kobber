@@ -1,15 +1,18 @@
 {
   "name": "@gyldendal/kobber-base",
-  "version": "0.5.0",
+  "version": "0.6.2",
   "license": "MIT",
   "type": "module",
   "files": [
     "dist"
   ],
   "exports": {
+    "./themes/*.js": "./dist/themes/*.js",
     "./themes/default/*.js": "./dist/themes/default/*.js",
+    "./themes/default/*.ts": "./dist/themes/default/*.ts",
     "./themes/default/*.css": "./dist/themes/default/*.css",
     "./themes/dark/*.js": "./dist/themes/dark/*.js",
+    "./themes/dark/*.ts": "./dist/themes/dark/*.ts",
     "./themes/dark/*.css": "./dist/themes/dark/*.css",
     "./utilities/index.js": "./dist/utilities/index.js"
   },
@@ -24,7 +27,7 @@
     "url": "https://github.com/GyldendalDigital/kobber"
   },
   "devDependencies": {
-    "style-dictionary": "^4.3.2",
+    "style-dictionary": "^5.0.2",
     "tsup": "^8.4.0",
     "tsx": "^4.19.2",
     "typescript": "^5.8.3"

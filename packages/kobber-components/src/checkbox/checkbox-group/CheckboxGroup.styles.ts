@@ -1,19 +1,17 @@
 import { css, unsafeCSS } from "lit";
 import { GroupClassNames } from "../Checkbox.core";
-import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 
-/**
- * Shared styles, used in web component, React and CSS module.
- *
- */
+const _checkbox = component._checkbox;
+const checkbox = component.checkbox;
+
 const createCheckboxGroupStyles = () => {
   return css`
     .${unsafeCSS("kobber-checkbox-group" satisfies GroupClassNames)} {
       display: flex;
       flex-direction: column;
       padding: 0;
-      /* TOOD: Use real tokens when available: */
-      gap: var(--checkbox-group-input-container-gap, 4px);
+      gap: var(${unsafeCSS(_checkbox["container-right"].gap)});
       border: none;
     }
     .default-slot {
@@ -22,16 +20,15 @@ const createCheckboxGroupStyles = () => {
 
       [data-orientation="vertical"] & {
         flex-direction: column;
-        gap: var(--checkbox-group-inner-input-container-gap, 4px);
+        gap: var(${unsafeCSS(checkbox["input-container"].gap.list)});
         [data-type="hierarchical"] & {
-          padding-left: var(--checkbox-group-inner-input-container-padding-left, 16px);
+          padding-left: var(${unsafeCSS(checkbox["inner-input-container"].padding.left)});
         }
       }
       [data-orientation="horisontal"] & {
-        gap: 0 16px;
+        gap: var(${unsafeCSS(checkbox["input-container"].gap.row)});
       }
     }
-    /* /TOOD */
   `;
 };
 

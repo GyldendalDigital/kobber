@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
 import "../box-layout/BoxLayout";
 import "../story/ExampleCard";
@@ -13,9 +13,8 @@ import { init as initComponents } from "../../base/init";
 initComponents();
 
 const meta: Meta = {
-  title: "In development 🧪/Layouts/HorizontalLayout (Carousel)",
+  title: "In development 🔵/Layouts/HorizontalLayout (Carousel)",
   component: "HorizontalLayout",
-  tags: ["autodocs"],
   decorators: [(story, storyContext) => html`<div class="${storyContext.globals.theme}">${story()}</div>`],
 };
 

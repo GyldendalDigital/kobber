@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { KobberListItem } from "@gyldendal/kobber-components/react"
+import { ListItem } from "@gyldendal/kobber-components/react"
 import styles from "./side-menu.module.css"
 import { SideMenuItem } from "./side-menu.types"
 
@@ -12,7 +12,7 @@ export const SideMenuListItemLink = (props: Props) => {
   const { item, slug } = props
   return (
     <Link role="menuitem" href={item.status !== "Kommer" && item.slug ? item.slug : "#"}>
-      <KobberListItem
+      <ListItem
         disabled={item.status === "Kommer" ? true : undefined}
         active={item.slug === slug ? true : undefined}
       >
@@ -20,7 +20,7 @@ export const SideMenuListItemLink = (props: Props) => {
           {item.status ? <small className={styles["list-label"]}>{item.status}</small> : null}
         </div>
         {item.title as string}
-      </KobberListItem>
+      </ListItem>
     </Link>
   )
 }

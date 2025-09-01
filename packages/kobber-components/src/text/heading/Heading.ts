@@ -10,20 +10,28 @@ import { customElement } from "../../base/utilities/customElementDecorator";
 export class Heading extends LitElement implements HeadingProps {
   static styles: CSSResultGroup = [componentStyles, headingStyles];
 
-  @property({ type: String })
+  @property()
   level: HeadingProps["level"];
 
-  @property({ type: String })
-  variant: HeadingProps["variant"];
+  @property()
+  element: HeadingProps["element"] = "display";
 
-  @property({ type: String })
-  font: HeadingProps["font"];
+  @property({ attribute: "color-level" })
+  colorLevel: HeadingProps["colorLevel"] = "primary";
+
+  @property()
+  size: HeadingProps["size"] = "small";
 
   render() {
     const tag = sanitizeHeadingLevel(this.level);
 
     return html`
-      <${unsafeStatic(tag)} class="${headingClassNames(this).join(" ")}">
+      <${unsafeStatic(tag)} class="${headingClassNames().join(" ")}"
+        data-level="${this.level}"
+        data-element="${this.element}"
+        data-color-level="${this.colorLevel}"
+        data-size="${this.size}"
+      >
         <slot></slot>
       </${unsafeStatic(tag)}>
     `;

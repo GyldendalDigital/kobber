@@ -1,5 +1,5 @@
-import { KobberHeading, KobberIngress } from "@gyldendal/kobber-components/react"
-import { CheckCircle, Remove } from "@gyldendal/kobber-icons/react-ssr-safe"
+import { Heading, Ingress } from "@gyldendal/kobber-components/react"
+import { CheckCircle, Remove } from "@gyldendal/kobber-icons/react"
 import {
   PortableText,
   PortableTextTypeComponentProps,
@@ -17,27 +17,27 @@ const components: Partial<PortableTextReactComponents> = {
   block: {
     h1: ({ children, value }) => {
       const slug = parseChildrenToSlug(value.children)
-      return <KobberHeading id={slug}>{children}</KobberHeading>
+      return <Heading id={slug}>{children}</Heading>
     },
     h2: ({ children, value }) => {
       const slug = parseChildrenToSlug(value.children)
       return (
-        <KobberHeading id={slug} level="h2" variant={"title medium"} font={"primary"}>
+        <Heading id={slug} level="h2" element="title" size="medium" color-level="primary">
           {children}
-        </KobberHeading>
+        </Heading>
       )
     },
     h2Italic: ({ children, value }) => {
       const slug = parseChildrenToSlug(value.children)
       return (
-        <KobberHeading id={slug} level="h2" variant={"display small"} font={"secondary"}>
+        <Heading id={slug} level="h2" element="display" size="small" color-level="secondary">
           {children}
-        </KobberHeading>
+        </Heading>
       )
     },
     h3: ({ children, value }) => {
       const slug = parseChildrenToSlug(value.children)
-      return <KobberIngress id={slug}>{children}</KobberIngress>
+      return <Ingress id={slug}>{children}</Ingress>
     },
     inline: ({ children }) => <p className={styles["inline"]}>{children}</p>,
   },

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
-import { KobberButton } from "@gyldendal/kobber-components/react"
+import { Button } from "@gyldendal/kobber-components/react"
 import { Menu, X } from "lucide-react"
 
 export const SmallScreenNavTrigger = () => {
@@ -34,16 +34,28 @@ export const SmallScreenNavTrigger = () => {
   }, [isOpen])
 
   return isOpen ? (
-    <KobberButton variant={"brand-primary-main"} onClick={onClose} aria-label={"Lukk meny"}>
+    <Button
+      color-theme="brand"
+      color-level="primary"
+      color-variant="main"
+      onClick={onClose}
+      aria-label={"Lukk meny"}
+    >
       <div slot="icon">
         <X size={20} />
       </div>
-    </KobberButton>
+    </Button>
   ) : (
-    <KobberButton variant={"brand-secondary-main"} onClick={onOpen} aria-label={"Åpne meny"}>
+    <Button
+      color-theme="brand"
+      color-level="secondary"
+      color-variant="main"
+      onClick={onOpen}
+      aria-label={"Åpne meny"}
+    >
       <div slot="icon">
         <Menu size={20} />
       </div>
-    </KobberButton>
+    </Button>
   )
 }

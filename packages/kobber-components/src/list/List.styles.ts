@@ -1,4 +1,4 @@
-import { component } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import { listClassNames } from "./List.core";
 
@@ -11,7 +11,6 @@ const createListStyles = () => {
       list-style-type: none;
       gap: var(${unsafeCSS(component["docs-side-menu"].gap)});
       width: 100%;
-      font-family: PP Mori;
 
       &[aria-orientation="horizontal"] {
         flex-direction: row;

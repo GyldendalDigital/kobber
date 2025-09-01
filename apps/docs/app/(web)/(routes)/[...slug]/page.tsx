@@ -3,7 +3,7 @@ import { notFound, redirect, RedirectType } from "next/navigation"
 import { client } from "@/sanity/lib/client"
 import { sanityFetch } from "@/sanity/lib/live"
 import { querySlugPageData, querySlugPagePaths } from "@/sanity/lib/queries"
-import { KobberHeading, KobberTextWrapper } from "@gyldendal/kobber-components/react"
+import { Heading, TextWrapper } from "@gyldendal/kobber-components/react"
 import { getMetaData } from "@/lib/seo"
 import { cn, ensurePrefix, placeholderImageUrl } from "@/lib/utils"
 import { FeatureBoxGrid } from "@/components/feature-box/feature-box-grid"
@@ -79,7 +79,8 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
 
           {showSubPageGrid && (
             <FeatureBoxGrid
-              items={children.map((x) => ({
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              items={children.map((x: any) => ({
                 ...x,
                 href: x.slug,
                 image: x.image ?? placeholderImageUrl({ textRows: ["placeholder"], size: "20x20" }),
@@ -88,8 +89,8 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
           )}
 
           {!showPageBuilder && !showSubPageGrid && (
-            <KobberTextWrapper>
-              <KobberHeading>{title}</KobberHeading>
+            <TextWrapper>
+              <Heading>{title}</Heading>
               <p>Innhold er ikke lagt til enda.</p>
               {(await draftMode()).isEnabled && (
                 <small>
@@ -97,7 +98,7 @@ export default async function SlugPage({ params }: { params: Promise<{ slug: str
                   behavior redirect
                 </small>
               )}
-            </KobberTextWrapper>
+            </TextWrapper>
           )}
         </main>
       </div>

@@ -1,10 +1,18 @@
-import { component, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
-import { BadgeClassNames, BadgeProps, badgeSizes, badgeThemes, badgeVariants } from "./Badge.core";
+import {
+  BadgeClassNames,
+  badgeSizes,
+  badgeColorThemes,
+  badgeColorVariants,
+  BadgeColorVariant,
+  BadgeSize,
+} from "./Badge.core";
+import { getTypographyStyles } from "../base/getTypographyStyles";
+
+const badge = component.badge;
 
 const createBadgeStyles = () => {
-  const badge = component.badge;
-
   return css`
     .${unsafeCSS("kobber-badge" satisfies BadgeClassNames)} {
       display: flex;
@@ -14,20 +22,21 @@ const createBadgeStyles = () => {
 
       border-radius: var(${unsafeCSS(badge.border.radius)});
       background-color: var(--background-color);
-      gap: var(--gap);
       color: var(--color);
+      gap: var(--gap);
       padding: var(--padding);
-      font-size: var(--font-size);
-      font-family: var(--font-family);
-      font-weight: var(--font-weight);
-      font-style: var(--font-style);
-      font-stretch: var(--font-stretch);
-      line-height: var(--line-height);
+      font-size: var(--typography-font-size);
+      font-family: var(--typography-font-family);
+      font-weight: var(--typography-font-weight);
+      font-style: var(--typography-font-style);
+      font-stretch: var(--typography-font-stretch);
+      line-height: var(--typography-line-height);
 
-      ${badgeVariableStyles()}
+      ${getThemeSizeVariantStyles()}
+      ${getSizeDependantStyles()}
 
       .${unsafeCSS("status-circle" satisfies BadgeClassNames)} {
-        background-color: var(--status-circle-color, transparent);
+        background-color: var(--status-circle-color);
         width: var(--status-circle-width);
         height: var(--status-circle-height);
         border-radius: 50%;
@@ -37,69 +46,101 @@ const createBadgeStyles = () => {
   `;
 };
 
-const getPaddingStyles = (size: BadgeProps["size"]) => {
-  const badge = component.badge;
-
-  if (size === "medium") {
-    return css`
-      --padding: var(${unsafeCSS(badge.padding.medium)}, 8px);
-    `;
-  }
-
+const getThemeSizeVariantStyles = () => {
   return css`
-    --padding: var(${unsafeCSS(badge.padding.block.small)}, 4px) var(${unsafeCSS(badge.padding.inline.small)}, 8px);
+    ${unsafeCSS(
+      badgeColorThemes
+        .flatMap(colorTheme => {
+          if (colorTheme === "concrete") {
+            return `&[data-color-theme="${colorTheme}"] { ${getConcreteThemeMainVariantStyles()} }`;
+          }
+          return badgeSizes.flatMap(size =>
+            badgeColorVariants.flatMap(
+              colorVariant =>
+                `&[data-color-variant="${colorVariant}"][data-color-theme="${colorTheme}"][data-size="${size}"] { 
+                  ${getNotConcreteThemeVariantStyles(colorTheme, colorVariant)}
+                  ${getStatusCircleStyles(colorTheme, colorVariant, size)}
+                }`,
+            ),
+          );
+        })
+        .join("\n"),
+    )}
   `;
 };
 
-const badgeVariableStyles = () => {
-  const variableClasses = badgeThemes.flatMap(theme => {
-    return badgeVariants.flatMap(variant => {
-      return badgeSizes.flatMap(size => {
-        const nestedClassNames = `&.${theme}.${variant}.${size}`;
-        const badge = component.badge;
-        const typographySmall = typography.ui["label small - single line"];
-        const typographyMedium = typography.ui["label medium - single line"];
+const getConcreteThemeMainVariantStyles = () => {
+  return css`
+    ${unsafeCSS(`
+    --background-color: var(${unsafeCSS(badge.background.color.concrete.main)});
+    --color: var(${unsafeCSS(badge.text.color.concrete.main)});
+      `)}
+  `;
+};
 
-        return css`
-          ${unsafeCSS(nestedClassNames)} {
-            --background-color: var(
-              ${unsafeCSS(
-                theme === "concrete" ? badge.background.color.concrete : badge.background.color[theme][variant],
-              )}
-            );
-            --gap: var(${unsafeCSS(badge.gap[size])});
-            --color: var(
-              ${unsafeCSS(theme === "concrete" ? badge.text.color.concrete : badge.text.color[theme][variant])}
-            );
-            ${getPaddingStyles(size)};
-            --status-circle-color: var(
-              ${unsafeCSS(
-                theme === "concrete" || variant === "main" ? null : badge["status-circle"].color[theme].supplemental,
-              )}
-            );
-            --font-size: var(${unsafeCSS(size === "medium" ? typographyMedium.fontSize : typographySmall.fontSize)});
-            --font-family: var(
-              ${unsafeCSS(size === "medium" ? typographyMedium.fontFamily : typographySmall.fontFamily)}
-            );
-            --font-weight: var(
-              ${unsafeCSS(size === "medium" ? typographyMedium.fontWeight : typographySmall.fontWeight)}
-            );
-            --font-style: var(${unsafeCSS(size === "medium" ? typographyMedium.fontStyle : typographySmall.fontStyle)});
-            --font-stretch: var(
-              ${unsafeCSS(size === "medium" ? typographyMedium.fontStretch : typographySmall.fontStretch)}
-            );
-            --line-height: var(
-              ${unsafeCSS(size === "medium" ? typographyMedium.lineHeight : typographySmall.lineHeight)}
-            );
-            --status-circle-width: var(${unsafeCSS(badge["status-circle"].width[size])});
-            --status-circle-height: var(${unsafeCSS(badge["status-circle"].height[size])});
-          }
-        `;
-      });
-    });
-  });
+const getNotConcreteThemeVariantStyles = (colorTheme: "aubergine" | "rettsdata", colorVariant: BadgeColorVariant) => {
+  return css`
+    ${unsafeCSS(`
+      --background-color: var(${unsafeCSS(badge.background.color[colorTheme][colorVariant])});
+      --color: var(${unsafeCSS(badge.text.color[colorTheme][colorVariant])});
+      `)}
+  `;
+};
 
-  return unsafeCSS(variableClasses.join("\n"));
+const getStatusCircleStyles = (
+  colorTheme: "aubergine" | "rettsdata",
+  colorVariant: BadgeColorVariant,
+  size: BadgeSize,
+) => {
+  if (colorVariant === "supplemental") {
+    const circleStyles = component.badge["status-circle"];
+    return css`
+      ${unsafeCSS(`
+        --status-circle-color: var(${unsafeCSS(circleStyles.color[colorTheme].supplemental)});
+        --status-circle-width: var(${unsafeCSS(circleStyles.width[size])});
+        --status-circle-height: var(${unsafeCSS(circleStyles.height[size])});
+      `)}
+    `;
+  }
+  return css``;
+};
+
+const getSizeDependantStyles = () => {
+  return css`
+    ${unsafeCSS(
+      badgeSizes
+        .flatMap(
+          size => `&[data-size="${size}"] { 
+            ${spacingStyles(size)} 
+            ${getTypographyStyles("badge", "ui", size)}
+        }`,
+        )
+        .join("\n"),
+    )}
+  `;
+};
+
+const spacingStyles = (size: BadgeSize) => {
+  const containerStyles = component.badge;
+  let paddingStyles = "0";
+
+  switch (size) {
+    case "medium":
+      paddingStyles = `var(${unsafeCSS(containerStyles.padding.medium)})`;
+      break;
+    case "small":
+      paddingStyles = `var(${unsafeCSS(containerStyles.padding.block.small)})
+        var(${unsafeCSS(containerStyles.padding.inline.small)})`;
+      break;
+    default:
+      return css``;
+  }
+  return css`
+    ${unsafeCSS(`
+      --padding: ${unsafeCSS(paddingStyles)};
+      --gap: var(${unsafeCSS(containerStyles.gap[size])});
+    `)}
+  `;
 };
 
 export const badgeStyles = createBadgeStyles();

@@ -1,6 +1,6 @@
 # Component library
 
-Components can be used as React components or as web components.<br />
+Components can be used as web components, or as React components.<br />
 TypeScript definitions are included.
 
 See also https://kobber.gyldendal.no/komponenter.
@@ -19,7 +19,7 @@ Components specifically sets font-family. You should [download the fonts from DA
 
 ```css
 @font-face {
-  font-family: "pp mori";
+  font-family: "pp-mori";
   src: url("./PPMori-Regular.woff2");
 }
 
@@ -34,8 +34,8 @@ Components specifically sets font-family. You should [download the fonts from DA
 }
 
 :root {
-  /* Kobber default font is PP Mori */
-  font-family: "pp mori", Arial, sans-serif;
+  /* Kobber default font is pp-mori */
+  font-family: "pp-mori", Arial, sans-serif;
 }
 ```
 
@@ -48,8 +48,8 @@ Components can be imported as React components or as web components.
 As a React component:
 
 ```jsx
-import { ProgressBar } from "@gyldendal/kobber-components/react";
-const App = () => <ProgressBar />;
+import { Button } from "@gyldendal/kobber-components/react";
+const App = () => <Button />;
 ```
 
 For SSR applications, to avoid `HTMLElement is not defined` errors, using the [@lit-labs/ssr-dom-shim](https://www.npmjs.com/package/@lit-labs/ssr-dom-shim) package is required.
@@ -68,15 +68,15 @@ As a custom element:
 <script>
   import "@gyldendal/kobber-components/web-components";
 </script>
-<kobber-progress-bar />
+<kobber-button />
 ```
 
 As a web component:
 
 ```JavaScript
-import { ProgressBar } from "@gyldendal/kobber-components/web-components";
-const progressBar = new ProgressBar();
-document.body.appendChild(progressBar);
+import { Button } from "@gyldendal/kobber-components/web-components";
+const button = new Button();
+document.body.appendChild(button);
 ```
 
 ## Auto-registering web components
@@ -95,9 +95,10 @@ import { init } from "@gyldendal/kobber-components/init";
 init({ autoRegisterWebComponents: true });
 ```
 
-## CSS
+If using kobber-components in concert with kobber-icons, both components and icons should be registered at the same time. If kobber-icons are registered at a later time, kobber-components will not be able to set the components' classes that are needed to present icons within them.
 
-We recommend using [normalize.css](https://github.com/necolas/normalize.css/) or something similar to normalize browser styles.
+> [!TIP]
+> Check [icons readme](./packages/kobber-icons/README.md) on registering icons, and more options.
 
 ## Development
 
@@ -116,9 +117,49 @@ yarn dev
 
 ### Create components
 
+Kobber Components are ["autonomous custom elements"](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#types_of_custom_element), that inherit from HTMLElement base class. Custom elements inheriting other HTML elements is not supported by Safari.
+
+#### Make a new component from scratch
+
+The easiest is to copy-paste the folder of an existing component, and alter the name and content to your needs.
+
+All component folders should contain the following files:
+
+- Component.ts - the component itself.
+- Component.styles.ts - the component styles, imported into Component.ts.
+- Component.core.ts - all code that is used in both Component.ts and Component.styles.ts.
+- Component.stories.ts - storybook stories.
+
+#### Naming conventions
+
+- Folder names are element names, which [must be in kebab-case](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#registering_a_custom_element).
+- Attribute names are in kebab-case.
+- Component names are in PascalCase.
+- Component file names:
+  - File names are the same as the component name (plus extension) - don't export more than one component per file!
+  - Currently allowed extensions are ts, tsx and js.
+  - Component file names can only contain ONE dot!
+- All files not exporting components should have MORE THAN ONE dot in file name.
+
+The tsup build script uses these conventions to build lists of all components. The script ignores content in folders with the following names:
+
+- base
+- config
+- story
+
+#### Using libraries etc
+
+Small, simple components can avoid using libraries. Most components, however, `extends LitElement` (or `extends ShoelaceElement`). Extending `StyledLitElement` is only for components that need to be able to be styled in several ways.
+
+Dependencies for Kobber consumers should be kept at an absolute minimum.
+
 #### Children or props
 
-For maintainability, components should be created to consume data as children rather than props. By using props for all data, the amount of component props over time will grow unmaintanable. Most likely, you will end up with a component that needs to accept children components as props (while having to maintain possibly deprecated data props).
+For maintainability, components should be created to consume data as children rather than props.
+
+A downside with using props for all data, is that the amount of component props over time will grow unmantainable. Most likely, you will end up with a component that needs to accept children components as props (while having to maintain possibly deprecated data props).
+
+The upside with using props for all data is that the component fully controls all of its content. In a system of general components, however, this is not necessarily an upside.
 
 Example of component consuming data as children:
 
@@ -154,21 +195,28 @@ Example of component consuming data as props:
 />
 ```
 
-#### Naming conventions
+### Styling components
 
-- Folder names are in kebab-case.
-- Component names are in PascalCase.
-- Component file names:
-  - File names are the same as the component name (plus extension) - don't export more than one component per file!
-  - Currently allowed extensions are ts, tsx and js.
-  - Component file names can only contain ONE dot!
-- All files not exporting components should have MORE THAN ONE dot in file name.
+Styling across the shadow dom barrier is restricted. To circumvent this, we use attributes that can be made into a components' internal styles.
 
-The tsup build script uses these conventions to build lists of all components. The script ignores all content in folders named "base", "config", and "story".
+#### Prefer data-attributes over class names
 
-#### Extend LitElement
+Use data-attributes as selectors for components' styling. These are more semantic and readable than class names.
 
-Most components should be defined as `extends LitElement` (or `extends ShoelaceElement`). Extending `StyledLitElement` is only for components that need to be able to be styled in several ways.
+##### Background on CSS selectors
+
+By using class names, one often ends up with [loose class names](https://csswizardry.com/2012/11/code-smells-in-css/#loose-class-names) that do not make sense without first knowing the whole component code. To cope with this, it is possible to use class name conventions like [BEM](https://bem-cheat-sheet.9elements.com/) to add semantics to CSS Selectors. With BEM, you often end up with multiple class names that are long strings, reducing readability. Using data-attributes solves this problem more elegantly.
+
+### Writing components' storybook stories
+
+Storybook stories should be as readable and non-abstract as possible, as they serve as documentation for Kobber consumers. Often, however, they need to contain some logic for presenting all variants of a component.
+
+When writing stories, you should document not only simple happy-path cases. Show how your component works (or does not work) with much content, and little and none.
+
+Other moments:
+
+- All attributes should be possible to change with args.
+- It should be possible to see the code necessary to use the component in storybook web page.
 
 ### Publish components
 

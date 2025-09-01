@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
 import "./Badge";
-import { badgeName, BadgeProps, badgeSizes, badgeThemes, badgeVariants } from "./Badge.core";
+import { badgeName, BadgeProps, badgeSizes, badgeColorThemes, badgeColorVariants } from "./Badge.core";
 import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
 
@@ -12,7 +12,7 @@ interface Args extends BadgeProps {
 }
 
 const meta: Meta = {
-  title: "Badge",
+  title: "Indicators/Badge",
   component: badgeName,
   decorators: [
     (Story, context) => html`<kobber-theme-context theme-id=${context.globals.theme}>${Story()}</kobber-theme-context>`,
@@ -30,23 +30,24 @@ export const Badge: StoryObj<Args> = {
       options: badgeSizes,
       control: { type: "select" },
     },
-    theme: {
-      options: badgeThemes,
+    colorTheme: {
+      options: badgeColorThemes,
       control: { type: "select" },
     },
-    variant: {
-      options: badgeVariants,
+    colorVariant: {
+      options: badgeColorVariants,
       control: { type: "select" },
     },
     showStatusCircle: {
       control: { type: "boolean" },
+      name: "Show status circle (only for supplemental variant of aubergine and rettsdata thems)",
     },
   },
   args: {
     text: "Badge",
     size: "medium",
-    theme: "aubergine",
-    variant: "main",
+    colorTheme: "aubergine",
+    colorVariant: "main",
     showStatusCircle: true,
   },
   render: args => {
@@ -55,9 +56,14 @@ export const Badge: StoryObj<Args> = {
 };
 
 const renderBadge = (args: Args) => {
-  const { size, text, theme, variant, showStatusCircle } = args;
+  const { size, text, colorTheme, colorVariant, showStatusCircle } = args;
 
-  return html` <kobber-badge size=${size} theme=${theme} variant=${variant} ?showStatusCircle=${showStatusCircle}>
+  return html` <kobber-badge
+    size=${size}
+    color-theme=${colorTheme}
+    color-variant=${colorVariant}
+    ?show-status-circle=${showStatusCircle}
+  >
     ${text}
   </kobber-badge>`;
 };

@@ -8,7 +8,6 @@ import type { CSSResultGroup } from "lit";
 import {
   inputClassNames,
   radioInputName,
-  InputVariant,
   radioInputLabelClassName,
   InputProps,
   radioInputControlName,
@@ -17,6 +16,7 @@ import "../radio-input-control/RadioInputControl";
 import "../../button/Button";
 import { buttonName } from "../../button/Button.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 /**
  * @summary Radios allow the user to select a single option from a group.
@@ -40,7 +40,8 @@ export class RadioInput extends ShoelaceElement implements InputProps {
   /** The radio's value. When selected, the radio group will receive this value. */
   @property() value: string = "";
 
-  @property() variant?: InputVariant;
+  @property({ attribute: "color-theme" })
+  colorTheme?: InputProps["colorTheme"] = "success";
 
   /** Disables the radio. */
   @property({ type: Boolean, reflect: true }) disabled = false;
@@ -109,20 +110,18 @@ export class RadioInput extends ShoelaceElement implements InputProps {
       return html`<${buttonElement}
         class=${[
           ...inputClassNames({
-            variant: this.variant,
             isLink: isLink,
           }),
-          this.className,
         ].join(" ")}
+        data-color-theme="${this.colorTheme}"
         ?disabled="${this.disabled}"
-        variant="supplemental alt"
         href="${this.href}"
         usedInOtherInteractive
         iconFirst
       >
         <${radioInputControlElement}
           ?checked="${this.checked}"
-          variant="${this.variant}"
+          color-theme="${this.colorTheme}"
           slot="icon"
         ></${radioInputControlElement}>
         <slot part="label"></slot>
@@ -132,13 +131,12 @@ export class RadioInput extends ShoelaceElement implements InputProps {
       <div
         class=${[
           ...inputClassNames({
-            variant: this.variant,
             isLink: isLink,
           }),
-          this.className,
         ].join(" ")}
+        data-color-theme="${ifDefined(this.colorTheme)}"
       >
-        <${radioInputControlElement} ?checked="${this.checked}" variant="${this.variant}"></${radioInputControlElement}>
+        <${radioInputControlElement} ?checked="${this.checked}" color-theme="${this.colorTheme}"></${radioInputControlElement}>
         <slot part="label" class="${radioInputLabelClassName}"></slot>
       </div>
     `;

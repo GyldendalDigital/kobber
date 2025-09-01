@@ -1,25 +1,25 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit/static-html.js";
 import "./text-wrapper/TextWrapper";
 import "./heading/Heading";
 import "./ingress/Ingress";
 import "./text-link/TextLink";
-import { headingPrimarySizes, headingSecondarySizes } from "./heading/Heading.core";
+import { headingElements, headingSizes, headingColorLevels } from "./heading/Heading.core";
 import "@gyldendal/kobber-icons/web-components";
 import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { getPrintedState, linkStates } from "../story/linkStates";
+import { ingressSizes } from "./ingress/Ingress.core";
 
 initComponents();
 initIcons();
 
 const meta: Meta = {
-  title: "Text",
+  title: "Styles and Foundation/Text",
   decorators: [(Story, context) => html`<div class="${context.globals.theme}">${Story()}</div>`],
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
 };
 
 export default meta;
@@ -96,7 +96,7 @@ export const All: Story = {
 };
 
 /**
- * Primary er PP Mori, secondary er Lyon Display.
+ * Primary er pp-mori, secondary er Lyon Display.
  */
 export const Heading: Story = {
   argTypes: {
@@ -119,29 +119,45 @@ export const Heading: Story = {
     const text = (textValue: string) => (args.highlighted ? html`<em>${textValue}</em>` : textValue);
 
     return html`
-      <div style="display: flex; gap: 2rem; margin-top: 3rem;">
-        <kobber-text-wrapper class="kobber-text-wrapper">
-          Primary
-          ${headingPrimarySizes.map(
-            size => html`
-              <kobber-heading level="${args.h1 ? "h1" : "h2"}" variant="${size}" font="primary">
-                ${text(args.text || size)}
-              </kobber-heading>
-            `,
-          )}
-        </kobber-text-wrapper>
-
-        <kobber-text-wrapper class="kobber-text-wrapper">
-          Secondary
-          ${headingSecondarySizes.map(
-            size => html`
-              <kobber-heading level="${args.h1 ? "h1" : "h2"}" variant="${size}" font="secondary">
-                ${text(args.text || size)}
-              </kobber-heading>
-            `,
-          )}
-        </kobber-text-wrapper>
-      </div>
+      <kobber-text-wrapper class="kobber-text-wrapper">
+        ${headingElements.map(
+          element => html`
+            ${headingSizes.map(
+              size =>
+                html` <div
+                  style="
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        align-items: center;
+                        grid-template-areas: 
+                          'element-and-size .'
+                          'primary sample-primary'
+                          'secondary sample-secondary'
+                          'reading sample-reading'
+                          'ui sample-ui';
+                        border: 1px solid;
+                        padding: 1em;"
+                >
+                  <em style="grid-area: element-and-size;">${element} - ${size}</em>
+                  ${headingColorLevels.map(
+                    colorVariant => html`
+                      <p style="grid-area: ${colorVariant};">${colorVariant}</p>
+                      <kobber-heading
+                        level="${args.h1 ? "h1" : "h2"}"
+                        element="${element}"
+                        color-variant="${colorVariant}"
+                        size="${size}"
+                        style="grid-area: sample-${colorVariant};"
+                      >
+                        ${text(args.text || "Heading")}
+                      </kobber-heading>
+                    `,
+                  )}
+                </div>`,
+            )}
+          `,
+        )}
+      </kobber-text-wrapper>
     `;
   },
 };
@@ -154,13 +170,18 @@ export const Ingress: Story = {
     text: {
       control: "text",
     },
+    size: {
+      options: ingressSizes,
+      control: { type: "inline-radio" },
+    },
   },
   args: {
     text: "Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem bestående av gjenbrukbare, fleksible ressurser slik som digitale komponenter, malverk, retningslinjer og kode. Samtidig tydeliggjør det vår merkevarestrategi, våre felles verdier og de opplevelsene vi har som mål å tilby våre sluttbrukere.",
+    size: "small",
   },
   render: args => {
     return html`<div style="max-width: 600px;">
-      <kobber-ingress> ${args.text} </kobber-ingress>
+      <kobber-ingress size="${args.size}"> ${args.text} </kobber-ingress>
     </div>`;
   },
 };

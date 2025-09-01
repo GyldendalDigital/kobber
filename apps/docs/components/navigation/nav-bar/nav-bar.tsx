@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { sanityFetch } from "@/sanity/lib/live"
 import { queryNavbarSmallScreenData } from "@/sanity/lib/queries"
-import { KobberHeading } from "@gyldendal/kobber-components/react"
+import { Heading } from "@gyldendal/kobber-components/react"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import { LoginButton } from "@/components/global/login-button"
@@ -21,21 +21,24 @@ export const NavBar = async () => {
     <header className={cn(styles["wrapper"], pageLayoutStyles["page-spacing"])}>
       <div className={styles["bar"]}>
         <Link href="/">
-          <KobberHeading level="div" variant="title small">
+          <Heading level="div" element="title" size="small">
             {APP_NAME}
-          </KobberHeading>
+          </Heading>
         </Link>
 
         <nav className={styles["inner-container"]}>
           {data?.children && (
             <ul className={styles["inner-container-links"]}>
-              {data.children.map((item) =>
-                item.slug && item.title ? (
-                  <li key={item.slug}>
-                    <RouterLink href={item.slug}>{item.title}</RouterLink>
-                  </li>
-                ) : null
-              )}
+              {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                data.children.map((item: any) =>
+                  item.slug && item.title ? (
+                    <li key={item.slug}>
+                      <RouterLink href={item.slug}>{item.title}</RouterLink>
+                    </li>
+                  ) : null
+                )
+              }
             </ul>
           )}
 

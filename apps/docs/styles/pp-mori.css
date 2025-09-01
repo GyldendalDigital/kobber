@@ -2,7 +2,7 @@
 https://github.com/vercel/next.js/pull/53608
 */
 @font-face {
-  font-family: "PP Mori";
+  font-family: "pp-mori";
   font-weight: 100 900;
   font-display: swap;
   font-style: normal;
@@ -10,10 +10,6 @@ https://github.com/vercel/next.js/pull/53608
   src: url("../app/fonts/PPMori-Regular.woff2") format("woff2");
 }
 
-
 body {
-  font-family:
-    "PP Mori",
-    Arial,
-    sans-serif;
+  font-family: "pp-mori", Arial, sans-serif;
 }

@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { KobberButton, KobberHeading } from "@gyldendal/kobber-components/react"
-import { Check } from "@gyldendal/kobber-icons/react-ssr-safe"
+import { Button, Heading } from "@gyldendal/kobber-components/react"
+import { Check } from "@gyldendal/kobber-icons/react"
 import { stegaClean } from "@sanity/client/stega"
 import type { PagebuilderType } from "../../page-builder.types"
 import styles from "./color-list-block.module.css"
@@ -33,9 +33,9 @@ export const ColorListItem = (props: ItemProps) => {
         }}
       ></div>
       <div className={styles["color-list-item-content"]}>
-        <KobberHeading level="h3" variant="title small" font="primary">
+        <Heading level="h3" element="title" size="small" color-level="primary">
           {title}
-        </KobberHeading>
+        </Heading>
 
         <ul>
           {[
@@ -52,7 +52,7 @@ export const ColorListItem = (props: ItemProps) => {
                 </span>
 
                 {color.value && copiedItems.includes(color.value) ? (
-                  <KobberButton
+                  <Button
                     style={
                       {
                         "--color": "#03834E",
@@ -62,13 +62,15 @@ export const ColorListItem = (props: ItemProps) => {
                       } as React.CSSProperties
                     }
                     disabled
-                    variant="brand-tertiary-main"
+                    color-theme="brand"
+                    color-level="tertiary"
+                    color-variant="main"
                   >
                     <Check slot="icon" />
                     Kopiert
-                  </KobberButton>
+                  </Button>
                 ) : (
-                  <KobberButton
+                  <Button
                     style={
                       {
                         "--color": "#7155F0",
@@ -76,11 +78,13 @@ export const ColorListItem = (props: ItemProps) => {
                         height: "1.5rem",
                       } as React.CSSProperties
                     }
-                    variant="brand-tertiary-main"
+                    color-theme="brand"
+                    color-level="tertiary"
+                    color-variant="main"
                     onClick={() => copyToClipboard(color.value)}
                   >
                     Kopier
-                  </KobberButton>
+                  </Button>
                 )}
               </li>
             ))}

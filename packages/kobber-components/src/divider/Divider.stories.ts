@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
-import { DividerVariant } from "./Divider.types";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import { DividerVariant as DividerColorVariant, dividerVariants } from "./Divider.core";
 import "./Divider";
 import { html } from "lit";
 import "../theme-context-provider/ThemeContext";
@@ -7,13 +7,14 @@ import { init as initComponents } from "../base/init";
 
 initComponents();
 
-const variants: DividerVariant[] = ["main", "supplemental"];
+const colorVariants: DividerColorVariant[] = dividerVariants;
 
 const meta: Meta = {
+  title: "Styles and Foundation/Divider",
   component: "kobber-divider",
   argTypes: {
-    variant: {
-      options: variants,
+    colorVariant: {
+      options: colorVariants,
       control: { type: "select" },
     },
   },
@@ -32,10 +33,10 @@ type Story = StoryObj;
 
 export const Divider: Story = {
   args: {
-    variant: variants[0],
+    colorVariant: colorVariants[0],
   },
   render: args =>
     html`<div style="height:10px; width:200px;">
-      <kobber-divider variant="${args.variant}"></kobber-divider>
+      <kobber-divider color-variant="${args.colorVariant}"></kobber-divider>
     </div>`,
 };

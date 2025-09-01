@@ -1,10 +1,10 @@
 import { css, unsafeCSS } from "lit";
-import { component, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { TextWrapperClassNames } from "./TextWrapper.core";
+import { getTypographyStyles } from "../../base/getTypographyStyles";
 
 const createTextWrapperStyles = () => {
   const body = component.body;
-  const bodyText = typography["primary (mori)"].body;
 
   return css`
     .${unsafeCSS("kobber-text-wrapper" satisfies TextWrapperClassNames)} {
@@ -12,12 +12,15 @@ const createTextWrapperStyles = () => {
       flex-direction: column;
       gap: 1rem;
       color: var(${unsafeCSS(body.text.color.base)});
-      font-family: var(${unsafeCSS(bodyText.fontFamily)});
-      font-size: var(${unsafeCSS(bodyText.fontSize)});
-      font-weight: var(${unsafeCSS(bodyText.fontWeight)});
-      font-style: var(${unsafeCSS(bodyText.fontStyle)});
-      font-stretch: var(${unsafeCSS(bodyText.fontStretch)});
-      line-height: var(${unsafeCSS(bodyText.lineHeight)});
+
+      font-size: var(--typography-font-size);
+      font-family: var(--typography-font-family);
+      font-weight: var(--typography-font-weight);
+      font-style: var(--typography-font-style);
+      font-stretch: var(--typography-font-stretch);
+      line-height: var(--typography-line-height);
+
+      ${unsafeCSS(getTypographyStyles("text-wrapper", "primary"))}
 
       /* used in global.css em styling (Lit can't style nested slots) */
       --highlight-color: var(${unsafeCSS(body.text.color.highlight)});

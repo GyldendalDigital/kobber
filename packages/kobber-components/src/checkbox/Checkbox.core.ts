@@ -1,23 +1,15 @@
 import { component } from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { objectKeys } from "../base/utilities/objectKeys";
 
 export const checkboxGroupName = "kobber-checkbox-group";
-export const checkboxWrapperClassName = "kobber-checkbox-wrapper";
+export const checkboxWrapperClassName = "wrapper";
 export const checkboxInputName = "kobber-checkbox-input";
 export const nativeCheckboxInputClassName = "native-input";
-export const checkboxLabelClassName = "kobber-checkbox__label";
-export const checkboxControlClassName = "kobber-checkbox__control";
-export const checkboxGroupHorizontalClassName = "kobber-checkbox-group--horizontal";
-export const checkboxIconClassName = "kobber-checkbox__control--shape";
+export const checkboxLabelClassName = "label";
+export const checkboxControlClassName = "control";
+export const checkboxIconClassName = "control--shape";
 
-export type CheckboxIconClassNames = typeof checkboxIconClassName;
-
-const checkbox = component._checkbox.checkbox;
-
-export const checkboxInputClassNames = ({ state = "idle" }: InputProps): CheckboxClassNames[] => {
-  const conditionalClassNames: CheckboxClassNames[] = [];
-
-  return [checkboxInputName, state, ...conditionalClassNames];
-};
+const checkboxTokens = component._checkbox.indicator;
 
 export type GroupProps = {
   direction?: "vertical" | "horizontal";
@@ -40,19 +32,18 @@ export type InputProps = {
   state?: CheckboxState;
   title?: string;
   value?: string;
-  variant?: CheckboxVariant;
+  colorTheme?: CheckboxColorTheme;
 };
 
 export type GroupClassNames = typeof checkboxGroupName;
-export type WrapperClassName = typeof checkboxWrapperClassName;
-export type CheckboxClassNames = typeof checkboxInputName | CheckboxState;
-export type NativeInputClassName = typeof nativeCheckboxInputClassName;
-export type InputLabelClassName = typeof checkboxLabelClassName;
-export type InputControlClassName = typeof checkboxControlClassName;
+export type WrapperClassNames = typeof checkboxWrapperClassName;
+export type CheckboxClassNames = typeof checkboxInputName;
+export type NativeInputClassNames = typeof nativeCheckboxInputClassName;
+export type InputLabelClassNames = typeof checkboxLabelClassName;
+export type InputControlClassNames = typeof checkboxControlClassName;
+export type IconClassNames = typeof checkboxIconClassName;
 
-export type CheckboxState = keyof typeof checkbox.border.color.success | "disabled";
-export type CheckboxVariant = keyof typeof checkbox.border.color;
+export type CheckboxState = keyof typeof checkboxTokens.border.color.success | "disabled";
+export type CheckboxColorTheme = (typeof checkboxColorThemes)[number];
 
-export const checkboxVariants: CheckboxVariant[] = Object.keys(
-  component._checkbox.checkbox.border.color,
-) as CheckboxVariant[];
+export const checkboxColorThemes = objectKeys(component._checkbox.indicator.border.color);

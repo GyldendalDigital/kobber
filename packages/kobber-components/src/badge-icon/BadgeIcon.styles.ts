@@ -1,21 +1,20 @@
-import { component, typography } from "@gyldendal/kobber-base/themes/default/tokens.css-variables.js";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import {
-  BadgeIconClassNames,
+  BadgeIconClassName,
+  BadgeIconIconClassName,
   badgeIconName,
-  BadgeIconProps,
   badgeIconSizes,
-  badgeIconThemes,
-  badgeIconVariants,
+  badgeIconColorThemes,
+  badgeIconColorVariants,
 } from "./BadgeIcon.core";
+import { getTypographyStyles } from "../base/getTypographyStyles";
 
-/**
- * Kobber Badge Icon web-component
- */
+const containerStyles = component["badge-icon"];
 
 const createBadgeIconStyles = () => {
   return css`
-    .${unsafeCSS(badgeIconName satisfies BadgeIconClassNames)} {
+    .${unsafeCSS(badgeIconName satisfies BadgeIconClassName)} {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -25,16 +24,18 @@ const createBadgeIconStyles = () => {
       gap: var(--gap);
       color: var(--color);
       padding: var(--padding);
-      font-size: var(--font-size);
-      font-family: var(--font-family);
-      font-weight: var(--font-weight);
-      font-style: var(--font-style);
-      font-stretch: var(--font-stretch);
-      line-height: var(--line-height);
 
-      ${badgeIconVariableStyles()}
+      font-size: var(--typography-font-size);
+      font-family: var(--typography-font-family);
+      font-weight: var(--typography-font-weight);
+      font-style: var(--typography-font-style);
+      font-stretch: var(--typography-font-stretch);
+      line-height: var(--typography-line-height);
 
-      .${unsafeCSS("kobber-badge-icon--icon" satisfies BadgeIconClassNames)} {
+      ${getThemeStyles()}
+      ${getSizeDependantStyles()}
+
+      .${unsafeCSS("icon" satisfies BadgeIconIconClassName)} {
         width: var(--icon-width);
         height: var(--icon-height);
       }
@@ -42,59 +43,39 @@ const createBadgeIconStyles = () => {
   `;
 };
 
-const getPaddingStyles = (size: BadgeIconProps["size"]) => {
-  const badgeIcon = component["badge-icon"];
-
-  return size === "medium"
-    ? css`
-        --padding: var(${unsafeCSS(badgeIcon.padding.block.medium)}, 8px);
-      `
-    : css`
-        --padding: var(${unsafeCSS(badgeIcon.padding.block.small)}, 4px)
-          var(${unsafeCSS(badgeIcon.padding.block.small)}, 8px);
-      `;
+const getThemeStyles = () => {
+  return css`
+    ${unsafeCSS(
+      badgeIconColorThemes
+        .flatMap(colorTheme => {
+          return badgeIconSizes.flatMap(size =>
+            badgeIconColorVariants.flatMap(
+              colorVariant =>
+                `&[data-color-variant="${String(colorVariant)}"][data-color-theme="${String(colorTheme)}"][data-size="${String(size)}"] { 
+                  --color: var(${unsafeCSS(component["badge-icon"].text.color[colorTheme][colorVariant])});
+                }`,
+            ),
+          );
+        })
+        .join("\n"),
+    )}
+  `;
 };
 
-const badgeIconVariableStyles = () => {
-  const variableClasses = badgeIconThemes.flatMap(theme => {
-    return badgeIconVariants.flatMap(variant => {
-      return badgeIconSizes.flatMap(size => {
-        const nestedClassNames = `&.${theme}.${variant}.${size}`;
-        const badgeIcon = component["badge-icon"];
-        const typographyMedium = typography.ui["label medium - single line"];
-        const typographySmall = typography.ui["label small - single line"];
-
-        return css`
-          ${unsafeCSS(nestedClassNames)} {
-            --gap: var(${unsafeCSS(badgeIcon.gap[size])});
-            --color: var(${unsafeCSS(badgeIcon.text.color[theme][variant])});
-            ${getPaddingStyles(size)};
-            --font-size: var(${unsafeCSS(size === "medium" ? typographyMedium.fontSize : typographySmall.fontSize)});
-            --font-family: var(
-              ${unsafeCSS(size === "medium" ? typographyMedium.fontFamily : typographySmall.fontFamily)}
-            );
-            --font-weight: var(
-              ${unsafeCSS(size === "medium" ? typographyMedium.fontWeight : typographySmall.fontWeight)}
-            );
-            --font-style: var(${unsafeCSS(size === "medium" ? typographyMedium.fontStyle : typographySmall.fontStyle)});
-            --font-stretch: var(
-              ${unsafeCSS(size === "medium" ? typographyMedium.fontStretch : typographySmall.fontStretch)}
-            );
-            --line-height: var(
-              ${unsafeCSS(size === "medium" ? typographyMedium.lineHeight : typographySmall.lineHeight)}
-            );
-
-            .${unsafeCSS("kobber-badge-icon--icon" satisfies BadgeIconClassNames)} {
-              --icon-width: var(${unsafeCSS(size === "medium" ? "16px" : "14px")});
-              --icon-height: var(${unsafeCSS(size === "medium" ? "16px" : "14px")});
-            }
-          }
-        `;
-      });
-    });
-  });
-
-  return unsafeCSS(variableClasses.join("\n"));
+const getSizeDependantStyles = () => {
+  return css`
+    ${unsafeCSS(
+      badgeIconSizes
+        .flatMap(
+          size => `&[data-size="${size}"] { 
+            ${getTypographyStyles("badge-icon", "ui", size)}
+            --padding: var(${unsafeCSS(containerStyles.padding.block[size])});
+            --gap: var(${unsafeCSS(containerStyles.gap[size])});
+          }`,
+        )
+        .join("\n"),
+    )}
+  `;
 };
 
 export const badgeIconStyles = createBadgeIconStyles();

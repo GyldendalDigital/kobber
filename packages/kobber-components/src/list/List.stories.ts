@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { listName, ListProps } from "./List.core";
 import "./List";
 import "../theme-context-provider/ThemeContext";
