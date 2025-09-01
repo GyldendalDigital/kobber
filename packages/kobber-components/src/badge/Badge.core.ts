@@ -28,5 +28,5 @@ export type BadgeColorVariant = (typeof badgeColorVariants)[number];
 export type BadgeSize = (typeof badgeSizes)[number];
 
 export const badgeColorThemes = objectKeys(badgeTokens.background.color);
-export const badgeColorVariants = objectKeys(badgeTokens.text.color.aubergine);
+export const badgeColorVariants = objectKeys(badgeTokens.background.color.aubergine);
 export const badgeSizes = objectKeys(badgeTokens.gap);
