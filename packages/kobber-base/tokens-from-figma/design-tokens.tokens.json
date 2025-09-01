@@ -68,7 +68,7 @@
           "fontStyle": "normal",
           "fontStretch": "normal",
           "letterSpacing": 0,
-          "lineHeight": 80,
+          "lineHeight": 70,
           "paragraphIndent": 0,
           "paragraphSpacing": 0,
           "textCase": "none"
@@ -148,7 +148,7 @@
           "fontStyle": "normal",
           "fontStretch": "normal",
           "letterSpacing": 0,
-          "lineHeight": 35,
+          "lineHeight": 30,
           "paragraphIndent": 0,
           "paragraphSpacing": 0,
           "textCase": "none"
@@ -212,7 +212,7 @@
           "fontStyle": "normal",
           "fontStretch": "normal",
           "letterSpacing": 0,
-          "lineHeight": 20,
+          "lineHeight": 24,
           "paragraphIndent": 0,
           "paragraphSpacing": 0,
           "textCase": "none"
@@ -230,7 +230,7 @@
           "fontStyle": "normal",
           "fontStretch": "normal",
           "letterSpacing": 0,
-          "lineHeight": 80,
+          "lineHeight": 70,
           "paragraphIndent": 0,
           "paragraphSpacing": 0,
           "textCase": "none"
@@ -312,7 +312,7 @@
           "fontStyle": "normal",
           "fontStretch": "normal",
           "letterSpacing": 0,
-          "lineHeight": 28,
+          "lineHeight": 50,
           "paragraphIndent": 0,
           "paragraphSpacing": 0,
           "textCase": "none"
@@ -360,7 +360,7 @@
           "fontStyle": "normal",
           "fontStretch": "normal",
           "letterSpacing": 0,
-          "lineHeight": 30,
+          "lineHeight": 26,
           "paragraphIndent": 0,
           "paragraphSpacing": 0,
           "textCase": "none"
@@ -392,7 +392,7 @@
           "fontStyle": "normal",
           "fontStretch": "normal",
           "letterSpacing": 0,
-          "lineHeight": 20,
+          "lineHeight": 24,
           "paragraphIndent": 0,
           "paragraphSpacing": 0,
           "textCase": "none"
@@ -408,7 +408,7 @@
           "fontStyle": "normal",
           "fontStretch": "normal",
           "letterSpacing": 0,
-          "lineHeight": 20,
+          "lineHeight": 24,
           "paragraphIndent": 0,
           "paragraphSpacing": 0,
           "textCase": "none"
@@ -512,22 +512,6 @@
           "textCase": "none"
         }
       },
-      "label medium - multi line": {
-        "type": "custom-fontStyle",
-        "value": {
-          "fontSize": 14,
-          "textDecoration": "none",
-          "fontFamily": "PP Mori",
-          "fontWeight": 400,
-          "fontStyle": "normal",
-          "fontStretch": "normal",
-          "letterSpacing": 0,
-          "lineHeight": 25,
-          "paragraphIndent": 0,
-          "paragraphSpacing": 0,
-          "textCase": "none"
-        }
-      },
       "label small - multi line": {
         "type": "custom-fontStyle",
         "value": {
@@ -538,7 +522,7 @@
           "fontStyle": "normal",
           "fontStretch": "normal",
           "letterSpacing": 0,
-          "lineHeight": 20,
+          "lineHeight": 24,
           "paragraphIndent": 0,
           "paragraphSpacing": 0,
           "textCase": "none"
@@ -1356,21 +1340,33 @@
           "type": "dimension",
           "value": 12
         },
-        "14": {
+        "18": {
           "type": "dimension",
-          "value": 14
-        },
-        "16": {
-          "type": "dimension",
-          "value": 16
+          "value": 18
         },
         "20": {
           "type": "dimension",
           "value": 20
         },
+        "22": {
+          "type": "dimension",
+          "value": 22
+        },
+        "23": {
+          "type": "dimension",
+          "value": 23
+        },
+        "24": {
+          "type": "dimension",
+          "value": 24
+        },
         "25": {
           "type": "dimension",
           "value": 25
+        },
+        "26": {
+          "type": "dimension",
+          "value": 26
         },
         "28": {
           "type": "dimension",
@@ -1379,6 +1375,10 @@
         "30": {
           "type": "dimension",
           "value": 30
+        },
+        "32": {
+          "type": "dimension",
+          "value": 32
         },
         "35": {
           "type": "dimension",
@@ -1399,10 +1399,52 @@
         "70": {
           "type": "dimension",
           "value": 70
-        },
-        "80": {
+        }
+      },
+      "size": {
+        "12": {
           "type": "dimension",
-          "value": 80
+          "value": 12
+        },
+        "14": {
+          "type": "dimension",
+          "value": 14
+        },
+        "16": {
+          "type": "dimension",
+          "value": 16
+        },
+        "18": {
+          "type": "dimension",
+          "value": 18
+        },
+        "20": {
+          "type": "dimension",
+          "value": 20
+        },
+        "24": {
+          "type": "dimension",
+          "value": 24
+        },
+        "28": {
+          "type": "dimension",
+          "value": 28
+        },
+        "32": {
+          "type": "dimension",
+          "value": 32
+        },
+        "40": {
+          "type": "dimension",
+          "value": 40
+        },
+        "48": {
+          "type": "dimension",
+          "value": 48
+        },
+        "56": {
+          "type": "dimension",
+          "value": 56
         }
       }
     },
@@ -2059,25 +2101,15 @@
     },
     "badges": {
       "color": {
-        "aubergine-25": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.color.identity.base.aubergine-25}"
-        },
         "aubergine-50": {
           "description": "",
           "type": "color",
           "value": "{semantics.color.identity.base.aubergine-50}"
         },
-        "aubergine-850": {
+        "aubergine-750": {
           "description": "",
           "type": "color",
-          "value": "{semantics.color.identity.base.aubergine-850}"
-        },
-        "aubergine-900": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.color.identity.base.aubergine-900}"
+          "value": "{semantics.color.identity.base.aubergine-750}"
         },
         "carmine-525": {
           "description": "",
@@ -2255,25 +2287,20 @@
         }
       },
       "color": {
-        "dark": {
+        "carmine-525": {
           "description": "",
           "type": "color",
-          "value": "{semantics.color.identity.base.aubergine-850}"
+          "value": "{semantics.color.identity.brand.carmine-525}"
         },
-        "brightest": {
+        "aubergine-750": {
           "description": "",
           "type": "color",
-          "value": "{semantics.color.identity.base.aubergine-25}"
+          "value": "{semantics.color.identity.base.aubergine-750}"
         },
-        "bright": {
+        "wine-600": {
           "description": "",
           "type": "color",
-          "value": "{semantics.color.identity.extended.wine-525}"
-        },
-        "midtone": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.color.identity.extended.aubergine-525}"
+          "value": "{semantics.color.identity.extended.wine-600}"
         }
       },
       "stroke": {
@@ -2295,18 +2322,6 @@
               "value": "{semantics.visual.icon.size.medium}"
             }
           }
-        }
-      },
-      "shadow": {
-        "blur": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.effect.shadow.blur}"
-        },
-        "color": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.effect.shadow.color}"
         }
       },
       "radius": {
@@ -2552,6 +2567,11 @@
           "description": "",
           "type": "color",
           "value": "{semantics.layout.element.radius.large}"
+        },
+        "medium": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.layout.element.radius.small}"
         }
       },
       "stroke": {
@@ -2560,25 +2580,10 @@
         "value": "{semantics.layout.element.stroke.regular}"
       },
       "color": {
-        "aubergine-850": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.color.identity.base.aubergine-850}"
-        },
         "aubergine-50": {
           "description": "",
           "type": "color",
           "value": "{semantics.color.identity.base.aubergine-50}"
-        },
-        "wine-600": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.color.identity.extended.wine-600}"
-        },
-        "carmine-525": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.color.identity.brand.carmine-525}"
         },
         "aubergine-25": {
           "description": "",
@@ -2599,42 +2604,18 @@
           "description": "",
           "type": "color",
           "value": "{semantics.color.identity.extended.wine-150}"
+        },
+        "neutral-525": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.effect.shadow.color}"
         }
-      }
-    },
-    "texts": {
-      "space": {
-        "description": "",
-        "type": "color",
-        "value": "{semantics.layout.element.space.xsmall}"
       },
-      "color": {
-        "base": {
-          "darkest": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.color.identity.base.aubergine-850}"
-          },
-          "dark": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.color.identity.base.aubergine-750}"
-          },
-          "bright": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.color.identity.extended.wine-600}"
-          },
-          "brightest": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.color.identity.extended.aubergine-525}"
-          },
-          "brand": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.color.identity.brand.carmine-525}"
-          }
+      "shadow": {
+        "blur": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.effect.shadow.blur}"
         }
       }
     },
@@ -2644,11 +2625,6 @@
           "description": "",
           "type": "color",
           "value": "{semantics.color.identity.base.aubergine-50}"
-        },
-        "dark": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.color.identity.extended.aubergine-525}"
         },
         "darkest": {
           "description": "",
@@ -2709,11 +2685,6 @@
             "description": "",
             "type": "color",
             "value": "{primitives.color.aubergine.1000-10%}"
-          },
-          "midtone": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.color.identity.base.aubergine-750}"
           }
         },
         "neutral": {
@@ -2726,11 +2697,6 @@
             "description": "",
             "type": "color",
             "value": "{primitives.color.concrete.1000-10%}"
-          },
-          "midtone": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.color.identity.neutral.concrete-850}"
           }
         },
         "fantasy": {
@@ -2766,7 +2732,7 @@
           "darkest": {
             "description": "",
             "type": "color",
-            "value": "{semantics.color.theme.thriller.thriller-750}"
+            "value": "{semantics.color.theme.thriller.thriller-850}"
           }
         },
         "romance": {
@@ -2843,11 +2809,6 @@
           "description": "",
           "type": "color",
           "value": "{semantics.color.identity.base.aubergine-150}"
-        },
-        "aubergine-750": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.color.identity.base.aubergine-750}"
         }
       },
       "sizes": {
@@ -3298,93 +3259,95 @@
           "type": "color",
           "value": "{groups.buttons.visual.icon.size}"
         },
-        "color": {
-          "brand": {
-            "primary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.carmine.opaque.brightest}"
-              }
-            },
-            "secondary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.aubergine.opaque.midtone}"
+        "shape": {
+          "color": {
+            "brand": {
+              "primary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.carmine.opaque.brightest}"
+                }
               },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.aubergine.opaque.bright}"
-              }
-            },
-            "tertiary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.aubergine.opaque.midtone}"
+              "secondary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.aubergine.opaque.midtone}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.aubergine.opaque.bright}"
+                }
               },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.aubergine.opaque.bright}"
-              }
-            }
-          },
-          "rettsdata": {
-            "primary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.rettsdata.opaque.brightest}"
+              "tertiary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.aubergine.opaque.midtone}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.aubergine.opaque.bright}"
+                }
               }
             },
-            "secondary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.rettsdata.opaque.midtone}"
+            "rettsdata": {
+              "primary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.rettsdata.opaque.brightest}"
+                }
               },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.rettsdata.opaque.brightest}"
-              }
-            },
-            "tertiary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.rettsdata.opaque.midtone}"
+              "secondary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.rettsdata.opaque.midtone}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.rettsdata.opaque.brightest}"
+                }
               },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.rettsdata.opaque.brightest}"
-              }
-            }
-          },
-          "neutral": {
-            "primary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.neutral.opaque.bright}"
+              "tertiary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.rettsdata.opaque.midtone}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.rettsdata.opaque.brightest}"
+                }
               }
             },
-            "tertiary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.neutral.opaque.darkest}"
-              }
-            },
-            "secondary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.neutral.opaque.darkest}"
+            "neutral": {
+              "primary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.neutral.opaque.bright}"
+                }
+              },
+              "tertiary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.neutral.opaque.darkest}"
+                }
+              },
+              "secondary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.neutral.opaque.darkest}"
+                }
               }
             }
           }
@@ -3414,29 +3377,31 @@
     },
     "text-input": {
       "label": {
-        "color": {
-          "main": {
-            "fallback": {
-              "description": "Textual means type text, password, search, email, tel, url",
-              "type": "color",
-              "value": "{groups.inputs.color.aubergine-525}"
+        "text": {
+          "color": {
+            "main": {
+              "fallback": {
+                "description": "Textual means type text, password, search, email, tel, url",
+                "type": "color",
+                "value": "{groups.inputs.color.aubergine-525}"
+              },
+              "active": {
+                "description": "Textual means type text, password, search, email, tel, url",
+                "type": "color",
+                "value": "{groups.inputs.color.aubergine-850}"
+              }
             },
-            "active": {
-              "description": "Textual means type text, password, search, email, tel, url",
-              "type": "color",
-              "value": "{groups.inputs.color.aubergine-850}"
-            }
-          },
-          "supplement": {
-            "fallback": {
-              "description": "Textual means type text, password, search, email, tel, url",
-              "type": "color",
-              "value": "{groups.inputs.color.aubergine-150}"
-            },
-            "active": {
-              "description": "Textual means type text, password, search, email, tel, url",
-              "type": "color",
-              "value": "{groups.inputs.color.aubergine-675}"
+            "supplement": {
+              "fallback": {
+                "description": "Textual means type text, password, search, email, tel, url",
+                "type": "color",
+                "value": "{groups.inputs.color.aubergine-150}"
+              },
+              "active": {
+                "description": "Textual means type text, password, search, email, tel, url",
+                "type": "color",
+                "value": "{groups.inputs.color.aubergine-675}"
+              }
             }
           }
         }
@@ -3524,16 +3489,18 @@
         }
       },
       "icon": {
-        "color": {
-          "supplemental": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.inputs.color.aubergine-150}"
-          },
-          "main": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.inputs.color.aubergine-850}"
+        "shape": {
+          "color": {
+            "supplemental": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.inputs.color.aubergine-150}"
+            },
+            "main": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.inputs.color.aubergine-850}"
+            }
           }
         }
       },
@@ -3545,29 +3512,31 @@
         }
       },
       "input": {
-        "color": {
-          "main": {
-            "idle": {
-              "description": "Textual means type text, password, search, email, tel, url",
-              "type": "color",
-              "value": "{groups.inputs.color.aubergine-525}"
+        "text": {
+          "color": {
+            "main": {
+              "idle": {
+                "description": "Textual means type text, password, search, email, tel, url",
+                "type": "color",
+                "value": "{groups.inputs.color.aubergine-525}"
+              },
+              "active": {
+                "description": "Textual means type text, password, search, email, tel, url",
+                "type": "color",
+                "value": "{groups.inputs.color.aubergine-850}"
+              }
             },
-            "active": {
-              "description": "Textual means type text, password, search, email, tel, url",
-              "type": "color",
-              "value": "{groups.inputs.color.aubergine-850}"
-            }
-          },
-          "supplement": {
-            "idle": {
-              "description": "Textual means type text, password, search, email, tel, url",
-              "type": "color",
-              "value": "{groups.inputs.color.aubergine-150}"
-            },
-            "active": {
-              "description": "Textual means type text, password, search, email, tel, url",
-              "type": "color",
-              "value": "{groups.inputs.color.aubergine-675}"
+            "supplement": {
+              "idle": {
+                "description": "Textual means type text, password, search, email, tel, url",
+                "type": "color",
+                "value": "{groups.inputs.color.aubergine-150}"
+              },
+              "active": {
+                "description": "Textual means type text, password, search, email, tel, url",
+                "type": "color",
+                "value": "{groups.inputs.color.aubergine-675}"
+              }
             }
           }
         }
@@ -3581,8 +3550,8 @@
           "value": "{groups.inputs.color.aubergine-850}"
         }
       },
-      "indicator": {
-        "outline": {
+      "outline": {
+        "border": {
           "radius": {
             "description": "",
             "type": "color",
@@ -3619,7 +3588,9 @@
               }
             }
           }
-        },
+        }
+      },
+      "indicator": {
         "border": {
           "radius": {
             "description": "",
@@ -3720,15 +3691,17 @@
             }
           }
         },
-        "height": {
-          "description": "",
-          "type": "color",
-          "value": "{groups.buttons.size.medium}"
-        },
-        "width": {
-          "description": "",
-          "type": "color",
-          "value": "{groups.buttons.size.medium}"
+        "size": {
+          "height": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.buttons.size.medium}"
+          },
+          "width": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.buttons.size.medium}"
+          }
         }
       },
       "padding": {
@@ -3905,49 +3878,6 @@
         }
       }
     },
-    "heading": {
-      "padding": {
-        "bottom": {
-          "description": "",
-          "type": "color",
-          "value": "{groups.texts.space}"
-        },
-        "bottom 2": {
-          "type": "dimension",
-          "value": 8
-        }
-      },
-      "text": {
-        "color": {
-          "base": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.texts.color.base.dark}"
-          },
-          "highlight": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.texts.color.base.brand}"
-          }
-        }
-      }
-    },
-    "body": {
-      "text": {
-        "color": {
-          "base": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.texts.color.base.darkest}"
-          },
-          "highlight": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.texts.color.base.brand}"
-          }
-        }
-      }
-    },
     "nav-link": {
       "gap": {
         "description": "",
@@ -3972,34 +3902,34 @@
             "highlight": {
               "description": "",
               "type": "color",
-              "value": "{groups.links.color.midtone}"
+              "value": "{groups.links.color.carmine-525}"
             },
             "base": {
               "description": "",
               "type": "color",
-              "value": "{groups.links.color.dark}"
+              "value": "{groups.links.color.aubergine-750}"
             },
             "subtle": {
               "description": "",
               "type": "color",
-              "value": "{groups.links.color.bright}"
+              "value": "{groups.links.color.wine-600}"
             }
           },
           "action": {
             "highlight": {
               "description": "",
               "type": "color",
-              "value": "{groups.links.color.midtone}"
+              "value": "{groups.links.color.carmine-525}"
             },
             "base": {
               "description": "",
               "type": "color",
-              "value": "{groups.links.color.dark}"
+              "value": "{groups.links.color.aubergine-750}"
             },
             "subtle": {
               "description": "",
               "type": "color",
-              "value": "{groups.links.color.bright}"
+              "value": "{groups.links.color.wine-600}"
             }
           }
         }
@@ -4010,45 +3940,28 @@
           "type": "color",
           "value": "{groups.links.visual.icon.size.large}"
         },
-        "color": {
-          "highlight": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.links.color.midtone}"
-          },
-          "base": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.links.color.dark}"
-          },
-          "subtle": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.links.color.bright}"
-          }
-        }
-      },
-      "text": {
-        "color": {
-          "highlight": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.links.color.midtone}"
-          },
-          "base": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.links.color.dark}"
-          },
-          "subtle": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.links.color.bright}"
+        "shape": {
+          "color": {
+            "highlight": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.links.color.carmine-525}"
+            },
+            "base": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.links.color.aubergine-750}"
+            },
+            "subtle": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.links.color.wine-600}"
+            }
           }
         }
       }
     },
-    "alert": {
+    "alert-label": {
       "background": {
         "color": {
           "success": {
@@ -4068,41 +3981,24 @@
           }
         }
       },
-      "text": {
-        "color": {
-          "success": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.success.darkest}"
-          },
-          "informative": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.info.darkest}"
-          },
-          "warning": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.warning.darkest}"
-          }
-        }
-      },
       "icon": {
-        "color": {
-          "success": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.success.darkest}"
-          },
-          "informative": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.info.darkest}"
-          },
-          "warning": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.warning.darkest}"
+        "shape": {
+          "color": {
+            "success": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.alerts.color.success.darkest}"
+            },
+            "informative": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.alerts.color.info.darkest}"
+            },
+            "warning": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.alerts.color.warning.darkest}"
+            }
           }
         },
         "size": {
@@ -4129,54 +4025,6 @@
         }
       }
     },
-    "ingress": {
-      "text": {
-        "color": {
-          "base": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.texts.color.base.darkest}"
-          },
-          "highlight": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.texts.color.base.brand}"
-          }
-        }
-      }
-    },
-    "meta-text": {
-      "text": {
-        "color": {
-          "base": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.texts.color.base.bright}"
-          },
-          "highlight": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.texts.color.base.brand}"
-          },
-          "extended": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.texts.color.base.brightest}"
-          }
-        }
-      }
-    },
-    "kicker-text": {
-      "text": {
-        "color": {
-          "base": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.texts.color.base.brightest}"
-          }
-        }
-      }
-    },
     "text-link": {
       "gap": {
         "description": "",
@@ -4192,14 +4040,23 @@
         "color": {
           "description": "",
           "type": "color",
-          "value": "{groups.links.color.midtone}"
+          "value": "{groups.links.color.aubergine-750}"
         }
       },
-      "text": {
-        "color": {
+      "icon": {
+        "size": {
           "description": "",
           "type": "color",
-          "value": "{groups.links.color.midtone}"
+          "value": "{groups.links.visual.icon.size.large}"
+        },
+        "shape": {
+          "color": {
+            "highlight": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.links.color.aubergine-750}"
+            }
+          }
         }
       }
     },
@@ -4272,80 +4129,49 @@
           }
         }
       },
-      "text": {
-        "color": {
-          "aubergine": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.aubergine-850}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.aubergine-25}"
-            }
-          },
-          "rettsdata": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.lawblue-60}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.lawblue-20}"
-            }
-          },
-          "concrete": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.concrete-850}"
-            }
-          }
-        }
-      },
       "status-circle": {
-        "color": {
-          "aubergine": {
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.aubergine-425}"
-            }
-          },
-          "rettsdata": {
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.lawblue-20}"
+        "background": {
+          "color": {
+            "aubergine": {
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.aubergine-425}"
+              }
+            },
+            "rettsdata": {
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.lawblue-20}"
+              }
             }
           }
         },
-        "width": {
-          "medium": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.badges.size.medium}"
+        "size": {
+          "width": {
+            "medium": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.size.medium}"
+            },
+            "small": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.size.small}"
+            }
           },
-          "small": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.badges.size.small}"
-          }
-        },
-        "height": {
-          "medium": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.badges.size.medium}"
-          },
-          "small": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.badges.size.small}"
+          "height": {
+            "medium": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.size.medium}"
+            },
+            "small": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.badges.size.small}"
+            }
           }
         }
       },
@@ -4358,226 +4184,128 @@
       }
     },
     "badge-icon": {
-      "text": {
-        "color": {
-          "aubergine": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.aubergine-900}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.aubergine-25}"
-            }
-          },
-          "rettsdata": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.lawblue-60}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.lawblue-20}"
-            }
-          },
-          "carmine": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.carmine-525}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.carmine-25}"
-            }
-          },
-          "nature": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.nature-750}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.nature-25}"
-            }
-          },
-          "fantasy": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.fantasy-850}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.fantasy-250}"
-            }
-          },
-          "thriller": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.thriller-900}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.thriller-250}"
-            }
-          },
-          "romance": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.romance-750}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.romance-50}"
-            }
-          },
-          "vacation": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.vacation-150}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.vacation-25}"
-            }
-          },
-          "nostalgia": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.nostalgia-850}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.nostalgia-25}"
-            }
-          }
-        }
-      },
       "icon": {
-        "color": {
-          "aubergine": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.aubergine-900}"
+        "shape": {
+          "color": {
+            "aubergine": {
+              "main": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.aubergine-750}"
+              },
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.aubergine-50}"
+              }
             },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.aubergine-25}"
-            }
-          },
-          "rettsdata": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.lawblue-60}"
+            "rettsdata": {
+              "main": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.lawblue-60}"
+              },
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.lawblue-20}"
+              }
             },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.lawblue-20}"
-            }
-          },
-          "carmine": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.carmine-525}"
+            "carmine": {
+              "main": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.carmine-525}"
+              },
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.carmine-25}"
+              }
             },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.carmine-25}"
-            }
-          },
-          "nature": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.nature-750}"
+            "nature": {
+              "main": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.nature-750}"
+              },
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.nature-25}"
+              }
             },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.nature-25}"
-            }
-          },
-          "fantasy": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.fantasy-850}"
+            "fantasy": {
+              "main": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.fantasy-850}"
+              },
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.fantasy-250}"
+              }
             },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.fantasy-250}"
-            }
-          },
-          "thriller": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.thriller-900}"
+            "thriller": {
+              "main": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.thriller-900}"
+              },
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.thriller-250}"
+              }
             },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.thriller-250}"
-            }
-          },
-          "romance": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.romance-750}"
+            "romance": {
+              "main": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.romance-750}"
+              },
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.romance-50}"
+              }
             },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.romance-50}"
-            }
-          },
-          "vacation": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.vacation-150}"
+            "vacation": {
+              "main": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.vacation-150}"
+              },
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.vacation-25}"
+              }
             },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.vacation-25}"
-            }
-          },
-          "nostalgia": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.nostalgia-850}"
+            "nostalgia": {
+              "main": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.nostalgia-850}"
+              },
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.nostalgia-25}"
+              }
             },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.badges.color.nostalgia-25}"
+            "concrete": {
+              "main": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.concrete-850}"
+              },
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.badges.color.concrete-50}"
+              }
             }
           }
         },
@@ -4641,11 +4369,9 @@
       },
       "text": {
         "color": {
-          "color": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.inputs.color.aubergine-850}"
-          }
+          "description": "",
+          "type": "color",
+          "value": "{groups.inputs.color.aubergine-850}"
         }
       },
       "indicator": {
@@ -4706,29 +4432,29 @@
             "type": "color",
             "value": "{groups.inputs.size.xxsmall}"
           }
+        }
+      },
+      "outline": {
+        "height": {
+          "description": "",
+          "type": "color",
+          "value": "{groups.inputs.size.small}"
         },
-        "outline": {
-          "height": {
+        "width": {
+          "description": "",
+          "type": "color",
+          "value": "{groups.inputs.size.small}"
+        },
+        "border": {
+          "radius": {
             "description": "",
             "type": "color",
-            "value": "{groups.inputs.size.small}"
+            "value": "{groups.inputs.radius.pill}"
           },
           "width": {
             "description": "",
             "type": "color",
-            "value": "{groups.inputs.size.small}"
-          },
-          "border": {
-            "radius": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.inputs.radius.pill}"
-            },
-            "width": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.inputs.stroke.fat}"
-            }
+            "value": "{groups.inputs.stroke.fat}"
           },
           "color": {
             "success": {
@@ -4824,46 +4550,29 @@
           }
         }
       },
-      "text": {
-        "color": {
-          "success": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.success.darkest}"
-          },
-          "informative": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.info.darkest}"
-          },
-          "warning": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.warning.darkest}"
-          }
-        }
-      },
       "icon": {
         "size": {
           "description": "",
           "type": "color",
           "value": "{groups.alerts.visual.icon.size.regular}"
         },
-        "color": {
-          "success": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.success.darkest}"
-          },
-          "informative": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.info.darkest}"
-          },
-          "warning": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.warning.darkest}"
+        "shape": {
+          "color": {
+            "success": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.alerts.color.success.darkest}"
+            },
+            "informative": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.alerts.color.info.darkest}"
+            },
+            "warning": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.alerts.color.warning.darkest}"
+            }
           }
         }
       },
@@ -4921,46 +4630,29 @@
           }
         }
       },
-      "text": {
-        "color": {
-          "success": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.success.darkest}"
-          },
-          "informative": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.info.darkest}"
-          },
-          "warning": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.warning.darkest}"
-          }
-        }
-      },
       "icon": {
         "size": {
           "description": "",
           "type": "color",
           "value": "{groups.alerts.visual.icon.size.regular}"
         },
-        "color": {
-          "success": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.success.darkest}"
-          },
-          "informative": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.info.darkest}"
-          },
-          "warning": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.alerts.color.warning.darkest}"
+        "shape": {
+          "color": {
+            "success": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.alerts.color.success.darkest}"
+            },
+            "informative": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.alerts.color.info.darkest}"
+            },
+            "warning": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.alerts.color.warning.darkest}"
+            }
           }
         }
       }
@@ -5125,41 +4817,43 @@
           "type": "color",
           "value": "{groups.buttons.visual.icon.size}"
         },
-        "color": {
-          "success": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.buttons.color.success.opaque.darkest}"
+        "shape": {
+          "color": {
+            "success": {
+              "main": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.buttons.color.success.opaque.darkest}"
+              },
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.buttons.color.success.opaque.brightest}"
+              }
             },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.buttons.color.success.opaque.brightest}"
-            }
-          },
-          "informative": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.buttons.color.informative.opaque.darkest}"
+            "informative": {
+              "main": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.buttons.color.informative.opaque.darkest}"
+              },
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.buttons.color.informative.opaque.brightest}"
+              }
             },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.buttons.color.informative.opaque.brightest}"
-            }
-          },
-          "warning": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.buttons.color.warning.opaque.darkest}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.buttons.color.warning.opaque.brightest}"
+            "warning": {
+              "main": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.buttons.color.warning.opaque.darkest}"
+              },
+              "supplemental": {
+                "description": "",
+                "type": "color",
+                "value": "{groups.buttons.color.warning.opaque.brightest}"
+              }
             }
           }
         }
@@ -5806,186 +5500,188 @@
           "type": "color",
           "value": "{groups.buttons.visual.icon.size}"
         },
-        "color": {
-          "carmine": {
-            "primary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.carmine.opaque.brightest}"
-              },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.carmine.opaque.darkest}"
-              }
-            },
-            "secondary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.carmine.opaque.darkest}"
-              },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.carmine.opaque.brightest}"
-              }
-            }
-          },
-          "nostalgia": {
-            "primary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.nostalgia.opaque.brightest}"
-              },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.nostalgia.opaque.darkest}"
-              }
-            },
-            "secondary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.nostalgia.opaque.darkest}"
-              },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.nostalgia.opaque.brightest}"
-              }
-            }
-          },
-          "nature": {
-            "primary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.nature.opaque.brightest}"
-              },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.nature.opaque.darkest}"
-              }
-            },
-            "secondary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.nature.opaque.darkest}"
-              },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.nature.opaque.brightest}"
-              }
-            }
-          },
-          "romance": {
-            "primary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.romance.opaque.brightest}"
-              },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.romance.opaque.darkest}"
-              }
-            },
-            "secondary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.romance.opaque.darkest}"
-              },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.romance.opaque.brightest}"
-              }
-            }
-          },
-          "thriller": {
-            "primary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.thriller.opaque.brightest}"
-              },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.thriller.opaque.darkest}"
-              }
-            },
-            "secondary": {
+        "shape": {
+          "color": {
+            "carmine": {
               "primary": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.thriller.opaque.darkest}"
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.carmine.opaque.brightest}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.carmine.opaque.darkest}"
+                }
               },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.thriller.opaque.brightest}"
-              }
-            }
-          },
-          "fantasy": {
-            "primary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.fantasy.opaque.brightest}"
-              },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.fantasy.opaque.darkest}"
-              }
-            },
-            "secondary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.fantasy.opaque.darkest}"
-              },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.fantasy.opaque.brightest}"
-              }
-            }
-          },
-          "vacation": {
-            "primary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.vacation.opaque.brightest}"
-              },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.vacation.opaque.darkest}"
+              "secondary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.carmine.opaque.darkest}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.carmine.opaque.brightest}"
+                }
               }
             },
-            "secondary": {
-              "main": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.vacation.opaque.darkest}"
+            "nostalgia": {
+              "primary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.nostalgia.opaque.brightest}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.nostalgia.opaque.darkest}"
+                }
               },
-              "supplemental": {
-                "description": "",
-                "type": "color",
-                "value": "{groups.buttons.color.vacation.opaque.brightest}"
+              "secondary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.nostalgia.opaque.darkest}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.nostalgia.opaque.brightest}"
+                }
+              }
+            },
+            "nature": {
+              "primary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.nature.opaque.brightest}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.nature.opaque.darkest}"
+                }
+              },
+              "secondary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.nature.opaque.darkest}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.nature.opaque.brightest}"
+                }
+              }
+            },
+            "romance": {
+              "primary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.romance.opaque.brightest}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.romance.opaque.darkest}"
+                }
+              },
+              "secondary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.romance.opaque.darkest}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.romance.opaque.brightest}"
+                }
+              }
+            },
+            "thriller": {
+              "primary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.thriller.opaque.brightest}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.thriller.opaque.darkest}"
+                }
+              },
+              "secondary": {
+                "primary": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.thriller.opaque.darkest}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.thriller.opaque.brightest}"
+                }
+              }
+            },
+            "fantasy": {
+              "primary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.fantasy.opaque.brightest}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.fantasy.opaque.darkest}"
+                }
+              },
+              "secondary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.fantasy.opaque.darkest}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.fantasy.opaque.brightest}"
+                }
+              }
+            },
+            "vacation": {
+              "primary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.vacation.opaque.brightest}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.vacation.opaque.darkest}"
+                }
+              },
+              "secondary": {
+                "main": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.vacation.opaque.darkest}"
+                },
+                "supplemental": {
+                  "description": "",
+                  "type": "color",
+                  "value": "{groups.buttons.color.vacation.opaque.brightest}"
+                }
               }
             }
           }
@@ -5994,10 +5690,12 @@
     },
     "breadcrumb": {
       "icon": {
-        "color": {
-          "description": "",
-          "type": "color",
-          "value": "{groups.links.color.bright}"
+        "shape": {
+          "color": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.links.color.wine-600}"
+          }
         },
         "size": {
           "description": "",
@@ -6058,13 +5756,15 @@
           "type": "color",
           "value": "{groups.collapsibles.visual.icon.size}"
         },
-        "color": {
-          "background": {
+        "background": {
+          "color": {
             "description": "",
             "type": "color",
             "value": "{groups.collapsibles.color.bright}"
-          },
-          "foreground": {
+          }
+        },
+        "shape": {
+          "color": {
             "description": "",
             "type": "color",
             "value": "{groups.collapsibles.color.darkest}"
@@ -6075,13 +5775,6 @@
         "description": "",
         "type": "color",
         "value": "{groups.collapsibles.space.small}"
-      },
-      "text": {
-        "color": {
-          "description": "",
-          "type": "color",
-          "value": "{groups.collapsibles.color.dark}"
-        }
       },
       "padding": {
         "top": {
@@ -6206,20 +5899,6 @@
           }
         }
       },
-      "text": {
-        "color": {
-          "header": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.product-cards.color.aubergine.midtone}"
-          },
-          "body": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.product-cards.color.neutral.midtone}"
-          }
-        }
-      },
       "inner-product-container": {
         "gap": {
           "description": "",
@@ -6313,35 +5992,13 @@
           }
         }
       },
-      "text": {
-        "color": {
-          "main": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.menus.color.aubergine-850}"
-          },
-          "supplemental": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.menus.color.wine-600}"
-          },
-          "status": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.menus.color.carmine-525}"
-          }
-        },
-        "gap": {
-          "description": "",
-          "type": "color",
-          "value": "{groups.menus.space.xsmall}"
-        }
-      },
       "icon": {
-        "color": {
-          "description": "",
-          "type": "color",
-          "value": "{groups.menus.color.aubergine-850}"
+        "shape": {
+          "color": {
+            "description": "",
+            "type": "color",
+            "value": "{groups.menus.color.aubergine-750}"
+          }
         },
         "size": {
           "medium": {
@@ -6373,7 +6030,7 @@
           "active": {
             "description": "",
             "type": "color",
-            "value": "{groups.menus.color.aubergine-850}"
+            "value": "{groups.menus.color.aubergine-750}"
           }
         }
       },
@@ -6560,22 +6217,6 @@
         "type": "color",
         "value": "{groups.filters.space.small}"
       },
-      "text": {
-        "color": {
-          "aubergine": {
-            "main": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.filters.color.aubergine-750}"
-            },
-            "supplemental": {
-              "description": "",
-              "type": "color",
-              "value": "{groups.filters.color.aubergine-50}"
-            }
-          }
-        }
-      },
       "border": {
         "radius": {
           "description": "",
@@ -6584,8 +6225,8 @@
         }
       },
       "counter": {
-        "color": {
-          "background": {
+        "background": {
+          "color": {
             "main": {
               "description": "",
               "type": "color",
@@ -6596,13 +6237,6 @@
               "type": "color",
               "value": "{groups.filters.color.carmine-1000-10%}"
             }
-          }
-        },
-        "text": {
-          "color": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.filters.color.aubergine-750}"
           }
         },
         "border": {
@@ -6679,20 +6313,6 @@
           "value": "{groups.searches.stroke}"
         }
       },
-      "text": {
-        "color": {
-          "fallback": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.searches.color.wine-600}"
-          },
-          "active": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.searches.color.aubergine-750}"
-          }
-        }
-      },
       "size": {
         "height": {
           "description": "",
@@ -6720,16 +6340,18 @@
         }
       },
       "icon": {
-        "color": {
-          "fallback": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.searches.color.wine-600}"
-          },
-          "active": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.searches.color.aubergine-750}"
+        "shape": {
+          "color": {
+            "fallback": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.searches.color.wine-600}"
+            },
+            "active": {
+              "description": "",
+              "type": "color",
+              "value": "{groups.searches.color.aubergine-750}"
+            }
           }
         }
       }
@@ -6788,6 +6410,18 @@
           "type": "color",
           "value": "{groups.menus.color.aubergine-25}"
         }
+      },
+      "shadow": {
+        "color": {
+          "description": "",
+          "type": "color",
+          "value": "{groups.menus.color.neutral-525}"
+        },
+        "blur": {
+          "description": "",
+          "type": "color",
+          "value": "{groups.menus.shadow.blur}"
+        }
       }
     },
     "dropdown-trigger": {
@@ -6807,12 +6441,17 @@
         "radius": {
           "description": "",
           "type": "color",
-          "value": "{groups.menus.radius.large}"
+          "value": "{groups.menus.radius.medium}"
         },
         "color": {
           "description": "",
           "type": "color",
           "value": "{groups.menus.color.aubergine-750}"
+        },
+        "width": {
+          "description": "",
+          "type": "color",
+          "value": "{groups.menus.stroke}"
         }
       },
       "background": {
@@ -6831,15 +6470,6 @@
           }
         }
       },
-      "width": {
-        "transparent": {
-          "hover": {
-            "description": "",
-            "type": "color",
-            "value": "{groups.menus.stroke}"
-          }
-        }
-      },
       "icon": {
         "background": {
           "color": {
@@ -6848,7 +6478,7 @@
             "value": "{groups.menus.color.wine-150}"
           }
         },
-        "foreground": {
+        "shape": {
           "color": {
             "description": "",
             "type": "color",
@@ -6866,6 +6496,13 @@
           "description": "",
           "type": "color",
           "value": "{groups.menus.color.aubergine-750}"
+        }
+      },
+      "size": {
+        "height": {
+          "description": "",
+          "type": "color",
+          "value": "{groups.menus.visual.image.size.small}"
         }
       }
     }
@@ -6924,544 +6561,6 @@
         }
       }
     },
-    "text": {
-      "primary": {
-        "size": {
-          "display": {
-            "large": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.64}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.56}"
-            },
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.48}"
-            }
-          },
-          "heading": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.32}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.40}"
-            }
-          },
-          "title": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.20}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.24}"
-            }
-          },
-          "body": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.typography.size.16}"
-          },
-          "label": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.12}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.14}"
-            }
-          }
-        },
-        "line-height": {
-          "display": {
-            "large": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.80}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.70}"
-            },
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.60}"
-            }
-          },
-          "body": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.typography.line-height.25}"
-          },
-          "label": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.20}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.25}"
-            }
-          },
-          "heading": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.50}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.60}"
-            }
-          },
-          "title": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.28}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.35}"
-            }
-          }
-        },
-        "weight": {
-          "display": {
-            "small": {
-              "small": {
-                "description": "",
-                "type": "color",
-                "value": "{semantics.typography.weight.book}"
-              }
-            },
-            "large": {
-              "large": {
-                "description": "",
-                "type": "color",
-                "value": "{semantics.typography.weight.regular}"
-              }
-            },
-            "medium": {
-              "medium": {
-                "description": "",
-                "type": "color",
-                "value": "{semantics.typography.weight.book}"
-              }
-            }
-          },
-          "heading": {
-            "small": {
-              "small": {
-                "description": "",
-                "type": "color",
-                "value": "{semantics.typography.weight.regular}"
-              }
-            },
-            "medium": {
-              "medium": {
-                "description": "",
-                "type": "color",
-                "value": "{semantics.typography.weight.book}"
-              }
-            }
-          },
-          "title": {
-            "small": {
-              "small": {
-                "description": "",
-                "type": "color",
-                "value": "{semantics.typography.weight.regular}"
-              }
-            },
-            "medium": {
-              "medium": {
-                "description": "",
-                "type": "color",
-                "value": "{semantics.typography.weight.regular}"
-              }
-            }
-          },
-          "label": {
-            "small": {
-              "small": {
-                "description": "",
-                "type": "color",
-                "value": "{semantics.typography.weight.regular}"
-              }
-            },
-            "medium": {
-              "medium": {
-                "description": "",
-                "type": "color",
-                "value": "{semantics.typography.weight.regular}"
-              }
-            }
-          },
-          "body": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.typography.weight.regular}"
-          }
-        },
-        "font-family": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.typography.font-family.pp-mori}"
-        }
-      },
-      "secondary": {
-        "font-family": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.typography.font-family.lyon-display}"
-        },
-        "line-height": {
-          "display": {
-            "large": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.80}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.70}"
-            },
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.60}"
-            }
-          },
-          "heading": {
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.50}"
-            },
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.40}"
-            }
-          }
-        },
-        "size": {
-          "display": {
-            "large": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.64}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.56}"
-            },
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.48}"
-            }
-          },
-          "heading": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.32}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.40}"
-            }
-          }
-        },
-        "weight": {
-          "display": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.weight.light}"
-            },
-            "large": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.weight.light}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.weight.light}"
-            }
-          },
-          "heading": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.weight.light}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.weight.regular}"
-            }
-          }
-        }
-      },
-      "reading": {
-        "font-family": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.typography.font-family.inter}"
-        },
-        "line-height": {
-          "body": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.typography.line-height.25}"
-          },
-          "heading": {
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.50}"
-            },
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.40}"
-            }
-          },
-          "title": {
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.28}"
-            },
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.30}"
-            }
-          },
-          "label": {
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.20}"
-            },
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.line-height.20}"
-            }
-          }
-        },
-        "size": {
-          "body": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.typography.size.16}"
-          },
-          "heading": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.32}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.40}"
-            }
-          },
-          "title": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.20}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.24}"
-            }
-          },
-          "label": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.12}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.14}"
-            }
-          }
-        },
-        "weight": {
-          "body": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.typography.weight.regular}"
-          },
-          "heading": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.weight.regular}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.weight.book}"
-            }
-          },
-          "title": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.weight.regular}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.weight.regular}"
-            }
-          },
-          "label": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.weight.regular}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.weight.regular}"
-            }
-          }
-        }
-      },
-      "ui": {
-        "font-family": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.typography.font-family.pp-mori}"
-        },
-        "size": {
-          "input": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.typography.size.16}"
-          },
-          "button": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.typography.size.16}"
-          },
-          "label": {
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.14}"
-            },
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.12}"
-            },
-            "large": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.size.16}"
-            }
-          }
-        },
-        "line-height": {
-          "input": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.typography.line-height.25}"
-          },
-          "label": {
-            "medium": {
-              "multi-line": {
-                "description": "",
-                "type": "color",
-                "value": "{semantics.typography.line-height.25}"
-              }
-            },
-            "small": {
-              "multi-line": {
-                "description": "",
-                "type": "color",
-                "value": "{semantics.typography.line-height.20}"
-              }
-            },
-            "large": {
-              "multi-line": {
-                "description": "",
-                "type": "color",
-                "value": "{semantics.typography.line-height.25}"
-              }
-            }
-          }
-        },
-        "weight": {
-          "input": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.typography.weight.regular}"
-          },
-          "button": {
-            "description": "",
-            "type": "color",
-            "value": "{semantics.typography.weight.regular}"
-          },
-          "label": {
-            "small": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.weight.regular}"
-            },
-            "medium": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.weight.regular}"
-            },
-            "large": {
-              "description": "",
-              "type": "color",
-              "value": "{semantics.typography.weight.regular}"
-            }
-          }
-        }
-      }
-    },
     "disabled": {
       "container": {
         "opacity": {
@@ -7491,21 +6590,1062 @@
       }
     },
     "icon-package": {
-      "size": {
-        "medium": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.visual.icon.size.medium}"
+      "container": {
+        "size": {
+          "medium": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.visual.icon.size.medium}"
+          },
+          "large": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.visual.icon.size.large}"
+          },
+          "small": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.visual.icon.size.small}"
+          }
+        }
+      }
+    },
+    "text-label": {
+      "text": {
+        "size": {
+          "large": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.size.16}"
+          },
+          "medium": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.size.14}"
+          },
+          "small": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.size.12}"
+          }
         },
-        "large": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.visual.icon.size.large}"
+        "color": {
+          "accent": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.carmine-525}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.carmine-50}"
+            }
+          },
+          "brand": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.aubergine-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.aubergine-50}"
+            }
+          },
+          "neutral": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.concrete-900}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.concrete-50}"
+            }
+          },
+          "rettsdata": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.rettsdata-60}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.rettsdata-20}"
+            }
+          },
+          "success": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.success-700}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.success-75}"
+            }
+          },
+          "informative": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.informative-700}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.informative-25}"
+            }
+          },
+          "warning": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.warning-700}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.warning-75}"
+            }
+          },
+          "nature": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nature-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nature-25}"
+            }
+          },
+          "romance": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.romance-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.romance-50}"
+            }
+          },
+          "fantasy": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.fantasy-850}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.fantasy-250}"
+            }
+          },
+          "thriller": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.thriller-900}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.thriller-250}"
+            }
+          },
+          "vacation": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.vacation-150}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.vacation-25}"
+            }
+          },
+          "nostalgia": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nostalgia-850}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nostalgia-25}"
+            }
+          },
+          "subtle": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.wine-600}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.wine-150}"
+            }
+          }
         },
-        "small": {
+        "line-height": {
+          "type": "string",
+          "value": "auto"
+        },
+        "font": {
           "description": "",
           "type": "color",
-          "value": "{semantics.visual.icon.size.small}"
+          "value": "{semantics.typography.font-family.pp-mori}"
+        },
+        "weight": {
+          "description": "",
+          "type": "string",
+          "value": "{semantics.typography.regular}"
+        }
+      }
+    },
+    "text-body": {
+      "text": {
+        "size": {
+          "large": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.size.18}"
+          },
+          "medium": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.size.16}"
+          },
+          "small": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.size.14}"
+          }
+        },
+        "font": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.typography.font-family.pp-mori}"
+        },
+        "color": {
+          "brand": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.aubergine-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.aubergine-25}"
+            }
+          },
+          "neutral": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.concrete-900}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.concrete-25}"
+            }
+          },
+          "success": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.success-700}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.success-75}"
+            }
+          },
+          "informative": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.informative-700}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.informative-25}"
+            }
+          },
+          "warning": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.warning-700}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.warning-75}"
+            }
+          },
+          "nature": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nature-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nature-25}"
+            }
+          },
+          "romance": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.romance-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.romance-50}"
+            }
+          },
+          "fantasy": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.fantasy-850}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.fantasy-250}"
+            }
+          },
+          "thriller": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.thriller-900}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.thriller-250}"
+            }
+          },
+          "vacation": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.vacation-600}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.vacation-25}"
+            }
+          },
+          "nostalgia": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nostalgia-850}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nostalgia-25}"
+            }
+          },
+          "sublte": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.wine-600}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.wine-150}"
+            }
+          }
+        },
+        "line-height": {
+          "brand": {
+            "large": {
+              "short": {
+                "description": "",
+                "type": "color",
+                "value": "{semantics.typography.line-height.24}"
+              },
+              "long": {
+                "description": "",
+                "type": "color",
+                "value": "{semantics.typography.line-height.26}"
+              }
+            },
+            "medium": {
+              "short": {
+                "description": "",
+                "type": "color",
+                "value": "{semantics.typography.line-height.22}"
+              },
+              "long": {
+                "description": "",
+                "type": "color",
+                "value": "{semantics.typography.line-height.25}"
+              }
+            },
+            "small": {
+              "short": {
+                "description": "",
+                "type": "color",
+                "value": "{semantics.typography.line-height.20}"
+              },
+              "long": {
+                "description": "",
+                "type": "color",
+                "value": "{semantics.typography.line-height.25}"
+              }
+            }
+          },
+          "reading": {
+            "large": {
+              "short": {
+                "description": "",
+                "type": "color",
+                "value": "{semantics.typography.line-height.22}"
+              },
+              "long": {
+                "description": "",
+                "type": "color",
+                "value": "{semantics.typography.line-height.28}"
+              }
+            },
+            "medium": {
+              "short": {
+                "description": "",
+                "type": "color",
+                "value": "{semantics.typography.line-height.23}"
+              },
+              "long": {
+                "description": "",
+                "type": "color",
+                "value": "{semantics.typography.line-height.25}"
+              }
+            },
+            "small": {
+              "short": {
+                "description": "",
+                "type": "color",
+                "value": "{semantics.typography.line-height.18}"
+              },
+              "long": {
+                "description": "",
+                "type": "color",
+                "value": "{semantics.typography.line-height.24}"
+              }
+            }
+          }
+        },
+        "weight": {
+          "description": "",
+          "type": "string",
+          "value": "{semantics.typography.regular}"
+        }
+      }
+    },
+    "text-heading": {
+      "text": {
+        "size": {
+          "large": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.size.40}"
+          },
+          "medium": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.size.32}"
+          }
+        },
+        "font": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.typography.font-family.pp-mori}"
+        },
+        "line-height": {
+          "brand": {
+            "large": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.line-height.60}"
+            },
+            "medium": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.line-height.50}"
+            }
+          },
+          "reading": {
+            "large": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.line-height.50}"
+            },
+            "medium": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.line-height.40}"
+            }
+          }
+        },
+        "color": {
+          "brand": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.aubergine-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.aubergine-50}"
+            }
+          },
+          "neutral": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.concrete-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.concrete-50}"
+            }
+          },
+          "nature": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nature-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nature-25}"
+            }
+          },
+          "romance": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.romance-675}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.romance-50}"
+            }
+          },
+          "fantasy": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.fantasy-850}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.fantasy-250}"
+            }
+          },
+          "thriller": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.thriller-850}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.thriller-250}"
+            }
+          },
+          "vacation": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.vacation-150}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.vacation-25}"
+            }
+          },
+          "nostalgia": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nostalgia-600}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nostalgia-25}"
+            }
+          }
+        },
+        "weight": {
+          "type": "string",
+          "value": "book"
+        }
+      }
+    },
+    "text-lead": {
+      "text": {
+        "size": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.typography.size.20}"
+        },
+        "font": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.typography.font-family.pp-mori}"
+        },
+        "color": {
+          "brand": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.aubergine-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.aubergine-50}"
+            }
+          },
+          "neutral": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.concrete-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.concrete-50}"
+            }
+          },
+          "nature": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nature-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nature-25}"
+            }
+          },
+          "romance": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.romance-675}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.romance-50}"
+            }
+          },
+          "fantasy": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.fantasy-850}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.fantasy-250}"
+            }
+          },
+          "thriller": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.thriller-850}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.thriller-250}"
+            }
+          },
+          "vacation": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.vacation-150}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.vacation-25}"
+            }
+          },
+          "nostalgia": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nostalgia-600}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nostalgia-25}"
+            }
+          }
+        },
+        "line-height": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.typography.line-height.28}"
+        },
+        "weight": {
+          "type": "string",
+          "value": "regular"
+        }
+      }
+    },
+    "text-title": {
+      "text": {
+        "size": {
+          "large": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.size.24}"
+          },
+          "medium": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.size.20}"
+          }
+        },
+        "font": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.typography.font-family.pp-mori}"
+        },
+        "line-height": {
+          "brand": {
+            "large": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.line-height.30}"
+            },
+            "medium": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.line-height.28}"
+            }
+          },
+          "reading": {
+            "large": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.line-height.28}"
+            },
+            "medium": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.line-height.26}"
+            }
+          }
+        },
+        "color": {
+          "brand": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.aubergine-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.aubergine-50}"
+            }
+          },
+          "neutral": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.concrete-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.brand.concrete-50}"
+            }
+          },
+          "nature": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nature-750}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nature-25}"
+            }
+          },
+          "romance": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.romance-675}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.romance-50}"
+            }
+          },
+          "fantasy": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.fantasy-850}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.fantasy-250}"
+            }
+          },
+          "thriller": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.thriller-850}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.thriller-250}"
+            }
+          },
+          "vacation": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.vacation-150}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.vacation-25}"
+            }
+          },
+          "nostalgia": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nostalgia-600}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.theme.nostalgia-25}"
+            }
+          },
+          "success": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.success-700}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.success-75}"
+            }
+          },
+          "informative": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.informative-700}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.informative-25}"
+            }
+          },
+          "warning": {
+            "tone-a": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.warning-700}"
+            },
+            "tone-b": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.color.validation.warning-75}"
+            }
+          }
+        },
+        "weight": {
+          "type": "string",
+          "value": "regular"
+        }
+      }
+    },
+    "text-display": {
+      "text": {
+        "size": {
+          "large": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.size.56}"
+          },
+          "medium": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.size.48}"
+          }
+        },
+        "color": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.typography.color.brand.aubergine-750}"
+        },
+        "line-height": {
+          "large": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.line-height.70}"
+          },
+          "medium": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.line-height.60}"
+          }
+        },
+        "font": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.typography.font-family.pp-mori}"
+        },
+        "weight": {
+          "type": "string",
+          "value": "book"
+        }
+      }
+    },
+    "text-display-extended": {
+      "text": {
+        "font": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.typography.font-family.pp-mori}"
+        },
+        "color": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.typography.color.brand.aubergine-750}"
+        },
+        "size": {
+          "large": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.size.56}"
+          },
+          "medium": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.size.48}"
+          }
+        },
+        "line-height": {
+          "large": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.line-height.70}"
+          },
+          "medium": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.line-height.60}"
+          }
+        },
+        "weight": {
+          "type": "string",
+          "value": "book"
+        }
+      },
+      "padding": {
+        "bottom": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.layout.element.space.xsmall}"
+        }
+      },
+      "extended": {
+        "text": {
+          "color": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.color.brand.carmine-525}"
+          },
+          "font": {
+            "alt1": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.font-family.pp-mori}"
+            },
+            "alt2": {
+              "description": "",
+              "type": "color",
+              "value": "{semantics.typography.font-family.lyon-display}"
+            }
+          },
+          "weight": {
+            "alt1": {
+              "description": "",
+              "type": "string",
+              "value": "{semantics.typography.book}"
+            },
+            "alt2": {
+              "description": "",
+              "type": "string",
+              "value": "{semantics.typography.light}"
+            }
+          }
         }
       }
     }
@@ -7608,64 +7748,99 @@
         "12": {
           "description": "",
           "type": "dimension",
-          "value": "{primitives.size.12}"
+          "value": "{primitives.font.size.12}"
         },
         "14": {
           "description": "",
           "type": "dimension",
-          "value": "{primitives.size.14}"
+          "value": "{primitives.font.size.14}"
         },
         "16": {
           "description": "",
           "type": "dimension",
-          "value": "{primitives.size.16}"
+          "value": "{primitives.font.size.16}"
+        },
+        "18": {
+          "description": "",
+          "type": "dimension",
+          "value": "{primitives.font.size.18}"
         },
         "20": {
           "description": "",
           "type": "dimension",
-          "value": "{primitives.size.20}"
+          "value": "{primitives.font.size.20}"
         },
         "24": {
           "description": "",
           "type": "dimension",
-          "value": "{primitives.size.24}"
+          "value": "{primitives.font.size.24}"
+        },
+        "28": {
+          "description": "",
+          "type": "dimension",
+          "value": "{primitives.font.size.28}"
         },
         "32": {
           "description": "",
           "type": "dimension",
-          "value": "{primitives.size.32}"
+          "value": "{primitives.font.size.32}"
         },
         "40": {
           "description": "",
           "type": "dimension",
-          "value": "{primitives.size.40}"
+          "value": "{primitives.font.size.40}"
         },
         "48": {
           "description": "",
           "type": "dimension",
-          "value": "{primitives.size.48}"
+          "value": "{primitives.font.size.48}"
         },
         "56": {
           "description": "",
           "type": "dimension",
-          "value": "{primitives.size.56}"
-        },
-        "64": {
-          "description": "",
-          "type": "dimension",
-          "value": "{primitives.size.64}"
+          "value": "{primitives.font.size.56}"
         }
       },
       "line-height": {
+        "12": {
+          "description": "",
+          "type": "dimension",
+          "value": "{primitives.font.line-height.12}"
+        },
+        "18": {
+          "description": "",
+          "type": "dimension",
+          "value": "{primitives.font.line-height.18}"
+        },
         "20": {
           "description": "",
           "type": "dimension",
           "value": "{primitives.font.line-height.20}"
         },
+        "22": {
+          "description": "",
+          "type": "dimension",
+          "value": "{primitives.font.line-height.22}"
+        },
+        "23": {
+          "description": "",
+          "type": "dimension",
+          "value": "{primitives.font.line-height.23}"
+        },
+        "24": {
+          "description": "",
+          "type": "dimension",
+          "value": "{primitives.font.line-height.24}"
+        },
         "25": {
           "description": "",
           "type": "dimension",
           "value": "{primitives.font.line-height.25}"
+        },
+        "26": {
+          "description": "",
+          "type": "dimension",
+          "value": "{primitives.font.line-height.26}"
         },
         "28": {
           "description": "",
@@ -7677,10 +7852,15 @@
           "type": "dimension",
           "value": "{primitives.font.line-height.30}"
         },
+        "32": {
+          "description": "",
+          "type": "dimension",
+          "value": "{primitives.font.line-height.32}"
+        },
         "35": {
           "description": "",
           "type": "dimension",
-          "value": "{primitives.font.line-height.35}"
+          "value": "{primitives.font.line-height.30}"
         },
         "40": {
           "description": "",
@@ -7701,65 +7881,6 @@
           "description": "",
           "type": "dimension",
           "value": "{primitives.font.line-height.70}"
-        },
-        "80": {
-          "description": "",
-          "type": "dimension",
-          "value": "{primitives.font.line-height.80}"
-        }
-      },
-      "weight": {
-        "medium": {
-          "description": "",
-          "type": "dimension",
-          "value": "{primitives.font.weight.500}"
-        },
-        "regular": {
-          "description": "",
-          "type": "dimension",
-          "value": "{primitives.font.weight.400}"
-        },
-        "book": {
-          "description": "",
-          "type": "dimension",
-          "value": "{primitives.font.weight.300}"
-        },
-        "semi-bold": {
-          "description": "",
-          "type": "dimension",
-          "value": "{primitives.font.weight.600}"
-        },
-        "light": {
-          "description": "",
-          "type": "dimension",
-          "value": "{primitives.font.weight.200}"
-        }
-      },
-      "color": {
-        "dark": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.color.identity.base.aubergine-750}"
-        },
-        "midtone": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.color.identity.extended.wine-600}"
-        },
-        "bright": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.color.identity.extended.aubergine-525}"
-        },
-        "darkest": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.color.identity.base.aubergine-850}"
-        },
-        "brand": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.color.identity.brand.carmine-525}"
         }
       },
       "space": {
@@ -7778,6 +7899,206 @@
           "type": "color",
           "value": "{semantics.layout.element.space.xsmall}"
         }
+      },
+      "color": {
+        "brand": {
+          "carmine-525": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.identity.brand.carmine-525}"
+          },
+          "aubergine-750": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.identity.base.aubergine-750}"
+          },
+          "carmine-50": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.identity.extended.carmine-50}"
+          },
+          "aubergine-50": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.identity.base.aubergine-50}"
+          },
+          "concrete-900": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.identity.neutral.concrete-900}"
+          },
+          "concrete-50": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.identity.neutral.concrete-50}"
+          },
+          "rettsdata-60": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.identity.rettsdata.rettsdata-60}"
+          },
+          "rettsdata-20": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.identity.rettsdata.rettsdata-20}"
+          },
+          "aubergine-25": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.identity.base.aubergine-25}"
+          },
+          "concrete-25": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.identity.neutral.concrete-25}"
+          },
+          "concrete-750": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.identity.neutral.concrete-750}"
+          },
+          "wine-600": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.identity.extended.wine-600}"
+          },
+          "wine-150": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.identity.extended.wine-150}"
+          }
+        },
+        "validation": {
+          "success-700": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.ui.success.success-700}"
+          },
+          "success-75": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.ui.success.success-75}"
+          },
+          "informative-700": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.ui.informative.informative-700}"
+          },
+          "informative-25": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.ui.informative.informative-25}"
+          },
+          "warning-700": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.ui.warning.warning-700}"
+          },
+          "warning-75": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.ui.warning.warning-75}"
+          }
+        },
+        "theme": {
+          "nature-750": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.nature.nature-750}"
+          },
+          "nature-25": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.nature.nature-25}"
+          },
+          "romance-750": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.romance.romance-750}"
+          },
+          "romance-50": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.romance.romance-50}"
+          },
+          "fantasy-850": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.fantasy.fantasy-850}"
+          },
+          "fantasy-250": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.fantasy.fantasy-250}"
+          },
+          "thriller-900": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.thriller.thriller-900}"
+          },
+          "thriller-250": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.thriller.thriller-250}"
+          },
+          "vacation-150": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.vacation.vacation-150}"
+          },
+          "vacation-25": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.vacation.vacation-25}"
+          },
+          "nostalgia-850": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.nostalgia.nostalgia-850}"
+          },
+          "nostalgia-25": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.nostalgia.nostalgia-25}"
+          },
+          "vacation-600": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.vacation.vacation-600}"
+          },
+          "thriller-850": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.thriller.thriller-850}"
+          },
+          "fantasy-750": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.fantasy.fantasy-750}"
+          },
+          "nostalgia-600": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.nostalgia.nostalgia-600}"
+          },
+          "romance-675": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.color.theme.romance.romance-675}"
+          }
+        }
+      },
+      "regular": {
+        "type": "string",
+        "value": "regular"
+      },
+      "book": {
+        "type": "string",
+        "value": "book"
+      },
+      "light": {
+        "type": "string",
+        "value": "light"
       }
     },
     "color": {
@@ -7866,6 +8187,11 @@
             "description": "",
             "type": "color",
             "value": "{primitives.color.aubergine.525}"
+          },
+          "carmine-50": {
+            "description": "",
+            "type": "color",
+            "value": "{primitives.color.carmine.50}"
           }
         },
         "neutral": {
@@ -7893,6 +8219,11 @@
             "description": "",
             "type": "color",
             "value": "{primitives.color.concrete.850}"
+          },
+          "concrete-750": {
+            "description": "",
+            "type": "color",
+            "value": "{primitives.color.concrete.750}"
           }
         },
         "rettsdata": {
@@ -8098,7 +8429,7 @@
             "type": "color",
             "value": "{primitives.color.thriller.900}"
           },
-          "thriller-750": {
+          "thriller-850": {
             "description": "",
             "type": "color",
             "value": "{primitives.color.thriller.850}"
@@ -8403,7 +8734,7 @@
         },
         "lineHeight": {
           "type": "dimension",
-          "value": 80
+          "value": 70
         },
         "paragraphIndent": {
           "type": "dimension",
@@ -8633,7 +8964,7 @@
         },
         "lineHeight": {
           "type": "dimension",
-          "value": 35
+          "value": 30
         },
         "paragraphIndent": {
           "type": "dimension",
@@ -8817,7 +9148,7 @@
         },
         "lineHeight": {
           "type": "dimension",
-          "value": 20
+          "value": 24
         },
         "paragraphIndent": {
           "type": "dimension",
@@ -8865,7 +9196,7 @@
         },
         "lineHeight": {
           "type": "dimension",
-          "value": 80
+          "value": 70
         },
         "paragraphIndent": {
           "type": "dimension",
@@ -9097,7 +9428,7 @@
         },
         "lineHeight": {
           "type": "dimension",
-          "value": 28
+          "value": 50
         },
         "paragraphIndent": {
           "type": "dimension",
@@ -9235,7 +9566,7 @@
         },
         "lineHeight": {
           "type": "dimension",
-          "value": 30
+          "value": 26
         },
         "paragraphIndent": {
           "type": "dimension",
@@ -9327,7 +9658,7 @@
         },
         "lineHeight": {
           "type": "dimension",
-          "value": 20
+          "value": 24
         },
         "paragraphIndent": {
           "type": "dimension",
@@ -9373,7 +9704,7 @@
         },
         "lineHeight": {
           "type": "dimension",
-          "value": 20
+          "value": 24
         },
         "paragraphIndent": {
           "type": "dimension",
@@ -9666,52 +9997,6 @@
           "value": "none"
         }
       },
-      "label medium - multi line": {
-        "fontSize": {
-          "type": "dimension",
-          "value": 14
-        },
-        "textDecoration": {
-          "type": "string",
-          "value": "none"
-        },
-        "fontFamily": {
-          "type": "string",
-          "value": "PP Mori"
-        },
-        "fontWeight": {
-          "type": "number",
-          "value": 400
-        },
-        "fontStyle": {
-          "type": "string",
-          "value": "normal"
-        },
-        "fontStretch": {
-          "type": "string",
-          "value": "normal"
-        },
-        "letterSpacing": {
-          "type": "dimension",
-          "value": 0
-        },
-        "lineHeight": {
-          "type": "dimension",
-          "value": 25
-        },
-        "paragraphIndent": {
-          "type": "dimension",
-          "value": 0
-        },
-        "paragraphSpacing": {
-          "type": "dimension",
-          "value": 0
-        },
-        "textCase": {
-          "type": "string",
-          "value": "none"
-        }
-      },
       "label small - multi line": {
         "fontSize": {
           "type": "dimension",
@@ -9743,7 +10028,7 @@
         },
         "lineHeight": {
           "type": "dimension",
-          "value": 20
+          "value": 24
         },
         "paragraphIndent": {
           "type": "dimension",
