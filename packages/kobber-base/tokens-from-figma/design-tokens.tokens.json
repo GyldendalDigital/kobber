@@ -5732,19 +5732,19 @@
           "color": {
             "description": "",
             "type": "color",
-            "value": "{groups.links.color.brightest}"
+            "value": "{groups.menus.color.aubergine-25}"
           }
         },
         "shadow": {
           "blur": {
             "description": "",
             "type": "color",
-            "value": "{groups.links.shadow.blur}"
+            "value": "{groups.menus.shadow.blur}"
           },
           "color": {
             "description": "",
             "type": "color",
-            "value": "{groups.links.shadow.color}"
+            "value": "{groups.menus.color.neutral-525}"
           }
         }
       }
