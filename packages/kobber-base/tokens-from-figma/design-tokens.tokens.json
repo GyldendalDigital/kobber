@@ -5072,12 +5072,12 @@
                 "hover": {
                   "description": "",
                   "type": "color",
-                  "value": "{semantics.typography.color.brand}"
+                  "value": "{groups.buttons.color.carmine.opaque.darkest}"
                 },
                 "active": {
                   "description": "",
                   "type": "color",
-                  "value": "{semantics.typography.color.brand}"
+                  "value": "{groups.buttons.color.carmine.opaque.darkest}"
                 }
               },
               "supplemental": {
