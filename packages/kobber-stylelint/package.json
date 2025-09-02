@@ -12,7 +12,6 @@
     "stylelint-order": ">=6"
   },
   "dependencies": {
-    "postcss-styled-syntax": "^0.6.4",
     "stylelint": "^16.0.2",
     "stylelint-config-standard": "^35.0.0",
     "stylelint-order": "^6.0.4",

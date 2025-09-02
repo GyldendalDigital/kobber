@@ -11,7 +11,7 @@
 }
 
 .color-list-item-image {
-  border: 1px solid var(--todo-kobber-primitives-color-wine-150);
+  border: 1px solid #e5cfd3;
   border-radius: 1rem;
   aspect-ratio: 1 / 1;
 }

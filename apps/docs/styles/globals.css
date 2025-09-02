@@ -4,83 +4,66 @@
 @import url("./pp-mori.css");
 @import url("./lyon.css");
 
-@layer base {
-  /* prevents FOUC */
-  :not(:defined) {
-    display: none;
-  }
+/* prevents FOUC */
+:not(:defined) {
+  display: none;
+}
 
-  * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    box-sizing: border-box;
-    border: 0 solid transparent;
-  }
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  border: 0 solid transparent;
+}
 
-  :root {
-    --todo-kobber-component-body-text-color-base: #481125;
-    --todo-kobber-component-button-container-size-height: 2.5rem;
-    --todo-kobber-component-button-container-padding-inline: 1rem;
-    --todo-kobber-component-divider-background-color-main: #e5cfd3;
-    --todo-kobber-component-docs-navbar-background-color-main: #fdf9f9;
-    --todo-kobber-component-docs-navbar-container-padding-block: 1rem;
-    --todo-kobber-component-docs-side-menu-container-padding: 0.5rem;
-    --todo-kobber-component-menu-item-container-padding-left-nested: 2.5rem;
-    --todo-kobber-groups-links-color-bright: #a35e70;
-    --todo-kobber-universal-hover-container-darken: #f9eaed;
-    --todo-kobber-layout-gap-16-32: clamp(1rem, calc(0.75rem + 1.25vw), 2rem);
-    --todo-kobber-layout-gap-16-44: clamp(1rem, calc(0.56rem + 2.19vw), 2.75rem);
-    --todo-kobber-layout-gap-16-72: clamp(1rem, calc(0.13rem + 4.38vw), 4.5rem);
-    --todo-kobber-layout-max-width: 80rem;
-    --todo-kobber-layout-min-width: 20rem;
-    --todo-kobber-primitives-color-aubergine-25: #fdf9f9;
-    --todo-kobber-primitives-color-wine-150: #e5cfd3;
-  }
+:root {
+  --todo-kobber-layout-gap-16-32: clamp(1rem, calc(0.75rem + 1.25vw), 2rem);
+  --todo-kobber-layout-gap-16-44: clamp(1rem, calc(0.56rem + 2.19vw), 2.75rem);
+  --todo-kobber-layout-gap-16-72: clamp(1rem, calc(0.13rem + 4.38vw), 4.5rem);
+  --todo-kobber-layout-max-width: 80rem;
+  --todo-kobber-layout-min-width: 20rem;
+}
 
-  html {
-    scrollbar-gutter: stable;
-  }
+html {
+  scrollbar-gutter: stable;
+}
 
-  body {
-    margin: 0;
-    --highlight-color: inherit;
-    color: var(--todo-kobber-component-body-text-color-base);
-    background-color: var(--todo-kobber-component-docs-navbar-background-color-main);
+body {
+  margin: 0;
+  --highlight-color: inherit;
+  color: #481125;
+  background-color: #fdf9f9;
 
-    --top-nav-height: calc(
-      2 * var(--todo-kobber-component-docs-navbar-container-padding-block) +
-        var(--todo-kobber-component-button-container-size-height)
-    );
-  }
+  --top-nav-height: calc(2 * 1rem + 2.5rem);
+}
 
-  em {
-    color: var(--highlight-color);
-    font-style: normal;
-  }
+em {
+  color: var(--highlight-color);
+  font-style: normal;
+}
 
-  .small-screen-nav-content {
-    display: none;
-  }
+.small-screen-nav-content {
+  display: none;
+}
 
-  .open .small-screen-nav-content {
-    display: block;
-  }
+.open .small-screen-nav-content {
+  display: block;
+}
 
-  .overflow-hidden {
-    overflow: hidden;
-  }
+.overflow-hidden {
+  overflow: hidden;
+}
 
-  /* Make spacing between paragraphs (that are not structured as paragraphs) */
-  p:last-of-type:not(:has(~ *)),
-  a:last-of-type:not(:has(~ *)),
-  ul:last-of-type:not(:has(~ *)),
-  ol:last-of-type:not(:has(~ *)),
-  img:last-of-type:not(:has(~ *)),
-  main > header {
-    margin-bottom: 4.5em;
-  }
-  kobber-heading[id^="Når brukes"] {
-    display: block;
-    margin-top: 4.5em;
-  }
+/* Make spacing between paragraphs (that are not structured as paragraphs) */
+p:last-of-type:not(:has(~ *)),
+a:last-of-type:not(:has(~ *)),
+ul:last-of-type:not(:has(~ *)),
+ol:last-of-type:not(:has(~ *)),
+img:last-of-type:not(:has(~ *)),
+main > header {
+  margin-bottom: 4.5em;
+}
+kobber-heading[id^="Når brukes"] {
+  display: block;
+  margin-top: 4.5em;
 }
