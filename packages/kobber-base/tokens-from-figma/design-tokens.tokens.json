@@ -6835,9 +6835,16 @@
           }
         },
         "font": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.typography.font-family.pp-mori}"
+          "brand": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.font-family.pp-mori}"
+          },
+          "reading": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.font-family.inter}"
+          }
         },
         "color": {
           "brand": {
@@ -7085,9 +7092,16 @@
           }
         },
         "font": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.typography.font-family.pp-mori}"
+          "brand": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.font-family.pp-mori}"
+          },
+          "reading": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.font-family.inter}"
+          }
         },
         "line-height": {
           "brand": {
@@ -7227,9 +7241,16 @@
           "value": "{semantics.typography.size.20}"
         },
         "font": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.typography.font-family.pp-mori}"
+          "brand": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.font-family.pp-mori}"
+          },
+          "reading": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.font-family.inter}"
+          }
         },
         "color": {
           "brand": {
@@ -7337,6 +7358,11 @@
         "weight": {
           "type": "string",
           "value": "regular"
+        },
+        "font 2": {
+          "description": "",
+          "type": "color",
+          "value": "{semantics.typography.font-family.pp-mori}"
         }
       }
     },
@@ -7355,9 +7381,16 @@
           }
         },
         "font": {
-          "description": "",
-          "type": "color",
-          "value": "{semantics.typography.font-family.pp-mori}"
+          "brand": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.font-family.pp-mori}"
+          },
+          "reading": {
+            "description": "",
+            "type": "color",
+            "value": "{semantics.typography.font-family.inter}"
+          }
         },
         "line-height": {
           "brand": {
