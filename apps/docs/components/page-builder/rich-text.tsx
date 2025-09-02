@@ -1,4 +1,4 @@
-import { Heading, Ingress } from "@gyldendal/kobber-components/react"
+import { Heading, Lead } from "@gyldendal/kobber-components/react"
 import { CheckCircle, Remove } from "@gyldendal/kobber-icons/react"
 import {
   PortableText,
@@ -37,7 +37,7 @@ const components: Partial<PortableTextReactComponents> = {
     },
     h3: ({ children, value }) => {
       const slug = parseChildrenToSlug(value.children)
-      return <Ingress id={slug}>{children}</Ingress>
+      return <Lead id={slug}>{children}</Lead>
     },
     inline: ({ children }) => <p className={styles["inline"]}>{children}</p>,
   },
