@@ -3546,7 +3546,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-stylelint@workspace:packages/kobber-stylelint"
   dependencies:
-    postcss-styled-syntax: "npm:^0.6.4"
     stylelint: "npm:^16.0.2"
     stylelint-config-standard: "npm:^35.0.0"
     stylelint-order: "npm:^6.0.4"
@@ -17661,17 +17660,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-styled-syntax@npm:^0.6.4":
-  version: 0.6.4
-  resolution: "postcss-styled-syntax@npm:0.6.4"
-  dependencies:
-    typescript: "npm:^5.3.3"
-  peerDependencies:
-    postcss: ^8.4.21
-  checksum: 10c0/0f51e592d38a19bf667257b69850bab63888e56947cd0b89f19de78e2a1e46cdaf687a327824e2b0511274e24989bb00b8897b5cdee4987d3b392fe3fb2c42a6
-  languageName: node
-  linkType: hard
-
 "postcss-value-parser@npm:^4.0.2, postcss-value-parser@npm:^4.2.0":
   version: 4.2.0
   resolution: "postcss-value-parser@npm:4.2.0"
@@ -21673,7 +21661,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.3.3, typescript@npm:^5.8.3":
+"typescript@npm:^5.8.3":
   version: 5.8.3
   resolution: "typescript@npm:5.8.3"
   bin:
@@ -21683,7 +21671,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.8.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.8.3#optional!builtin<compat/typescript>":
   version: 5.8.3
   resolution: "typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"
   bin:
