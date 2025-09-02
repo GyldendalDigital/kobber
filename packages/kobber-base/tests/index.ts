@@ -16,3 +16,21 @@ const fullTest: ThemeConfig = {
 };
 
 await buildThemeTokensTest(tokensFromFigma, fullTest);
+
+await buildThemeTokensTest(
+  {
+    shouldBeNumber: {
+      type: "dimension",
+      value: "1",
+      description: "number", // description with valid value "number" will override type
+    },
+    shouldBeRem: {
+      type: "dimension",
+      value: "1", // will be converted to rem
+    },
+  },
+  {
+    figmaMode: "mode 1",
+    themeName: "test-description-override",
+  },
+);
