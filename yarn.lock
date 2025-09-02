@@ -20109,6 +20109,7 @@ __metadata:
   resolution: "storybook-web-components@workspace:apps/storybook-web-components"
   dependencies:
     "@gyldendal/kobber-base": "npm:*"
+    "@gyldendal/kobber-icons": "npm:*"
     "@types/react": "npm:^19.1.0"
     lit-html: "npm:^3.2.1"
   languageName: unknown
