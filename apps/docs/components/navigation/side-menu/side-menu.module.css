@@ -3,6 +3,7 @@
   top: var(--top-nav-height);
   height: calc(100vh - var(--top-nav-height));
   overflow: auto;
+  border-color: #e5cfd3;
 
   @media (width <= 768px) {
     display: none;
@@ -10,27 +11,24 @@
 }
 
 .inner-container {
-  border-right: 1px solid var(--todo-kobber-component-divider-background-color-main);
-  padding: var(--todo-kobber-component-docs-side-menu-container-padding);
+  border-right: 1px solid;
+  padding: 0.5rem;
 }
 
 .group-divider {
-  border-bottom: 1px solid var(--todo-kobber-component-divider-background-color-main);
-  padding-block: var(--todo-kobber-component-docs-side-menu-container-padding);
+  border-bottom: 1px solid;
+  padding-block: 0.5rem;
 }
 
 .list-divider {
   & > *:not(:last-child) {
-    border-bottom: 1px solid var(--todo-kobber-component-divider-background-color-main);
-    padding-bottom: var(--todo-kobber-component-docs-side-menu-container-padding);
+    border-bottom: 1px solid;
+    padding-bottom: 0.5rem;
   }
 }
 
 .sub-list-spacing {
-  padding-left: calc(
-    var(--todo-kobber-component-menu-item-container-padding-left-nested) -
-      var(--todo-kobber-component-button-container-padding-inline)
-  );
+  padding-left: calc(2.5rem - 1rem);
 }
 
 .list-label {

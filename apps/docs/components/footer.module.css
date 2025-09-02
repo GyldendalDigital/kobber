@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   padding-block: 4rem;
-  color: var(--todo-kobber-groups-links-color-bright);
+  color: #a35e70;
 
   @media (width >= 768px) {
     flex-direction: row;

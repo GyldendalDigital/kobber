@@ -6,8 +6,8 @@
   flex-direction: column;
   justify-content: space-between;
   z-index: 1000;
-  background-color: var(--todo-kobber-component-docs-navbar-background-color-main);
-  padding-block: var(--todo-kobber-component-docs-navbar-container-padding-block);
+  background-color: #fdf9f9;
+  padding-block: 1rem;
 }
 
 .bar {

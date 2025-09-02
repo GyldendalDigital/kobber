@@ -18,23 +18,11 @@
   }
 
   :root {
-    --todo-kobber-component-body-text-color-base: #481125;
-    --todo-kobber-component-button-container-size-height: 2.5rem;
-    --todo-kobber-component-button-container-padding-inline: 1rem;
-    --todo-kobber-component-divider-background-color-main: #e5cfd3;
-    --todo-kobber-component-docs-navbar-background-color-main: #fdf9f9;
-    --todo-kobber-component-docs-navbar-container-padding-block: 1rem;
-    --todo-kobber-component-docs-side-menu-container-padding: 0.5rem;
-    --todo-kobber-component-menu-item-container-padding-left-nested: 2.5rem;
-    --todo-kobber-groups-links-color-bright: #a35e70;
-    --todo-kobber-universal-hover-container-darken: #f9eaed;
     --todo-kobber-layout-gap-16-32: clamp(1rem, calc(0.75rem + 1.25vw), 2rem);
     --todo-kobber-layout-gap-16-44: clamp(1rem, calc(0.56rem + 2.19vw), 2.75rem);
     --todo-kobber-layout-gap-16-72: clamp(1rem, calc(0.13rem + 4.38vw), 4.5rem);
     --todo-kobber-layout-max-width: 80rem;
     --todo-kobber-layout-min-width: 20rem;
-    --todo-kobber-primitives-color-aubergine-25: #fdf9f9;
-    --todo-kobber-primitives-color-wine-150: #e5cfd3;
   }
 
   html {
@@ -44,13 +32,10 @@
   body {
     margin: 0;
     --highlight-color: inherit;
-    color: var(--todo-kobber-component-body-text-color-base);
-    background-color: var(--todo-kobber-component-docs-navbar-background-color-main);
+    color: #481125;
+    background-color: #fdf9f9;
 
-    --top-nav-height: calc(
-      2 * var(--todo-kobber-component-docs-navbar-container-padding-block) +
-        var(--todo-kobber-component-button-container-size-height)
-    );
+    --top-nav-height: calc(2 * 1rem + 2.5rem);
   }
 
   em {
