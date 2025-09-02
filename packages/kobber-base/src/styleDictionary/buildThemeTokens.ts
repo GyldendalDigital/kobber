@@ -8,13 +8,14 @@ import { sanitizeJsonFromFigma } from "./sanitizeJsonFromFigma";
 import { esmWithCssVariableValues } from "./formats/esmWithCssVariableValues";
 import { registerTransforms } from "./registerTransforms";
 import { fluidClampTransform } from "./transforms/fluidClamp";
+import { dimensionToNumberOverrideTransform } from "./transforms/dimensionToNumberOverride";
 
 /**
  * Convert Figma modes into themes
  */
 export const buildThemeTokens = async (tokensFromFigma: any, themeConfig: ThemeConfig) => {
   registerFormats([esmFormat, tsDeclarationsFormat, esmWithCssVariableValues]);
-  registerTransforms([fluidClampTransform]);
+  registerTransforms([fluidClampTransform, dimensionToNumberOverrideTransform]);
 
   const allTokens = getAllTokens(tokensFromFigma, themeConfig);
 
