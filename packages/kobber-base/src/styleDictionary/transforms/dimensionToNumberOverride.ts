@@ -1,7 +1,7 @@
 import { transformTypes } from "style-dictionary/enums";
 import type { Transform } from "style-dictionary/types";
 
-/** Makes dimension tokens with "number" as description into type number  */
+/** Turns tokens with type "dimension" and description "number" into type number  */
 export const dimensionToNumberOverrideTransform: Transform = {
   name: "dimensionToNumberOverride",
   type: transformTypes.attribute,
