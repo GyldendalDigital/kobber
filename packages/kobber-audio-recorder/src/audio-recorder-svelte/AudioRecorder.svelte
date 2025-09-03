@@ -160,7 +160,10 @@
     // decodes that new buffer, converts to wav, converts to mp3,
     // and finally calls the callback with that mp3.
     function encodeToMP3() {
-        recData[recData.length - 1][0].arrayBuffer().then((response) => {
+        const chunks = recData[recData.length - 1];
+        const fullBlob = new Blob(chunks, { type: chunks[0].type });
+
+        fullBlob.arrayBuffer().then((response) => {
             audioCtx = new AudioContext();
             audioCtx.decodeAudioData(response).then((audioBuffer) => {
                 decodedAudioData.push(audioBufferToWav(audioBuffer));
@@ -266,8 +269,11 @@
     function updateRecordings() {
         const newAudio = new Audio();
         newAudio.preload = "auto";
-        newAudio.src = window.URL.createObjectURL(recData[recData.length - 1][0]);
-        audioEventSetter(newAudio, recData[recData.length - 1][0], audioArray.length);
+
+        const chunks = recData[recData.length - 1];
+        const fullBlob = new Blob(chunks, { type: chunks[0].type });
+        newAudio.src = window.URL.createObjectURL(fullBlob);
+        audioEventSetter(newAudio, fullBlob, audioArray.length);
         audioArray.push(newAudio);
         edgeHandler(false);
     }
@@ -338,7 +344,10 @@
                     source.connect(analyser);
 
                     mediaRecorder = new MediaRecorder(stream);
-                    mediaRecorder.start();
+                    mediaRecorder.ondataavailable = (e) => {
+                        recData[recData.length - 1].push(e.data);
+                    };
+                    mediaRecorder.start(1000);
                     drawSVG();
                     recordedSeconds = roundWithDecimals(timeTotal, 0);
                     countRecordingTime();
@@ -348,16 +357,12 @@
 
     // Stops the recording, and handles the data being received.
     async function stopRecording() {
-        mediaRecorder.ondataavailable = (e) => {
-            recData[recData.length - 1].push(e.data);
-            updateRecordings();
-            encodeToMP3();
-        };
-
         mediaRecorder.stop();
         mediaRecorder.onstop = (e) => {
             e.srcElement.stream.getTracks()[0].stop();
             window.cancelAnimationFrame(animationId);
+            updateRecordings();
+            encodeToMP3();
         };
 
     }
