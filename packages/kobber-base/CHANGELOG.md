@@ -1,5 +1,11 @@
 # @gyldendal/kobber-base
 
+## 0.6.3
+
+### Patch Changes
+
+- kobber-audio-recorder macos-safari-bugfix
+
 ## 0.6.2
 
 ### Patch Changes
