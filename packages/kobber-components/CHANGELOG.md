@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.6.3
+
+### Patch Changes
+
+- kobber-audio-recorder macos-safari-bugfix
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.3
+  - @gyldendal/kobber-icons@0.6.3
+
 ## 0.6.2
 
 ### Patch Changes
