@@ -12,7 +12,7 @@ import {
   buttonColorThemes,
 } from "./Button.core";
 import { resetButton } from "../base/styles/reset.styles";
-import { getTypographyStyles } from "../base/getTypographyStyles";
+import { getTypographyStyles } from "../base/getTypographyStyles2";
 import { isValidPropCombination } from "../base/internal/buttonUtils";
 
 /**
@@ -51,7 +51,7 @@ const createButtonStyles = () => {
       font-stretch: var(--typography-font-stretch);
       line-height: var(--typography-line-height);
 
-      ${unsafeCSS(getTypographyStyles("button", "ui"))}
+      ${getTypographyStyles("text-label")}
 
       &.${unsafeCSS("kobber-button--full-width" satisfies ButtonClassNames)} {
         width: 100%;

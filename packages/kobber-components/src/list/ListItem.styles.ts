@@ -14,9 +14,8 @@ const createListItemStyles = () => {
       padding-block: var(${unsafeCSS(listItem.padding.block)});
       padding-inline: var(${unsafeCSS(listItem.padding.inline)});
       border-radius: var(${unsafeCSS(listItem.border.radius)});
-      color: var(${unsafeCSS(listItem.text.color)});
-
-      font-size: var(${unsafeCSS(universal.text.ui.size.label.large)});
+      color: var(${unsafeCSS(universal["text-label"].text.color.brand["tone-a"])});
+      font-size: var(${unsafeCSS(universal["text-label"].text.size.large)});
 
       &:focus-visible,
       &.focus {

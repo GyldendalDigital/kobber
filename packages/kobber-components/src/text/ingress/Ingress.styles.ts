@@ -1,14 +1,11 @@
 import { css, unsafeCSS } from "lit";
-import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { getTypographyStyles } from "../../base/getTypographyStyles";
-import { ingressName, ingressSizes } from "./Ingress.core";
+import { getTypographyStyles } from "../../base/getTypographyStyles2";
+import { ingressName, ingressTokens, ingressSizes } from "./Ingress.core";
 
 const createIngressStyles = () => {
-  const ingress = component.ingress;
-
   return css`
     .${unsafeCSS(ingressName)} {
-      color: var(${unsafeCSS(ingress.text.color.base)});
+      color: var(${unsafeCSS(ingressTokens.text.color.brand)});
 
       font-size: var(--typography-font-size);
       font-family: var(--typography-font-family);
@@ -18,9 +15,6 @@ const createIngressStyles = () => {
       line-height: var(--typography-line-height);
 
       ${typographyStyles()}
-
-      /* used in global.css em styling (Lit can't style nested slots) */
-      --highlight-color: var(${unsafeCSS(ingress.text.color.highlight)});
 
       em,
       ::slotted(em) {
@@ -37,10 +31,11 @@ const typographyStyles = () => {
       ingressSizes
         .flatMap(size => {
           return `&[data-size="${size}"] {
-            ${getTypographyStyles("ingress", "primary", size)}}`;
+            ${getTypographyStyles("text-lead", size)}}`;
         })
         .join("\n"),
     )}
+    --typography-line-height: var(${unsafeCSS(ingressTokens.text["line-height"])});
   `;
 };
 

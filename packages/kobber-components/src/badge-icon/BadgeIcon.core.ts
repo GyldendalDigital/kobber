@@ -18,6 +18,6 @@ export type BadgeIconColorTheme = (typeof badgeIconColorThemes)[number];
 export type BadgeIconColorVariant = (typeof badgeIconColorVariants)[number];
 export type BadgeIconSize = (typeof badgeIconSizes)[number];
 
-export const badgeIconColorThemes = objectKeys(badgeIconTokens.text.color);
-export const badgeIconColorVariants = objectKeys(badgeIconTokens.text.color.aubergine);
+export const badgeIconColorThemes = objectKeys(badgeIconTokens.icon.shape.color);
+export const badgeIconColorVariants = objectKeys(badgeIconTokens.icon.shape.color.aubergine);
 export const badgeIconSizes = objectKeys(badgeIconTokens.gap);

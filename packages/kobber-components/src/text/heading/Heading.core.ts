@@ -1,7 +1,7 @@
 import { universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { objectKeys } from "../../base/utilities/objectKeys";
 
-const headingTokens = universal.text;
+export const headingTokens = universal["text-heading"];
 
 export const headingName = "kobber-heading";
 
@@ -16,19 +16,23 @@ export const sanitizeHeadingLevel = (level: HeadingLevel | undefined): HeadingLe
 
 export type HeadingProps = {
   level?: HeadingLevel;
-  element?: HeadingElement;
-  colorLevel?: HeadingColorLevel;
   size?: HeadingSize;
+  font?: HeadingFont;
+  color?: HeadingColor;
+  colorVariant?: HeadingColorVariant;
 };
 
 type HeadingClassNames = typeof headingName;
+
 type HeadingLevel = (typeof headingLevels)[number];
-type HeadingElement = (typeof headingElements)[number];
-type HeadingColorLevel = (typeof headingColorLevels)[number];
 type HeadingSize = (typeof headingSizes)[number];
+type HeadingFont = (typeof headingFonts)[number];
+type HeadingColor = (typeof headingColors)[number];
+type HeadingColorVariant = (typeof headingColorVariants)[number];
 
 const headingLevels = ["h1", "h2", "h3", "h4", "h5", "h6", "span", "div"] as const;
 
-export const headingElements = objectKeys(headingTokens.primary.size);
-export const headingColorLevels = objectKeys(headingTokens);
-export const headingSizes = objectKeys(headingTokens.primary.size.display);
+export const headingSizes = objectKeys(headingTokens.text.size);
+export const headingFonts = objectKeys(headingTokens.text.font);
+export const headingColors = objectKeys(headingTokens.text.color);
+export const headingColorVariants = objectKeys(headingTokens.text.color.brand);

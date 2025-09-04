@@ -1,6 +1,6 @@
 import { universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 
-const ingressTokens = universal.text;
+export const ingressTokens = universal["text-lead"];
 
 export const ingressName = "kobber-ingress";
 
@@ -8,6 +8,6 @@ export type IngressProps = {
   size?: IngressSize;
 };
 
-export type IngressSize = keyof typeof ingressTokens.primary.size.title;
+export type IngressSize = (typeof ingressSizes)[number];
 
-export const ingressSizes = ["medium", "small"] satisfies (keyof typeof ingressTokens.primary.size.title)[];
+export const ingressSizes = ["small", "medium"] as const;

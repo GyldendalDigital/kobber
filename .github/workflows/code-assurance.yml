@@ -37,7 +37,7 @@ jobs:
           echo SANITY_API_READ_TOKEN=${{ secrets.SANITY_API_READ_TOKEN }} >> ./apps/docs/.env
 
       - name: Build
-        run: yarn build
+        run: yarn build --filter=./packages/*
 
       # - name: Setup test
       #   run: npx playwright install --with-deps chromium

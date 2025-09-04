@@ -1,4 +1,4 @@
-import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import {
   BadgeClassNames,
@@ -8,7 +8,7 @@ import {
   BadgeColorVariant,
   BadgeSize,
 } from "./Badge.core";
-import { getTypographyStyles } from "../base/getTypographyStyles";
+import { getTypographyStyles } from "../base/getTypographyStyles2";
 
 const badge = component.badge;
 
@@ -73,16 +73,27 @@ const getConcreteThemeMainVariantStyles = () => {
   return css`
     ${unsafeCSS(`
     --background-color: var(${unsafeCSS(badge.background.color.concrete.main)});
-    --color: var(${unsafeCSS(badge.text.color.concrete.main)});
+    --color: var(${unsafeCSS(universal["text-label"].text.color.neutral["tone-a"])});
       `)}
   `;
 };
 
 const getNotConcreteThemeVariantStyles = (colorTheme: "aubergine" | "rettsdata", colorVariant: BadgeColorVariant) => {
+  const getTextColor = () => {
+    if (colorTheme === "aubergine" && colorVariant === "main")
+      return universal["text-label"].text.color.brand["tone-a"];
+    if (colorTheme === "aubergine" && colorVariant === "supplemental")
+      return universal["text-label"].text.color.accent["tone-b"];
+    if (colorTheme === "rettsdata" && colorVariant === "main")
+      return universal["text-label"].text.color.rettsdata["tone-a"];
+    if (colorTheme === "rettsdata" && colorVariant === "supplemental")
+      return universal["text-label"].text.color.rettsdata["tone-b"];
+    return universal["text-label"].text.color.neutral["tone-a"];
+  };
   return css`
     ${unsafeCSS(`
       --background-color: var(${unsafeCSS(badge.background.color[colorTheme][colorVariant])});
-      --color: var(${unsafeCSS(badge.text.color[colorTheme][colorVariant])});
+      --color: var(${unsafeCSS(getTextColor())});
       `)}
   `;
 };
@@ -96,9 +107,9 @@ const getStatusCircleStyles = (
     const circleStyles = component.badge["status-circle"];
     return css`
       ${unsafeCSS(`
-        --status-circle-color: var(${unsafeCSS(circleStyles.color[colorTheme].supplemental)});
-        --status-circle-width: var(${unsafeCSS(circleStyles.width[size])});
-        --status-circle-height: var(${unsafeCSS(circleStyles.height[size])});
+        --status-circle-color: var(${unsafeCSS(circleStyles.background.color[colorTheme].supplemental)});
+        --status-circle-width: var(${unsafeCSS(circleStyles.size.width[size])});
+        --status-circle-height: var(${unsafeCSS(circleStyles.size.height[size])});
       `)}
     `;
   }
@@ -112,7 +123,7 @@ const getSizeDependantStyles = () => {
         .flatMap(
           size => `&[data-size="${size}"] { 
             ${spacingStyles(size)} 
-            ${getTypographyStyles("badge", "ui", size)}
+            ${getTypographyStyles("text-label", size)}
         }`,
         )
         .join("\n"),

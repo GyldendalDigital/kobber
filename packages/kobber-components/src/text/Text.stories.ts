@@ -4,7 +4,7 @@ import "./text-wrapper/TextWrapper";
 import "./heading/Heading";
 import "./ingress/Ingress";
 import "./text-link/TextLink";
-import { headingElements, headingSizes, headingColorLevels } from "./heading/Heading.core";
+import { headingColors, headingSizes, headingColorVariants, headingFonts } from "./heading/Heading.core";
 import "@gyldendal/kobber-icons/web-components";
 import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
@@ -120,40 +120,43 @@ export const Heading: Story = {
 
     return html`
       <kobber-text-wrapper class="kobber-text-wrapper">
-        ${headingElements.map(
-          element => html`
+        ${headingColors.map(
+          color => html`
             ${headingSizes.map(
               size =>
-                html` <div
-                  style="
-                        display: grid;
-                        grid-template-columns: 1fr 1fr;
-                        align-items: center;
-                        grid-template-areas: 
-                          'element-and-size .'
-                          'primary sample-primary'
-                          'secondary sample-secondary'
-                          'reading sample-reading'
-                          'ui sample-ui';
-                        border: 1px solid;
-                        padding: 1em;"
-                >
-                  <em style="grid-area: element-and-size;">${element} - ${size}</em>
-                  ${headingColorLevels.map(
-                    colorVariant => html`
-                      <p style="grid-area: ${colorVariant};">${colorVariant}</p>
-                      <kobber-heading
-                        level="${args.h1 ? "h1" : "h2"}"
-                        element="${element}"
-                        color-variant="${colorVariant}"
-                        size="${size}"
-                        style="grid-area: sample-${colorVariant};"
-                      >
-                        ${text(args.text || "Heading")}
-                      </kobber-heading>
-                    `,
-                  )}
-                </div>`,
+                html` <div></div>
+            <em style="font-size: 1.2em;">${color} - ${size}</em>
+            <div
+            style="
+              display: grid;
+              border: 1px solid;
+              padding: 1em;"
+            >
+            ${headingColorVariants.map(colorVariant =>
+              headingFonts.map(
+                font => html`
+                  <div
+                    style="margin-bottom: 0.5rem; background-color: ${colorVariant === "tone-b"
+                      ? "darkgray"
+                      : "transparent"};"
+                  >
+                    <p style="">${colorVariant} ${font}</p>
+                    <kobber-heading
+                      highlighted
+                      level="${args.h1 ? "h1" : "h2"}"
+                      size="${size}"
+                      font="${font}"
+                      color="${color}"
+                      colorVariant="${colorVariant}"
+                    >
+                      ${text(args.text || "Heading")}
+                    </kobber-heading>
+                  </div>
+                `,
+              ),
+            )}
+            </div>
+          </div>`,
             )}
           `,
         )}
@@ -163,6 +166,32 @@ export const Heading: Story = {
 };
 
 /**
+ * 
+                    html`
+                      <p style="grid-area: ${colorVariant};">${colorVariant}</p>
+                      <kobber-heading
+                        level="${args.h1 ? "h1" : "h2"}"
+                        size="${size}"
+                        font="${"brand"}"
+                        color="${color}"
+                        colorVariant="${colorVariant}"
+                        style="grid-area: sample-${colorVariant};"
+                      >
+                        ${text(args.text || "Heading")}
+                      </kobber-heading>
+                      <p style="grid-area: ${font};">${font}</p>
+                      <kobber-heading
+                        level="${args.h1 ? "h1" : "h2"}"
+                        size="${size}"
+                        font="${font}"
+                        color="${color}"
+                        colorVariant="${colorVariant}"
+                        style="grid-area: sample-${colorVariant};"
+                      >
+                        ${text(args.text || "Heading")}
+                      </kobber-heading>
+                    `,
+                  )
  * Bruker farge fra "component.article", og typografi fra "title medium".
  */
 export const Ingress: Story = {

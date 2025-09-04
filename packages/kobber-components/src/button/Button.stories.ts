@@ -219,7 +219,7 @@ const renderAllColors = (args: Args) => {
       .flatMap(colorLevel => {
         args = { ...args, colorLevel };
         return `<div class="level-group">
-        <kobber-heading level="h1" element="heading" color-variant="primary" size="medium">color-level: ${colorLevel}</kobber-heading>
+        <kobber-heading level="h1" size="medium">color-level: ${colorLevel}</kobber-heading>
       ${renderThemeAndVariantColors(args)}</div>`;
       })
       .join("");
@@ -234,7 +234,7 @@ const renderThemeAndVariantColors = (args: Args) => {
   return colorThemes
     .flatMap(
       colorTheme => `<div class="wrapper-variant">
-      <kobber-heading level="h2" element="title" color-variant="primary" size="medium" style="grid-area: theme;">color-theme: ${colorTheme}</kobber-heading>
+      <kobber-heading level="h2" size="medium" style="grid-area: theme;">color-theme: ${colorTheme}</kobber-heading>
       ${colorVariants
         .flatMap((colorVariant, index) => {
           args = { ...args, colorTheme, colorVariant };

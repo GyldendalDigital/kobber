@@ -3,6 +3,7 @@
 @import url("@gyldendal/kobber-base/themes/dark/tokens.css");
 @import url("./pp-mori.css");
 @import url("./lyon.css");
+@import url("./inter.css");
 
 /* prevents FOUC */
 :not(:defined) {

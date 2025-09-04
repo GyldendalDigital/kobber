@@ -5,6 +5,7 @@ import componentStyles from "../../base/styles/component.styles";
 import { headingStyles } from "./Heading.styles";
 import { headingClassNames, headingName, HeadingProps, sanitizeHeadingLevel } from "./Heading.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 @customElement(headingName)
 export class Heading extends LitElement implements HeadingProps {
@@ -14,23 +15,32 @@ export class Heading extends LitElement implements HeadingProps {
   level: HeadingProps["level"];
 
   @property()
-  element: HeadingProps["element"] = "display";
-
-  @property({ attribute: "color-level" })
-  colorLevel: HeadingProps["colorLevel"] = "primary";
+  size: HeadingProps["size"] = "large";
 
   @property()
-  size: HeadingProps["size"] = "small";
+  font: HeadingProps["font"] = "brand";
+
+  @property()
+  color: HeadingProps["color"] = "brand";
+
+  @property()
+  colorVariant: HeadingProps["colorVariant"] = "tone-a";
+
+  // temporary prop while waiting for new text components
+  @property({ type: Boolean })
+  highlighted: boolean = false;
 
   render() {
     const tag = sanitizeHeadingLevel(this.level);
 
     return html`
       <${unsafeStatic(tag)} class="${headingClassNames().join(" ")}"
-        data-level="${this.level}"
-        data-element="${this.element}"
-        data-color-level="${this.colorLevel}"
-        data-size="${this.size}"
+        data-level="${ifDefined(this.level)}"
+        data-size="${ifDefined(this.size)}"
+        data-font="${ifDefined(this.font)}"
+        data-color="${ifDefined(this.color)}"
+        data-color-variant="${ifDefined(this.colorVariant)}"
+        data-highlighted=${this.highlighted ? "true" : "false"}
       >
         <slot></slot>
       </${unsafeStatic(tag)}>

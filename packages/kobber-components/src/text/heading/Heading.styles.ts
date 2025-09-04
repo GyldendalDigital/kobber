@@ -1,17 +1,21 @@
 import { css, unsafeCSS } from "lit";
-import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { headingName, headingElements, headingSizes, headingColorLevels } from "./Heading.core";
+import {
+  headingTokens,
+  headingName,
+  headingColors,
+  headingSizes,
+  headingFonts,
+  headingColorVariants,
+} from "./Heading.core";
 import { resetHeading } from "../../base/styles/reset.styles";
-import { getTypographyStyles } from "../../base/getTypographyStyles";
+import { getTypographyStyles } from "../../base/getTypographyStyles2";
 
 const createHeadingStyles = () => {
-  const heading = component.heading;
-
   return css`
     .${unsafeCSS(headingName)} {
       ${resetHeading()};
 
-      color: var(${unsafeCSS(heading.text.color.base)});
+      color: var(--color);
 
       font-size: var(--typography-font-size);
       font-family: var(--typography-font-family);
@@ -21,9 +25,12 @@ const createHeadingStyles = () => {
       line-height: var(--typography-line-height);
 
       ${typographyStyles()}
+      ${colorStyles()}
 
-      /* used in global.css em styling (Lit can't style nested slots) */
-      --highlight-color: var(${unsafeCSS(heading.text.color.highlight)});
+      &[data-highlighted="true"] {
+        --typography-font-family: Lyon Display, serif;
+        --color: var(--kobber-semantics-color-identity-brand-carmine-525) !important;
+      }
 
       &:after {
         content: var(--storybook-unused-style-content);
@@ -43,18 +50,46 @@ const createHeadingStyles = () => {
 const typographyStyles = () => {
   return css`
     ${unsafeCSS(
-      headingElements
+      headingSizes
         .flatMap(
-          element =>
-            `&[data-element="${element}"] {${headingColorLevels
+          size =>
+            `&[data-size="${size}"] {
+              ${getTypographyStyles("text-heading", size)}
+            }`,
+        )
+        .join("\n"),
+    )}
+    ${fontStyles()}
+  `;
+};
+
+const fontStyles = () => {
+  return css`
+    ${unsafeCSS(
+      headingFonts
+        .flatMap(
+          font =>
+            `&[data-font="${font}"] {
+              --typography-font-family: var(${headingTokens.text.font[font]});
+            }`,
+        )
+        .join("\n"),
+    )}
+  `;
+};
+
+const colorStyles = () => {
+  return css`
+    ${unsafeCSS(
+      headingColors
+        .flatMap(
+          color =>
+            `&[data-color="${color}"] {${headingColorVariants
               .flatMap(
-                colorLevel =>
-                  `&[data-color-level="${colorLevel}"] {${headingSizes
-                    .flatMap(size => {
-                      return `&[data-size="${size}"] {
-                  ${getTypographyStyles(element, colorLevel, size)}}`;
-                    })
-                    .join("")}}`,
+                colorVariant =>
+                  `&[data-color-variant="${colorVariant}"] {
+                    --color: var(${headingTokens.text.color[color][colorVariant]});
+                  }`,
               )
               .join("")}}`,
         )

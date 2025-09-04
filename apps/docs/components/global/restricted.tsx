@@ -10,7 +10,7 @@ export function Restricted() {
         <Heading>
           Kobber
           <br />
-          <Heading level="span" color-level="secondary">
+          <Heading level="div" highlighted>
             <em>Gyldendals Designsystem</em>
           </Heading>
         </Heading>

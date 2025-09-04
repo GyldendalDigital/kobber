@@ -21,7 +21,7 @@ const createInputControlStyles = () => {
       height: var(--icon-wrapper-height);
       color: var(--control-color);
       border: var(${unsafeCSS(indicatorStyles.border.width)}) solid;
-      outline: var(${unsafeCSS(indicatorStyles.outline.border.width)}) solid var(--control-outline-color);
+      outline: var(${unsafeCSS(component._radiobutton.outline.border.width)}) solid var(--control-outline-color);
       border-radius: 50%;
       transition: var(--transition-time) outline;
 
