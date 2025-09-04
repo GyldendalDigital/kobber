@@ -20,7 +20,6 @@ export const opacityScopeHandlerTransform: Transform = {
     return scopes.includes("OPACITY");
   },
   transform: token => {
-    console.log("Transforming opacity token:", token);
     token.type = "number";
     if (typeof token.value === "number") {
       token.value = token.value / 100;

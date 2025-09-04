@@ -11,12 +11,13 @@ import { fluidClampTransform } from "./transforms/fluidClamp";
 import { dimensionToNumberOverrideTransform } from "./transforms/dimensionToNumberOverride";
 import { opacityScopeHandlerTransform } from "./transforms/opacityScopeHandler";
 import { fontWeightScopeHandlerTransform } from "./transforms/fontWeightScopeHandler";
+import { textFormat } from "./formats/textFormat";
 
 /**
  * Convert Figma modes into themes
  */
 export const buildThemeTokens = async (tokensFromFigma: any, themeConfig: ThemeConfig) => {
-  registerFormats([esmFormat, tsDeclarationsFormat, esmWithCssVariableValues]);
+  registerFormats([esmFormat, tsDeclarationsFormat, esmWithCssVariableValues, textFormat]);
   registerTransforms([
     fluidClampTransform,
     dimensionToNumberOverrideTransform,
