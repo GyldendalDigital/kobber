@@ -4,6 +4,7 @@ import { CSSResultGroup, html, LitElement } from "lit";
 import componentStyles from "../base/styles/component.styles";
 import { badgeStyles } from "./Badge.styles";
 import { customElement } from "../base/utilities/customElementDecorator";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 /**
  * Kobber Badge web-component
@@ -37,9 +38,9 @@ export class Badge extends LitElement implements BadgeProps {
         }),
         this.className,
       ].join(" ")}"
-      data-color-variant="${this.colorVariant}"
-      data-color-theme="${this.colorTheme}"
-      data-size="${this.size}"
+      data-color-variant="${ifDefined(this.colorVariant)}"
+      data-color-theme="${ifDefined(this.colorTheme)}"
+      data-size="${ifDefined(this.size)}"
     >
       ${this.showStatusCircle ? html`<div class="status-circle"></div>` : ""}
       <slot></slot>
