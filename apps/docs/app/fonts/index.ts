@@ -43,5 +43,3 @@ export const inter = localFont({
   display: "swap",
   variable: "--font-inter",
 })
-
-export type FontName = "font-mori" | "font-lyon" | "font-inter"

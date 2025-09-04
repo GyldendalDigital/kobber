@@ -61,7 +61,7 @@ const TokenOverlay = ({ onClose }: { onClose: () => void }) => {
         {localCss || defaultCss}
       </style>
       <div className={styles["token-mixer-wrapper"]}>
-        <Heading element="heading" size="small">
+        <Heading level="h1" size="medium">
           Token mixer
         </Heading>
         <small>

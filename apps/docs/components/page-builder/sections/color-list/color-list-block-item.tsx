@@ -33,7 +33,7 @@ export const ColorListItem = (props: ItemProps) => {
         }}
       ></div>
       <div className={styles["color-list-item-content"]}>
-        <Heading level="h3" element="title" size="small" color-level="primary">
+        <Heading level="h3" size="medium">
           {title}
         </Heading>
 

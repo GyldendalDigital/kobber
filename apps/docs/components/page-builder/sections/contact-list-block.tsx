@@ -38,9 +38,7 @@ export function InformationCard({ item: { title, text, image } }: InformationCar
       </div>
 
       <div className={styles["card-content"]}>
-        <Heading element="title" size="medium">
-          {title}
-        </Heading>
+        <Heading size="medium">{title}</Heading>
         {text && <p>{text}</p>}
       </div>
     </div>

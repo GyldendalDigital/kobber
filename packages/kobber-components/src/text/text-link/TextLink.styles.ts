@@ -16,7 +16,6 @@ const createStyles = () => {
       text-decoration: none;
       gap: var(${unsafeCSS(component["text-link"].gap)});
       line-height: normal;
-      color: var(${unsafeCSS(component["text-link"].text.color)});
 
       &:after {
         content: "";

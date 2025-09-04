@@ -31,7 +31,7 @@ export const SmallScreenNav = (props: Nav) => {
       <ul className={styles["small-screen-nav-list"]}>
         {children?.map((child) => (
           <li key={child.slug} className={styles["small-screen-nav-list-item"]}>
-            <Heading level="span" element="title" size="medium">
+            <Heading level="span" size="medium">
               {child.title}
             </Heading>
             <ul className={styles["small-screen-nav-link-list-inner"]}>
