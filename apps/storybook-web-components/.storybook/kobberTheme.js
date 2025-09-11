@@ -13,8 +13,6 @@ export default create({
   brandTitle: "Kobber Storybook",
   brandImage: "https://dam-prod.gyldendaldigital.no/tenants/edu/file/D_8MwlmJKANA6W4OIRWa7k/*/logo.svg",
 
-  colorSecondary: secondary,
-
   appBg: primary,
   appContentBg: primary,
   appPreviewBg: secondary,

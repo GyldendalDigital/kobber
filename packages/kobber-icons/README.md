@@ -108,23 +108,6 @@ Likewise, other styles can be applied to the icon component container, like stro
 
 These are injected as SVG elements into HTML. This means you can style the SVG element the same way you style HTML elements.
 
-### 🧱 Icons folder structure
-
-```
-/
-└── chunks/
-│   └── chunk-[hash].js
-└── react/
-│   ├── index.js
-│   └── index.d.ts
-└── symbols/
-│   ├── kobber-icons.svg
-│   └── kobber-icons-lists.ts
-└── web-components/
-    ├── index.js
-    └── index.d.ts
-```
-
 ## Development
 
 ### ⚡ Quick how to: Update icons

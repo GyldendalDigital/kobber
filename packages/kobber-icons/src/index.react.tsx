@@ -54,6 +54,7 @@ import { Expand as KobberExpand } from "./icon/icons/expand";
 import { ExpandResize as KobberExpandResize } from "./icon/icons/expand_resize";
 import { ExternalLink as KobberExternalLink } from "./icon/icons/external_link";
 import { ExternalLinkArrow as KobberExternalLinkArrow } from "./icon/icons/external_link_arrow";
+import { Facebook as KobberFacebook } from "./icon/icons/facebook";
 import { FemaleHeadset as KobberFemaleHeadset } from "./icon/icons/female_headset";
 import { FilledCrossCircle as KobberFilledCrossCircle } from "./icon/icons/filled_cross_circle";
 import { FlipRight as KobberFlipRight } from "./icon/icons/flip_right";
@@ -82,6 +83,7 @@ import { LayoutModule as KobberLayoutModule } from "./icon/icons/layout_module";
 import { LayoutRight as KobberLayoutRight } from "./icon/icons/layout_right";
 import { Library as KobberLibrary } from "./icon/icons/library";
 import { LightBulb as KobberLightBulb } from "./icon/icons/light_bulb";
+import { Linkedin as KobberLinkedin } from "./icon/icons/linkedin";
 import { LockLocked as KobberLockLocked } from "./icon/icons/lock_locked";
 import { LockUnlocked as KobberLockUnlocked } from "./icon/icons/lock_unlocked";
 import { Login as KobberLogin } from "./icon/icons/login";
@@ -476,6 +478,12 @@ export const ExternalLinkArrow = createComponent({
   react: React,
 });
 
+export const Facebook = createComponent({
+  tagName: "kobber-facebook",
+  elementClass: KobberFacebook,
+  react: React,
+});
+
 export const FemaleHeadset = createComponent({
   tagName: "kobber-female_headset",
   elementClass: KobberFemaleHeadset,
@@ -641,6 +649,12 @@ export const Library = createComponent({
 export const LightBulb = createComponent({
   tagName: "kobber-light_bulb",
   elementClass: KobberLightBulb,
+  react: React,
+});
+
+export const Linkedin = createComponent({
+  tagName: "kobber-linkedin",
+  elementClass: KobberLinkedin,
   react: React,
 });
 
