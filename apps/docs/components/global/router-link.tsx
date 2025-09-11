@@ -24,9 +24,12 @@ export const RouterLink = (props: Props) => {
         className={cn({ active: pathname === href })}
         href={href}
       >
-        <div slot="icon">
-          {href?.startsWith("http") === true ? <ExternalLinkArrow /> : undefined}
-        </div>
+        {href?.startsWith("http") === true ? (
+          <div slot="icon">
+            <ExternalLinkArrow />
+          </div>
+        ) : undefined}
+
         {children}
       </KobberLink>
     </Link>

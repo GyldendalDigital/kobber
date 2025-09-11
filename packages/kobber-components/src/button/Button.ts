@@ -97,7 +97,7 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
         tabindex=${this.disabled || this.usedInOtherInteractive ? "-1" : "0"}
       >
       ${this.iconFirst ? html`<slot name="icon"></slot>` : ""}
-        <slot></slot>
+      ${!this._iconOnly ? html`<slot></slot>` : ""}
       ${!this.iconFirst ? html`<slot name="icon"></slot>` : ""}
 
       </${tag}>
