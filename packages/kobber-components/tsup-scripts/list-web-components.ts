@@ -9,5 +9,6 @@ export const listWebComponents = (webComponentListFilename: string, componentObj
 `;
   });
 
-  fs.writeFileSync(webComponentListFilename, webComponentListString);
+  fs.writeFileSync(webComponentListFilename, webComponentListString, { encoding: "utf-8" });
+  // contentWithLF.replace(/\n/g, '\r\n');
 };

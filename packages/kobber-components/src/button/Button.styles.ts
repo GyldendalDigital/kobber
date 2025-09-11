@@ -181,3 +181,5 @@ const getColorStyles = (
 };
 
 export const buttonStyles = createButtonStyles();
+
+export default buttonStyles;
