@@ -10,7 +10,7 @@ const createTextWrapperStyles = () => {
     .${unsafeCSS("kobber-text-wrapper" satisfies TextWrapperClassNames)} {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 2rem;
       color: var(${unsafeCSS(body.text.color.brand["tone-a"])});
 
       font-size: var(--typography-font-size);
