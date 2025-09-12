@@ -3,7 +3,6 @@
   top: var(--top-nav-height);
   height: calc(100vh - var(--top-nav-height));
   overflow: auto;
-  border-color: #e5cfd3;
   --border: 1px solid #e5cfd3;
 
   @media (width <= 768px) {
