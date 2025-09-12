@@ -1,5 +1,11 @@
 ## 0.0.1
 
+## 0.6.4
+
+### Patch Changes
+
+- Add new icons
+
 ## 0.6.3
 
 ### Patch Changes
