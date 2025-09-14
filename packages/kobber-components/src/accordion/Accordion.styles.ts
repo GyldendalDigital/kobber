@@ -17,5 +17,3 @@ export const accordionStyles = css`
     }
   }
 `;
-
-export default accordionStyles;

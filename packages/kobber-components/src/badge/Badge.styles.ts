@@ -155,5 +155,3 @@ const spacingStyles = (size: BadgeSize) => {
 };
 
 export const badgeStyles = createBadgeStyles();
-
-export default badgeStyles;
