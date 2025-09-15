@@ -16,7 +16,7 @@ const ignoreFolders = ["base", "config", "story"];
 const allowedComponentFileExtensions = ["js", "ts", "tsx"];
 const componentObjects: ComponentObject[] = [];
 
-export const collectComponentObjects = (path: string) => {
+export const collectComponentObjects = (path: string, ignoreFoldersOverride?: string[]) => {
   const currentFolder = fs.readdirSync(path);
 
   currentFolder.map(childPath => {
@@ -25,8 +25,8 @@ export const collectComponentObjects = (path: string) => {
         componentObjects.push(makeComponentObject(path, childPath));
       }
     } else {
-      if (!ignoreFolders.includes(childPath)) {
-        collectComponentObjects(`${path}/${childPath}`);
+      if (!(ignoreFoldersOverride ?? ignoreFolders).includes(childPath)) {
+        collectComponentObjects(`${path}/${childPath}`, ignoreFoldersOverride);
       }
     }
   });

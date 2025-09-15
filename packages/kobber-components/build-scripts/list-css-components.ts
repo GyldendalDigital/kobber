@@ -1,9 +1,9 @@
 import fs from "node:fs";
-import { collectComponentObjects, ComponentObject, autogenerateHeader } from ".";
+import { collectComponentObjects, autogenerateHeader } from ".";
 
 const cssFile = "./src/index.css";
 
-const componentObjects = collectComponentObjects("./src");
+const componentObjects = collectComponentObjects("./src", ["config", "story"]);
 
 const listCssComponents = async () => {
   const cssTexts: string[] = [];
