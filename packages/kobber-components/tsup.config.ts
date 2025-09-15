@@ -1,5 +1,5 @@
 import { defineConfig } from "tsup";
-import { collectComponentObjects, listReactComponents, listWebComponents } from "./tsup-scripts";
+import { collectComponentObjects, listReactComponents, listWebComponents } from "./build-scripts";
 
 const outDir = "dist";
 const chunks = "chunks";
@@ -14,23 +14,25 @@ const componentObjects = collectComponentObjects("./src");
 listWebComponents(`./src/${webComponentListFile}`, componentObjects);
 listReactComponents(`./src/${reactListFile}`, componentObjects);
 
+const tsEntries = {
+  ["init/index"]: "src/base/init.ts",
+  [`${reactDirectory}/index`]: `src/${reactListFile}`,
+  [`${webComponentsDirectory}/index`]: `src/${webComponentListFile}`,
+};
+
 export default defineConfig(() => ({
   entry: {
-    ["init/index"]: "src/base/init.ts",
-    [`${reactDirectory}/index`]: `src/${reactListFile}`,
-    [`${webComponentsDirectory}/index`]: `src/${webComponentListFile}`,
+    ...tsEntries,
+    // [`css/index`]: `src/index.css`, // Too premature for exposing css entry yet. Class name uniqueness and :host collisions have to be solved.
+  },
+  dts: {
+    entry: tsEntries,
   },
   format: ["esm"],
-  dts: true,
   outDir: outDir,
   clean: true,
   external: ["react"],
   esbuildOptions(options) {
     options.chunkNames = `${chunks}/[name]-[hash]`;
-  },
-  onSuccess() {
-    return new Promise(resolve => {
-      resolve();
-    });
   },
 }));

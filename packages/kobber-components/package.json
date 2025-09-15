@@ -9,7 +9,7 @@
   "exports": {
     "./react": "./dist/react/index.js",
     "./web-components": "./dist/web-components/index.js",
-    "./vanilla/*.css": "./dist/vanilla/*.css",
+    "./css/*.css": "./dist/css/*.css",
     "./init": "./dist/init/index.js"
   },
   "scripts": {
@@ -18,7 +18,7 @@
     "lint:css": "stylelint",
     "lint:js": "eslint ./src/**/*.{ts,tsx} --max-warnings 10",
     "typedoc": "npx typedoc --entryPointStrategy expand './src/base/utilities/**/*.ts' --skipErrorChecking --excludeNotDocumented --plugin typedoc-plugin-markdown --plugin typedoc-github-wiki-theme --hidePageTitle true",
-    "build": "tsup",
+    "build": "tsx ./build-scripts/list-css-components.ts && tsup",
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
     "test": "web-test-runner"
@@ -62,6 +62,7 @@
     "stylelint-config-standard": "^35.0.0",
     "stylelint-order": "^6.0.4",
     "tsup": "^8.4.0",
+    "tsx": "^4.19.2",
     "typedoc": "^0.28.10",
     "typedoc-github-wiki-theme": "^2.1.0",
     "typedoc-plugin-markdown": "^4.8.1",
