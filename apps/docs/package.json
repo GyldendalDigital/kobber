@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "yarn lint:js && yarn lint:css",
     "lint:css": "npx stylelint --f verbose \"**/*.css\"",
-    "lint:js": "next lint",
+    "lint:js": "echo \"js lint: run yarn lint from root\"",
     "typegen": "sanity schema extract --path=sanity/extract.json && sanity typegen generate"
   },
   "dependencies": {

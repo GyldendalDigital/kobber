@@ -14,9 +14,9 @@
   },
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist",
-    "lint": "yarn lint:js",
-    "lint:css": "npx stylelint --f verbose \"**/*.css\"",
-    "lint:js": "echo \"No JS linting configured\"",
+    "lint": "yarn lint:js && yarn lint:css",
+    "lint:css": "stylelint --f verbose \"**/*.css\"",
+    "lint:js": "echo \"js lint: run yarn lint from root\"",
     "typedoc": "npx typedoc --entryPointStrategy expand './src/base/utilities/**/*.ts' --skipErrorChecking --excludeNotDocumented --plugin typedoc-plugin-markdown --plugin typedoc-github-wiki-theme --hidePageTitle true",
     "build": "tsx ./build-scripts/list-css-components.ts && tsup",
     "prepare": "npm run build",

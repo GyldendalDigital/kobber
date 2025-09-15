@@ -15,8 +15,7 @@
   },
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist src/tmp",
-    "lint": "yarn lint:js",
-    "lint:js": "echo \"No JS linting configured\"",
+    "lint": "echo \"run yarn lint from root\"",
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
     "test": "node ./src/icons.test.js",
@@ -28,7 +27,6 @@
     "lit": "^3.2.1"
   },
   "devDependencies": {
-    "@gyldendal/kobber-stylelint": "0.6.4",
     "@gyldendal/kobber-tsconfig": "0.6.4",
     "@lit/react": "^1.0.7",
     "@types/jsdom": "^21.1.7",
@@ -36,9 +34,6 @@
     "jsdom": "^24.1.0",
     "onchange": "^7.1.0",
     "react": "^19.1.0",
-    "stylelint": "^16.0.2",
-    "stylelint-config-standard": "^35.0.0",
-    "stylelint-order": "^6.0.4",
     "svg-sprite": "^2.0.4",
     "tsup": "^8.4.0",
     "typedoc": "^0.28.10",
