@@ -23,7 +23,7 @@ const tsEntries = {
 export default defineConfig(() => ({
   entry: {
     ...tsEntries,
-    [`css/index`]: `src/index.css`,
+    // [`css/index`]: `src/index.css`, // Too premature for exposing css entry yet. Class name uniqueness and :host collisions have to be solved.
   },
   dts: {
     entry: tsEntries,
