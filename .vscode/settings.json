@@ -3,10 +3,10 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "EditorConfig.EditorConfig",
   "css.validate": false,
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "EditorConfig.EditorConfig",
     "files.insertFinalNewline": true
   },
   "editor.tabSize": 2,

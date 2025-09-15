@@ -15,7 +15,6 @@
     "@typescript-eslint/eslint-plugin": ">=8",
     "@typescript-eslint/parser": ">=8",
     "eslint": ">=9",
-    "eslint-config-prettier": ">=10",
     "eslint-import-resolver-typescript": ">=3",
     "eslint-plugin-import-x": ">=4",
     "eslint-plugin-jsx-a11y": ">=6",
@@ -35,9 +34,6 @@
       "optional": true
     },
     "@typescript-eslint/parser": {
-      "optional": true
-    },
-    "eslint-config-prettier": {
       "optional": true
     },
     "eslint-import-resolver-typescript": {
@@ -68,7 +64,6 @@
     "@typescript-eslint/eslint-plugin": "^8.40.0",
     "@typescript-eslint/parser": "^8.40.0",
     "eslint": "^9.19.0",
-    "eslint-config-prettier": "^10.0.1",
     "eslint-import-resolver-typescript": "^3.7.0",
     "eslint-plugin-import-x": "^4.6.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",

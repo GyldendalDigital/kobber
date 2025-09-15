@@ -1,4 +1,3 @@
-import eslintConfigPrettier from "eslint-config-prettier";
 import turboPlugin from "eslint-plugin-turbo";
 import tseslint from "typescript-eslint";
 import globals from "globals";
@@ -14,9 +13,6 @@ import { kobberEslintBaseConfig } from "./base.js";
  * */
 export const kobberEslintTsConfig = [
   ...kobberEslintBaseConfig,
-
-  // prettier rules
-  eslintConfigPrettier,
 
   // ts
   ...tseslint.configs.recommended,
