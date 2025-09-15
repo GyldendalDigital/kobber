@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "clean": "turbo clean && rm -rf .turbo node_modules",
-    "lint": "turbo lint",
+    "lint": "biome lint",
     "test": "turbo test",
     "dev": "turbo dev",
     "build": "turbo build",
@@ -20,6 +20,7 @@
     "publish-packages": "turbo run build lint && changeset version && changeset publish"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.2.4",
     "@changesets/cli": "^2.28.1",
     "@gyldendal/kobber-base": "*",
     "@gyldendal/kobber-components": "*",
