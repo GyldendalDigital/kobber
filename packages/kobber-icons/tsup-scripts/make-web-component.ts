@@ -4,11 +4,12 @@ export const makeWebComponent = (symbol: SVGSymbolElement) => {
   const iconNames = getIconNames(symbol.id);
 
   const preamble = `import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
-import { SizeType } from "../../types/kobber-icons-types";
+import type { SizeType } from "../../types/kobber-icons-types";
 import { getConfig } from "../../../base/config";
 
 `;
 
+  // biome-ignore lint/suspicious/noShadowRestrictedNames: This file only builds components, so shadowing names are ok.
   const constructor = `constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -27,11 +28,12 @@ import { getConfig } from "../../../base/config";
     let _ariaLabel =
       this.getAttribute("aria-label") || 
       ""; /* Do not use aria-labelledby, as IDREFs don't work across light DOM and shadow DOM. */
-    _ariaLabel = _ariaLabel && _ariaLabel.trim();
+    _ariaLabel = _ariaLabel?.trim();
     const _ariaHidden = _ariaLabel === "";
     const _role = _ariaHidden ? "presentation" : "img";`;
 
   const styles =
+    // biome-ignore lint/suspicious/noTemplateCurlyInString: These template literals are not to be used in this file, but in the built file. So this is ok.
     "<style>:host { display: flex; align-items: center; justify-content: center; }svg {width: var(--icon-width, ${widthAndHeight});height: var(--icon-height, ${widthAndHeight});}</style>";
 
   const svgCode = `<svg viewBox="${symbol.getAttribute("viewBox")}" aria-label="\${_ariaLabel}" aria-hidden="\${_ariaHidden}" role="\${_role}">${symbol.innerHTML}</svg>`;

@@ -8,8 +8,10 @@ const defaultConfig: Config = {
 
 let resolveConfig: (config: Config) => void;
 
-const promise = new Promise<Config>(resolve => (resolveConfig = resolve));
+// biome-ignore lint/suspicious/noAssignInExpressions: false
+const promise = new Promise<Config>((resolve) => (resolveConfig = resolve));
 
-export const setConfig = (config: Config = defaultConfig) => resolveConfig(config);
+export const setConfig = (config: Config = defaultConfig) =>
+  resolveConfig(config);
 
 export const getConfig = () => promise;
