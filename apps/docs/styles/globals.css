@@ -55,7 +55,7 @@ em {
   overflow: hidden;
 }
 
-kobber-heading + kobber-ingress {
+kobber-heading + kobber-lead {
   display: block;
   margin-top: 1rem;
 }

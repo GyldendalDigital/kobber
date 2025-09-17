@@ -20,7 +20,7 @@ export { GridColumnAspectRatio } from "./grid/GridColumnAspectRatio";
 export { Heading } from "./text/heading/Heading";
 export { HorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 export { HorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
-export { Ingress } from "./text/ingress/Ingress";
+export { Lead } from "./text/lead/Lead";
 export { Link } from "./link/Link";
 export { List } from "./list/List";
 export { ListItem } from "./list/ListItem";

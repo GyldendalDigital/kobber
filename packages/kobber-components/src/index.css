@@ -1679,34 +1679,56 @@
     }
   
 /* #endregion */
-/* #region Ingress - ingressStyles */ 
+/* #region Lead - leadStyles */ 
 
-    .kobber-ingress {
-      color: var([object Object]);
-
-      font-size: var(--typography-font-size);
-      font-family: var(--typography-font-family);
-      font-weight: var(--typography-font-weight);
-      font-style: var(--typography-font-style);
-      font-stretch: var(--typography-font-stretch);
-      line-height: var(--typography-line-height);
+    .kobber-lead {
+      font-size: var(--kobber-universal-text-lead-text-size);
+      font-family: var([object Object]);
+      font-weight: 400;
+      font-style: normal;
+      line-height: var(--kobber-universal-text-lead-text-line-height);
 
       
-    &[data-size="small"] {
-            
-    --typography-font-size: var(--kobber-universal-text-lead-text-size);
-    --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
-    --typography-font-weight: var(--kobber-universal-text-body-text-weight);
-    --typography-line-height: var([object Object]);
-  }
-&[data-size="medium"] {
-            
-    --typography-font-size: var(--kobber-universal-text-lead-text-size);
-    --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
-    --typography-font-weight: var(--kobber-universal-text-body-text-weight);
-    --typography-line-height: var([object Object]);
-  }
-    --typography-line-height: var(--kobber-universal-text-lead-text-line-height);
+    &[data-color="brand"] {&[data-color-variant="tone-a"] {
+                        color: var(--kobber-universal-text-lead-text-color-brand-tone-a);
+                      }&[data-color-variant="tone-b"] {
+                        color: var(--kobber-universal-text-lead-text-color-brand-tone-b);
+                      }}
+&[data-color="neutral"] {&[data-color-variant="tone-a"] {
+                        color: var(--kobber-universal-text-lead-text-color-neutral-tone-a);
+                      }&[data-color-variant="tone-b"] {
+                        color: var(--kobber-universal-text-lead-text-color-neutral-tone-b);
+                      }}
+&[data-color="nature"] {&[data-color-variant="tone-a"] {
+                        color: var(--kobber-universal-text-lead-text-color-nature-tone-a);
+                      }&[data-color-variant="tone-b"] {
+                        color: var(--kobber-universal-text-lead-text-color-nature-tone-b);
+                      }}
+&[data-color="romance"] {&[data-color-variant="tone-a"] {
+                        color: var(--kobber-universal-text-lead-text-color-romance-tone-a);
+                      }&[data-color-variant="tone-b"] {
+                        color: var(--kobber-universal-text-lead-text-color-romance-tone-b);
+                      }}
+&[data-color="fantasy"] {&[data-color-variant="tone-a"] {
+                        color: var(--kobber-universal-text-lead-text-color-fantasy-tone-a);
+                      }&[data-color-variant="tone-b"] {
+                        color: var(--kobber-universal-text-lead-text-color-fantasy-tone-b);
+                      }}
+&[data-color="thriller"] {&[data-color-variant="tone-a"] {
+                        color: var(--kobber-universal-text-lead-text-color-thriller-tone-a);
+                      }&[data-color-variant="tone-b"] {
+                        color: var(--kobber-universal-text-lead-text-color-thriller-tone-b);
+                      }}
+&[data-color="vacation"] {&[data-color-variant="tone-a"] {
+                        color: var(--kobber-universal-text-lead-text-color-vacation-tone-a);
+                      }&[data-color-variant="tone-b"] {
+                        color: var(--kobber-universal-text-lead-text-color-vacation-tone-b);
+                      }}
+&[data-color="nostalgia"] {&[data-color-variant="tone-a"] {
+                        color: var(--kobber-universal-text-lead-text-color-nostalgia-tone-a);
+                      }&[data-color-variant="tone-b"] {
+                        color: var(--kobber-universal-text-lead-text-color-nostalgia-tone-b);
+                      }}
   
 
       em,
@@ -2090,7 +2112,7 @@
     .kobber-text-wrapper {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 2rem;
       color: var(--kobber-universal-text-body-text-color-brand-tone-a);
 
       font-size: var(--typography-font-size);

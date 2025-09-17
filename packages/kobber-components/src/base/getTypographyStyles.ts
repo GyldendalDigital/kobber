@@ -43,8 +43,6 @@ const mapComponentNameToTokenKeyName = (componentName: string) => {
     case "badge":
     case "badge-icon":
       return "label";
-    case "ingress":
-      return "title";
     case "text-wrapper":
       return "body";
     default:
