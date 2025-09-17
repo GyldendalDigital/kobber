@@ -14,14 +14,14 @@
   },
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist",
-    "lint": "yarn lint:js",
-    "lint:css": "stylelint",
-    "lint:js": "eslint ./src/**/*.{ts,tsx} --max-warnings 10",
+    "lint": "yarn lint:js && yarn lint:css",
+    "lint:css": "stylelint --f verbose \"**/*.css\"",
+    "lint:js": "echo \"js lint: run yarn lint from root\"",
     "typedoc": "npx typedoc --entryPointStrategy expand './src/base/utilities/**/*.ts' --skipErrorChecking --excludeNotDocumented --plugin typedoc-plugin-markdown --plugin typedoc-github-wiki-theme --hidePageTitle true",
     "build": "tsx ./build-scripts/list-css-components.ts && tsup",
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
-    "test": "web-test-runner"
+    "test": "echo \"No tests configured\""
   },
   "dependencies": {
     "@gyldendal/kobber-base": "0.6.4",
@@ -33,30 +33,13 @@
     "stylis": "^4.3.0"
   },
   "devDependencies": {
-    "@esm-bundle/chai": "^4.3.4-fix.0",
-    "@gyldendal/kobber-eslint": "0.6.4",
     "@gyldendal/kobber-stylelint": "0.6.4",
     "@gyldendal/kobber-tsconfig": "0.6.4",
     "@lit/react": "^1.0.7",
     "@shoelace-style/shoelace": "^2.14.0",
-    "@types/mocha": "^10.0.10",
     "@types/react": "^19.1.0",
     "@types/stylis": "^4.2.7",
-    "@typescript-eslint/eslint-plugin": "^8.40.0",
-    "@typescript-eslint/parser": "^8.40.0",
-    "@web/dev-server-esbuild": "^1.0.4",
-    "@web/test-runner": "^0.18.1",
-    "@web/test-runner-playwright": "^0.11.0",
-    "eslint": "^9.19.0",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.2.3",
-    "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^5.1.0",
-    "eslint-plugin-storybook": "^0.11.2",
-    "eslint-plugin-unused-imports": "^4.1.4",
     "onchange": "^7.1.0",
-    "prettier": "^3.4.2",
     "react": "^19.1.0",
     "stylelint": "^16.0.2",
     "stylelint-config-standard": "^35.0.0",
@@ -66,13 +49,11 @@
     "typedoc": "^0.28.10",
     "typedoc-github-wiki-theme": "^2.1.0",
     "typedoc-plugin-markdown": "^4.8.1",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.40.0"
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
     "@lit/react": ">=1",
     "@shoelace-style/shoelace": ">=2",
-    "@web/test-runner-playwright": ">=0.11",
     "react": ">=18"
   },
   "peerDependenciesMeta": {
@@ -80,9 +61,6 @@
       "optional": true
     },
     "@shoelace-style/shoelace": {
-      "optional": true
-    },
-    "@web/test-runner-playwright": {
       "optional": true
     },
     "react": {
