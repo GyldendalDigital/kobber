@@ -4,7 +4,12 @@ import "./text-wrapper/TextWrapper";
 import "./heading/Heading";
 import "./ingress/Ingress";
 import "./text-link/TextLink";
-import { headingColors, headingSizes, headingColorVariants, headingFonts } from "./heading/Heading.core";
+import {
+  headingColors,
+  headingSizes,
+  headingColorVariants,
+  headingFonts,
+} from "./heading/Heading.core";
 import "@gyldendal/kobber-icons/web-components";
 import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
@@ -116,7 +121,8 @@ export const Heading: Story = {
     h1: false,
   },
   render: args => {
-    const text = (textValue: string) => (args.highlighted ? html`<em>${textValue}</em>` : textValue);
+    const text = (textValue: string) =>
+      args.highlighted ? html`<em>${textValue}</em>` : textValue;
 
     return html`
       <kobber-text-wrapper class="kobber-text-wrapper">
@@ -136,9 +142,9 @@ export const Heading: Story = {
               headingFonts.map(
                 font => html`
                   <div
-                    style="margin-bottom: 0.5rem; background-color: ${colorVariant === "tone-b"
-                      ? "darkgray"
-                      : "transparent"};"
+                    style="margin-bottom: 0.5rem; background-color: ${
+                      colorVariant === "tone-b" ? "darkgray" : "transparent"
+                    };"
                   >
                     <p style="">${colorVariant} ${font}</p>
                     <kobber-heading
