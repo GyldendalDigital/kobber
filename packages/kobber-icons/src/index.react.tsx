@@ -56,7 +56,14 @@ import { ExternalLink as KobberExternalLink } from "./icon/icons/external_link";
 import { ExternalLinkArrow as KobberExternalLinkArrow } from "./icon/icons/external_link_arrow";
 import { Facebook as KobberFacebook } from "./icon/icons/facebook";
 import { FemaleHeadset as KobberFemaleHeadset } from "./icon/icons/female_headset";
+import { FilledAddCircle as KobberFilledAddCircle } from "./icon/icons/filled_add_circle";
+import { FilledCheckCircle as KobberFilledCheckCircle } from "./icon/icons/filled_check_circle";
+import { FilledChevronDownCircle as KobberFilledChevronDownCircle } from "./icon/icons/filled_chevron_down_circle";
+import { FilledChevronUpCircle as KobberFilledChevronUpCircle } from "./icon/icons/filled_chevron_up_circle";
 import { FilledCrossCircle as KobberFilledCrossCircle } from "./icon/icons/filled_cross_circle";
+import { FilledInformationCircle as KobberFilledInformationCircle } from "./icon/icons/filled_information_circle";
+import { FilledSubtractCircle as KobberFilledSubtractCircle } from "./icon/icons/filled_subtract_circle";
+import { FilledWarningCircle as KobberFilledWarningCircle } from "./icon/icons/filled_warning_circle";
 import { FlipRight as KobberFlipRight } from "./icon/icons/flip_right";
 import { FolderBookmark as KobberFolderBookmark } from "./icon/icons/folder_bookmark";
 import { FontExpand as KobberFontExpand } from "./icon/icons/font_expand";
@@ -72,6 +79,7 @@ import { Home as KobberHome } from "./icon/icons/home";
 import { Hyperlink as KobberHyperlink } from "./icon/icons/hyperlink";
 import { Image as KobberImage } from "./icon/icons/image";
 import { ImageFlower as KobberImageFlower } from "./icon/icons/image_flower";
+import { InProgress as KobberInProgress } from "./icon/icons/in_progress";
 import { IndentDecrease as KobberIndentDecrease } from "./icon/icons/indent_decrease";
 import { IndentIncrease as KobberIndentIncrease } from "./icon/icons/indent_increase";
 import { Information as KobberInformation } from "./icon/icons/information";
@@ -170,6 +178,7 @@ import { ViewOff as KobberViewOff } from "./icon/icons/view_off";
 import { VolumeOff as KobberVolumeOff } from "./icon/icons/volume_off";
 import { VolumeOn as KobberVolumeOn } from "./icon/icons/volume_on";
 import { Warning as KobberWarning } from "./icon/icons/warning";
+import { X as KobberX } from "./icon/icons/x";
 import { Youtube as KobberYoutube } from "./icon/icons/youtube"; 
 
 export const Add = createComponent({
@@ -490,9 +499,51 @@ export const FemaleHeadset = createComponent({
   react: React,
 });
 
+export const FilledAddCircle = createComponent({
+  tagName: "kobber-filled_add_circle",
+  elementClass: KobberFilledAddCircle,
+  react: React,
+});
+
+export const FilledCheckCircle = createComponent({
+  tagName: "kobber-filled_check_circle",
+  elementClass: KobberFilledCheckCircle,
+  react: React,
+});
+
+export const FilledChevronDownCircle = createComponent({
+  tagName: "kobber-filled_chevron_down_circle",
+  elementClass: KobberFilledChevronDownCircle,
+  react: React,
+});
+
+export const FilledChevronUpCircle = createComponent({
+  tagName: "kobber-filled_chevron_up_circle",
+  elementClass: KobberFilledChevronUpCircle,
+  react: React,
+});
+
 export const FilledCrossCircle = createComponent({
   tagName: "kobber-filled_cross_circle",
   elementClass: KobberFilledCrossCircle,
+  react: React,
+});
+
+export const FilledInformationCircle = createComponent({
+  tagName: "kobber-filled_information_circle",
+  elementClass: KobberFilledInformationCircle,
+  react: React,
+});
+
+export const FilledSubtractCircle = createComponent({
+  tagName: "kobber-filled_subtract_circle",
+  elementClass: KobberFilledSubtractCircle,
+  react: React,
+});
+
+export const FilledWarningCircle = createComponent({
+  tagName: "kobber-filled_warning_circle",
+  elementClass: KobberFilledWarningCircle,
   react: React,
 });
 
@@ -583,6 +634,12 @@ export const Image = createComponent({
 export const ImageFlower = createComponent({
   tagName: "kobber-image_flower",
   elementClass: KobberImageFlower,
+  react: React,
+});
+
+export const InProgress = createComponent({
+  tagName: "kobber-in_progress",
+  elementClass: KobberInProgress,
   react: React,
 });
 
@@ -1171,6 +1228,12 @@ export const VolumeOn = createComponent({
 export const Warning = createComponent({
   tagName: "kobber-warning",
   elementClass: KobberWarning,
+  react: React,
+});
+
+export const X = createComponent({
+  tagName: "kobber-x",
+  elementClass: KobberX,
   react: React,
 });
 
