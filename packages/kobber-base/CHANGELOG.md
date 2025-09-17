@@ -1,5 +1,11 @@
 # @gyldendal/kobber-base
 
+## 0.6.5
+
+### Patch Changes
+
+- Add new icons, remove kobber-eslint and kobber-prettier
+
 ## 0.6.4
 
 ### Patch Changes
