@@ -17,7 +17,8 @@ import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { getPrintedState, linkStates } from "../story/linkStates";
 import { leadColors, leadColorVariants } from "./lead/Lead.core";
-import { displayFonts } from "./display/Display.core";
+import { displayFonts, displaySizes } from "./display/Display.core";
+import { titleColors, titleColorVariants, titleFonts, titleSizes } from "./title/Title.core";
 
 initComponents();
 initIcons();
@@ -39,10 +40,19 @@ export const All: Story = {
   },
   render: () => html`
     <kobber-text-wrapper>
+      <kobber-display font="alt2">
+        Designsystemet Kobber
+        <div slot="extended">Et verktøy for samspill og synergier</div>
+      </kobber-display>
+
       <kobber-heading>
-        Velkommen til kobber<br />
+        Velkommen til Kobber<br />
         <em>Gyldendals designsystem</em>
       </kobber-heading>
+
+      <kobber-title>
+        Design, bygg, og skap gode løsninger med Gyldendals designsystem.
+      </kobber-title>
 
       <kobber-lead>
         Phosfluorescently innovate real-time experiences vis-a-vis unique opportunities. Interactively disintermediate
@@ -121,56 +131,41 @@ export const Heading: Story = {
     h1: false,
   },
   render: args => {
-    const text = (textValue: string) =>
-      args.highlighted ? html`<em>${textValue}</em>` : textValue;
-
     return html`
-      <kobber-text-wrapper class="kobber-text-wrapper">
-        ${headingColors.map(
-          color => html`
-            ${headingSizes.map(
-              size =>
-                html` <div></div>
-            <em style="font-size: 1.2em;">${color} - ${size}</em>
-            <div
-            style="
+      <div style="
               display: grid;
-              border: 1px solid;
-              padding: 1em;"
-            >
-            ${headingColorVariants.map(colorVariant =>
-              headingFonts.map(
-                font => html`
-                  <div
-                    style="margin-bottom: 0.5rem; background-color: ${
-                      colorVariant === "tone-b" ? "darkgray" : "transparent"
-                    };"
-                  >
-                    <p style="">${colorVariant} ${font}</p>
+              grid-template-columns: repeat(${headingColors.length * headingColorVariants.length}, 1fr);
+              grid-template-rows: repeat(${headingSizes.length * headingFonts.length}, 1fr);
+              gap: 1rem;
+             ">
+        ${headingFonts.map(font =>
+          headingSizes.map(size =>
+            headingColors.map(color =>
+              headingColorVariants.map(
+                colorVariant => html`
+                  <div>
                     <kobber-heading
-                      highlighted
+                      title="${color} ${colorVariant} ${size} ${font}"
                       level="${args.h1 ? "h1" : "h2"}"
                       size="${size}"
                       font="${font}"
                       color="${color}"
-                      colorVariant="${colorVariant}"
+                      color-variant="${colorVariant}"
                     >
-                      ${text(args.text || "Heading")}
+                      ${ifHighlighted(args.text || "Heading", args.highlighted)}
                     </kobber-heading>
                   </div>
                 `,
               ),
-            )}
-            </div>
-          </div>`,
-            )}
-          `,
+            ),
+          ),
         )}
-      </kobber-text-wrapper>
+      </div>
     `;
   },
 };
-export const Display: Story = {
+
+export const Title: Story = {
   argTypes: {
     text: {
       control: "text",
@@ -188,50 +183,83 @@ export const Display: Story = {
     h1: false,
   },
   render: args => {
-    const text = (textValue: string) =>
-      args.highlighted ? html`<em>${textValue}</em>` : textValue;
-
     return html`
-      <kobber-text-wrapper class="kobber-text-wrapper">
-        ${headingColors.map(
-          color => html`
-            ${headingSizes.map(
-              size =>
-                html` <div></div>
-            <em style="font-size: 1.2em;">${color} - ${size}</em>
-            <div
-            style="
+      <div style="
               display: grid;
-              border: 1px solid;
-              padding: 1em;"
-            >
-            ${headingColorVariants.map(colorVariant =>
-              displayFonts.map(
-                font => html`
-                  <div
-                    style="margin-bottom: 0.5rem; background-color: ${
-                      colorVariant === "tone-b" ? "darkgray" : "transparent"
-                    };"
-                  >
-                    <p style="">${colorVariant} ${font}</p>
+              grid-template-columns: repeat(${titleColors.length * titleColorVariants.length}, 1fr);
+              grid-template-rows: repeat(${titleSizes.length * titleFonts.length}, 1fr);
+              gap: 1rem;
+             ">
+        ${titleFonts.map(font =>
+          titleSizes.map(size =>
+            titleColors.map(color =>
+              titleColorVariants.map(
+                colorVariant => html`
+                  <div>
+                    <kobber-title
+                      title="${color} ${colorVariant} ${size} ${font}"
+                      level="${args.h1 ? "h1" : "h2"}"
+                      size="${size}"
+                      font="${font}"
+                      color="${color}"
+                      color-variant="${colorVariant}"
+                    >
+                      ${ifHighlighted(args.text || "Title", args.highlighted)}
+                    </kobber-title>
+                  </div>
+                `,
+              ),
+            ),
+          ),
+        )}
+      </div>
+    `;
+  },
+};
+
+export const Display: Story = {
+  argTypes: {
+    text: {
+      control: "text",
+    },
+    text2: {
+      control: "text",
+    },
+    h1: {
+      control: "boolean",
+    },
+  },
+  args: {
+    text: "",
+    text2: "",
+    h1: false,
+  },
+  render: args => {
+    return html`
+      <div style="
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+             ">
+        ${displaySizes.map(size =>
+          displayFonts.map(
+            font =>
+              html`
+                  <div>
                     <kobber-display
+                      title="${size} ${font}"
                       level="${args.h1 ? "h1" : "h2"}"
                       size="${size}"
                       font="${font}"
                     >
-                      ${text(args.text || "Display")}
-                      <span slot="extended">- with extended text</span>
+                      ${args.text || "Display"}
+                      <div slot="extended">${args.text2 || "Extended"}</div>
                     </kobber-display>
                   </div>
                 `,
-              ),
-            )}
-            </div>
-          </div>`,
-            )}
-          `,
+          ),
         )}
-      </kobber-text-wrapper>
+      </div>
     `;
   },
 };
@@ -347,3 +375,6 @@ export const Wrapper: Story = {
 };
 
 const pxToRem = (px: number) => `${px / 16}rem`;
+
+const ifHighlighted = (textValue: string, highlighted: boolean) =>
+  highlighted ? html`<em>${textValue}</em>` : textValue;

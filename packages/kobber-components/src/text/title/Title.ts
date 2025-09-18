@@ -4,7 +4,7 @@ import { property } from "lit/decorators.js";
 import { html, unsafeStatic } from "lit/static-html.js";
 import componentStyles from "../../base/styles/component.styles";
 import { titleStyles } from "./Title.styles";
-import { titleClassNames, titleName, sanitizeTitleLevel } from "./Title.core";
+import { titleName, sanitizeTitleLevel } from "./Title.core";
 import type { TitleProps } from "./Title.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
 import { ifDefined } from "lit/directives/if-defined.js";
@@ -25,23 +25,19 @@ export class Title extends LitElement implements TitleProps {
   @property()
   color: TitleProps["color"] = "brand";
 
-  @property()
+  @property({ attribute: "color-variant" })
   colorVariant: TitleProps["colorVariant"] = "tone-a";
-
-  @property({ type: Boolean })
-  highlighted: boolean = false;
 
   render() {
     const tag = sanitizeTitleLevel(this.level);
 
     return html`
-      <${unsafeStatic(tag)} class="${titleClassNames().join(" ")}"
+      <${unsafeStatic(tag)} class="${titleName}"
         data-level="${ifDefined(this.level)}"
         data-size="${ifDefined(this.size)}"
         data-font="${ifDefined(this.font)}"
         data-color="${ifDefined(this.color)}"
         data-color-variant="${ifDefined(this.colorVariant)}"
-        data-highlighted=${this.highlighted ? "true" : "false"}
       >
         <slot></slot>
       </${unsafeStatic(tag)}>

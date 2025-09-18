@@ -1,5 +1,7 @@
 import { css } from "lit";
 
+export const resetMargin = () => css`margin: 0;`;
+
 export const resetButton = () => css`
   appearance: none;
   text-align: inherit;

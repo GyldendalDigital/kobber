@@ -7,84 +7,89 @@ import {
   titleFonts,
   titleColorVariants,
 } from "./Title.core";
-import { resetHeading } from "../../base/styles/reset.styles";
-import { getTypographyStyles } from "../../base/getTypographyStyles2";
+import { resetMargin } from "../../base/styles/reset.styles";
+import {
+  defaultTypographyStyles,
+  setTypographyVariable,
+} from "../../base/styles/typography.styles";
 
-const createTitleStyles = () => {
-  return css`
-    .${unsafeCSS(titleName)} {
-      ${resetHeading()};
+const createTitleStyles = () => css`
+.${unsafeCSS(titleName)} {
+  ${resetMargin()}
+  ${defaultTypographyStyles()}
+  ${fontSizeVariants()}
+  ${fontFamilyVariants()}
+  ${colorVariants()}
+  ${lineHeightVariants()}
+}`;
 
-      color: var(--color);
+const fontSizeVariants = () =>
+  unsafeCSS(
+    titleSizes
+      .flatMap(
+        size =>
+          `
+&[data-size="${size}"] {
+  ${setTypographyVariable("size", titleTokens.text.size[size])};
+}`,
+      )
+      .join(""),
+  );
 
-      font-size: var(--typography-font-size);
-      font-family: var(--typography-font-family);
-      font-weight: var(--typography-font-weight);
-      font-style: var(--typography-font-style);
-      font-stretch: var(--typography-font-stretch);
-      line-height: var(--typography-line-height);
+const fontFamilyVariants = () =>
+  unsafeCSS(
+    titleFonts
+      .flatMap(
+        font =>
+          `
+&[data-font="${font}"] {
+  ${setTypographyVariable("family", titleTokens.text.font[font])};
+}`,
+      )
+      .join(""),
+  );
 
-      ${typographyStyles()}
-      ${colorStyles()}
+const colorVariants = () =>
+  unsafeCSS(
+    titleColors
+      .flatMap(
+        color =>
+          `
+&[data-color="${color}"] {
+${titleColorVariants
+  .flatMap(
+    colorVariant =>
+      `
+  &[data-color-variant="${colorVariant}"] {
+    ${setTypographyVariable("color", titleTokens.text.color[color][colorVariant])};
+  }`,
+  )
+  .join("")}
+}`,
+      )
+      .join(""),
+  );
 
-      em,
-      ::slotted(em) {
-        color: var(--highlight-color);
-        font-style: normal;
-      }
-    }
-  `;
-};
-
-const typographyStyles = () => {
-  return css`
-    ${unsafeCSS(
-      titleSizes
-        .flatMap(
-          size =>
-            `&[data-size="${size}"] {
-              ${getTypographyStyles("text-title", size)}
-            }`,
-        )
-        .join("\n"),
-    )}
-    ${fontStyles()}
-  `;
-};
-
-const fontStyles = () => {
-  return css`
-    ${unsafeCSS(
-      titleFonts
-        .flatMap(
-          font =>
-            `&[data-font="${font}"] {
-              --typography-font-family: var(${titleTokens.text.font[font]});
-            }`,
-        )
-        .join("\n"),
-    )}
-  `;
-};
-
-const colorStyles = () => {
-  return css`
-    ${unsafeCSS(
-      titleColors
-        .flatMap(
-          color =>
-            `&[data-color="${color}"] {${titleColorVariants
-              .flatMap(
-                colorVariant =>
-                  `&[data-color-variant="${colorVariant}"] {
-                    --color: var(${titleTokens.text.color[color][colorVariant]});
-                  }`,
-              )
-              .join("")}}`,
-        )
-        .join("\n"),
-    )}
-  `;
-};
+const lineHeightVariants = () =>
+  unsafeCSS(
+    titleFonts
+      .flatMap(
+        font =>
+          `
+&[data-font="${font}"] {
+  ${setTypographyVariable("family", titleTokens.text.font[font])};
+  ${titleSizes
+    .flatMap(
+      size =>
+        `
+  &[data-size="${size}"] {
+    ${setTypographyVariable("lineHeight", titleTokens.text["line-height"][font][size])};
+  }`,
+    )
+    .join("")}
+}`,
+      )
+      .join(""),
+  );
 
 export const titleStyles = createTitleStyles();

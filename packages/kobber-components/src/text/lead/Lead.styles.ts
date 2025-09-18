@@ -1,48 +1,49 @@
 import { css, unsafeCSS } from "lit";
+import { leadColors, leadColorVariants, leadFonts, leadName, leadTokens } from "./Lead.core";
 import {
-  leadColors,
-  leadColorVariants,
-  leadName,
-  leadTokens,
-} from "./Lead.core";
+  defaultTypographyStyles,
+  setTypographyVariable,
+} from "../../base/styles/typography.styles";
 
-const createLeadStyles = () => {
-  return css`
-    .${unsafeCSS(leadName)} {
-      font-size: var(${unsafeCSS(leadTokens.size)});
-      font-family: var(${unsafeCSS(leadTokens.font)});
-      font-weight: 400;
-      font-style: normal;
-      line-height: var(${unsafeCSS(leadTokens["line-height"])});
+const createLeadStyles = () => css`
+.${unsafeCSS(leadName)} {
+  ${defaultTypographyStyles({ size: leadTokens.size, lineHeight: leadTokens["line-height"] })}
+  ${fontFamilyVariants()}
+  ${colorVariants()}
+}`;
 
-      ${typographyStyles()}
+const fontFamilyVariants = () =>
+  unsafeCSS(
+    leadFonts
+      .flatMap(
+        font =>
+          `
+&[data-font="${font}"] {
+  ${setTypographyVariable("family", leadTokens.font[font])};
+}`,
+      )
+      .join(""),
+  );
 
-      em,
-      ::slotted(em) {
-        color: var(--highlight-color);
-        font-style: normal;
-      }
-    }
-  `;
-};
-const typographyStyles = () => {
-  return css`
-    ${unsafeCSS(
-      leadColors
-        .flatMap(
-          (color) =>
-            `&[data-color="${color}"] {${leadColorVariants
-              .flatMap(
-                (colorVariant) =>
-                  `&[data-color-variant="${colorVariant}"] {
-                        color: var(${unsafeCSS(leadTokens.color[color][colorVariant])});
-                      }`,
-              )
-              .join("")}}`,
-        )
-        .join("\n"),
-    )}
-  `;
-};
+const colorVariants = () =>
+  unsafeCSS(
+    leadColors
+      .flatMap(
+        color =>
+          `
+&[data-color="${color}"] {
+${leadColorVariants
+  .flatMap(
+    colorVariant =>
+      `
+  &[data-color-variant="${colorVariant}"] {
+    ${setTypographyVariable("color", leadTokens.color[color][colorVariant])};
+  }`,
+  )
+  .join("")}
+}`,
+      )
+      .join(""),
+  );
 
 export const leadStyles = createLeadStyles();

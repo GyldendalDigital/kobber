@@ -3,12 +3,7 @@ import { property } from "lit/decorators.js";
 import { html, unsafeStatic } from "lit/static-html.js";
 import componentStyles from "../../base/styles/component.styles";
 import { headingStyles } from "./Heading.styles";
-import {
-  headingClassNames,
-  headingName,
-  type HeadingProps,
-  sanitizeHeadingLevel,
-} from "./Heading.core";
+import { headingName, type HeadingProps, sanitizeHeadingLevel } from "./Heading.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
 import { ifDefined } from "lit/directives/if-defined.js";
 
@@ -35,7 +30,7 @@ export class Heading extends LitElement implements HeadingProps {
     const tag = sanitizeHeadingLevel(this.level);
 
     return html`
-      <${unsafeStatic(tag)} class="${headingClassNames().join(" ")}"
+      <${unsafeStatic(tag)} class="${headingName}"
         data-level="${ifDefined(this.level)}"
         data-size="${ifDefined(this.size)}"
         data-font="${ifDefined(this.font)}"

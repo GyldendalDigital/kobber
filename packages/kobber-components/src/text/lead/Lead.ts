@@ -10,6 +10,9 @@ import { ifDefined } from "lit/directives/if-defined.js";
 export class Lead extends LitElement implements LeadProps {
   static styles: CSSResultGroup = [componentStyles, leadStyles];
 
+  @property()
+  font: LeadProps["font"] = "brand";
+
   @property({ attribute: "color" })
   color: LeadProps["color"] = "brand";
 

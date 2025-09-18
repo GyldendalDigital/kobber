@@ -7,7 +7,7 @@ import {
   headingFonts,
   headingColorVariants,
 } from "./Heading.core";
-import { resetHeading } from "../../base/styles/reset.styles";
+import { resetMargin } from "../../base/styles/reset.styles";
 import {
   defaultTypographyStyles,
   setTypographyVariable,
@@ -15,11 +15,12 @@ import {
 
 const createHeadingStyles = () => css`
 .${unsafeCSS(headingName)} {
-  ${resetHeading()}
+  ${resetMargin()}
   ${defaultTypographyStyles()}
   ${fontSizeVariants()}
   ${fontFamilyVariants()}
   ${colorVariants()}
+  ${lineHeightVariants()}
 }`;
 
 const fontSizeVariants = () =>
@@ -64,6 +65,28 @@ ${headingColorVariants
   }`,
   )
   .join("")}
+}`,
+      )
+      .join(""),
+  );
+
+const lineHeightVariants = () =>
+  unsafeCSS(
+    headingFonts
+      .flatMap(
+        font =>
+          `
+&[data-font="${font}"] {
+  ${setTypographyVariable("family", headingTokens.text.font[font])};
+  ${headingSizes
+    .flatMap(
+      size =>
+        `
+  &[data-size="${size}"] {
+    ${setTypographyVariable("lineHeight", headingTokens.text["line-height"][font][size])};
+  }`,
+    )
+    .join("")}
 }`,
       )
       .join(""),

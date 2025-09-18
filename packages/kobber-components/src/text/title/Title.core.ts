@@ -7,10 +7,6 @@ export const titleName = "kobber-title";
 
 const titleLevelFallback = "h1";
 
-export const titleClassNames = (): TitleClassNames[] => {
-  return [titleName];
-};
-
 export const sanitizeTitleLevel = (level: TitleLevel | undefined): TitleLevel =>
   level && titleLevels.includes(level) ? level : titleLevelFallback;
 
@@ -22,8 +18,6 @@ export type TitleProps = {
   colorVariant?: TitleColorVariant;
 };
 
-type TitleClassNames = typeof titleName;
-
 type TitleLevel = (typeof titleLevels)[number];
 type TitleSize = (typeof titleSizes)[number];
 type TitleFont = (typeof titleFonts)[number];
@@ -31,7 +25,6 @@ type TitleColor = (typeof titleColors)[number];
 type TitleColorVariant = (typeof titleColorVariants)[number];
 
 const titleLevels = ["h1", "h2", "h3", "h4", "h5", "h6", "span", "div"] as const;
-
 export const titleSizes = objectKeys(titleTokens.text.size);
 export const titleFonts = objectKeys(titleTokens.text.font);
 export const titleColors = objectKeys(titleTokens.text.color);

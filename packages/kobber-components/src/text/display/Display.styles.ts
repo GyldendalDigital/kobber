@@ -1,6 +1,6 @@
 import { css, unsafeCSS } from "lit";
 import { displayTokens, displayName, displaySizes, displayFonts } from "./Display.core";
-import { resetHeading } from "../../base/styles/reset.styles";
+import { resetMargin } from "../../base/styles/reset.styles";
 import {
   defaultTypographyStyles,
   setTypographyVariable,
@@ -8,7 +8,7 @@ import {
 
 const createDisplayStyles = () => css`
 .${unsafeCSS(displayName)} {
-  ${resetHeading()}
+  ${resetMargin()}
   ${defaultTypographyStyles()}
   ${fontSizeVariants()}
   ${fontFamilyVariants()}
@@ -22,6 +22,7 @@ const fontSizeVariants = () =>
           `
 &[data-size="${size}"] {
   ${setTypographyVariable("size", displayTokens.text.size[size])}
+  ${setTypographyVariable("lineHeight", displayTokens.text["line-height"][size])}
 }`,
       )
       .join(""),

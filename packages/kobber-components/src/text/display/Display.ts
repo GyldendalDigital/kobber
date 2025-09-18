@@ -4,7 +4,7 @@ import { property, queryAssignedNodes } from "lit/decorators.js";
 import { html, unsafeStatic } from "lit/static-html.js";
 import componentStyles from "../../base/styles/component.styles";
 import { displayStyles } from "./Display.styles";
-import { displayClassNames, displayName, sanitizeDisplayLevel } from "./Display.core";
+import { displayName, sanitizeDisplayLevel } from "./Display.core";
 import type { DisplayProps } from "./Display.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
 import { ifDefined } from "lit/directives/if-defined.js";
@@ -45,7 +45,7 @@ export class Display extends LitElement implements DisplayProps {
     const tag = sanitizeDisplayLevel(this.level);
 
     return html`
-      <${unsafeStatic(tag)} class="${displayClassNames().join(" ")}"
+      <${unsafeStatic(tag)} class="${displayName}"
         data-level="${ifDefined(this.level)}"
         data-size="${ifDefined(this.size)}"
         data-font="${ifDefined(this.font)}"
