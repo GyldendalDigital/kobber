@@ -1,5 +1,29 @@
 # @gyldendal/kobber-icons
 
+## 0.6.5
+
+### Patch Changes
+
+- Add new icons, remove kobber-eslint and kobber-prettier
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.5
+
+## 0.6.4
+
+### Patch Changes
+
+- Add new icons
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.4
+
+## 0.6.3
+
+### Patch Changes
+
+- kobber-audio-recorder macos-safari-bugfix
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.3
+
 ## 0.6.2
 
 ### Patch Changes

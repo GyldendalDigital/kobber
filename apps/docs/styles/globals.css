@@ -3,6 +3,7 @@
 @import url("@gyldendal/kobber-base/themes/dark/tokens.css");
 @import url("./pp-mori.css");
 @import url("./lyon.css");
+@import url("./inter.css");
 
 /* prevents FOUC */
 :not(:defined) {
@@ -54,16 +55,11 @@ em {
   overflow: hidden;
 }
 
-/* Make spacing between paragraphs (that are not structured as paragraphs) */
-p:last-of-type:not(:has(~ *)),
-a:last-of-type:not(:has(~ *)),
-ul:last-of-type:not(:has(~ *)),
-ol:last-of-type:not(:has(~ *)),
-img:last-of-type:not(:has(~ *)),
-main > header {
-  margin-bottom: 4.5em;
-}
-kobber-heading[id^="Når brukes"] {
+kobber-heading + kobber-lead {
   display: block;
-  margin-top: 4.5em;
+  margin-top: 1rem;
+}
+
+.feature-box-block {
+  margin-bottom: var(--feature-box-block-margin-bottom);
 }

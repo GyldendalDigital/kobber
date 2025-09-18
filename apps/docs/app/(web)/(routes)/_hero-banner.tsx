@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Heading, TextWrapper } from "@gyldendal/kobber-components/react"
+import { Heading, Lead, TextWrapper } from "@gyldendal/kobber-components/react"
 import { damUrl } from "@/lib/damImageLoader"
 import styles from "./_hero-banner.module.css"
 
@@ -19,11 +19,11 @@ export function HeroBanner() {
       <TextWrapper>
         <Heading>
           Velkommen til Kobber
-          <Heading level="div" color-level="secondary">
+          <Heading highlighted>
             <em>Gyldendals designsystem</em>
           </Heading>
         </Heading>
-        <p>Design, bygg, og skap gode løsninger med Gyldendals designsystem.</p>
+        <Lead>Design, bygg, og skap gode løsninger med Gyldendals designsystem.</Lead>
       </TextWrapper>
 
       <Image

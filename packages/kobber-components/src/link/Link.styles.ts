@@ -16,15 +16,14 @@ const createStyles = () => {
       align-items: center;
       text-decoration: none;
       gap: var(${unsafeCSS(link.gap)});
-      line-height: var(${unsafeCSS(universal.text.ui["line-height"].label.medium["multi-line"])});
-      color: var(${unsafeCSS(link.text.color.base)});
+      color: var(${unsafeCSS(universal["text-label"].text.color.brand["tone-a"])});
 
       &.${unsafeCSS("subtle" satisfies LinkProps["type"])} {
-        color: var(${unsafeCSS(link.text.color.subtle)});
+        color: var(${unsafeCSS(universal["text-label"].text.color.subtle["tone-a"])});
       }
 
       &.${unsafeCSS("prominent" satisfies LinkProps["type"])} {
-        color: var(${unsafeCSS(link.text.color.highlight)});
+        color: var(${unsafeCSS(universal["text-label"].text.color.accent["tone-a"])});
       }
 
       &[disabled],

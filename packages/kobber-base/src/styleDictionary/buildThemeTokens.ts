@@ -9,13 +9,21 @@ import { esmWithCssVariableValues } from "./formats/esmWithCssVariableValues";
 import { registerTransforms } from "./registerTransforms";
 import { fluidClampTransform } from "./transforms/fluidClamp";
 import { dimensionToNumberOverrideTransform } from "./transforms/dimensionToNumberOverride";
+import { opacityScopeHandlerTransform } from "./transforms/opacityScopeHandler";
+import { fontWeightScopeHandlerTransform } from "./transforms/fontWeightScopeHandler";
+import { textFormat } from "./formats/textFormat";
 
 /**
  * Convert Figma modes into themes
  */
 export const buildThemeTokens = async (tokensFromFigma: any, themeConfig: ThemeConfig) => {
-  registerFormats([esmFormat, tsDeclarationsFormat, esmWithCssVariableValues]);
-  registerTransforms([fluidClampTransform, dimensionToNumberOverrideTransform]);
+  registerFormats([esmFormat, tsDeclarationsFormat, esmWithCssVariableValues, textFormat]);
+  registerTransforms([
+    fluidClampTransform,
+    dimensionToNumberOverrideTransform,
+    opacityScopeHandlerTransform,
+    fontWeightScopeHandlerTransform,
+  ]);
 
   const allTokens = getAllTokens(tokensFromFigma, themeConfig);
 

@@ -5,6 +5,7 @@ import { tsDeclarationsFormat } from "./formats/tsDeclarations";
 import { ThemeConfig, themeDirectory } from "../types";
 import { esmWithCssVariableValues } from "./formats/esmWithCssVariableValues";
 import { logBrokenReferenceLevels, logVerbosityLevels, logWarningLevels } from "style-dictionary/enums";
+import { textFormat } from "./formats/textFormat";
 
 const buildPath = themeDirectory + "/";
 
@@ -76,6 +77,15 @@ export const getStyleDictionaryConfig = (
             destination: `${themeConfig.themeName}/tokens.d.ts`,
             format: tsDeclarationsFormat.name,
             filter,
+          },
+        ],
+      },
+      text: {
+        buildPath,
+        files: [
+          {
+            destination: `tokens.txt`,
+            format: textFormat.name,
           },
         ],
       },

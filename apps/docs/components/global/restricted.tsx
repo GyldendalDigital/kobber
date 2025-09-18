@@ -1,4 +1,4 @@
-import { Heading, Ingress, TextWrapper } from "@gyldendal/kobber-components/react"
+import { Heading, Lead, TextWrapper } from "@gyldendal/kobber-components/react"
 import { cn } from "@/lib/utils"
 import pageLayoutStyles from "@/styles/page-layout.module.css"
 import { LoginButton } from "./login-button"
@@ -10,15 +10,15 @@ export function Restricted() {
         <Heading>
           Kobber
           <br />
-          <Heading level="span" color-level="secondary">
+          <Heading level="div" highlighted>
             <em>Gyldendals Designsystem</em>
           </Heading>
         </Heading>
-        <Ingress>
+        <Lead>
           Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem
           bestående av gjenbrukbare, fleksible ressurser slik som digitale komponenter, malverk,
           retningslinjer og kode.
-        </Ingress>
+        </Lead>
         <div>
           <LoginButton cta textSuffix=" med SSO" />
         </div>

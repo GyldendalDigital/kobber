@@ -11,7 +11,7 @@ import {
   IconClassNames,
   CheckboxState,
 } from "../Checkbox.core";
-import { getTypographyStyles } from "../../base/getTypographyStyles";
+import { getTypographyStyles } from "../../base/getTypographyStyles2";
 
 const checkbox = component._checkbox;
 const indicator = component._checkbox.indicator;
@@ -53,19 +53,19 @@ const createCheckboxStyles = () => {
       font-stretch: var(--typography-font-stretch);
       line-height: var(--typography-line-height);
 
-      ${unsafeCSS(getTypographyStyles("label" satisfies InputLabelClassNames, "ui", "medium"))}
+      ${unsafeCSS(getTypographyStyles("text-label"))}
     }
 
     .${unsafeCSS("control" satisfies InputControlClassNames)} {
-      width: var(${unsafeCSS(indicator.width)});
-      height: var(${unsafeCSS(indicator.height)});
+      width: var(${unsafeCSS(indicator.size.width)});
+      height: var(${unsafeCSS(indicator.size.height)});
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: var(${unsafeCSS(indicator.outline.radius)});
+      border-radius: var(${unsafeCSS(checkbox.outline.border.radius)});
       &:not([checked]) {
         border: var(${unsafeCSS(indicator.border.width)}) solid var(--control-border-color);
-        outline: var(${unsafeCSS(indicator.outline.width)}) solid var(--control-outline-color);
+        outline: var(${unsafeCSS(checkbox.outline.border.width)}) solid var(--control-outline-color);
       }
       flex-shrink: 0;
       background-color: var(--control-background-color);
@@ -96,7 +96,7 @@ const colorThemeStyles = () => {
 };
 
 const statesPerColorTheme = (colorTheme: CheckboxColorTheme) => {
-  const outlineColor = indicator.outline.color[colorTheme];
+  const outlineColor = checkbox.outline.border.color[colorTheme];
   const borderColor = indicator.border.color[colorTheme];
   const bgColor = indicator.background.color[colorTheme];
   return css`

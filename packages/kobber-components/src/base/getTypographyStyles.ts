@@ -8,10 +8,14 @@ let tokenComponentName: string;
  * @param size Should be specified only when there are different sizes to be used. And in checkbox, the general label has more sizes than the checkbox should have (as opposed to badge).
  * @returns
  */
-export const getTypographyStyles = (componentName: string, textTokenClass: string, size?: string) => {
+export const getTypographyStyles = (
+  componentName: string,
+  textTokenClass: string,
+  size?: string,
+) => {
   tokenComponentName = mapComponentNameToTokenKeyName(componentName);
   // @ts-expect-error TS reacts for using string as json key.
-  const textStyles = universal.text[textTokenClass];
+  const textStyles = universal.text[textTokenClass]; //TODO: universal.text doesn't exist anymore. Proposed changes in getTypographyStyles2.ts
 
   const customPropertyValuesArray = getCustomProperties(textStyles, size);
 
@@ -39,8 +43,6 @@ const mapComponentNameToTokenKeyName = (componentName: string) => {
     case "badge":
     case "badge-icon":
       return "label";
-    case "ingress":
-      return "title";
     case "text-wrapper":
       return "body";
     default:

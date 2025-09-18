@@ -1,4 +1,4 @@
-import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import {
   BadgeIconClassName,
@@ -8,7 +8,7 @@ import {
   badgeIconColorThemes,
   badgeIconColorVariants,
 } from "./BadgeIcon.core";
-import { getTypographyStyles } from "../base/getTypographyStyles";
+import { getTypographyStyles } from "../base/getTypographyStyles2";
 
 const containerStyles = component["badge-icon"];
 
@@ -52,7 +52,7 @@ const getThemeStyles = () => {
             badgeIconColorVariants.flatMap(
               colorVariant =>
                 `&[data-color-variant="${String(colorVariant)}"][data-color-theme="${String(colorTheme)}"][data-size="${String(size)}"] { 
-                  --color: var(${unsafeCSS(component["badge-icon"].text.color[colorTheme][colorVariant])});
+                  --color: var(${unsafeCSS(containerStyles.icon.shape.color[colorTheme][colorVariant])});
                 }`,
             ),
           );
@@ -68,7 +68,7 @@ const getSizeDependantStyles = () => {
       badgeIconSizes
         .flatMap(
           size => `&[data-size="${size}"] { 
-            ${getTypographyStyles("badge-icon", "ui", size)}
+            ${getTypographyStyles("text-label", size)}
             --padding: var(${unsafeCSS(containerStyles.padding.block[size])});
             --gap: var(${unsafeCSS(containerStyles.gap[size])});
           }`,

@@ -1,6 +1,12 @@
 import fs from "node:fs";
 import { defineConfig } from "tsup";
-import { getSymbols, listComponents, listSvgSymbolsAndTypes, makeComponents, makeStories } from "./tsup-scripts";
+import {
+  getSymbols,
+  listComponents,
+  listSvgSymbolsAndTypes,
+  makeComponents,
+  makeStories,
+} from "./tsup-scripts";
 import paths from "./svg-scripts/paths.cjs";
 
 const outDir = "dist";
@@ -10,7 +16,6 @@ const assets = "assets";
 const chunks = "chunks";
 const reactDirectory = "react";
 const webComponentsDirectory = "web-components";
-const iconDirectory = "src/icon";
 const iconsDirectory = paths.icons;
 
 const cleanDirectory = (directory: string) => {
@@ -31,7 +36,7 @@ listComponents(symbols);
 
 export default defineConfig(() => ({
   entry: {
-    ["init/index"]: "src/base/init.ts",
+    "init/index": "src/base/init.ts",
     [`${reactDirectory}/index`]: "src/index.react.tsx",
     [`${webComponentsDirectory}/index`]: "src/index.web-components.ts",
   },

@@ -7,7 +7,7 @@ import {
   InputLabelClassNames,
   InputControlPartNames,
 } from "../Radio.core";
-import { getTypographyStyles } from "../../base/getTypographyStyles";
+import { getTypographyStyles } from "../../base/getTypographyStyles2";
 
 const inputStyles = component._radiobutton;
 
@@ -44,7 +44,8 @@ const createInputStyles = () => {
       font-stretch: var(--typography-font-stretch);
       line-height: var(--typography-line-height);
 
-      ${unsafeCSS(getTypographyStyles("label" satisfies InputLabelClassNames, "ui", "medium"))}
+      ${unsafeCSS(getTypographyStyles("text-label"))}
+      --typography-line-height: var(${unsafeCSS(universal["text-body"].text["line-height"].brand.large.long)});
     }
   `;
 };
@@ -63,7 +64,7 @@ const inputColorThemeStyles = () => {
 };
 
 const inputStatesPerColorTheme = (colorTheme: InputColorTheme) => {
-  const outlineColor = inputStyles.indicator.outline.color[colorTheme];
+  const outlineColor = inputStyles.outline.border.color[colorTheme];
   return css`
     :host(.hover) &,
     :host(:hover) & {

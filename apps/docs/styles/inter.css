@@ -1,0 +1,11 @@
+/* Remove when upgrading to Next15 and implement this in local fonts
+https://github.com/vercel/next.js/pull/53608
+*/
+@font-face {
+  font-family: inter;
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: "Regular";
+  src: url("../app/fonts/InterVariable.ttf") format("truetype");
+}

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { sanityFetch } from "@/sanity/lib/live"
 import { queryNavbarSmallScreenData } from "@/sanity/lib/queries"
-import { Heading } from "@gyldendal/kobber-components/react"
+import { Lead } from "@gyldendal/kobber-components/react"
 import { APP_NAME } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import { LoginButton } from "@/components/global/login-button"
@@ -21,9 +21,7 @@ export const NavBar = async () => {
     <header className={cn(styles["wrapper"], pageLayoutStyles["page-spacing"])}>
       <div className={styles["bar"]}>
         <Link href="/">
-          <Heading level="div" element="title" size="small">
-            {APP_NAME}
-          </Heading>
+          <Lead>{APP_NAME}</Lead>
         </Link>
 
         <nav className={styles["inner-container"]}>

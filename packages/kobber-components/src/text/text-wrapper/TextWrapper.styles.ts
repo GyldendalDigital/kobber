@@ -1,17 +1,17 @@
 import { css, unsafeCSS } from "lit";
-import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { TextWrapperClassNames } from "./TextWrapper.core";
-import { getTypographyStyles } from "../../base/getTypographyStyles";
+import { getTypographyStyles } from "../../base/getTypographyStyles2";
 
 const createTextWrapperStyles = () => {
-  const body = component.body;
+  const body = universal["text-body"];
 
   return css`
     .${unsafeCSS("kobber-text-wrapper" satisfies TextWrapperClassNames)} {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      color: var(${unsafeCSS(body.text.color.base)});
+      gap: 2rem;
+      color: var(${unsafeCSS(body.text.color.brand["tone-a"])});
 
       font-size: var(--typography-font-size);
       font-family: var(--typography-font-family);
@@ -20,10 +20,7 @@ const createTextWrapperStyles = () => {
       font-stretch: var(--typography-font-stretch);
       line-height: var(--typography-line-height);
 
-      ${unsafeCSS(getTypographyStyles("text-wrapper", "primary"))}
-
-      /* used in global.css em styling (Lit can't style nested slots) */
-      --highlight-color: var(${unsafeCSS(body.text.color.highlight)});
+      ${unsafeCSS(getTypographyStyles("text-body"))}
 
       em,
       ::slotted(em) {
