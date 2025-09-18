@@ -1,63 +1,43 @@
 import { css, unsafeCSS } from "lit";
 import { displayTokens, displayName, displaySizes, displayFonts } from "./Display.core";
 import { resetHeading } from "../../base/styles/reset.styles";
-import { getTypographyStyles } from "../../base/getTypographyStyles2";
+import {
+  defaultTypographyStyles,
+  setTypographyVariable,
+} from "../../base/styles/typography.styles";
 
-const createDisplayStyles = () => {
-  return css`
-    .${unsafeCSS(displayName)} {
-      ${resetHeading()};
+const createDisplayStyles = () => css`
+.${unsafeCSS(displayName)} {
+  ${resetHeading()}
+  ${defaultTypographyStyles()}
+  ${fontSizeVariants()}
+  ${fontFamilyVariants()}
+}`;
 
-      color: var(--color);
+const fontSizeVariants = () =>
+  unsafeCSS(
+    displaySizes
+      .flatMap(
+        size =>
+          `
+&[data-size="${size}"] {
+  ${setTypographyVariable("size", displayTokens.text.size[size])}
+}`,
+      )
+      .join(""),
+  );
 
-      font-size: var(--typography-font-size);
-      font-family: var(--typography-font-family);
-      font-weight: var(--typography-font-weight);
-      font-style: var(--typography-font-style);
-      font-stretch: var(--typography-font-stretch);
-      line-height: var(--typography-line-height);
-
-      ${typographyStyles()}
-
-      em,
-      ::slotted(em) {
-        color: var(${unsafeCSS(displayTokens.extended.text.color)});
-        font-family: var(--typography-font-family-extended);
-        font-style: normal;
-      }
-    }
-  `;
-};
-
-const typographyStyles = () => {
-  return css`
-    ${unsafeCSS(
-      displaySizes
-        .flatMap(
-          size =>
-            `&[data-size="${size}"] {
-              ${getTypographyStyles("text-display-extended", size)}
-            }`,
-        )
-        .join("\n"),
-    )}
-    ${fontStyles()}
-  `;
-};
-
-const fontStyles = () => {
-  return css`
-    ${unsafeCSS(
-      displayFonts
-        .flatMap(
-          font =>
-            `&[data-font="${font}"] {
-              --typography-font-family-extended: var(${displayTokens.extended.text.font[font]});
-            }`,
-        )
-        .join("\n"),
-    )}
-  `;
-};
+const fontFamilyVariants = () =>
+  unsafeCSS(
+    displayFonts
+      .flatMap(
+        font =>
+          `
+&[data-font="${font}"] em {
+  font-family: var(${displayTokens.extended.text.font[font]});
+}`,
+      )
+      .join(""),
+  );
 
 export const displayStyles = createDisplayStyles();

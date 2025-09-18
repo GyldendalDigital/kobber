@@ -8,94 +8,65 @@ import {
   headingColorVariants,
 } from "./Heading.core";
 import { resetHeading } from "../../base/styles/reset.styles";
-import { getTypographyStyles } from "../../base/getTypographyStyles2";
+import {
+  defaultTypographyStyles,
+  setTypographyVariable,
+} from "../../base/styles/typography.styles";
 
-const createHeadingStyles = () => {
-  return css`
-    .${unsafeCSS(headingName)} {
-      ${resetHeading()};
+const createHeadingStyles = () => css`
+.${unsafeCSS(headingName)} {
+  ${resetHeading()}
+  ${defaultTypographyStyles()}
+  ${fontSizeVariants()}
+  ${fontFamilyVariants()}
+  ${colorVariants()}
+}`;
 
-      color: var(--color);
+const fontSizeVariants = () =>
+  unsafeCSS(
+    headingSizes
+      .flatMap(
+        size =>
+          `
+&[data-size="${size}"] {
+  ${setTypographyVariable("size", headingTokens.text.size[size])};
+}`,
+      )
+      .join(""),
+  );
 
-      font-size: var(--typography-font-size);
-      font-family: var(--typography-font-family);
-      font-weight: var(--typography-font-weight);
-      font-style: var(--typography-font-style);
-      font-stretch: var(--typography-font-stretch);
-      line-height: var(--typography-line-height);
+const fontFamilyVariants = () =>
+  unsafeCSS(
+    headingFonts
+      .flatMap(
+        font =>
+          `
+&[data-font="${font}"] {
+  ${setTypographyVariable("family", headingTokens.text.font[font])};
+}`,
+      )
+      .join(""),
+  );
 
-      ${typographyStyles()}
-      ${colorStyles()}
-
-      &[data-highlighted="true"] {
-        --typography-font-family: Lyon Display, serif;
-        --color: var(--kobber-semantics-color-identity-brand-carmine-525) !important;
-      }
-
-      &:after {
-        content: var(--storybook-unused-style-content);
-        background-color: white;
-        position: relative;
-        left: -4.5em;
-      }
-      em,
-      ::slotted(em) {
-        color: var(--highlight-color);
-        font-style: normal;
-      }
-    }
-  `;
-};
-
-const typographyStyles = () => {
-  return css`
-    ${unsafeCSS(
-      headingSizes
-        .flatMap(
-          size =>
-            `&[data-size="${size}"] {
-              ${getTypographyStyles("text-heading", size)}
-            }`,
-        )
-        .join("\n"),
-    )}
-    ${fontStyles()}
-  `;
-};
-
-const fontStyles = () => {
-  return css`
-    ${unsafeCSS(
-      headingFonts
-        .flatMap(
-          font =>
-            `&[data-font="${font}"] {
-              --typography-font-family: var(${headingTokens.text.font[font]});
-            }`,
-        )
-        .join("\n"),
-    )}
-  `;
-};
-
-const colorStyles = () => {
-  return css`
-    ${unsafeCSS(
-      headingColors
-        .flatMap(
-          color =>
-            `&[data-color="${color}"] {${headingColorVariants
-              .flatMap(
-                colorVariant =>
-                  `&[data-color-variant="${colorVariant}"] {
-                    --color: var(${headingTokens.text.color[color][colorVariant]});
-                  }`,
-              )
-              .join("")}}`,
-        )
-        .join("\n"),
-    )}
-  `;
-};
+const colorVariants = () =>
+  unsafeCSS(
+    headingColors
+      .flatMap(
+        color =>
+          `
+&[data-color="${color}"] {
+${headingColorVariants
+  .flatMap(
+    colorVariant =>
+      `
+  &[data-color-variant="${colorVariant}"] {
+    ${setTypographyVariable("color", headingTokens.text.color[color][colorVariant])};
+  }`,
+  )
+  .join("")}
+}`,
+      )
+      .join(""),
+  );
 
 export const headingStyles = createHeadingStyles();

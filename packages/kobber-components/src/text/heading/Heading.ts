@@ -1,9 +1,14 @@
-import { CSSResultGroup, LitElement } from "lit";
+import { type CSSResultGroup, LitElement } from "lit";
 import { property } from "lit/decorators.js";
 import { html, unsafeStatic } from "lit/static-html.js";
 import componentStyles from "../../base/styles/component.styles";
 import { headingStyles } from "./Heading.styles";
-import { headingClassNames, headingName, HeadingProps, sanitizeHeadingLevel } from "./Heading.core";
+import {
+  headingClassNames,
+  headingName,
+  type HeadingProps,
+  sanitizeHeadingLevel,
+} from "./Heading.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
 import { ifDefined } from "lit/directives/if-defined.js";
 
@@ -23,12 +28,8 @@ export class Heading extends LitElement implements HeadingProps {
   @property()
   color: HeadingProps["color"] = "brand";
 
-  @property()
+  @property({ attribute: "color-variant" })
   colorVariant: HeadingProps["colorVariant"] = "tone-a";
-
-  // temporary prop while waiting for new text components
-  @property({ type: Boolean })
-  highlighted: boolean = false;
 
   render() {
     const tag = sanitizeHeadingLevel(this.level);
@@ -40,7 +41,6 @@ export class Heading extends LitElement implements HeadingProps {
         data-font="${ifDefined(this.font)}"
         data-color="${ifDefined(this.color)}"
         data-color-variant="${ifDefined(this.colorVariant)}"
-        data-highlighted=${this.highlighted ? "true" : "false"}
       >
         <slot></slot>
       </${unsafeStatic(tag)}>

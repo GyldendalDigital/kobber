@@ -17,6 +17,7 @@ import { Carousel as KobberCarousel } from "./carousel/Carousel";
 import { CarouselButton as KobberCarouselButton } from "./carousel/CarouselButton";
 import { CheckboxGroup as KobberCheckboxGroup } from "./checkbox/checkbox-group/CheckboxGroup";
 import { CheckboxInput as KobberCheckboxInput } from "./checkbox/checkbox-input/CheckboxInput";
+import { Display as KobberDisplay } from "./text/display/Display";
 import { Divider as KobberDivider } from "./divider/Divider";
 import { Dropdown as KobberDropdown } from "./dropdown/Dropdown";
 import { Grid as KobberGrid } from "./grid/Grid";
@@ -36,7 +37,8 @@ import { RadioInput as KobberRadioInput } from "./radio/radio-input/RadioInput";
 import { RadioInputControl as KobberRadioInputControl } from "./radio/radio-input-control/RadioInputControl";
 import { TextLink as KobberTextLink } from "./text/text-link/TextLink";
 import { TextWrapper as KobberTextWrapper } from "./text/text-wrapper/TextWrapper";
-import { ThemeContext as KobberThemeContext } from "./theme-context-provider/ThemeContext"; 
+import { ThemeContext as KobberThemeContext } from "./theme-context-provider/ThemeContext";
+import { Title as KobberTitle } from "./text/title/Title"; 
 
 export const Accordion = createComponent({
   tagName: "kobber-accordion",
@@ -107,6 +109,12 @@ export const CheckboxGroup = createComponent({
 export const CheckboxInput = createComponent({
   tagName: "kobber-checkbox-input",
   elementClass: KobberCheckboxInput,
+  react: React,
+});
+
+export const Display = createComponent({
+  tagName: "kobber-display",
+  elementClass: KobberDisplay,
   react: React,
 });
 
@@ -227,5 +235,11 @@ export const TextWrapper = createComponent({
 export const ThemeContext = createComponent({
   tagName: "kobber-theme-context",
   elementClass: KobberThemeContext,
+  react: React,
+});
+
+export const Title = createComponent({
+  tagName: "kobber-title",
+  elementClass: KobberTitle,
   react: React,
 });
