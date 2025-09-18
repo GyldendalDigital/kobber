@@ -25,7 +25,7 @@ import { GridColumnAspectRatio as KobberGridColumnAspectRatio } from "./grid/Gri
 import { Heading as KobberHeading } from "./text/heading/Heading";
 import { HorizontalLayout as KobberHorizontalLayout } from "./layouts/horizontal-layout/HorizontalLayout";
 import { HorizontalLayoutColumn as KobberHorizontalLayoutColumn } from "./layouts/horizontal-layout/HorizontalLayoutColumn";
-import { Ingress as KobberIngress } from "./text/ingress/Ingress";
+import { Lead as KobberLead } from "./text/lead/Lead";
 import { Link as KobberLink } from "./link/Link";
 import { List as KobberList } from "./list/List";
 import { ListItem as KobberListItem } from "./list/ListItem";
@@ -158,9 +158,9 @@ export const HorizontalLayoutColumn = createComponent({
   react: React,
 });
 
-export const Ingress = createComponent({
-  tagName: "kobber-ingress",
-  elementClass: KobberIngress,
+export const Lead = createComponent({
+  tagName: "kobber-lead",
+  elementClass: KobberLead,
   react: React,
 });
 

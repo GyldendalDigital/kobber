@@ -2,14 +2,19 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit/static-html.js";
 import "./text-wrapper/TextWrapper";
 import "./heading/Heading";
-import "./ingress/Ingress";
+import "./lead/Lead";
 import "./text-link/TextLink";
-import { headingColors, headingSizes, headingColorVariants, headingFonts } from "./heading/Heading.core";
+import {
+  headingColors,
+  headingSizes,
+  headingColorVariants,
+  headingFonts,
+} from "./heading/Heading.core";
 import "@gyldendal/kobber-icons/web-components";
 import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { getPrintedState, linkStates } from "../story/linkStates";
-import { ingressSizes } from "./ingress/Ingress.core";
+import { leadColors, leadColorVariants } from "./lead/Lead.core";
 
 initComponents();
 initIcons();
@@ -36,11 +41,11 @@ export const All: Story = {
         <em>Gyldendals designsystem</em>
       </kobber-heading>
 
-      <kobber-ingress>
+      <kobber-lead>
         Phosfluorescently innovate real-time experiences vis-a-vis unique opportunities. Interactively disintermediate
         sustainable niches before long-term <em>high-impact</em> resources. Interactively deliver 2.0 infomediaries via
         timely.
-      </kobber-ingress>
+      </kobber-lead>
 
       <p>
         Rapidiously strategize integrated intellectual capital vis-a-vis
@@ -116,7 +121,8 @@ export const Heading: Story = {
     h1: false,
   },
   render: args => {
-    const text = (textValue: string) => (args.highlighted ? html`<em>${textValue}</em>` : textValue);
+    const text = (textValue: string) =>
+      args.highlighted ? html`<em>${textValue}</em>` : textValue;
 
     return html`
       <kobber-text-wrapper class="kobber-text-wrapper">
@@ -136,9 +142,9 @@ export const Heading: Story = {
               headingFonts.map(
                 font => html`
                   <div
-                    style="margin-bottom: 0.5rem; background-color: ${colorVariant === "tone-b"
-                      ? "darkgray"
-                      : "transparent"};"
+                    style="margin-bottom: 0.5rem; background-color: ${
+                      colorVariant === "tone-b" ? "darkgray" : "transparent"
+                    };"
                   >
                     <p style="">${colorVariant} ${font}</p>
                     <kobber-heading
@@ -194,23 +200,29 @@ export const Heading: Story = {
                   )
  * Bruker farge fra "component.article", og typografi fra "title medium".
  */
-export const Ingress: Story = {
+export const Lead: Story = {
   argTypes: {
     text: {
       control: "text",
     },
-    size: {
-      options: ingressSizes,
-      control: { type: "inline-radio" },
+    color: {
+      control: "inline-radio",
+      options: leadColors,
+    },
+    colorVariant: {
+      control: "inline-radio",
+      options: leadColorVariants,
+      name: "color-variant",
     },
   },
   args: {
-    text: "Kobber er Gyldendals verktøykasse for design- og merkevare. Det er et designsystem bestående av gjenbrukbare, fleksible ressurser slik som digitale komponenter, malverk, retningslinjer og kode. Samtidig tydeliggjør det vår merkevarestrategi, våre felles verdier og de opplevelsene vi har som mål å tilby våre sluttbrukere.",
-    size: "small",
+    text: "Lead er en ingress som brukes som en kort innledningstekst som oppsummerer eller introduserer innholdet.",
+    color: leadColors[0],
+    colorVariant: leadColorVariants[0],
   },
-  render: args => {
+  render: (args) => {
     return html`<div style="max-width: 600px;">
-      <kobber-ingress size="${args.size}"> ${args.text} </kobber-ingress>
+      <kobber-lead color="${args.color}" color-variant="${args.colorVariant}"> ${args.text} </kobber-lead>
     </div>`;
   },
 };

@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Ingress } from "@gyldendal/kobber-components/react"
+import { Lead } from "@gyldendal/kobber-components/react"
 import { damUrl } from "@/lib/damImageLoader"
 import { placeholderImageUrl } from "@/lib/utils"
 import type { PagebuilderType } from "../page-builder.types"
@@ -39,7 +39,7 @@ export function InformationCard({ item: { title, text, image } }: InformationCar
 
       <div className={styles["card-content"]}>
         {/* Should be Title component */}
-        <Ingress size="medium">{title}</Ingress>
+        <Lead>{title}</Lead>
         {text && <p>{text}</p>}
       </div>
     </div>
