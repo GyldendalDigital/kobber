@@ -51,8 +51,8 @@ export const listComponents = (symbols: NodeListOf<SVGSymbolElement>) => {
   const webComponentsExportsListString = listWebComponents(symbols);
   const reactExportsListString = listReactComponents(symbols);
 
-  fs.writeFileSync(reactExportsListFile, reactExportsListString);
-  fs.writeFileSync(webComponentsExportsListFile, webComponentsExportsListString);
+  fs.writeFileSync(reactExportsListFile, reactExportsListString.replace(/\n/g, "\r\n"));
+  fs.writeFileSync(webComponentsExportsListFile, webComponentsExportsListString.replace(/\n/g, "\r\n"));
 };
 
 export const makeStories = (symbols: NodeListOf<SVGSymbolElement>) => {
@@ -63,7 +63,7 @@ export const makeStories = (symbols: NodeListOf<SVGSymbolElement>) => {
 
     fs.writeFileSync(`${iconsDirectory}/${iconNames.unprefixed}/index.stories.ts`, storyFileString);
   });
-  fs.writeFileSync(`${iconDirectory}/index.mdx`, iconGalleryString);
+  fs.writeFileSync(`${iconDirectory}/index.mdx`, iconGalleryString.replace(/\n/g, "\r\n"));
 };
 
 export const listSvgSymbolsAndTypes = (symbols: NodeListOf<SVGSymbolElement>) => {
