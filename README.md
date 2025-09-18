@@ -59,6 +59,10 @@ npm install @gyldendal/kobber-icons
 > [!TIP]
 > Check [icons readme](./packages/kobber-icons/README.md) on registering icons, and more options.
 
+### Always keep package version numbers the same
+
+If you use more than one kobber package in your project: Remember to always keep all version numbers the same! Components has Icons as a dependency, so using different version numbers for Components and Icons is to ask for trouble.
+
 <br />
 
 ## Development
