@@ -1,0 +1,10 @@
+Removed Github wiki for now, because
+- requires some extra maintenance
+- didn't quite work as promised in Github (menu closes after each click, duplicate links etc.)
+- Github action build time
+
+Steps to reproduce later:
+- look at the commit when this file was created
+- look at typedoc docs and this Github action: https://github.com/Andrew-Chen-Wang/github-wiki-action
+
+
