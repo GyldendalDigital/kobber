@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit/static-html.js";
 import "./text-wrapper/TextWrapper";
 import "./heading/Heading";
+import "./title/Title";
+import "./display/Display";
 import "./lead/Lead";
 import "./text-link/TextLink";
 import {
@@ -15,6 +17,8 @@ import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { getPrintedState, linkStates } from "../story/linkStates";
 import { leadColors, leadColorVariants } from "./lead/Lead.core";
+import { displayFonts, displaySizes } from "./display/Display.core";
+import { titleColors, titleColorVariants, titleFonts, titleSizes } from "./title/Title.core";
 
 initComponents();
 initIcons();
@@ -36,10 +40,19 @@ export const All: Story = {
   },
   render: () => html`
     <kobber-text-wrapper>
+      <kobber-display font="alt2">
+        Designsystemet Kobber
+        <div slot="extended">Et verktøy for samspill og synergier</div>
+      </kobber-display>
+
       <kobber-heading>
-        Velkommen til kobber<br />
+        Velkommen til Kobber<br />
         <em>Gyldendals designsystem</em>
       </kobber-heading>
+
+      <kobber-title>
+        Design, bygg, og skap gode løsninger med Gyldendals designsystem.
+      </kobber-title>
 
       <kobber-lead>
         Phosfluorescently innovate real-time experiences vis-a-vis unique opportunities. Interactively disintermediate
@@ -100,9 +113,6 @@ export const All: Story = {
   `,
 };
 
-/**
- * Primary er pp-mori, secondary er Lyon Display.
- */
 export const Heading: Story = {
   argTypes: {
     text: {
@@ -121,52 +131,163 @@ export const Heading: Story = {
     h1: false,
   },
   render: args => {
-    const text = (textValue: string) =>
-      args.highlighted ? html`<em>${textValue}</em>` : textValue;
-
     return html`
-      <kobber-text-wrapper class="kobber-text-wrapper">
-        ${headingColors.map(
-          color => html`
-            ${headingSizes.map(
-              size =>
-                html` <div></div>
-            <em style="font-size: 1.2em;">${color} - ${size}</em>
-            <div
+      ${headingFonts.map(
+        font =>
+          html` <div
             style="
+              display: grid; 
+              gap: 1em;
+              grid-template-columns: 8em repeat(${headingColors.length}, 1fr); 
+            "
+          >
+            <div
+              style="
+                display: flex;
+                align-items: end;
+                gap: 1em;
+                flex-direction: column;
+                justify-content: center;
+              ">
+                ${headingSizes.map(size => html` <p style="margin-top: 2em;">${size} ${font}</p>`)}
+            </div>
+            ${headingColors.map(
+              color =>
+                html`<div
+                  style="display: grid; 
+                    gap: 1em;
+                    grid-template-columns: 1fr 1fr;
+                    align-items: center;
+                    grid-template-areas: 
+                      'color-theme-tone-a color-theme-tone-b'
+                      'sample-tone-a-large sample-tone-b-large'
+                      'sample-tone-a-medium sample-tone-b-medium';
+                  ">
+              ${headingSizes.map(
+                size =>
+                  html` ${headingColorVariants.map(
+                    colorVariant => html`
+                          ${
+                            font === "brand" && size === "large"
+                              ? html`<p style="grid-area: color-theme-${colorVariant};">
+                                ${color}, ${colorVariant}
+                              </p>`
+                              : ""
+                          }
+                          <kobber-heading
+                            level="${args.h1 ? "h1" : "h2"}"
+                            font="${font}"
+                            color="${color}"
+                            color-variant="${colorVariant}"
+                            size="${size}"
+                            style="grid-area: sample-${colorVariant}-${size};"
+                          >
+                            Heading
+                          </kobber-heading>`,
+                  )}`,
+              )}
+            </div>`,
+            )}
+      </div>`,
+      )}`;
+  },
+};
+
+export const Title: Story = {
+  argTypes: {
+    text: {
+      control: "text",
+    },
+    highlighted: {
+      control: "boolean",
+    },
+    h1: {
+      control: "boolean",
+    },
+  },
+  args: {
+    text: "",
+    highlighted: false,
+    h1: false,
+  },
+  render: args => {
+    return html`
+      <div style="
               display: grid;
-              border: 1px solid;
-              padding: 1em;"
-            >
-            ${headingColorVariants.map(colorVariant =>
-              headingFonts.map(
-                font => html`
-                  <div
-                    style="margin-bottom: 0.5rem; background-color: ${
-                      colorVariant === "tone-b" ? "darkgray" : "transparent"
-                    };"
-                  >
-                    <p style="">${colorVariant} ${font}</p>
-                    <kobber-heading
-                      highlighted
+              grid-template-columns: repeat(${titleColors.length * titleColorVariants.length}, 1fr);
+              grid-template-rows: repeat(${titleSizes.length * titleFonts.length}, 1fr);
+              gap: 1rem;
+             ">
+        ${titleFonts.map(font =>
+          titleSizes.map(size =>
+            titleColors.map(color =>
+              titleColorVariants.map(
+                colorVariant => html`
+                  <div>
+                    <kobber-title
+                      title="${color} ${colorVariant} ${size} ${font}"
                       level="${args.h1 ? "h1" : "h2"}"
                       size="${size}"
                       font="${font}"
                       color="${color}"
-                      colorVariant="${colorVariant}"
+                      color-variant="${colorVariant}"
                     >
-                      ${text(args.text || "Heading")}
-                    </kobber-heading>
+                      ${ifHighlighted(args.text || "Title", args.highlighted)}
+                    </kobber-title>
                   </div>
                 `,
               ),
-            )}
-            </div>
-          </div>`,
-            )}
-          `,
+            ),
+          ),
         )}
-      </kobber-text-wrapper>
+      </div>
+    `;
+  },
+};
+
+export const Display: Story = {
+  argTypes: {
+    text: {
+      control: "text",
+    },
+    text2: {
+      control: "text",
+    },
+    h1: {
+      control: "boolean",
+    },
+  },
+  args: {
+    text: "",
+    text2: "",
+    h1: false,
+  },
+  render: args => {
+    return html`
+      <div style="
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+             ">
+        ${displaySizes.map(size =>
+          displayFonts.map(
+            font =>
+              html`
+                  <div>
+                    <kobber-display
+                      title="${size} ${font}"
+                      level="${args.h1 ? "h1" : "h2"}"
+                      size="${size}"
+                      font="${font}"
+                    >
+                      ${args.text || "Display"}
+                      <div slot="extended">${args.text2 || "Extended"}</div>
+                    </kobber-display>
+                  </div>
+                `,
+          ),
+        )}
+      </div>
     `;
   },
 };
@@ -220,7 +341,7 @@ export const Lead: Story = {
     color: leadColors[0],
     colorVariant: leadColorVariants[0],
   },
-  render: (args) => {
+  render: args => {
     return html`<div style="max-width: 600px;">
       <kobber-lead color="${args.color}" color-variant="${args.colorVariant}"> ${args.text} </kobber-lead>
     </div>`;
@@ -282,3 +403,6 @@ export const Wrapper: Story = {
 };
 
 const pxToRem = (px: number) => `${px / 16}rem`;
+
+const ifHighlighted = (textValue: string, highlighted: boolean) =>
+  highlighted ? html`<em>${textValue}</em>` : textValue;

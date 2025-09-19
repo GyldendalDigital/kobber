@@ -12,6 +12,7 @@ export { Carousel } from "./carousel/Carousel";
 export { CarouselButton } from "./carousel/CarouselButton";
 export { CheckboxGroup } from "./checkbox/checkbox-group/CheckboxGroup";
 export { CheckboxInput } from "./checkbox/checkbox-input/CheckboxInput";
+export { Display } from "./text/display/Display";
 export { Divider } from "./divider/Divider";
 export { Dropdown } from "./dropdown/Dropdown";
 export { Grid } from "./grid/Grid";
@@ -32,3 +33,4 @@ export { RadioInputControl } from "./radio/radio-input-control/RadioInputControl
 export { TextLink } from "./text/text-link/TextLink";
 export { TextWrapper } from "./text/text-wrapper/TextWrapper";
 export { ThemeContext } from "./theme-context-provider/ThemeContext";
+export { Title } from "./text/title/Title";

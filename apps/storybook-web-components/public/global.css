@@ -6,17 +6,10 @@
 .kobber-theme-default,
 .kobber-theme-dark {
   display: block;
-  color: var(--kobber-component-body-text-color-base);
-  background-color: var(--kobber-regional-navigation-color-brightest);
-  font-family: pp-mori, sans-serif;
+  font-family: pp-mori, ui-sans-serif, system-ui, sans-serif;
 }
 
-p {
-  margin: 0;
-  font-size: inherit;
-  line-height: inherit;
-}
-
+p,
 h1,
 h2,
 h3,
@@ -40,9 +33,4 @@ figcaption {
   &::after {
     content: ":";
   }
-}
-
-em {
-  color: var(--highlight-color);
-  font-style: normal;
 }
