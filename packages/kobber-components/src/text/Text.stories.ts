@@ -132,36 +132,64 @@ export const Heading: Story = {
   },
   render: args => {
     return html`
-      <div style="
-              display: grid;
-              grid-template-columns: repeat(${headingColors.length * headingColorVariants.length}, 1fr);
-              grid-template-rows: repeat(${headingSizes.length * headingFonts.length}, 1fr);
-              gap: 1rem;
-             ">
-        ${headingFonts.map(font =>
-          headingSizes.map(size =>
-            headingColors.map(color =>
-              headingColorVariants.map(
-                colorVariant => html`
-                  <div>
-                    <kobber-heading
-                      title="${color} ${colorVariant} ${size} ${font}"
-                      level="${args.h1 ? "h1" : "h2"}"
-                      size="${size}"
-                      font="${font}"
-                      color="${color}"
-                      color-variant="${colorVariant}"
-                    >
-                      ${ifHighlighted(args.text || "Heading", args.highlighted)}
-                    </kobber-heading>
-                  </div>
-                `,
-              ),
-            ),
-          ),
-        )}
-      </div>
-    `;
+      ${headingFonts.map(
+        font =>
+          html` <div
+            style="
+              display: grid; 
+              gap: 1em;
+              grid-template-columns: 8em repeat(${headingColors.length}, 1fr); 
+            "
+          >
+            <div
+              style="
+                display: flex;
+                align-items: end;
+                gap: 1em;
+                flex-direction: column;
+                justify-content: center;
+              ">
+                ${headingSizes.map(size => html` <p style="margin-top: 2em;">${size} ${font}</p>`)}
+            </div>
+            ${headingColors.map(
+              color =>
+                html`<div
+                  style="display: grid; 
+                    gap: 1em;
+                    grid-template-columns: 1fr 1fr;
+                    align-items: center;
+                    grid-template-areas: 
+                      'color-theme-tone-a color-theme-tone-b'
+                      'sample-tone-a-large sample-tone-b-large'
+                      'sample-tone-a-medium sample-tone-b-medium';
+                  ">
+              ${headingSizes.map(
+                size =>
+                  html` ${headingColorVariants.map(
+                    colorVariant => html`
+                          ${
+                            font === "brand" && size === "large"
+                              ? html`<p style="grid-area: color-theme-${colorVariant};">
+                                ${color}, ${colorVariant}
+                              </p>`
+                              : ""
+                          }
+                          <kobber-heading
+                            level="${args.h1 ? "h1" : "h2"}"
+                            font="${font}"
+                            color="${color}"
+                            color-variant="${colorVariant}"
+                            size="${size}"
+                            style="grid-area: sample-${colorVariant}-${size};"
+                          >
+                            Heading
+                          </kobber-heading>`,
+                  )}`,
+              )}
+            </div>`,
+            )}
+      </div>`,
+      )}`;
   },
 };
 
