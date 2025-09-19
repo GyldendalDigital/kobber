@@ -2168,6 +2168,137 @@ em,
     }
   
 /* #endregion */
+/* #region TextBlock - textBlockStyles */ 
+
+    :host {
+      display: block;
+      --red: red;
+      --black: black;
+    }
+    .kobber-text-block {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 0.5em;
+      padding: 2.5em 2em;
+      min-height: 5em;
+      border-radius: 1.5em;
+      background-color: var(--text-block-background-color);
+      
+      &[data-color-theme="brand"] {
+        &[data-color-theme="tone-a"] {
+          --text-block-background-color: var(#fdf9f9);
+        }
+      }
+    
+
+      &[data-color-theme="brand"] {
+        &[data-color-theme="tone-b"] {
+          --text-block-background-color: var(#481125);
+        }
+      }
+    
+
+      &[data-color-theme="neutral"] {
+        &[data-color-theme="tone-a"] {
+          --text-block-background-color: var(#f9fafb);
+        }
+      }
+    
+
+      &[data-color-theme="neutral"] {
+        &[data-color-theme="tone-b"] {
+          --text-block-background-color: var(#202429);
+        }
+      }
+    
+
+      &[data-color-theme="nature"] {
+        &[data-color-theme="tone-a"] {
+          --text-block-background-color: var(#d9e7d5);
+        }
+      }
+    
+
+      &[data-color-theme="nature"] {
+        &[data-color-theme="tone-b"] {
+          --text-block-background-color: var(#343a32);
+        }
+      }
+    
+
+      &[data-color-theme="fantasy"] {
+        &[data-color-theme="tone-a"] {
+          --text-block-background-color: var(#c1b9c4);
+        }
+      }
+    
+
+      &[data-color-theme="fantasy"] {
+        &[data-color-theme="tone-b"] {
+          --text-block-background-color: var(#28222a);
+        }
+      }
+    
+
+      &[data-color-theme="thriller"] {
+        &[data-color-theme="tone-a"] {
+          --text-block-background-color: var(#aec3c3);
+        }
+      }
+    
+
+      &[data-color-theme="thriller"] {
+        &[data-color-theme="tone-b"] {
+          --text-block-background-color: var(#0b2e3a);
+        }
+      }
+    
+
+      &[data-color-theme="romance"] {
+        &[data-color-theme="tone-a"] {
+          --text-block-background-color: var(#f9eaec);
+        }
+      }
+    
+
+      &[data-color-theme="romance"] {
+        &[data-color-theme="tone-b"] {
+          --text-block-background-color: var(#691837);
+        }
+      }
+    
+
+      &[data-color-theme="vacation"] {
+        &[data-color-theme="tone-a"] {
+          --text-block-background-color: var(#faebe6);
+        }
+      }
+    
+
+      &[data-color-theme="vacation"] {
+        &[data-color-theme="tone-b"] {
+          --text-block-background-color: var(#b02c13);
+        }
+      }
+    
+
+      &[data-color-theme="nostalgia"] {
+        &[data-color-theme="tone-a"] {
+          --text-block-background-color: var(#fdf9f6);
+        }
+      }
+    
+
+      &[data-color-theme="nostalgia"] {
+        &[data-color-theme="tone-b"] {
+          --text-block-background-color: var(#705b4a);
+        }
+      }
+    
+    }
+  
+/* #endregion */
 /* #region TextLink - textLinkStyles */ 
 
     .kobber-text-link {
