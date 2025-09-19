@@ -3,6 +3,7 @@ import { html } from "lit/static-html.js";
 import "./text-wrapper/TextWrapper";
 import "./heading/Heading";
 import "./title/Title";
+import "./text-body/TextBody";
 import "./display/Display";
 import "./lead/Lead";
 import "./text-link/TextLink";
@@ -19,6 +20,13 @@ import { getPrintedState, linkStates } from "../story/linkStates";
 import { leadColors, leadColorVariants } from "./lead/Lead.core";
 import { displayFonts, displaySizes } from "./display/Display.core";
 import { titleColors, titleColorVariants, titleFonts, titleSizes } from "./title/Title.core";
+import {
+  textBodyColors,
+  textBodyColorVariants,
+  textBodyFonts,
+  textBodySizes,
+  textBodyContexts,
+} from "./text-body/TextBody.core";
 
 initComponents();
 initIcons();
@@ -236,6 +244,56 @@ export const Title: Story = {
                     </kobber-title>
                   </div>
                 `,
+              ),
+            ),
+          ),
+        )}
+      </div>
+    `;
+  },
+};
+
+export const TextBody: Story = {
+  argTypes: {
+    text: {
+      control: "text",
+    },
+    highlighted: {
+      control: "boolean",
+    },
+  },
+  args: {
+    text: "",
+    highlighted: false,
+  },
+  render: args => {
+    return html`
+      <div style="
+              display: grid;
+              grid-template-columns: repeat(${textBodyColors.length * textBodyColorVariants.length * textBodyContexts.length}, 1fr);
+              grid-template-rows: repeat(${textBodySizes.length * textBodyFonts.length}, 1fr);
+              gap: 1rem;
+             ">
+        ${textBodyFonts.map(font =>
+          textBodySizes.map(size =>
+            textBodyColors.map(color =>
+              textBodyColorVariants.map(colorVariant =>
+                textBodyContexts.map(
+                  context => html`
+                    <div>
+                      <kobber-text-body
+                        title="${color} ${colorVariant} ${context} ${size} ${font}"
+                        size="${size}"
+                        font="${font}"
+                        color="${color}"
+                        color-variant="${colorVariant}"
+                        context="${context}"
+                      >
+                        ${ifHighlighted(args.text || "Text body", args.highlighted)}
+                      </kobber-text-body>
+                    </div>
+                  `,
+                ),
               ),
             ),
           ),
