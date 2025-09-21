@@ -4,6 +4,7 @@ import "./text-wrapper/TextWrapper";
 import "./heading/Heading";
 import "./title/Title";
 import "./text-body/TextBody";
+import "./text-label/TextLabel";
 import "./display/Display";
 import "./lead/Lead";
 import "./text-link/TextLink";
@@ -27,6 +28,11 @@ import {
   textBodySizes,
   textBodyContexts,
 } from "./text-body/TextBody.core";
+import {
+  textLabelColors,
+  textLabelColorVariants,
+  textLabelSizes,
+} from "./text-label/TextLabel.core";
 
 initComponents();
 initIcons();
@@ -68,24 +74,28 @@ export const All: Story = {
         timely.
       </kobber-lead>
 
-      <p>
+      <kobber-text-label>
+        Tag
+      </kobber-text-label>
+
+      <kobber-text-body>
         Rapidiously strategize integrated intellectual capital vis-a-vis
         <em>progressive</em> mindshare.
-      </p>
-      <p>
+      </kobber-text-body>
+      <kobber-text-body>
         Uniquely <kobber-text-link href="https://github.com/GyldendalDigital/kobber">reconceptualize</kobber-text-link>
         robust e-tailers without ethical action items. Compellingly restore resource-leveling experiences without
         exceptional technology. Assertively target 2.0 networks through state of the art e-services. Continually
         innovate ubiquitous relationships and visionary internal or "organic" sources. Interactively iterate sustainable
         users via diverse paradigms.
-      </p>
-      <p>
+      </kobber-text-body>
+      <kobber-text-body>
         Energistically <kobber-text-link href="#">implement</kobber-text-link> installed base models vis-a-vis
         innovative mindshare. Conveniently cultivate pandemic methods of empowerment and unique networks.
         Enthusiastically negotiate one-to-one catalysts for change with principle-centered potentialities. Dynamically
         e-enable next-generation applications rather than leveraged testing procedures. Dynamically reconceptualize B2B
         sources rather.
-      </p>
+      </kobber-text-body>
       <ul>
         <li>Page: Omfavner hele siden, inkludert alle hovedelementene</li>
         <li>Header: Topplinjen som inneholder navigasjon og eventuelt logo.</li>
@@ -100,23 +110,23 @@ export const All: Story = {
           ofte lenker, juridisk informasjon eller kontaktopplysninger.
         </li>
       </ul>
-      <p>
+      <kobber-text-body>
         Quickly grow intermandated infomediaries with innovative processes. Intrinsicly cultivate covalent core
         competencies through fully tested collaboration and idea-sharing. Credibly whiteboard bleeding-edge e-services
         via real-time collaboration and idea-sharing. Compellingly myocardinate transparent e-business after superior
         users. Authoritatively reintermediate economically sound
         <em>collaboration and idea-sharing</em> after cross-media benefits.
-      </p>
-      <p>
+      </kobber-text-body>
+      <kobber-text-body>
         Phosfluorescently negotiate high-payoff catalysts for change without interactive partnerships. Proactively seize
         business vortals vis-a-vis just in time products. Uniquely formulate parallel human capital without
         backward-compatible quality vectors. Objectively maintain quality initiatives vis-a-vis efficient deliverables.
         Seamlessly aggregate unique communities before diverse resources.
-      </p>
-      <p>
+      </kobber-text-body>
+      <kobber-text-body>
         Assertively parallel task plug-and-play best practices through long-term high-impact data. Quickly integrate
         e-business e-commerce rather.
-      </p>
+      </kobber-text-body>
     </kobber-text-wrapper>
   `,
 };
@@ -295,6 +305,46 @@ export const TextBody: Story = {
                   `,
                 ),
               ),
+            ),
+          ),
+        )}
+      </div>
+    `;
+  },
+};
+
+export const TextLabel: Story = {
+  argTypes: {
+    text: { control: "text" },
+    highlighted: { control: "boolean" },
+  },
+  args: {
+    text: "",
+    highlighted: false,
+  },
+  render: args => {
+    return html`
+      <div style="
+              display: grid;
+              grid-template-columns: repeat(${textLabelColors.length * textLabelColorVariants.length}, 1fr);
+              grid-template-rows: repeat(${textLabelSizes.length}, 1fr);
+              gap: 1rem;
+             ">
+        ${textLabelSizes.map(size =>
+          textLabelColors.map(color =>
+            textLabelColorVariants.map(
+              colorVariant => html`
+                <div>
+                  <kobber-text-label
+                    title="${color} ${colorVariant} ${size}"
+                    size="${size}"
+                    color="${color}"
+                    color-variant="${colorVariant}"
+                  >
+                    ${ifHighlighted(args.text || "Text label", args.highlighted)}
+                  </kobber-text-label>
+                </div>
+              `,
             ),
           ),
         )}
