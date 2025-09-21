@@ -2168,6 +2168,220 @@ em,
     }
   
 /* #endregion */
+/* #region TextBody - textBodyStyles */ 
+
+.kobber-text-body {
+  margin: 0;
+  
+font-size: var(--typography-font-size);
+font-family: var(--typography-font-family);
+font-weight: var(--typography-font-weight);
+line-height: var(--typography-line-height);
+color: var(--typography-color);
+
+--typography-font-size: var(--kobber-universal-text-body-text-size-medium);
+--typography-font-family: var(--kobber-universal-text-body-text-font-brand);
+--typography-font-weight: var(--kobber-universal-text-body-text-weight);
+--typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);
+--typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
+--typography-color-highlight: var(--kobber-universal-text-display-extended-extended-text-color);
+
+em,
+::slotted(em) {
+  color: var(--typography-color-highlight);
+  font-style: normal;
+}
+  
+&[data-size="large"] {
+  --typography-font-size: var(--kobber-universal-text-body-text-size-large);;
+}
+&[data-size="medium"] {
+  --typography-font-size: var(--kobber-universal-text-body-text-size-medium);;
+}
+&[data-size="small"] {
+  --typography-font-size: var(--kobber-universal-text-body-text-size-small);;
+}
+  
+&[data-font="brand"] {
+  --typography-font-family: var(--kobber-universal-text-body-text-font-brand);;
+}
+&[data-font="reading"] {
+  --typography-font-family: var(--kobber-universal-text-body-text-font-reading);;
+}
+  
+&[data-color="brand"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-brand-tone-b);;
+  }
+}
+&[data-color="neutral"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-neutral-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-neutral-tone-b);;
+  }
+}
+&[data-color="success"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-success-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-success-tone-b);;
+  }
+}
+&[data-color="informative"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-informative-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-informative-tone-b);;
+  }
+}
+&[data-color="warning"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-warning-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-warning-tone-b);;
+  }
+}
+&[data-color="nature"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-nature-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-nature-tone-b);;
+  }
+}
+&[data-color="romance"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-romance-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-romance-tone-b);;
+  }
+}
+&[data-color="fantasy"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-fantasy-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-fantasy-tone-b);;
+  }
+}
+&[data-color="thriller"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-thriller-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-thriller-tone-b);;
+  }
+}
+&[data-color="vacation"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-vacation-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-vacation-tone-b);;
+  }
+}
+&[data-color="nostalgia"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-nostalgia-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-nostalgia-tone-b);;
+  }
+}
+&[data-color="sublte"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-sublte-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-sublte-tone-b);;
+  }
+}
+  
+&[data-font="brand"] {
+  --typography-font-family: var(--kobber-universal-text-body-text-font-brand);;
+  
+  &[data-size="large"] {
+    
+    &[data-context="short"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-large-short);;
+    }
+    &[data-context="long"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-large-long);;
+    }
+  }
+  &[data-size="medium"] {
+    
+    &[data-context="short"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);;
+    }
+    &[data-context="long"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-long);;
+    }
+  }
+  &[data-size="small"] {
+    
+    &[data-context="short"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-small-short);;
+    }
+    &[data-context="long"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-small-long);;
+    }
+  }
+}
+&[data-font="reading"] {
+  --typography-font-family: var(--kobber-universal-text-body-text-font-reading);;
+  
+  &[data-size="large"] {
+    
+    &[data-context="short"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-reading-large-short);;
+    }
+    &[data-context="long"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-reading-large-long);;
+    }
+  }
+  &[data-size="medium"] {
+    
+    &[data-context="short"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-reading-medium-short);;
+    }
+    &[data-context="long"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-reading-medium-long);;
+    }
+  }
+  &[data-size="small"] {
+    
+    &[data-context="short"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-reading-small-short);;
+    }
+    &[data-context="long"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-reading-small-long);;
+    }
+  }
+}
+}
+/* #endregion */
 /* #region TextLink - textLinkStyles */ 
 
     .kobber-text-link {
