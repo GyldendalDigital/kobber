@@ -36,7 +36,6 @@ export class TextBody extends LitElement implements TextBodyProps {
     return html`
       <${unsafeStatic(tag)}
         class="${textBodyName}"
-        data-level="${ifDefined(this.level)}"
         data-size="${ifDefined(this.size)}"
         data-font="${ifDefined(this.font)}"
         data-color="${ifDefined(this.color)}"
