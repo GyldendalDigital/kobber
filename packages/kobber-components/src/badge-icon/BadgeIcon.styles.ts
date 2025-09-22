@@ -1,8 +1,9 @@
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import {
-  BadgeIconClassName,
-  BadgeIconIconClassName,
+  type BadgeIconClassName,
+  type BadgeIconIconClassName,
   badgeIconName,
   badgeIconSizes,
   badgeIconColorThemes,
