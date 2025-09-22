@@ -1,4 +1,44 @@
+<!-- Inside the iframe. Changes to this static markup requires a server restart. See https://storybook.js.org/docs/configure/styling-and-css#include-static-css -->
 <link rel="stylesheet" href="fonts/mori/mori.css" />
 <link rel="stylesheet" href="fonts/inter/inter.css" />
 <link rel="stylesheet" href="fonts/lyon/lyon.css" />
-<link rel="stylesheet" href="global.css" />
+<style>
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .kobber-theme-default,
+  .kobber-theme-dark {
+    display: block;
+    font-family: pp-mori, ui-sans-serif, system-ui, sans-serif;
+    color: #691837;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  figure {
+    padding: 0 1em;
+    margin: 1em 0;
+    border: 1px solid;
+    border-radius: 1em;
+  }
+
+  figcaption {
+    padding: 1em 0;
+
+    &::after {
+      content: ":";
+    }
+  }
+</style>
