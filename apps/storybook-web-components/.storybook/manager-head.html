@@ -13,7 +13,9 @@ content="https://dam-prod.gyldendaldigital.no/tenants/edu/file/D_8MwlmJKANA6W4OI
 <link rel="stylesheet" href="fonts/mori/mori.css" />
 <style>
   /** Inspired by Mattilsynet: https://github.com/Mattilsynet/design/blob/next/.storybook/manager-head.html */
-  
+  :root {
+    --primary-text-color: #691837; 
+  }
   /**
    * Rounded content
    */
@@ -36,6 +38,7 @@ content="https://dam-prod.gyldendaldigital.no/tenants/edu/file/D_8MwlmJKANA6W4OI
   /**
    * Sidebar
    */
+  .sidebar-container { color: var(--primary-text-color) }
   .sidebar-container .sidebar-header a { font-size: 2rem } /* Larger title in sidebar */
   .sidebar-container .sidebar-item :is(a, button) { align-items: center; font: inherit; font-weight: 400 }
   .sidebar-container .sidebar-item a { gap: 0 }
@@ -72,7 +75,7 @@ content="https://dam-prod.gyldendaldigital.no/tenants/edu/file/D_8MwlmJKANA6W4OI
     &:hover { background: transparent }
 
     & > span > span {
-      color: #691837 !important;
+      color: var(--primary-text-color);
       &:hover {  text-decoration: underline !important; }
     }
   }
