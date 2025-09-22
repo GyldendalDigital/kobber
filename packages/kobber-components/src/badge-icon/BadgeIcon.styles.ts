@@ -1,4 +1,3 @@
-import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import {
@@ -70,7 +69,7 @@ const getSizeDependantStyles = () => {
         .flatMap(
           size => `&[data-size="${size}"] { 
             ${getTypographyStyles("text-label", size)}
-            --padding: var(${unsafeCSS(containerStyles.padding.block[size])});
+            --padding: var(${unsafeCSS(containerStyles.padding.block[size])}) 0;
             --gap: var(${unsafeCSS(containerStyles.gap[size])});
           }`,
         )
