@@ -5,7 +5,7 @@ export const titleTokens = universal["text-title"];
 
 export const titleName = "kobber-title";
 
-const titleLevelFallback = "h1";
+const titleLevelFallback = "h2";
 
 export const sanitizeTitleLevel = (level: TitleLevel | undefined): TitleLevel =>
   level && titleLevels.includes(level) ? level : titleLevelFallback;
