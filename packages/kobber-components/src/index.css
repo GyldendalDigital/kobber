@@ -2382,6 +2382,168 @@ em,
 }
 }
 /* #endregion */
+/* #region TextLabel - textLabelStyles */ 
+
+.kobber-text-label {
+  margin: 0;
+  
+font-size: var(--typography-font-size);
+font-family: var(--typography-font-family);
+font-weight: var(--typography-font-weight);
+line-height: var(--typography-line-height);
+color: var(--typography-color);
+
+--typography-font-size: var(--kobber-universal-text-label-text-size-medium);
+--typography-font-family: var(--kobber-universal-text-label-text-font);
+--typography-font-weight: var(--kobber-universal-text-label-text-weight);
+--typography-line-height: var(--kobber-universal-text-label-text-line-height);
+--typography-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+--typography-color-highlight: var(--kobber-universal-text-display-extended-extended-text-color);
+
+em,
+::slotted(em) {
+  color: var(--typography-color-highlight);
+  font-style: normal;
+}
+  
+&[data-size="large"] {
+  --typography-font-size: var(--kobber-universal-text-label-text-size-large);;
+}
+&[data-size="medium"] {
+  --typography-font-size: var(--kobber-universal-text-label-text-size-medium);;
+}
+&[data-size="small"] {
+  --typography-font-size: var(--kobber-universal-text-label-text-size-small);;
+}
+  
+&[data-color="accent"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-accent-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-accent-tone-b);;
+  }
+}
+&[data-color="brand"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-brand-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-brand-tone-b);;
+  }
+}
+&[data-color="neutral"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-neutral-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-neutral-tone-b);;
+  }
+}
+&[data-color="rettsdata"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);;
+  }
+}
+&[data-color="success"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-success-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-success-tone-b);;
+  }
+}
+&[data-color="informative"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-informative-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-informative-tone-b);;
+  }
+}
+&[data-color="warning"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-warning-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-warning-tone-b);;
+  }
+}
+&[data-color="nature"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-nature-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-nature-tone-b);;
+  }
+}
+&[data-color="romance"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-romance-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-romance-tone-b);;
+  }
+}
+&[data-color="fantasy"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-fantasy-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-fantasy-tone-b);;
+  }
+}
+&[data-color="thriller"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-thriller-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-thriller-tone-b);;
+  }
+}
+&[data-color="vacation"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-vacation-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-vacation-tone-b);;
+  }
+}
+&[data-color="nostalgia"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-b);;
+  }
+}
+&[data-color="subtle"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-subtle-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-subtle-tone-b);;
+  }
+}
+}
+/* #endregion */
 /* #region TextLink - textLinkStyles */ 
 
     .kobber-text-link {
