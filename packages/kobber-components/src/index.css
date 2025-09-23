@@ -333,7 +333,7 @@
     --typography-font-weight: var(--kobber-universal-text-body-text-weight);
     --typography-line-height: var([object Object]);
   
-            --padding: var(--kobber-component-badge-icon-padding-block-medium);
+            --padding: var(--kobber-component-badge-icon-padding-block-medium) 0;
             --gap: var(--kobber-component-badge-icon-gap-medium);
           }
 &[data-size="small"] { 
@@ -343,7 +343,7 @@
     --typography-font-weight: var(--kobber-universal-text-body-text-weight);
     --typography-line-height: var([object Object]);
   
-            --padding: var(--kobber-component-badge-icon-padding-block-small);
+            --padding: var(--kobber-component-badge-icon-padding-block-small) 0;
             --gap: var(--kobber-component-badge-icon-gap-small);
           }
   
