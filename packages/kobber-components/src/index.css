@@ -2594,6 +2594,145 @@ em,
     }
   
 /* #endregion */
+/* #region TextModule - textModuleStyles */ 
+
+    :host {
+      display: block;
+    }
+    .kobber-text-module {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 24px;
+      padding: 40px 32px 48px;
+      min-height: 5em;
+      border-radius: 1.5em;
+      
+      max-width: 600px;
+      ::slotted(kobber-text-module) {
+        max-width: 400px;
+      }
+
+      .header, .div, ::slotted(div) {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+      }
+
+      background-color: var(--text-module-background-color);
+      
+      &[data-color="brand"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: #fdf9f9;
+          }
+        }
+
+      &[data-color="brand"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: #481125;
+          }
+        }
+
+      &[data-color="neutral"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: #f9fafb;
+          }
+        }
+
+      &[data-color="neutral"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: #202429;
+          }
+        }
+
+      &[data-color="transparent"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: transparent;
+          }
+        }
+
+      &[data-color="transparent"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: transparent;
+          }
+        }
+
+      &[data-color="nature"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: #d9e7d5;
+          }
+        }
+
+      &[data-color="nature"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: #343a32;
+          }
+        }
+
+      &[data-color="fantasy"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: #c1b9c4;
+          }
+        }
+
+      &[data-color="fantasy"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: #28222a;
+          }
+        }
+
+      &[data-color="thriller"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: #aec3c3;
+          }
+        }
+
+      &[data-color="thriller"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: #0b2e3a;
+          }
+        }
+
+      &[data-color="romance"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: #f9eaec;
+          }
+        }
+
+      &[data-color="romance"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: #691837;
+          }
+        }
+
+      &[data-color="vacation"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: #faebe6;
+          }
+        }
+
+      &[data-color="vacation"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: #b02c13;
+          }
+        }
+
+      &[data-color="nostalgia"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: #fdf9f6;
+          }
+        }
+
+      &[data-color="nostalgia"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: #705b4a;
+          }
+        };
+    }
+  
+/* #endregion */
 /* #region TextWrapper - textWrapperStyles */ 
 
     .kobber-text-wrapper {
