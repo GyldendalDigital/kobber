@@ -20,8 +20,8 @@ export default create({
     appBorderRadius: 5,
 
     barTextColor: textColor,
-		barSelectedColor: textColor,
-		barHoverColor: textColor,
+    barSelectedColor: textColor,
+    barHoverColor: textColor,
     barBg: white,
     buttonBg: backgroundColor,
     

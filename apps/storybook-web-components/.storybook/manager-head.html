@@ -1,4 +1,6 @@
 <!-- Outside the iframe. Changes to this static markup requires a server restart. See https://storybook.js.org/docs/configure/user-interface/theming#css-escape-hatches -->
+
+<!-- SEO -->
 <meta property="og:title" content="Kobber Components and Icons" />
 <meta
 name="description"
@@ -7,27 +9,27 @@ key="desc"
 />
 <meta
 property="og:image"
-content="https://dam-prod.gyldendaldigital.no/tenants/edu/file/D_8MwlmJKANA6W4OIRWa7k/*/logo.svg"
+content="https://dam-prod.gyldendaldigital.no/tenants/edu/file/72GIQ3CuqE78_Dww4wu000/*/logo.png"
 />
-<meta property="og:image:type" content="image/svg+xml" />
+<meta property="og:image:type" content="image/png" />
+
+<!-- STYLES -->
 <link rel="stylesheet" href="fonts/mori/mori.css" />
 <style>
-  /** Inspired by Mattilsynet: https://github.com/Mattilsynet/design/blob/next/.storybook/manager-head.html */
   :root {
     --primary-text-color: #691837; 
   }
-  /**
-   * Rounded content
-   */
+
+  /* Heavy inspiration from Mattilsynet: https://github.com/Mattilsynet/design/blob/next/.storybook/manager-head.html */
+  
+  /* Rounded content */
   #root > div { padding: 1em min(1rem, 1%); gap: .25rem }
   #root > div > * { border-radius: .75rem; border: 1px solid color-mix(in hsl, currentcolor, transparent 90%); overflow: hidden }
   #root > div > :has(> .sidebar-container) { border: 0; overflow: visible }
   #root div:has(+ .sidebar-container)::after { opacity: 0!important }
   #root .sb-bar { box-shadow: none!important }
-  
-  /**
-   * Hide stuff
-   */
+
+  /* Hide stuff */
   .sidebar-container.sidebar-container .sidebar-header button, /* Hide settings */
   .sidebar-container.sidebar-container svg[type], /* Hide sidebar type icons */
   .sidebar-container.sidebar-container button[data-action="expand-all"], /* Hide expand <button> */
@@ -35,11 +37,9 @@ content="https://dam-prod.gyldendaldigital.no/tenants/edu/file/D_8MwlmJKANA6W4OI
   .sidebar-container.sidebar-container .search-field + :has(button) /* Disable "Create new story" <button> */
     { display: none !important }
 
-  /**
-   * Sidebar
-   */
+  /* Sidebar */
   .sidebar-container { color: var(--primary-text-color) }
-  .sidebar-container .sidebar-header a { font-size: 2rem } /* Larger title in sidebar */
+  .sidebar-container .sidebar-header a { font-size: 2rem }
   .sidebar-container .sidebar-item :is(a, button) { align-items: center; font: inherit; font-weight: 400 }
   .sidebar-container .sidebar-item a { gap: 0 }
   .sidebar-container .sidebar-item:hover { text-decoration: underline; background: transparent }
@@ -62,14 +62,10 @@ content="https://dam-prod.gyldendaldigital.no/tenants/edu/file/D_8MwlmJKANA6W4OI
     text-transform: uppercase;
   }
 
-  /**
-   * Search
-   */
+  /* Search */
   .search-field { display: none !important }
 
-  /**
-   * Theme dropdown
-   */
+  /* Theme dropdown */
   #list-item-kobber-theme-default,
   #list-item-kobber-theme-dark { 
     &:hover { background: transparent }
@@ -79,5 +75,4 @@ content="https://dam-prod.gyldendaldigital.no/tenants/edu/file/D_8MwlmJKANA6W4OI
       &:hover {  text-decoration: underline !important; }
     }
   }
-  
 </style>

@@ -23,7 +23,7 @@ const config = {
     options: {},
   },
  	typescript: {
-		check: false,
+		check: false, // speed up build times
 		reactDocgen: false,
 	},
   core: {
