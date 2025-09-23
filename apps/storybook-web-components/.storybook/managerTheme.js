@@ -12,7 +12,7 @@ export default create({
     brandTitle: "Kobber",
 
     colorPrimary: textColor,
-    colorSecondary: backgroundColor,
+    colorSecondary: textColor, // button selected, badge text
 
     appBg: backgroundColor,
     appContentBg: white,

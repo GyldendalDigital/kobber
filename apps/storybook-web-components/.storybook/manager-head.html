@@ -1,17 +1,12 @@
-<!-- Outside the iframe. Changes to this static markup requires a server restart. See https://storybook.js.org/docs/configure/user-interface/theming#css-escape-hatches -->
+
+<!-- manager-head.html - controls ui outside the iframe. Changes to this static markup requires a server restart. See https://storybook.js.org/docs/configure/user-interface/theming#css-escape-hatches -->
 
 <!-- SEO -->
+<script>
+  document.title = "Kobber Components and Icons";
+</script>
 <meta property="og:title" content="Kobber Components and Icons" />
-<meta
-name="description"
-content="Components that simplify product development"
-key="desc"
-/>
-<meta
-property="og:image"
-content="https://dam-prod.gyldendaldigital.no/tenants/edu/file/72GIQ3CuqE78_Dww4wu000/*/logo.png"
-/>
-<meta property="og:image:type" content="image/png" />
+<meta name="description" content="Open source web components from Gyldendal" />
 
 <!-- STYLES -->
 <link rel="stylesheet" href="fonts/mori/mori.css" />
@@ -42,7 +37,9 @@ content="https://dam-prod.gyldendaldigital.no/tenants/edu/file/72GIQ3CuqE78_Dww4
   .sidebar-container .sidebar-header a { font-size: 2rem }
   .sidebar-container .sidebar-item :is(a, button) { align-items: center; font: inherit; font-weight: 400 }
   .sidebar-container .sidebar-item a { gap: 0 }
-  .sidebar-container .sidebar-item:hover { text-decoration: underline; background: transparent }
+  .sidebar-container .sidebar-item[data-selected="true"],
+  .sidebar-container .sidebar-item[data-selected="true"]:hover,
+  .sidebar-container .sidebar-item:hover { text-decoration: underline; background: transparent !important }
   .sidebar-container .sidebar-item,
   .sidebar-container .sidebar-item[data-selected="true"],
   .sidebar-container .sidebar-subheading,
@@ -52,9 +49,6 @@ content="https://dam-prod.gyldendaldigital.no/tenants/edu/file/72GIQ3CuqE78_Dww4
     letter-spacing: 0;
     line-height: 1.5;
     text-transform: none;
-  }
-  .sidebar-container .sidebar-item[data-selected="true"] {
-    text-decoration: underline;
   }
   .sidebar-container .sidebar-subheading {
     font-size: 0.75rem;
@@ -71,8 +65,8 @@ content="https://dam-prod.gyldendaldigital.no/tenants/edu/file/72GIQ3CuqE78_Dww4
     &:hover { background: transparent }
 
     & > span > span {
-      color: var(--primary-text-color);
       &:hover {  text-decoration: underline !important; }
     }
   }
 </style>
+<!-- end manager-head.html -->
