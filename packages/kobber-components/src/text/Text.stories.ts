@@ -400,35 +400,6 @@ export const Display: Story = {
   },
 };
 
-/**
- * 
-                    html`
-                      <p style="grid-area: ${colorVariant};">${colorVariant}</p>
-                      <kobber-heading
-                        level="${args.h1 ? "h1" : "h2"}"
-                        size="${size}"
-                        font="${"brand"}"
-                        color="${color}"
-                        colorVariant="${colorVariant}"
-                        style="grid-area: sample-${colorVariant};"
-                      >
-                        ${text(args.text || "Heading")}
-                      </kobber-heading>
-                      <p style="grid-area: ${font};">${font}</p>
-                      <kobber-heading
-                        level="${args.h1 ? "h1" : "h2"}"
-                        size="${size}"
-                        font="${font}"
-                        color="${color}"
-                        colorVariant="${colorVariant}"
-                        style="grid-area: sample-${colorVariant};"
-                      >
-                        ${text(args.text || "Heading")}
-                      </kobber-heading>
-                    `,
-                  )
- * Bruker farge fra "component.article", og typografi fra "title medium".
- */
 export const Lead: Story = {
   argTypes: {
     text: {
@@ -509,8 +480,6 @@ export const Wrapper: Story = {
     </div>`;
   },
 };
-
-const pxToRem = (px: number) => `${px / 16}rem`;
 
 const ifHighlighted = (textValue: string, highlighted: boolean) =>
   highlighted ? html`<em>${textValue}</em>` : textValue;
