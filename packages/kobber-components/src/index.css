@@ -1628,6 +1628,63 @@
     }
   
 /* #endregion */
+/* #region ContentTopBlock - contentTopBlockStyles */ 
+
+    :host {
+      display: block;
+    }
+    .kobber-content-top-block {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: var(--kobber-layout-content-top-block-gap);
+    }
+  
+/* #endregion */
+/* #region ContentWrapper - contentWrapperStyles */ 
+
+    :host {
+      display: block;
+    }
+    .kobber-content-wrapper {
+      min-height: 5em;
+      overflow: auto; /* Applicable when max-height attribute is used. */
+      background-color: var(--content-wrapper-background-color);
+      max-width: 720px;
+      
+              &[data-color-variant="tone-a"] {
+                --content-wrapper-background-color: var(--kobber-layout-content-wrapper-background-color-tone-a);
+              }
+          
+
+              &[data-color-variant="tone-b"] {
+                --content-wrapper-background-color: var(--kobber-layout-content-wrapper-background-color-tone-b);
+              }
+          ;
+
+      .inner-container {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: var(--kobber-layout-content-wrapper-inner-container-gap);
+        padding: 0 var(--kobber-layout-content-wrapper-padding-inline) var(--kobber-layout-content-wrapper-padding-bottom);
+        max-width: var(--kobber-layout-content-wrapper-size-max-width);
+        margin: 0 auto;
+      }
+
+      &[data-type="overlay"] {
+        border-radius: var(--kobber-layout-content-wrapper-border-radius-overlay);
+        padding-top: var(--kobber-layout-content-wrapper-padding-top-overlay);
+      }
+
+      &[data-type="page"] {
+        max-width: 100%;
+        padding-top: var(--kobber-layout-content-wrapper-padding-top-page);
+      }
+    }
+  
+/* #endregion */
 /* #region Display - displayStyles */ 
 
 .kobber-display {
@@ -2302,7 +2359,7 @@ em,
       display: flex;
       flex-direction: column;
       align-items: start;
-      gap: 0.5em;
+      gap: var(--kobber-layout-text-block-gap);
     }
   
 /* #endregion */
