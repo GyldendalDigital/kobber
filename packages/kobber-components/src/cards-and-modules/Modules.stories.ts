@@ -1,8 +1,10 @@
 import type { Args, Meta, StoryObj } from "@storybook/web-components-vite";
 import { textModuleColors, textModuleColorVariants } from "./text-module/TextModule.core";
 import "./text-module/TextModule";
+import "./content-wrapper/ContentWrapper";
 import "../badge-icon/BadgeIcon";
 import "../text/heading/Heading";
+import "../text/lead/Lead";
 import "../text/title/Title";
 import "../text/text-body/TextBody";
 import { html } from "lit";
@@ -116,5 +118,89 @@ export const TextModule: Story = {
         <kobber-text-body color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">Body text here. (${args.textModuleColor})</kobber-text-body>
       </div>
     </kobber-text-module>
+  `,
+};
+
+export const ContentWrapper: Story = {
+  argTypes: {
+    textModuleColor: {
+      options: textModuleColors,
+      control: { type: "inline-radio" },
+    },
+    textModuleColorVariant: {
+      options: textModuleColorVariants,
+      control: { type: "inline-radio" },
+    },
+    showBadge: {
+      name: "Top Block: Show Badge",
+    },
+    showHeading: {
+      name: "Top Block: Show Heading",
+    },
+    showHeadingLead: {
+      name: "Top Block: Show Lead",
+    },
+    showHeadingText: {
+      name: "Top Block: Show Text",
+    },
+  },
+  args: {
+    textModuleColor: textModuleColors[5],
+    textModuleColorVariant: textModuleColorVariants[0],
+    showBadge: true,
+    showHeading: true,
+    showHeadingLead: true,
+    showHeadingText: true,
+    showNested: true,
+    fullWidth: false,
+    maxHeightInPx: 600,
+  },
+  render: args => html`
+    <kobber-content-wrapper 
+      color="${args.textModuleColor}"
+      color-variant="${args.textModuleColorVariant}" 
+      ?full-width=${args.fullWidth}
+      max-height-in-px="${args.maxHeightInPx}"
+    >
+      ${
+        !args.showBadge
+          ? ""
+          : html`
+      <kobber-badge-icon slot="badge" color-theme="${mappedBadgeColor(args)}" color-variant="${mappedBadgeColorVariant(args)}">
+        <kobber-pencil slot="icon"></kobber-pencil>
+        Content Wrapper
+      </kobber-badge-icon>
+          `
+      }
+      ${
+        !args.showHeading
+          ? ""
+          : html`<kobber-heading slot="heading" color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">Heading</kobber-heading>`
+      }
+      ${
+        !args.showHeadingLead
+          ? ""
+          : html`<kobber-lead slot="heading-lead" color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">Lead (ingress)</kobber-lead>`
+      }
+      ${
+        !args.showHeadingText
+          ? ""
+          : html`<kobber-text-body slot="heading-text" color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">Heading text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. Lorem ipsum dolor sit amet, consectetur adipiscing el it. </kobber-text-body>
+          `
+      }
+      <div>
+        <kobber-title color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}" size="large">Title L</kobber-title>
+        <kobber-text-body color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. (${args.textModuleColor})</kobber-text-body>
+      </div>
+      ${args.showNested ? nestedTextModule(args) : ""}
+      <div>
+        <kobber-text-body color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it.</kobber-text-body>
+      </div>
+
+      <div>
+        <kobber-title color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}" size="medium">Title M</kobber-title>
+        <kobber-text-body color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">Body text here.</kobber-text-body>
+      </div>
+    </kobber-content-wrapper>
   `,
 };
