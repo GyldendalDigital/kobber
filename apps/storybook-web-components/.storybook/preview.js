@@ -1,7 +1,8 @@
 import "@gyldendal/kobber-base/themes/default/tokens.css";
 import "@gyldendal/kobber-base/themes/dark/tokens.css";
+import theme from "./managerTheme";
 
-const themes = ["kobber-theme-default", "kobber-theme-dark"];
+const themes = [{ value: 'kobber-theme-default', title: 'Light' }, { value: 'kobber-theme-dark', title: 'Dark' } ];
 
 /** @type { import('@storybook/web-components-vite').Preview } */ const preview = {
   parameters: {
@@ -16,12 +17,15 @@ const themes = ["kobber-theme-default", "kobber-theme-dark"];
         order: ["*", "In development 🔵", "kobber.gyldendal.no", "GU"],
       },
     },
+    docs: {
+      theme: theme,
+    },
   },
   // theme addon 👇
   globalTypes: {
     theme: {
       description: "Theme",
-      defaultValue: themes[0],
+      defaultValue: themes[0].value,
       toolbar: {
         icon: "edit",
         // Array of plain string values or MenuItem shape (see below)
@@ -36,7 +40,7 @@ const themes = ["kobber-theme-default", "kobber-theme-dark"];
       const story = Story();
       // for supporting css variables
       if (story instanceof HTMLElement) {
-        story.classList.add(context.globals.theme || themes[0]);
+        story.classList.add(context.globals.theme || themes[0].value);
       }
       return story;
     },
