@@ -1,8 +1,8 @@
-import { CSSResultGroup, html } from "lit";
+import { type CSSResultGroup, html } from "lit";
 import { property } from "lit/decorators.js";
 import "./ListItem";
 import KobberElement from "../base/kobber-element";
-import { listClassNames, listName, ListProps } from "./List.core";
+import { listName, type ListProps } from "./List.core";
 import componentStyles from "../base/styles/component.styles";
 import { listStyles } from "./List.styles";
 import { ifDefined } from "lit/directives/if-defined.js";
@@ -35,7 +35,7 @@ export class List extends KobberElement implements ListProps {
   override render() {
     return html`
       <div
-        class="${listClassNames(listName)}"
+        class="${listName}"
         role="${this.role ?? "menubar"}"
         aria-orientation="${ifDefined(this.orientation)}"
         tabindex="-1"

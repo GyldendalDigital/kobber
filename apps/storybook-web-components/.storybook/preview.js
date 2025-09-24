@@ -1,6 +1,7 @@
 import "@gyldendal/kobber-base/themes/default/tokens.css";
 import "@gyldendal/kobber-base/themes/dark/tokens.css";
 import theme from "./managerTheme";
+import { html } from "lit-html";
 
 const themes = [{ value: 'kobber-theme-default', title: 'Light' }, { value: 'kobber-theme-dark', title: 'Dark' } ];
 
@@ -19,6 +20,10 @@ const themes = [{ value: 'kobber-theme-default', title: 'Light' }, { value: 'kob
     },
     docs: {
       theme: theme,
+      source: {
+        language: "html",
+        excludeDecorators: true,
+      }
     },
   },
   // theme addon 👇
@@ -35,16 +40,20 @@ const themes = [{ value: 'kobber-theme-default', title: 'Light' }, { value: 'kob
       },
     },
   },
+  // replace when all stories use html`` in their render function
   decorators: [
-    (Story, context) => {
-      const story = Story();
-      // for supporting css variables
-      if (story instanceof HTMLElement) {
-        story.classList.add(context.globals.theme || themes[0].value);
-      }
-      return story;
-    },
+    (story, context) => html`<div class=${context.globals.theme}>${story()}</div>`,
   ],
+  // decorators: [
+  //   (Story, context) => {
+  //     const story = Story();
+  //     // for supporting css variables
+  //     if (story instanceof HTMLElement) {
+  //       story.classList.add(context.globals.theme || themes[0].value);
+  //     }
+  //     return story;
+  //   },
+  // ],
   //👇 Enables auto-generated documentation for all stories
   tags: ["autodocs"],
 };

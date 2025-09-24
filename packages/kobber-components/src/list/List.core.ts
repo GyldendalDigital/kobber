@@ -4,8 +4,6 @@ export type ListProps = {
   orientation?: ListOrientation;
 };
 
-type ListOrientation = "vertical" | "horizontal";
+type ListOrientation = (typeof ListOrientations)[number];
 
-type ListClassNames = typeof listName | ListOrientation;
-
-export const listClassNames = (...classNames: ListClassNames[]) => classNames?.join(" ");
+export const ListOrientations = ["vertical", "horizontal"] as const;
