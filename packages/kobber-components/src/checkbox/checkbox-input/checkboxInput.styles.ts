@@ -2,14 +2,14 @@ import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import {
   checkboxColorThemes,
-  CheckboxClassNames,
-  CheckboxColorTheme,
-  InputLabelClassNames,
-  NativeInputClassNames,
-  InputControlClassNames,
-  WrapperClassNames,
-  IconClassNames,
-  CheckboxState,
+  type CheckboxClassNames,
+  type CheckboxColorTheme,
+  type InputLabelClassNames,
+  type NativeInputClassNames,
+  type InputControlClassNames,
+  type WrapperClassNames,
+  type IconClassNames,
+  type CheckboxState,
 } from "../Checkbox.core";
 import { getTypographyStyles } from "../../base/getTypographyStyles2";
 
@@ -123,8 +123,7 @@ const statesPerColorTheme = (colorTheme: CheckboxColorTheme) => {
     }
 
     :host(.focus) &,
-    :host(:focus) &,
-    :host(.focus-visible) & :host(:focus-visible) & {
+    &:has(> input:focus-visible) {
       :host(:not(.disabled, [disabled])) & {
         outline: none;
         box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)})
