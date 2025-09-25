@@ -245,13 +245,13 @@ const renderThemeAndVariantColors = (args: Args) => {
           return html`<span class="group-title" style="grid-area: variant-${index};">color-variant: ${colorVariant}</span>
             <div class="wrapper-buttons" style="grid-area: button-group-${index};">
               <div style="grid-area: buttons-iconRight-${index};">
-                ${states.map(state => renderButton({ ...args, state, text: state })).join("")}
+                ${states.map(state => renderButton({ ...args, state, text: state }))}
               </div>
               <div style="grid-area: buttons-${index};">
-                ${states.map(state => renderButton({ ...args, state, text: state, iconPosition: "none" })).join("")}
+                ${states.map(state => renderButton({ ...args, state, text: state, iconPosition: "none" }))}
               </div>
               <div style="grid-area: buttons-iconOnly-${index};">
-                ${states.map(state => renderButton({ ...args, state })).join("")}
+                ${states.map(state => renderButton({ ...args, state }))}
               </div>
             </div>`;
         } else {
