@@ -1,25 +1,32 @@
-import { ButtonType, ButtonColorTheme, ButtonColorVariant, ButtonColorLevel } from "../../button/Button.core";
+import type {
+  ButtonType,
+  ButtonColorTheme,
+  ButtonColorVariant,
+  ButtonColorLevel,
+} from "../../button/Button.core";
 
 export const isValidPropCombination = (
   buttonType: ButtonType,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint: tokens can really be of any type.
   component: any,
+  // biome-ignore lint: tokens can really be of any type.
+  universal: any,
   colorTheme: ButtonColorTheme,
   colorVariant: ButtonColorVariant,
   colorLevel?: ButtonColorLevel,
 ) => {
-  let textColor, backgroundColor, borderColor;
+  let backgroundColor: { hover: string; fallback: string },
+    borderColor: { hover: string; active: string };
+
+  const textColor = universal["text-label"]?.text.color[colorTheme]?.[colorVariant];
 
   if (colorLevel) {
-    textColor =
-      component[buttonType].text.color?.[colorTheme]?.[colorLevel!]?.[colorVariant] ??
-      component[buttonType].text.color?.[colorTheme]?.[colorLevel!];
-    backgroundColor = component[buttonType].background?.color?.[colorTheme]?.[colorLevel!]?.[colorVariant];
-    borderColor = component[buttonType]?.border?.color?.[colorTheme]?.[colorLevel!]?.[colorVariant];
+    backgroundColor =
+      component[buttonType].background?.color?.[colorTheme]?.[colorLevel]?.[colorVariant];
+    borderColor = component[buttonType]?.border?.color?.[colorTheme]?.[colorLevel]?.[colorVariant];
   } else {
-    textColor = component[buttonType].text.color?.[colorTheme];
-    backgroundColor = component[buttonType].background.color[colorTheme][colorVariant];
-    borderColor = component[buttonType]?.border?.color?.[colorTheme][colorVariant];
+    backgroundColor = component[buttonType].background?.color?.[colorTheme]?.[colorVariant];
+    borderColor = component[buttonType]?.border?.color?.[colorTheme]?.[colorVariant];
   }
 
   if (

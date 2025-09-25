@@ -1,8 +1,8 @@
-import { CSSResultGroup } from "lit";
+import type { CSSResultGroup } from "lit";
 import { property } from "lit/decorators.js";
 import componentStyles from "../base/styles/component.styles";
 import { buttonStyles } from "./Button.styles";
-import { buttonClassNames, buttonName, ButtonProps } from "./Button.core";
+import { buttonClassNames, buttonName, type ButtonProps } from "./Button.core";
 import { literal, html } from "lit/static-html.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import KobberElementWithIcon from "../base/kobber-element-with-icon";
@@ -29,7 +29,7 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
   colorLevel: ButtonProps["colorLevel"] = "primary";
 
   @property({ attribute: "color-variant" })
-  colorVariant: ButtonProps["colorVariant"] = "main";
+  colorVariant: ButtonProps["colorVariant"] = "tone-a";
 
   @property({ type: Boolean, attribute: "icon-first" })
   iconFirst = false;

@@ -1,7 +1,7 @@
 import { universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { objectKeys } from "../../base/utilities/objectKeys";
 
-export const displayTokens = universal["text-display-extended"];
+export const displayTokens = universal["text-display"];
 
 export const displayName = "kobber-display";
 

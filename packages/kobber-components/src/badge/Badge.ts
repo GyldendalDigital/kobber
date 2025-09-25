@@ -11,10 +11,10 @@ export class Badge extends LitElement implements BadgeProps {
   static styles: CSSResultGroup = [componentStyles, badgeStyles];
 
   @property({ attribute: "color-theme" })
-  colorTheme?: BadgeProps["colorTheme"] = "aubergine";
+  colorTheme?: BadgeProps["colorTheme"] = "brand";
 
   @property({ attribute: "color-variant" })
-  colorVariant?: BadgeProps["colorVariant"] = "main";
+  colorVariant?: BadgeProps["colorVariant"] = "tone-a";
 
   @property()
   size?: BadgeProps["size"] = "medium";

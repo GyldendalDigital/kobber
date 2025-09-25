@@ -1,18 +1,19 @@
-import { CSSResultGroup, html } from "lit";
+import { type CSSResultGroup, html } from "lit";
 import { property } from "lit/decorators.js";
-import { dividerClassnames, DividerProps, DividerVariant } from "./Divider.core";
+import { dividerClassnames, type DividerProps } from "./Divider.core";
 import { dividerStyles } from "./Divider.styles";
 import KobberElement from "../base/kobber-element";
 import { customElement } from "../base/utilities/customElementDecorator";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 @customElement("kobber-divider")
 export class Divider extends KobberElement implements DividerProps {
   @property({ type: String, attribute: "color-variant" })
-  colorVariant: DividerProps["colorVariant"] = "main";
+  colorVariant: DividerProps["colorVariant"] = "tone-a";
 
   static styles: CSSResultGroup = [dividerStyles];
 
   render() {
-    return html`<div class="${dividerClassnames().join(" ")}" data-color-variant="${this.colorVariant}"></div> `;
+    return html`<div class="${dividerClassnames().join(" ")}" data-color-variant="${ifDefined(this.colorVariant)}"></div> `;
   }
 }

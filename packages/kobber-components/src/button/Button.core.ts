@@ -1,4 +1,4 @@
-import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { objectKeys } from "../base/utilities/objectKeys";
 
 type ButtonComputedProps = {
@@ -14,20 +14,20 @@ const buttonDefaultColorLevels = [
 ];
 const buttonDefaultColorVariants = objectKeys(component.button.background.color.brand.secondary);
 
-const buttonUiColorThemes = objectKeys(component["ui-button"]["background"]["color"]);
-const buttonUiColorVariants = objectKeys(component["ui-button"]["background"]["color"].informative);
+const buttonUiColorThemes = objectKeys(component["ui-button"].background.color);
+const buttonUiColorVariants = objectKeys(component["ui-button"].background.color.informative);
 
-const buttonThemeColorThemes = objectKeys(component["theme-button"]["background"]["color"]);
+const buttonThemeColorThemes = objectKeys(component["theme-button"].background.color);
 const buttonThemeColorLevels = [
-  ...objectKeys(component["theme-button"].background.color.carmine),
-  ...objectKeys(component["theme-button"].border.color.carmine),
+  ...objectKeys(component["theme-button"].background.color.nostalgia),
+  ...objectKeys(component["theme-button"].border.color.nostalgia),
 ];
-const buttonThemeColorVariants = objectKeys(component["theme-button"]["background"]["color"].carmine.primary);
+const buttonThemeColorVariants = objectKeys(
+  component["theme-button"].background.color.nostalgia.primary,
+);
 
-type ButtonColorProperties = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key in ButtonType]: any[];
-};
+export const labelColorThemes = objectKeys(universal["text-label"].text.color);
+export const labelColorVariants = objectKeys(!labelColorThemes[0]);
 
 export const buttonName = "kobber-button";
 
@@ -80,7 +80,9 @@ export type ButtonProps = {
 export const buttonTypes: ButtonType[] = ["button", "ui-button", "theme-button"];
 export type ButtonType = "button" | "ui-button" | "theme-button";
 
-export type ButtonColorLevel = (typeof buttonDefaultColorLevels)[number] | (typeof buttonThemeColorLevels)[number];
+export type ButtonColorLevel =
+  | (typeof buttonDefaultColorLevels)[number]
+  | (typeof buttonThemeColorLevels)[number];
 
 export type ButtonColorTheme =
   | (typeof buttonDefaultColorThemes)[number]
@@ -101,6 +103,10 @@ export type ButtonClassNames =
   | "kobber-button--used-in-other-interactive"
   | "kobber-button--link"
   | "kobber-button--inlined";
+
+export type ButtonColorProperties = {
+  [key in ButtonType]: string[];
+};
 
 export const buttonColorLevels: ButtonColorProperties = {
   button: buttonDefaultColorLevels,

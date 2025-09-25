@@ -27,7 +27,7 @@ ${typographyMap.family}: var(${unsafeCSS(defaultOverride?.family ?? universal["t
 ${typographyMap.weight}: var(${unsafeCSS(defaultOverride?.weight ?? universal["text-body"].text.weight)});
 ${typographyMap.lineHeight}: var(${unsafeCSS(defaultOverride?.lineHeight ?? universal["text-body"].text["line-height"].brand.medium.short)});
 ${typographyMap.color}: var(${unsafeCSS(defaultOverride?.color ?? universal["text-body"].text.color.brand["tone-a"])});
-${typographyMap.highlight}: var(${unsafeCSS(defaultOverride?.highlight ?? universal["text-display-extended"].extended.text.color)});
+${typographyMap.highlight}: var(${unsafeCSS(defaultOverride?.highlight ?? universal["text-display"].extended.text.color)});
 
 em,
 ::slotted(em) {

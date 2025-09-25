@@ -1,11 +1,11 @@
 import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import {
-  ButtonClassNames,
-  ButtonColorLevel,
-  ButtonColorTheme,
-  ButtonColorVariant,
-  ButtonType,
+  type ButtonClassNames,
+  type ButtonColorLevel,
+  type ButtonColorTheme,
+  type ButtonColorVariant,
+  type ButtonType,
   buttonTypes,
   buttonColorLevels,
   buttonColorVariants,
@@ -111,14 +111,27 @@ const getTypeThemeVariantLevelStyles = () => {
     ${unsafeCSS(
       buttonTypes
         .flatMap((buttonType: ButtonType) =>
-          buttonColorThemes[buttonType].flatMap((colorTheme: ButtonColorTheme) =>
+          buttonColorThemes[buttonType].flatMap(colorTheme =>
             buttonColorVariants[buttonType].flatMap(colorVariant => {
               if (buttonColorLevels[buttonType].length > 0) {
                 return buttonColorLevels[buttonType].flatMap(colorLevel =>
-                  getColorStyles(buttonType, component, colorTheme, colorVariant, colorLevel),
+                  getColorStyles(
+                    buttonType,
+                    component,
+                    universal,
+                    colorTheme as ButtonColorTheme,
+                    colorVariant as ButtonColorVariant,
+                    colorLevel as ButtonColorLevel,
+                  ),
                 );
               } else {
-                return getColorStyles(buttonType, component, colorTheme, colorVariant);
+                return getColorStyles(
+                  buttonType,
+                  component,
+                  universal,
+                  colorTheme as ButtonColorTheme,
+                  colorVariant as ButtonColorVariant,
+                );
               }
             }),
           ),
@@ -140,33 +153,42 @@ const hover = (hoverColor: string, fallbackColor: string) => css`
 
 const getColorStyles = (
   buttonType: ButtonType,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint: tokens can really be of any type.
   component: any,
+  // biome-ignore lint: tokens can really be of any type.
+  universal: any,
   colorTheme: ButtonColorTheme,
   colorVariant: ButtonColorVariant,
   colorLevel?: ButtonColorLevel,
 ) => {
-  if (!isValidPropCombination(buttonType, component, colorTheme, colorVariant, colorLevel)) {
+  if (
+    !isValidPropCombination(buttonType, component, universal, colorTheme, colorVariant, colorLevel)
+  ) {
     return;
   }
 
-  let textColor, backgroundColor, borderColor;
+  const textColorVariant = colorVariant === "tone-a" ? "tone-b" : "tone-a";
+
+  let backgroundColor: { hover: string; fallback: string },
+    borderColor: { hover: string; active: string };
+  const textColor = universal["text-label"]?.text.color[colorTheme]?.[textColorVariant];
+
   if (colorLevel) {
-    textColor =
-      component[buttonType].text.color?.[colorTheme]?.[colorLevel]?.[colorVariant] ??
-      component[buttonType].text.color?.[colorTheme]?.[colorLevel];
-    backgroundColor = component[buttonType].background?.color?.[colorTheme]?.[colorLevel]?.[colorVariant];
-    borderColor = component[buttonType].border?.color?.[colorTheme]?.[colorLevel]?.[colorVariant];
+    backgroundColor =
+      component[buttonType].background?.color?.[colorTheme]?.[colorLevel]?.[colorVariant];
+    borderColor = component[buttonType]?.border?.color?.[colorTheme]?.[colorLevel]?.[colorVariant];
   } else {
-    textColor = component[buttonType].text.color?.[colorTheme]?.[colorVariant];
     backgroundColor = component[buttonType].background?.color?.[colorTheme]?.[colorVariant];
-    borderColor = component[buttonType].border?.color?.[colorTheme]?.[colorVariant];
+    borderColor = component[buttonType]?.border?.color?.[colorTheme]?.[colorVariant];
   }
 
   let selectorString = `&[data-button-type="${buttonType}"][data-color-variant="${colorVariant}"][data-color-theme="${colorTheme}"]`;
   if (colorLevel) {
     selectorString += `[data-color-level="${colorLevel}"]`;
   }
+  console.info(
+    `getColorStyles - selectorString: ${selectorString} - bgColor: ${backgroundColor?.fallback}`,
+  );
 
   return css`
     ${unsafeCSS(`

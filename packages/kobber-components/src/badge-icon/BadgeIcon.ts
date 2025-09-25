@@ -1,23 +1,23 @@
 import { property } from "lit/decorators.js";
-import { badgeIconName, BadgeIconProps } from "./BadgeIcon.core";
-import { CSSResultGroup, html, LitElement } from "lit";
+import * as BadgeIconCore from "./BadgeIcon.core";
+import { type CSSResultGroup, html, LitElement } from "lit";
 import componentStyles from "../base/styles/component.styles";
 import { badgeIconStyles } from "./BadgeIcon.styles";
 import { customElement } from "../base/utilities/customElementDecorator";
 import { ifDefined } from "lit/directives/if-defined.js";
 
-@customElement(badgeIconName)
-export class BadgeIcon extends LitElement implements BadgeIconProps {
+@customElement(BadgeIconCore.badgeIconName)
+export class BadgeIcon extends LitElement implements BadgeIconCore.BadgeIconProps {
   static styles: CSSResultGroup = [componentStyles, badgeIconStyles];
 
   @property({ attribute: "color-theme" })
-  colorTheme: BadgeIconProps["colorTheme"] = "aubergine";
+  colorTheme: BadgeIconCore.BadgeIconProps["colorTheme"] = "brand";
 
   @property({ attribute: "color-variant" })
-  colorVariant: BadgeIconProps["colorVariant"] = "main";
+  colorVariant: BadgeIconCore.BadgeIconProps["colorVariant"] = "tone-a";
 
   @property()
-  size?: BadgeIconProps["size"] = "medium";
+  size?: BadgeIconCore.BadgeIconProps["size"] = "medium";
 
   connectedCallback() {
     super.connectedCallback();
@@ -25,7 +25,7 @@ export class BadgeIcon extends LitElement implements BadgeIconProps {
 
   render() {
     return html` <div
-      class="${badgeIconName}"
+      class="${BadgeIconCore.badgeIconName}"
       data-color-variant="${ifDefined(this.colorVariant)}"
       data-color-theme="${ifDefined(this.colorTheme)}"
       data-size="${ifDefined(this.size)}"
