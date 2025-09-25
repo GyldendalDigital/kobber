@@ -147,7 +147,7 @@ export default meta;
 
 export const Button: StoryObj<Args> = {
   args: {
-    text: "Button text",
+    text: "Button <em>text</em>",
     colorTheme: allButtonColorThemes[0],
     colorLevel: allButtonColorLevels[0],
     colorVariant: allButtonColorVariants[0],
@@ -289,7 +289,7 @@ const renderButton = (args: Args) => {
   href=${link ? "#" : undefined}
   target=${link ? "_blank" : undefined}
 >
-  ${text ? text : ""}
+  ${text ? unsafeStatic(text) : ""}
   ${icon !== undefined && iconPosition !== "none" ? html`<${unsafeStatic(icon)} slot='icon' />` : ""}
 </kobber-button>
 `;
