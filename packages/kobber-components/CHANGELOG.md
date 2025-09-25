@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.6.6
+
+### Patch Changes
+
+- New components Display, Title, TextLabel and TextBody
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.6
+  - @gyldendal/kobber-icons@0.6.6
+
 ## 0.6.5
 
 ### Patch Changes
