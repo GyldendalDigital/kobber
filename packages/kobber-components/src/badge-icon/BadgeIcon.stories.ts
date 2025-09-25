@@ -11,7 +11,6 @@ import {
 import "@gyldendal/kobber-icons/web-components";
 import "../theme-context-provider/ThemeContext";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
-import { ifDefined } from "lit/directives/if-defined.js";
 import { init as initComponents } from "../base/init";
 
 initComponents();
@@ -61,9 +60,9 @@ const renderBadgeIcon = (args: Args) => {
   const { size, text, colorTheme, colorVariant } = args;
 
   return html` <kobber-badge-icon
-    size=${ifDefined(size)}
-    color-theme="${ifDefined(colorTheme)}"
-    color-variant="${ifDefined(colorVariant)}"
+    size=${size}
+    color-theme=${colorTheme}
+    color-variant=${colorVariant}
   >
     <kobber-pin slot="icon"></kobber-pin>
     <span>${text}</span>

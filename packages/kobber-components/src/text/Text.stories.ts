@@ -39,7 +39,6 @@ initIcons();
 
 const meta: Meta = {
   title: "Styles and Foundation/Text",
-  decorators: [(Story, context) => html`<div class="${context.globals.theme}">${Story()}</div>`],
   parameters: {
     layout: "centered",
   },

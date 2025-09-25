@@ -9,7 +9,6 @@ import {
   badgeSizes,
 } from "./Badge.core";
 import "../theme-context-provider/ThemeContext";
-import { ifDefined } from "lit/directives/if-defined.js";
 import { init as initComponents } from "../base/init";
 
 initComponents();
@@ -66,7 +65,7 @@ const renderBadge = (args: Args) => {
     size=${size}
     color-theme=${colorTheme}
     color-variant=${colorVariant}
-    show-status-circle=${ifDefined(showStatusCircle ? "true" : undefined)}
+    ?show-status-circle=${showStatusCircle}
   >
     ${text}
   </kobber-badge>`;

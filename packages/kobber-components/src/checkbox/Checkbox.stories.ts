@@ -24,11 +24,6 @@ interface Args extends Omit<InputProps, "checked"> {
 const meta: Meta = {
   title: "Base/Inputs/Checkbox",
   component: "kobber-checkbox",
-  decorators: [
-    (Story, context) => html`
-      <kobber-theme-context theme-id=${context.globals.theme}> ${Story()} </kobber-theme-context>
-    `,
-  ],
 };
 
 export default meta;

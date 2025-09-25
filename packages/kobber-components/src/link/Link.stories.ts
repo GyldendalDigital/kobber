@@ -3,7 +3,6 @@ import "./Link";
 import "@gyldendal/kobber-icons/web-components";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { html } from "lit";
-import { ifDefined } from "lit/directives/if-defined.js";
 import { init as initComponents } from "../base/init";
 import { getPrintedState, linkStates } from "../story/linkStates";
 import { type LinkProps, linkTypes } from "./Link.core";
@@ -55,7 +54,7 @@ export const Link: StoryObj<Args> = {
               class="${state}"
               href=${state !== "disabled" ? "https://github.com/GyldendalDigital/kobber" : undefined}
               type="${args.type}"
-              icon-first="${ifDefined(args.icon === "left" ? true : undefined)}"
+              ?icon-first=${args.icon === "left"}
             >
               ${args.text || html`link ${getPrintedState(state)}`}
               ${args.icon !== "none" ? html`<kobber-arrow_right slot="icon" />` : ""}
@@ -65,7 +64,7 @@ export const Link: StoryObj<Args> = {
               class="${state}"
               onClick="alert('Hello world!')"
               type="${args.type}"
-              icon-first="${ifDefined(args.icon === "left" ? true : undefined)}"
+              ?icon-first=${args.icon === "left"}
             >
               ${args.text || html`button ${getPrintedState(state)}`}
               ${args.icon !== "none" ? html`<kobber-arrow_right slot="icon" />` : ""}

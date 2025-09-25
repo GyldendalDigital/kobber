@@ -20,7 +20,6 @@ import "@gyldendal/kobber-icons/web-components";
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { iconsList } from "@gyldendal/kobber-icons/symbols/kobber-icons-lists.ts";
 import type { IconType } from "@gyldendal/kobber-icons/symbols/kobber-icons-types.ts";
-import { ifDefined } from "lit/directives/if-defined.js";
 import { html, unsafeStatic } from "lit/static-html.js";
 import { isValidPropCombination } from "../base/internal/buttonUtils";
 
@@ -284,11 +283,11 @@ const renderButton = (args: Args) => {
   color-variant="${colorVariant}" 
   type="${type ? type : "button"}"
   aria-label="#"
-  disabled="${ifDefined(state === "disabled" ? true : undefined)}" 
-  icon-first=${ifDefined(iconPosition === "left" ? true : undefined)}
-  full-width=${ifDefined(fullWidth ? true : undefined)}
-  href=${ifDefined(link ? "#" : undefined)}
-  target=${ifDefined(link ? "_blank" : undefined)}
+  ?disabled=${state === "disabled"}
+  ?icon-first=${iconPosition === "left"}
+  ?full-width=${fullWidth}
+  href=${link ? "#" : undefined}
+  target=${link ? "_blank" : undefined}
 >
   ${text ? text : ""}
   ${icon !== undefined && iconPosition !== "none" ? html`<${unsafeStatic(icon)} slot='icon' />` : ""}

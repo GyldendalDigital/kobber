@@ -22,10 +22,6 @@ const meta: Meta<Args> = {
   args: {
     hasManyItems: true,
   },
-  decorators: [
-    (story, storyContext) =>
-      html`<kobber-theme-context theme-id=${storyContext.globals.theme}>${story()}</kobber-theme-context>`,
-  ],
 };
 
 export default meta;
