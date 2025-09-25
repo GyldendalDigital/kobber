@@ -27,9 +27,8 @@ const meta: Meta = {
 };
 
 export default meta;
-type Story = StoryObj;
 
-export const Themes: Story = {
+export const Themes: StoryObj<Args> = {
   render: args => {
     return html`
       <style>
@@ -135,8 +134,9 @@ const renderButton = (
       style="${lastStyles}"
       class="${className}"
       color-theme="${colorTheme}"
-      ${checked ? (checked === "indeterminate" ? "indeterminate" : "checked") : ""}
-      ${state === "disabled" ? "disabled" : ""}
+      ?indeterminate=${checked === "indeterminate"}
+      ?checked=${checked === true}
+      ?disabled=${state === "disabled"}
     >
       ${text}
     </kobber-checkbox-input>
@@ -146,15 +146,16 @@ const renderButton = (
 /**
  * For some reason, page need to be reloaded for controls to come into effect.
  */
-export const Checkbox: Story = {
+export const Checkbox: StoryObj<Args & { showAlert: boolean }> = {
   render: args => {
     return html`
       <kobber-checkbox-input 
-        color-theme="success" 
-        ${args.disabled ? "disabled" : ""}
-        ${args.checked}
         name="studentoption"
         id-value="totalpoints"
+        color-theme="success" 
+        ?indeterminate=${args.checked === "indeterminate"}
+        ?checked=${args.checked === "checked"}
+        ?disabled=${args.disabled}
       >
         <span>Vis ukas totalpoeng</span>
         ${args.showHelpText ? html`<span slot="help-text" style="font-style: italic;color:gray;">Læreren din har skrudd ${args.disabled ? "av" : "på"} denne innstillingen.</span>` : ""}
@@ -176,7 +177,9 @@ export const Checkbox: Story = {
   },
 };
 
-export const GNOExample: Story = {
+export const GNOExample: StoryObj<
+  Args & { showGroupHelpText: boolean; orientation: string; type: string }
+> = {
   render: args => {
     return html`
       <style>
