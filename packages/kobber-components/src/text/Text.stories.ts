@@ -10,29 +10,29 @@ import "./lead/Lead";
 import "./text-link/TextLink";
 import {
   headingColors,
-  headingSizes,
   headingColorVariants,
   headingFonts,
+  headingSizes,
 } from "./heading/Heading.core";
 import "@gyldendal/kobber-icons/web-components";
-import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
+import { init as initComponents } from "../base/init";
 import { getPrintedState, linkStates } from "../story/linkStates";
-import { leadColors, leadColorVariants } from "./lead/Lead.core";
 import { displayFonts, displaySizes } from "./display/Display.core";
-import { titleColors, titleColorVariants, titleFonts, titleSizes } from "./title/Title.core";
+import { leadColors, leadColorVariants } from "./lead/Lead.core";
 import {
   textBodyColors,
   textBodyColorVariants,
+  textBodyContexts,
   textBodyFonts,
   textBodySizes,
-  textBodyContexts,
 } from "./text-body/TextBody.core";
 import {
   textLabelColors,
   textLabelColorVariants,
   textLabelSizes,
 } from "./text-label/TextLabel.core";
+import { titleColors, titleColorVariants, titleFonts, titleSizes } from "./title/Title.core";
 
 initComponents();
 initIcons();
@@ -440,20 +440,17 @@ export const Link: Story = {
     icon: false,
   },
   render: args => {
-    return html`<div style="max-width: 600px;">
-      <kobber-text-wrapper>
+    return html`<div style="display: flex; flex-direction: column; gap: 1rem;">
         ${linkStates.map(state => {
-          return html`<p>
+          return html`
             <kobber-text-link
               class="${state}"
               href=${state !== "disabled" ? "https://github.com/GyldendalDigital/kobber" : ""}
             >
-              Lenke ${args.icon ? html`<kobber-external_link_arrow />` : null}
+              ${args.text || html`link ${args.icon ? html`<kobber-external_link_arrow />` : null} ${getPrintedState(state)}`}
             </kobber-text-link>
-            med tilstand ${getPrintedState(state)}
-          </p>`;
+          `;
         })}
-      </kobber-text-wrapper>
     </div>`;
   },
 };

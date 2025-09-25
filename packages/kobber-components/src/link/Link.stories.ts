@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import "./Link";
 import "@gyldendal/kobber-icons/web-components";
-import { LinkProps, linkTypes } from "./Link.core";
-import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
+import { html } from "lit";
+import { ifDefined } from "lit/directives/if-defined.js";
+import { init as initComponents } from "../base/init";
 import { getPrintedState, linkStates } from "../story/linkStates";
+import { type LinkProps, linkTypes } from "./Link.core";
 
 initComponents();
 initIcons();
@@ -28,7 +30,6 @@ const meta: Meta<Args> = {
       control: { type: "radio" },
     },
   },
-  decorators: [(Story, context) => `<div class="${context.globals.theme}">${Story()}</div>`],
   parameters: {
     layout: "centered",
   },
@@ -46,43 +47,31 @@ export const Link: StoryObj<Args> = {
     icon: iconSettings[0],
   },
   render: args => {
-    return `<div style="max-width: 600px;">
-      <kobber-text-wrapper style="display: grid; gap: 1em;">
-        ${linkStates
-          .map(state => {
-            return `<p>
+    return html`
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        ${linkStates.map(state => {
+          return html`
             <kobber-link
               class="${state}"
               href=${state !== "disabled" ? "https://github.com/GyldendalDigital/kobber" : undefined}
               type="${args.type}"
-              ${args.icon === "left" ? "icon-first" : ""}
+              icon-first="${ifDefined(args.icon === "left" ? true : undefined)}"
             >
-              ${args.text || `Lenke med tilstand ${getPrintedState(state)}`}
-              ${args.icon !== "none" ? `<kobber-arrow_right slot="icon" />` : ""}
+              ${args.text || html`link ${getPrintedState(state)}`}
+              ${args.icon !== "none" ? html`<kobber-arrow_right slot="icon" />` : ""}
             </kobber-link>
-          </p>`;
-          })
-          .join("")}
-      </kobber-text-wrapper>
-      <br />
-      <br />
-      <kobber-text-wrapper style="display: grid; gap: 1em;">
-        ${linkStates
-          .map(state => {
-            return `<p>
+
             <kobber-link
               class="${state}"
               onClick="alert('Hello world!')"
               type="${args.type}"
-              ${args.icon === "left" ? "icon-first" : ""}
+              icon-first="${ifDefined(args.icon === "left" ? true : undefined)}"
             >
-              ${args.text || `Knapp med tilstand ${getPrintedState(state)}`}
-              ${args.icon !== "none" ? `<kobber-arrow_right slot="icon" />` : ""}
+              ${args.text || html`button ${getPrintedState(state)}`}
+              ${args.icon !== "none" ? html`<kobber-arrow_right slot="icon" />` : ""}
             </kobber-link>
-          </p>`;
-          })
-          .join("")}
-      </kobber-text-wrapper>
+          `;
+        })}
     </div>`;
   },
 };

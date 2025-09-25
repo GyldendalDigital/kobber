@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-import { listName, ListOrientations, type ListProps } from "./List.core";
+import { ListOrientations, type ListProps, listName } from "./List.core";
 import "./List";
 import "../theme-context-provider/ThemeContext";
-import { init as initComponents } from "../base/init";
 import { html } from "lit";
+import { init as initComponents } from "../base/init";
 
 initComponents();
 
@@ -81,7 +81,7 @@ export const Lists: StoryObj<Args> = {
 
 const getNamedSlot = (icon: string) =>
   icon === "lock"
-    ? `<kobber-lock_locked slot="icon" />`
+    ? html`<kobber-lock_locked slot="icon" />`
     : icon === "label"
-      ? `<small slot="icon" style="color:red;font-size:10px">kommer</small>`
+      ? html`<small slot="icon" style="color:red;font-size:10px">kommer</small>`
       : "";

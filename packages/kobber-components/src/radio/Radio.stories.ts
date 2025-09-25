@@ -2,9 +2,10 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import "./radio-input/RadioInput";
 import "./radio-group/RadioGroup";
 import { primitives } from "@gyldendal/kobber-base/themes/default/tokens.js";
-import { inputColorThemes, InputProps, radioInputName } from "./Radio.core";
+import { type GroupProps, type InputProps, inputColorThemes, radioInputName } from "./Radio.core";
 import "../text/heading/Heading";
 import "../theme-context-provider/ThemeContext";
+import { html } from "lit";
 import { init as initComponents } from "../base/init";
 
 initComponents();
@@ -14,12 +15,8 @@ const states: { [key: string]: string[] }[] = [
   { "not focus": ["idle", "hover", "active", "disabled"] },
   { focus: ["idle", "hover", "active"] },
 ] as const;
-enum Direction {
-  horizontal = "horizontal",
-  vertical = "vertical",
-}
 
-const helpTextElement = `<p slot="help-text">
+const helpTextElement = html`<p slot="help-text">
   Vi anbefaler <em>lydbok</em> (ref <a href="https://vg.no">VG</a>).
 </p>`;
 
@@ -28,7 +25,7 @@ interface Args extends InputProps {
   state: string;
   link: boolean;
   currentValue: (typeof formats)[number];
-  direction: Direction;
+  direction: GroupProps["direction"];
   showHelpText: boolean;
   showLabel: boolean;
 }
@@ -36,20 +33,12 @@ interface Args extends InputProps {
 const meta: Meta<Args> = {
   title: "Base/Inputs/Radio",
   component: radioInputName,
-  decorators: [
-    (Story, context) => `
-      <kobber-theme-context theme-id=${context.globals.theme}>
-        ${Story()}
-      </kobber-theme-context>
-      `,
-  ],
 };
 export default meta;
-type Story = StoryObj;
 
-export const Themes: Story = {
+export const Themes: StoryObj<Args> = {
   render: args => {
-    return `
+    return html`
       <style>
         :root {
           padding: 0.5rem;
@@ -85,20 +74,18 @@ export const Themes: Story = {
       </style>
 
       <ol>
-        ${inputColorThemes
-          .map(colorTheme =>
-            renderColorTheme({
-              colorTheme,
-              state: "idle",
-              text: "idle",
-              link: false,
-              currentValue: args.currentValue,
-              direction: args.direction,
-              showHelpText: args.showHelpText,
-              showLabel: args.showLabel,
-            }),
-          )
-          .join("")}
+        ${inputColorThemes.map(colorTheme =>
+          renderColorTheme({
+            colorTheme,
+            state: "idle",
+            text: "idle",
+            link: false,
+            currentValue: args.currentValue,
+            direction: args.direction,
+            showHelpText: args.showHelpText,
+            showLabel: args.showLabel,
+          }),
+        )}
         </ol>
     `;
   },
@@ -113,35 +100,31 @@ const renderColorTheme = (args: Args) => {
     return;
   }
 
-  return `<li>${colorTheme}
-  <ol class="focusedOrNot">${states
-    .map(focusState =>
-      Object.keys(focusState).map(key => {
-        let focus = "";
-        const focusedOrNot = key;
-        if (focusedOrNot === "focus") {
-          focus = "focus";
-        }
-        return `<li class="states"><span class="focusedOrNot-title">${focusedOrNot}:</span> ${checkedOrNot
-          .map(checked => {
-            if (typeof focusState[focusedOrNot] === "undefined") return;
-            const length = focusState[focusedOrNot].length;
+  return html`<li>${colorTheme}
+  <ol class="focusedOrNot">${states.map(focusState =>
+    Object.keys(focusState).map(key => {
+      let focus = "";
+      const focusedOrNot = key;
+      if (focusedOrNot === "focus") {
+        focus = "focus";
+      }
+      return html`<li class="states"><span class="focusedOrNot-title">${focusedOrNot}:</span> ${checkedOrNot.map(
+        checked => {
+          if (typeof focusState[focusedOrNot] === "undefined") return html``;
+          const length = focusState[focusedOrNot].length;
 
-            return `${focusState[focusedOrNot]
-              .map((state, index) => {
-                let last = false;
-                if (index === length - 1) {
-                  last = true;
-                }
-                return renderButton({ ...args, focus, state, text: state, checked, last });
-              })
-              .join("")}`;
-          })
-          .join("")}
+          return html`${focusState[focusedOrNot].map((state, index) => {
+            let last = false;
+            if (index === length - 1) {
+              last = true;
+            }
+            return renderButton({ ...args, focus, state, text: state, checked, last });
+          })}`;
+        },
+      )}
           </li>`;
-      }),
-    )
-    .join("")}
+    }),
+  )}
   </ol></li>`;
 };
 
@@ -155,7 +138,7 @@ const renderButton = (
   const { colorTheme, focus, state, text, link, checked, last } = args;
   const className = `${focus} ${state}`;
   const lastStyles = last ? `grid-column: -1` : "";
-  return `
+  return html`
 <kobber-radio-input 
   style="${lastStyles}"
   class="${className}" 
@@ -168,9 +151,9 @@ const renderButton = (
 `;
 };
 
-export const GNOExample: Story = {
+export const GNOExample: StoryObj<Args> = {
   render: args => {
-    return `
+    return html`
       <style>
         :root {
           padding: 0.5rem;
@@ -252,9 +235,9 @@ export const GNOExample: Story = {
   },
 };
 
-export const SkolestudioExamples: Story = {
+export const SkolestudioExamples: StoryObj<Args> = {
   render: args => {
-    return `
+    return html`
       <style>
         :root {
           padding: 0.5rem;

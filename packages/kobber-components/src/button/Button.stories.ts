@@ -1,25 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import {
-  ButtonColorLevel,
-  ButtonProps,
-  ButtonColorTheme,
-  ButtonColorVariant,
-  buttonName,
-  ButtonType,
-  buttonColorVariants,
+  type ButtonColorLevel,
+  type ButtonColorTheme,
+  type ButtonColorVariant,
+  type ButtonProps,
+  type ButtonType,
   buttonColorLevels,
   buttonColorThemes,
+  buttonColorVariants,
+  buttonName,
   buttonTypes,
 } from "./Button.core";
 import "./Button";
 import "../text/heading/Heading";
 import "../theme-context-provider/ThemeContext";
-import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
+import { init as initComponents } from "../base/init";
 import "@gyldendal/kobber-icons/web-components";
-import { IconType } from "@gyldendal/kobber-icons/symbols/kobber-icons-types.ts";
-import { iconsList } from "@gyldendal/kobber-icons/symbols/kobber-icons-lists.ts";
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { iconsList } from "@gyldendal/kobber-icons/symbols/kobber-icons-lists.ts";
+import type { IconType } from "@gyldendal/kobber-icons/symbols/kobber-icons-types.ts";
+import { ifDefined } from "lit/directives/if-defined.js";
+import { html, unsafeStatic } from "lit/static-html.js";
 import { isValidPropCombination } from "../base/internal/buttonUtils";
 
 initComponents();
@@ -101,7 +103,7 @@ const meta: Meta<Args> = {
     icon: "kobber-arrow_right",
   },
   decorators: [
-    (Story, context) => `
+    (story, _) => html`
       <style>
       .level-group {
         display: flex;
@@ -137,9 +139,7 @@ const meta: Meta<Args> = {
         }
       }
     </style>
-    <kobber-theme-context theme-id=${context.globals.theme}>
-      ${Story()}
-    </kobber-theme-context>
+    ${story()}
     `,
   ],
 };
@@ -148,7 +148,7 @@ export default meta;
 
 export const Button: StoryObj<Args> = {
   args: {
-    text: "Button <em>text</em>",
+    text: "Button text",
     colorTheme: allButtonColorThemes[0],
     colorLevel: allButtonColorLevels[0],
     colorVariant: allButtonColorVariants[0],
@@ -158,7 +158,7 @@ export const Button: StoryObj<Args> = {
   },
   render: args => renderButton(args),
   decorators: [
-    Story => `
+    story => html`
     <style>
       .narrow-cointainer {
         display: flex;
@@ -168,7 +168,7 @@ export const Button: StoryObj<Args> = {
       }
     </style>
     <div class="narrow-cointainer">
-      ${Story()}
+      ${story()}
       <div class="wide-sibling"></div>
     </div>
     `,
@@ -215,14 +215,12 @@ const renderAllColors = (args: Args) => {
   const colorLevels = buttonColorLevels[args.type];
 
   if (colorLevels.length > 0) {
-    return colorLevels
-      .flatMap(colorLevel => {
-        args = { ...args, colorLevel };
-        return `<div class="level-group">
+    return html`${colorLevels.flatMap(colorLevel => {
+      args = { ...args, colorLevel };
+      return html`<div class="level-group">
         <kobber-heading level="h1" size="medium">color-level: ${colorLevel}</kobber-heading>
       ${renderThemeAndVariantColors(args)}</div>`;
-      })
-      .join("");
+    })}`;
   }
   return renderThemeAndVariantColors(args);
 };
@@ -231,15 +229,21 @@ const renderThemeAndVariantColors = (args: Args) => {
   const colorThemes = buttonColorThemes[args.type];
   const colorVariants = buttonColorVariants[args.type];
 
-  return colorThemes
-    .flatMap(
-      colorTheme => `<div class="wrapper-variant">
+  return html`${colorThemes.flatMap(
+    colorTheme => html`<div class="wrapper-variant">
       <kobber-heading level="h2" size="medium" style="grid-area: theme;">color-theme: ${colorTheme}</kobber-heading>
-      ${colorVariants
-        .flatMap((colorVariant, index) => {
-          args = { ...args, colorTheme, colorVariant };
-          if (isValidPropCombination(args.type, component, args.colorTheme, args.colorVariant, args.colorLevel)) {
-            return `<span class="group-title" style="grid-area: variant-${index};">color-variant: ${colorVariant}</span>
+      ${colorVariants.flatMap((colorVariant, index) => {
+        args = { ...args, colorTheme, colorVariant };
+        if (
+          isValidPropCombination(
+            args.type,
+            component,
+            args.colorTheme,
+            args.colorVariant,
+            args.colorLevel,
+          )
+        ) {
+          return html`<span class="group-title" style="grid-area: variant-${index};">color-variant: ${colorVariant}</span>
             <div class="wrapper-buttons" style="grid-area: button-group-${index};">
               <div style="grid-area: buttons-iconRight-${index};">
                 ${states.map(state => renderButton({ ...args, state, text: state })).join("")}
@@ -251,31 +255,43 @@ const renderThemeAndVariantColors = (args: Args) => {
                 ${states.map(state => renderButton({ ...args, state })).join("")}
               </div>
             </div>`;
-          }
-          return;
-        })
-        .join("")}</div>`,
-    )
-    .join("");
+        } else {
+          return html``;
+        }
+      })}</div>`,
+  )}`;
 };
 
 const renderButton = (args: Args) => {
-  const { type, colorLevel, colorTheme, colorVariant, state, icon, iconPosition, text, link, fullWidth } = args;
+  const {
+    type,
+    colorLevel,
+    colorTheme,
+    colorVariant,
+    state,
+    icon,
+    iconPosition,
+    text,
+    link,
+    fullWidth,
+  } = args;
 
-  return `
+  return html`
 <kobber-button 
   class="${state}" 
-  color-theme="${String(colorTheme)}" 
-  color-level="${String(colorLevel)}" 
-  color-variant="${String(colorVariant)}" 
+  color-theme="${colorTheme}" 
+  color-level="${colorLevel}" 
+  color-variant="${colorVariant}" 
   type="${type ? type : "button"}"
   aria-label="#"
-  ${state === "disabled" ? "disabled" : ""} 
-  ${iconPosition === "left" ? "icon-first" : ""} 
-  ${fullWidth ? "full-width" : ""} 
-  ${link ? "href='#' target='_blank'" : ""}>
+  disabled="${ifDefined(state === "disabled" ? true : undefined)}" 
+  icon-first=${ifDefined(iconPosition === "left" ? true : undefined)}
+  full-width=${ifDefined(fullWidth ? true : undefined)}
+  href=${ifDefined(link ? "#" : undefined)}
+  target=${ifDefined(link ? "_blank" : undefined)}
+>
   ${text ? text : ""}
-  ${icon !== undefined && iconPosition !== "none" ? `<${icon} slot='icon' />` : ""}
+  ${icon !== undefined && iconPosition !== "none" ? html`<${unsafeStatic(icon)} slot='icon' />` : ""}
 </kobber-button>
 `;
 };
