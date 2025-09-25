@@ -6,7 +6,7 @@ import "./HorizontalLayout";
 import "./HorizontalLayoutColumn";
 import { init as initComponents } from "../../base/init";
 import { exampleIrregular } from "../../carousel/story/example";
-import { globalStyles } from "../../story/globalStyles";
+import { obsoleteStyles } from "../../story/obsoleteStyles";
 import { maxColumns } from "./HorizontalLayout.config";
 import { renderIndicators } from "./story/renderIndicators";
 
@@ -50,6 +50,6 @@ export const HorizontalLayoutStory: StoryObj = {
   name: "HorizontalLayout",
   render,
   play: ({ canvasElement }) => initIndicators(canvasElement),
-  decorators: [story => html`${globalStyles}${story()}`],
+  decorators: [story => html`${obsoleteStyles}${story()}`],
   parameters: { layout: "fullscreen" },
 };

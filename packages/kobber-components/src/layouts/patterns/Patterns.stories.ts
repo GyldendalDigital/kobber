@@ -7,7 +7,7 @@ import {
 } from "../../carousel/story/example";
 import { example as cardLayoutExample } from "../card-layout/story/example";
 import "../story/ExampleSurface";
-import { globalStyles } from "../../story/globalStyles";
+import { obsoleteStyles } from "../../story/obsoleteStyles";
 import "../../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../../base/init";
 
@@ -56,6 +56,6 @@ const render = (args: Args) => {
 export const GridStory: StoryObj<Args> = {
   render,
   name: "Page",
-  decorators: [story => html`${globalStyles}${story()}`],
+  decorators: [story => html`${obsoleteStyles}${story()}`],
   parameters: { layout: "fullscreen" },
 };

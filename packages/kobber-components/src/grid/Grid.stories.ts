@@ -3,12 +3,12 @@ import { html } from "lit";
 import "./Grid";
 import "./GridColumn";
 import "./GridColumnAspectRatio";
+import type { GridConfigId } from "./config/types";
 import { gridConfigs } from "./Grid.config";
-import { GridConfigId } from "./config/types";
 import "./story/ExampleCard";
-import { renderIndicators } from "./story/renderIndicators";
-import { globalStyles } from "../story/globalStyles";
 import { init as initComponents } from "../base/init";
+import { obsoleteStyles } from "../story/obsoleteStyles";
+import { renderIndicators } from "./story/renderIndicators";
 
 initComponents();
 
@@ -103,7 +103,7 @@ const render = (args: Args) => {
 export const GridStory: Story = {
   render,
   name: "Grid",
-  decorators: [story => html`${globalStyles}${story()}`],
+  decorators: [story => html`${obsoleteStyles}${story()}`],
   parameters: { layout: "fullscreen" },
   args: { gridConfig: gridConfigIds[0] },
 };
