@@ -2,10 +2,10 @@ import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import {
   inputColorThemes,
-  InputClassNames,
-  InputColorTheme,
-  InputLabelClassNames,
-  InputControlPartNames,
+  type InputClassNames,
+  type InputColorTheme,
+  type InputLabelClassNames,
+  type InputControlPartNames,
 } from "../Radio.core";
 import { getTypographyStyles } from "../../base/getTypographyStyles2";
 
@@ -93,10 +93,8 @@ const inputStates = () => {
       opacity: var(${unsafeCSS(universal.disabled.container.opacity)});
       cursor: auto;
     }
-
+    
     :host(.focus) &,
-    :host(:focus) &,
-    :host(.focus-visible) &,
     :host(:focus-visible) & {
       :host(:not(.disabled, [disabled])) & {
         outline: none;

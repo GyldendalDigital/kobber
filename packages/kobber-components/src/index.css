@@ -1378,8 +1378,7 @@
     }
 
     :host(.focus) &,
-    :host(:focus) &,
-    :host(.focus-visible) & :host(:focus-visible) & {
+    &:has(> input:focus-visible) {
       :host(:not(.disabled, [disabled])) & {
         outline: none;
         box-shadow: 0 0 0 var(--kobber-universal-focus-border-width)
@@ -1426,8 +1425,7 @@
     }
 
     :host(.focus) &,
-    :host(:focus) &,
-    :host(.focus-visible) & :host(:focus-visible) & {
+    &:has(> input:focus-visible) {
       :host(:not(.disabled, [disabled])) & {
         outline: none;
         box-shadow: 0 0 0 var(--kobber-universal-focus-border-width)
@@ -2095,10 +2093,8 @@ em,
       opacity: var(--kobber-universal-disabled-container-opacity);
       cursor: auto;
     }
-
+    
     :host(.focus) &,
-    :host(:focus) &,
-    :host(.focus-visible) &,
     :host(:focus-visible) & {
       :host(:not(.disabled, [disabled])) & {
         outline: none;
