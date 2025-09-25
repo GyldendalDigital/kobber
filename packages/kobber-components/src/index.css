@@ -1502,6 +1502,175 @@
     }
   
 /* #endregion */
+/* #region ContentWrapper - contentWrapperStyles */ 
+
+    :host {
+      display: block;
+    }
+    .kobber-content-wrapper {
+      min-height: 5em;
+      border-radius: 1.5em;
+      overflow: auto; /* Applicable when max-height attribute is used. */
+      background-color: var(--content-wrapper-background-color);
+      
+            &[data-color="brand"] {
+              &[data-color-variant="tone-a"] {
+                --content-wrapper-background-color: #fdf9f9;
+              }
+            }
+          
+
+            &[data-color="brand"] {
+              &[data-color-variant="tone-b"] {
+                --content-wrapper-background-color: #481125;
+              }
+            }
+          
+
+            &[data-color="neutral"] {
+              &[data-color-variant="tone-a"] {
+                --content-wrapper-background-color: #f9fafb;
+              }
+            }
+          
+
+            &[data-color="neutral"] {
+              &[data-color-variant="tone-b"] {
+                --content-wrapper-background-color: #202429;
+              }
+            }
+          
+
+            &[data-color="transparent"] {
+              &[data-color-variant="tone-a"] {
+                --content-wrapper-background-color: transparent;
+              }
+            }
+          
+
+            &[data-color="transparent"] {
+              &[data-color-variant="tone-b"] {
+                --content-wrapper-background-color: transparent;
+              }
+            }
+          
+
+            &[data-color="nature"] {
+              &[data-color-variant="tone-a"] {
+                --content-wrapper-background-color: #d9e7d5;
+              }
+            }
+          
+
+            &[data-color="nature"] {
+              &[data-color-variant="tone-b"] {
+                --content-wrapper-background-color: #343a32;
+              }
+            }
+          
+
+            &[data-color="fantasy"] {
+              &[data-color-variant="tone-a"] {
+                --content-wrapper-background-color: #c1b9c4;
+              }
+            }
+          
+
+            &[data-color="fantasy"] {
+              &[data-color-variant="tone-b"] {
+                --content-wrapper-background-color: #28222a;
+              }
+            }
+          
+
+            &[data-color="thriller"] {
+              &[data-color-variant="tone-a"] {
+                --content-wrapper-background-color: #aec3c3;
+              }
+            }
+          
+
+            &[data-color="thriller"] {
+              &[data-color-variant="tone-b"] {
+                --content-wrapper-background-color: #0b2e3a;
+              }
+            }
+          
+
+            &[data-color="romance"] {
+              &[data-color-variant="tone-a"] {
+                --content-wrapper-background-color: #f9eaec;
+              }
+            }
+          
+
+            &[data-color="romance"] {
+              &[data-color-variant="tone-b"] {
+                --content-wrapper-background-color: #691837;
+              }
+            }
+          
+
+            &[data-color="vacation"] {
+              &[data-color-variant="tone-a"] {
+                --content-wrapper-background-color: #faebe6;
+              }
+            }
+          
+
+            &[data-color="vacation"] {
+              &[data-color-variant="tone-b"] {
+                --content-wrapper-background-color: #b02c13;
+              }
+            }
+          
+
+            &[data-color="nostalgia"] {
+              &[data-color-variant="tone-a"] {
+                --content-wrapper-background-color: #fdf9f6;
+              }
+            }
+          
+
+            &[data-color="nostalgia"] {
+              &[data-color-variant="tone-b"] {
+                --content-wrapper-background-color: #705b4a;
+              }
+            }
+          ;
+      max-width: 700px;
+
+      .content-wrapper-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 40px;
+        padding: 48px 56px 72px;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      &.full-width {
+        max-width: 100%;
+      }
+
+      .header, .div, ::slotted(div) {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+      }
+      
+      .top-block {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 16px;
+      }
+
+    }
+  
+/* #endregion */
 /* #region Display - displayStyles */ 
 
 .kobber-display {
