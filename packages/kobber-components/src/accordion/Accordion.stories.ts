@@ -1,11 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-import { accordionName } from "./Accordion.core";
+import { accordionName, type AccordionProps } from "./Accordion.core";
 import "../accordion/Accordion";
 import "../button/Button";
 import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
+import { html } from "lit";
 
 initComponents();
+
+interface Args extends AccordionProps {
+  title: string;
+  accordionCount: number;
+  itemText: string;
+  itemCount: number;
+  icon: "none" | "lock" | "label";
+}
 
 export default {
   title: "kobber.gyldendal.no/Accordion",
@@ -20,10 +29,6 @@ export default {
     itemText: {
       control: { type: "text" },
     },
-    itemElementType: {
-      options: ["none", "link", "button"],
-      control: { type: "select" },
-    },
     itemCount: {
       control: { type: "range", min: 0, max: 20 },
     },
@@ -33,63 +38,50 @@ export default {
     },
   },
   decorators: [
-    (Story, context) => `
-    <div style="height: 100vh;">
-      <kobber-theme-context theme-id=${context.globals.theme}>
-        ${Story()}
-      </kobber-theme-context>
+    (story, _) => html`
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        ${story()}
     </div>`,
   ],
   parameters: {
-    layout: "centered",
+    layout: "padded",
   },
-} satisfies Meta;
+} satisfies Meta<Args>;
 
-export const Accordion: StoryObj = {
+export const Accordion: StoryObj<Args> = {
   args: {
     title: "Accordion",
     accordionCount: 2,
     itemText: "Item",
-    itemElementType: "link",
     itemCount: 3,
     icon: "none",
   },
-  render: args => [...Array(args.accordionCount).keys()].map((_, i) => getAccordion(args, i)).join(""),
+  render: args =>
+    html`${[...Array(args.accordionCount).keys()].map((_, i) => getAccordion(args, i))}`,
 };
 
 const getAccordion = (args: StoryObj["args"], i: number) =>
-  args &&
-  `
-    <kobber-accordion title="${args.title + " " + (i + 1)}">
-      <div style="display: flex; flex-direction: column;">
-        ${[...Array(args.itemCount).keys()].map(i => getSlot(args, i)).join("")}
-      </div>
+  args
+    ? html`
+    <kobber-accordion title="${`${args.title} ${i + 1}`}">
+      ${[...Array(args.itemCount).keys()].map(i => getSlot(args, i))}
     </kobber-accordion>
-`;
+`
+    : html``;
 
 const getSlot = (args: StoryObj["args"], i: number) => {
   if (!args) return "";
 
-  if (args.itemElementType === "link") {
-    return (
-      args &&
-      `<kobber-list-item><a href="#" style="text-decoration:none;color:#481125ff">${args.itemText} ${i + 1}</a>${getNamedSlot(args.icon)}</kobber-list-item>`
-    );
-  }
-
-  if (args.itemElementType === "button") {
-    return (
-      args &&
-      `<kobber-list-item><kobber-button>${args.itemText} ${i + 1}</kobber-button>${getNamedSlot(args.icon)}</kobber-list-item>`
-    );
-  }
-
-  return `<span style="display: flex; justify-content: space-evenly;">${args.itemText} ${i + 1} ${getNamedSlot(args.icon)}</span>`;
+  return html`
+      <kobber-list-item>
+        ${args.itemText} ${i + 1}${getIconSlot(args.icon)}
+      </kobber-list-item>
+      `;
 };
 
-const getNamedSlot = (icon: string) =>
+const getIconSlot = (icon: string) =>
   icon === "lock"
-    ? `<kobber-lock_locked slot="icon" />`
+    ? html` <kobber-lock_locked slot="icon" />`
     : icon === "label"
-      ? `<small slot="icon" style="color:red">kommer</small>`
+      ? html` <small slot="icon" style="color:red">kommer</small>`
       : "";

@@ -1,7 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
 import "./Badge";
-import { badgeName, BadgeProps, badgeSizes, badgeColorThemes, badgeColorVariants } from "./Badge.core";
+import {
+  type BadgeProps,
+  badgeColorThemes,
+  badgeColorVariants,
+  badgeName,
+  badgeSizes,
+} from "./Badge.core";
 import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
 
@@ -11,12 +17,9 @@ interface Args extends BadgeProps {
   text?: string;
 }
 
-const meta: Meta = {
+const meta: Meta<Args> = {
   title: "Indicators/Badge",
   component: badgeName,
-  decorators: [
-    (Story, context) => html`<kobber-theme-context theme-id=${context.globals.theme}>${Story()}</kobber-theme-context>`,
-  ],
   parameters: {
     layout: "centered",
   },
@@ -58,7 +61,7 @@ export const Badge: StoryObj<Args> = {
 const renderBadge = (args: Args) => {
   const { size, text, colorTheme, colorVariant, showStatusCircle } = args;
 
-  return html` <kobber-badge
+  return html`<kobber-badge
     size=${size}
     color-theme=${colorTheme}
     color-variant=${colorVariant}

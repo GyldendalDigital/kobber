@@ -6,6 +6,7 @@ export const makeStory = (symbol: SVGSymbolElement) => {
   return `import type { Args, Meta, StoryObj } from "@storybook/web-components";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import "@gyldendal/kobber-icons/web-components";
+import { html } from "lit";
 
 initIcons();
 
@@ -22,22 +23,13 @@ const meta: Meta = {
   argTypes: {
     size: { control: "inline-radio", options: ["small", "medium", "large"] },
   },
-  decorators: [
-    (story, storyContext) => \`
-      <div class="\${storyContext.globals.theme}">
-        \${story()}
-      </div>
-    \`,
-  ],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const ${iconNames.unprefixed}: Story = {
-  render: (args: Args) => \`
-    <${symbol.id} aria-label="\${args.ariaLabel}" size="\${args.size}" />
-  \`,
+  render: (args: Args) => html\`<${symbol.id} aria-label="\${args.ariaLabel}" size="\${args.size}" />\`,
 };
 `;
 };

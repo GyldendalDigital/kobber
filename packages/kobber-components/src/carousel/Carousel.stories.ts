@@ -5,7 +5,7 @@ import "./CarouselButton";
 import "../layouts/horizontal-layout/HorizontalLayout";
 import "../layouts/horizontal-layout/HorizontalLayoutColumn";
 import "../story/ExampleCard";
-import { globalStyles } from "../story/globalStyles";
+import { obsoleteStyles } from "../story/obsoleteStyles";
 import { exampleIrregular, exampleRegular, miniExample } from "./story/example";
 import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
@@ -22,10 +22,6 @@ const meta: Meta<Args> = {
   args: {
     hasManyItems: true,
   },
-  decorators: [
-    (story, storyContext) =>
-      html`<kobber-theme-context theme-id=${storyContext.globals.theme}>${story()}</kobber-theme-context>`,
-  ],
 };
 
 export default meta;
@@ -59,7 +55,7 @@ export const CarouselStory: StoryObj<Args> = {
       </kobber-carousel>
     </div>
   `,
-  decorators: [story => html`${globalStyles}${story()}`],
+  decorators: [story => html`${obsoleteStyles}${story()}`],
   parameters: { layout: "fullscreen" },
 };
 
@@ -71,6 +67,6 @@ export const IrregularCarouselStory: StoryObj<Args> = {
       <kobber-carousel> ${args.hasManyItems ? exampleIrregular : miniExample} </kobber-carousel>
     </div>
   `,
-  decorators: [story => html`${globalStyles}${story()}`],
+  decorators: [story => html`${obsoleteStyles}${story()}`],
   parameters: { layout: "fullscreen" },
 };

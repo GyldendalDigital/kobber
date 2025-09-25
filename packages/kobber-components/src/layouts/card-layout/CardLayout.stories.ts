@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-import { TemplateResult, html } from "lit";
+import { html, type TemplateResult } from "lit";
 import "../box-layout/BoxLayout";
 import "../story/ExampleCard";
 import "./CardLayout";
 import "./CardLayoutColumnAspectRatio";
+import { init as initComponents } from "../../base/init";
+import { obsoleteStyles } from "../../story/obsoleteStyles";
 import { example } from "./story/example";
 import { example6columns } from "./story/example6columns";
 import { renderIndicators } from "./story/renderIndicators";
-import { globalStyles } from "../../story/globalStyles";
-import { init as initComponents } from "../../base/init";
 
 initComponents();
 
@@ -43,7 +43,7 @@ const meta: Meta<Args> = {
     overrideContainerWidth: false,
     containerWidth: 800,
   },
-  decorators: [story => html`${globalStyles}${story()}`],
+  decorators: [story => html`${obsoleteStyles}${story()}`],
 };
 
 export default meta;

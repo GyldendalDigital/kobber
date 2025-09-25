@@ -12,7 +12,9 @@ export const radioInputLabelClassName = "label";
 
 const radioTokens = component._radiobutton;
 
-export const inputClassNames = ({ isLink = false }: InputProps & InputComputedProps): InputClassNames[] => {
+export const inputClassNames = ({
+  isLink = false,
+}: InputProps & InputComputedProps): InputClassNames[] => {
   const conditionalClassNames: InputClassNames[] = [];
 
   if (isLink) {
@@ -24,7 +26,7 @@ export const inputClassNames = ({ isLink = false }: InputProps & InputComputedPr
 
 export type GroupProps = {
   currentValue?: string;
-  direction?: "vertical" | "horizontal";
+  direction?: (typeof directions)[number];
   form?: string;
   label?: string;
   name?: string;
@@ -51,9 +53,12 @@ export type ControlProps = {
 export type GroupClassNames = typeof radioGroupName;
 export type InputLabelClassNames = typeof radioInputLabelClassName;
 export type InputControlClassNames = typeof radioInputControlName;
-export type InputControlPartNames = typeof radioInputControlPartName | typeof radioInputControlPartNameChecked;
+export type InputControlPartNames =
+  | typeof radioInputControlPartName
+  | typeof radioInputControlPartNameChecked;
 export type InputClassNames = typeof radioInputName | typeof radioInputAsLinkClassName;
 
 export type InputColorTheme = (typeof inputColorThemes)[number];
 
 export const inputColorThemes = objectKeys(radioTokens.indicator.border.color);
+export const directions = ["vertical", "horizontal"] as const;
