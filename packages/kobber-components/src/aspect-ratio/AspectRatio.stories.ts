@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html, unsafeCSS } from "lit";
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { defaultAspectRatio } from "./AspectRatio";
-import AspectRatioWiki from "./AspectRatioWiki.mdx";
 import { globalStyles } from "../story/globalStyles";
 import { init as initComponents } from "../base/init";
 
@@ -13,11 +12,7 @@ type Args = { aspectRatio: string };
 const meta: Meta<Args> = {
   title: "In development 🔵/AspectRatio",
   component: "kobber-aspect-ratio",
-  parameters: {
-    docs: {
-      page: AspectRatioWiki,
-    },
-  },
+
   argTypes: {
     aspectRatio: {
       name: "aspect-ratio",

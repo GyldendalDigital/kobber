@@ -1378,8 +1378,7 @@
     }
 
     :host(.focus) &,
-    :host(:focus) &,
-    :host(.focus-visible) & :host(:focus-visible) & {
+    &:has(> input:focus-visible) {
       :host(:not(.disabled, [disabled])) & {
         outline: none;
         box-shadow: 0 0 0 var(--kobber-universal-focus-border-width)
@@ -1426,8 +1425,7 @@
     }
 
     :host(.focus) &,
-    :host(:focus) &,
-    :host(.focus-visible) & :host(:focus-visible) & {
+    &:has(> input:focus-visible) {
       :host(:not(.disabled, [disabled])) & {
         outline: none;
         box-shadow: 0 0 0 var(--kobber-universal-focus-border-width)
@@ -1502,6 +1500,47 @@
     }
   
 /* #endregion */
+/* #region Display - displayStyles */ 
+
+.kobber-display {
+  margin: 0;
+  
+font-size: var(--typography-font-size);
+font-family: var(--typography-font-family);
+font-weight: var(--typography-font-weight);
+line-height: var(--typography-line-height);
+color: var(--typography-color);
+
+--typography-font-size: var(--kobber-universal-text-body-text-size-medium);
+--typography-font-family: var(--kobber-universal-text-body-text-font-brand);
+--typography-font-weight: var(--kobber-universal-text-body-text-weight);
+--typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);
+--typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
+--typography-color-highlight: var(--kobber-universal-text-display-extended-extended-text-color);
+
+em,
+::slotted(em) {
+  color: var(--typography-color-highlight);
+  font-style: normal;
+}
+  
+&[data-size="large"] {
+  --typography-font-size: var(--kobber-universal-text-display-extended-text-size-large);
+  --typography-line-height: var(--kobber-universal-text-display-extended-text-line-height-large);
+}
+&[data-size="medium"] {
+  --typography-font-size: var(--kobber-universal-text-display-extended-text-size-medium);
+  --typography-line-height: var(--kobber-universal-text-display-extended-text-line-height-medium);
+}
+  
+&[data-font="alt1"] em {
+  font-family: var(--kobber-universal-text-display-extended-extended-text-font-alt1);
+}
+&[data-font="alt2"] em {
+  font-family: var(--kobber-universal-text-display-extended-extended-text-font-alt2);
+}
+}
+/* #endregion */
 /* #region Divider - dividerStyles */ 
 
     :host {
@@ -1527,110 +1566,136 @@
 /* #endregion */
 /* #region Heading - headingStyles */ 
 
-    .kobber-heading {
-      
+.kobber-heading {
   margin: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-;
-
-      color: var(--color);
-
-      font-size: var(--typography-font-size);
-      font-family: var(--typography-font-family);
-      font-weight: var(--typography-font-weight);
-      font-style: var(--typography-font-style);
-      font-stretch: var(--typography-font-stretch);
-      line-height: var(--typography-line-height);
-
-      
-    &[data-size="large"] {
-              
-    --typography-font-size: var(--kobber-universal-text-heading-text-size-large);
-    --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
-    --typography-font-weight: var(--kobber-universal-text-body-text-weight);
-    --typography-line-height: var([object Object]);
   
-            }
+font-size: var(--typography-font-size);
+font-family: var(--typography-font-family);
+font-weight: var(--typography-font-weight);
+line-height: var(--typography-line-height);
+color: var(--typography-color);
+
+--typography-font-size: var(--kobber-universal-text-body-text-size-medium);
+--typography-font-family: var(--kobber-universal-text-body-text-font-brand);
+--typography-font-weight: var(--kobber-universal-text-body-text-weight);
+--typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);
+--typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
+--typography-color-highlight: var(--kobber-universal-text-display-extended-extended-text-color);
+
+em,
+::slotted(em) {
+  color: var(--typography-color-highlight);
+  font-style: normal;
+}
+  
+&[data-size="large"] {
+  --typography-font-size: var(--kobber-universal-text-heading-text-size-large);;
+}
 &[data-size="medium"] {
-              
-    --typography-font-size: var(--kobber-universal-text-heading-text-size-medium);
-    --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
-    --typography-font-weight: var(--kobber-universal-text-body-text-weight);
-    --typography-line-height: var([object Object]);
+  --typography-font-size: var(--kobber-universal-text-heading-text-size-medium);;
+}
   
-            }
-    
-    &[data-font="brand"] {
-              --typography-font-family: var(--kobber-universal-text-heading-text-font-brand);
-            }
+&[data-font="brand"] {
+  --typography-font-family: var(--kobber-universal-text-heading-text-font-brand);;
+}
 &[data-font="reading"] {
-              --typography-font-family: var(--kobber-universal-text-heading-text-font-reading);
-            }
+  --typography-font-family: var(--kobber-universal-text-heading-text-font-reading);;
+}
   
-  
-      
-    &[data-color="brand"] {&[data-color-variant="tone-a"] {
-                    --color: var(--kobber-universal-text-heading-text-color-brand-tone-a);
-                  }&[data-color-variant="tone-b"] {
-                    --color: var(--kobber-universal-text-heading-text-color-brand-tone-b);
-                  }}
-&[data-color="neutral"] {&[data-color-variant="tone-a"] {
-                    --color: var(--kobber-universal-text-heading-text-color-neutral-tone-a);
-                  }&[data-color-variant="tone-b"] {
-                    --color: var(--kobber-universal-text-heading-text-color-neutral-tone-b);
-                  }}
-&[data-color="nature"] {&[data-color-variant="tone-a"] {
-                    --color: var(--kobber-universal-text-heading-text-color-nature-tone-a);
-                  }&[data-color-variant="tone-b"] {
-                    --color: var(--kobber-universal-text-heading-text-color-nature-tone-b);
-                  }}
-&[data-color="romance"] {&[data-color-variant="tone-a"] {
-                    --color: var(--kobber-universal-text-heading-text-color-romance-tone-a);
-                  }&[data-color-variant="tone-b"] {
-                    --color: var(--kobber-universal-text-heading-text-color-romance-tone-b);
-                  }}
-&[data-color="fantasy"] {&[data-color-variant="tone-a"] {
-                    --color: var(--kobber-universal-text-heading-text-color-fantasy-tone-a);
-                  }&[data-color-variant="tone-b"] {
-                    --color: var(--kobber-universal-text-heading-text-color-fantasy-tone-b);
-                  }}
-&[data-color="thriller"] {&[data-color-variant="tone-a"] {
-                    --color: var(--kobber-universal-text-heading-text-color-thriller-tone-a);
-                  }&[data-color-variant="tone-b"] {
-                    --color: var(--kobber-universal-text-heading-text-color-thriller-tone-b);
-                  }}
-&[data-color="vacation"] {&[data-color-variant="tone-a"] {
-                    --color: var(--kobber-universal-text-heading-text-color-vacation-tone-a);
-                  }&[data-color-variant="tone-b"] {
-                    --color: var(--kobber-universal-text-heading-text-color-vacation-tone-b);
-                  }}
-&[data-color="nostalgia"] {&[data-color-variant="tone-a"] {
-                    --color: var(--kobber-universal-text-heading-text-color-nostalgia-tone-a);
-                  }&[data-color-variant="tone-b"] {
-                    --color: var(--kobber-universal-text-heading-text-color-nostalgia-tone-b);
-                  }}
-  
+&[data-color="brand"] {
 
-      &[data-highlighted="true"] {
-        --typography-font-family: Lyon Display, serif;
-        --color: var(--kobber-semantics-color-identity-brand-carmine-525) !important;
-      }
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-brand-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-brand-tone-b);;
+  }
+}
+&[data-color="neutral"] {
 
-      &:after {
-        content: var(--storybook-unused-style-content);
-        background-color: white;
-        position: relative;
-        left: -4.5em;
-      }
-      em,
-      ::slotted(em) {
-        color: var(--highlight-color);
-        font-style: normal;
-      }
-    }
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-neutral-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-neutral-tone-b);;
+  }
+}
+&[data-color="nature"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-nature-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-nature-tone-b);;
+  }
+}
+&[data-color="romance"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-romance-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-romance-tone-b);;
+  }
+}
+&[data-color="fantasy"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-fantasy-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-fantasy-tone-b);;
+  }
+}
+&[data-color="thriller"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-thriller-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-thriller-tone-b);;
+  }
+}
+&[data-color="vacation"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-vacation-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-vacation-tone-b);;
+  }
+}
+&[data-color="nostalgia"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-nostalgia-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-heading-text-color-nostalgia-tone-b);;
+  }
+}
   
+&[data-font="brand"] {
+  --typography-font-family: var(--kobber-universal-text-heading-text-font-brand);;
+  
+  &[data-size="large"] {
+    --typography-line-height: var(--kobber-universal-text-heading-text-line-height-brand-large);;
+  }
+  &[data-size="medium"] {
+    --typography-line-height: var(--kobber-universal-text-heading-text-line-height-brand-medium);;
+  }
+}
+&[data-font="reading"] {
+  --typography-font-family: var(--kobber-universal-text-heading-text-font-reading);;
+  
+  &[data-size="large"] {
+    --typography-line-height: var(--kobber-universal-text-heading-text-line-height-reading-large);;
+  }
+  &[data-size="medium"] {
+    --typography-line-height: var(--kobber-universal-text-heading-text-line-height-reading-medium);;
+  }
+}
+}
 /* #endregion */
 /* #region index - formCheckedIconStyles */ 
 
@@ -1681,63 +1746,107 @@
 /* #endregion */
 /* #region Lead - leadStyles */ 
 
-    .kobber-lead {
-      font-size: var(--kobber-universal-text-lead-text-size);
-      font-family: var([object Object]);
-      font-weight: 400;
-      font-style: normal;
-      line-height: var(--kobber-universal-text-lead-text-line-height);
-
-      
-    &[data-color="brand"] {&[data-color-variant="tone-a"] {
-                        color: var(--kobber-universal-text-lead-text-color-brand-tone-a);
-                      }&[data-color-variant="tone-b"] {
-                        color: var(--kobber-universal-text-lead-text-color-brand-tone-b);
-                      }}
-&[data-color="neutral"] {&[data-color-variant="tone-a"] {
-                        color: var(--kobber-universal-text-lead-text-color-neutral-tone-a);
-                      }&[data-color-variant="tone-b"] {
-                        color: var(--kobber-universal-text-lead-text-color-neutral-tone-b);
-                      }}
-&[data-color="nature"] {&[data-color-variant="tone-a"] {
-                        color: var(--kobber-universal-text-lead-text-color-nature-tone-a);
-                      }&[data-color-variant="tone-b"] {
-                        color: var(--kobber-universal-text-lead-text-color-nature-tone-b);
-                      }}
-&[data-color="romance"] {&[data-color-variant="tone-a"] {
-                        color: var(--kobber-universal-text-lead-text-color-romance-tone-a);
-                      }&[data-color-variant="tone-b"] {
-                        color: var(--kobber-universal-text-lead-text-color-romance-tone-b);
-                      }}
-&[data-color="fantasy"] {&[data-color-variant="tone-a"] {
-                        color: var(--kobber-universal-text-lead-text-color-fantasy-tone-a);
-                      }&[data-color-variant="tone-b"] {
-                        color: var(--kobber-universal-text-lead-text-color-fantasy-tone-b);
-                      }}
-&[data-color="thriller"] {&[data-color-variant="tone-a"] {
-                        color: var(--kobber-universal-text-lead-text-color-thriller-tone-a);
-                      }&[data-color-variant="tone-b"] {
-                        color: var(--kobber-universal-text-lead-text-color-thriller-tone-b);
-                      }}
-&[data-color="vacation"] {&[data-color-variant="tone-a"] {
-                        color: var(--kobber-universal-text-lead-text-color-vacation-tone-a);
-                      }&[data-color-variant="tone-b"] {
-                        color: var(--kobber-universal-text-lead-text-color-vacation-tone-b);
-                      }}
-&[data-color="nostalgia"] {&[data-color-variant="tone-a"] {
-                        color: var(--kobber-universal-text-lead-text-color-nostalgia-tone-a);
-                      }&[data-color-variant="tone-b"] {
-                        color: var(--kobber-universal-text-lead-text-color-nostalgia-tone-b);
-                      }}
+.kobber-lead {
   
+font-size: var(--typography-font-size);
+font-family: var(--typography-font-family);
+font-weight: var(--typography-font-weight);
+line-height: var(--typography-line-height);
+color: var(--typography-color);
 
-      em,
-      ::slotted(em) {
-        color: var(--highlight-color);
-        font-style: normal;
-      }
-    }
+--typography-font-size: var(--kobber-universal-text-lead-text-size);
+--typography-font-family: var(--kobber-universal-text-body-text-font-brand);
+--typography-font-weight: var(--kobber-universal-text-body-text-weight);
+--typography-line-height: var(--kobber-universal-text-lead-text-line-height);
+--typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
+--typography-color-highlight: var(--kobber-universal-text-display-extended-extended-text-color);
+
+em,
+::slotted(em) {
+  color: var(--typography-color-highlight);
+  font-style: normal;
+}
   
+&[data-font="brand"] {
+  --typography-font-family: var(--kobber-universal-text-lead-text-font-brand);;
+}
+&[data-font="reading"] {
+  --typography-font-family: var(--kobber-universal-text-lead-text-font-reading);;
+}
+  
+&[data-color="brand"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-brand-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-brand-tone-b);;
+  }
+}
+&[data-color="neutral"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-neutral-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-neutral-tone-b);;
+  }
+}
+&[data-color="nature"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-nature-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-nature-tone-b);;
+  }
+}
+&[data-color="romance"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-romance-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-romance-tone-b);;
+  }
+}
+&[data-color="fantasy"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-fantasy-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-fantasy-tone-b);;
+  }
+}
+&[data-color="thriller"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-thriller-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-thriller-tone-b);;
+  }
+}
+&[data-color="vacation"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-vacation-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-vacation-tone-b);;
+  }
+}
+&[data-color="nostalgia"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-nostalgia-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-lead-text-color-nostalgia-tone-b);;
+  }
+}
+}
 /* #endregion */
 /* #region Link - linkStyles */ 
 
@@ -1984,10 +2093,8 @@
       opacity: var(--kobber-universal-disabled-container-opacity);
       cursor: auto;
     }
-
+    
     :host(.focus) &,
-    :host(:focus) &,
-    :host(.focus-visible) &,
     :host(:focus-visible) & {
       :host(:not(.disabled, [disabled])) & {
         outline: none;
@@ -2056,6 +2163,382 @@
     
     }
   
+/* #endregion */
+/* #region TextBody - textBodyStyles */ 
+
+.kobber-text-body {
+  margin: 0;
+  
+font-size: var(--typography-font-size);
+font-family: var(--typography-font-family);
+font-weight: var(--typography-font-weight);
+line-height: var(--typography-line-height);
+color: var(--typography-color);
+
+--typography-font-size: var(--kobber-universal-text-body-text-size-medium);
+--typography-font-family: var(--kobber-universal-text-body-text-font-brand);
+--typography-font-weight: var(--kobber-universal-text-body-text-weight);
+--typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);
+--typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
+--typography-color-highlight: var(--kobber-universal-text-display-extended-extended-text-color);
+
+em,
+::slotted(em) {
+  color: var(--typography-color-highlight);
+  font-style: normal;
+}
+  
+&[data-size="large"] {
+  --typography-font-size: var(--kobber-universal-text-body-text-size-large);;
+}
+&[data-size="medium"] {
+  --typography-font-size: var(--kobber-universal-text-body-text-size-medium);;
+}
+&[data-size="small"] {
+  --typography-font-size: var(--kobber-universal-text-body-text-size-small);;
+}
+  
+&[data-font="brand"] {
+  --typography-font-family: var(--kobber-universal-text-body-text-font-brand);;
+}
+&[data-font="reading"] {
+  --typography-font-family: var(--kobber-universal-text-body-text-font-reading);;
+}
+  
+&[data-color="brand"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-brand-tone-b);;
+  }
+}
+&[data-color="neutral"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-neutral-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-neutral-tone-b);;
+  }
+}
+&[data-color="success"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-success-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-success-tone-b);;
+  }
+}
+&[data-color="informative"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-informative-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-informative-tone-b);;
+  }
+}
+&[data-color="warning"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-warning-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-warning-tone-b);;
+  }
+}
+&[data-color="nature"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-nature-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-nature-tone-b);;
+  }
+}
+&[data-color="romance"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-romance-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-romance-tone-b);;
+  }
+}
+&[data-color="fantasy"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-fantasy-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-fantasy-tone-b);;
+  }
+}
+&[data-color="thriller"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-thriller-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-thriller-tone-b);;
+  }
+}
+&[data-color="vacation"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-vacation-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-vacation-tone-b);;
+  }
+}
+&[data-color="nostalgia"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-nostalgia-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-nostalgia-tone-b);;
+  }
+}
+&[data-color="sublte"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-sublte-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-body-text-color-sublte-tone-b);;
+  }
+}
+  
+&[data-font="brand"] {
+  --typography-font-family: var(--kobber-universal-text-body-text-font-brand);;
+  
+  &[data-size="large"] {
+    
+    &[data-context="short"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-large-short);;
+    }
+    &[data-context="long"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-large-long);;
+    }
+  }
+  &[data-size="medium"] {
+    
+    &[data-context="short"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);;
+    }
+    &[data-context="long"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-long);;
+    }
+  }
+  &[data-size="small"] {
+    
+    &[data-context="short"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-small-short);;
+    }
+    &[data-context="long"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-small-long);;
+    }
+  }
+}
+&[data-font="reading"] {
+  --typography-font-family: var(--kobber-universal-text-body-text-font-reading);;
+  
+  &[data-size="large"] {
+    
+    &[data-context="short"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-reading-large-short);;
+    }
+    &[data-context="long"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-reading-large-long);;
+    }
+  }
+  &[data-size="medium"] {
+    
+    &[data-context="short"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-reading-medium-short);;
+    }
+    &[data-context="long"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-reading-medium-long);;
+    }
+  }
+  &[data-size="small"] {
+    
+    &[data-context="short"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-reading-small-short);;
+    }
+    &[data-context="long"] {
+      --typography-line-height: var(--kobber-universal-text-body-text-line-height-reading-small-long);;
+    }
+  }
+}
+}
+/* #endregion */
+/* #region TextLabel - textLabelStyles */ 
+
+.kobber-text-label {
+  margin: 0;
+  
+font-size: var(--typography-font-size);
+font-family: var(--typography-font-family);
+font-weight: var(--typography-font-weight);
+line-height: var(--typography-line-height);
+color: var(--typography-color);
+
+--typography-font-size: var(--kobber-universal-text-label-text-size-medium);
+--typography-font-family: var(--kobber-universal-text-label-text-font);
+--typography-font-weight: var(--kobber-universal-text-label-text-weight);
+--typography-line-height: var(--kobber-universal-text-label-text-line-height);
+--typography-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+--typography-color-highlight: var(--kobber-universal-text-display-extended-extended-text-color);
+
+em,
+::slotted(em) {
+  color: var(--typography-color-highlight);
+  font-style: normal;
+}
+  
+&[data-size="large"] {
+  --typography-font-size: var(--kobber-universal-text-label-text-size-large);;
+}
+&[data-size="medium"] {
+  --typography-font-size: var(--kobber-universal-text-label-text-size-medium);;
+}
+&[data-size="small"] {
+  --typography-font-size: var(--kobber-universal-text-label-text-size-small);;
+}
+  
+&[data-color="accent"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-accent-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-accent-tone-b);;
+  }
+}
+&[data-color="brand"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-brand-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-brand-tone-b);;
+  }
+}
+&[data-color="neutral"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-neutral-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-neutral-tone-b);;
+  }
+}
+&[data-color="rettsdata"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);;
+  }
+}
+&[data-color="success"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-success-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-success-tone-b);;
+  }
+}
+&[data-color="informative"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-informative-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-informative-tone-b);;
+  }
+}
+&[data-color="warning"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-warning-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-warning-tone-b);;
+  }
+}
+&[data-color="nature"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-nature-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-nature-tone-b);;
+  }
+}
+&[data-color="romance"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-romance-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-romance-tone-b);;
+  }
+}
+&[data-color="fantasy"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-fantasy-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-fantasy-tone-b);;
+  }
+}
+&[data-color="thriller"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-thriller-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-thriller-tone-b);;
+  }
+}
+&[data-color="vacation"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-vacation-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-vacation-tone-b);;
+  }
+}
+&[data-color="nostalgia"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-b);;
+  }
+}
+&[data-color="subtle"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-subtle-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-subtle-tone-b);;
+  }
+}
+}
 /* #endregion */
 /* #region TextLink - textLinkStyles */ 
 
@@ -2140,4 +2623,164 @@
       max-width: 75ch;
     }
   
+/* #endregion */
+/* #region Title - titleStyles */ 
+
+.kobber-title {
+  margin: 0;
+  
+font-size: var(--typography-font-size);
+font-family: var(--typography-font-family);
+font-weight: var(--typography-font-weight);
+line-height: var(--typography-line-height);
+color: var(--typography-color);
+
+--typography-font-size: var(--kobber-universal-text-body-text-size-medium);
+--typography-font-family: var(--kobber-universal-text-body-text-font-brand);
+--typography-font-weight: var(--kobber-universal-text-body-text-weight);
+--typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);
+--typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
+--typography-color-highlight: var(--kobber-universal-text-display-extended-extended-text-color);
+
+em,
+::slotted(em) {
+  color: var(--typography-color-highlight);
+  font-style: normal;
+}
+  
+&[data-size="large"] {
+  --typography-font-size: var(--kobber-universal-text-title-text-size-large);;
+}
+&[data-size="medium"] {
+  --typography-font-size: var(--kobber-universal-text-title-text-size-medium);;
+}
+  
+&[data-font="brand"] {
+  --typography-font-family: var(--kobber-universal-text-title-text-font-brand);;
+}
+&[data-font="reading"] {
+  --typography-font-family: var(--kobber-universal-text-title-text-font-reading);;
+}
+  
+&[data-color="brand"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-brand-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-brand-tone-b);;
+  }
+}
+&[data-color="neutral"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-neutral-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-neutral-tone-b);;
+  }
+}
+&[data-color="nature"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-nature-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-nature-tone-b);;
+  }
+}
+&[data-color="romance"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-romance-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-romance-tone-b);;
+  }
+}
+&[data-color="fantasy"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-fantasy-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-fantasy-tone-b);;
+  }
+}
+&[data-color="thriller"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-thriller-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-thriller-tone-b);;
+  }
+}
+&[data-color="vacation"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-vacation-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-vacation-tone-b);;
+  }
+}
+&[data-color="nostalgia"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-nostalgia-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-nostalgia-tone-b);;
+  }
+}
+&[data-color="success"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-success-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-success-tone-b);;
+  }
+}
+&[data-color="informative"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-informative-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-informative-tone-b);;
+  }
+}
+&[data-color="warning"] {
+
+  &[data-color-variant="tone-a"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-warning-tone-a);;
+  }
+  &[data-color-variant="tone-b"] {
+    --typography-color: var(--kobber-universal-text-title-text-color-warning-tone-b);;
+  }
+}
+  
+&[data-font="brand"] {
+  --typography-font-family: var(--kobber-universal-text-title-text-font-brand);;
+  
+  &[data-size="large"] {
+    --typography-line-height: var(--kobber-universal-text-title-text-line-height-brand-large);;
+  }
+  &[data-size="medium"] {
+    --typography-line-height: var(--kobber-universal-text-title-text-line-height-brand-medium);;
+  }
+}
+&[data-font="reading"] {
+  --typography-font-family: var(--kobber-universal-text-title-text-font-reading);;
+  
+  &[data-size="large"] {
+    --typography-line-height: var(--kobber-universal-text-title-text-line-height-reading-large);;
+  }
+  &[data-size="medium"] {
+    --typography-line-height: var(--kobber-universal-text-title-text-line-height-reading-medium);;
+  }
+}
+}
 /* #endregion */

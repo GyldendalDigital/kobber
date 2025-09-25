@@ -18,7 +18,6 @@
     "lint": "echo \"run yarn lint from root\"",
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
-    "test": "node ./src/icons.test.js",
     "svg": "rm -rf dist src/tmp && svg-sprite --config ./svg-scripts/svg-sprite-config.json src/assets/svgs/**/*.svg",
     "build": "yarn svg && tsup"
   },

@@ -22,6 +22,10 @@ const config = {
     name: getAbsolutePath("@storybook/web-components-vite"),
     options: {},
   },
+ 	typescript: {
+		check: false, // speed up build times
+		reactDocgen: false,
+	},
   core: {
     disableTelemetry: true, // 👈 Disables telemetry
     disableWhatsNewNotifications: true, // 👈 Disables what's new notifications

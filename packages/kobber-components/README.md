@@ -133,8 +133,8 @@ All component folders should contain the following files:
 #### Naming conventions
 
 - Folder names are element names, which [must be in kebab-case](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#registering_a_custom_element).
-- Attribute names are in kebab-case.
 - Component names are in PascalCase.
+- Components' attribute names are in kebab-case.
 - Component file names:
   - File names are the same as the component name (plus extension) - don't export more than one component per file!
   - Currently allowed extensions are ts, tsx and js.

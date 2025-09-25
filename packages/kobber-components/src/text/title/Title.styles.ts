@@ -1,20 +1,20 @@
 import { css, unsafeCSS } from "lit";
 import {
-  headingTokens,
-  headingName,
-  headingColors,
-  headingSizes,
-  headingFonts,
-  headingColorVariants,
-} from "./Heading.core";
+  titleTokens,
+  titleName,
+  titleColors,
+  titleSizes,
+  titleFonts,
+  titleColorVariants,
+} from "./Title.core";
 import { resetMargin } from "../../base/styles/reset.styles";
 import {
   defaultTypographyStyles,
   setTypographyVariable,
 } from "../../base/styles/typography.styles";
 
-const createHeadingStyles = () => css`
-.${unsafeCSS(headingName)} {
+const createTitleStyles = () => css`
+.${unsafeCSS(titleName)} {
   ${resetMargin()}
   ${defaultTypographyStyles()}
   ${fontSizeVariants()}
@@ -25,12 +25,12 @@ const createHeadingStyles = () => css`
 
 const fontSizeVariants = () =>
   unsafeCSS(
-    headingSizes
+    titleSizes
       .flatMap(
         size =>
           `
 &[data-size="${size}"] {
-  ${setTypographyVariable("size", headingTokens.text.size[size])};
+  ${setTypographyVariable("size", titleTokens.text.size[size])};
 }`,
       )
       .join(""),
@@ -38,12 +38,12 @@ const fontSizeVariants = () =>
 
 const fontFamilyVariants = () =>
   unsafeCSS(
-    headingFonts
+    titleFonts
       .flatMap(
         font =>
           `
 &[data-font="${font}"] {
-  ${setTypographyVariable("family", headingTokens.text.font[font])};
+  ${setTypographyVariable("family", titleTokens.text.font[font])};
 }`,
       )
       .join(""),
@@ -51,17 +51,17 @@ const fontFamilyVariants = () =>
 
 const colorVariants = () =>
   unsafeCSS(
-    headingColors
+    titleColors
       .flatMap(
         color =>
           `
 &[data-color="${color}"] {
-${headingColorVariants
+${titleColorVariants
   .flatMap(
     colorVariant =>
       `
   &[data-color-variant="${colorVariant}"] {
-    ${setTypographyVariable("color", headingTokens.text.color[color][colorVariant])};
+    ${setTypographyVariable("color", titleTokens.text.color[color][colorVariant])};
   }`,
   )
   .join("")}
@@ -72,18 +72,18 @@ ${headingColorVariants
 
 const lineHeightVariants = () =>
   unsafeCSS(
-    headingFonts
+    titleFonts
       .flatMap(
         font =>
           `
 &[data-font="${font}"] {
-  ${setTypographyVariable("family", headingTokens.text.font[font])};
-  ${headingSizes
+  ${setTypographyVariable("family", titleTokens.text.font[font])};
+  ${titleSizes
     .flatMap(
       size =>
         `
   &[data-size="${size}"] {
-    ${setTypographyVariable("lineHeight", headingTokens.text["line-height"][font][size])};
+    ${setTypographyVariable("lineHeight", titleTokens.text["line-height"][font][size])};
   }`,
     )
     .join("")}
@@ -92,4 +92,4 @@ const lineHeightVariants = () =>
       .join(""),
   );
 
-export const headingStyles = createHeadingStyles();
+export const titleStyles = createTitleStyles();
