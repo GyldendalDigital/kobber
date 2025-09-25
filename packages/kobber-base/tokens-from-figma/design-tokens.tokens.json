@@ -5044,7 +5044,7 @@
         },
         "carmine-25": {
           "type": "color",
-          "value": "{semantics.color.identity.extended.carmine-25}",
+          "value": "{semantics.color.identity.extended.carmine-50}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [],
@@ -6279,7 +6279,7 @@
       "size": {
         "large": {
           "type": "dimension",
-          "value": "{semantics.layout.container.size.large}",
+          "value": "{semantics.layout.container.size.medium}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [],
@@ -7113,7 +7113,7 @@
       },
       "size": {
         "type": "dimension",
-        "value": "{semantics.layout.container.size.medium}",
+        "value": "{semantics.layout.container.size.small}",
         "extensions": {
           "org.gyldendal.kobber-figma-export": {
             "scopes": [],
@@ -7156,7 +7156,7 @@
         "color": {
           "brand": {
             "primary": {
-              "main": {
+              "tone-a": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.carmine.opaque.darkest}",
@@ -7189,7 +7189,7 @@
               }
             },
             "secondary": {
-              "main": {
+              "tone-b": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.aubergine.opaque.bright}",
@@ -7219,7 +7219,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-a": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.aubergine.opaque.dark}",
@@ -7253,7 +7253,7 @@
           },
           "neutral": {
             "secondary": {
-              "main": {
+              "tone-b": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.neutral.opaque.bright}",
@@ -7285,7 +7285,7 @@
               }
             },
             "primary": {
-              "main": {
+              "tone-a": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.neutral.opaque.darkest}",
@@ -7319,7 +7319,7 @@
           },
           "rettsdata": {
             "primary": {
-              "main": {
+              "tone-a": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.rettsdata.opaque.midtone}",
@@ -7351,7 +7351,7 @@
               }
             },
             "secondary": {
-              "main": {
+              "tone-b": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.rettsdata.opaque.brightest}",
@@ -7381,7 +7381,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-a": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.rettsdata.opaque.darkest}",
@@ -7475,7 +7475,7 @@
         "color": {
           "brand": {
             "tertiary": {
-              "main": {
+              "tone-a": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.aubergine.opaque.midtone}",
@@ -7503,7 +7503,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.aubergine.opaque.bright}",
@@ -7535,7 +7535,7 @@
           },
           "rettsdata": {
             "tertiary": {
-              "main": {
+              "tone-a": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.rettsdata.opaque.midtone}",
@@ -7563,7 +7563,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.rettsdata.opaque.brightest}",
@@ -7595,7 +7595,7 @@
           },
           "neutral": {
             "tertiary": {
-              "main": {
+              "tone-a": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.neutral.opaque.darkest}",
@@ -7658,7 +7658,7 @@
           "color": {
             "brand": {
               "primary": {
-                "main": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.carmine.opaque.brightest}",
                   "extensions": {
@@ -7673,7 +7673,7 @@
                 }
               },
               "secondary": {
-                "main": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.aubergine.opaque.midtone}",
                   "extensions": {
@@ -7686,7 +7686,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.aubergine.opaque.bright}",
                   "extensions": {
@@ -7701,7 +7701,7 @@
                 }
               },
               "tertiary": {
-                "main": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.aubergine.opaque.midtone}",
                   "extensions": {
@@ -7714,7 +7714,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.aubergine.opaque.bright}",
                   "extensions": {
@@ -7731,7 +7731,7 @@
             },
             "rettsdata": {
               "primary": {
-                "main": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.rettsdata.opaque.brightest}",
                   "extensions": {
@@ -7746,7 +7746,7 @@
                 }
               },
               "secondary": {
-                "main": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.rettsdata.opaque.midtone}",
                   "extensions": {
@@ -7759,7 +7759,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.rettsdata.opaque.brightest}",
                   "extensions": {
@@ -7774,7 +7774,7 @@
                 }
               },
               "tertiary": {
-                "main": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.rettsdata.opaque.midtone}",
                   "extensions": {
@@ -7787,7 +7787,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.rettsdata.opaque.brightest}",
                   "extensions": {
@@ -7804,7 +7804,7 @@
             },
             "neutral": {
               "primary": {
-                "main": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.neutral.opaque.bright}",
                   "extensions": {
@@ -7819,7 +7819,7 @@
                 }
               },
               "tertiary": {
-                "main": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.neutral.opaque.darkest}",
                   "extensions": {
@@ -7834,7 +7834,7 @@
                 }
               },
               "secondary": {
-                "main": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.neutral.opaque.darkest}",
                   "extensions": {
@@ -7898,7 +7898,7 @@
         }
       }
     },
-    "text-input": {
+    "_text-input": {
       "label": {
         "text": {
           "color": {
@@ -7968,7 +7968,7 @@
       "supportive-text": {
         "text": {
           "color": {
-            "primary": {
+            "tone-a": {
               "description": "Textual means type text, password, search, email, tel, url",
               "type": "color",
               "value": "{groups.inputs.color.aubergine-850}",
@@ -7982,7 +7982,7 @@
                 }
               }
             },
-            "secondary": {
+            "tone-b": {
               "description": "Textual means type text, password, search, email, tel, url",
               "type": "color",
               "value": "{groups.inputs.color.aubergine-150}",
@@ -8062,7 +8062,7 @@
       "top-container": {
         "border": {
           "color": {
-            "supplemental": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.inputs.color.aubergine-675}",
               "extensions": {
@@ -8075,7 +8075,7 @@
                 }
               }
             },
-            "main": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.inputs.color.aubergine-850}",
               "extensions": {
@@ -8148,7 +8148,7 @@
       "icon": {
         "shape": {
           "color": {
-            "supplemental": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.inputs.color.aubergine-150}",
               "extensions": {
@@ -8162,7 +8162,7 @@
                 }
               }
             },
-            "main": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.inputs.color.aubergine-850}",
               "extensions": {
@@ -8523,7 +8523,7 @@
                 }
               }
             },
-            "aubergine": {
+            "brand": {
               "type": "color",
               "value": "{groups.inputs.color.aubergine-900}",
               "extensions": {
@@ -8672,7 +8672,7 @@
     "divider": {
       "background": {
         "color": {
-          "main": {
+          "tone-b": {
             "type": "color",
             "value": "{groups.dividers.color.brightest}",
             "extensions": {
@@ -8687,7 +8687,7 @@
               }
             }
           },
-          "supplemental": {
+          "tone-a": {
             "type": "color",
             "value": "{groups.dividers.color.darkest}",
             "extensions": {
@@ -8813,7 +8813,7 @@
     "docs-navbar-item": {
       "text": {
         "color": {
-          "main": {
+          "tone-a": {
             "type": "color",
             "value": "{groups.navbars.color.midtone}",
             "extensions": {
@@ -8826,7 +8826,7 @@
               }
             }
           },
-          "supplemental": {
+          "tone-b": {
             "type": "color",
             "value": "{groups.navbars.color.brightest}",
             "extensions": {
@@ -8918,7 +8918,7 @@
     "docs-navbar": {
       "background": {
         "color": {
-          "main": {
+          "tone-b": {
             "type": "color",
             "value": "{groups.navbars.color.brightest}",
             "extensions": {
@@ -8931,7 +8931,7 @@
               }
             }
           },
-          "supplemental": {
+          "tone-a": {
             "type": "color",
             "value": "{groups.navbars.color.darkest}",
             "extensions": {
@@ -8947,7 +8947,7 @@
         }
       },
       "text": {
-        "main": {
+        "tone-b": {
           "type": "color",
           "value": "{groups.navbars.color.brightest}",
           "extensions": {
@@ -8960,7 +8960,7 @@
             }
           }
         },
-        "supplemental": {
+        "tone-a": {
           "type": "color",
           "value": "{groups.navbars.color.darkest}",
           "extensions": {
@@ -9050,7 +9050,7 @@
         },
         "color": {
           "hover": {
-            "highlight": {
+            "accent": {
               "type": "color",
               "value": "{groups.links.color.carmine-525}",
               "extensions": {
@@ -9063,7 +9063,7 @@
                 }
               }
             },
-            "base": {
+            "brand": {
               "type": "color",
               "value": "{groups.links.color.aubergine-750}",
               "extensions": {
@@ -9091,7 +9091,7 @@
             }
           },
           "action": {
-            "highlight": {
+            "accent": {
               "type": "color",
               "value": "{groups.links.color.carmine-525}",
               "extensions": {
@@ -9104,7 +9104,7 @@
                 }
               }
             },
-            "base": {
+            "brand": {
               "type": "color",
               "value": "{groups.links.color.aubergine-750}",
               "extensions": {
@@ -9149,7 +9149,7 @@
         },
         "shape": {
           "color": {
-            "highlight": {
+            "accent": {
               "type": "color",
               "value": "{groups.links.color.carmine-525}",
               "extensions": {
@@ -9162,7 +9162,7 @@
                 }
               }
             },
-            "base": {
+            "brand": {
               "type": "color",
               "value": "{groups.links.color.aubergine-750}",
               "extensions": {
@@ -9366,7 +9366,7 @@
         },
         "color": {
           "type": "color",
-          "value": "{groups.links.color.aubergine-750}",
+          "value": "{groups.links.color.carmine-525}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -9394,9 +9394,9 @@
         },
         "shape": {
           "color": {
-            "highlight": {
+            "accent": {
               "type": "color",
-              "value": "{groups.links.color.aubergine-750}",
+              "value": "{groups.links.color.carmine-525}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -9487,8 +9487,8 @@
       },
       "background": {
         "color": {
-          "aubergine": {
-            "main": {
+          "brand": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.badges.color.aubergine-50}",
               "extensions": {
@@ -9501,7 +9501,7 @@
                 }
               }
             },
-            "supplemental": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.badges.color.aubergine-675}",
               "extensions": {
@@ -9516,7 +9516,7 @@
             }
           },
           "rettsdata": {
-            "main": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.badges.color.lawblue-10}",
               "extensions": {
@@ -9529,7 +9529,7 @@
                 }
               }
             },
-            "supplemental": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.badges.color.lawblue-90}",
               "extensions": {
@@ -9543,8 +9543,8 @@
               }
             }
           },
-          "concrete": {
-            "main": {
+          "neutral": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.badges.color.concrete-50}",
               "extensions": {
@@ -9564,7 +9564,7 @@
         "background": {
           "color": {
             "aubergine": {
-              "supplemental": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.badges.color.aubergine-425}",
                 "extensions": {
@@ -9580,7 +9580,7 @@
               }
             },
             "rettsdata": {
-              "supplemental": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.badges.color.lawblue-20}",
                 "extensions": {
@@ -9676,8 +9676,8 @@
       "icon": {
         "shape": {
           "color": {
-            "aubergine": {
-              "main": {
+            "brand": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.badges.color.aubergine-750}",
                 "extensions": {
@@ -9690,7 +9690,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.badges.color.aubergine-50}",
                 "extensions": {
@@ -9705,7 +9705,7 @@
               }
             },
             "rettsdata": {
-              "main": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.badges.color.lawblue-60}",
                 "extensions": {
@@ -9718,7 +9718,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.badges.color.lawblue-20}",
                 "extensions": {
@@ -9732,8 +9732,8 @@
                 }
               }
             },
-            "carmine": {
-              "main": {
+            "accent": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.badges.color.carmine-525}",
                 "extensions": {
@@ -9746,7 +9746,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.badges.color.carmine-25}",
                 "extensions": {
@@ -9761,7 +9761,7 @@
               }
             },
             "nature": {
-              "main": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.badges.color.nature-750}",
                 "extensions": {
@@ -9774,7 +9774,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.badges.color.nature-25}",
                 "extensions": {
@@ -9789,7 +9789,7 @@
               }
             },
             "fantasy": {
-              "main": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.badges.color.fantasy-850}",
                 "extensions": {
@@ -9802,7 +9802,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.badges.color.fantasy-250}",
                 "extensions": {
@@ -9817,7 +9817,7 @@
               }
             },
             "thriller": {
-              "main": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.badges.color.thriller-900}",
                 "extensions": {
@@ -9830,7 +9830,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.badges.color.thriller-250}",
                 "extensions": {
@@ -9845,7 +9845,7 @@
               }
             },
             "romance": {
-              "main": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.badges.color.romance-750}",
                 "extensions": {
@@ -9858,7 +9858,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.badges.color.romance-50}",
                 "extensions": {
@@ -9873,7 +9873,7 @@
               }
             },
             "vacation": {
-              "main": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.badges.color.vacation-150}",
                 "extensions": {
@@ -9886,7 +9886,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.badges.color.vacation-25}",
                 "extensions": {
@@ -9901,7 +9901,7 @@
               }
             },
             "nostalgia": {
-              "main": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.badges.color.nostalgia-850}",
                 "extensions": {
@@ -9914,7 +9914,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.badges.color.nostalgia-25}",
                 "extensions": {
@@ -9928,8 +9928,8 @@
                 }
               }
             },
-            "concrete": {
-              "main": {
+            "neutral": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.badges.color.concrete-850}",
                 "extensions": {
@@ -9942,7 +9942,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.badges.color.concrete-50}",
                 "extensions": {
@@ -10145,7 +10145,7 @@
                 }
               }
             },
-            "aubergine": {
+            "brand": {
               "type": "color",
               "value": "{groups.inputs.color.aubergine-900}",
               "extensions": {
@@ -10202,7 +10202,7 @@
                 }
               }
             },
-            "aubergine": {
+            "brand": {
               "type": "color",
               "value": "{groups.inputs.color.aubergine-900}",
               "extensions": {
@@ -10328,7 +10328,7 @@
                 }
               }
             },
-            "aubergine": {
+            "brand": {
               "hover": {
                 "type": "color",
                 "value": "{groups.inputs.color.aubergine-50}",
@@ -10757,7 +10757,7 @@
       "background": {
         "color": {
           "success": {
-            "main": {
+            "tone-b": {
               "fallback": {
                 "type": "color",
                 "value": "{groups.buttons.color.success.opaque.brightest}",
@@ -10787,7 +10787,7 @@
                 }
               }
             },
-            "supplemental": {
+            "tone-a": {
               "fallback": {
                 "type": "color",
                 "value": "{groups.buttons.color.success.opaque.darkest}",
@@ -10819,7 +10819,7 @@
             }
           },
           "informative": {
-            "main": {
+            "tone-b": {
               "fallback": {
                 "type": "color",
                 "value": "{groups.buttons.color.informative.opaque.brightest}",
@@ -10849,7 +10849,7 @@
                 }
               }
             },
-            "supplemental": {
+            "tone-a": {
               "fallback": {
                 "type": "color",
                 "value": "{groups.buttons.color.informative.opaque.darkest}",
@@ -10881,7 +10881,7 @@
             }
           },
           "warning": {
-            "main": {
+            "tone-b": {
               "fallback": {
                 "type": "color",
                 "value": "{groups.buttons.color.warning.opaque.brightest}",
@@ -10911,7 +10911,7 @@
                 }
               }
             },
-            "supplemental": {
+            "tone-a": {
               "fallback": {
                 "type": "color",
                 "value": "{groups.buttons.color.warning.opaque.darkest}",
@@ -11019,7 +11019,7 @@
         "shape": {
           "color": {
             "success": {
-              "main": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.buttons.color.success.opaque.darkest}",
                 "extensions": {
@@ -11032,7 +11032,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.buttons.color.success.opaque.brightest}",
                 "extensions": {
@@ -11047,7 +11047,7 @@
               }
             },
             "informative": {
-              "main": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.buttons.color.informative.opaque.darkest}",
                 "extensions": {
@@ -11060,7 +11060,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.buttons.color.informative.opaque.brightest}",
                 "extensions": {
@@ -11075,7 +11075,7 @@
               }
             },
             "warning": {
-              "main": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.buttons.color.warning.opaque.darkest}",
                 "extensions": {
@@ -11088,7 +11088,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.buttons.color.warning.opaque.brightest}",
                 "extensions": {
@@ -11195,7 +11195,7 @@
         "color": {
           "nostalgia": {
             "secondary": {
-              "main": {
+              "tone-a": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.nostalgia.opaque.darkest}",
@@ -11223,7 +11223,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.nostalgia.opaque.brightest}",
@@ -11255,7 +11255,7 @@
           },
           "nature": {
             "secondary": {
-              "main": {
+              "tone-a": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.nature.opaque.darkest}",
@@ -11283,7 +11283,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.nature.opaque.brightest}",
@@ -11315,7 +11315,7 @@
           },
           "romance": {
             "secondary": {
-              "main": {
+              "tone-a": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.romance.opaque.darkest}",
@@ -11343,7 +11343,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.romance.opaque.brightest}",
@@ -11375,7 +11375,7 @@
           },
           "thriller": {
             "secondary": {
-              "main": {
+              "tone-a": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.thriller.opaque.darkest}",
@@ -11403,7 +11403,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.thriller.opaque.brightest}",
@@ -11435,7 +11435,7 @@
           },
           "fantasy": {
             "secondary": {
-              "main": {
+              "tone-a": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.fantasy.opaque.darkest}",
@@ -11463,7 +11463,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.fantasy.opaque.brightest}",
@@ -11495,7 +11495,7 @@
           },
           "vacation": {
             "secondary": {
-              "main": {
+              "tone-a": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.vacation.opaque.darkest}",
@@ -11523,7 +11523,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.vacation.opaque.brightest}",
@@ -11553,9 +11553,9 @@
               }
             }
           },
-          "carmine": {
+          "accent": {
             "secondary": {
-              "main": {
+              "tone-a": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.carmine.opaque.darkest}",
@@ -11583,7 +11583,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "hover": {
                   "type": "color",
                   "value": "{groups.buttons.color.carmine.opaque.brightest}",
@@ -11645,9 +11645,9 @@
       },
       "background": {
         "color": {
-          "carmine": {
+          "accent": {
             "primary": {
-              "main": {
+              "tone-a": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.carmine.opaque.darkest}",
@@ -11678,7 +11678,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.carmine.opaque.brightest}",
@@ -11712,7 +11712,7 @@
           },
           "nostalgia": {
             "primary": {
-              "main": {
+              "tone-a": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.nostalgia.opaque.darkest}",
@@ -11742,7 +11742,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.nostalgia.opaque.brightest}",
@@ -11776,7 +11776,7 @@
           },
           "nature": {
             "primary": {
-              "main": {
+              "tone-a": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.nature.opaque.darkest}",
@@ -11806,7 +11806,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.nature.opaque.brightest}",
@@ -11840,7 +11840,7 @@
           },
           "romance": {
             "primary": {
-              "main": {
+              "tone-a": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.romance.opaque.darkest}",
@@ -11870,7 +11870,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.romance.opaque.brightest}",
@@ -11904,7 +11904,7 @@
           },
           "thriller": {
             "primary": {
-              "main": {
+              "tone-a": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.thriller.opaque.darkest}",
@@ -11934,7 +11934,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.thriller.opaque.brightest}",
@@ -11968,7 +11968,7 @@
           },
           "fantasy": {
             "primary": {
-              "main": {
+              "tone-a": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.fantasy.opaque.darkest}",
@@ -11998,7 +11998,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.fantasy.opaque.brightest}",
@@ -12032,7 +12032,7 @@
           },
           "vacation": {
             "primary": {
-              "main": {
+              "tone-a": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.vacation.opaque.darkest}",
@@ -12062,7 +12062,7 @@
                   }
                 }
               },
-              "supplemental": {
+              "tone-b": {
                 "fallback": {
                   "type": "color",
                   "value": "{groups.buttons.color.vacation.opaque.brightest}",
@@ -12112,9 +12112,9 @@
         },
         "shape": {
           "color": {
-            "carmine": {
+            "accent": {
               "primary": {
-                "main": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.carmine.opaque.brightest}",
                   "extensions": {
@@ -12127,7 +12127,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.carmine.opaque.darkest}",
                   "extensions": {
@@ -12142,7 +12142,7 @@
                 }
               },
               "secondary": {
-                "main": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.carmine.opaque.darkest}",
                   "extensions": {
@@ -12155,7 +12155,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.carmine.opaque.brightest}",
                   "extensions": {
@@ -12172,7 +12172,7 @@
             },
             "nostalgia": {
               "primary": {
-                "main": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.nostalgia.opaque.brightest}",
                   "extensions": {
@@ -12185,7 +12185,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.nostalgia.opaque.darkest}",
                   "extensions": {
@@ -12200,7 +12200,7 @@
                 }
               },
               "secondary": {
-                "main": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.nostalgia.opaque.darkest}",
                   "extensions": {
@@ -12213,7 +12213,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.nostalgia.opaque.brightest}",
                   "extensions": {
@@ -12230,7 +12230,7 @@
             },
             "nature": {
               "primary": {
-                "main": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.nature.opaque.brightest}",
                   "extensions": {
@@ -12243,7 +12243,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.nature.opaque.darkest}",
                   "extensions": {
@@ -12258,7 +12258,7 @@
                 }
               },
               "secondary": {
-                "main": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.nature.opaque.darkest}",
                   "extensions": {
@@ -12271,7 +12271,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.nature.opaque.brightest}",
                   "extensions": {
@@ -12288,7 +12288,7 @@
             },
             "romance": {
               "primary": {
-                "main": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.romance.opaque.brightest}",
                   "extensions": {
@@ -12301,7 +12301,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.romance.opaque.darkest}",
                   "extensions": {
@@ -12316,7 +12316,7 @@
                 }
               },
               "secondary": {
-                "main": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.romance.opaque.darkest}",
                   "extensions": {
@@ -12329,7 +12329,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.romance.opaque.brightest}",
                   "extensions": {
@@ -12346,7 +12346,7 @@
             },
             "thriller": {
               "primary": {
-                "main": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.thriller.opaque.brightest}",
                   "extensions": {
@@ -12359,7 +12359,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.thriller.opaque.darkest}",
                   "extensions": {
@@ -12374,7 +12374,7 @@
                 }
               },
               "secondary": {
-                "primary": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.thriller.opaque.darkest}",
                   "extensions": {
@@ -12387,7 +12387,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.thriller.opaque.brightest}",
                   "extensions": {
@@ -12404,7 +12404,7 @@
             },
             "fantasy": {
               "primary": {
-                "main": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.fantasy.opaque.brightest}",
                   "extensions": {
@@ -12417,7 +12417,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.fantasy.opaque.darkest}",
                   "extensions": {
@@ -12432,7 +12432,7 @@
                 }
               },
               "secondary": {
-                "main": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.fantasy.opaque.darkest}",
                   "extensions": {
@@ -12445,7 +12445,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.fantasy.opaque.brightest}",
                   "extensions": {
@@ -12462,7 +12462,7 @@
             },
             "vacation": {
               "primary": {
-                "main": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.vacation.opaque.brightest}",
                   "extensions": {
@@ -12475,7 +12475,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.vacation.opaque.darkest}",
                   "extensions": {
@@ -12490,7 +12490,7 @@
                 }
               },
               "secondary": {
-                "main": {
+                "tone-a": {
                   "type": "color",
                   "value": "{groups.buttons.color.vacation.opaque.darkest}",
                   "extensions": {
@@ -12503,7 +12503,7 @@
                     }
                   }
                 },
-                "supplemental": {
+                "tone-b": {
                   "type": "color",
                   "value": "{groups.buttons.color.vacation.opaque.brightest}",
                   "extensions": {
@@ -13690,7 +13690,7 @@
       "counter": {
         "background": {
           "color": {
-            "main": {
+            "fallback": {
               "type": "color",
               "value": "{groups.filters.color.aubergine-150}",
               "extensions": {
@@ -14300,7 +14300,7 @@
         }
       }
     },
-    "text-block": {
+    "text-module": {
       "padding": {
         "inline": {
           "type": "dimension",
@@ -14373,7 +14373,7 @@
       "color": {
         "background": {
           "brand": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.text-blocks.color.aubergine-25}",
               "extensions": {
@@ -14386,7 +14386,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.text-blocks.color.aubergine-850}",
               "extensions": {
@@ -14401,7 +14401,7 @@
             }
           },
           "neutral": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.text-blocks.color.concrete-25}",
               "extensions": {
@@ -14414,7 +14414,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.text-blocks.color.concrete-850}",
               "extensions": {
@@ -14429,7 +14429,7 @@
             }
           },
           "nature": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.text-blocks.color.nature-25}",
               "extensions": {
@@ -14442,7 +14442,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.text-blocks.color.nature-750}",
               "extensions": {
@@ -14457,7 +14457,7 @@
             }
           },
           "fantasy": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.text-blocks.color.fantasy-250}",
               "extensions": {
@@ -14470,7 +14470,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.text-blocks.color.fantasy-850}",
               "extensions": {
@@ -14485,7 +14485,7 @@
             }
           },
           "thriller": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.text-blocks.color.thriller-250}",
               "extensions": {
@@ -14498,7 +14498,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.text-blocks.color.thriller-850}",
               "extensions": {
@@ -14513,7 +14513,7 @@
             }
           },
           "romance": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.text-blocks.color.romance-50}",
               "extensions": {
@@ -14526,7 +14526,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.text-blocks.color.romance-750}",
               "extensions": {
@@ -14541,7 +14541,7 @@
             }
           },
           "vacation": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.text-blocks.color.vacation-25}",
               "extensions": {
@@ -14554,7 +14554,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.text-blocks.color.vacation-150}",
               "extensions": {
@@ -14569,7 +14569,7 @@
             }
           },
           "nostalgia": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.text-blocks.color.nostalgia-25}",
               "extensions": {
@@ -14582,7 +14582,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.text-blocks.color.nostalgia-600}",
               "extensions": {
@@ -14630,7 +14630,7 @@
         "background": {
           "color": {
             "brand": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.aubergine-25}",
                 "extensions": {
@@ -14643,7 +14643,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.aubergine-900}",
                 "extensions": {
@@ -14658,7 +14658,7 @@
               }
             },
             "nature": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.nature-25}",
                 "extensions": {
@@ -14671,7 +14671,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.nature-750}",
                 "extensions": {
@@ -14686,7 +14686,7 @@
               }
             },
             "fantasy": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.fantasy-250}",
                 "extensions": {
@@ -14699,7 +14699,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.fantasy-850}",
                 "extensions": {
@@ -14714,7 +14714,7 @@
               }
             },
             "thriller": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.thriller-250}",
                 "extensions": {
@@ -14727,7 +14727,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.thriller-850}",
                 "extensions": {
@@ -14742,7 +14742,7 @@
               }
             },
             "romance": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.romance-50}",
                 "extensions": {
@@ -14755,7 +14755,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.romance-750}",
                 "extensions": {
@@ -14770,7 +14770,7 @@
               }
             },
             "vacation": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.vacation-25}",
                 "extensions": {
@@ -14783,7 +14783,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.vacation-150}",
                 "extensions": {
@@ -14798,7 +14798,7 @@
               }
             },
             "nostalgia": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.nostalgia-25}",
                 "extensions": {
@@ -14811,7 +14811,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.nostalgia-600}",
                 "extensions": {
@@ -14922,7 +14922,7 @@
         "background": {
           "color": {
             "brand": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.aubergine-25}",
                 "extensions": {
@@ -14935,7 +14935,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.aubergine-900}",
                 "extensions": {
@@ -14950,7 +14950,7 @@
               }
             },
             "nature": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.nature-25}",
                 "extensions": {
@@ -14963,7 +14963,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.nature-750}",
                 "extensions": {
@@ -14978,7 +14978,7 @@
               }
             },
             "romance": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.romance-50}",
                 "extensions": {
@@ -14991,7 +14991,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.romance-750}",
                 "extensions": {
@@ -15006,7 +15006,7 @@
               }
             },
             "thriller": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.thriller-250}",
                 "extensions": {
@@ -15019,7 +15019,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.thriller-850}",
                 "extensions": {
@@ -15034,7 +15034,7 @@
               }
             },
             "fantasy": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.fantasy-250}",
                 "extensions": {
@@ -15047,7 +15047,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.fantasy-850}",
                 "extensions": {
@@ -15062,7 +15062,7 @@
               }
             },
             "vacation": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.vacation-25}",
                 "extensions": {
@@ -15075,7 +15075,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.vacation-150}",
                 "extensions": {
@@ -15090,7 +15090,7 @@
               }
             },
             "nostalgia": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.nostalgia-25}",
                 "extensions": {
@@ -15103,7 +15103,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.nostalgia-600}",
                 "extensions": {
@@ -15122,7 +15122,7 @@
         "shape": {
           "color": {
             "brand": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.aubergine-25}",
                 "extensions": {
@@ -15135,7 +15135,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.aubergine-900}",
                 "extensions": {
@@ -15150,7 +15150,7 @@
               }
             },
             "nature": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.nature-25}",
                 "extensions": {
@@ -15163,7 +15163,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.nature-750}",
                 "extensions": {
@@ -15178,7 +15178,7 @@
               }
             },
             "romance": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.romance-50}",
                 "extensions": {
@@ -15191,7 +15191,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.romance-750}",
                 "extensions": {
@@ -15206,7 +15206,7 @@
               }
             },
             "thriller": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.thriller-250}",
                 "extensions": {
@@ -15219,7 +15219,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.thriller-850}",
                 "extensions": {
@@ -15234,7 +15234,7 @@
               }
             },
             "fantasy": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.fantasy-250}",
                 "extensions": {
@@ -15247,7 +15247,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.fantasy-850}",
                 "extensions": {
@@ -15262,7 +15262,7 @@
               }
             },
             "vacation": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.vacation-25}",
                 "extensions": {
@@ -15275,7 +15275,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.vacation-150}",
                 "extensions": {
@@ -15290,7 +15290,7 @@
               }
             },
             "nostalgia": {
-              "tone-a": {
+              "tone-b": {
                 "type": "color",
                 "value": "{groups.feature-items.color.nostalgia-25}",
                 "extensions": {
@@ -15303,7 +15303,7 @@
                   }
                 }
               },
-              "tone-b": {
+              "tone-a": {
                 "type": "color",
                 "value": "{groups.feature-items.color.nostalgia-600}",
                 "extensions": {
@@ -15351,7 +15351,7 @@
       "shape": {
         "color": {
           "brand": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.feature-items.color.aubergine-25}",
               "extensions": {
@@ -15364,7 +15364,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.feature-items.color.aubergine-900}",
               "extensions": {
@@ -15379,7 +15379,7 @@
             }
           },
           "nature": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.feature-items.color.nature-25}",
               "extensions": {
@@ -15392,7 +15392,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.feature-items.color.nature-750}",
               "extensions": {
@@ -15407,7 +15407,7 @@
             }
           },
           "romance": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.feature-items.color.romance-50}",
               "extensions": {
@@ -15420,7 +15420,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.feature-items.color.romance-750}",
               "extensions": {
@@ -15435,7 +15435,7 @@
             }
           },
           "thriller": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.feature-items.color.thriller-250}",
               "extensions": {
@@ -15448,7 +15448,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.feature-items.color.thriller-850}",
               "extensions": {
@@ -15463,7 +15463,7 @@
             }
           },
           "fantasy": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.feature-items.color.fantasy-250}",
               "extensions": {
@@ -15476,7 +15476,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.feature-items.color.fantasy-850}",
               "extensions": {
@@ -15491,7 +15491,7 @@
             }
           },
           "vacation": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.feature-items.color.vacation-25}",
               "extensions": {
@@ -15504,7 +15504,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.feature-items.color.vacation-150}",
               "extensions": {
@@ -15519,7 +15519,7 @@
             }
           },
           "nostalgia": {
-            "tone-a": {
+            "tone-b": {
               "type": "color",
               "value": "{groups.feature-items.color.nostalgia-25}",
               "extensions": {
@@ -15532,7 +15532,7 @@
                 }
               }
             },
-            "tone-b": {
+            "tone-a": {
               "type": "color",
               "value": "{groups.feature-items.color.nostalgia-600}",
               "extensions": {
@@ -18736,6 +18736,171 @@
           }
         }
       }
+    },
+    "content-wrapper": {
+      "padding": {
+        "top": {
+          "overlay": {
+            "type": "dimension",
+            "value": "{semantics.layout.container.space.small}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "GAP"
+                ],
+                "variableId": "VariableID:13328:3640",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "page": {
+            "type": "dimension",
+            "value": "{semantics.layout.container.space.large}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "GAP"
+                ],
+                "variableId": "VariableID:13413:6754",
+                "exportKey": "variables"
+              }
+            }
+          }
+        },
+        "inline": {
+          "type": "dimension",
+          "value": "{semantics.layout.container.space.medium}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "GAP"
+              ],
+              "variableId": "VariableID:13328:3901",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "bottom": {
+          "type": "dimension",
+          "value": "{semantics.layout.container.space.large}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "GAP"
+              ],
+              "variableId": "VariableID:13328:3902",
+              "exportKey": "variables"
+            }
+          }
+        }
+      },
+      "inner-container": {
+        "gap": {
+          "type": "dimension",
+          "value": "{semantics.layout.container.space.xsmall}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "GAP"
+              ],
+              "variableId": "VariableID:13328:3904",
+              "exportKey": "variables"
+            }
+          }
+        }
+      },
+      "border": {
+        "radius": {
+          "overlay": {
+            "type": "dimension",
+            "value": "{semantics.layout.container.radius}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "CORNER_RADIUS"
+                ],
+                "variableId": "VariableID:13328:3906",
+                "exportKey": "variables"
+              }
+            }
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "tone-a": {
+            "type": "color",
+            "value": "{semantics.color.identity.base.aubergine-25}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "FRAME_FILL"
+                ],
+                "variableId": "VariableID:13328:3907",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "tone-b": {
+            "type": "color",
+            "value": "{semantics.color.identity.base.aubergine-850}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "FRAME_FILL"
+                ],
+                "variableId": "VariableID:13328:3908",
+                "exportKey": "variables"
+              }
+            }
+          }
+        }
+      },
+      "size": {
+        "max-width": {
+          "type": "dimension",
+          "value": "{semantics.layout.container.size.large}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "WIDTH_HEIGHT"
+              ],
+              "variableId": "VariableID:13352:3596",
+              "exportKey": "variables"
+            }
+          }
+        }
+      }
+    },
+    "text-block": {
+      "gap": {
+        "type": "dimension",
+        "value": "{semantics.layout.element.space.xsmall}",
+        "extensions": {
+          "org.gyldendal.kobber-figma-export": {
+            "scopes": [
+              "GAP"
+            ],
+            "variableId": "VariableID:13412:3416",
+            "exportKey": "variables"
+          }
+        }
+      }
+    },
+    "content-top-block": {
+      "gap": {
+        "type": "dimension",
+        "value": "{semantics.layout.element.space.medium}",
+        "extensions": {
+          "org.gyldendal.kobber-figma-export": {
+            "scopes": [
+              "GAP"
+            ],
+            "variableId": "VariableID:13413:3966",
+            "exportKey": "variables"
+          }
+        }
+      }
     }
   },
   "semantics": {
@@ -20663,7 +20828,7 @@
       },
       "container": {
         "size": {
-          "large": {
+          "medium": {
             "type": "dimension",
             "value": "{primitives.size.320}",
             "extensions": {
@@ -20674,7 +20839,7 @@
               }
             }
           },
-          "medium": {
+          "small": {
             "type": "dimension",
             "value": "{primitives.size.262}",
             "extensions": {
@@ -20683,6 +20848,85 @@
                 "variableId": "VariableID:12950:547",
                 "exportKey": "variables"
               }
+            }
+          },
+          "xlarge": {
+            "type": "dimension",
+            "value": "{primitives.size.640}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13402:2755",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "large": {
+            "type": "dimension",
+            "value": "{primitives.size.520}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13417:6894",
+                "exportKey": "variables"
+              }
+            }
+          }
+        },
+        "space": {
+          "small": {
+            "type": "dimension",
+            "value": "{primitives.size.48}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13328:3898",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "medium": {
+            "type": "dimension",
+            "value": "{primitives.size.56}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13328:3899",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "large": {
+            "type": "dimension",
+            "value": "{primitives.size.72}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13328:3900",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "xsmall": {
+            "type": "dimension",
+            "value": "{primitives.size.40}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13328:3903",
+                "exportKey": "variables"
+              }
+            }
+          }
+        },
+        "radius": {
+          "type": "dimension",
+          "value": "{primitives.size.40}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13328:3905",
+              "exportKey": "variables"
             }
           }
         }
