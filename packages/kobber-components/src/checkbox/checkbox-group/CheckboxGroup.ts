@@ -1,6 +1,6 @@
 import { html, unsafeStatic } from "lit/static-html.js";
 import type { CSSResultGroup } from "lit";
-import { customElement, property, query, state } from "lit/decorators.js";
+import { property, query, state } from "lit/decorators.js";
 import ShoelaceElement from "../../base/internal/shoelace-element";
 import { HasSlotController } from "../../base/internal/slot";
 import type { ShoelaceFormControl } from "../../base/internal/shoelace-element";
@@ -12,8 +12,9 @@ import {
 } from "../../base/internal/form";
 import componentStyles from "../../base/styles/component.styles";
 import type { CheckboxInput } from "../checkbox-input/CheckboxInput";
-import { checkboxGroupName, checkboxInputName, GroupProps } from "../Checkbox.core";
+import { checkboxGroupName, checkboxInputName, type GroupProps } from "../Checkbox.core";
 import { checkboxGroupStyles } from "./CheckboxGroup.styles";
+import { customElement } from "../../base/utilities/customElementDecorator";
 
 /**
  * @summary Checkbox groups are used to group multiple [checkboxes](/components/checkbox).

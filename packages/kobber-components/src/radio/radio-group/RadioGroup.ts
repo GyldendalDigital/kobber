@@ -13,9 +13,9 @@ import {
 } from "../../base/internal/form";
 import componentStyles from "../../base/styles/component.styles";
 import type { RadioInput } from "../radio-input/RadioInput";
-import { radioGroupName, radioInputName, GroupProps } from "../Radio.core";
+import { radioGroupName, radioInputName, type GroupProps } from "../Radio.core";
 import { radioGroupStyles } from "./RadioGroup.styles";
-import { customElement } from "../../base/utilities/customElementDecorator";
+import { customElement } from "lit/decorators.js";
 
 /**
  * @summary Radio groups are used to group multiple [radio inputs](/components/radio-input) so they function as a single form control.
@@ -111,7 +111,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
     super.connectedCallback();
     this.value = this.currentValue;
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    // @ts-expect-error
     navigation.addEventListener("navigate", () => {
       // Experimental functionality, does not work in Firefox. Might change in the future.
       this.handleUrlChange();

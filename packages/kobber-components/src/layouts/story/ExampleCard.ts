@@ -1,7 +1,8 @@
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { ResizeController } from "@lit-labs/observers/resize-controller.js";
 import { LitElement, css, html, unsafeCSS } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
+import { customElement } from "../../base/utilities/customElementDecorator";
 
 const paddingBlock = "16px";
 
