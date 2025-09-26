@@ -7899,106 +7899,6 @@
       }
     },
     "_text-input": {
-      "label": {
-        "text": {
-          "color": {
-            "main": {
-              "fallback": {
-                "description": "Textual means type text, password, search, email, tel, url",
-                "type": "color",
-                "value": "{groups.inputs.color.aubergine-525}",
-                "extensions": {
-                  "org.gyldendal.kobber-figma-export": {
-                    "scopes": [
-                      "TEXT_FILL"
-                    ],
-                    "variableId": "VariableID:1592:27257",
-                    "exportKey": "variables"
-                  }
-                }
-              },
-              "active": {
-                "description": "Textual means type text, password, search, email, tel, url",
-                "type": "color",
-                "value": "{groups.inputs.color.aubergine-850}",
-                "extensions": {
-                  "org.gyldendal.kobber-figma-export": {
-                    "scopes": [
-                      "TEXT_FILL"
-                    ],
-                    "variableId": "VariableID:1592:27258",
-                    "exportKey": "variables"
-                  }
-                }
-              }
-            },
-            "supplement": {
-              "fallback": {
-                "description": "Textual means type text, password, search, email, tel, url",
-                "type": "color",
-                "value": "{groups.inputs.color.aubergine-150}",
-                "extensions": {
-                  "org.gyldendal.kobber-figma-export": {
-                    "scopes": [
-                      "TEXT_FILL"
-                    ],
-                    "variableId": "VariableID:1592:27265",
-                    "exportKey": "variables"
-                  }
-                }
-              },
-              "active": {
-                "description": "Textual means type text, password, search, email, tel, url",
-                "type": "color",
-                "value": "{groups.inputs.color.aubergine-675}",
-                "extensions": {
-                  "org.gyldendal.kobber-figma-export": {
-                    "scopes": [
-                      "TEXT_FILL"
-                    ],
-                    "variableId": "VariableID:1592:27266",
-                    "exportKey": "variables"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "supportive-text": {
-        "text": {
-          "color": {
-            "tone-a": {
-              "description": "Textual means type text, password, search, email, tel, url",
-              "type": "color",
-              "value": "{groups.inputs.color.aubergine-850}",
-              "extensions": {
-                "org.gyldendal.kobber-figma-export": {
-                  "scopes": [
-                    "TEXT_FILL"
-                  ],
-                  "variableId": "VariableID:1600:27283",
-                  "exportKey": "variables"
-                }
-              }
-            },
-            "tone-b": {
-              "description": "Textual means type text, password, search, email, tel, url",
-              "type": "color",
-              "value": "{groups.inputs.color.aubergine-150}",
-              "extensions": {
-                "org.gyldendal.kobber-figma-export": {
-                  "scopes": [
-                    "TEXT_FILL"
-                  ],
-                  "variableId": "VariableID:1600:27284",
-                  "exportKey": "variables"
-                }
-              }
-            }
-          }
-        }
-      },
       "background": {
         "color": {
           "primary": {
@@ -8182,7 +8082,7 @@
       "container": {
         "gap": {
           "type": "dimension",
-          "value": "{groups.inputs.space.xsmall}",
+          "value": "{groups.inputs.space.small}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -8193,90 +8093,9 @@
             }
           }
         }
-      },
-      "input": {
-        "text": {
-          "color": {
-            "main": {
-              "idle": {
-                "description": "Textual means type text, password, search, email, tel, url",
-                "type": "color",
-                "value": "{groups.inputs.color.aubergine-525}",
-                "extensions": {
-                  "org.gyldendal.kobber-figma-export": {
-                    "scopes": [
-                      "TEXT_FILL"
-                    ],
-                    "variableId": "VariableID:11309:3070",
-                    "exportKey": "variables"
-                  }
-                }
-              },
-              "active": {
-                "description": "Textual means type text, password, search, email, tel, url",
-                "type": "color",
-                "value": "{groups.inputs.color.aubergine-850}",
-                "extensions": {
-                  "org.gyldendal.kobber-figma-export": {
-                    "scopes": [
-                      "TEXT_FILL"
-                    ],
-                    "variableId": "VariableID:11309:3071",
-                    "exportKey": "variables"
-                  }
-                }
-              }
-            },
-            "supplement": {
-              "idle": {
-                "description": "Textual means type text, password, search, email, tel, url",
-                "type": "color",
-                "value": "{groups.inputs.color.aubergine-150}",
-                "extensions": {
-                  "org.gyldendal.kobber-figma-export": {
-                    "scopes": [
-                      "TEXT_FILL"
-                    ],
-                    "variableId": "VariableID:11309:3072",
-                    "exportKey": "variables"
-                  }
-                }
-              },
-              "active": {
-                "description": "Textual means type text, password, search, email, tel, url",
-                "type": "color",
-                "value": "{groups.inputs.color.aubergine-675}",
-                "extensions": {
-                  "org.gyldendal.kobber-figma-export": {
-                    "scopes": [
-                      "TEXT_FILL"
-                    ],
-                    "variableId": "VariableID:11309:3073",
-                    "exportKey": "variables"
-                  }
-                }
-              }
-            }
-          }
-        }
       }
     },
     "_checkbox": {
-      "text": {
-        "color": {
-          "type": "color",
-          "value": "{groups.inputs.color.aubergine-850}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [
-                "TEXT_FILL"
-              ],
-              "variableId": "VariableID:1636:429",
-              "exportKey": "variables"
-            }
-          }
-        }
-      },
       "outline": {
         "border": {
           "radius": {
@@ -8334,7 +8153,7 @@
                 }
               }
             },
-            "aubergine": {
+            "brand": {
               "hover": {
                 "type": "color",
                 "value": "{groups.inputs.color.aubergine-50}",
@@ -8448,7 +8267,7 @@
                 }
               }
             },
-            "aubergine": {
+            "brand": {
               "idle": {
                 "type": "color",
                 "value": "{groups.inputs.color.aubergine-900}",
@@ -8568,7 +8387,7 @@
                 }
               }
             },
-            "aubergine": {
+            "brand": {
               "idle": {
                 "type": "color",
                 "value": "{groups.inputs.color.aubergine-50}",
@@ -8811,36 +8630,6 @@
       }
     },
     "docs-navbar-item": {
-      "text": {
-        "color": {
-          "tone-a": {
-            "type": "color",
-            "value": "{groups.navbars.color.midtone}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [
-                  "TEXT_FILL"
-                ],
-                "variableId": "VariableID:4365:4841",
-                "exportKey": "variables"
-              }
-            }
-          },
-          "tone-b": {
-            "type": "color",
-            "value": "{groups.navbars.color.brightest}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [
-                  "TEXT_FILL"
-                ],
-                "variableId": "VariableID:4365:4842",
-                "exportKey": "variables"
-              }
-            }
-          }
-        }
-      },
       "border-bottom": {
         "width": {
           "type": "dimension",
@@ -9563,7 +9352,7 @@
       "status-circle": {
         "background": {
           "color": {
-            "aubergine": {
+            "brand": {
               "tone-a": {
                 "type": "color",
                 "value": "{groups.badges.color.aubergine-425}",
@@ -10083,21 +9872,6 @@
                 "GAP"
               ],
               "variableId": "VariableID:9499:12191",
-              "exportKey": "variables"
-            }
-          }
-        }
-      },
-      "text": {
-        "color": {
-          "type": "color",
-          "value": "{groups.inputs.color.aubergine-850}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [
-                "TEXT_FILL"
-              ],
-              "variableId": "VariableID:9499:12192",
               "exportKey": "variables"
             }
           }
@@ -13543,7 +13317,7 @@
         "gap": {
           "list": {
             "type": "dimension",
-            "value": "{groups.inputs.space.xsmall}",
+            "value": "{groups.inputs.space.small}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -14264,21 +14038,6 @@
                 "WIDTH_HEIGHT"
               ],
               "variableId": "VariableID:11280:10204",
-              "exportKey": "variables"
-            }
-          }
-        }
-      },
-      "text": {
-        "color": {
-          "type": "color",
-          "value": "{groups.menus.color.aubergine-750}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [
-                "TEXT_FILL"
-              ],
-              "variableId": "VariableID:11280:10203",
               "exportKey": "variables"
             }
           }
