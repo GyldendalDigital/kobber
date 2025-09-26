@@ -4,18 +4,17 @@ import "../box-layout/BoxLayout";
 import "../story/ExampleCard";
 import "./HorizontalLayout";
 import "./HorizontalLayoutColumn";
-import { exampleIrregular } from "../../carousel/story/example";
-import { renderIndicators } from "./story/renderIndicators";
-import { globalStyles } from "../../story/globalStyles";
-import { maxColumns } from "./HorizontalLayout.config";
 import { init as initComponents } from "../../base/init";
+import { exampleIrregular } from "../../carousel/story/example";
+import { obsoleteStyles } from "../../story/obsoleteStyles";
+import { maxColumns } from "./HorizontalLayout.config";
+import { renderIndicators } from "./story/renderIndicators";
 
 initComponents();
 
 const meta: Meta = {
   title: "In development 🔵/Layouts/HorizontalLayout (Carousel)",
   component: "HorizontalLayout",
-  decorators: [(story, storyContext) => html`<div class="${storyContext.globals.theme}">${story()}</div>`],
 };
 
 export default meta;
@@ -51,6 +50,6 @@ export const HorizontalLayoutStory: StoryObj = {
   name: "HorizontalLayout",
   render,
   play: ({ canvasElement }) => initIndicators(canvasElement),
-  decorators: [story => html`${globalStyles}${story()}`],
+  decorators: [story => html`${obsoleteStyles}${story()}`],
   parameters: { layout: "fullscreen" },
 };

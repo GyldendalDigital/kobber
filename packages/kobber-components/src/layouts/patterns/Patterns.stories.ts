@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit";
 import "../box-layout/BoxLayout";
-import { example as cardLayoutExample } from "../card-layout/story/example";
 import {
-  exampleRegular as carouselExampleRegular,
   miniExample as carouselExampleMini,
+  exampleRegular as carouselExampleRegular,
 } from "../../carousel/story/example";
+import { example as cardLayoutExample } from "../card-layout/story/example";
 import "../story/ExampleSurface";
-import { globalStyles } from "../../story/globalStyles";
+import { obsoleteStyles } from "../../story/obsoleteStyles";
 import "../../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../../base/init";
 
@@ -23,10 +23,6 @@ const meta: Meta<Args> = {
   args: {
     carouselHasManyItems: true,
   },
-  decorators: [
-    (Story, storyContext) =>
-      html`<kobber-theme-context theme-id=${storyContext.globals.theme}>${Story()}</kobber-theme-context>`,
-  ],
 };
 
 export default meta;
@@ -60,6 +56,6 @@ const render = (args: Args) => {
 export const GridStory: StoryObj<Args> = {
   render,
   name: "Page",
-  decorators: [story => html`${globalStyles}${story()}`],
+  decorators: [story => html`${obsoleteStyles}${story()}`],
   parameters: { layout: "fullscreen" },
 };

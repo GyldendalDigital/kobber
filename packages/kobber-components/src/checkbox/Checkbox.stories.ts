@@ -2,8 +2,9 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import "./checkbox-input/CheckboxInput";
 import "./checkbox-group/CheckboxGroup";
 import "../theme-context-provider/ThemeContext";
-import { InputProps, CheckboxState, checkboxColorThemes } from "./Checkbox.core";
+import { html } from "lit";
 import { init as initComponents } from "../base/init";
+import { type CheckboxState, checkboxColorThemes, type InputProps } from "./Checkbox.core";
 
 initComponents();
 
@@ -23,19 +24,13 @@ interface Args extends Omit<InputProps, "checked"> {
 const meta: Meta = {
   title: "Base/Inputs/Checkbox",
   component: "kobber-checkbox",
-  decorators: [
-    (Story, context) => `
-      <kobber-theme-context theme-id=${context.globals.theme}> ${Story()} </kobber-theme-context>
-    `,
-  ],
 };
 
 export default meta;
-type Story = StoryObj;
 
-export const Themes: Story = {
+export const Themes: StoryObj<Args> = {
   render: args => {
-    return `
+    return html`
       <style>
         :root {
           padding: 0.5rem;
@@ -71,17 +66,15 @@ export const Themes: Story = {
       </style>
 
       <ol>
-        ${checkboxColorThemes
-          .map(colorTheme =>
-            renderColorTheme({
-              colorTheme,
-              state: "idle",
-              text: "idle",
-              showHelpText: args.showHelpText,
-              showLabel: args.showLabel,
-            }),
-          )
-          .join("")}
+        ${checkboxColorThemes.map(colorTheme =>
+          renderColorTheme({
+            colorTheme,
+            state: "idle",
+            text: "idle",
+            showHelpText: args.showHelpText,
+            showLabel: args.showLabel,
+          }),
+        )}
       </ol>
     `;
   },
@@ -96,38 +89,32 @@ const renderColorTheme = (args: Args) => {
     return;
   }
 
-  return `<li>
+  return html`<li>
     ${colorTheme}
     <ol class="focusedOrNot">
-      ${states
-        .map(focusState =>
-          Object.keys(focusState).map(key => {
-            let focus = "";
-            const focusedOrNot = key;
-            if (focusedOrNot === "focus") {
-              focus = "focus";
-            }
-            return `<li class="states">
-            <span class="focusedOrNot-title">${focusedOrNot}:</span> ${checkedOrNot
-              .map(checked => {
-                if (typeof focusState[focusedOrNot] === "undefined") return;
-                const length = focusState[focusedOrNot].length;
+      ${states.map(focusState =>
+        Object.keys(focusState).map(key => {
+          let focus = "";
+          const focusedOrNot = key;
+          if (focusedOrNot === "focus") {
+            focus = "focus";
+          }
+          return html`<li class="states">
+            <span class="focusedOrNot-title">${focusedOrNot}:</span> ${checkedOrNot.map(checked => {
+              if (typeof focusState[focusedOrNot] === "undefined") return undefined;
+              const length = focusState[focusedOrNot].length;
 
-                return focusState[focusedOrNot]
-                  .map((state, index) => {
-                    let last = false;
-                    if (index === length - 1) {
-                      last = true;
-                    }
-                    return renderButton({ ...args, focus, state, text: state, checked, last });
-                  })
-                  .join("");
-              })
-              .join("")}
+              return focusState[focusedOrNot].map((state, index) => {
+                let last = false;
+                if (index === length - 1) {
+                  last = true;
+                }
+                return renderButton({ ...args, focus, state, text: state, checked, last });
+              });
+            })}
           </li>`;
-          }),
-        )
-        .join("")}
+        }),
+      )}
     </ol>
   </li>`;
 };
@@ -142,13 +129,14 @@ const renderButton = (
   const { colorTheme, focus, state, text, checked, last } = args;
   const className = `${focus} ${state}`;
   const lastStyles = last ? `grid-column: -1` : "";
-  return `
+  return html`
     <kobber-checkbox-input
       style="${lastStyles}"
       class="${className}"
       color-theme="${colorTheme}"
-      ${checked ? (checked === "indeterminate" ? "indeterminate" : "checked") : ""}
-      ${state === "disabled" ? "disabled" : ""}
+      ?indeterminate=${checked === "indeterminate"}
+      ?checked=${checked === true}
+      ?disabled=${state === "disabled"}
     >
       ${text}
     </kobber-checkbox-input>
@@ -158,19 +146,20 @@ const renderButton = (
 /**
  * For some reason, page need to be reloaded for controls to come into effect.
  */
-export const Checkbox: Story = {
+export const Checkbox: StoryObj<Args & { showAlert: boolean }> = {
   render: args => {
-    return `
+    return html`
       <kobber-checkbox-input 
-        color-theme="success" 
-        ${args.disabled ? "disabled" : ""}
-        ${args.checked}
         name="studentoption"
         id-value="totalpoints"
+        color-theme="success" 
+        ?indeterminate=${args.checked === "indeterminate"}
+        ?checked=${args.checked === "checked"}
+        ?disabled=${args.disabled}
       >
         <span>Vis ukas totalpoeng</span>
-        ${args.showHelpText ? `<span slot="help-text" style="font-style: italic;color:gray;">Læreren din har skrudd ${args.disabled ? "av" : "på"} denne innstillingen.</span>` : ""}
-        ${args.showAlert ? `<div slot="alert" style="background-color:#CBFBDB;padding: 0.5em;border-radius:0.5em;"><p class="badge">TODO: Use badge component.</p></div>` : ""}
+        ${args.showHelpText ? html`<span slot="help-text" style="font-style: italic;color:gray;">Læreren din har skrudd ${args.disabled ? "av" : "på"} denne innstillingen.</span>` : ""}
+        ${args.showAlert ? html`<div slot="alert" style="background-color:#CBFBDB;padding: 0.5em;border-radius:0.5em;"><p class="badge">TODO: Use badge component.</p></div>` : ""}
       </kobber-checkbox-input>
     `;
   },
@@ -188,9 +177,11 @@ export const Checkbox: Story = {
   },
 };
 
-export const GNOExample: Story = {
+export const GNOExample: StoryObj<
+  Args & { showGroupHelpText: boolean; orientation: string; type: string }
+> = {
   render: args => {
-    return `
+    return html`
       <style>
         :root {
           padding: 0.5rem;
@@ -221,7 +212,7 @@ export const GNOExample: Story = {
           <kobber-checkbox-input id-value="childrens-books">Barnebøker</kobber-checkbox-input>
           <kobber-checkbox-input id-value="syllabi">Pensumbøker</kobber-checkbox-input>
           <kobber-checkbox-input id-value="professional">Profesjonsbøker</kobber-checkbox-input>
-        ${args.showGroupHelpText ? `<span slot="help-text">Velg noe, da.</span>` : ""}
+        ${args.showGroupHelpText ? html`<span slot="help-text">Velg noe, da.</span>` : ""}
         </kobber-checkbox-group>
       </div>
     `;

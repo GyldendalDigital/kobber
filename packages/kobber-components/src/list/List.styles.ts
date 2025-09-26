@@ -1,10 +1,10 @@
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
-import { listClassNames } from "./List.core";
+import { listName } from "./List.core";
 
 const createListStyles = () => {
   return css`
-    .${unsafeCSS(listClassNames("kobber-list"))} {
+    .${unsafeCSS(listName)} {
       display: flex;
       flex-direction: column;
       align-items: stretch;

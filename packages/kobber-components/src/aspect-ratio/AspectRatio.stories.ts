@@ -1,9 +1,9 @@
+import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { html, unsafeCSS } from "lit";
-import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
-import { defaultAspectRatio } from "./AspectRatio";
-import { globalStyles } from "../story/globalStyles";
 import { init as initComponents } from "../base/init";
+import { obsoleteStyles } from "../story/obsoleteStyles";
+import { defaultAspectRatio } from "./AspectRatio";
 
 initComponents();
 
@@ -60,7 +60,7 @@ const render = (args: Args) => {
 export const AspectRatioStory: Story = {
   render,
   name: "AspectRatio",
-  decorators: [story => html`${globalStyles}${story()}`],
+  decorators: [story => html`${obsoleteStyles}${story()}`],
   parameters: { layout: "fullscreen" },
   args: { aspectRatio: defaultAspectRatio },
 };

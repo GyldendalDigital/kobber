@@ -1,14 +1,10 @@
-import { property, state } from "lit/decorators.js";
-import { badgeClassNames, badgeName, BadgeProps } from "./Badge.core";
-import { CSSResultGroup, html, LitElement } from "lit";
-import componentStyles from "../base/styles/component.styles";
-import { badgeStyles } from "./Badge.styles";
-import { customElement } from "../base/utilities/customElementDecorator";
+import { type CSSResultGroup, html, LitElement } from "lit";
+import { property } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
-
-/**
- * Kobber Badge web-component
- */
+import componentStyles from "../base/styles/component.styles";
+import { customElement } from "../base/utilities/customElementDecorator";
+import { type BadgeProps, badgeClassNames, badgeName } from "./Badge.core";
+import { badgeStyles } from "./Badge.styles";
 
 @customElement(badgeName)
 export class Badge extends LitElement implements BadgeProps {
@@ -26,12 +22,8 @@ export class Badge extends LitElement implements BadgeProps {
   @property({ type: Boolean, attribute: "show-status-circle" })
   showStatusCircle?: BadgeProps["showStatusCircle"];
 
-  connectedCallback() {
-    super.connectedCallback();
-  }
-
   render() {
-    return html` <div
+    return html`<div
       class="${[
         ...badgeClassNames({
           showStatusCircle: this.showStatusCircle,

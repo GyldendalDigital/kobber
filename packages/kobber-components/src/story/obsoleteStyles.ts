@@ -1,6 +1,7 @@
 import { html } from "lit";
 
-export const globalStyles = html`
+/** @deprecated Styles used in deprecated components */
+export const obsoleteStyles = html`
   <style>
     html {
       box-sizing: border-box;

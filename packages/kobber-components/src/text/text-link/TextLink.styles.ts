@@ -1,7 +1,7 @@
-import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { textLinkName } from "./TextLink.core";
+import { css, unsafeCSS } from "lit";
 import focusStyles from "../../base/styles/focus.styles";
+import { textLinkName } from "./TextLink.core";
 
 /**
  * TODO: svg from icon component
