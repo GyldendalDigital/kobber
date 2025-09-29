@@ -41,7 +41,7 @@ export default defineConfig(() => ({
     [`${webComponentsDirectory}/index`]: "src/index.web-components.ts",
   },
   format: ["esm"],
-  dts: false,
+  dts: true,
   clean: false, // Avoid cleaning away symbols/kobber-icons.svg built in previous step.
   external: ["react"],
   esbuildOptions(options) {
