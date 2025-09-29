@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.6.7
+
+### Patch Changes
+
+- Add new kobber-base tokens, and re-enable kobber-icons' dts definitions
+- Updated dependencies
+  - @gyldendal/kobber-icons@0.6.7
+  - @gyldendal/kobber-base@0.6.7
+
 ## 0.6.6
 
 ### Patch Changes
