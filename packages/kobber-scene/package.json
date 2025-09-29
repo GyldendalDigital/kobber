@@ -1,6 +1,6 @@
 {
   "name": "@gyldendal/kobber-scene",
-  "version": "0.6.7",
+  "version": "0.6.8",
   "license": "MIT",
   "type": "module",
   "files": [
@@ -20,7 +20,7 @@
     "lit": "^3.2.1"
   },
   "devDependencies": {
-    "@gyldendal/kobber-tsconfig": "0.6.7",
+    "@gyldendal/kobber-tsconfig": "0.6.8",
     "@types/react": "^19.1.0",
     "onchange": "^7.1.0",
     "react": "^19.1.0",
