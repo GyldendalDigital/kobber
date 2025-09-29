@@ -1,5 +1,11 @@
 # @gyldendal/kobber-stylelint
 
+## 0.6.8
+
+### Patch Changes
+
+- Add ContentWrapper and TextModule components
+
 ## 0.6.7
 
 ### Patch Changes
