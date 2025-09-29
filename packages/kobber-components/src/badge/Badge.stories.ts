@@ -43,14 +43,14 @@ export const Badge: StoryObj<Args> = {
     },
     showStatusCircle: {
       control: { type: "boolean" },
-      name: "Show status circle (only for supplemental variant of aubergine and rettsdata thems)",
+      name: "Show status circle (only for tone-a variant of brand theme, and tone-b variant of rettsdata themes)",
     },
   },
   args: {
     text: "Badge",
     size: "medium",
-    colorTheme: "aubergine",
-    colorVariant: "main",
+    colorTheme: "brand",
+    colorVariant: "tone-a",
     showStatusCircle: true,
   },
   render: args => {

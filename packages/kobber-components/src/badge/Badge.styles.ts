@@ -1,12 +1,13 @@
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import {
-  BadgeClassNames,
+  type BadgeClassNames,
   badgeSizes,
   badgeColorThemes,
   badgeColorVariants,
-  BadgeColorVariant,
-  BadgeSize,
+  type BadgeColorVariant,
+  type BadgeSize,
+  type BadgeColorTheme,
 } from "./Badge.core";
 import { getTypographyStyles } from "../base/getTypographyStyles2";
 
@@ -51,15 +52,19 @@ const getThemeSizeVariantStyles = () => {
     ${unsafeCSS(
       badgeColorThemes
         .flatMap(colorTheme => {
-          if (colorTheme === "concrete") {
-            return `&[data-color-theme="${colorTheme}"] { ${getConcreteThemeMainVariantStyles()} }`;
-          }
           return badgeSizes.flatMap(size =>
             badgeColorVariants.flatMap(
               colorVariant =>
                 `&[data-color-variant="${colorVariant}"][data-color-theme="${colorTheme}"][data-size="${size}"] { 
-                  ${getNotConcreteThemeVariantStyles(colorTheme, colorVariant)}
-                  ${getStatusCircleStyles(colorTheme, colorVariant, size)}
+                  ${getThemeVariantStyles(colorTheme, colorVariant)}
+
+                  ${
+                    colorTheme === "brand"
+                      ? getStatusCircleStyles("brand", colorVariant, size)
+                      : colorTheme === "rettsdata"
+                        ? getStatusCircleStyles(colorTheme, colorVariant, size)
+                        : ""
+                  }
                 }`,
             ),
           );
@@ -69,45 +74,45 @@ const getThemeSizeVariantStyles = () => {
   `;
 };
 
-const getConcreteThemeMainVariantStyles = () => {
-  return css`
+const getThemeVariantStyles = (colorTheme: BadgeColorTheme, colorVariant: BadgeColorVariant) => {
+  if (colorTheme === "neutral") {
+    return css`
     ${unsafeCSS(`
-    --background-color: var(${unsafeCSS(badge.background.color.concrete.main)});
-    --color: var(${unsafeCSS(universal["text-label"].text.color.neutral["tone-a"])});
+      --background-color: var(${unsafeCSS(badge.background.color.neutral["tone-b"])});
+      --color: var(${unsafeCSS(universal["text-label"].text.color.neutral["tone-a"])});
       `)}
   `;
-};
+  }
+  const textColorVariant = colorVariant === "tone-a" ? "tone-b" : "tone-a";
 
-const getNotConcreteThemeVariantStyles = (colorTheme: "aubergine" | "rettsdata", colorVariant: BadgeColorVariant) => {
-  const getTextColor = () => {
-    if (colorTheme === "aubergine" && colorVariant === "main")
-      return universal["text-label"].text.color.brand["tone-a"];
-    if (colorTheme === "aubergine" && colorVariant === "supplemental")
-      return universal["text-label"].text.color.accent["tone-b"];
-    if (colorTheme === "rettsdata" && colorVariant === "main")
-      return universal["text-label"].text.color.rettsdata["tone-a"];
-    if (colorTheme === "rettsdata" && colorVariant === "supplemental")
-      return universal["text-label"].text.color.rettsdata["tone-b"];
-    return universal["text-label"].text.color.neutral["tone-a"];
-  };
   return css`
     ${unsafeCSS(`
       --background-color: var(${unsafeCSS(badge.background.color[colorTheme][colorVariant])});
-      --color: var(${unsafeCSS(getTextColor())});
+      --color: var(${unsafeCSS(universal["text-label"].text.color[colorTheme][textColorVariant])});
       `)}
   `;
 };
 
 const getStatusCircleStyles = (
-  colorTheme: "aubergine" | "rettsdata",
+  colorTheme: "brand" | "rettsdata",
   colorVariant: BadgeColorVariant,
   size: BadgeSize,
 ) => {
-  if (colorVariant === "supplemental") {
-    const circleStyles = component.badge["status-circle"];
+  const circleStyles = component.badge["status-circle"];
+
+  if (colorTheme === "brand" && colorVariant === "tone-a") {
     return css`
       ${unsafeCSS(`
-        --status-circle-color: var(${unsafeCSS(circleStyles.background.color[colorTheme].supplemental)});
+        --status-circle-color: var(${unsafeCSS(circleStyles.background.color.brand["tone-a"])});
+        --status-circle-width: var(${unsafeCSS(circleStyles.size.width[size])});
+        --status-circle-height: var(${unsafeCSS(circleStyles.size.height[size])});
+      `)}
+    `;
+  }
+  if (colorTheme === "rettsdata" && colorVariant === "tone-b") {
+    return css`
+      ${unsafeCSS(`
+        --status-circle-color: var(${unsafeCSS(circleStyles.background.color.rettsdata["tone-b"])});
         --status-circle-width: var(${unsafeCSS(circleStyles.size.width[size])});
         --status-circle-height: var(${unsafeCSS(circleStyles.size.height[size])});
       `)}

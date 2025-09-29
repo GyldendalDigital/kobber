@@ -80,7 +80,6 @@ export const Themes: StoryObj<Args> = {
   },
 };
 
-// colorTheme = "success" | "aubergine"
 const renderColorTheme = (args: Args) => {
   const { colorTheme } = args;
   const checkedOrNot = [false, true, "indeterminate"];

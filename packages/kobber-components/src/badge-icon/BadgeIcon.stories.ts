@@ -48,8 +48,8 @@ export const BadgeIcons: StoryObj<Args> = {
   args: {
     text: "Badge Icon",
     size: "medium",
-    colorTheme: "aubergine",
-    colorVariant: "main",
+    colorTheme: "brand",
+    colorVariant: "tone-a",
   },
   render: args => {
     return html`${renderBadgeIcon(args)}`;
