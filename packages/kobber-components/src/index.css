@@ -42,7 +42,7 @@
                   
     
       --background-color: var(--kobber-component-badge-background-color-brand-tone-b);
-      --color: var(--kobber-universal-text-label-text-color-brand-tone-b);
+      --color: var(--kobber-universal-text-label-text-color-brand-tone-a);
       
   
 
@@ -52,7 +52,7 @@
                   
     
       --background-color: var(--kobber-component-badge-background-color-brand-tone-a);
-      --color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+      --color: var(--kobber-universal-text-label-text-color-brand-tone-b);
       
   
 
@@ -68,7 +68,7 @@
                   
     
       --background-color: var(--kobber-component-badge-background-color-brand-tone-b);
-      --color: var(--kobber-universal-text-label-text-color-brand-tone-b);
+      --color: var(--kobber-universal-text-label-text-color-brand-tone-a);
       
   
 
@@ -78,7 +78,7 @@
                   
     
       --background-color: var(--kobber-component-badge-background-color-brand-tone-a);
-      --color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+      --color: var(--kobber-universal-text-label-text-color-brand-tone-b);
       
   
 
@@ -94,7 +94,7 @@
                   
     
       --background-color: var(--kobber-component-badge-background-color-rettsdata-tone-b);
-      --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
+      --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
       
   
 
@@ -110,7 +110,7 @@
                   
     
       --background-color: var(--kobber-component-badge-background-color-rettsdata-tone-a);
-      --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
+      --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
       
   
 
@@ -120,7 +120,7 @@
                   
     
       --background-color: var(--kobber-component-badge-background-color-rettsdata-tone-b);
-      --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
+      --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
       
   
 
@@ -136,7 +136,7 @@
                   
     
       --background-color: var(--kobber-component-badge-background-color-rettsdata-tone-a);
-      --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
+      --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
       
   
 
@@ -146,7 +146,7 @@
                   
     
       --background-color: var(--kobber-component-badge-background-color-neutral-tone-b);
-      --color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
+      --color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
       
   
 
@@ -156,7 +156,7 @@
                   
     
       --background-color: var(--kobber-component-badge-background-color-neutral-tone-b);
-      --color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
+      --color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
       
   
 
@@ -166,7 +166,7 @@
                   
     
       --background-color: var(--kobber-component-badge-background-color-neutral-tone-b);
-      --color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
+      --color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
       
   
 
@@ -176,7 +176,7 @@
                   
     
       --background-color: var(--kobber-component-badge-background-color-neutral-tone-b);
-      --color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
+      --color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
       
   
 
@@ -455,7 +455,7 @@
     
     
       &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="brand"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-brand-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-brand-tone-a);
         --border-color: var(undefined);
         --background-color: var(undefined);
         
@@ -473,7 +473,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="brand"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-brand-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-brand-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-brand-secondary-tone-b-fallback);
         
@@ -491,7 +491,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="brand"][data-color-level="tertiary"] {
-        --color: var(--kobber-universal-text-label-text-color-brand-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-brand-tone-a);
         --border-color: var(--kobber-component-button-border-color-brand-tertiary-tone-b-active);
         --background-color: var(undefined);
         
@@ -509,7 +509,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="brand"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-brand-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-brand-primary-tone-a-fallback);
         
@@ -527,7 +527,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="brand"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-brand-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-brand-secondary-tone-a-fallback);
         
@@ -545,7 +545,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="brand"][data-color-level="tertiary"] {
-        --color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-brand-tone-b);
         --border-color: var(--kobber-component-button-border-color-brand-tertiary-tone-a-active);
         --background-color: var(undefined);
         
@@ -563,7 +563,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="neutral"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
         --border-color: var(undefined);
         --background-color: var(undefined);
         
@@ -581,7 +581,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="neutral"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-neutral-secondary-tone-b-fallback);
         
@@ -599,7 +599,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="neutral"][data-color-level="tertiary"] {
-        --color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
         --border-color: var(undefined);
         --background-color: var(undefined);
         
@@ -617,7 +617,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="neutral"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-neutral-primary-tone-a-fallback);
         
@@ -635,7 +635,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="neutral"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
         --border-color: var(undefined);
         --background-color: var(undefined);
         
@@ -653,7 +653,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="neutral"][data-color-level="tertiary"] {
-        --color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
         --border-color: var(--kobber-component-button-border-color-neutral-tertiary-tone-a-active);
         --background-color: var(undefined);
         
@@ -671,7 +671,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="rettsdata"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
         --border-color: var(undefined);
         --background-color: var(undefined);
         
@@ -689,7 +689,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="rettsdata"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-rettsdata-secondary-tone-b-fallback);
         
@@ -707,7 +707,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="rettsdata"][data-color-level="tertiary"] {
-        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
         --border-color: var(--kobber-component-button-border-color-rettsdata-tertiary-tone-b-active);
         --background-color: var(undefined);
         
@@ -725,7 +725,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="rettsdata"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-rettsdata-primary-tone-a-fallback);
         
@@ -743,7 +743,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="rettsdata"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-rettsdata-secondary-tone-a-fallback);
         
@@ -761,7 +761,7 @@
 
     
       &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="rettsdata"][data-color-level="tertiary"] {
-        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
         --border-color: var(--kobber-component-button-border-color-rettsdata-tertiary-tone-a-active);
         --background-color: var(undefined);
         
@@ -779,7 +779,7 @@
 
     
       &[data-button-type="ui-button"][data-color-variant="tone-b"][data-color-theme="success"] {
-        --color: var(--kobber-universal-text-label-text-color-success-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-success-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-ui-button-background-color-success-tone-b-fallback);
         
@@ -797,7 +797,7 @@
 
     
       &[data-button-type="ui-button"][data-color-variant="tone-a"][data-color-theme="success"] {
-        --color: var(--kobber-universal-text-label-text-color-success-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-success-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-ui-button-background-color-success-tone-a-fallback);
         
@@ -815,7 +815,7 @@
 
     
       &[data-button-type="ui-button"][data-color-variant="tone-b"][data-color-theme="informative"] {
-        --color: var(--kobber-universal-text-label-text-color-informative-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-informative-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-ui-button-background-color-informative-tone-b-fallback);
         
@@ -833,7 +833,7 @@
 
     
       &[data-button-type="ui-button"][data-color-variant="tone-a"][data-color-theme="informative"] {
-        --color: var(--kobber-universal-text-label-text-color-informative-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-informative-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-ui-button-background-color-informative-tone-a-fallback);
         
@@ -851,7 +851,7 @@
 
     
       &[data-button-type="ui-button"][data-color-variant="tone-b"][data-color-theme="warning"] {
-        --color: var(--kobber-universal-text-label-text-color-warning-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-warning-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-ui-button-background-color-warning-tone-b-fallback);
         
@@ -869,7 +869,7 @@
 
     
       &[data-button-type="ui-button"][data-color-variant="tone-a"][data-color-theme="warning"] {
-        --color: var(--kobber-universal-text-label-text-color-warning-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-warning-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-ui-button-background-color-warning-tone-a-fallback);
         
@@ -887,7 +887,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="accent"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-accent-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-accent-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-accent-primary-tone-a-fallback);
         
@@ -905,7 +905,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="accent"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-accent-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-accent-tone-b);
         --border-color: var(--kobber-component-theme-button-border-color-accent-secondary-tone-a-active);
         --background-color: var(undefined);
         
@@ -923,7 +923,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="accent"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-accent-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-accent-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-accent-primary-tone-b-fallback);
         
@@ -941,7 +941,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="accent"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-accent-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-accent-tone-a);
         --border-color: var(--kobber-component-theme-button-border-color-accent-secondary-tone-b-active);
         --background-color: var(undefined);
         
@@ -959,7 +959,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="nostalgia"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-nostalgia-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-nostalgia-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-a-fallback);
         
@@ -977,7 +977,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="nostalgia"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-nostalgia-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-nostalgia-tone-b);
         --border-color: var(--kobber-component-theme-button-border-color-nostalgia-secondary-tone-a-active);
         --background-color: var(undefined);
         
@@ -995,7 +995,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="nostalgia"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-nostalgia-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-nostalgia-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-b-fallback);
         
@@ -1013,7 +1013,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="nostalgia"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-nostalgia-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-nostalgia-tone-a);
         --border-color: var(--kobber-component-theme-button-border-color-nostalgia-secondary-tone-b-active);
         --background-color: var(undefined);
         
@@ -1031,7 +1031,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="nature"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-nature-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-nature-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-nature-primary-tone-a-fallback);
         
@@ -1049,7 +1049,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="nature"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-nature-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-nature-tone-b);
         --border-color: var(--kobber-component-theme-button-border-color-nature-secondary-tone-a-active);
         --background-color: var(undefined);
         
@@ -1067,7 +1067,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="nature"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-nature-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-nature-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-nature-primary-tone-b-fallback);
         
@@ -1085,7 +1085,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="nature"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-nature-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-nature-tone-a);
         --border-color: var(--kobber-component-theme-button-border-color-nature-secondary-tone-b-active);
         --background-color: var(undefined);
         
@@ -1103,7 +1103,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="romance"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-romance-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-romance-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-romance-primary-tone-a-fallback);
         
@@ -1121,7 +1121,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="romance"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-romance-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-romance-tone-b);
         --border-color: var(--kobber-component-theme-button-border-color-romance-secondary-tone-a-active);
         --background-color: var(undefined);
         
@@ -1139,7 +1139,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="romance"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-romance-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-romance-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-romance-primary-tone-b-fallback);
         
@@ -1157,7 +1157,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="romance"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-romance-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-romance-tone-a);
         --border-color: var(--kobber-component-theme-button-border-color-romance-secondary-tone-b-active);
         --background-color: var(undefined);
         
@@ -1175,7 +1175,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="thriller"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-thriller-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-thriller-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-thriller-primary-tone-a-fallback);
         
@@ -1193,7 +1193,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="thriller"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-thriller-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-thriller-tone-b);
         --border-color: var(--kobber-component-theme-button-border-color-thriller-secondary-tone-a-active);
         --background-color: var(undefined);
         
@@ -1211,7 +1211,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="thriller"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-thriller-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-thriller-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-thriller-primary-tone-b-fallback);
         
@@ -1229,7 +1229,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="thriller"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-thriller-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-thriller-tone-a);
         --border-color: var(--kobber-component-theme-button-border-color-thriller-secondary-tone-b-active);
         --background-color: var(undefined);
         
@@ -1247,7 +1247,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="fantasy"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-fantasy-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-fantasy-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-fantasy-primary-tone-a-fallback);
         
@@ -1265,7 +1265,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="fantasy"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-fantasy-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-fantasy-tone-b);
         --border-color: var(--kobber-component-theme-button-border-color-fantasy-secondary-tone-a-active);
         --background-color: var(undefined);
         
@@ -1283,7 +1283,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="fantasy"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-fantasy-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-fantasy-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-fantasy-primary-tone-b-fallback);
         
@@ -1301,7 +1301,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="fantasy"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-fantasy-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-fantasy-tone-a);
         --border-color: var(--kobber-component-theme-button-border-color-fantasy-secondary-tone-b-active);
         --background-color: var(undefined);
         
@@ -1319,7 +1319,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="vacation"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-vacation-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-vacation-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-vacation-primary-tone-a-fallback);
         
@@ -1337,7 +1337,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="vacation"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-vacation-tone-a);
+        --color: var(--kobber-universal-text-label-text-color-vacation-tone-b);
         --border-color: var(--kobber-component-theme-button-border-color-vacation-secondary-tone-a-active);
         --background-color: var(undefined);
         
@@ -1355,7 +1355,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="vacation"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-vacation-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-vacation-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-vacation-primary-tone-b-fallback);
         
@@ -1373,7 +1373,7 @@
 
     
       &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="vacation"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-vacation-tone-b);
+        --color: var(--kobber-universal-text-label-text-color-vacation-tone-a);
         --border-color: var(--kobber-component-theme-button-border-color-vacation-secondary-tone-b-active);
         --background-color: var(undefined);
         
@@ -2292,6 +2292,20 @@ em,
     }
   
 /* #endregion */
+/* #region TextBlock - textBlockStyles */ 
+
+    :host {
+      display: block;
+    }
+    .kobber-text-block {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 0.5em;
+    }
+  
+/* #endregion */
 /* #region TextBody - textBodyStyles */ 
 
 .kobber-text-body {
@@ -2715,6 +2729,133 @@ em,
         display: inline;
         scale: 0.9;
       }
+    }
+  
+/* #endregion */
+/* #region TextModule - textModuleStyles */ 
+
+    :host {
+      display: block;
+    }
+    .kobber-text-module {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: var(--kobber-component-text-module-inner-text-container-gap);
+      padding: var(--kobber-component-text-module-padding-top) var(--kobber-component-text-module-padding-inline) var(--kobber-component-text-module-padding-bottom);
+      min-height: 5em;
+      border-radius: 1.5em;
+      
+      max-width: 600px;
+      ::slotted(kobber-text-module) {
+        max-width: 400px;
+      }
+
+      .header, .div {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: var(--kobber-component-text-module-gap);
+      }
+
+      background-color: var(--text-module-background-color);
+      
+      &[data-color="brand"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-brand-tone-b);
+          }
+        }
+
+      &[data-color="brand"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-brand-tone-a);
+          }
+        }
+
+      &[data-color="neutral"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-neutral-tone-b);
+          }
+        }
+
+      &[data-color="neutral"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-neutral-tone-a);
+          }
+        }
+
+      &[data-color="nature"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-nature-tone-b);
+          }
+        }
+
+      &[data-color="nature"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-nature-tone-a);
+          }
+        }
+
+      &[data-color="fantasy"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-fantasy-tone-b);
+          }
+        }
+
+      &[data-color="fantasy"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-fantasy-tone-a);
+          }
+        }
+
+      &[data-color="thriller"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-thriller-tone-b);
+          }
+        }
+
+      &[data-color="thriller"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-thriller-tone-a);
+          }
+        }
+
+      &[data-color="romance"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-romance-tone-b);
+          }
+        }
+
+      &[data-color="romance"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-romance-tone-a);
+          }
+        }
+
+      &[data-color="vacation"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-vacation-tone-b);
+          }
+        }
+
+      &[data-color="vacation"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-vacation-tone-a);
+          }
+        }
+
+      &[data-color="nostalgia"] {
+          &[data-color-variant="tone-b"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-nostalgia-tone-b);
+          }
+        }
+
+      &[data-color="nostalgia"] {
+          &[data-color-variant="tone-a"] {
+            --text-module-background-color: var(--kobber-component-text-module-color-background-nostalgia-tone-a);
+          }
+        };
     }
   
 /* #endregion */

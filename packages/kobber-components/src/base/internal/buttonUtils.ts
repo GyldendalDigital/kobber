@@ -15,10 +15,11 @@ export const isValidPropCombination = (
   colorVariant: ButtonColorVariant,
   colorLevel?: ButtonColorLevel,
 ) => {
+  const textColorVariant = colorVariant === "tone-a" ? "tone-b" : "tone-a";
+
   let backgroundColor: { hover: string; fallback: string },
     borderColor: { hover: string; active: string };
-
-  const textColor = universal["text-label"]?.text.color[colorTheme]?.[colorVariant];
+  const textColor = universal["text-label"]?.text.color[colorTheme]?.[textColorVariant];
 
   if (colorLevel) {
     backgroundColor =
