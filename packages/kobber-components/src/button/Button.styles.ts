@@ -186,9 +186,6 @@ const getColorStyles = (
   if (colorLevel) {
     selectorString += `[data-color-level="${colorLevel}"]`;
   }
-  console.info(
-    `getColorStyles - selectorString: ${selectorString} - bgColor: ${backgroundColor?.fallback}`,
-  );
 
   return css`
     ${unsafeCSS(`
