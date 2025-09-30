@@ -44,8 +44,6 @@ const createCheckboxStyles = () => {
 
     .${unsafeCSS("label" satisfies InputLabelClassNames)} {
       display: block;
-      color: var(${unsafeCSS(universal["text-label"].text.color.brand["tone-a"])});
-
 
       font-size: var(--typography-font-size);
       font-family: var(--typography-font-family);
@@ -87,7 +85,7 @@ const createCheckboxStyles = () => {
 const colorThemeStyles = () => {
   const colorThemes = checkboxColorThemes.flatMap(colorTheme => {
     return css`
-      ${unsafeCSS(`&[data-color-theme="${String(colorTheme)}"]`)} {
+      ${unsafeCSS(`&[data-color-theme="${colorTheme}"]`)} {
         ${statesPerColorTheme(colorTheme)}
       }
     `;

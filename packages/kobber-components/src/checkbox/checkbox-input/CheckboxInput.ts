@@ -20,6 +20,7 @@ import {
   type InputProps,
 } from "../Checkbox.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
+import "../../text/text-label/TextLabel";
 
 import { HTMLElement } from "@lit-labs/ssr-dom-shim";
 import { iconFormCheckedName, iconFormIndeterminateName } from "../../base/internal/icons";
@@ -238,9 +239,10 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
 
           <span class=${checkboxControlClassName}> ${icon} </span>
 
-          <div part="label" class=${checkboxLabelClassName}>
+          <kobber-text-label part="label" class=${checkboxLabelClassName} color=${ifDefined(this.colorTheme)}>
             <slot></slot>
-          </div>
+          </kobber-text-label>
+          
         </label>
 
         <div aria-hidden=${hasHelpText ? "false" : "true"} id="aria-help-text">

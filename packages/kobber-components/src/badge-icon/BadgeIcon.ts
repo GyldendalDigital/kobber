@@ -5,6 +5,7 @@ import componentStyles from "../base/styles/component.styles";
 import { badgeIconStyles } from "./BadgeIcon.styles";
 import { customElement } from "../base/utilities/customElementDecorator";
 import { ifDefined } from "lit/directives/if-defined.js";
+import "../text/text-label/TextLabel";
 
 @customElement(BadgeIconCore.badgeIconName)
 export class BadgeIcon extends LitElement implements BadgeIconCore.BadgeIconProps {
@@ -30,8 +31,14 @@ export class BadgeIcon extends LitElement implements BadgeIconCore.BadgeIconProp
       data-color-theme="${ifDefined(this.colorTheme)}"
       data-size="${ifDefined(this.size)}"
     >
-      <slot name="icon"></slot>
-      <slot></slot>
+      <slot name="icon" class="icon"></slot>
+      <kobber-text-label
+        color=${ifDefined(this.colorTheme)}
+        color-variant=${ifDefined(this.colorVariant)}
+      >
+        <slot></slot>
+      </kobber-text-label>
+      
     </div>`;
   }
 }

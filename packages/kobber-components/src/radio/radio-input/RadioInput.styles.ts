@@ -35,7 +35,6 @@ const createInputStyles = () => {
 
     .${unsafeCSS("label" satisfies InputLabelClassNames)} {
       display: block;
-      color: var(${unsafeCSS(universal["text-label"].text.color.brand["tone-a"])});
 
       font-size: var(--typography-font-size);
       font-family: var(--typography-font-family);

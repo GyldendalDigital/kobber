@@ -22,7 +22,6 @@ const createBadgeIconStyles = () => {
       background-color: transparent;
 
       gap: var(--gap);
-      color: var(--color);
       padding: var(--padding);
 
       font-size: var(--typography-font-size);
@@ -38,6 +37,7 @@ const createBadgeIconStyles = () => {
       .${unsafeCSS("icon" satisfies BadgeIconIconClassName)} {
         width: var(--icon-width);
         height: var(--icon-height);
+        color: var(--icon-color);
       }
     }
   `;
@@ -51,8 +51,8 @@ const getThemeStyles = () => {
           return badgeIconSizes.flatMap(size =>
             badgeIconColorVariants.flatMap(
               colorVariant =>
-                `&[data-color-variant="${String(colorVariant)}"][data-color-theme="${String(colorTheme)}"][data-size="${String(size)}"] { 
-                  --color: var(${unsafeCSS(containerStyles.icon.shape.color[colorTheme][colorVariant])});
+                `&[data-color-variant="${colorVariant}"][data-color="${colorTheme}"][data-size="${size}"] { 
+                  --icon-color: var(${unsafeCSS(containerStyles.icon.shape.color[colorTheme][colorVariant])});
                 }`,
             ),
           );

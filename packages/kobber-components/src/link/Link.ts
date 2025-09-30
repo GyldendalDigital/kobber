@@ -8,6 +8,8 @@ import { literal, html } from "lit/static-html.js";
 import KobberElementWithIcon from "../base/kobber-element-with-icon";
 import { customElement } from "../base/utilities/customElementDecorator";
 import { isExternalLink } from "@gyldendal/kobber-base/utilities/index.js";
+import "../text/text-label/TextLabel";
+import { invertColorVariant } from "../base/utilities/invertColorVariant";
 
 @customElement(linkName)
 export class Link extends KobberElementWithIcon implements LinkProps {
@@ -44,7 +46,9 @@ export class Link extends KobberElementWithIcon implements LinkProps {
         href=${ifDefined(!isDisabled ? this.href : undefined)}
         target=${ifDefined(target)}>
         ${this.iconFirst ? html`<slot name="icon"></slot>` : ""}
-        <slot></slot>
+        <kobber-text-label>
+          <slot></slot>
+        </kobber-text-label>
         ${!this.iconFirst ? html`<slot name="icon"></slot>` : ""}
       </${tag}>
     `;

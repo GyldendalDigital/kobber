@@ -5,6 +5,8 @@ import componentStyles from "../base/styles/component.styles";
 import { customElement } from "../base/utilities/customElementDecorator";
 import { type BadgeProps, badgeClassNames, badgeName } from "./Badge.core";
 import { badgeStyles } from "./Badge.styles";
+import "../text/text-label/TextLabel";
+import { invertColorVariant } from "../base/utilities/invertColorVariant";
 
 @customElement(badgeName)
 export class Badge extends LitElement implements BadgeProps {
@@ -35,7 +37,12 @@ export class Badge extends LitElement implements BadgeProps {
       data-size="${ifDefined(this.size)}"
     >
       ${this.showStatusCircle ? html`<div class="status-circle"></div>` : ""}
-      <slot></slot>
+      <kobber-text-label
+        color=${ifDefined(this.colorTheme)}
+        color-variant=${ifDefined(invertColorVariant(this.colorVariant))}
+      >
+        <slot></slot>
+      </kobber-text-label>
     </div>`;
   }
 }

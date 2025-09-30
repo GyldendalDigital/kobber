@@ -35,15 +35,15 @@ export const BadgeIcons: StoryObj<Args> = {
   argTypes: {
     size: {
       options: badgeIconSizes,
-      control: { type: "select" },
+      control: { type: "inline-radio" },
     },
     colorTheme: {
       options: badgeIconColorThemes,
-      control: { type: "select" },
+      control: { type: "inline-radio" },
     },
     colorVariant: {
       options: badgeIconColorVariants,
-      control: { type: "select" },
+      control: { type: "inline-radio" },
     },
   },
   args: {
@@ -66,6 +66,6 @@ const renderBadgeIcon = (args: Args) => {
     color-variant=${ifDefined(colorVariant)}
   >
     <kobber-pin slot="icon"></kobber-pin>
-    <span>${text}</span>
+    ${text}
   </kobber-badge-icon>`;
 };

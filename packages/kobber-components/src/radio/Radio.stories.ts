@@ -146,7 +146,7 @@ const renderButton = (
   ?checked=${checked === true}
   ?disabled=${state === "disabled"}
   href="${link ? "#" : ""}">
-  ${text}
+    ${text}
 </kobber-radio-input>
 `;
 };

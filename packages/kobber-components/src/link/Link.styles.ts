@@ -1,6 +1,6 @@
 import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { LinkClassNames, LinkProps, linkName } from "./Link.core";
+import { type LinkClassNames, type LinkProps, linkName } from "./Link.core";
 import { resetButton } from "../base/styles/reset.styles";
 
 /**
@@ -16,7 +16,6 @@ const createStyles = () => {
       align-items: center;
       text-decoration: none;
       gap: var(${unsafeCSS(link.gap)});
-      color: var(${unsafeCSS(universal["text-label"].text.color.brand["tone-a"])});
 
       &.${unsafeCSS("subtle" satisfies LinkProps["type"])} {
         color: var(${unsafeCSS(universal["text-label"].text.color.subtle["tone-a"])});

@@ -56,7 +56,9 @@ export const Link: StoryObj<Args> = {
               type="${args.type}"
               ?icon-first=${args.icon === "left"}
             >
-              ${args.text || html`link ${getPrintedState(state)}`}
+              <kobber-text-label>
+                ${args.text || html`link ${getPrintedState(state)}`}
+              </kobber-text-label>
               ${args.icon !== "none" ? html`<kobber-arrow_right slot="icon" />` : ""}
             </kobber-link>
 
