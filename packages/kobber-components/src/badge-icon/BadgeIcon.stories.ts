@@ -9,10 +9,12 @@ import {
   badgeIconSizes,
 } from "./BadgeIcon.core";
 import "@gyldendal/kobber-icons/web-components";
+import "../text/text-label/TextLabel";
 import "../theme-context-provider/ThemeContext";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { init as initComponents } from "../base/init";
 import { ifDefined } from "lit/directives/if-defined.js";
+import { invertColorVariant } from "../base/utilities/invertColorVariant";
 
 initComponents();
 initIcons();
@@ -66,6 +68,11 @@ const renderBadgeIcon = (args: Args) => {
     color-variant=${ifDefined(colorVariant)}
   >
     <kobber-pin slot="icon"></kobber-pin>
-    <span>${text}</span>
+    <kobber-text-label
+      color=${ifDefined(colorTheme)}
+      color-variant=${ifDefined(invertColorVariant(args.colorVariant))}
+    >
+      ${text}
+    </kobber-text-label>
   </kobber-badge-icon>`;
 };

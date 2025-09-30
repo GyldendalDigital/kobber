@@ -13,6 +13,7 @@ import {
 } from "./Button.core";
 import "./Button";
 import "../text/heading/Heading";
+import "../text/text-label/TextLabel";
 import "../theme-context-provider/ThemeContext";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { init as initComponents } from "../base/init";
@@ -22,6 +23,7 @@ import { iconsList } from "@gyldendal/kobber-icons/symbols/kobber-icons-lists.ts
 import type { IconType } from "@gyldendal/kobber-icons/symbols/kobber-icons-types.ts";
 import { html, unsafeStatic } from "lit/static-html.js";
 import { isValidPropCombination } from "../base/internal/buttonUtils";
+import { invertColorVariant } from "../base/utilities/invertColorVariant";
 
 initComponents();
 initIcons();
@@ -290,7 +292,12 @@ const renderButton = (args: Args) => {
   href=${link ? "#" : undefined}
   target=${link ? "_blank" : undefined}
 >
-  ${text ? unsafeStatic(text) : ""}
+  <kobber-text-label
+    color=${colorTheme}
+    color-variant=${invertColorVariant(args.colorVariant)}
+  >
+    ${text ? unsafeStatic(text) : ""}
+  </kobber-text-label>
   ${icon !== undefined && iconPosition !== "none" ? html`<${unsafeStatic(icon)} slot='icon' />` : ""}
 </kobber-button>
 `;

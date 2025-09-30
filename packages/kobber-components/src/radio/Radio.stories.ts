@@ -4,6 +4,7 @@ import "./radio-group/RadioGroup";
 import { primitives } from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { type GroupProps, type InputProps, inputColorThemes, radioInputName } from "./Radio.core";
 import "../text/heading/Heading";
+import "../text/text-label/TextLabel";
 import "../theme-context-provider/ThemeContext";
 import { html } from "lit";
 import { init as initComponents } from "../base/init";
@@ -146,7 +147,9 @@ const renderButton = (
   ?checked=${checked === true}
   ?disabled=${state === "disabled"}
   href="${link ? "#" : ""}">
-  ${text}
+  <kobber-text-label color=${ifDefined(colorTheme)}>
+    ${text}
+  </kobber-text-label>
 </kobber-radio-input>
 `;
 };

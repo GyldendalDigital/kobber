@@ -8,9 +8,11 @@ import {
   badgeName,
   badgeSizes,
 } from "./Badge.core";
+import "../text/text-label/TextLabel";
 import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
 import { ifDefined } from "lit/directives/if-defined.js";
+import { invertColorVariant } from "../base/utilities/invertColorVariant";
 
 initComponents();
 
@@ -68,6 +70,11 @@ const renderBadge = (args: Args) => {
     color-variant=${ifDefined(colorVariant)}
     ?show-status-circle=${showStatusCircle}
   >
-    ${text}
+    <kobber-text-label
+      color=${ifDefined(colorTheme)}
+      color-variant=${ifDefined(invertColorVariant(args.colorVariant))}
+    >
+      ${text}
+    </kobber-text-label>
   </kobber-badge>`;
 };

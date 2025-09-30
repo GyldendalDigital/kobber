@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import "./Link";
+import "../text/text-label/TextLabel";
 import "@gyldendal/kobber-icons/web-components";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { html } from "lit";
@@ -56,7 +57,9 @@ export const Link: StoryObj<Args> = {
               type="${args.type}"
               ?icon-first=${args.icon === "left"}
             >
-              ${args.text || html`link ${getPrintedState(state)}`}
+              <kobber-text-label>
+                ${args.text || html`link ${getPrintedState(state)}`}
+              </kobber-text-label>
               ${args.icon !== "none" ? html`<kobber-arrow_right slot="icon" />` : ""}
             </kobber-link>
 
@@ -66,7 +69,9 @@ export const Link: StoryObj<Args> = {
               type="${args.type}"
               ?icon-first=${args.icon === "left"}
             >
-              ${args.text || html`button ${getPrintedState(state)}`}
+              <kobber-text-label>
+                ${args.text || html`button ${getPrintedState(state)}`}
+              </kobber-text-label>
               ${args.icon !== "none" ? html`<kobber-arrow_right slot="icon" />` : ""}
             </kobber-link>
           `;

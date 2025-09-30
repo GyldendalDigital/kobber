@@ -1,11 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import "./checkbox-input/CheckboxInput";
 import "./checkbox-group/CheckboxGroup";
+import "../text/text-label/TextLabel";
 import "../theme-context-provider/ThemeContext";
 import { html } from "lit";
 import { init as initComponents } from "../base/init";
 import { type CheckboxState, checkboxColorThemes, type InputProps } from "./Checkbox.core";
 import { ifDefined } from "lit/directives/if-defined.js";
+import { unsafeStatic } from "lit/static-html.js";
+import { invertColorVariant } from "../base/utilities/invertColorVariant";
 
 initComponents();
 
@@ -138,7 +141,9 @@ const renderButton = (
       ?checked=${checked === true}
       ?disabled=${state === "disabled"}
     >
-      ${text}
+      <kobber-text-label color=${ifDefined(colorTheme)}>
+        ${text}
+      </kobber-text-label>
     </kobber-checkbox-input>
   `;
 };
