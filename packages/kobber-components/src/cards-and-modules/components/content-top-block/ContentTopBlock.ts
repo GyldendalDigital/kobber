@@ -8,9 +8,9 @@ export class ContentTopBlock extends KobberElement {
   static styles: CSSResultGroup = [contentTopBlockStyles];
 
   render() {
-    return html`<div class="kobber-content-top-block">
+    return html`<header class="kobber-content-top-block">
       <slot name="title"></slot>
       <slot></slot>
-    </div> `;
+    </header> `;
   }
 }
