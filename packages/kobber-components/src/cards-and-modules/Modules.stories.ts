@@ -14,33 +14,43 @@ import "@gyldendal/kobber-icons/web-components";
 import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { ifDefined } from "lit/directives/if-defined.js";
-import { contentWrapperTypes } from "./content-wrapper/ContentWrapper.core";
+import {
+  contentWrapperColorVariants,
+  contentWrapperTypes,
+} from "./content-wrapper/ContentWrapper.core";
+import { invertColorVariant } from "../base/utilities/invertColorVariant";
 
 initComponents();
 initIcons();
 
-const meta: Meta = {};
+const meta: Meta = {
+  argTypes: {
+    color: {
+      options: textModuleColors,
+      control: { type: "inline-radio" },
+    },
+  },
+  args: {
+    color: textModuleColors[0],
+    showBadge: true,
+    showHeading: true,
+    showNested: false,
+  },
+};
 
 export default meta;
 type Story = StoryObj;
 
-const mappedTextColor = (args: Args) => {
-  if (args.textModuleColor === "transparent") {
+const mappedColor = (args: Args) => {
+  if (args.color === "transparent") {
     return "neutral";
   }
-  return args.textModuleColor;
-};
-
-const mappedTextColorVariant = (args: Args) => {
-  if (args.textModuleColorVariant === "tone-a") {
-    return "tone-b";
-  }
-  return "tone-a";
+  return args.color;
 };
 
 const nestedTextModule = (args: Args) => {
   const color = (args: Args) => {
-    const nextColorIndex = textModuleColors.indexOf(args.textModuleColor) + 1;
+    const nextColorIndex = textModuleColors.indexOf(args.color) + 1;
     if (nextColorIndex < textModuleColors.length) {
       return textModuleColors[nextColorIndex];
     }
@@ -48,41 +58,33 @@ const nestedTextModule = (args: Args) => {
   };
 
   return html`
-      <kobber-text-module color="${ifDefined(color(args))}" color-variant="${args.textModuleColorVariant}">
-        <kobber-badge-icon slot="badge" color-theme="${color(args)}" color-variant="${mappedTextColorVariant(args)}">
+      <kobber-text-module color="${ifDefined(color(args))}" color-variant="${args.colorVariant}">
+        <kobber-badge-icon slot="badge" color-theme="${ifDefined(color(args))}" color-variant="${invertColorVariant(args.colorVariant)}">
           <kobber-pencil slot="icon"></kobber-pencil>
           Visste du?
         </kobber-badge-icon>
-        <kobber-text-body color="${color(args)}" color-variant="${mappedTextColorVariant(args)}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. (${color(args)})</kobber-text-body>
+        <kobber-text-body color="${ifDefined(color(args))}" color-variant="${invertColorVariant(args.colorVariant)}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. (${color(args)})</kobber-text-body>
       </kobber-text-module>
   `;
 };
 
 export const TextModule: Story = {
   argTypes: {
-    textModuleColor: {
-      options: textModuleColors,
-      control: { type: "inline-radio" },
-    },
-    textModuleColorVariant: {
+    colorVariant: {
       options: textModuleColorVariants,
       control: { type: "inline-radio" },
     },
   },
   args: {
-    textModuleColor: textModuleColors[0],
-    textModuleColorVariant: textModuleColorVariants[0],
-    showBadge: true,
-    showHeading: true,
-    showNested: false,
+    colorVariant: textModuleColorVariants[0],
   },
   render: args => html`
-    <kobber-text-module color="${args.textModuleColor}" color-variant="${args.textModuleColorVariant}">
+    <kobber-text-module color="${args.color}" color-variant="${args.colorVariant}">
     ${
       !args.showBadge
         ? ""
         : html`
-      <kobber-badge-icon slot="badge" color-theme="${mappedTextColor(args)}" color-variant="${mappedTextColorVariant(args)}">
+      <kobber-badge-icon slot="badge" color-theme="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
         <kobber-pencil slot="icon"></kobber-pencil>
         Badge text
       </kobber-badge-icon>`
@@ -91,17 +93,17 @@ export const TextModule: Story = {
       ${
         !args.showHeading
           ? ""
-          : html`<kobber-heading slot="heading" color="${mappedTextColor(args)}" color-variant="${mappedTextColorVariant(args)}">Heading</kobber-heading>`
+          : html`<kobber-heading slot="heading" color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">Heading</kobber-heading>`
       }
 
       <kobber-text-block>
-        <kobber-title slot="title" color="${mappedTextColor(args)}" color-variant="${mappedTextColorVariant(args)}" size="large">Title L</kobber-title>
-        <kobber-text-body color="${mappedTextColor(args)}" color-variant="${mappedTextColorVariant(args)}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. (${args.textModuleColor})</kobber-text-body>
+        <kobber-title slot="title" color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}" size="large">Title L</kobber-title>
+        <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. (${args.color})</kobber-text-body>
       </kobber-text-block>
       ${args.showNested ? nestedTextModule(args) : ""}
       <kobber-text-block>
-        <kobber-title slot="title" color="${mappedTextColor(args)}" color-variant="${mappedTextColorVariant(args)}" size="medium">Title M</kobber-title>
-        <kobber-text-body color="${mappedTextColor(args)}" color-variant="${mappedTextColorVariant(args)}">Body text here. (${args.textModuleColor})</kobber-text-body>
+        <kobber-title slot="title" color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}" size="medium">Title M</kobber-title>
+        <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">Body text here. (${args.color})</kobber-text-body>
       </kobber-text-block>
     </kobber-text-module>
   `,
@@ -109,16 +111,12 @@ export const TextModule: Story = {
 
 export const ContentWrapper: Story = {
   argTypes: {
+    colorVariant: {
+      options: contentWrapperColorVariants,
+      control: { type: "inline-radio" },
+    },
     type: {
       options: contentWrapperTypes,
-      control: { type: "inline-radio" },
-    },
-    textModuleColor: {
-      options: textModuleColors,
-      control: { type: "inline-radio" },
-    },
-    textModuleColorVariant: {
-      options: textModuleColorVariants,
       control: { type: "inline-radio" },
     },
     showBadge: {
@@ -132,18 +130,14 @@ export const ContentWrapper: Story = {
     },
   },
   args: {
+    colorVariant: contentWrapperColorVariants[0],
     type: "overlay",
-    textModuleColor: textModuleColors[0],
-    textModuleColorVariant: textModuleColorVariants[0],
-    showBadge: true,
-    showHeading: true,
     showHeadingText: true,
-    showNested: true,
     maxHeightInPx: 600,
   },
   render: args => html`
     <kobber-content-wrapper 
-      color-variant="${args.textModuleColorVariant}" 
+      color-variant="${args.colorVariant}" 
       type=${args.type}
       max-height-in-px="${args.maxHeightInPx}"
     >
@@ -152,7 +146,7 @@ export const ContentWrapper: Story = {
           !args.showBadge
             ? ""
             : html`
-        <kobber-badge-icon color-theme="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">
+        <kobber-badge-icon color-theme="${mappedColor(args)}" color-variant="${args.colorVariant}">
           <kobber-pencil slot="icon"></kobber-pencil>
           Content Wrapper
         </kobber-badge-icon>
@@ -161,28 +155,28 @@ export const ContentWrapper: Story = {
       ${
         !args.showHeading
           ? ""
-          : html`   <kobber-heading color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">Heading</kobber-heading>`
+          : html`   <kobber-heading color="${mappedColor(args)}" color-variant="${args.colorVariant}">Heading</kobber-heading>`
       }
       ${
         !args.showHeadingText
           ? ""
-          : html`   <kobber-text-body color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">Heading text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. Lorem ipsum dolor sit amet, consectetur adipiscing el it. </kobber-text-body>
+          : html`   <kobber-text-body color="${mappedColor(args)}" color-variant="${args.colorVariant}">Heading text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. Lorem ipsum dolor sit amet, consectetur adipiscing el it. </kobber-text-body>
           `
       }
       </kobber-content-top-block>
 
       <kobber-text-block>
-        <kobber-title color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}" size="large">Title L</kobber-title>
-        <kobber-text-body color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. (${args.textModuleColor})</kobber-text-body>
+        <kobber-title color="${mappedColor(args)}" color-variant="${args.colorVariant}" size="large">Title L</kobber-title>
+        <kobber-text-body color="${mappedColor(args)}" color-variant="${args.colorVariant}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. (${args.color})</kobber-text-body>
       </kobber-text-block>
       ${args.showNested ? nestedTextModule(args) : ""}
       <kobber-text-block>
-        <kobber-text-body color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it.</kobber-text-body>
+        <kobber-text-body color="${mappedColor(args)}" color-variant="${args.colorVariant}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it.</kobber-text-body>
       </kobber-text-block>
 
       <kobber-text-block>
-        <kobber-title color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}" size="medium">Title M</kobber-title>
-        <kobber-text-body color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">Body text here.</kobber-text-body>
+        <kobber-title color="${mappedColor(args)}" color-variant="${args.colorVariant}" size="medium">Title M</kobber-title>
+        <kobber-text-body color="${mappedColor(args)}" color-variant="${args.colorVariant}">Body text here.</kobber-text-body>
       </kobber-text-block>
     </kobber-content-wrapper>
   `,
