@@ -32,7 +32,7 @@ const createInputControlStyles = () => {
 
 const buttonColorThemeStyles = () => {
   const variableClasses = inputColorThemes.flatMap(colorTheme => {
-    const colorThemeSelector = `&[data-color-theme="${colorTheme}"]`;
+    const colorThemeSelector = `&[data-color="${colorTheme}"]`;
     const borderColor = inputColor[colorTheme];
     return css`
       ${unsafeCSS(colorThemeSelector)} {

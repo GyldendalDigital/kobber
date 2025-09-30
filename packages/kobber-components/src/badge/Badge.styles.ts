@@ -55,7 +55,7 @@ const getThemeSizeVariantStyles = () => {
           return badgeSizes.flatMap(size =>
             badgeColorVariants.flatMap(
               colorVariant =>
-                `&[data-color-variant="${colorVariant}"][data-color-theme="${colorTheme}"][data-size="${size}"] { 
+                `&[data-color-variant="${colorVariant}"][data-color="${colorTheme}"][data-size="${size}"] { 
                   ${getThemeVariantStyles(colorTheme, colorVariant)}
 
                   ${

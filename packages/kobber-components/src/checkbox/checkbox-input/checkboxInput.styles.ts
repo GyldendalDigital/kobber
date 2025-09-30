@@ -85,7 +85,7 @@ const createCheckboxStyles = () => {
 const colorThemeStyles = () => {
   const colorThemes = checkboxColorThemes.flatMap(colorTheme => {
     return css`
-      ${unsafeCSS(`&[data-color-theme="${colorTheme}"]`)} {
+      ${unsafeCSS(`&[data-color="${colorTheme}"]`)} {
         ${statesPerColorTheme(colorTheme)}
       }
     `;

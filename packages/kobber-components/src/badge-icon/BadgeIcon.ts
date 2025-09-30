@@ -28,7 +28,7 @@ export class BadgeIcon extends LitElement implements BadgeIconCore.BadgeIconProp
     return html` <div
       class="${BadgeIconCore.badgeIconName}"
       data-color-variant="${ifDefined(this.colorVariant)}"
-      data-color-theme="${ifDefined(this.colorTheme)}"
+      data-color="${ifDefined(this.colorTheme)}"
       data-size="${ifDefined(this.size)}"
     >
       <slot name="icon" class="icon"></slot>

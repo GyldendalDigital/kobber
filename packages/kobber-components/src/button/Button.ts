@@ -88,7 +88,7 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
           this.className,
         ].join(" ")}
         data-button-type="${this.type}"
-        data-color-theme="${this.colorTheme}"
+        data-color="${this.colorTheme}"
         data-color-level="${this.colorLevel}"
         data-color-variant="${this.colorVariant}"
         ?disabled=${isLink ? undefined : this.disabled}

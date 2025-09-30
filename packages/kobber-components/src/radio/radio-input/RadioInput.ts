@@ -114,7 +114,7 @@ export class RadioInput extends ShoelaceElement implements InputProps {
             isLink: isLink,
           }),
         ].join(" ")}
-        data-color-theme="${this.colorTheme}"
+        data-color="${this.colorTheme}"
         ?disabled="${this.disabled}"
         href="${this.href}"
         usedInOtherInteractive
@@ -135,7 +135,7 @@ export class RadioInput extends ShoelaceElement implements InputProps {
             isLink: isLink,
           }),
         ].join(" ")}
-        data-color-theme="${ifDefined(this.colorTheme)}"
+        data-color="${ifDefined(this.colorTheme)}"
       >
         <${radioInputControlElement} ?checked="${this.checked}" color-theme="${this.colorTheme}"></${radioInputControlElement}>
         <kobber-text-label color=${ifDefined(this.colorTheme)}>

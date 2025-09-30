@@ -182,7 +182,7 @@ const getColorStyles = (
     borderColor = component[buttonType]?.border?.color?.[colorTheme]?.[colorVariant];
   }
 
-  let selectorString = `&[data-button-type="${buttonType}"][data-color-variant="${colorVariant}"][data-color-theme="${colorTheme}"]`;
+  let selectorString = `&[data-button-type="${buttonType}"][data-color-variant="${colorVariant}"][data-color="${colorTheme}"]`;
   if (colorLevel) {
     selectorString += `[data-color-level="${colorLevel}"]`;
   }
