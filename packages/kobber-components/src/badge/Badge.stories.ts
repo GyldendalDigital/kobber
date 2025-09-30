@@ -32,15 +32,16 @@ export const Badge: StoryObj<Args> = {
   argTypes: {
     size: {
       options: badgeSizes,
-      control: { type: "select" },
+      control: { type: "inline-radio" },
     },
     colorTheme: {
       options: badgeColorThemes,
-      control: { type: "select" },
+      control: { type: "inline-radio" },
     },
     colorVariant: {
+      name: "Color Variant (neutral exists only in tone b)",
       options: badgeColorVariants,
-      control: { type: "select" },
+      control: { type: "inline-radio" },
     },
     showStatusCircle: {
       control: { type: "boolean" },
