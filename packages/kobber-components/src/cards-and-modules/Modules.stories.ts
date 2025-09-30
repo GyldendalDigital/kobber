@@ -6,7 +6,6 @@ import "./components/content-top-block/ContentTopBlock";
 import "./content-wrapper/ContentWrapper";
 import "../badge-icon/BadgeIcon";
 import "../text/heading/Heading";
-import "../text/lead/Lead";
 import "../text/title/Title";
 import "../text/text-body/TextBody";
 import { html } from "lit";
@@ -128,9 +127,6 @@ export const ContentWrapper: Story = {
     showHeading: {
       name: "Top Block: Show Heading",
     },
-    showHeadingLead: {
-      name: "Top Block: Show Lead",
-    },
     showHeadingText: {
       name: "Top Block: Show Text",
     },
@@ -141,7 +137,6 @@ export const ContentWrapper: Story = {
     textModuleColorVariant: textModuleColorVariants[0],
     showBadge: true,
     showHeading: true,
-    showHeadingLead: true,
     showHeadingText: true,
     showNested: true,
     maxHeightInPx: 600,
@@ -167,11 +162,6 @@ export const ContentWrapper: Story = {
         !args.showHeading
           ? ""
           : html`   <kobber-heading color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">Heading</kobber-heading>`
-      }
-      ${
-        !args.showHeadingLead
-          ? ""
-          : html`   <kobber-lead color="${mappedTextColor(args)}" color-variant="${args.textModuleColorVariant}">Lead (ingress)</kobber-lead>`
       }
       ${
         !args.showHeadingText
