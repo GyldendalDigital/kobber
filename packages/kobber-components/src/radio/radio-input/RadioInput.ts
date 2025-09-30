@@ -9,7 +9,7 @@ import {
   inputClassNames,
   radioInputName,
   radioInputLabelClassName,
-  InputProps,
+  type InputProps,
   radioInputControlName,
 } from "../Radio.core";
 import "../radio-input-control/RadioInputControl";

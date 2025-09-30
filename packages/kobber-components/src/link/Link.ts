@@ -1,8 +1,8 @@
-import { CSSResultGroup } from "lit";
+import type { CSSResultGroup } from "lit";
 import { property } from "lit/decorators.js";
 import { linkStyles } from "./Link.styles";
 import componentStyles from "../base/styles/component.styles";
-import { isButton, linkClassNames, linkName, LinkProps } from "./Link.core";
+import { isButton, linkClassNames, linkName, type LinkProps } from "./Link.core";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { literal, html } from "lit/static-html.js";
 import KobberElementWithIcon from "../base/kobber-element-with-icon";

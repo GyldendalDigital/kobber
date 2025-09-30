@@ -1,4 +1,4 @@
-import { CSSResultGroup } from "lit";
+import type { CSSResultGroup } from "lit";
 import { html, unsafeStatic } from "lit/static-html.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { live } from "lit/directives/live.js";
@@ -17,7 +17,7 @@ import {
   checkboxLabelClassName,
   checkboxInputName,
   checkboxWrapperClassName,
-  InputProps,
+  type InputProps,
 } from "../Checkbox.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
 

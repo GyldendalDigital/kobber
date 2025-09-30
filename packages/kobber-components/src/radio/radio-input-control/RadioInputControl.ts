@@ -10,7 +10,7 @@ import {
   radioInputControlPartNameChecked,
   radioInputControlName,
   radioInputControlPartName,
-  ControlProps,
+  type ControlProps,
 } from "../Radio.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
 
