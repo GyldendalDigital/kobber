@@ -10,6 +10,7 @@ import {
 } from "./Badge.core";
 import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 initComponents();
 
@@ -62,9 +63,9 @@ const renderBadge = (args: Args) => {
   const { size, text, colorTheme, colorVariant, showStatusCircle } = args;
 
   return html`<kobber-badge
-    size=${size}
-    color-theme=${colorTheme}
-    color-variant=${colorVariant}
+    size=${ifDefined(size)}
+    color-theme=${ifDefined(colorTheme)}
+    color-variant=${ifDefined(colorVariant)}
     ?show-status-circle=${showStatusCircle}
   >
     ${text}

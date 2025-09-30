@@ -7,6 +7,7 @@ import "../text/heading/Heading";
 import "../theme-context-provider/ThemeContext";
 import { html } from "lit";
 import { init as initComponents } from "../base/init";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 initComponents();
 
@@ -141,7 +142,7 @@ const renderButton = (
 <kobber-radio-input 
   style="${lastStyles}"
   class="${className}" 
-  colorTheme="${colorTheme}" 
+  color-theme="${ifDefined(colorTheme)}" 
   ?checked=${checked === true}
   ?disabled=${state === "disabled"}
   href="${link ? "#" : ""}">
@@ -259,15 +260,15 @@ export const SkolestudioExamples: StoryObj<Args> = {
       <div class="wrapper-theme">
         <kobber-radio-group direction="horizontal" current-value="no-bm">
         <p slot="label">Målform</p>
-          <kobber-radio-input value="no-bm" color-theme="${args.colorTheme}">Bokmål</kobber-radio-input>
-          <kobber-radio-input value="no-nn" color-theme="${args.colorTheme}">Nynorsk</kobber-radio-input>
+          <kobber-radio-input value="no-bm" color-theme="${ifDefined(args.colorTheme)}">Bokmål</kobber-radio-input>
+          <kobber-radio-input value="no-nn" color-theme="${ifDefined(args.colorTheme)}">Nynorsk</kobber-radio-input>
         </kobber-radio-group>
 
         <kobber-radio-group direction="horizontal" current-value="level11-13">
         <p slot="label">Trinn</p>
-          <kobber-radio-input value="level1-7" color-theme="${args.colorTheme}">1.–7. trinn</kobber-radio-input>
-          <kobber-radio-input value="level8-10" color-theme="${args.colorTheme}">8.–10. trinn</kobber-radio-input>
-          <kobber-radio-input value="level11-13" color-theme="${args.colorTheme}">VG1–VG3</kobber-radio-input>
+          <kobber-radio-input value="level1-7" color-theme="${ifDefined(args.colorTheme)}">1.–7. trinn</kobber-radio-input>
+          <kobber-radio-input value="level8-10" color-theme="${ifDefined(args.colorTheme)}">8.–10. trinn</kobber-radio-input>
+          <kobber-radio-input value="level11-13" color-theme="${ifDefined(args.colorTheme)}">VG1–VG3</kobber-radio-input>
         </kobber-radio-group>
       </div>
     `;
