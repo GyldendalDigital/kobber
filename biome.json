@@ -24,7 +24,20 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "style": {
+        "noRestrictedImports": {
+          "level": "error",
+          "options": {
+            "paths": {
+              "lit/decorators.js": {
+                "importNames": ["customElement"],
+                "message": "Import customElement from 'base/utilities/customElementDecorator' instead."
+              }
+            }
+          }
+        }
+      }
     }
   },
   "javascript": {
