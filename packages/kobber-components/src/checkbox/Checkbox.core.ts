@@ -5,8 +5,8 @@ export const checkboxGroupName = "kobber-checkbox-group";
 export const checkboxWrapperClassName = "wrapper";
 export const checkboxInputName = "kobber-checkbox-input";
 export const nativeCheckboxInputClassName = "native-input";
-export const checkboxLabelClassName = "label";
-export const checkboxControlClassName = "control";
+export const inputLabelClassName = "label";
+export const inputControlClassName = "control";
 export const checkboxIconClassName = "control--shape";
 
 const checkboxTokens = component._checkbox.indicator;
@@ -39,8 +39,8 @@ export type GroupClassNames = typeof checkboxGroupName;
 export type WrapperClassNames = typeof checkboxWrapperClassName;
 export type CheckboxClassNames = typeof checkboxInputName;
 export type NativeInputClassNames = typeof nativeCheckboxInputClassName;
-export type InputLabelClassNames = typeof checkboxLabelClassName;
-export type InputControlClassNames = typeof checkboxControlClassName;
+export type InputLabelClassNames = typeof inputLabelClassName;
+export type InputControlClassNames = typeof inputControlClassName;
 export type IconClassNames = typeof checkboxIconClassName;
 
 export type CheckboxState = keyof typeof checkboxTokens.border.color.success | "disabled";
