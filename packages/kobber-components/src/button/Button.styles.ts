@@ -27,7 +27,7 @@ const button = component.button;
 const createButtonStyles = () => {
   return css`
     .${unsafeCSS("kobber-button" satisfies ButtonClassNames)} {
-      --color: inherit;
+      --icon-color: inherit;
       --background-color: transparent;
       ${resetButton()};
       position: relative;
@@ -37,7 +37,6 @@ const createButtonStyles = () => {
       cursor: pointer;
       max-width: 100%;
       border: 1px solid transparent;
-      color: var(--color);
       background-color: var(--background-color);
       gap: var(${unsafeCSS(button.gap)});
       padding-inline: var(${unsafeCSS(button.padding.inline)});
@@ -82,6 +81,7 @@ const createButtonStyles = () => {
       &.${unsafeCSS("kobber-button--icon" satisfies ButtonClassNames)} {
         --icon-width: var(${unsafeCSS(button.icon.size)});
         --icon-height: var(${unsafeCSS(button.icon.size)});
+        color: var(--icon-color);
 
         &.${unsafeCSS("kobber-button--icon-only" satisfies ButtonClassNames)} {
           padding: 0;
@@ -171,7 +171,7 @@ const getColorStyles = (
 
   let backgroundColor: { hover: string; fallback: string },
     borderColor: { hover: string; active: string };
-  const textColor = universal["text-label"]?.text.color[colorTheme]?.[textColorVariant];
+  const iconColor = universal["text-label"]?.text.color[colorTheme]?.[textColorVariant];
 
   if (colorLevel) {
     backgroundColor =
@@ -182,7 +182,7 @@ const getColorStyles = (
     borderColor = component[buttonType]?.border?.color?.[colorTheme]?.[colorVariant];
   }
 
-  let selectorString = `&[data-button-type="${buttonType}"][data-color-variant="${colorVariant}"][data-color-theme="${colorTheme}"]`;
+  let selectorString = `&[data-button-type="${buttonType}"][data-color-variant="${colorVariant}"][data-color="${colorTheme}"]`;
   if (colorLevel) {
     selectorString += `[data-color-level="${colorLevel}"]`;
   }
@@ -190,7 +190,7 @@ const getColorStyles = (
   return css`
     ${unsafeCSS(`
       ${selectorString} {
-        --color: var(${unsafeCSS(textColor)});
+        --icon-color: var(${unsafeCSS(iconColor)});
         --border-color: var(${unsafeCSS(borderColor?.active)});
         --background-color: var(${unsafeCSS(backgroundColor?.fallback)});
         ${hover(backgroundColor?.hover, backgroundColor?.fallback)};

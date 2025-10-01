@@ -19,7 +19,7 @@ export const isValidPropCombination = (
 
   let backgroundColor: { hover: string; fallback: string },
     borderColor: { hover: string; active: string };
-  const textColor = universal["text-label"]?.text.color[colorTheme]?.[textColorVariant];
+  const iconColor = universal["text-label"]?.text.color[colorTheme]?.[textColorVariant];
 
   if (colorLevel) {
     backgroundColor =
@@ -31,7 +31,7 @@ export const isValidPropCombination = (
   }
 
   if (
-    typeof textColor === "string" ||
+    typeof iconColor === "string" ||
     typeof backgroundColor?.fallback === "string" ||
     typeof borderColor?.active === "string"
   ) {

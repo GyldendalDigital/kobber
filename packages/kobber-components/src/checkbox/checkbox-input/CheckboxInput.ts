@@ -1,4 +1,4 @@
-import { CSSResultGroup } from "lit";
+import type { CSSResultGroup } from "lit";
 import { html, unsafeStatic } from "lit/static-html.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { live } from "lit/directives/live.js";
@@ -17,9 +17,10 @@ import {
   checkboxLabelClassName,
   checkboxInputName,
   checkboxWrapperClassName,
-  InputProps,
+  type InputProps,
 } from "../Checkbox.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
+import "../../text/text-label/TextLabel";
 
 import { HTMLElement } from "@lit-labs/ssr-dom-shim";
 import { iconFormCheckedName, iconFormIndeterminateName } from "../../base/internal/icons";
@@ -218,7 +219,7 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
 
     return html`
       <div class="${checkboxWrapperClassName}">
-        <label part="base" class=${checkboxInputName} data-color-theme="${ifDefined(this.colorTheme)}">
+        <label part="base" class=${checkboxInputName} data-color="${ifDefined(this.colorTheme)}">
           <input
             class=${[nativeCheckboxInputClassName, "visually-hidden"].join(" ")}
             type="checkbox"
@@ -238,9 +239,10 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
 
           <span class=${checkboxControlClassName}> ${icon} </span>
 
-          <div part="label" class=${checkboxLabelClassName}>
+          <kobber-text-label part="label" class=${checkboxLabelClassName} color=${ifDefined(this.colorTheme)}>
             <slot></slot>
-          </div>
+          </kobber-text-label>
+          
         </label>
 
         <div aria-hidden=${hasHelpText ? "false" : "true"} id="aria-help-text">

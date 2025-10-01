@@ -5,6 +5,7 @@ import "../theme-context-provider/ThemeContext";
 import { html } from "lit";
 import { init as initComponents } from "../base/init";
 import { type CheckboxState, checkboxColorThemes, type InputProps } from "./Checkbox.core";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 initComponents();
 
@@ -132,7 +133,7 @@ const renderButton = (
     <kobber-checkbox-input
       style="${lastStyles}"
       class="${className}"
-      color-theme="${colorTheme}"
+      color-theme="${ifDefined(colorTheme)}"
       ?indeterminate=${checked === "indeterminate"}
       ?checked=${checked === true}
       ?disabled=${state === "disabled"}

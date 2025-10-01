@@ -147,7 +147,7 @@ export default meta;
 
 export const Button: StoryObj<Args> = {
   args: {
-    text: "Button <em>text</em>",
+    text: "Button",
     colorTheme: allButtonColorThemes[0],
     colorLevel: allButtonColorLevels[0],
     colorVariant: allButtonColorVariants[1],

@@ -35,7 +35,6 @@ const createInputStyles = () => {
 
     .${unsafeCSS("label" satisfies InputLabelClassNames)} {
       display: block;
-      color: var(${unsafeCSS(universal["text-label"].text.color.brand["tone-a"])});
 
       font-size: var(--typography-font-size);
       font-family: var(--typography-font-family);
@@ -52,7 +51,7 @@ const createInputStyles = () => {
 
 const inputColorThemeStyles = () => {
   const colorThemeClasses = inputColorThemes.flatMap(colorTheme => {
-    const colorThemeSelector = `&[data-color-theme="${colorTheme}"]`;
+    const colorThemeSelector = `&[data-color="${colorTheme}"]`;
     return css`
       ${unsafeCSS(colorThemeSelector)} {
         ${inputStatesPerColorTheme(colorTheme)}

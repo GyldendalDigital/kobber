@@ -10,7 +10,7 @@ import {
   radioInputControlPartNameChecked,
   radioInputControlName,
   radioInputControlPartName,
-  ControlProps,
+  type ControlProps,
 } from "../Radio.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
 
@@ -40,7 +40,7 @@ export class RadioInputControl extends ShoelaceElement implements ControlProps {
     return html`
       <div
         class="${radioInputControlName}"
-        data-color-theme="${this.colorTheme}"
+        data-color="${this.colorTheme}"
         part="${`${radioInputControlPartName} ${this.checked ? radioInputControlPartNameChecked : ""}`}"
       >
         ${this.checked ? html` <icon-form_radio part="checked-icon" /> ` : ""}

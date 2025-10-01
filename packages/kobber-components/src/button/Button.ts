@@ -7,6 +7,8 @@ import { literal, html } from "lit/static-html.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import KobberElementWithIcon from "../base/kobber-element-with-icon";
 import { customElement } from "../base/utilities/customElementDecorator";
+import "../text/text-label/TextLabel";
+import { invertColorVariant } from "../base/utilities/invertColorVariant";
 
 /**
  * Button with icon slot
@@ -86,7 +88,7 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
           this.className,
         ].join(" ")}
         data-button-type="${this.type}"
-        data-color-theme="${this.colorTheme}"
+        data-color="${this.colorTheme}"
         data-color-level="${this.colorLevel}"
         data-color-variant="${this.colorVariant}"
         ?disabled=${isLink ? undefined : this.disabled}
@@ -97,7 +99,16 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
         tabindex=${this.disabled || this.usedInOtherInteractive ? "-1" : "0"}
       >
       ${this.iconFirst ? html`<slot name="icon"></slot>` : ""}
-      ${!this._iconOnly ? html`<slot></slot>` : ""}
+      ${
+        !this._iconOnly
+          ? html`<kobber-text-label
+          color=${ifDefined(this.colorTheme)}
+          color-variant=${invertColorVariant(this.colorVariant)}
+        >
+          <slot></slot>
+        </kobber-text-label>`
+          : ""
+      }
       ${!this.iconFirst ? html`<slot name="icon"></slot>` : ""}
 
       </${tag}>

@@ -9,7 +9,7 @@ import {
   inputClassNames,
   radioInputName,
   radioInputLabelClassName,
-  InputProps,
+  type InputProps,
   radioInputControlName,
 } from "../Radio.core";
 import "../radio-input-control/RadioInputControl";
@@ -17,6 +17,7 @@ import "../../button/Button";
 import { buttonName } from "../../button/Button.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
 import { ifDefined } from "lit/directives/if-defined.js";
+import "../../text/text-label/TextLabel";
 
 /**
  * @summary Radios allow the user to select a single option from a group.
@@ -113,7 +114,7 @@ export class RadioInput extends ShoelaceElement implements InputProps {
             isLink: isLink,
           }),
         ].join(" ")}
-        data-color-theme="${this.colorTheme}"
+        data-color="${this.colorTheme}"
         ?disabled="${this.disabled}"
         href="${this.href}"
         usedInOtherInteractive
@@ -134,10 +135,12 @@ export class RadioInput extends ShoelaceElement implements InputProps {
             isLink: isLink,
           }),
         ].join(" ")}
-        data-color-theme="${ifDefined(this.colorTheme)}"
+        data-color="${ifDefined(this.colorTheme)}"
       >
         <${radioInputControlElement} ?checked="${this.checked}" color-theme="${this.colorTheme}"></${radioInputControlElement}>
-        <slot part="label" class="${radioInputLabelClassName}"></slot>
+        <kobber-text-label color=${ifDefined(this.colorTheme)}>
+          <slot part="label" class="${radioInputLabelClassName}"></slot>
+        </kobber-text-label>
       </div>
     `;
   }

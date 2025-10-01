@@ -38,7 +38,7 @@
       line-height: var(--typography-line-height);
 
       
-    &[data-color-variant="tone-b"][data-color-theme="brand"][data-size="medium"] { 
+    &[data-color-variant="tone-b"][data-color="brand"][data-size="medium"] { 
                   
     
       --background-color: var(--kobber-component-badge-background-color-brand-tone-b);
@@ -48,7 +48,7 @@
 
                   
                 }
-&[data-color-variant="tone-a"][data-color-theme="brand"][data-size="medium"] { 
+&[data-color-variant="tone-a"][data-color="brand"][data-size="medium"] { 
                   
     
       --background-color: var(--kobber-component-badge-background-color-brand-tone-a);
@@ -64,7 +64,7 @@
       
     
                 }
-&[data-color-variant="tone-b"][data-color-theme="brand"][data-size="small"] { 
+&[data-color-variant="tone-b"][data-color="brand"][data-size="small"] { 
                   
     
       --background-color: var(--kobber-component-badge-background-color-brand-tone-b);
@@ -74,7 +74,7 @@
 
                   
                 }
-&[data-color-variant="tone-a"][data-color-theme="brand"][data-size="small"] { 
+&[data-color-variant="tone-a"][data-color="brand"][data-size="small"] { 
                   
     
       --background-color: var(--kobber-component-badge-background-color-brand-tone-a);
@@ -90,7 +90,7 @@
       
     
                 }
-&[data-color-variant="tone-b"][data-color-theme="rettsdata"][data-size="medium"] { 
+&[data-color-variant="tone-b"][data-color="rettsdata"][data-size="medium"] { 
                   
     
       --background-color: var(--kobber-component-badge-background-color-rettsdata-tone-b);
@@ -106,7 +106,7 @@
       
     
                 }
-&[data-color-variant="tone-a"][data-color-theme="rettsdata"][data-size="medium"] { 
+&[data-color-variant="tone-a"][data-color="rettsdata"][data-size="medium"] { 
                   
     
       --background-color: var(--kobber-component-badge-background-color-rettsdata-tone-a);
@@ -116,7 +116,7 @@
 
                   
                 }
-&[data-color-variant="tone-b"][data-color-theme="rettsdata"][data-size="small"] { 
+&[data-color-variant="tone-b"][data-color="rettsdata"][data-size="small"] { 
                   
     
       --background-color: var(--kobber-component-badge-background-color-rettsdata-tone-b);
@@ -132,7 +132,7 @@
       
     
                 }
-&[data-color-variant="tone-a"][data-color-theme="rettsdata"][data-size="small"] { 
+&[data-color-variant="tone-a"][data-color="rettsdata"][data-size="small"] { 
                   
     
       --background-color: var(--kobber-component-badge-background-color-rettsdata-tone-a);
@@ -142,7 +142,7 @@
 
                   
                 }
-&[data-color-variant="tone-b"][data-color-theme="neutral"][data-size="medium"] { 
+&[data-color-variant="tone-b"][data-color="neutral"][data-size="medium"] { 
                   
     
       --background-color: var(--kobber-component-badge-background-color-neutral-tone-b);
@@ -152,7 +152,7 @@
 
                   
                 }
-&[data-color-variant="tone-a"][data-color-theme="neutral"][data-size="medium"] { 
+&[data-color-variant="tone-a"][data-color="neutral"][data-size="medium"] { 
                   
     
       --background-color: var(--kobber-component-badge-background-color-neutral-tone-b);
@@ -162,7 +162,7 @@
 
                   
                 }
-&[data-color-variant="tone-b"][data-color-theme="neutral"][data-size="small"] { 
+&[data-color-variant="tone-b"][data-color="neutral"][data-size="small"] { 
                   
     
       --background-color: var(--kobber-component-badge-background-color-neutral-tone-b);
@@ -172,7 +172,7 @@
 
                   
                 }
-&[data-color-variant="tone-a"][data-color-theme="neutral"][data-size="small"] { 
+&[data-color-variant="tone-a"][data-color="neutral"][data-size="small"] { 
                   
     
       --background-color: var(--kobber-component-badge-background-color-neutral-tone-b);
@@ -235,7 +235,6 @@
       background-color: transparent;
 
       gap: var(--gap);
-      color: var(--color);
       padding: var(--padding);
 
       font-size: var(--typography-font-size);
@@ -246,125 +245,125 @@
       line-height: var(--typography-line-height);
 
       
-    &[data-color-variant="tone-a"][data-color-theme="brand"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-brand-tone-a);
+    &[data-color-variant="tone-a"][data-color="brand"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-brand-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="brand"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-brand-tone-b);
+&[data-color-variant="tone-b"][data-color="brand"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-brand-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="brand"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-brand-tone-a);
+&[data-color-variant="tone-a"][data-color="brand"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-brand-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="brand"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-brand-tone-b);
+&[data-color-variant="tone-b"][data-color="brand"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-brand-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="rettsdata"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-rettsdata-tone-a);
+&[data-color-variant="tone-a"][data-color="rettsdata"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-rettsdata-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="rettsdata"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-rettsdata-tone-b);
+&[data-color-variant="tone-b"][data-color="rettsdata"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-rettsdata-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="rettsdata"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-rettsdata-tone-a);
+&[data-color-variant="tone-a"][data-color="rettsdata"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-rettsdata-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="rettsdata"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-rettsdata-tone-b);
+&[data-color-variant="tone-b"][data-color="rettsdata"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-rettsdata-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="accent"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-accent-tone-a);
+&[data-color-variant="tone-a"][data-color="accent"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-accent-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="accent"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-accent-tone-b);
+&[data-color-variant="tone-b"][data-color="accent"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-accent-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="accent"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-accent-tone-a);
+&[data-color-variant="tone-a"][data-color="accent"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-accent-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="accent"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-accent-tone-b);
+&[data-color-variant="tone-b"][data-color="accent"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-accent-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="nature"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-nature-tone-a);
+&[data-color-variant="tone-a"][data-color="nature"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-nature-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="nature"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-nature-tone-b);
+&[data-color-variant="tone-b"][data-color="nature"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-nature-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="nature"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-nature-tone-a);
+&[data-color-variant="tone-a"][data-color="nature"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-nature-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="nature"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-nature-tone-b);
+&[data-color-variant="tone-b"][data-color="nature"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-nature-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="fantasy"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-fantasy-tone-a);
+&[data-color-variant="tone-a"][data-color="fantasy"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-fantasy-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="fantasy"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-fantasy-tone-b);
+&[data-color-variant="tone-b"][data-color="fantasy"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-fantasy-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="fantasy"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-fantasy-tone-a);
+&[data-color-variant="tone-a"][data-color="fantasy"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-fantasy-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="fantasy"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-fantasy-tone-b);
+&[data-color-variant="tone-b"][data-color="fantasy"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-fantasy-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="thriller"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-thriller-tone-a);
+&[data-color-variant="tone-a"][data-color="thriller"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-thriller-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="thriller"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-thriller-tone-b);
+&[data-color-variant="tone-b"][data-color="thriller"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-thriller-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="thriller"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-thriller-tone-a);
+&[data-color-variant="tone-a"][data-color="thriller"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-thriller-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="thriller"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-thriller-tone-b);
+&[data-color-variant="tone-b"][data-color="thriller"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-thriller-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="romance"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-romance-tone-a);
+&[data-color-variant="tone-a"][data-color="romance"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-romance-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="romance"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-romance-tone-b);
+&[data-color-variant="tone-b"][data-color="romance"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-romance-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="romance"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-romance-tone-a);
+&[data-color-variant="tone-a"][data-color="romance"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-romance-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="romance"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-romance-tone-b);
+&[data-color-variant="tone-b"][data-color="romance"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-romance-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="vacation"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-vacation-tone-a);
+&[data-color-variant="tone-a"][data-color="vacation"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-vacation-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="vacation"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-vacation-tone-b);
+&[data-color-variant="tone-b"][data-color="vacation"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-vacation-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="vacation"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-vacation-tone-a);
+&[data-color-variant="tone-a"][data-color="vacation"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-vacation-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="vacation"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-vacation-tone-b);
+&[data-color-variant="tone-b"][data-color="vacation"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-vacation-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="nostalgia"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-nostalgia-tone-a);
+&[data-color-variant="tone-a"][data-color="nostalgia"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-nostalgia-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="nostalgia"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-nostalgia-tone-b);
+&[data-color-variant="tone-b"][data-color="nostalgia"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-nostalgia-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="nostalgia"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-nostalgia-tone-a);
+&[data-color-variant="tone-a"][data-color="nostalgia"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-nostalgia-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="nostalgia"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-nostalgia-tone-b);
+&[data-color-variant="tone-b"][data-color="nostalgia"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-nostalgia-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="neutral"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-neutral-tone-a);
+&[data-color-variant="tone-a"][data-color="neutral"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-neutral-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="neutral"][data-size="medium"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-neutral-tone-b);
+&[data-color-variant="tone-b"][data-color="neutral"][data-size="medium"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-neutral-tone-b);
                 }
-&[data-color-variant="tone-a"][data-color-theme="neutral"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-neutral-tone-a);
+&[data-color-variant="tone-a"][data-color="neutral"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-neutral-tone-a);
                 }
-&[data-color-variant="tone-b"][data-color-theme="neutral"][data-size="small"] { 
-                  --color: var(--kobber-component-badge-icon-icon-shape-color-neutral-tone-b);
+&[data-color-variant="tone-b"][data-color="neutral"][data-size="small"] { 
+                  --icon-color: var(--kobber-component-badge-icon-icon-shape-color-neutral-tone-b);
                 }
   
       
@@ -393,6 +392,7 @@
       .icon {
         width: var(--icon-width);
         height: var(--icon-height);
+        color: var(--icon-color);
       }
     }
   
@@ -400,7 +400,7 @@
 /* #region Button - buttonStyles */ 
 
     .kobber-button {
-      --color: inherit;
+      --icon-color: inherit;
       --background-color: transparent;
       
   appearance: none;
@@ -421,7 +421,6 @@
       cursor: pointer;
       max-width: 100%;
       border: 1px solid transparent;
-      color: var(--color);
       background-color: var(--background-color);
       gap: var(--kobber-component-button-gap);
       padding-inline: var(--kobber-component-button-padding-inline);
@@ -454,8 +453,8 @@
       
     
     
-      &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="brand"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+      &[data-button-type="button"][data-color-variant="tone-b"][data-color="brand"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
         --border-color: var(undefined);
         --background-color: var(undefined);
         
@@ -472,8 +471,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="brand"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+      &[data-button-type="button"][data-color-variant="tone-b"][data-color="brand"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-brand-secondary-tone-b-fallback);
         
@@ -490,8 +489,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="brand"][data-color-level="tertiary"] {
-        --color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+      &[data-button-type="button"][data-color-variant="tone-b"][data-color="brand"][data-color-level="tertiary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
         --border-color: var(--kobber-component-button-border-color-brand-tertiary-tone-b-active);
         --background-color: var(undefined);
         
@@ -508,8 +507,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="brand"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-brand-tone-b);
+      &[data-button-type="button"][data-color-variant="tone-a"][data-color="brand"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-brand-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-brand-primary-tone-a-fallback);
         
@@ -526,8 +525,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="brand"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-brand-tone-b);
+      &[data-button-type="button"][data-color-variant="tone-a"][data-color="brand"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-brand-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-brand-secondary-tone-a-fallback);
         
@@ -544,8 +543,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="brand"][data-color-level="tertiary"] {
-        --color: var(--kobber-universal-text-label-text-color-brand-tone-b);
+      &[data-button-type="button"][data-color-variant="tone-a"][data-color="brand"][data-color-level="tertiary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-brand-tone-b);
         --border-color: var(--kobber-component-button-border-color-brand-tertiary-tone-a-active);
         --background-color: var(undefined);
         
@@ -562,8 +561,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="neutral"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
+      &[data-button-type="button"][data-color-variant="tone-b"][data-color="neutral"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
         --border-color: var(undefined);
         --background-color: var(undefined);
         
@@ -580,8 +579,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="neutral"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
+      &[data-button-type="button"][data-color-variant="tone-b"][data-color="neutral"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-neutral-secondary-tone-b-fallback);
         
@@ -598,8 +597,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="neutral"][data-color-level="tertiary"] {
-        --color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
+      &[data-button-type="button"][data-color-variant="tone-b"][data-color="neutral"][data-color-level="tertiary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
         --border-color: var(undefined);
         --background-color: var(undefined);
         
@@ -616,8 +615,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="neutral"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
+      &[data-button-type="button"][data-color-variant="tone-a"][data-color="neutral"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-neutral-primary-tone-a-fallback);
         
@@ -634,8 +633,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="neutral"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
+      &[data-button-type="button"][data-color-variant="tone-a"][data-color="neutral"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
         --border-color: var(undefined);
         --background-color: var(undefined);
         
@@ -652,8 +651,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="neutral"][data-color-level="tertiary"] {
-        --color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
+      &[data-button-type="button"][data-color-variant="tone-a"][data-color="neutral"][data-color-level="tertiary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
         --border-color: var(--kobber-component-button-border-color-neutral-tertiary-tone-a-active);
         --background-color: var(undefined);
         
@@ -670,8 +669,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="rettsdata"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
+      &[data-button-type="button"][data-color-variant="tone-b"][data-color="rettsdata"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
         --border-color: var(undefined);
         --background-color: var(undefined);
         
@@ -688,8 +687,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="rettsdata"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
+      &[data-button-type="button"][data-color-variant="tone-b"][data-color="rettsdata"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-rettsdata-secondary-tone-b-fallback);
         
@@ -706,8 +705,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-b"][data-color-theme="rettsdata"][data-color-level="tertiary"] {
-        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
+      &[data-button-type="button"][data-color-variant="tone-b"][data-color="rettsdata"][data-color-level="tertiary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
         --border-color: var(--kobber-component-button-border-color-rettsdata-tertiary-tone-b-active);
         --background-color: var(undefined);
         
@@ -724,8 +723,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="rettsdata"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
+      &[data-button-type="button"][data-color-variant="tone-a"][data-color="rettsdata"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-rettsdata-primary-tone-a-fallback);
         
@@ -742,8 +741,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="rettsdata"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
+      &[data-button-type="button"][data-color-variant="tone-a"][data-color="rettsdata"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-button-background-color-rettsdata-secondary-tone-a-fallback);
         
@@ -760,8 +759,8 @@
   
 
     
-      &[data-button-type="button"][data-color-variant="tone-a"][data-color-theme="rettsdata"][data-color-level="tertiary"] {
-        --color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
+      &[data-button-type="button"][data-color-variant="tone-a"][data-color="rettsdata"][data-color-level="tertiary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
         --border-color: var(--kobber-component-button-border-color-rettsdata-tertiary-tone-a-active);
         --background-color: var(undefined);
         
@@ -778,8 +777,8 @@
   
 
     
-      &[data-button-type="ui-button"][data-color-variant="tone-b"][data-color-theme="success"] {
-        --color: var(--kobber-universal-text-label-text-color-success-tone-a);
+      &[data-button-type="ui-button"][data-color-variant="tone-b"][data-color="success"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-success-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-ui-button-background-color-success-tone-b-fallback);
         
@@ -796,8 +795,8 @@
   
 
     
-      &[data-button-type="ui-button"][data-color-variant="tone-a"][data-color-theme="success"] {
-        --color: var(--kobber-universal-text-label-text-color-success-tone-b);
+      &[data-button-type="ui-button"][data-color-variant="tone-a"][data-color="success"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-success-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-ui-button-background-color-success-tone-a-fallback);
         
@@ -814,8 +813,8 @@
   
 
     
-      &[data-button-type="ui-button"][data-color-variant="tone-b"][data-color-theme="informative"] {
-        --color: var(--kobber-universal-text-label-text-color-informative-tone-a);
+      &[data-button-type="ui-button"][data-color-variant="tone-b"][data-color="informative"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-informative-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-ui-button-background-color-informative-tone-b-fallback);
         
@@ -832,8 +831,8 @@
   
 
     
-      &[data-button-type="ui-button"][data-color-variant="tone-a"][data-color-theme="informative"] {
-        --color: var(--kobber-universal-text-label-text-color-informative-tone-b);
+      &[data-button-type="ui-button"][data-color-variant="tone-a"][data-color="informative"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-informative-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-ui-button-background-color-informative-tone-a-fallback);
         
@@ -850,8 +849,8 @@
   
 
     
-      &[data-button-type="ui-button"][data-color-variant="tone-b"][data-color-theme="warning"] {
-        --color: var(--kobber-universal-text-label-text-color-warning-tone-a);
+      &[data-button-type="ui-button"][data-color-variant="tone-b"][data-color="warning"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-warning-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-ui-button-background-color-warning-tone-b-fallback);
         
@@ -868,8 +867,8 @@
   
 
     
-      &[data-button-type="ui-button"][data-color-variant="tone-a"][data-color-theme="warning"] {
-        --color: var(--kobber-universal-text-label-text-color-warning-tone-b);
+      &[data-button-type="ui-button"][data-color-variant="tone-a"][data-color="warning"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-warning-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-ui-button-background-color-warning-tone-a-fallback);
         
@@ -886,8 +885,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="accent"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-accent-tone-b);
+      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color="accent"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-accent-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-accent-primary-tone-a-fallback);
         
@@ -904,8 +903,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="accent"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-accent-tone-b);
+      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color="accent"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-accent-tone-b);
         --border-color: var(--kobber-component-theme-button-border-color-accent-secondary-tone-a-active);
         --background-color: var(undefined);
         
@@ -922,8 +921,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="accent"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-accent-tone-a);
+      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color="accent"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-accent-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-accent-primary-tone-b-fallback);
         
@@ -940,8 +939,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="accent"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-accent-tone-a);
+      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color="accent"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-accent-tone-a);
         --border-color: var(--kobber-component-theme-button-border-color-accent-secondary-tone-b-active);
         --background-color: var(undefined);
         
@@ -958,8 +957,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="nostalgia"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-nostalgia-tone-b);
+      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color="nostalgia"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-a-fallback);
         
@@ -976,8 +975,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="nostalgia"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-nostalgia-tone-b);
+      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color="nostalgia"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-b);
         --border-color: var(--kobber-component-theme-button-border-color-nostalgia-secondary-tone-a-active);
         --background-color: var(undefined);
         
@@ -994,8 +993,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="nostalgia"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-nostalgia-tone-a);
+      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color="nostalgia"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-b-fallback);
         
@@ -1012,8 +1011,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="nostalgia"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-nostalgia-tone-a);
+      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color="nostalgia"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-a);
         --border-color: var(--kobber-component-theme-button-border-color-nostalgia-secondary-tone-b-active);
         --background-color: var(undefined);
         
@@ -1030,8 +1029,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="nature"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-nature-tone-b);
+      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color="nature"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-nature-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-nature-primary-tone-a-fallback);
         
@@ -1048,8 +1047,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="nature"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-nature-tone-b);
+      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color="nature"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-nature-tone-b);
         --border-color: var(--kobber-component-theme-button-border-color-nature-secondary-tone-a-active);
         --background-color: var(undefined);
         
@@ -1066,8 +1065,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="nature"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-nature-tone-a);
+      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color="nature"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-nature-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-nature-primary-tone-b-fallback);
         
@@ -1084,8 +1083,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="nature"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-nature-tone-a);
+      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color="nature"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-nature-tone-a);
         --border-color: var(--kobber-component-theme-button-border-color-nature-secondary-tone-b-active);
         --background-color: var(undefined);
         
@@ -1102,8 +1101,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="romance"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-romance-tone-b);
+      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color="romance"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-romance-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-romance-primary-tone-a-fallback);
         
@@ -1120,8 +1119,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="romance"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-romance-tone-b);
+      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color="romance"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-romance-tone-b);
         --border-color: var(--kobber-component-theme-button-border-color-romance-secondary-tone-a-active);
         --background-color: var(undefined);
         
@@ -1138,8 +1137,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="romance"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-romance-tone-a);
+      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color="romance"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-romance-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-romance-primary-tone-b-fallback);
         
@@ -1156,8 +1155,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="romance"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-romance-tone-a);
+      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color="romance"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-romance-tone-a);
         --border-color: var(--kobber-component-theme-button-border-color-romance-secondary-tone-b-active);
         --background-color: var(undefined);
         
@@ -1174,8 +1173,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="thriller"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-thriller-tone-b);
+      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color="thriller"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-thriller-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-thriller-primary-tone-a-fallback);
         
@@ -1192,8 +1191,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="thriller"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-thriller-tone-b);
+      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color="thriller"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-thriller-tone-b);
         --border-color: var(--kobber-component-theme-button-border-color-thriller-secondary-tone-a-active);
         --background-color: var(undefined);
         
@@ -1210,8 +1209,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="thriller"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-thriller-tone-a);
+      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color="thriller"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-thriller-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-thriller-primary-tone-b-fallback);
         
@@ -1228,8 +1227,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="thriller"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-thriller-tone-a);
+      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color="thriller"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-thriller-tone-a);
         --border-color: var(--kobber-component-theme-button-border-color-thriller-secondary-tone-b-active);
         --background-color: var(undefined);
         
@@ -1246,8 +1245,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="fantasy"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-fantasy-tone-b);
+      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color="fantasy"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-fantasy-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-fantasy-primary-tone-a-fallback);
         
@@ -1264,8 +1263,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="fantasy"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-fantasy-tone-b);
+      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color="fantasy"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-fantasy-tone-b);
         --border-color: var(--kobber-component-theme-button-border-color-fantasy-secondary-tone-a-active);
         --background-color: var(undefined);
         
@@ -1282,8 +1281,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="fantasy"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-fantasy-tone-a);
+      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color="fantasy"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-fantasy-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-fantasy-primary-tone-b-fallback);
         
@@ -1300,8 +1299,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="fantasy"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-fantasy-tone-a);
+      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color="fantasy"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-fantasy-tone-a);
         --border-color: var(--kobber-component-theme-button-border-color-fantasy-secondary-tone-b-active);
         --background-color: var(undefined);
         
@@ -1318,8 +1317,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="vacation"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-vacation-tone-b);
+      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color="vacation"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-vacation-tone-b);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-vacation-primary-tone-a-fallback);
         
@@ -1336,8 +1335,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color-theme="vacation"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-vacation-tone-b);
+      &[data-button-type="theme-button"][data-color-variant="tone-a"][data-color="vacation"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-vacation-tone-b);
         --border-color: var(--kobber-component-theme-button-border-color-vacation-secondary-tone-a-active);
         --background-color: var(undefined);
         
@@ -1354,8 +1353,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="vacation"][data-color-level="primary"] {
-        --color: var(--kobber-universal-text-label-text-color-vacation-tone-a);
+      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color="vacation"][data-color-level="primary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-vacation-tone-a);
         --border-color: var(undefined);
         --background-color: var(--kobber-component-theme-button-background-color-vacation-primary-tone-b-fallback);
         
@@ -1372,8 +1371,8 @@
   
 
     
-      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color-theme="vacation"][data-color-level="secondary"] {
-        --color: var(--kobber-universal-text-label-text-color-vacation-tone-a);
+      &[data-button-type="theme-button"][data-color-variant="tone-b"][data-color="vacation"][data-color-level="secondary"] {
+        --icon-color: var(--kobber-universal-text-label-text-color-vacation-tone-a);
         --border-color: var(--kobber-component-theme-button-border-color-vacation-secondary-tone-b-active);
         --background-color: var(undefined);
         
@@ -1408,6 +1407,7 @@
       &.kobber-button--icon {
         --icon-width: var(--kobber-component-button-icon-size);
         --icon-height: var(--kobber-component-button-icon-size);
+        color: var(--icon-color);
 
         &.kobber-button--icon-only {
           padding: 0;
@@ -1480,7 +1480,7 @@
       padding: var(--kobber-component-checkbox-padding);
 
       
-      &[data-color-theme="success"] {
+      &[data-color="success"] {
         
     & {
       --control-border-color: var(
@@ -1527,7 +1527,7 @@
       }
     
 
-      &[data-color-theme="brand"] {
+      &[data-color="brand"] {
         
     & {
       --control-border-color: var(
@@ -1584,8 +1584,6 @@
 
     .label {
       display: block;
-      color: var(--kobber-universal-text-label-text-color-brand-tone-a);
-
 
       font-size: var(--typography-font-size);
       font-family: var(--typography-font-family);
@@ -2041,7 +2039,6 @@ em,
       align-items: center;
       text-decoration: none;
       gap: var(--kobber-component-nav-link-gap);
-      color: var(--kobber-universal-text-label-text-color-brand-tone-a);
 
       &.subtle {
         color: var(--kobber-universal-text-label-text-color-subtle-tone-a);
@@ -2227,7 +2224,7 @@ em,
       padding: var(--kobber-component-radiobutton-padding);
 
       
-      &[data-color-theme="success"] {
+      &[data-color="success"] {
         
     :host(.hover) &,
     :host(:hover) & {
@@ -2250,7 +2247,7 @@ em,
       }
     
 
-      &[data-color-theme="brand"] {
+      &[data-color="brand"] {
         
     :host(.hover) &,
     :host(:hover) & {
@@ -2297,7 +2294,6 @@ em,
 
     .label {
       display: block;
-      color: var(--kobber-universal-text-label-text-color-brand-tone-a);
 
       font-size: var(--typography-font-size);
       font-family: var(--typography-font-family);
@@ -2337,12 +2333,12 @@ em,
       transition: var(--transition-time) outline;
 
       
-      &[data-color-theme="success"] {
+      &[data-color="success"] {
         --control-color: var(--kobber-component-radiobutton-indicator-border-color-success);
       }
     
 
-      &[data-color-theme="brand"] {
+      &[data-color="brand"] {
         --control-color: var(--kobber-component-radiobutton-indicator-border-color-brand);
       }
     

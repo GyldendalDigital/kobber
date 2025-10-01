@@ -1,7 +1,7 @@
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { objectKeys } from "../base/utilities/objectKeys";
 
-const badgeTokens = component.badge;
+export const badgeTokens = component.badge;
 
 export const badgeName = "kobber-badge";
 
