@@ -62,10 +62,8 @@ const createCheckboxStyles = () => {
       align-items: center;
       justify-content: center;
       border-radius: var(${unsafeCSS(checkbox.outline.border.radius)});
-      &:not([checked]) {
-        border: var(${unsafeCSS(indicator.border.width)}) solid var(--control-border-color);
-        outline: var(${unsafeCSS(checkbox.outline.border.width)}) solid var(--control-outline-color);
-      }
+      border: var(${unsafeCSS(indicator.border.width)}) solid var(--control-border-color);
+      outline: var(${unsafeCSS(checkbox.outline.border.width)}) solid var(--control-outline-color);
       flex-shrink: 0;
       background-color: var(--control-background-color);
       transition: var(--transition-time) outline;

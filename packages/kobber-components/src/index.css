@@ -1607,10 +1607,8 @@
       align-items: center;
       justify-content: center;
       border-radius: var(--kobber-component-checkbox-outline-border-radius);
-      &:not([checked]) {
-        border: var(--kobber-component-checkbox-indicator-border-width) solid var(--control-border-color);
-        outline: var(--kobber-component-checkbox-outline-border-width) solid var(--control-outline-color);
-      }
+      border: var(--kobber-component-checkbox-indicator-border-width) solid var(--control-border-color);
+      outline: var(--kobber-component-checkbox-outline-border-width) solid var(--control-outline-color);
       flex-shrink: 0;
       background-color: var(--control-background-color);
       transition: var(--transition-time) outline;
