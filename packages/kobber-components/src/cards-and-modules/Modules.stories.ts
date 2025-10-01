@@ -49,21 +49,13 @@ const mappedColor = (args: Args) => {
 };
 
 const nestedTextModule = (args: Args) => {
-  const color = (args: Args) => {
-    const nextColorIndex = textModuleColors.indexOf(args.color) + 1;
-    if (nextColorIndex < textModuleColors.length) {
-      return textModuleColors[nextColorIndex];
-    }
-    return textModuleColors[0];
-  };
-
   return html`
-      <kobber-text-module color="${ifDefined(color(args))}" color-variant="${args.colorVariant}">
-        <kobber-badge-icon slot="badge" color-theme="${ifDefined(color(args))}" color-variant="${invertColorVariant(args.colorVariant)}">
+      <kobber-text-module color="${ifDefined(args.color)}" color-variant="${invertColorVariant(args.colorVariant)}">
+        <kobber-badge-icon slot="badge" color-theme="${ifDefined(args.color)}" color-variant="${args.colorVariant}">
           <kobber-pencil slot="icon"></kobber-pencil>
           Visste du?
         </kobber-badge-icon>
-        <kobber-text-body color="${ifDefined(color(args))}" color-variant="${invertColorVariant(args.colorVariant)}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. (${color(args)})</kobber-text-body>
+        <kobber-text-body color="${ifDefined(args.color)}" color-variant="${args.colorVariant}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. (${args.color})</kobber-text-body>
       </kobber-text-module>
   `;
 };
