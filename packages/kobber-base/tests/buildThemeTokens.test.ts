@@ -1,6 +1,6 @@
 import type { Config } from "style-dictionary/types";
 import * as fs from "fs";
-import { ThemeConfig, themeDirectory } from "../src/types";
+import { type ThemeConfig, themeDirectory } from "../src/types";
 import { buildThemeTokens } from "../src/styleDictionary/buildThemeTokens";
 
 /** Assert various steps of token build */
@@ -51,6 +51,9 @@ export const findUnusedTokens = (themeConfig: ThemeConfig) => {
       continue;
     }
     if (tokenName.startsWith("--kobber-universal")) {
+      continue;
+    }
+    if (tokenName.startsWith("--kobber-layout")) {
       continue;
     }
 
