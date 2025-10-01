@@ -6,6 +6,7 @@ import { html } from "lit";
 import { init as initComponents } from "../base/init";
 import { getPrintedState, linkStates } from "../story/linkStates";
 import { type LinkProps, linkTypes } from "./Link.core";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 initComponents();
 initIcons();
@@ -53,19 +54,17 @@ export const Link: StoryObj<Args> = {
             <kobber-link
               class="${state}"
               href=${state !== "disabled" ? "https://github.com/GyldendalDigital/kobber" : undefined}
-              type="${args.type}"
+              type="${ifDefined(args.type)}"
               ?icon-first=${args.icon === "left"}
             >
-              <kobber-text-label>
-                ${args.text || html`link ${getPrintedState(state)}`}
-              </kobber-text-label>
+              ${args.text || html`link ${getPrintedState(state)}`}
               ${args.icon !== "none" ? html`<kobber-arrow_right slot="icon" />` : ""}
             </kobber-link>
 
             <kobber-link
               class="${state}"
               onClick="alert('Hello world!')"
-              type="${args.type}"
+              type="${ifDefined(args.type)}"
               ?icon-first=${args.icon === "left"}
             >
               ${args.text || html`button ${getPrintedState(state)}`}
