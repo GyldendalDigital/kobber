@@ -64,6 +64,7 @@ const createCheckboxStyles = () => {
       border-radius: var(${unsafeCSS(checkbox.outline.border.radius)});
       border: var(${unsafeCSS(indicator.border.width)}) solid var(--control-border-color);
       outline: var(${unsafeCSS(checkbox.outline.border.width)}) solid var(--control-outline-color);
+      color: var(--color)
       flex-shrink: 0;
       background-color: var(--control-background-color);
       transition: var(--transition-time) outline;
@@ -84,6 +85,7 @@ const colorThemeStyles = () => {
   const colorThemes = checkboxColorThemes.flatMap(colorTheme => {
     return css`
       ${unsafeCSS(`&[data-color="${colorTheme}"]`)} {
+        --color: var(${unsafeCSS(indicator.shape.color[colorTheme])});
         ${statesPerColorTheme(colorTheme)}
       }
     `;
