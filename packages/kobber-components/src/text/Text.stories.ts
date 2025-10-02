@@ -132,9 +132,6 @@ export const All: Story = {
 
 export const Heading: Story = {
   argTypes: {
-    text: {
-      control: "text",
-    },
     highlighted: {
       control: "boolean",
     },
@@ -212,9 +209,6 @@ export const Heading: Story = {
 
 export const Title: Story = {
   argTypes: {
-    text: {
-      control: "text",
-    },
     highlighted: {
       control: "boolean",
     },
@@ -264,9 +258,6 @@ export const Title: Story = {
 
 export const TextBody: Story = {
   argTypes: {
-    text: {
-      control: "text",
-    },
     highlighted: {
       control: "boolean",
     },
@@ -289,18 +280,16 @@ export const TextBody: Story = {
               textBodyColorVariants.map(colorVariant =>
                 textBodyContexts.map(
                   context => html`
-                    <div>
-                      <kobber-text-body
-                        title="${color} ${colorVariant} ${context} ${size} ${font}"
-                        size="${size}"
-                        font="${font}"
-                        color="${color}"
-                        color-variant="${colorVariant}"
-                        context="${context}"
-                      >
-                        ${ifHighlighted(args.text || "Text body", args.highlighted)}
-                      </kobber-text-body>
-                    </div>
+                    <kobber-text-body
+                      title="${color} ${colorVariant} ${context} ${size} ${font}"
+                      size="${size}"
+                      font="${font}"
+                      color="${color}"
+                      color-variant="${colorVariant}"
+                      context="${context}"
+                    >
+                      ${ifHighlighted(args.text || "Text body", args.highlighted)}
+                    </kobber-text-body>
                   `,
                 ),
               ),
@@ -314,7 +303,6 @@ export const TextBody: Story = {
 
 export const TextLabel: Story = {
   argTypes: {
-    text: { control: "text" },
     highlighted: { control: "boolean" },
   },
   args: {
@@ -354,12 +342,6 @@ export const TextLabel: Story = {
 
 export const Display: Story = {
   argTypes: {
-    text: {
-      control: "text",
-    },
-    text2: {
-      control: "text",
-    },
     h1: {
       control: "boolean",
     },
@@ -401,9 +383,6 @@ export const Display: Story = {
 
 export const Lead: Story = {
   argTypes: {
-    text: {
-      control: "text",
-    },
     color: {
       control: "inline-radio",
       options: leadColors,
