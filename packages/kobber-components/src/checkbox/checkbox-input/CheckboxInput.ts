@@ -12,9 +12,9 @@ import { FormControlController } from "../../base/internal/form";
 import componentStyles from "../../base/styles/component.styles";
 import { HasSlotController } from "../../base/internal/slot";
 import {
-  checkboxControlClassName,
+  inputControlClassName,
   nativeCheckboxInputClassName,
-  checkboxLabelClassName,
+  inputLabelClassName,
   checkboxInputName,
   checkboxWrapperClassName,
   type InputProps,
@@ -237,9 +237,9 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
             @focus=${this.handleFocus}
           />
 
-          <span class=${checkboxControlClassName}> ${icon} </span>
+          <span class=${inputControlClassName}> ${icon} </span>
 
-          <kobber-text-label part="label" class=${checkboxLabelClassName} color=${ifDefined(this.colorTheme)}>
+          <kobber-text-label part="label" class=${inputLabelClassName} color=${ifDefined(this.colorTheme)}>
             <slot></slot>
           </kobber-text-label>
           
