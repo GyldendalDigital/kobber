@@ -147,28 +147,37 @@ export const ContentWrapper: Story = {
       ${
         !args.showHeading
           ? ""
-          : html`   <kobber-heading color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">Heading</kobber-heading>`
+          : html`   <kobber-heading color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">A long heading that appears in top block</kobber-heading>`
       }
       ${
         !args.showHeadingText
           ? ""
-          : html`   <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">Heading text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. Lorem ipsum dolor sit amet, consectetur adipiscing el it. </kobber-text-body>
+          : html`   <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
+            <p>First paragraph here. Lorem ipsum dolor sit amet, consectetur adipiscing el it.</p>
+            <p>Second paragraph here. Ut et massa mi. Lorem ipsum dolor sit amet, consectetur adipiscing el it.</p>
+          </kobber-text-body>
           `
       }
       </kobber-content-top-block>
 
       <kobber-text-block>
         <kobber-title color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}" size="large">Title L</kobber-title>
-        <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. (${args.color})</kobber-text-body>
+        <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
+          <p>One paragraph here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. (${args.color})</p>
+        </kobber-text-body>
       </kobber-text-block>
       ${args.showNested ? nestedTextModule(args) : ""}
       <kobber-text-block>
-        <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it.</kobber-text-body>
+        <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
+          <p>Another one paragraph here.</p>
+        </kobber-text-body>
       </kobber-text-block>
 
       <kobber-text-block>
         <kobber-title color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}" size="medium">Title M</kobber-title>
-        <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">Body text here.</kobber-text-body>
+        <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
+          <p>One paragraph here. Lorem ipsum dolor sit amet, consectetur adipiscing el it.</p>
+        </kobber-text-body>
       </kobber-text-block>
     </kobber-content-wrapper>
   `,
