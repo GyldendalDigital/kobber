@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.6.10
+
+### Patch Changes
+
+- Grid bugfix
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.10
+  - @gyldendal/kobber-icons@0.6.10
+
 ## 0.6.9
 
 ### Patch Changes

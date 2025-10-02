@@ -1,5 +1,11 @@
 # @gyldendal/kobber-audio-recorder
 
+## 0.6.10
+
+### Patch Changes
+
+- Grid bugfix
+
 ## 0.6.9
 
 ### Patch Changes
