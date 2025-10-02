@@ -9,7 +9,6 @@ export class ContentTopBlock extends KobberElement {
 
   render() {
     return html`<header class="kobber-content-top-block">
-      <slot name="title"></slot>
       <slot></slot>
     </header> `;
   }
