@@ -9,7 +9,6 @@ export class TextBlock extends KobberElement {
 
   render() {
     return html`<div class="kobber-text-block">
-      <slot name="title"></slot>
       <slot></slot>
     </div> `;
   }

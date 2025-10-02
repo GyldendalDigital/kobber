@@ -29,7 +29,6 @@ export class ContentWrapper extends KobberElement implements ContentWrapperProps
       >
         <div class="inner-container">
           ${html`
-            <slot name="content-top-block"></slot>
             <slot></slot>
               `}
         </div>
