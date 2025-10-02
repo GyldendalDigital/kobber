@@ -22,6 +22,9 @@ const createTextBodyStyles = () => css`
   ${fontFamilyVariants()}
   ${colorVariants()}
   ${lineHeightVariants()}
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }`;
 
 const fontSizeVariants = () =>

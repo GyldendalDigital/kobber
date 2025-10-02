@@ -1651,13 +1651,13 @@
       background-color: var(--content-wrapper-background-color);
       max-width: 720px;
       
-              &[data-color-variant="tone-a"] {
-                --content-wrapper-background-color: var(--kobber-layout-content-wrapper-background-color-tone-a);
+              &[data-color-variant="tone-b"] {
+                --content-wrapper-background-color: var(--kobber-layout-content-wrapper-background-color-tone-b);
               }
           
 
-              &[data-color-variant="tone-b"] {
-                --content-wrapper-background-color: var(--kobber-layout-content-wrapper-background-color-tone-b);
+              &[data-color-variant="tone-a"] {
+                --content-wrapper-background-color: var(--kobber-layout-content-wrapper-background-color-tone-a);
               }
           ;
 
@@ -2571,6 +2571,9 @@ em,
     }
   }
 }
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 /* #endregion */
 /* #region TextLabel - textLabelStyles */ 

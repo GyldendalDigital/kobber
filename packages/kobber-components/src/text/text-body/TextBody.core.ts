@@ -5,7 +5,7 @@ export const textBodyTokens = universal["text-body"];
 
 export const textBodyName = "kobber-text-body";
 
-const textBodyLevelFallback = "p";
+const textBodyLevelFallback = "div";
 
 export const sanitizeTextBodyLevel = (level: TextBodyLevel | undefined): TextBodyLevel =>
   level && textBodyLevels.includes(level) ? level : textBodyLevelFallback;
