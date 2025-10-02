@@ -1,5 +1,14 @@
 # @gyldendal/kobber-components
 
+## 0.6.9
+
+### Patch Changes
+
+- Correct Content Wrapper based on real usage, and correct checkbox icon color
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.9
+  - @gyldendal/kobber-icons@0.6.9
+
 ## 0.6.8
 
 ### Patch Changes
