@@ -1,5 +1,11 @@
 # @gyldendal/kobber-tsconfig
 
+## 0.6.9
+
+### Patch Changes
+
+- Correct Content Wrapper based on real usage, and correct checkbox icon color
+
 ## 0.6.8
 
 ### Patch Changes
