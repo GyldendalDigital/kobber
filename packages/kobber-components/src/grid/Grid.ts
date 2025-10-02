@@ -55,7 +55,7 @@ export class Grid extends StyledLitElement {
   }
 
   get config() {
-    return this.config;
+    return this._config?.id ?? "none";
   }
 
   @property({ converter, attribute: "grid-template-columns" })
