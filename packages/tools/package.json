@@ -1,0 +1,17 @@
+{
+  "name": "tools",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "find-usage": "ts-node ./src/findUsage.ts"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "glob": "^11.0.3",
+    "ts-morph": "^27.0.0"
+  }
+}
