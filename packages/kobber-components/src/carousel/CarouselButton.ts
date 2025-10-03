@@ -1,8 +1,7 @@
 import { consume } from "@lit/context";
 import { html } from "lit";
-import { ifDefined } from "lit/directives/if-defined.js";
-import { Button } from "../button/Button";
-import { Context, context, defaultContext } from "./Carousel.context";
+import { Button } from "../button/default-button/Button";
+import { type Context, context, defaultContext } from "./Carousel.context";
 import { customElement } from "../base/utilities/customElementDecorator";
 import "@gyldendal/kobber-icons/web-components";
 

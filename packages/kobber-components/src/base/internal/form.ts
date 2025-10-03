@@ -1,6 +1,6 @@
 import type { ReactiveController, ReactiveControllerHost } from "lit";
 import type { ShoelaceFormControl } from "../internal/shoelace-element.js";
-import type { Button } from "../../button/Button.js";
+import type { Button } from "../../button/default-button/Button.js";
 
 //
 // We store a WeakMap of forms + controls so we can keep references to all Shoelace controls within a given form. As
@@ -63,8 +63,12 @@ export class FormControlController implements ReactiveController {
   form?: HTMLFormElement | null;
   options: FormControlControllerOptions;
 
-  constructor(host: ReactiveControllerHost & ShoelaceFormControl, options?: Partial<FormControlControllerOptions>) {
-    (this.host = host).addController(this);
+  constructor(
+    host: ReactiveControllerHost & ShoelaceFormControl,
+    options?: Partial<FormControlControllerOptions>,
+  ) {
+    this.host = host;
+    this.host.addController(this);
     this.options = {
       form: input => {
         // If there's a form attribute, use it to find the target form by id
@@ -86,9 +90,14 @@ export class FormControlController implements ReactiveController {
       value: input => input.value,
       defaultValue: input => input.defaultValue,
       disabled: input => input.disabled ?? false,
-      reportValidity: input => (typeof input.reportValidity === "function" ? input.reportValidity() : true),
-      checkValidity: input => (typeof input.checkValidity === "function" ? input.checkValidity() : true),
-      setValue: (input, value) => (input.value = value),
+      reportValidity: input =>
+        typeof input.reportValidity === "function" ? input.reportValidity() : true,
+      checkValidity: input =>
+        typeof input.checkValidity === "function" ? input.checkValidity() : true,
+      setValue: (input, value) => {
+        input.value = value;
+        return value;
+      },
       assumeInteractionOn: ["input"],
       ...options,
     };
@@ -354,11 +363,13 @@ export class FormControlController implements ReactiveController {
         button.name = submitter.name;
         button.value = submitter.value;
 
-        ["formaction", "formenctype", "formmethod", "formnovalidate", "formtarget"].forEach(attr => {
-          if (submitter.hasAttribute(attr)) {
-            button.setAttribute(attr, submitter.getAttribute(attr)!);
-          }
-        });
+        ["formaction", "formenctype", "formmethod", "formnovalidate", "formtarget"].forEach(
+          attr => {
+            if (submitter.hasAttribute(attr)) {
+              button.setAttribute(attr, submitter.getAttribute(attr)!);
+            }
+          },
+        );
       }
 
       this.form.append(button);

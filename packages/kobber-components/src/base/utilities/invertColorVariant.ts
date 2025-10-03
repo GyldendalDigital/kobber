@@ -1,4 +1,4 @@
-export const invertColorVariant = (colorVariant?: string) => {
+export const invertColorVariant = (colorVariant?: string | unknown) => {
   if (colorVariant === "tone-a") {
     return "tone-b";
   }

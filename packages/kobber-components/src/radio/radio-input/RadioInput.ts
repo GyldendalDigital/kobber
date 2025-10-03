@@ -13,8 +13,8 @@ import {
   radioInputControlName,
 } from "../Radio.core";
 import "../radio-input-control/RadioInputControl";
-import "../../button/Button";
-import { buttonName } from "../../button/Button.core";
+import "../../button/default-button/Button";
+import { defaultButtonName } from "../../button/default-button/Button.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
 import { ifDefined } from "lit/directives/if-defined.js";
 import "../../text/text-label/TextLabel";
@@ -104,7 +104,7 @@ export class RadioInput extends ShoelaceElement implements InputProps {
 
   render() {
     const isLink = this.isLink();
-    const buttonElement = unsafeStatic(buttonName);
+    const buttonElement = unsafeStatic(defaultButtonName);
     const radioInputControlElement = unsafeStatic(radioInputControlName);
 
     if (isLink) {
