@@ -13,20 +13,22 @@ import type { TextLabelProps } from "../../text/text-label/TextLabel.core";
 /** Shared between Button, UiButton and ThemeButton */
 export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps {
   static styles: CSSResultGroup = [componentStyles, baseButtonStyles];
+  static formAssociated = true;
+  private _internals = this.attachInternals();
 
   // overridden in parent classes
   colorTheme: TextLabelProps["color"] = "brand";
   colorLevel: unknown = "primary";
   colorVariant: TextLabelProps["colorVariant"] = "tone-a";
 
-  @property()
+  @property({ reflect: true })
   type: BaseButtonProps["type"] = "button";
+
+  @property({ type: Boolean, reflect: true })
+  disabled = false;
 
   @property({ type: Boolean, attribute: "icon-first" })
   iconFirst = false;
-
-  @property({ type: Boolean })
-  disabled = false;
 
   @property({ type: Boolean, attribute: "full-width" })
   fullWidth = false;
@@ -59,6 +61,26 @@ export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps
     return !!this.href;
   }
 
+  private handleClick(ev: MouseEvent) {
+    if (this.disabled) {
+      ev.preventDefault();
+      return;
+    }
+
+    const form = this._internals.form;
+    if (!form) return;
+
+    if (this.type === "submit") {
+      form.requestSubmit();
+      return;
+    }
+
+    if (this.type === "reset") {
+      form.reset();
+      return;
+    }
+  }
+
   render() {
     const isLink = this.isLink();
     const tag = isLink ? literal`a` : literal`button`;
@@ -86,6 +108,7 @@ export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps
         aria-disabled=${this.disabled ? "true" : "false"}
         aria-label=${ifDefined(this._label)}
         tabindex=${this.disabled || this.usedInOtherInteractive ? "-1" : "0"}
+        @click=${this.handleClick}
       >
       ${this.iconFirst ? html`<slot name="icon"></slot>` : ""}
       ${
