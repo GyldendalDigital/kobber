@@ -4,7 +4,7 @@ import { themeButtonStyles } from "./ThemeButton.styles";
 import { customElement } from "../../base/utilities/customElementDecorator";
 import "../../text/text-label/TextLabel";
 import { type ThemeButtonProps, themeButtonName } from "./ThemeButton.core";
-import { ButtonBase } from "../base-button/ButtonBase";
+import { ButtonBase } from "../button-base/ButtonBase";
 
 @customElement(themeButtonName)
 export class ThemeButton extends ButtonBase implements ThemeButtonProps {

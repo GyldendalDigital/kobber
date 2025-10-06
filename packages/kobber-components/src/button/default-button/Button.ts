@@ -4,7 +4,7 @@ import { defaultButtonStyles } from "./Button.styles";
 import { customElement } from "../../base/utilities/customElementDecorator";
 import "../../text/text-label/TextLabel";
 import { type DefaultButtonProps, defaultButtonName } from "./Button.core";
-import { ButtonBase } from "../base-button/ButtonBase";
+import { ButtonBase } from "../button-base/ButtonBase";
 
 @customElement(defaultButtonName)
 export class Button extends ButtonBase implements DefaultButtonProps {

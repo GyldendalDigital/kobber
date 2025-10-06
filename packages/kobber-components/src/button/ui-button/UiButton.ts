@@ -4,7 +4,7 @@ import { uiButtonStyles } from "./UiButton.styles";
 import { customElement } from "../../base/utilities/customElementDecorator";
 import { type UiButtonProps, uiButtonName } from "./UiButton.core";
 import "../../text/text-label/TextLabel";
-import { ButtonBase } from "../base-button/ButtonBase";
+import { ButtonBase } from "../button-base/ButtonBase";
 
 @customElement(uiButtonName)
 export class UiButton extends ButtonBase implements UiButtonProps {

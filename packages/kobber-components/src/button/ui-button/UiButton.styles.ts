@@ -1,7 +1,7 @@
 import { css, unsafeCSS } from "lit";
-import { getIconColor, type ButtonClassNames } from "../base-button/ButtonBase.core";
+import { getIconColor, type ButtonClassNames } from "../button-base/ButtonBase.core";
 import { uiButtonColorThemes, uiButtonColorVariants, uiButtonTokens } from "./UiButton.core";
-import { buttonColorVariables } from "../base-button/ButtonBase.styles";
+import { buttonColorVariables } from "../button-base/ButtonBase.styles";
 
 const createUiButtonStyles = () => css`
 .${unsafeCSS("kobber-button" satisfies ButtonClassNames)} {
