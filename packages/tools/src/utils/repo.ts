@@ -87,6 +87,5 @@ export const runCommandInRepo = async (localRepo: LocalRepo, command: string) =>
     cd ${localRepo.directory} &&
     ${command}
     `;
-  // return execSync(fullCommand, { encoding: "utf8" });
   return await execAsync(fullCommand);
 };
