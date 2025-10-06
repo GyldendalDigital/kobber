@@ -1,125 +1,141 @@
 import dotenv from "dotenv";
-import { glob } from "glob";
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
-import { type ImportDeclaration, Project, type SourceFile } from "ts-morph";
-import { cloneRepo, type RepoOptions } from "./utils/cloneRepo";
 import { createCsvString } from "./utils/createCsvString";
+import { getCommandLineArguments } from "./utils/getCommandLineArguments";
+import {
+  flattenImportAst,
+  getImportAst,
+  type ImportAst,
+  type ImportAstRow,
+} from "./utils/getImportAst";
 import { initDirectories } from "./utils/initDirectories";
+import {
+  cloneRepo,
+  getRepoOptionsFromFile,
+  isCloneableRepoOptions,
+  type LocalRepo,
+} from "./utils/repo";
 
 dotenv.config();
 
-interface Reference {
-  moduleSpecifier: string;
-  namedImport: string;
-  repoPath: string;
-  tsProjectPath: string;
-  filePath: string;
+interface CommandLineArguments {
+  reposConfig: string;
 }
 
-const csvHeader: (keyof Reference)[] = [
-  "moduleSpecifier",
-  "namedImport",
-  "tsProjectPath",
-  "filePath",
-];
+const commandLineArguments: CommandLineArguments = getCommandLineArguments();
 
-const scanRepo = async (repoPath: string) => {
-  const tsconfigPaths = await glob(`${repoPath}/**/tsconfig.json`, {
-    ignore: [`${repoPath}/**/node_modules/**`],
-  });
-  return tsconfigPaths.flatMap(path => scanRepoPackage(path, { repoPath }));
-};
+const csvHeader = ["module", "moduleVersion", "namedImport", "repoPath", "tsProject", "filePath"];
 
-const scanRepoPackage = (tsProjectPath: string, reference: Pick<Reference, "repoPath">) => {
-  const project = new Project({ tsConfigFilePath: tsProjectPath });
-  return project
-    .getSourceFiles()
-    .flatMap(file =>
-      scanFile(file, {
-        ...reference,
-        tsProjectPath: tsProjectPath.replace(reference.repoPath, "").replace("tsconfig.json", ""),
-      }),
-    )
-    .filter(isDefined);
-};
-
-const scanFile = (file: SourceFile, reference: Pick<Reference, "repoPath" | "tsProjectPath">) => {
-  return file
-    .getImportDeclarations()
-    .flatMap(importDeclaration =>
-      scanImports(importDeclaration, {
-        ...reference,
-        filePath: file.getFilePath().replace(reference.repoPath, ""),
-      }),
-    )
-    .filter(isDefined);
-};
-
-const scanImports = (
-  importDeclaration: ImportDeclaration,
-  reference: Pick<Reference, "repoPath" | "tsProjectPath" | "filePath">,
-) => {
-  const moduleSpecifier = importDeclaration.getModuleSpecifierValue();
-  if (moduleSpecifier.startsWith("@gyldendal/kobber")) {
-    const namedImports = importDeclaration.getNamedImports().map(n => n.getName());
-    return namedImports.map(namedImport =>
-      toReference(namedImport, {
-        ...reference,
-        moduleSpecifier,
-      }),
-    );
-  }
-};
-
-const toReference = (
-  namedImport: string,
-  reference: Pick<Reference, "repoPath" | "tsProjectPath" | "filePath" | "moduleSpecifier">,
-): Reference => ({
-  ...reference,
-  namedImport,
-});
-
-const isDefined = <T>(value: T | undefined): value is T => value !== undefined;
-
-const run = async () => {
+const findUsage = async () => {
   const directories = await initDirectories();
 
-  if (!process.env.AZURE_USERNAME || !process.env.AZURE_ACCESS_TOKEN) {
-    throw new Error("Azure environment variables missing");
-  }
+  const repoOptions = getRepoOptionsFromFile(
+    commandLineArguments.reposConfig,
+    directories.temporaryRepos,
+  );
 
-  const repoOptions: RepoOptions[] = [
-    {
-      name: "skolestudio",
-      url: `https://${process.env.AZURE_USERNAME}:${encodeURIComponent(process.env.AZURE_ACCESS_TOKEN)}@dev.azure.com/gyldendaldigital/Skolestudio/_git/Skolestudio`,
-      branch: "master",
-      directory: path.join(directories.temporaryRepos, "skolestudio"),
-    },
+  console.info(`${commandLineArguments.reposConfig} contains ${repoOptions.length} repos.`);
+  console.info(
+    `${repoOptions
+      .filter(isCloneableRepoOptions)
+      .map(options => `  Cloning ${options.name} into ${options.directory}`)
+      .join("\n")}\n`,
+  );
+
+  const localRepos: LocalRepo[] = repoOptions.map(options =>
+    isCloneableRepoOptions(options) ? cloneRepo(options) : options,
+  );
+
+  console.info("");
+
+  const reposWithImportAst = await Promise.all(
+    localRepos.map(localRepo => {
+      console.info(`Scanning ${localRepo.name} for imports`);
+      return appendImportAst(localRepo);
+    }),
+  );
+
+  createCsvForEachRepo(reposWithImportAst, directories.dest);
+
+  createMergedCsv(reposWithImportAst, directories.dest);
+};
+
+const createCsvForEachRepo = async (
+  reposWithImportAst: RepoWithImportAst[],
+  destDirectory: string,
+) => {
+  const csvStrings = await Promise.all(
+    reposWithImportAst.map(({ localRepo, importAst }) => appendCsvString(localRepo, importAst)),
+  );
+
+  for (const { localRepo, csvString } of csvStrings) {
+    await writeCsv(localRepo.name, csvString, destDirectory);
+    console.info(`Created CSV file for ${localRepo.name}`);
+  }
+};
+
+const createMergedCsv = async (reposWithImportAst: RepoWithImportAst[], destDirectory: string) => {
+  const mergedAst = reposWithImportAst.flatMap(({ importAst }) => flattenImportAst(importAst));
+
+  const mergedCsvString = await createCsvString(csvHeader, mergedAst.map(toCsvRow));
+
+  if (mergedCsvString) {
+    await writeCsv("all", mergedCsvString, destDirectory);
+    console.info(`Created CSV file for all repos`);
+  }
+};
+
+interface RepoWithImportAst {
+  localRepo: LocalRepo;
+  importAst: ImportAst;
+}
+
+const appendImportAst = async (localRepo: LocalRepo): Promise<RepoWithImportAst> => {
+  const importAst = await getImportAst({
+    repoPath: localRepo.directory,
+    moduleSpecifierFilter: moduleSpecifier => moduleSpecifier.startsWith("@gyldendal/kobber"),
+  });
+  return { localRepo, importAst };
+};
+
+const appendCsvString = async (localRepo: LocalRepo, importAst: ImportAst) => {
+  const csvString = await createCsvString(csvHeader, flattenImportAst(importAst).map(toCsvRow));
+  return {
+    localRepo,
+    csvString,
+  };
+};
+
+const writeCsv = async (name: string, csvString: string | undefined, destDirectory: string) => {
+  if (!csvString) return;
+  const csvFileName = `${name}.csv`;
+  const csvPath = path.join(destDirectory, csvFileName);
+  await writeFile(csvPath, csvString);
+};
+
+const toCsvRow = (row: ImportAstRow): string[] => {
+  const absoluteTsProjectPath = path.resolve(row.tsProject.path);
+  const absoluteTsProjectDirectory = path.dirname(absoluteTsProjectPath);
+  return [
+    row.moduleSpecifier,
+    getModuleVersionColumn(row),
+    row.namedImport,
+    row.importAst.repoPath.split("/").pop() ?? row.importAst.repoPath,
+    `${row.tsProject.packageJsonInfo.name}`,
+    path.relative(absoluteTsProjectDirectory, row.file.sourceFile.getFilePath()),
   ];
+};
 
-  console.info(`Cloning ${repoOptions.length} repos`);
-
-  for (const options of repoOptions) {
-    console.info(`Cloning ${options.name}...`);
-
-    const clonedRepo = cloneRepo(options);
-
-    console.info(`Scanning ${clonedRepo.name} for imports`);
-
-    const result = await scanRepo(clonedRepo.directory);
-
-    const csv = await createCsvString(csvHeader, result);
-
-    if (csv) {
-      const csvFileName = `${clonedRepo.name}.csv`;
-      const csvPath = path.join(directories.dest, csvFileName);
-      await writeFile(csvPath, csv);
-      console.info(`Created CSV file for ${clonedRepo.name}: ${csvFileName}`);
-    }
-  }
+const getModuleVersionColumn = (row: ImportAstRow) => {
+  const [packageOwner, packageName] = row.moduleSpecifier.split("/"); // ["@gyldendal", "kobber-base"]
+  const match = row.tsProject.packageJsonInfo.dependencies.find(dependency => {
+    const [dependencyOwner, dependencyName] = dependency.packageName.split("/");
+    return dependencyOwner === packageOwner && dependencyName === packageName;
+  });
+  return match ? match.version : "Dependency missing in package.json";
 };
 
 (async () => {
-  await run();
+  await findUsage();
 })();

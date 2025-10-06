@@ -1,18 +1,10 @@
-/** biome-ignore-all lint/suspicious/noExplicitAny: "" */
-
-export const createCsvString = async (header: string[], rows: Record<string, any>[]) => {
+export const createCsvString = async (header: string[], rows: string[][]) => {
   if (!rows[0]) return;
-  const table = rows.map(row => stringifyRow(row, header));
-  const orderedTable = sortLexicographically(table);
+  const sanitizedRows = rows.map(columns => columns.map(wrapInQuotes));
+  const orderedTable = sortLexicographically(sanitizedRows);
   const stringifiedTable = orderedTable.map(toCsvRow).join("\n");
   return [toCsvRow(header), stringifiedTable].join("\n");
 };
-
-const stringifyRow = (row: Record<string, any>, header: string[]) =>
-  header
-    .map(key => row[key])
-    .map(wrapInQuotes)
-    .filter(value => value !== undefined);
 
 const wrapInQuotes = (value: string) => `"${value}"`;
 
