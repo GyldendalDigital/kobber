@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { accordionName, type AccordionProps } from "./Accordion.core";
 import "../accordion/Accordion";
-import "../button/Button";
-import "../theme-context-provider/ThemeContext";
 import { init as initComponents } from "../base/init";
 import { html } from "lit";
 

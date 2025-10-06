@@ -1,37 +1,26 @@
 import type { CSSResultGroup } from "lit";
 import { property } from "lit/decorators.js";
-import componentStyles from "../base/styles/component.styles";
-import { buttonStyles } from "./Button.styles";
-import { buttonClassNames, buttonName, type ButtonProps } from "./Button.core";
-import { literal, html } from "lit/static-html.js";
 import { ifDefined } from "lit/directives/if-defined.js";
-import KobberElementWithIcon from "../base/kobber-element-with-icon";
-import { customElement } from "../base/utilities/customElementDecorator";
-import "../text/text-label/TextLabel";
-import { invertColorVariant } from "../base/utilities/invertColorVariant";
+import { html, literal } from "lit/static-html.js";
+import KobberElementWithIcon from "../../base/kobber-element-with-icon";
+import componentStyles from "../../base/styles/component.styles";
+import { type BaseButtonProps, buttonClassNames } from "./ButtonBase.core";
+import { baseButtonStyles } from "./ButtonBase.styles";
+import "../../text/text-label/TextLabel";
+import { invertColorVariant } from "../../base/utilities/invertColorVariant";
+import type { TextLabelProps } from "../../text/text-label/TextLabel.core";
 
-/**
- * Button with icon slot
- *
- * @param ariaLabel required when using icon only
- *
- * Figma: https://www.figma.com/design/zMcbm8ujSMldgS1VB70IMP/Styles-%26-komponenter?node-id=111-158&node-type=canvas&m=dev
- */
-@customElement(buttonName)
-export class Button extends KobberElementWithIcon implements ButtonProps {
-  static styles: CSSResultGroup = [componentStyles, buttonStyles];
+/** Shared between Button, UiButton and ThemeButton */
+export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps {
+  static styles: CSSResultGroup = [componentStyles, baseButtonStyles];
+
+  // overridden in parent classes
+  colorTheme: TextLabelProps["color"] = "brand";
+  colorLevel: unknown = "primary";
+  colorVariant: TextLabelProps["colorVariant"] = "tone-a";
 
   @property()
-  type: ButtonProps["type"] = "button";
-
-  @property({ attribute: "color-theme" })
-  colorTheme: ButtonProps["colorTheme"] = "brand";
-
-  @property({ attribute: "color-level" })
-  colorLevel: ButtonProps["colorLevel"] = "primary";
-
-  @property({ attribute: "color-variant" })
-  colorVariant: ButtonProps["colorVariant"] = "tone-a";
+  type: BaseButtonProps["type"] = "button";
 
   @property({ type: Boolean, attribute: "icon-first" })
   iconFirst = false;
@@ -66,8 +55,8 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
    */
   @property() value = "";
 
-  private isLink() {
-    return this.href ? true : false;
+  isLink() {
+    return !!this.href;
   }
 
   render() {
@@ -87,10 +76,10 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
           }),
           this.className,
         ].join(" ")}
-        data-button-type="${this.type}"
         data-color="${this.colorTheme}"
         data-color-level="${this.colorLevel}"
         data-color-variant="${this.colorVariant}"
+        type="${this.type}"
         ?disabled=${isLink ? undefined : this.disabled}
         href=${ifDefined(isLink && !this.disabled ? this.href : undefined)}
         target=${ifDefined(isLink ? this.target : undefined)}
@@ -102,7 +91,7 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
       ${
         !this._iconOnly
           ? html`<kobber-text-label
-          color=${ifDefined(this.colorTheme)}
+          .color=${this.colorTheme}
           color-variant=${invertColorVariant(this.colorVariant)}
         >
           <slot></slot>
@@ -110,7 +99,6 @@ export class Button extends KobberElementWithIcon implements ButtonProps {
           : ""
       }
       ${!this.iconFirst ? html`<slot name="icon"></slot>` : ""}
-
       </${tag}>
     `;
   }

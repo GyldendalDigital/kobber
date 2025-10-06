@@ -1,27 +1,29 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import {
-  type ButtonColorLevel,
-  type ButtonColorTheme,
-  type ButtonColorVariant,
-  type ButtonProps,
-  type ButtonType,
-  buttonColorLevels,
-  buttonColorThemes,
-  buttonColorVariants,
-  buttonName,
-  buttonTypes,
-} from "./Button.core";
-import "./Button";
+  defaultButtonColorLevels,
+  defaultButtonColorThemes,
+  defaultButtonColorVariants,
+  defaultButtonName,
+} from "./default-button/Button.core";
+import "./default-button/Button";
+import "./ui-button/UiButton";
+import "./theme-button/ThemeButton";
 import "../text/heading/Heading";
 import "../theme-context-provider/ThemeContext";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { init as initComponents } from "../base/init";
 import "@gyldendal/kobber-icons/web-components";
-import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { iconsList } from "@gyldendal/kobber-icons/symbols/kobber-icons-lists.ts";
 import type { IconType } from "@gyldendal/kobber-icons/symbols/kobber-icons-types.ts";
 import { html, unsafeStatic } from "lit/static-html.js";
-import { isValidPropCombination } from "../base/internal/buttonUtils";
+import { uiButtonColorThemes, uiButtonColorVariants } from "./ui-button/UiButton.core";
+import { ifDefined } from "lit/directives/if-defined.js";
+import {
+  themeButtonColorLevels,
+  themeButtonColorThemes,
+  themeButtonColorVariants,
+} from "./theme-button/ThemeButton.core";
 
 initComponents();
 initIcons();
@@ -30,39 +32,40 @@ const states = ["idle", "hover", "active", "focus", "disabled"] as const;
 
 const buttonIconSettings = ["none", "left", "right"] as const;
 
+const allButtonTypes = ["button", "ui-button", "theme-button"] as const;
 const allButtonColorThemes = [
-  ...(buttonColorThemes.button as ButtonColorTheme[]),
-  ...(buttonColorThemes["ui-button"] as ButtonColorTheme[]),
-  ...(buttonColorThemes["theme-button"] as ButtonColorTheme[]),
+  ...defaultButtonColorThemes,
+  ...uiButtonColorThemes,
+  ...themeButtonColorThemes,
 ];
-
-const allButtonColorLevels = [
-  ...(buttonColorLevels.button as ButtonColorLevel[]),
-  ...(buttonColorLevels["ui-button"] as ButtonColorLevel[]),
-  ...(buttonColorLevels["theme-button"] as ButtonColorLevel[]),
-];
-
+const allButtonColorLevels = [...defaultButtonColorLevels, ...themeButtonColorLevels];
 const allButtonColorVariants = [
-  ...(buttonColorVariants.button as ButtonColorVariant[]),
-  ...(buttonColorVariants["ui-button"] as ButtonColorVariant[]),
-  ...(buttonColorVariants["theme-button"] as ButtonColorVariant[]),
+  ...defaultButtonColorVariants,
+  ...uiButtonColorVariants,
+  ...themeButtonColorVariants,
 ];
-interface Args extends ButtonProps {
+
+interface Args {
   text?: string;
   state: (typeof states)[number];
   icon?: IconType;
   iconPosition: (typeof buttonIconSettings)[number];
   link: boolean;
-  type: ButtonType;
-  colorLevel: ButtonColorLevel;
-  colorTheme: ButtonColorTheme;
-  colorVariant: ButtonColorVariant;
+  fullWidth: boolean;
+  componentType?: (typeof allButtonTypes)[number];
+  colorTheme?: (typeof allButtonColorThemes)[number];
+  colorLevel?: (typeof allButtonColorLevels)[number];
+  colorVariant?: (typeof allButtonColorVariants)[number];
 }
 
 const meta: Meta<Args> = {
   title: "Base/Button",
-  component: buttonName,
+  component: defaultButtonName,
   argTypes: {
+    componentType: {
+      options: allButtonTypes,
+      control: { type: "inline-radio" },
+    },
     colorTheme: {
       options: allButtonColorThemes,
       control: { type: "inline-radio" },
@@ -78,10 +81,6 @@ const meta: Meta<Args> = {
     state: {
       name: "State (only disabled should be used as attribute, the others are only for storybook use)",
       options: states,
-      control: { type: "inline-radio" },
-    },
-    type: {
-      options: buttonTypes,
       control: { type: "inline-radio" },
     },
     iconPosition: {
@@ -148,12 +147,8 @@ export default meta;
 export const Button: StoryObj<Args> = {
   args: {
     text: "Button",
-    colorTheme: allButtonColorThemes[0],
-    colorLevel: allButtonColorLevels[0],
-    colorVariant: allButtonColorVariants[1],
     state: states[0],
     fullWidth: false,
-    type: "button",
   },
   render: args => renderButton(args),
   decorators: [
@@ -181,9 +176,15 @@ export const Buttons: StoryObj<Args> = {
     },
   },
   args: {
-    type: "button",
+    componentType: "button",
   },
-  render: args => renderAllColors(args),
+  render: args =>
+    renderColorLevels(
+      args,
+      defaultButtonColorThemes,
+      defaultButtonColorVariants,
+      defaultButtonColorLevels,
+    ),
 };
 
 export const UiButtons: StoryObj<Args> = {
@@ -193,9 +194,9 @@ export const UiButtons: StoryObj<Args> = {
     },
   },
   args: {
-    type: "ui-button",
+    componentType: "ui-button",
   },
-  render: args => renderAllColors(args),
+  render: args => renderColorLevels(args, uiButtonColorThemes, uiButtonColorVariants, []),
 };
 
 export const ThemeButtons: StoryObj<Args> = {
@@ -205,29 +206,42 @@ export const ThemeButtons: StoryObj<Args> = {
     },
   },
   args: {
-    type: "theme-button",
+    componentType: "theme-button",
   },
-  render: args => renderAllColors(args),
+  render: args =>
+    renderColorLevels(
+      args,
+      themeButtonColorThemes,
+      themeButtonColorVariants,
+      themeButtonColorLevels,
+    ),
 };
 
-const renderAllColors = (args: Args) => {
-  const colorLevels = buttonColorLevels[args.type] as ButtonColorLevel[];
-
-  if (colorLevels.length > 0) {
-    return html`${colorLevels.flatMap(colorLevel => {
-      args = { ...args, colorLevel };
-      return html`<div class="level-group">
-        <kobber-heading level="h1" size="medium">color-level: ${colorLevel}</kobber-heading>
-      ${renderThemeAndVariantColors(args)}</div>`;
-    })}`;
+const renderColorLevels = (
+  args: Args,
+  colorThemes: Args["colorTheme"][],
+  colorVariants: Args["colorVariant"][],
+  colorLevels: Args["colorLevel"][],
+) => {
+  if (colorLevels.length === 0) {
+    return renderThemeAndVariantColors(args, colorThemes, colorVariants);
   }
-  return renderThemeAndVariantColors(args);
+
+  return html`${colorLevels.flatMap(colorLevel => {
+    args = { ...args, colorLevel };
+    return html`<div class="level-group">
+        <kobber-heading level="h1" size="medium">
+          color-level: ${colorLevel}
+        </kobber-heading>
+      ${renderThemeAndVariantColors(args, colorThemes, colorVariants)}</div>`;
+  })}`;
 };
 
-const renderThemeAndVariantColors = (args: Args) => {
-  const colorThemes = buttonColorThemes[args.type] as ButtonColorTheme[];
-  const colorVariants = buttonColorVariants[args.type] as ButtonColorVariant[];
-
+const renderThemeAndVariantColors = (
+  args: Args,
+  colorThemes: Args["colorTheme"][],
+  colorVariants: Args["colorVariant"][],
+) => {
   return html`${colorThemes.flatMap(
     colorTheme => html`<div class="wrapper-variant">
       <kobber-heading level="h2" size="medium" style="grid-area: theme;">color-theme: ${colorTheme}</kobber-heading>
@@ -235,9 +249,7 @@ const renderThemeAndVariantColors = (args: Args) => {
         args = { ...args, colorTheme, colorVariant };
         if (
           isValidPropCombination(
-            args.type,
-            component,
-            universal,
+            component[args.componentType ?? "button"],
             args.colorTheme,
             args.colorVariant,
             args.colorLevel,
@@ -264,7 +276,7 @@ const renderThemeAndVariantColors = (args: Args) => {
 
 const renderButton = (args: Args) => {
   const {
-    type,
+    componentType,
     colorLevel,
     colorTheme,
     colorVariant,
@@ -276,13 +288,14 @@ const renderButton = (args: Args) => {
     fullWidth,
   } = args;
 
+  const tag = unsafeStatic(`kobber-${componentType ?? "button"}`);
+
   return html`
-<kobber-button 
+<${tag}
   class="${state}" 
-  color-theme="${colorTheme}" 
-  color-level="${colorLevel}" 
-  color-variant="${colorVariant}" 
-  type="${type ? type : "button"}"
+  color-theme="${ifDefined(colorTheme)}" 
+  color-level="${ifDefined(colorLevel)}" 
+  color-variant="${ifDefined(colorVariant)}" 
   aria-label="#"
   ?disabled=${state === "disabled"}
   ?icon-first=${iconPosition === "left"}
@@ -292,6 +305,40 @@ const renderButton = (args: Args) => {
 >
   ${text ? unsafeStatic(text) : ""}
   ${icon !== undefined && iconPosition !== "none" ? html`<${unsafeStatic(icon)} slot='icon' />` : ""}
-</kobber-button>
+</${tag}>
 `;
+};
+
+const isValidPropCombination = (
+  // biome-ignore lint: tokens can really be of any type.
+  buttonTokens: any,
+  colorTheme: Args["colorTheme"],
+  colorVariant: Args["colorVariant"],
+  colorLevel?: Args["colorLevel"],
+) => {
+  if (!buttonTokens) {
+    return false;
+  }
+
+  if (!colorTheme) {
+    return false;
+  }
+
+  if (!colorVariant) {
+    return false;
+  }
+
+  const backgroundColor = colorLevel
+    ? buttonTokens.background?.color?.[colorTheme]?.[colorLevel]?.[colorVariant]
+    : buttonTokens.background?.color?.[colorTheme]?.[colorVariant];
+
+  const borderColor = colorLevel
+    ? buttonTokens.border?.color?.[colorTheme]?.[colorLevel]?.[colorVariant]
+    : buttonTokens.border?.color?.[colorTheme]?.[colorVariant];
+
+  if (typeof backgroundColor?.fallback === "string" || typeof borderColor?.active === "string") {
+    return true;
+  }
+
+  return false;
 };
