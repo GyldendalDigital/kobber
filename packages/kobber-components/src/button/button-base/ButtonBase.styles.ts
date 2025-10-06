@@ -1,7 +1,8 @@
-import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import type { ButtonClassNames } from "./ButtonBase.core";
+import { css, unsafeCSS } from "lit";
 import { resetButton } from "../../base/styles/reset.styles";
+import { invertColorVariant } from "../../base/utilities/invertColorVariant";
+import type { ButtonClassNames } from "./ButtonBase.core";
 
 const button = component.button;
 
@@ -96,3 +97,10 @@ const hover = (hoverColor: string) => css`
     background-image: linear-gradient(0deg, var(${unsafeCSS(hoverColor)}) 0%, var(${unsafeCSS(hoverColor)}) 100%);
   }
 }`;
+
+export const getIconColor = (
+  colorTheme: keyof (typeof universal)["text-label"]["text"]["color"],
+  colorVariant: keyof (typeof universal)["text-label"]["text"]["color"]["brand"],
+) => {
+  return universal["text-label"].text.color[colorTheme]?.[invertColorVariant(colorVariant)];
+};

@@ -1,5 +1,3 @@
-import { universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { invertColorVariant } from "../../base/utilities/invertColorVariant";
 import { defaultButtonName } from "../default-button/Button.core";
 
 type ButtonComputedProps = {
@@ -63,10 +61,3 @@ export type ButtonClassNames =
   | "kobber-button--used-in-other-interactive"
   | "kobber-button--link"
   | "kobber-button--inlined";
-
-export const getIconColor = (
-  colorTheme: keyof (typeof universal)["text-label"]["text"]["color"],
-  colorVariant: keyof (typeof universal)["text-label"]["text"]["color"]["brand"],
-) => {
-  return universal["text-label"].text.color[colorTheme]?.[invertColorVariant(colorVariant)];
-};

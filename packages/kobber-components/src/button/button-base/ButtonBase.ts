@@ -1,22 +1,23 @@
 import type { CSSResultGroup } from "lit";
 import { property } from "lit/decorators.js";
-import componentStyles from "../../base/styles/component.styles";
-import { baseButtonStyles } from "./ButtonBase.styles";
-import { buttonClassNames, type BaseButtonProps } from "./ButtonBase.core";
-import { literal, html } from "lit/static-html.js";
 import { ifDefined } from "lit/directives/if-defined.js";
+import { html, literal } from "lit/static-html.js";
 import KobberElementWithIcon from "../../base/kobber-element-with-icon";
+import componentStyles from "../../base/styles/component.styles";
+import { type BaseButtonProps, buttonClassNames } from "./ButtonBase.core";
+import { baseButtonStyles } from "./ButtonBase.styles";
 import "../../text/text-label/TextLabel";
 import { invertColorVariant } from "../../base/utilities/invertColorVariant";
+import type { TextLabelProps } from "../../text/text-label/TextLabel.core";
 
 /** Shared between Button, UiButton and ThemeButton */
 export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps {
   static styles: CSSResultGroup = [componentStyles, baseButtonStyles];
 
   // overridden in parent classes
-  colorTheme: unknown = "brand";
+  colorTheme: TextLabelProps["color"] = "brand";
   colorLevel: unknown = "primary";
-  colorVariant: unknown = "tone-a";
+  colorVariant: TextLabelProps["colorVariant"] = "tone-a";
 
   @property()
   type: BaseButtonProps["type"] = "button";
@@ -90,7 +91,7 @@ export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps
       ${
         !this._iconOnly
           ? html`<kobber-text-label
-          color=${ifDefined(this.colorTheme)}
+          .color=${this.colorTheme}
           color-variant=${invertColorVariant(this.colorVariant)}
         >
           <slot></slot>
