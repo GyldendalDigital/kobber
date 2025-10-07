@@ -3,6 +3,7 @@
 ## Setup
 1. Copy `.env.template` → `.env`
 2. Fill in missing values
+3. Run `yarn`
 
 ## repos.json
 
@@ -46,5 +47,3 @@ Cloned repos are stored in the operating system's default directory for temporar
    3. Runs a test-script. Example: `npm run lint`
    4. Installs the current Kobber-code and runs the test-script again.
    5. Prints a diff between the first and second test-script-output.
-
-installs the current Kobber-code in consumer repos. Runs test-script(s) in the consumer repo before and after installing the latest

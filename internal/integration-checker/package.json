@@ -1,8 +1,9 @@
 {
-  "name": "tools",
+  "name": "integration-checker",
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "check-integrations": "echo 'hello'",
     "find-usage": "ts-node ./src/findUsage.ts --reposConfig=repos.json",
     "test-integrations": "ts-node ./src/testIntegrations.ts --reposConfig=repos.json"
   },

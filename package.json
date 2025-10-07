@@ -5,6 +5,7 @@
   "type": "module",
   "workspaces": [
     "apps/*",
+    "internal/*",
     "packages/*"
   ],
   "scripts": {
@@ -17,7 +18,8 @@
     "storybook": "turbo storybook",
     "build-storybook-web-components": "turbo build-storybook-web-components",
     "css": "turbo css",
-    "publish-packages": "turbo run build lint && changeset version && changeset publish"
+    "publish-packages": "turbo run build lint && changeset version && changeset publish",
+    "check-integrations": "turbo check-integrations"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.4",

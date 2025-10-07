@@ -35,6 +35,9 @@
     "storybook": {
       "cache": false,
       "persistent": true
+    },
+    "check-integrations": {
+      "cache": false
     }
   }
 }
