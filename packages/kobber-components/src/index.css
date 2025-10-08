@@ -1501,6 +1501,80 @@ em,
     }
   
 /* #endregion */
+/* #region MediaModule - mediaModuleStyles */ 
+
+    :host {
+      --credit-height: 0;
+      --credit-width: 0;
+      
+      [data-has-credit="true"] {
+        --credit-height: 60px;
+        --credit-width: 160px;
+      } 
+      
+      ::slotted(img) { 
+        clip-path: polygon(
+          0% 0%, 100% 0%, 100% 0%, 100% 100%, 
+          100% calc(100% - var(--credit-height)), 
+          calc(100% - var(--credit-width)) calc(100% - var(--credit-height)), 
+          calc(100% - var(--credit-width)) 100%, 
+          0% 100%
+        );
+      }
+      &:host([credits-placement-left]) {
+        ::slotted(img) { 
+          clip-path: polygon(
+            0% 0%, 100% 0%, 100% 0%, 100% 100%,
+            var(--credit-width) 100%,
+            var(--credit-width) calc(100% - var(--credit-height)),
+            0 calc(100% - var(--credit-height)),
+            0 0
+          );
+        }
+      }
+    }
+
+    .kobber-media-module {
+      box-sizing: border-box;
+      width: min-content;
+      height: min-content;
+      display: flex;
+      flex-direction: column;
+      gap: var(--kobber-component-media-module-gap);
+    }
+
+    figure {
+      position: relative;
+      margin: 0;
+      ::slotted(img) { 
+        border-radius: var(--kobber-component-media-module-border-radius);
+      }
+      display: flex;
+      [data-credit-placement-left="false"] & {
+        justify-content: end;
+      }
+      [data-credit-placement-left="true"] & {
+        justify-content: start;
+      }
+    }
+    
+    figcaption {
+      position: absolute;
+      bottom: 0;
+      [data-credit-placement-left="false"] & {
+        right: 0;
+      }
+      [data-credit-placement-left="true"] & {
+        left: 0;
+      }
+      height: var(--credit-height);
+      width: var(--credit-width);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+/* #endregion */
 /* #region RadioGroup - radioGroupStyles */ 
 
     .kobber-radio-group {
@@ -1804,13 +1878,13 @@ em,
     --typography-color: var(--kobber-universal-text-body-text-color-nostalgia-tone-b);;
   }
 }
-&[data-color="sublte"] {
+&[data-color="subtle"] {
 
   &[data-color-variant="tone-a"] {
-    --typography-color: var(--kobber-universal-text-body-text-color-sublte-tone-a);;
+    --typography-color: var(--kobber-universal-text-body-text-color-subtle-tone-a);;
   }
   &[data-color-variant="tone-b"] {
-    --typography-color: var(--kobber-universal-text-body-text-color-sublte-tone-b);;
+    --typography-color: var(--kobber-universal-text-body-text-color-subtle-tone-b);;
   }
 }
   
