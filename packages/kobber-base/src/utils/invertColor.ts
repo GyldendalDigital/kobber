@@ -5,6 +5,7 @@ const invertColor = (hex: string) => {
 
   // convert 3-digit hex to 6-digits.
   if (hex.length === 3) {
+    // @ts-expect-error
     hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
   }
 

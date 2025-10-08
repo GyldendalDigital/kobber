@@ -15,7 +15,7 @@ export const minifyDictionary = (object: TransformedTokens) => {
     return object.value;
   } else {
     for (const name in object) {
-      if (object.hasOwnProperty(name)) {
+      if (object.hasOwnProperty(name) && object[name]) {
         const value = minifyDictionary(object[name]);
         if (value) {
           transformed[name] = value;
