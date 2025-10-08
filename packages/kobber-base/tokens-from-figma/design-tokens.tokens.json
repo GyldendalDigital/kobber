@@ -6868,7 +6868,7 @@
       "radius": {
         "xsmall": {
           "type": "dimension",
-          "value": "{universal.focus.border.radius.small}",
+          "value": "{universal.focus.border.radius.xsmall}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [],
@@ -16225,7 +16225,7 @@
     "focus": {
       "border": {
         "radius": {
-          "small": {
+          "xsmall": {
             "type": "dimension",
             "value": "{semantics.layout.element.radius.xsmall}",
             "extensions": {
@@ -16273,6 +16273,19 @@
                   "CORNER_RADIUS"
                 ],
                 "variableId": "VariableID:3959:2801",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "small": {
+            "type": "dimension",
+            "value": "{semantics.layout.element.radius.small}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "CORNER_RADIUS"
+                ],
+                "variableId": "VariableID:13961:2323",
                 "exportKey": "variables"
               }
             }
