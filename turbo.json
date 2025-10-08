@@ -13,8 +13,7 @@
     },
     "lint": {
       "dependsOn": [
-        "^build",
-        "^lint"
+        "^build"
       ]
     },
     "//#lint:root": {},

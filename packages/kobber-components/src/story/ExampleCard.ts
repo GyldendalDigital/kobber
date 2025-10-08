@@ -89,14 +89,16 @@ export class ExampleCard extends LitElement {
 
   constructor() {
     super();
-    this._resizeObserver = new window.ResizeObserver(entries => {
+    this._resizeObserver = new window.ResizeObserver((entries) => {
       const contentRect = this._firstResizeObserverContentRect(entries);
-      this._dimensions = contentRect ? [contentRect.width, contentRect.height] : undefined;
+      this._dimensions = contentRect
+        ? [contentRect.width, contentRect.height]
+        : undefined;
     });
   }
 
   private _firstResizeObserverContentRect = (entries: ResizeObserverEntry[]) =>
-    entries.length > 0 ? entries[0].contentRect : undefined;
+    entries.length > 0 ? entries[0]?.contentRect : undefined;
 
   connectedCallback() {
     this._resizeObserver.observe(this);
@@ -118,7 +120,7 @@ export class ExampleCard extends LitElement {
   render() {
     return html`
       <div class="media">
-        <img src="${this.image}" alt="" />
+        <img src="${this.image ?? ""}" alt="" />
       </div>
       <div class="badge">${this.badge}</div>
       <div class="dimensions">${this._renderDimensions()}</div>

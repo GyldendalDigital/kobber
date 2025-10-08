@@ -34,9 +34,3 @@ export class TextListElement extends LitElement {
     `;
   }
 }
-
-declare global {
-  interface HTMLElementTagNameMap {
-    [textListElementName]: TextListElement;
-  }
-}

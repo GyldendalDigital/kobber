@@ -100,7 +100,7 @@ export class ExampleCard extends LitElement {
 
   render = () => html`
     <div class="media">
-      <img src="${this.image}" alt="" />
+      <img src="${this.image ?? ""}" alt="" />
     </div>
     <div class="badge">${this.badge}</div>
     <div class="dimensions">${this._renderDimensions()}</div>

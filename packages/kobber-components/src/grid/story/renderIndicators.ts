@@ -9,6 +9,9 @@ export const renderIndicators = () => {
   const verticalIndicator = createIndicator(true);
   const update = () => {
     const target = cards[0];
+    if (!target) {
+      return;
+    }
     const right = cards[1];
     const rects = cards.map(card => card.getBoundingClientRect());
     const targetRect = target.getBoundingClientRect();
@@ -33,7 +36,7 @@ export const renderIndicators = () => {
       top: targetRect.top + targetRect.height / 2,
       left: document.documentElement.clientWidth - targetRect.left,
     });
-    horizontalIndicator.update({
+    right && horizontalIndicator.update({
       value: right.getBoundingClientRect().left - targetRect.right,
       top: targetRect.top + targetRect.height / 2,
       left: targetRect.right,

@@ -60,9 +60,3 @@ export class Display extends LitElement implements DisplayProps {
     `;
   }
 }
-
-declare global {
-  interface HTMLElementTagNameMap {
-    [displayName]: Display;
-  }
-}
