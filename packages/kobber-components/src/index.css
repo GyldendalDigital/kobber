@@ -785,6 +785,7 @@
 
       
       &[data-color="success"] {
+        --color: var(--kobber-component-checkbox-indicator-shape-color-success);
         
     & {
       --control-border-color: var(
@@ -814,7 +815,7 @@
         outline: none;
         box-shadow: 0 0 0 var(--kobber-universal-focus-border-width)
           var(--kobber-universal-focus-border-color);
-        border-radius: var(--kobber-universal-focus-border-radius-xsmall);
+        border-radius: var(--kobber-universal-focus-border-radius-small);
         --control-border-color: var(--kobber-component-checkbox-indicator-border-color-success-focus);
       }
     }
@@ -828,11 +829,11 @@
       }
     }
   
-        --color: var(--kobber-component-checkbox-indicator-shape-color-success;
       }
     
 
       &[data-color="brand"] {
+        --color: var(--kobber-component-checkbox-indicator-shape-color-brand);
         
     & {
       --control-border-color: var(
@@ -862,7 +863,7 @@
         outline: none;
         box-shadow: 0 0 0 var(--kobber-universal-focus-border-width)
           var(--kobber-universal-focus-border-color);
-        border-radius: var(--kobber-universal-focus-border-radius-xsmall);
+        border-radius: var(--kobber-universal-focus-border-radius-small);
         --control-border-color: var(--kobber-component-checkbox-indicator-border-color-brand-focus);
       }
     }
@@ -876,7 +877,6 @@
       }
     }
   
-        --color: var(--kobber-component-checkbox-indicator-shape-color-brand;
       }
     
       
@@ -915,7 +915,7 @@
       border-radius: var(--kobber-component-checkbox-outline-border-radius);
       border: var(--kobber-component-checkbox-indicator-border-width) solid var(--control-border-color);
       outline: var(--kobber-component-checkbox-outline-border-width) solid var(--control-outline-color);
-      color: var(--color);
+      color: var(--color)
       flex-shrink: 0;
       background-color: var(--control-background-color);
       transition: var(--transition-time) outline;
@@ -1378,7 +1378,7 @@ em,
       &:focus-visible,
       &.focus {
         outline: none;
-        border-radius: var(--kobber-universal-focus-border-radius-xsmall);
+        border-radius: var(--kobber-universal-focus-border-radius-small);
         box-shadow: 0 0 0 var(--kobber-universal-focus-border-width)
           var(--kobber-universal-focus-border-color);
         padding-inline: var(--kobber-component-nav-link-gap);
@@ -1587,7 +1587,7 @@ em,
         outline: none;
         box-shadow: 0 0 0 var(--kobber-universal-focus-border-width)
           var(--kobber-universal-focus-border-color);
-        border-radius: var(--kobber-universal-focus-border-radius-xsmall);
+        border-radius: var(--kobber-universal-focus-border-radius-small);
       }
     }
   
@@ -2075,7 +2075,7 @@ em,
         
   outline: none;
   box-shadow: 0 0 0 var(--kobber-universal-focus-border-width) var(--kobber-universal-focus-border-color);
-  border-radius: var(--kobber-universal-focus-border-radius-xsmall);
+  border-radius: var(--kobber-universal-focus-border-radius-small);
 ;
         padding: 0.5rem;
         &:after {
