@@ -8,6 +8,7 @@ import "./text-label/TextLabel";
 import "./display/Display";
 import "./lead/Lead";
 import "./text-link/TextLink";
+import "../content-blocks/text-module/TextModule";
 import {
   headingColors,
   headingColorVariants,
