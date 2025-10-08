@@ -5,10 +5,19 @@
       "cache": false
     },
     "dev": {
+      "dependsOn": [
+        "^build"
+      ],
       "cache": false,
       "persistent": true
     },
-    "lint": {},
+    "lint": {
+      "dependsOn": [
+        "^build",
+        "^lint"
+      ]
+    },
+    "//#lint:root": {},
     "test": {},
     "build": {
       "dependsOn": [
@@ -16,14 +25,11 @@
       ],
       "outputs": [
         "dist/**",
-        "themes/**",
+        "src/icon/icons/**",
+        "storybook-static/**",
         "out/**",
         ".next/**",
-        "react/**",
-        "web-components/**",
-        "chunks/**",
-        "src/icon/icons/**",
-        "storybook-static/**"
+        "!.next/cache/**"
       ]
     },
     "tokens": {

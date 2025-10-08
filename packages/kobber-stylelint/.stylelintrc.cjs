@@ -222,7 +222,7 @@ module.exports = {
     "csstools/value-no-unknown-custom-properties": [
       true,
       {
-        importFrom: ["../../packages/kobber-base/dist/themes/default/tokens.css", "../../apps/docs/styles/globals.css"],
+        importFrom: ["../../packages/kobber-base/dist/themes/default/tokens.css"],
       },
     ],
   },

@@ -15,7 +15,6 @@
   },
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist src/tmp",
-    "lint": "echo \"run yarn lint from root\"",
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
     "svg": "rm -rf dist src/tmp && svg-sprite --config ./svg-scripts/svg-sprite-config.json src/assets/svgs/**/*.svg",
@@ -34,11 +33,11 @@
     "onchange": "^7.1.0",
     "react": "^19.1.0",
     "svg-sprite": "^2.0.4",
-    "tsup": "^8.4.0",
+    "tsup": "^8.5.0",
     "typedoc": "^0.28.10",
     "typedoc-github-wiki-theme": "^2.1.0",
     "typedoc-plugin-markdown": "^4.8.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "@lit/react": ">=1",

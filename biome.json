@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
   "vcs": {
     "enabled": false,
     "clientKind": "git",
@@ -8,7 +8,6 @@
   "files": {
     "includes": [
       "packages/**/*.*",
-      "apps/docs/**/*.*",
       "!node_modules",
       "!**/node_modules",
       "!**/dist",
@@ -31,7 +30,9 @@
           "options": {
             "paths": {
               "lit/decorators.js": {
-                "importNames": ["customElement"],
+                "importNames": [
+                  "customElement"
+                ],
                 "message": "Import customElement from 'base/utilities/customElementDecorator' instead."
               }
             }

@@ -14,9 +14,8 @@
   },
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist",
-    "lint": "yarn lint:js && yarn lint:css",
+    "lint": "yarn lint:css",
     "lint:css": "stylelint --f verbose \"**/*.css\"",
-    "lint:js": "echo \"js lint: run yarn lint from root\"",
     "build": "yarn build:css && tsup",
     "build:css": "tsx ./build-scripts/list-css-components.ts",
     "prepare": "npm run build",
@@ -44,12 +43,12 @@
     "stylelint": "^16.0.2",
     "stylelint-config-standard": "^35.0.0",
     "stylelint-order": "^6.0.4",
-    "tsup": "^8.4.0",
+    "tsup": "^8.5.0",
     "tsx": "^4.19.2",
     "typedoc": "^0.28.10",
     "typedoc-github-wiki-theme": "^2.1.0",
     "typedoc-plugin-markdown": "^4.8.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "@lit/react": ">=1",

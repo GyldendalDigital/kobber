@@ -8,9 +8,6 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "yarn lint:js && yarn lint:css",
-    "lint:css": "npx stylelint --f verbose \"**/*.css\"",
-    "lint:js": "echo \"js lint: run yarn lint from root\"",
     "typegen": "sanity schema extract --path=sanity/extract.json && sanity typegen generate"
   },
   "dependencies": {
@@ -43,6 +40,6 @@
     "slugify": "^1.6.6",
     "styled-components": "^6.1.17",
     "svelte": "^5.38.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.3"
   }
 }

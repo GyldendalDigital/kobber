@@ -35,4 +35,5 @@ export default defineConfig(() => ({
   esbuildOptions(options) {
     options.chunkNames = `${chunks}/[name]-[hash]`;
   },
+  onSuccess: "echo TSC && tsc --noEmit", // type check non exported files as well
 }));
