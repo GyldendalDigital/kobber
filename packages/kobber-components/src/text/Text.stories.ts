@@ -10,7 +10,7 @@ import "./lead/Lead";
 import "./text-link/TextLink";
 import "./text-list/TextList";
 import "./text-list-element/TextListElement";
-import "../cards-and-modules/text-module/TextModule";
+import "../content-blocks/text-module/TextModule";
 import {
   headingColors,
   headingColorVariants,
