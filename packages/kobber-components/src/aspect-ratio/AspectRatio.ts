@@ -1,13 +1,13 @@
-import { CSSResultGroup, css, html } from "lit";
+import { type CSSResultGroup, css, html } from "lit";
 import { property } from "lit/decorators.js";
-import { StyledLitElement } from "../base/utilities/StyledLitElement";
+import { customElement } from "../base/utilities/customElementDecorator";
 import {
-  ResponsiveCssValue,
   responsiveValueConverter as converter,
   mapResponsiveCssValue,
+  type ResponsiveCssValue,
 } from "../base/utilities/responsiveCssValue";
+import { StyledLitElement } from "../base/utilities/StyledLitElement";
 import { stringifyStyleObject } from "../base/utilities/stringifyStyleObject";
-import { customElement } from "../base/utilities/customElementDecorator";
 
 export const defaultAspectRatio = "16/9";
 
@@ -33,7 +33,7 @@ export class AspectRatio extends StyledLitElement {
     const [width, height] = ratioValue.split("/").map(string => string.trim());
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore-next-line
+    // @ts-expect-error-next-line
     if (import.meta.env.DEV) {
       if (width === "" || height === "") {
         console.error(

@@ -1,11 +1,11 @@
-import { CSSResultGroup, LitElement, html } from "lit";
-import { property } from "lit/decorators.js";
-import { textLinkStyles } from "./TextLink.styles";
-import componentStyles from "../../base/styles/component.styles";
-import { textLinkName, TextLinkProps } from "./TextLink.core";
-import { ifDefined } from "lit/directives/if-defined.js";
-import { customElement } from "../../base/utilities/customElementDecorator";
 import { isExternalLink } from "@gyldendal/kobber-base/utilities/index.js";
+import { type CSSResultGroup, html, LitElement } from "lit";
+import { property } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
+import componentStyles from "../../base/styles/component.styles";
+import { customElement } from "../../base/utilities/customElementDecorator";
+import { type TextLinkProps, textLinkName } from "./TextLink.core";
+import { textLinkStyles } from "./TextLink.styles";
 
 @customElement(textLinkName)
 export class TextLink extends LitElement implements TextLinkProps {
@@ -29,7 +29,7 @@ export class TextLink extends LitElement implements TextLinkProps {
         class="${textLinkName} ${this.className}"
         href=${ifDefined(!isDisabled ? this.href : undefined)}
         target=${ifDefined(target)}
-        aria-disabled=${isDisabled ? true : false}
+        aria-disabled=${!!isDisabled}
       >
         <slot></slot>
       </a>

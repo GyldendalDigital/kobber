@@ -1,7 +1,10 @@
 import fs from "node:fs";
-import { autogenerateHeader, ComponentObject } from ".";
+import { autogenerateHeader, type ComponentObject } from ".";
 
-export const listWebComponents = (webComponentListFilename: string, componentObjects: ComponentObject[]) => {
+export const listWebComponents = (
+  webComponentListFilename: string,
+  componentObjects: ComponentObject[],
+) => {
   const exportLines = componentObjects.map(object => {
     return `export { ${object.exportName} } from "${object.importPath}";
 `;

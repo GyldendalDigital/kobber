@@ -1,7 +1,10 @@
-import { CSSResultGroup, LitElement, css, html, unsafeCSS } from "lit";
+import { type CSSResultGroup, css, html, LitElement, unsafeCSS } from "lit";
 import { property } from "lit/decorators.js";
 import { customElement } from "../../base/utilities/customElementDecorator";
-import { ResponsiveCssValue, responsiveValueConverter as converter } from "../../base/utilities/responsiveCssValue";
+import {
+  responsiveValueConverter as converter,
+  type ResponsiveCssValue,
+} from "../../base/utilities/responsiveCssValue";
 
 @customElement("kobber-horizontal-layout-column")
 export class HorizontalLayoutColumn extends LitElement {

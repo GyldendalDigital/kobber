@@ -1,8 +1,11 @@
-import { CSSResultGroup, css, html } from "lit";
+import { type CSSResultGroup, css, html } from "lit";
 import { property } from "lit/decorators.js";
-import { GridColumn } from "./GridColumn";
-import { ResponsiveCssValue, responsiveValueConverter as converter } from "../base/utilities/responsiveCssValue";
+import {
+  responsiveValueConverter as converter,
+  type ResponsiveCssValue,
+} from "../base/utilities/responsiveCssValue";
 import { stringifyStyleObject } from "../base/utilities/stringifyStyleObject";
+import { GridColumn } from "./GridColumn";
 import "./../aspect-ratio/AspectRatio";
 import { customElement } from "../base/utilities/customElementDecorator";
 

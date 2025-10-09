@@ -1,11 +1,11 @@
-import { CSSResultGroup, html } from "lit";
+import { type CSSResultGroup, html } from "lit";
 import { property } from "lit/decorators.js";
-import KobberElement from "../base/kobber-element";
-import { listItemClassNames, listItemName } from "./ListItem.core";
 import { ifDefined } from "lit/directives/if-defined.js";
+import KobberElement from "../base/kobber-element";
 import componentStyles from "../base/styles/component.styles";
-import { listItemStyles } from "./ListItem.styles";
 import { customElement } from "../base/utilities/customElementDecorator";
+import { listItemClassNames, listItemName } from "./ListItem.core";
+import { listItemStyles } from "./ListItem.styles";
 
 /**
  * Used as a child of the `kobber-list` and `kobber-accordion` components.
@@ -24,7 +24,8 @@ export class ListItem extends KobberElement {
   disabled?: boolean;
 
   override render() {
-    const role = this.role ?? (this.parentElement?.getAttribute("role")?.includes("menu") ? "menuitem" : null);
+    const role =
+      this.role ?? (this.parentElement?.getAttribute("role")?.includes("menu") ? "menuitem" : null);
 
     return html`
       <div

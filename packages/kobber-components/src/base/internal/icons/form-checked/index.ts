@@ -1,7 +1,7 @@
-import { CSSResultGroup, LitElement } from "lit";
+import { type CSSResultGroup, LitElement } from "lit";
 import { html } from "lit/static-html.js";
-import { formCheckedIconStyles } from "./index.styles";
 import { customElement } from "../../../utilities/customElementDecorator";
+import { formCheckedIconStyles } from "./index.styles";
 
 export const iconFormCheckedName = "icon-form_checked";
 
