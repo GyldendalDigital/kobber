@@ -23,7 +23,7 @@ const invertColor = (hex: string) => {
     b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
 
   // pad each with zeros and add alpha
-  return "#" + padZero(r) + padZero(g) + padZero(b) + alpha;
+  return `#${padZero(r)}${padZero(g)}${padZero(b)}${alpha}`;
 };
 
 const padZero = (str: string, len?: number) => {
