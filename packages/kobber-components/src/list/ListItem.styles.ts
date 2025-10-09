@@ -37,7 +37,6 @@ const createListItemStyles = () => {
 
       .text {
         align-self: center;
-        line-height: calc(1rem + var(${unsafeCSS(listItem["border-bottom"].padding)}));
       }
 
       &[data-active="true"],

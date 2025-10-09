@@ -1,7 +1,7 @@
-import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { type LinkClassNames, type LinkProps, linkName } from "./Link.core";
+import { css, unsafeCSS } from "lit";
 import { resetButton } from "../base/styles/reset.styles";
+import { type LinkClassNames, type LinkProps, linkName } from "./Link.core";
 
 /**
  * TODO: svg from icon component
@@ -36,10 +36,10 @@ const createStyles = () => {
       &:hover,
       &.hover {
         &:not([disabled]) {
-          &:after {
+          &::after {
             content: "";
             position: absolute;
-            border-bottom: var(${unsafeCSS(link.border.width.hover)}) solid currentColor;
+            border-bottom: var(${unsafeCSS(link.border.width.hover)}) solid currentcolor;
             bottom: 0;
             right: 0;
             left: 0;
@@ -60,7 +60,7 @@ const createStyles = () => {
         &:hover,
         &.hover {
           &:not([disabled]) {
-            &:after {
+            &::after {
               /* prevents hover from colliding with focus border */
               bottom: 0.2rem;
               right: var(${unsafeCSS(link.gap)});

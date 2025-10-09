@@ -1,5 +1,5 @@
-import { css, unsafeCSS } from "lit";
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { css, unsafeCSS } from "lit";
 import { type DividerClassNames, dividerVariants } from "./Divider.core";
 
 const dividerTokens = component.divider;
@@ -12,7 +12,7 @@ const createDividerStyles = () => {
 
     .${unsafeCSS("kobber-divider" satisfies DividerClassNames)} {
       width: 100%;
-      height: 1px;
+      height: calc(1rem / 16);
       background-color: var(--divider-background-color);
       ${colorVariantStyles()}
     }

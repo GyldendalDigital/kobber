@@ -17,10 +17,10 @@ const createStyles = () => {
       gap: var(${unsafeCSS(component["text-link"].gap)});
       line-height: normal;
 
-      &:after {
+      &::after {
         content: "";
         position: absolute;
-        border-bottom: var(${unsafeCSS(component["text-link"].border.width)}) solid currentColor;
+        border-bottom: var(${unsafeCSS(component["text-link"].border.width)}) solid currentcolor;
         bottom: 0;
         right: 0;
         left: 0;
@@ -37,7 +37,7 @@ const createStyles = () => {
       &.focus {
         ${focusStyles};
         padding: 0.5rem;
-        &:after {
+        &::after {
           /* prevents hover from colliding with focus border */
           bottom: 0.2rem;
           right: var(${unsafeCSS(component["text-link"].gap)});

@@ -15,6 +15,7 @@ module.exports = {
     "selector-attribute-quotes": null,
     "selector-max-type": null,
     "property-allowed-list": null,// ["/^--/", "outline"], // didn't work as expected
-    "property-disallowed-list": null
+    "property-disallowed-list": null,
+    "selector-no-qualifying-type": null,
   },
 };
