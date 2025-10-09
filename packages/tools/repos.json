@@ -1,0 +1,23 @@
+[
+  {
+    "name": "SmartExercise",
+    "url": "https://GITHUB_USERNAME:GITHUB_ACCESS_TOKEN@github.com/GyldendalDigital/SmartExercise.git",
+    "branch": "master",
+    "directory": "smartExercise",
+    "testCommands": {
+      "install": "cd client && npm install",
+      "test": "cd client && npm run lint"
+    }
+  },
+  {
+    "name": "Skolestudio",
+    "url": "https://AZURE_USERNAME:AZURE_ACCESS_TOKEN@dev.azure.com/gyldendaldigital/Skolestudio/_git/Skolestudio",
+    "branch": "master",
+    "directory": "skolestudio",
+    "testCommands": {
+      "prepare": "cd client && yarn && yarn build",
+      "install": "cd client && yarn install --check-cache",
+      "test": "cd client && yarn pre-commit --force"
+    }
+  }
+]
