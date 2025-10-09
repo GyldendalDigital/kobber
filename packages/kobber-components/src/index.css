@@ -1475,7 +1475,6 @@ em,
 
       .text {
         align-self: center;
-        line-height: var(--kobber-component-menu-item-border-bottom-padding);
       }
 
       &[data-active="true"],
