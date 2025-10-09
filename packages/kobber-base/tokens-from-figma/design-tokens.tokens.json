@@ -17297,7 +17297,7 @@
               }
             }
           },
-          "sublte": {
+          "subtle": {
             "tone-a": {
               "type": "color",
               "value": "{semantics.typography.color.brand.wine-600}",
