@@ -1,6 +1,6 @@
 import { universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
-import { getTypographyStyles } from "../../base/getTypographyStyles2";
+import { getTypographyStyles } from "../../base/getTypographyStyles";
 import type { TextWrapperClassNames } from "./TextWrapper.core";
 
 const createTextWrapperStyles = () => {

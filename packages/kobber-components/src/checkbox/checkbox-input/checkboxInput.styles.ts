@@ -1,6 +1,6 @@
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
-import { getTypographyStyles } from "../../base/getTypographyStyles2";
+import { getTypographyStyles } from "../../base/getTypographyStyles";
 import {
   type CheckboxClassNames,
   type CheckboxColorTheme,
