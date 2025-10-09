@@ -15924,7 +15924,7 @@
         }
       },
       "inner-inner-credit-container": {
-        "shape": {
+        "border-radius": {
           "top-left": {
             "right-align": {
               "type": "dimension",
@@ -16026,16 +16026,18 @@
           }
         }
       },
-      "radius": {
-        "type": "dimension",
-        "value": "{groups.cards-and-modules.radius.large}",
-        "extensions": {
-          "org.gyldendal.kobber-figma-export": {
-            "scopes": [
-              "ALL_SCOPES"
-            ],
-            "variableId": "VariableID:13762:6743",
-            "exportKey": "variables"
+      "border": {
+        "radius": {
+          "type": "dimension",
+          "value": "{groups.cards-and-modules.radius.large}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "variableId": "VariableID:13762:6743",
+              "exportKey": "variables"
+            }
           }
         }
       }
