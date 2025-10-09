@@ -15,7 +15,7 @@ listWebComponents(`./src/${webComponentListFile}`, componentObjects);
 listReactComponents(`./src/${reactListFile}`, componentObjects);
 
 const tsEntries = {
-  ["init/index"]: "src/base/init.ts",
+  "init/index": "src/base/init.ts",
   [`${reactDirectory}/index`]: `src/${reactListFile}`,
   [`${webComponentsDirectory}/index`]: `src/${webComponentListFile}`,
 };
