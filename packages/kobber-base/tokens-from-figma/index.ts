@@ -1,4 +1,4 @@
-import tokensFromFigma from "./design-tokens.tokens.json" assert { type: "json" };
+import tokensFromFigma from "./design-tokens.tokens.json"
 
 /**
  * Points to the latest Figma export.

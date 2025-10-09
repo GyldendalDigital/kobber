@@ -3,7 +3,9 @@ interface Options {
 }
 
 export const renderIndicators = ({ container }: Options) => {
-  document.querySelectorAll("[data-indicator]").forEach(element => element.remove());
+  document.querySelectorAll("[data-indicator]").forEach(element => {
+    element.remove();
+  });
   const cards = Array.from(document.querySelectorAll("[data-indicator-target]"));
   const windowWidthIndicator = createIndicator(false);
   const boundaryIndicator = createIndicator(false);
