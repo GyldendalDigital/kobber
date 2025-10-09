@@ -1,4 +1,4 @@
-import { Format } from "style-dictionary/types";
+import type { Format } from "style-dictionary/types";
 import { minifyDictionary } from "../../utils/minifyDictionary";
 
 export const tsDeclarationsFormat: Format = {

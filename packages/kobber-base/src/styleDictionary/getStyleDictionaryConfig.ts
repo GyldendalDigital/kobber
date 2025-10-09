@@ -1,13 +1,17 @@
-import type { TransformedToken, Config } from "style-dictionary/types";
+import {
+  logBrokenReferenceLevels,
+  logVerbosityLevels,
+  logWarningLevels,
+} from "style-dictionary/enums";
+import type { Config, TransformedToken } from "style-dictionary/types";
+import { type ThemeConfig, themeDirectory } from "../types";
 import { esmFormat } from "./formats/esm";
-import { cssTransforms, jsTransforms } from "./registerTransforms";
-import { tsDeclarationsFormat } from "./formats/tsDeclarations";
-import { ThemeConfig, themeDirectory } from "../types";
 import { esmWithCssVariableValues } from "./formats/esmWithCssVariableValues";
-import { logBrokenReferenceLevels, logVerbosityLevels, logWarningLevels } from "style-dictionary/enums";
 import { textFormat } from "./formats/textFormat";
+import { tsDeclarationsFormat } from "./formats/tsDeclarations";
+import { cssTransforms, jsTransforms } from "./registerTransforms";
 
-const buildPath = themeDirectory + "/";
+const buildPath = `${themeDirectory}/`;
 
 const invalidKeys = ["font"];
 

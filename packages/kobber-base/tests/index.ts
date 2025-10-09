@@ -1,7 +1,7 @@
-import { buildThemeTokensTest } from "./buildThemeTokens.test";
+import type { ThemeConfig } from "../src/types";
 import { tokensFromFigma } from "../tokens-from-figma";
+import { buildThemeTokensTest } from "./buildThemeTokens.test";
 import simpleTokens from "./test-data-simple.json";
-import { ThemeConfig } from "../src/types";
 
 const simpleTest: ThemeConfig = {
   figmaMode: "mode 1",

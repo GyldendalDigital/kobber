@@ -12,10 +12,12 @@
  * 2. Convert snake case to wanted case.
  */
 
-import { getFilenameWithoutExtension, getFileExtension } from ".";
+import { getFileExtension, getFilenameWithoutExtension } from ".";
 
 const toSnakeCase = (str: string) => {
-  const matchedString = String(str).match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g);
+  const matchedString = String(str).match(
+    /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g,
+  );
   if (matchedString) {
     return matchedString.map(x => x.toLowerCase()).join("_");
   } else {
@@ -23,10 +25,11 @@ const toSnakeCase = (str: string) => {
   }
 };
 
-const snakeCaseToCamel = (str: string) => str.toLowerCase().replace(/(_\w)/g, match => match[1]!.toUpperCase());
+const snakeCaseToCamel = (str: string) =>
+  str.toLowerCase().replace(/(_\w)/g, match => match[1]!.toUpperCase());
 
 const snakeCaseToPascal = (str: string) => {
-  let camelCase = snakeCaseToCamel(str);
+  const camelCase = snakeCaseToCamel(str);
   if (camelCase[0]) {
     return camelCase[0].toUpperCase() + camelCase.substring(1);
   }
@@ -39,7 +42,8 @@ const snakeCaseToKebab = (string: string) =>
     .replace(/[\s_]+/g, "-")
     .toLowerCase();
 
-export const changeCasesTo = (strings: string[], toCase: string) => changeCaseTo(strings.join("-"), toCase);
+export const changeCasesTo = (strings: string[], toCase: string) =>
+  changeCaseTo(strings.join("-"), toCase);
 
 export const changeCaseTo = (string: string, toCase: string) => {
   const stringInSnakeCase = toSnakeCase(string);
