@@ -7,7 +7,7 @@
   },
   "files": {
     "includes": [
-      "packages/**/*.*",
+      "packages/kobber-components/**/*.*",
       "!node_modules",
       "!**/node_modules",
       "!**/dist",
@@ -38,6 +38,9 @@
             }
           }
         }
+      },
+      "correctness": {
+        "useParseIntRadix": "off"
       }
     }
   },
@@ -51,7 +54,7 @@
     "enabled": true,
     "actions": {
       "source": {
-        "organizeImports": "off"
+        "organizeImports": "on"
       }
     }
   }

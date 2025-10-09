@@ -1,22 +1,22 @@
-import { html, unsafeStatic } from "lit/static-html.js";
-import { property, state } from "lit/decorators.js";
-import { watch } from "../../base/internal/watch";
-import ShoelaceElement from "../../base/internal/shoelace-element";
-import componentStyles from "../../base/styles/component.styles";
-import { radioInputStyles } from "./RadioInput.styles";
 import type { CSSResultGroup } from "lit";
+import { property, state } from "lit/decorators.js";
+import { html, unsafeStatic } from "lit/static-html.js";
+import ShoelaceElement from "../../base/internal/shoelace-element";
+import { watch } from "../../base/internal/watch";
+import componentStyles from "../../base/styles/component.styles";
 import {
-  inputClassNames,
-  radioInputName,
-  radioInputLabelClassName,
   type InputProps,
+  inputClassNames,
   radioInputControlName,
+  radioInputLabelClassName,
+  radioInputName,
 } from "../Radio.core";
+import { radioInputStyles } from "./RadioInput.styles";
 import "../radio-input-control/RadioInputControl";
 import "../../button/default-button/Button";
-import { defaultButtonName } from "../../button/default-button/Button.core";
-import { customElement } from "../../base/utilities/customElementDecorator";
 import { ifDefined } from "lit/directives/if-defined.js";
+import { customElement } from "../../base/utilities/customElementDecorator";
+import { defaultButtonName } from "../../button/default-button/Button.core";
 import "../../text/text-label/TextLabel";
 
 /**
@@ -51,7 +51,7 @@ export class RadioInput extends ShoelaceElement implements InputProps {
   @property({ type: String }) href = "";
 
   private isLink() {
-    return this.href ? true : false;
+    return !!this.href;
   }
 
   constructor() {

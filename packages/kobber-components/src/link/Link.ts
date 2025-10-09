@@ -1,15 +1,14 @@
+import { isExternalLink } from "@gyldendal/kobber-base/utilities/index.js";
 import type { CSSResultGroup } from "lit";
 import { property } from "lit/decorators.js";
-import { linkStyles } from "./Link.styles";
-import componentStyles from "../base/styles/component.styles";
-import { isButton, linkClassNames, linkName, type LinkProps } from "./Link.core";
 import { ifDefined } from "lit/directives/if-defined.js";
-import { literal, html } from "lit/static-html.js";
+import { html, literal } from "lit/static-html.js";
 import KobberElementWithIcon from "../base/kobber-element-with-icon";
+import componentStyles from "../base/styles/component.styles";
 import { customElement } from "../base/utilities/customElementDecorator";
-import { isExternalLink } from "@gyldendal/kobber-base/utilities/index.js";
+import { isButton, type LinkProps, linkClassNames, linkName } from "./Link.core";
+import { linkStyles } from "./Link.styles";
 import "../text/text-label/TextLabel";
-import { invertColorVariant } from "../base/utilities/invertColorVariant";
 
 @customElement(linkName)
 export class Link extends KobberElementWithIcon implements LinkProps {

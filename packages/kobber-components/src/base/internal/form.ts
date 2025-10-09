@@ -1,6 +1,6 @@
 import type { ReactiveController, ReactiveControllerHost } from "lit";
-import type { ShoelaceFormControl } from "../internal/shoelace-element.js";
 import type { Button } from "../../button/default-button/Button.js";
+import type { ShoelaceFormControl } from "../internal/shoelace-element.js";
 
 //
 // We store a WeakMap of forms + controls so we can keep references to all Shoelace controls within a given form. As
@@ -152,7 +152,7 @@ export class FormControlController implements ReactiveController {
 
       // Add this element to the form's collection
       if (formCollections.has(this.form)) {
-        formCollections.get(this.form)!.add(this.host);
+        formCollections.get(this.form)?.add(this.host);
       } else {
         formCollections.set(this.form, new Set<ShoelaceFormControl>([this.host]));
       }

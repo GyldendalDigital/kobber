@@ -1,20 +1,20 @@
-import { html, unsafeStatic } from "lit/static-html.js";
 import type { CSSResultGroup } from "lit";
 import { property, query, state } from "lit/decorators.js";
-import ShoelaceElement from "../../base/internal/shoelace-element";
-import { HasSlotController } from "../../base/internal/slot";
-import type { ShoelaceFormControl } from "../../base/internal/shoelace-element";
+import { html, unsafeStatic } from "lit/static-html.js";
 import {
   customErrorValidityState,
   FormControlController,
   validValidityState,
   valueMissingValidityState,
 } from "../../base/internal/form";
+import type { ShoelaceFormControl } from "../../base/internal/shoelace-element";
+import ShoelaceElement from "../../base/internal/shoelace-element";
+import { HasSlotController } from "../../base/internal/slot";
 import componentStyles from "../../base/styles/component.styles";
-import type { CheckboxInput } from "../checkbox-input/CheckboxInput";
-import { checkboxGroupName, checkboxInputName, type GroupProps } from "../Checkbox.core";
-import { checkboxGroupStyles } from "./CheckboxGroup.styles";
 import { customElement } from "../../base/utilities/customElementDecorator";
+import { checkboxGroupName, checkboxInputName, type GroupProps } from "../Checkbox.core";
+import type { CheckboxInput } from "../checkbox-input/CheckboxInput";
+import { checkboxGroupStyles } from "./CheckboxGroup.styles";
 
 /**
  * @summary Checkbox groups are used to group multiple [checkboxes](/components/checkbox).
@@ -89,10 +89,6 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
 
     return validValidityState;
   }
-
-  constructor() {
-    super();
-  }
   direction?: "vertical" | "horizontal" | undefined;
   value: string | undefined;
   defaultValue?: unknown;
@@ -129,7 +125,7 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
       checkboxes.map(async checkbox => {
         await checkbox.updateComplete;
 
-        const index = this.idValues.findIndex(item => item === checkbox.idValue);
+        const index = this.idValues.indexOf(checkbox.idValue);
         if (checkbox.checked) {
           if (index < 0) {
             this.idValues.push(checkbox.idValue as string);
@@ -220,7 +216,7 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
   render() {
     const hasHelpTextSlot = this.hasSlotController.test("help-text");
     const hasHelpText = !!hasHelpTextSlot;
-    const isHierarchical = this.type == "hierarchical";
+    const isHierarchical = this.type === "hierarchical";
     const hierarchicalCheckbox = isHierarchical
       ? html`<${unsafeStatic(checkboxInputName)}
         .checked=${this.allBoxesAreChecked} 

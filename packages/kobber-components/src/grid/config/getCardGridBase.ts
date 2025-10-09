@@ -68,7 +68,7 @@ export const getCardGridBase = ({
       gridColumn: {
         [oneColumnQuery]: "span 1",
       },
-      ["--span"]: {
+      "--span": {
         [oneColumnQuery]: "1",
       },
       aspectRatio: {

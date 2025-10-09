@@ -1,18 +1,17 @@
+import type { CSSResultGroup } from "lit";
 import { html } from "lit";
 import { property } from "lit/decorators.js";
 import ShoelaceElement from "../../base/internal/shoelace-element";
 import componentStyles from "../../base/styles/component.styles";
 import { radioInputControlStyles } from "./RadioInputControl.styles";
-import type { CSSResultGroup } from "lit";
 import "../../base/internal/icons";
+import { customElement } from "../../base/utilities/customElementDecorator";
 import {
-  InputColorTheme,
-  radioInputControlPartNameChecked,
+  type ControlProps,
   radioInputControlName,
   radioInputControlPartName,
-  type ControlProps,
+  radioInputControlPartNameChecked,
 } from "../Radio.core";
-import { customElement } from "../../base/utilities/customElementDecorator";
 
 /**
  * @summary Radios allow the user to select a single option from a group.

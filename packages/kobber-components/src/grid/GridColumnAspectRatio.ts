@@ -22,14 +22,14 @@ export class GridColumnAspectRatio extends GridColumn {
   `;
 
   @property()
-  ["--span"]?: ResponsiveCssValue;
+  "--span"?: ResponsiveCssValue;
 
   @property({ converter, attribute: "aspect-ratio" })
   aspectRatio?: ResponsiveCssValue;
 
   private getSpanCssVariable = () =>
     stringifyStyleObject(":host", {
-      ["--span"]: this.span ? this.span.toString() : "1",
+      "--span": this.span ? this.span.toString() : "1",
     });
 
   render() {
