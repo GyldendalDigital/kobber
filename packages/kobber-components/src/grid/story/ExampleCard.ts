@@ -1,6 +1,6 @@
-import { LitElement, css, html, unsafeCSS } from "lit";
-import { property, state } from "lit/decorators.js";
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { css, html, LitElement, unsafeCSS } from "lit";
+import { property, state } from "lit/decorators.js";
 import { customElement } from "../../base/utilities/customElementDecorator";
 
 const paddingBlock = "16px";

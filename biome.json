@@ -3,23 +3,26 @@
   "vcs": {
     "enabled": false,
     "clientKind": "git",
-    "useIgnoreFile": false
+    "useIgnoreFile": true
   },
   "files": {
     "includes": [
-      "packages/kobber-base/**/*.*",
-      "packages/kobber-components/**/*.*",
+      "packages/kobber-base/**/*.ts",
+      "packages/kobber-components/**/*.ts",
       "!node_modules",
       "!**/node_modules",
       "!**/dist",
-      "!**/.*"
+      "!**/.*",
+      "!**/index.web-components.ts",
+      "!**/index.react.ts"
     ],
     "ignoreUnknown": false
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "lineWidth": 100
+    "lineWidth": 100,
+    "lineEnding": "crlf"
   },
   "linter": {
     "enabled": true,
@@ -31,23 +34,18 @@
           "options": {
             "paths": {
               "lit/decorators.js": {
-                "importNames": [
-                  "customElement"
-                ],
+                "importNames": ["customElement"],
                 "message": "Import customElement from 'base/utilities/customElementDecorator' instead."
               }
             }
           }
-        },
-        "noDescendingSpecificity": "off"
+        }
       },
       "correctness": {
         "useParseIntRadix": "off"
       },
       "suspicious": {
-        "noExplicitAny": "off",
-        "noDuplicateProperties": "off",
-        "noDuplicateCustomProperties": "off"
+        "noExplicitAny": "off"
       }
     }
   },

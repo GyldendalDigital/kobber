@@ -1,4 +1,4 @@
-import { type CSSResultGroup, css, html, LitElement, } from "lit";
+import { type CSSResultGroup, css, html, LitElement } from "lit";
 import { property } from "lit/decorators.js";
 import { customElement } from "../../base/utilities/customElementDecorator";
 import {

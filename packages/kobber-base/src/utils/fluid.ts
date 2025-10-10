@@ -3,7 +3,7 @@ const between = (
   toSize: number,
   minViewportWidth: number,
   maxViewportWidth: number,
-  unit: string
+  unit: string,
 ): string => {
   const slope = (fromSize - toSize) / (minViewportWidth - maxViewportWidth);
   const base = toSize - slope * maxViewportWidth;
@@ -17,14 +17,8 @@ export const fluidClamp = (
   toSize: number,
   minViewportWidth: number,
   maxViewportWidth: number,
-  unit = "px"
+  unit = "px",
 ) => {
-  const preferred = between(
-    fromSize,
-    toSize,
-    minViewportWidth,
-    maxViewportWidth,
-    unit
-  );
+  const preferred = between(fromSize, toSize, minViewportWidth, maxViewportWidth, unit);
   return `clamp(${fromSize}${unit}, ${preferred}, ${toSize}${unit})`;
 };

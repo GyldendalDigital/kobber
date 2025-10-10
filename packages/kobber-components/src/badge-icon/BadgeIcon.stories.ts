@@ -11,8 +11,8 @@ import {
 import "@gyldendal/kobber-icons/web-components";
 import "../theme-context-provider/ThemeContext";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
-import { init as initComponents } from "../base/init";
 import { ifDefined } from "lit/directives/if-defined.js";
+import { init as initComponents } from "../base/init";
 
 initComponents();
 initIcons();

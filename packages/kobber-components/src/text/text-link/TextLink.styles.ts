@@ -20,7 +20,7 @@ const createStyles = () => {
       &::after {
         content: "";
         position: absolute;
-        border-bottom: var(${unsafeCSS(component["text-link"].border.width)}) solid currentcolor;
+        border-bottom: var(${unsafeCSS(component["text-link"].border.width)}) solid;
         bottom: 0;
         right: 0;
         left: 0;

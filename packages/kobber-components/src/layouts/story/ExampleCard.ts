@@ -1,6 +1,6 @@
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { ResizeController } from "@lit-labs/observers/resize-controller.js";
-import { LitElement, css, html, unsafeCSS } from "lit";
+import { css, html, LitElement, unsafeCSS } from "lit";
 import { property } from "lit/decorators.js";
 import { customElement } from "../../base/utilities/customElementDecorator";
 

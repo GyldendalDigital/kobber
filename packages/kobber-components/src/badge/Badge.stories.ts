@@ -9,8 +9,8 @@ import {
   badgeSizes,
 } from "./Badge.core";
 import "../theme-context-provider/ThemeContext";
-import { init as initComponents } from "../base/init";
 import { ifDefined } from "lit/directives/if-defined.js";
+import { init as initComponents } from "../base/init";
 
 initComponents();
 

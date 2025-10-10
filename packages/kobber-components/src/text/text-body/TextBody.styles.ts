@@ -1,18 +1,18 @@
 import { css, unsafeCSS } from "lit";
-import {
-  textBodyTokens,
-  textBodyName,
-  textBodyColors,
-  textBodySizes,
-  textBodyFonts,
-  textBodyColorVariants,
-  textBodyContexts,
-} from "./TextBody.core";
 import { resetMargin } from "../../base/styles/reset.styles";
 import {
   defaultTypographyStyles,
   setTypographyVariable,
 } from "../../base/styles/typography.styles";
+import {
+  textBodyColors,
+  textBodyColorVariants,
+  textBodyContexts,
+  textBodyFonts,
+  textBodyName,
+  textBodySizes,
+  textBodyTokens,
+} from "./TextBody.core";
 
 const createTextBodyStyles = () => css`
 .${unsafeCSS(textBodyName)} {

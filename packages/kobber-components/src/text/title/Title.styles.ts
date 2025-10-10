@@ -1,17 +1,17 @@
 import { css, unsafeCSS } from "lit";
-import {
-  titleTokens,
-  titleName,
-  titleColors,
-  titleSizes,
-  titleFonts,
-  titleColorVariants,
-} from "./Title.core";
 import { resetMargin } from "../../base/styles/reset.styles";
 import {
   defaultTypographyStyles,
   setTypographyVariable,
 } from "../../base/styles/typography.styles";
+import {
+  titleColors,
+  titleColorVariants,
+  titleFonts,
+  titleName,
+  titleSizes,
+  titleTokens,
+} from "./Title.core";
 
 const createTitleStyles = () => css`
 .${unsafeCSS(titleName)} {

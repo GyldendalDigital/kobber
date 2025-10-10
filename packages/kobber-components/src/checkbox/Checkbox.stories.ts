@@ -3,9 +3,9 @@ import "./checkbox-input/CheckboxInput";
 import "./checkbox-group/CheckboxGroup";
 import "../theme-context-provider/ThemeContext";
 import { html } from "lit";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { init as initComponents } from "../base/init";
 import { type CheckboxState, checkboxColorThemes, type InputProps } from "./Checkbox.core";
-import { ifDefined } from "lit/directives/if-defined.js";
 
 initComponents();
 

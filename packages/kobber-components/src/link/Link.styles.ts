@@ -39,7 +39,7 @@ const createStyles = () => {
           &::after {
             content: "";
             position: absolute;
-            border-bottom: var(${unsafeCSS(link.border.width.hover)}) solid currentcolor;
+            border-bottom: var(${unsafeCSS(link.border.width.hover)}) solid;
             bottom: 0;
             right: 0;
             left: 0;

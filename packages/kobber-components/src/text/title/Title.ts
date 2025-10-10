@@ -1,13 +1,13 @@
-import { LitElement } from "lit";
 import type { CSSResultGroup } from "lit";
+import { LitElement } from "lit";
 import { property } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { html, unsafeStatic } from "lit/static-html.js";
 import componentStyles from "../../base/styles/component.styles";
-import { titleStyles } from "./Title.styles";
-import { titleName, sanitizeTitleLevel } from "./Title.core";
-import type { TitleProps } from "./Title.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
-import { ifDefined } from "lit/directives/if-defined.js";
+import type { TitleProps } from "./Title.core";
+import { sanitizeTitleLevel, titleName } from "./Title.core";
+import { titleStyles } from "./Title.styles";
 
 @customElement(titleName)
 export class Title extends LitElement implements TitleProps {

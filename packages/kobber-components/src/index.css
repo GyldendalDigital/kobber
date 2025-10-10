@@ -1363,7 +1363,7 @@ em,
           &::after {
             content: "";
             position: absolute;
-            border-bottom: var(--kobber-component-nav-link-border-width-hover) solid currentcolor;
+            border-bottom: var(--kobber-component-nav-link-border-width-hover) solid;
             bottom: 0;
             right: 0;
             left: 0;
@@ -2052,7 +2052,7 @@ em,
       &::after {
         content: "";
         position: absolute;
-        border-bottom: var(--kobber-component-text-link-border-width) solid currentcolor;
+        border-bottom: var(--kobber-component-text-link-border-width) solid;
         bottom: 0;
         right: 0;
         left: 0;

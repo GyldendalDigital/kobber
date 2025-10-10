@@ -27,7 +27,8 @@ export const getTypographyStyles = (
     case "text-heading":
     case "text-title":
     case "text-display":
-      typographyStyles.size = universal[componentName].text.size[size === "small" ? "medium" : size];
+      typographyStyles.size =
+        universal[componentName].text.size[size === "small" ? "medium" : size];
       break;
   }
 

@@ -1,10 +1,10 @@
 import { type CSSResultGroup, html } from "lit";
 import { property, state } from "lit/decorators.js";
-import { textModuleClassnames, type TextModuleProps } from "./TextModule.core";
-import { textModuleStyles } from "./TextModule.styles";
+import { ifDefined } from "lit/directives/if-defined.js";
 import KobberElement from "../../base/kobber-element";
 import { customElement } from "../../base/utilities/customElementDecorator";
-import { ifDefined } from "lit/directives/if-defined.js";
+import { type TextModuleProps, textModuleClassnames } from "./TextModule.core";
+import { textModuleStyles } from "./TextModule.styles";
 
 @customElement("kobber-text-module")
 export class TextModule extends KobberElement implements TextModuleProps {

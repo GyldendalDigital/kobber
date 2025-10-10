@@ -1,10 +1,10 @@
 import { type CSSResultGroup, html, LitElement } from "lit";
-import componentStyles from "../../base/styles/component.styles";
-import { leadStyles } from "./Lead.styles";
-import { customElement } from "../../base/utilities/customElementDecorator";
-import { leadName, type LeadProps } from "./Lead.core";
 import { property } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
+import componentStyles from "../../base/styles/component.styles";
+import { customElement } from "../../base/utilities/customElementDecorator";
+import { type LeadProps, leadName } from "./Lead.core";
+import { leadStyles } from "./Lead.styles";
 
 @customElement(leadName)
 export class Lead extends LitElement implements LeadProps {

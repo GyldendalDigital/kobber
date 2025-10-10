@@ -1,11 +1,11 @@
 import { css, unsafeCSS } from "lit";
+import type { NestedListSlotNames } from "../text-list-element/TextListElement.core";
 import {
+  type TextListClassNames,
   textListOrderedStyleTypes,
   textListTokens,
   textListUnorderedStyleTypes,
-  type TextListClassNames,
 } from "./TextList.core";
-import type { NestedListSlotNames } from "../text-list-element/TextListElement.core";
 
 const createTextListStyles = () => css`
 .${unsafeCSS("kobber-text-list" satisfies TextListClassNames)} {

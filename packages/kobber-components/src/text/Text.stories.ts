@@ -20,6 +20,7 @@ import {
 import "@gyldendal/kobber-icons/web-components";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { init as initComponents } from "../base/init";
+import { invertColorVariant } from "../base/utilities/invertColorVariant";
 import { getPrintedState, linkStates } from "../story/linkStates";
 import { displayFonts, displaySizes } from "./display/Display.core";
 import { leadColors, leadColorVariants } from "./lead/Lead.core";
@@ -35,9 +36,8 @@ import {
   textLabelColorVariants,
   textLabelSizes,
 } from "./text-label/TextLabel.core";
-import { titleColors, titleColorVariants, titleFonts, titleSizes } from "./title/Title.core";
 import { textListSizeFallback, textListSizes } from "./text-list/TextList.core";
-import { invertColorVariant } from "../base/utilities/invertColorVariant";
+import { titleColors, titleColorVariants, titleFonts, titleSizes } from "./title/Title.core";
 
 initComponents();
 initIcons();
