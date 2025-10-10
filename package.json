@@ -10,7 +10,7 @@
   "scripts": {
     "clean": "turbo clean && rm -rf .turbo node_modules",
     "lint": "turbo lint lint:root --continue",
-    "lint:root": "biome check",
+    "lint:root": "biome ci",
     "test": "turbo test",
     "dev": "turbo dev",
     "build": "turbo build",
