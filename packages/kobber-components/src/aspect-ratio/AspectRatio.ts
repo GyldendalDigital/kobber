@@ -52,7 +52,7 @@ export class AspectRatio extends StyledLitElement {
       this.cssAspectRatioToPadding(ratioValue),
     );
 
-    const { aspectRatio, ...styles } = this.getStyles({
+    const { aspectRatio: _, ...styles } = this.getStyles({
       paddingTop: paddingValues,
     });
     const hostStyles = stringifyStyleObject(":host", styles);

@@ -16,14 +16,14 @@ import "@gyldendal/kobber-icons/web-components";
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { iconsList } from "@gyldendal/kobber-icons/symbols/kobber-icons-lists.ts";
 import type { IconType } from "@gyldendal/kobber-icons/symbols/kobber-icons-types.ts";
-import { html, unsafeStatic } from "lit/static-html.js";
-import { uiButtonColorThemes, uiButtonColorVariants } from "./ui-button/UiButton.core";
 import { ifDefined } from "lit/directives/if-defined.js";
+import { html, unsafeStatic } from "lit/static-html.js";
 import {
   themeButtonColorLevels,
   themeButtonColorThemes,
   themeButtonColorVariants,
 } from "./theme-button/ThemeButton.core";
+import { uiButtonColorThemes, uiButtonColorVariants } from "./ui-button/UiButton.core";
 
 initComponents();
 initIcons();
@@ -310,7 +310,6 @@ const renderButton = (args: Args) => {
 };
 
 const isValidPropCombination = (
-  // biome-ignore lint: tokens can really be of any type.
   buttonTokens: any,
   colorTheme: Args["colorTheme"],
   colorVariant: Args["colorVariant"],

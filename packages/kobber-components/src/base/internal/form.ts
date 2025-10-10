@@ -200,11 +200,13 @@ export class FormControlController implements ReactiveController {
 
       // Remove the overload and restore the original method
       if (reportValidityOverloads.has(this.form)) {
+        // biome-ignore lint/style/noNonNullAssertion: checked above
         this.form.reportValidity = reportValidityOverloads.get(this.form)!;
         reportValidityOverloads.delete(this.form);
       }
 
       if (checkValidityOverloads.has(this.form)) {
+        // biome-ignore lint/style/noNonNullAssertion: checked above
         this.form.checkValidity = checkValidityOverloads.get(this.form)!;
         checkValidityOverloads.delete(this.form);
       }
@@ -267,7 +269,7 @@ export class FormControlController implements ReactiveController {
   };
 
   private handleInteraction = (event: Event) => {
-    const emittedEvents = interactions.get(this.host)!;
+    const emittedEvents = interactions.get(this.host) ?? [];
 
     if (!emittedEvents.includes(event.type)) {
       emittedEvents.push(event.type);
@@ -366,6 +368,7 @@ export class FormControlController implements ReactiveController {
         ["formaction", "formenctype", "formmethod", "formnovalidate", "formtarget"].forEach(
           attr => {
             if (submitter.hasAttribute(attr)) {
+              // biome-ignore lint/style/noNonNullAssertion: clearly checked with hasAttribute
               button.setAttribute(attr, submitter.getAttribute(attr)!);
             }
           },

@@ -38,10 +38,16 @@
               }
             }
           }
-        }
+        },
+        "noDescendingSpecificity": "off"
       },
       "correctness": {
         "useParseIntRadix": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "off",
+        "noDuplicateProperties": "off",
+        "noDuplicateCustomProperties": "off"
       }
     }
   },

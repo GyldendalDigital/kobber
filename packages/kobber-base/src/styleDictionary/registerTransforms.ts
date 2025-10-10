@@ -1,9 +1,9 @@
 import StyleDictionary from "style-dictionary";
 import type { Transform } from "style-dictionary/types";
-import { fluidClampTransform } from "./transforms/fluidClamp";
 import { dimensionToNumberOverrideTransform } from "./transforms/dimensionToNumberOverride";
-import { opacityScopeHandlerTransform } from "./transforms/opacityScopeHandler";
+import { fluidClampTransform } from "./transforms/fluidClamp";
 import { fontWeightScopeHandlerTransform } from "./transforms/fontWeightScopeHandler";
+import { opacityScopeHandlerTransform } from "./transforms/opacityScopeHandler";
 
 /** Docs: https://styledictionary.com/reference/hooks/transforms/predefined */
 export const cssTransforms = [
@@ -31,6 +31,8 @@ export const jsTransforms = [
 ];
 
 export const registerTransforms = (transforms: Transform[]) => {
-  transforms.forEach(t => StyleDictionary.registerTransform(t));
+  transforms.forEach(t => {
+    StyleDictionary.registerTransform(t);
+  });
   console.log(`Transforms registered: ${transforms.map(f => f.name).join(", ")}`);
 };

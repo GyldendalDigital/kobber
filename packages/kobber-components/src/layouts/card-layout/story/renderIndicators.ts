@@ -3,7 +3,9 @@ interface Options {
 }
 
 export const renderIndicators = ({ container }: Options) => {
-  document.querySelectorAll("[data-indicator]").forEach(element => element.remove());
+  document.querySelectorAll("[data-indicator]").forEach(element => {
+    element.remove();
+  });
   const cards = Array.from(document.querySelectorAll("[data-indicator-target]"));
   const windowWidthIndicator = createIndicator(false);
   const boundaryIndicator = createIndicator(false);
@@ -26,7 +28,8 @@ export const renderIndicators = ({ container }: Options) => {
     const rects = cards.map(card => card.getBoundingClientRect());
     const targetRect = target.getBoundingClientRect();
     const rightEdge = Math.max(...rects.map(rect => rect.right));
-    const totalWidth = Math.max(...rects.map(({ right }) => right)) - Math.min(...rects.map(({ left }) => left));
+    const totalWidth =
+      Math.max(...rects.map(({ right }) => right)) - Math.min(...rects.map(({ left }) => left));
     windowWidthIndicator.update({
       value: document.documentElement.clientWidth,
       top: targetRect.top - 64,
@@ -47,11 +50,12 @@ export const renderIndicators = ({ container }: Options) => {
       top: targetRect.top + targetRect.height / 2,
       left: rightEdge,
     });
-    right && horizontalIndicator.update({
-      value: right.getBoundingClientRect().left - targetRect.right,
-      top: targetRect.top + targetRect.height / 2,
-      left: targetRect.right,
-    });
+    right &&
+      horizontalIndicator.update({
+        value: right.getBoundingClientRect().left - targetRect.right,
+        top: targetRect.top + targetRect.height / 2,
+        left: targetRect.right,
+      });
     verticalIndicator.update({
       value: (rects.find(({ top }) => top > targetRect.bottom)?.top ?? 0) - targetRect.bottom,
       top: targetRect.bottom,

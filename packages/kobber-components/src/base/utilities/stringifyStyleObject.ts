@@ -133,8 +133,12 @@ const isValidDeclaration = (declaration: string | undefined) =>
 const getMediaQueries = (styleArray: CssDeclaration[]) =>
   styleArray.reduce((array, [, value]) => {
     if (isResponsiveCssValue(value)) {
-      const unique = Object.keys(value).filter(f => !array.includes(f));
-      return [...array, ...unique];
+      Object.keys(value)
+        .filter(f => !array.includes(f))
+        .forEach(f => {
+          array.push(f);
+        });
+      return array;
     }
     return array;
   }, [] as string[]);

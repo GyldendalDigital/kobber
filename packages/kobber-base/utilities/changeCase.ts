@@ -26,7 +26,7 @@ const toSnakeCase = (str: string) => {
 };
 
 const snakeCaseToCamel = (str: string) =>
-  str.toLowerCase().replace(/(_\w)/g, match => match[1]!.toUpperCase());
+  str.toLowerCase().replace(/(_\w)/g, match => match[1]?.toUpperCase() ?? "");
 
 const snakeCaseToPascal = (str: string) => {
   const camelCase = snakeCaseToCamel(str);

@@ -193,7 +193,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
   }
 
   private handleRadioClick(event: MouseEvent) {
-    const target = (event.target as HTMLElement).closest<RadioInput>(radioInputName)!;
+    const target = (event.target as HTMLElement).closest<RadioInput>(radioInputName);
     const radios = this.getAllRadios();
     const oldValue = this.value;
 
@@ -218,9 +218,13 @@ export class RadioGroup extends ShoelaceElement implements Props {
     }
 
     const radios = this.getAllRadios().filter(radio => !radio.disabled);
+    if (radios.length === 0) {
+      return;
+    }
     const checkedRadio = radios.find(radio => radio.checked) ?? radios[0];
     const incr = event.key === " " ? 0 : ["ArrowUp", "ArrowLeft"].includes(event.key) ? -1 : 1;
     const oldValue = this.value;
+    // biome-ignore lint/style/noNonNullAssertion: checked above
     let index = radios.indexOf(checkedRadio!) + incr;
 
     if (index < 0) {
@@ -236,10 +240,14 @@ export class RadioGroup extends ShoelaceElement implements Props {
       radio.setAttribute("tabindex", "-1");
     });
 
-    this.value = radios[index]!.value;
-    radios[index]!.checked = true;
+    const currentRadio = radios[index];
+    if (currentRadio) {
+      this.value = currentRadio.value;
+      currentRadio.checked = true;
+      currentRadio.setAttribute("tabindex", "0");
+    }
+
     this.focusOnRadio(radios);
-    radios[index]?.setAttribute("tabindex", "0");
 
     if (this.value !== oldValue) {
       this.emit("change");
@@ -251,7 +259,9 @@ export class RadioGroup extends ShoelaceElement implements Props {
 
   private updateCheckedRadio() {
     const radios = this.getAllRadios();
-    radios.forEach(radio => (radio.checked = radio.value === this.value));
+    radios.forEach(radio => {
+      radio.checked = radio.value === this.value;
+    });
     this.formControlController.setValidity(this.validity.valid);
   }
 
