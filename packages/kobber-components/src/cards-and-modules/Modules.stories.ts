@@ -133,7 +133,7 @@ export const ContentWrapper: Story = {
       type=${args.type}
       max-height-in-px="${args.maxHeightInPx}"
     >
-      <kobber-content-top-block slot="content-top-block">
+      <kobber-content-top-block>
         ${
           !args.showBadge
             ? ""
