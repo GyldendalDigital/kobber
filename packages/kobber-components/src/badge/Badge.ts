@@ -46,10 +46,7 @@ export class Badge extends LitElement implements BadgeProps {
     return statusCircleColors.some(statusCircleColor => {
       if (badgeColorThemes.includes(statusCircleColor) && this.colorTheme === statusCircleColor) {
         return (
-          objectKeys(
-            badgeTokens["status-circle"].background.color[statusCircleColor],
-            // biome-ignore lint/suspicious/noExplicitAny: Tokens can be anything.
-          ) as any[]
+          objectKeys(badgeTokens["status-circle"].background.color[statusCircleColor]) as any[]
         ).includes(this.colorVariant);
       }
       return false;

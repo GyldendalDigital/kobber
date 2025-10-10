@@ -1,5 +1,5 @@
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
-import { LitElement, css, html, unsafeCSS } from "lit";
+import { css, html, LitElement, unsafeCSS } from "lit";
 import { customElement } from "../../base/utilities/customElementDecorator";
 
 @customElement("kobber-example-surface")
@@ -9,7 +9,7 @@ export class ExampleSurface extends LitElement {
       box-sizing: border-box;
       display: block;
       border-radius: 16px;
-      padding: ${unsafeCSS(tokens.layout.gap["16-32"])};
+      padding: 1rem;
       font-family: Inter, "Inter Variable";
       background-color: ${unsafeCSS(tokens.primitives.color.nostalgia[600])};
     }

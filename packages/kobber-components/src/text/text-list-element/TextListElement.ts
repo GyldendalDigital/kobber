@@ -1,10 +1,10 @@
-import { LitElement } from "lit";
 import type { CSSResultGroup } from "lit";
+import { LitElement } from "lit";
 import { html } from "lit/static-html.js";
 import componentStyles from "../../base/styles/component.styles";
-import { textListElementStyles } from "./TextListElement.styles";
-import { nestedListSlotName, textListElementName } from "./TextListElement.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
+import { nestedListSlotName, textListElementName } from "./TextListElement.core";
+import { textListElementStyles } from "./TextListElement.styles";
 import "../text-body/TextBody";
 import { state } from "lit/decorators.js";
 
@@ -32,11 +32,5 @@ export class TextListElement extends LitElement {
         </div>
       </div>
     `;
-  }
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    [textListElementName]: TextListElement;
   }
 }

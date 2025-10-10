@@ -1,13 +1,13 @@
-import { LitElement } from "lit";
 import type { CSSResultGroup } from "lit";
+import { LitElement } from "lit";
 import { property } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { html, unsafeStatic } from "lit/static-html.js";
 import componentStyles from "../../base/styles/component.styles";
-import { textBodyStyles } from "./TextBody.styles";
-import { textBodyName, sanitizeTextBodyLevel } from "./TextBody.core";
-import type { TextBodyProps } from "./TextBody.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
-import { ifDefined } from "lit/directives/if-defined.js";
+import type { TextBodyProps } from "./TextBody.core";
+import { sanitizeTextBodyLevel, textBodyName } from "./TextBody.core";
+import { textBodyStyles } from "./TextBody.styles";
 
 @customElement(textBodyName)
 export class TextBody extends LitElement implements TextBodyProps {

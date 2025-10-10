@@ -1,4 +1,4 @@
-import { TransformedTokens } from "style-dictionary";
+import type { TransformedTokens } from "style-dictionary";
 
 export const minifyDictionary = (object: TransformedTokens) => {
   if (object === null || object === undefined) {
@@ -11,11 +11,11 @@ export const minifyDictionary = (object: TransformedTokens) => {
 
   var transformed: TransformedTokens = {};
 
-  if (object.hasOwnProperty("value")) {
+  if (Object.hasOwn(object, "value")) {
     return object.value;
   } else {
     for (const name in object) {
-      if (object.hasOwnProperty(name)) {
+      if (Object.hasOwn(object, name) && object[name]) {
         const value = minifyDictionary(object[name]);
         if (value) {
           transformed[name] = value;

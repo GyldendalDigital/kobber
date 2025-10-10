@@ -8,7 +8,9 @@ const defaultConfig: Config = {
 
 let resolveConfig: (config: Config) => void;
 
-const promise = new Promise<Config>(resolve => (resolveConfig = resolve));
+const promise = new Promise<Config>(resolve => {
+  resolveConfig = resolve;
+});
 
 export const setConfig = (config: Config = defaultConfig) => resolveConfig(config);
 

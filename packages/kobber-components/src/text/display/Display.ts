@@ -1,13 +1,13 @@
-import { LitElement } from "lit";
 import type { CSSResultGroup } from "lit";
+import { LitElement } from "lit";
 import { property, queryAssignedNodes } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { html, unsafeStatic } from "lit/static-html.js";
 import componentStyles from "../../base/styles/component.styles";
-import { displayStyles } from "./Display.styles";
-import { displayName, sanitizeDisplayLevel } from "./Display.core";
-import type { DisplayProps } from "./Display.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
-import { ifDefined } from "lit/directives/if-defined.js";
+import type { DisplayProps } from "./Display.core";
+import { displayName, sanitizeDisplayLevel } from "./Display.core";
+import { displayStyles } from "./Display.styles";
 
 @customElement(displayName)
 export class Display extends LitElement implements DisplayProps {
@@ -58,11 +58,5 @@ export class Display extends LitElement implements DisplayProps {
         }
       </${unsafeStatic(tag)}>
     `;
-  }
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    [displayName]: Display;
   }
 }

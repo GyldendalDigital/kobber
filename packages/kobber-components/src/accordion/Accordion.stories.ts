@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-import { accordionName, type AccordionProps } from "./Accordion.core";
+import { type AccordionProps, accordionName } from "./Accordion.core";
 import "../accordion/Accordion";
-import { init as initComponents } from "../base/init";
 import { html } from "lit";
+import { init as initComponents } from "../base/init";
 
 initComponents();
 

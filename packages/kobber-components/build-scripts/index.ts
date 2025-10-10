@@ -1,8 +1,12 @@
-import { changeCaseTo, getFileExtension, getFilenameWithoutExtension } from "@gyldendal/kobber-base/utilities/index.js";
 import fs from "node:fs";
+import {
+  changeCaseTo,
+  getFileExtension,
+  getFilenameWithoutExtension,
+} from "@gyldendal/kobber-base/utilities/index.js";
 
-export { listWebComponents } from "./list-web-components";
 export { listReactComponents } from "./list-react-components";
+export { listWebComponents } from "./list-web-components";
 
 export type ComponentObject = {
   importComponent: string;
@@ -19,7 +23,7 @@ const componentObjects: ComponentObject[] = [];
 export const collectComponentObjects = (path: string, ignoreFoldersOverride?: string[]) => {
   const currentFolder = fs.readdirSync(path);
 
-  currentFolder.map(childPath => {
+  currentFolder.forEach(childPath => {
     if (fs.statSync(`${path}/${childPath}`).isFile()) {
       if (isFileAComponent(childPath)) {
         componentObjects.push(makeComponentObject(path, childPath));

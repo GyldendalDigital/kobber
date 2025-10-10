@@ -1,17 +1,17 @@
-import { LitElement } from "lit";
 import type { CSSResultGroup } from "lit";
+import { LitElement } from "lit";
 import { property } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { html } from "lit/static-html.js";
 import componentStyles from "../../base/styles/component.styles";
-import { textListStyles } from "./TextList.styles";
-import {
-  textListName,
-  type TextListProps,
-  textListTypeFallback,
-  textListSizeFallback,
-} from "./TextList.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
-import { ifDefined } from "lit/directives/if-defined.js";
+import {
+  type TextListProps,
+  textListName,
+  textListSizeFallback,
+  textListTypeFallback,
+} from "./TextList.core";
+import { textListStyles } from "./TextList.styles";
 
 @customElement(textListName)
 export class TextList extends LitElement implements TextListProps {

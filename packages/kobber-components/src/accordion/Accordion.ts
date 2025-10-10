@@ -1,12 +1,17 @@
-import { CSSResultGroup, LitElement, html } from "lit";
+import { type CSSResultGroup, html, LitElement } from "lit";
 import { property, query } from "lit/decorators.js";
 import { customElement } from "../base/utilities/customElementDecorator";
 import "../list/List";
 import "../list/ListItem";
-import componentStyles from "../base/styles/component.styles";
-import { accordionStyles } from "./Accordion.styles";
-import { AccordionAriaHeadingLevel, accordionClassNames, accordionName, AccordionProps } from "./Accordion.core";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
+import componentStyles from "../base/styles/component.styles";
+import {
+  type AccordionAriaHeadingLevel,
+  type AccordionProps,
+  accordionClassNames,
+  accordionName,
+} from "./Accordion.core";
+import { accordionStyles } from "./Accordion.styles";
 import "@gyldendal/kobber-icons/web-components";
 
 initIcons();
@@ -54,9 +59,11 @@ export class Accordion extends LitElement implements AccordionProps {
             @keypress="${this.handleKeyDown}"
             @click="${this.toggle}"
             >${this.title}
-            ${this.expanded
-              ? html`<kobber-chevron_up slot="icon"></kobber-chevron_up>`
-              : html`<kobber-chevron_down slot="icon"></kobber-chevron_down>`}</kobber-list-item
+            ${
+              this.expanded
+                ? html`<kobber-chevron_up slot="icon"></kobber-chevron_up>`
+                : html`<kobber-chevron_down slot="icon"></kobber-chevron_down>`
+            }</kobber-list-item
           >
         </div>
 

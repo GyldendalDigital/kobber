@@ -1,6 +1,6 @@
 import type { ReactiveController, ReactiveControllerHost } from "lit";
-import type { ShoelaceFormControl } from "../internal/shoelace-element.js";
 import type { Button } from "../../button/default-button/Button.js";
+import type { ShoelaceFormControl } from "../internal/shoelace-element.js";
 
 //
 // We store a WeakMap of forms + controls so we can keep references to all Shoelace controls within a given form. As
@@ -152,7 +152,7 @@ export class FormControlController implements ReactiveController {
 
       // Add this element to the form's collection
       if (formCollections.has(this.form)) {
-        formCollections.get(this.form)!.add(this.host);
+        formCollections.get(this.form)?.add(this.host);
       } else {
         formCollections.set(this.form, new Set<ShoelaceFormControl>([this.host]));
       }
@@ -200,11 +200,13 @@ export class FormControlController implements ReactiveController {
 
       // Remove the overload and restore the original method
       if (reportValidityOverloads.has(this.form)) {
+        // biome-ignore lint/style/noNonNullAssertion: checked above
         this.form.reportValidity = reportValidityOverloads.get(this.form)!;
         reportValidityOverloads.delete(this.form);
       }
 
       if (checkValidityOverloads.has(this.form)) {
+        // biome-ignore lint/style/noNonNullAssertion: checked above
         this.form.checkValidity = checkValidityOverloads.get(this.form)!;
         checkValidityOverloads.delete(this.form);
       }
@@ -267,7 +269,7 @@ export class FormControlController implements ReactiveController {
   };
 
   private handleInteraction = (event: Event) => {
-    const emittedEvents = interactions.get(this.host)!;
+    const emittedEvents = interactions.get(this.host) ?? [];
 
     if (!emittedEvents.includes(event.type)) {
       emittedEvents.push(event.type);
@@ -366,6 +368,7 @@ export class FormControlController implements ReactiveController {
         ["formaction", "formenctype", "formmethod", "formnovalidate", "formtarget"].forEach(
           attr => {
             if (submitter.hasAttribute(attr)) {
+              // biome-ignore lint/style/noNonNullAssertion: clearly checked with hasAttribute
               button.setAttribute(attr, submitter.getAttribute(attr)!);
             }
           },

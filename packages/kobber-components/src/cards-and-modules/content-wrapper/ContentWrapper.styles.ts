@@ -2,8 +2,8 @@ import { css, unsafeCSS } from "lit";
 
 import {
   type ContentWrapperClassNames,
-  contentWrapperTokens,
   contentWrapperColorVariants,
+  contentWrapperTokens,
 } from "./ContentWrapper.core";
 
 const createContentWrapperStyles = () => {

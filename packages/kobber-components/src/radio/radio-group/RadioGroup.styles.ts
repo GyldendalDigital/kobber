@@ -1,5 +1,5 @@
 import { css, unsafeCSS } from "lit";
-import { GroupClassNames } from "../Radio.core";
+import type { GroupClassNames } from "../Radio.core";
 
 /**
  * Shared styles, used in web component, React and CSS module.

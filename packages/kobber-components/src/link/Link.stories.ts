@@ -3,10 +3,10 @@ import "./Link";
 import "@gyldendal/kobber-icons/web-components";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { html } from "lit";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { init as initComponents } from "../base/init";
 import { getPrintedState, linkStates } from "../story/linkStates";
 import { type LinkProps, linkTypes } from "./Link.core";
-import { ifDefined } from "lit/directives/if-defined.js";
 
 initComponents();
 initIcons();

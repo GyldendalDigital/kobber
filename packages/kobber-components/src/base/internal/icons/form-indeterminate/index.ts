@@ -1,7 +1,7 @@
-import { CSSResultGroup, LitElement } from "lit";
+import { type CSSResultGroup, LitElement } from "lit";
 import { html } from "lit/static-html.js";
-import { formIndeterminateIconStyles } from "./index.styles";
 import { customElement } from "../../../utilities/customElementDecorator";
+import { formIndeterminateIconStyles } from "./index.styles";
 
 export const iconFormIndeterminateName = "icon-form_indeterminate";
 

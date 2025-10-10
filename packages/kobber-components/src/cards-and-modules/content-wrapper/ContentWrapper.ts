@@ -1,10 +1,10 @@
 import { type CSSResultGroup, html } from "lit";
 import { property } from "lit/decorators.js";
-import { contentWrapperClassnames, type ContentWrapperProps } from "./ContentWrapper.core";
-import { contentWrapperStyles } from "./ContentWrapper.styles";
+import { ifDefined } from "lit/directives/if-defined.js";
 import KobberElement from "../../base/kobber-element";
 import { customElement } from "../../base/utilities/customElementDecorator";
-import { ifDefined } from "lit/directives/if-defined.js";
+import { type ContentWrapperProps, contentWrapperClassnames } from "./ContentWrapper.core";
+import { contentWrapperStyles } from "./ContentWrapper.styles";
 
 @customElement("kobber-content-wrapper")
 export class ContentWrapper extends KobberElement implements ContentWrapperProps {

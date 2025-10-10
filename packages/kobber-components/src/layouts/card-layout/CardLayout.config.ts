@@ -22,7 +22,9 @@ export enum ValidAspectRatioHeight {
   Default = "default",
 }
 
-export const getAspectRatioHeightValue = (aspectRatioHeight: ValidAspectRatioHeight | string): number => {
+export const getAspectRatioHeightValue = (
+  aspectRatioHeight: ValidAspectRatioHeight | string,
+): number => {
   switch (aspectRatioHeight) {
     case ValidAspectRatioHeight.Default:
       return 1.15;

@@ -1,15 +1,15 @@
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
+import { getTypographyStyles } from "../base/getTypographyStyles";
 import {
   type BadgeClassNames,
-  badgeSizes,
-  badgeColorThemes,
-  badgeColorVariants,
+  type BadgeColorTheme,
   type BadgeColorVariant,
   type BadgeSize,
-  type BadgeColorTheme,
+  badgeColorThemes,
+  badgeColorVariants,
+  badgeSizes,
 } from "./Badge.core";
-import { getTypographyStyles } from "../base/getTypographyStyles2";
 
 const badge = component.badge;
 

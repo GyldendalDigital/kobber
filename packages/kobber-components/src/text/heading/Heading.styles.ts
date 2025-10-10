@@ -1,17 +1,17 @@
 import { css, unsafeCSS } from "lit";
-import {
-  headingTokens,
-  headingName,
-  headingColors,
-  headingSizes,
-  headingFonts,
-  headingColorVariants,
-} from "./Heading.core";
 import { resetMargin } from "../../base/styles/reset.styles";
 import {
   defaultTypographyStyles,
   setTypographyVariable,
 } from "../../base/styles/typography.styles";
+import {
+  headingColors,
+  headingColorVariants,
+  headingFonts,
+  headingName,
+  headingSizes,
+  headingTokens,
+} from "./Heading.core";
 
 const createHeadingStyles = () => css`
 .${unsafeCSS(headingName)} {

@@ -1,8 +1,8 @@
 import { css, html, unsafeCSS } from "lit";
 import { property } from "lit/decorators.js";
+import { customElement } from "../../base/utilities/customElementDecorator";
 import { StyledLitElement } from "../../base/utilities/StyledLitElement";
 import { stringifyStyleObject } from "../../base/utilities/stringifyStyleObject";
-import { customElement } from "../../base/utilities/customElementDecorator";
 
 const validMaxWidths = ["fixed-page-header", "content"];
 

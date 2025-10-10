@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { LitElement } from "lit";
 import { property } from "lit/decorators.js";
-import { ResponsiveCssValue, responsiveValueConverter as converter } from "./responsiveCssValue";
+import {
+  responsiveValueConverter as converter,
+  type ResponsiveCssValue,
+} from "./responsiveCssValue";
 
 type CSSProperties = Omit<
   CSSStyleDeclaration,

@@ -19,6 +19,7 @@
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist",
     "build": "tsup && tsx ./build.ts",
+    "lint": "echo TSC && tsc --noEmit",
     "test": "tsx ./tests",
     "prepare": "npm run build"
   },
@@ -27,9 +28,9 @@
     "url": "https://github.com/GyldendalDigital/kobber"
   },
   "devDependencies": {
-    "style-dictionary": "^5.0.4",
-    "tsup": "^8.4.0",
-    "tsx": "^4.19.2",
-    "typescript": "^5.8.3"
+    "style-dictionary": "^5.1.1",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
   }
 }

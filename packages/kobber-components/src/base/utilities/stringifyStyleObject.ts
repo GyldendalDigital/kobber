@@ -1,5 +1,9 @@
 import { compile, serialize, stringify } from "stylis";
-import { StyleValue, isResponsiveCssStringValue, isResponsiveCssValue } from "./responsiveCssValue";
+import {
+  isResponsiveCssStringValue,
+  isResponsiveCssValue,
+  type StyleValue,
+} from "./responsiveCssValue";
 
 type CssDeclaration = [string, StyleValue];
 
@@ -123,16 +127,23 @@ const getDeclarations =
     }
   };
 
-const isValidDeclaration = (declaration: string | undefined) => declaration !== undefined && declaration !== "";
+const isValidDeclaration = (declaration: string | undefined) =>
+  declaration !== undefined && declaration !== "";
 
 const getMediaQueries = (styleArray: CssDeclaration[]) =>
   styleArray.reduce((array, [, value]) => {
     if (isResponsiveCssValue(value)) {
-      const unique = Object.keys(value).filter(f => !array.includes(f));
-      return [...array, ...unique];
+      Object.keys(value)
+        .filter(f => !array.includes(f))
+        .forEach(f => {
+          array.push(f);
+        });
+      return array;
     }
     return array;
   }, [] as string[]);
 
 export const toCssProp = (prop: string) =>
-  prop.includes("-") ? prop : prop.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g, "-$&").toLowerCase();
+  prop.includes("-")
+    ? prop
+    : prop.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g, "-$&").toLowerCase();

@@ -39,6 +39,9 @@ jobs:
       - name: Build
         run: yarn build --filter=./packages/*
 
+      - name: Lint
+        run: yarn lint
+
       # - name: Setup test
       #   run: npx playwright install --with-deps chromium
 

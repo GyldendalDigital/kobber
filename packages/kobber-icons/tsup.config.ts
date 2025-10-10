@@ -48,4 +48,5 @@ export default defineConfig(() => ({
     options.chunkNames = `${chunks}/[name]-[hash]`;
     options.assetNames = `${assets}/[name]-[hash]`;
   },
+  onSuccess: "echo TSC && tsc --noEmit", // type check non exported files as well
 }));

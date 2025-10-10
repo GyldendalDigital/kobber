@@ -1,9 +1,9 @@
 import { css, unsafeCSS } from "lit";
+import { textListTokens } from "../text-list/TextList.core";
 import type {
   TextListElementBodyClassNames,
   TextListElementClassNames,
 } from "./TextListElement.core";
-import { textListTokens } from "../text-list/TextList.core";
 
 const createTextListElementStyles = () => css`
 .${unsafeCSS("kobber-text-list-element" satisfies TextListElementClassNames)} {

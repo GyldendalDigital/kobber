@@ -787,11 +787,9 @@
       &[data-color="success"] {
         --color: var(--kobber-component-checkbox-indicator-shape-color-success);
         
-    & {
-      --control-border-color: var(
-        --kobber-component-checkbox-indicator-border-color-success-idle
-      ); /* Must be first, to enable being overridden by non-idle styles. */
-    }
+    --control-border-color: var(
+      --kobber-component-checkbox-indicator-border-color-success-idle
+    ); /* Must be first, to enable being overridden by non-idle styles. */
 
     :host(.hover) &,
     :host(:hover) & {
@@ -835,11 +833,9 @@
       &[data-color="brand"] {
         --color: var(--kobber-component-checkbox-indicator-shape-color-brand);
         
-    & {
-      --control-border-color: var(
-        --kobber-component-checkbox-indicator-border-color-brand-idle
-      ); /* Must be first, to enable being overridden by non-idle styles. */
-    }
+    --control-border-color: var(
+      --kobber-component-checkbox-indicator-border-color-brand-idle
+    ); /* Must be first, to enable being overridden by non-idle styles. */
 
     :host(.hover) &,
     :host(:hover) & {
@@ -1037,7 +1033,7 @@ em,
 
     .kobber-divider {
       width: 100%;
-      height: 1px;
+      height: calc(1rem / 16);
       background-color: var(--divider-background-color);
       
       &[data-color-variant="tone-b"] {
@@ -1364,10 +1360,10 @@ em,
       &:hover,
       &.hover {
         &:not([disabled]) {
-          &:after {
+          &::after {
             content: "";
             position: absolute;
-            border-bottom: var(--kobber-component-nav-link-border-width-hover) solid currentColor;
+            border-bottom: var(--kobber-component-nav-link-border-width-hover) solid;
             bottom: 0;
             right: 0;
             left: 0;
@@ -1388,7 +1384,7 @@ em,
         &:hover,
         &.hover {
           &:not([disabled]) {
-            &:after {
+            &::after {
               /* prevents hover from colliding with focus border */
               bottom: 0.2rem;
               right: var(--kobber-component-nav-link-gap);
@@ -1479,7 +1475,6 @@ em,
 
       .text {
         align-self: center;
-        line-height: calc(1rem + var(--kobber-component-menu-item-border-bottom-padding));
       }
 
       &[data-active="true"],
@@ -2054,10 +2049,10 @@ em,
       gap: var(--kobber-component-text-link-gap);
       line-height: normal;
 
-      &:after {
+      &::after {
         content: "";
         position: absolute;
-        border-bottom: var(--kobber-component-text-link-border-width) solid currentColor;
+        border-bottom: var(--kobber-component-text-link-border-width) solid;
         bottom: 0;
         right: 0;
         left: 0;
@@ -2078,7 +2073,7 @@ em,
   border-radius: var(--kobber-universal-focus-border-radius-xsmall);
 ;
         padding: 0.5rem;
-        &:after {
+        &::after {
           /* prevents hover from colliding with focus border */
           bottom: 0.2rem;
           right: var(--kobber-component-text-link-gap);

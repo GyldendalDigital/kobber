@@ -1,10 +1,10 @@
 import { css, unsafeCSS } from "lit";
-import { displayTokens, displayName, displaySizes, displayFonts } from "./Display.core";
 import { resetMargin } from "../../base/styles/reset.styles";
 import {
   defaultTypographyStyles,
   setTypographyVariable,
 } from "../../base/styles/typography.styles";
+import { displayFonts, displayName, displaySizes, displayTokens } from "./Display.core";
 
 const createDisplayStyles = () => css`
 .${unsafeCSS(displayName)} {
