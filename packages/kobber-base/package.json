@@ -28,9 +28,9 @@
     "url": "https://github.com/GyldendalDigital/kobber"
   },
   "devDependencies": {
-    "style-dictionary": "^5.0.4",
+    "style-dictionary": "^5.1.1",
     "tsup": "^8.5.0",
-    "tsx": "^4.19.2",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.3"
   }
 }
