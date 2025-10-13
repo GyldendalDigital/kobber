@@ -17,7 +17,8 @@
             deletePrompt: "Delete the recording?",
             yes: "Yes",
             no: "No",
-            of: "of"
+            of: "of",
+            loading: "Loading"
 
         },
         nb: {
@@ -30,7 +31,8 @@
             deletePrompt: "Vil du slette opptaket?",
             yes: "Ja",
             no: "Nei",
-            of: "av"
+            of: "av",
+            loading: "Laster"
         },
         nn: {
             play: "Spel av",
@@ -42,7 +44,8 @@
             deletePrompt: "Vil du slette opptaket?",
             yes: "Ja",
             no: "Nei",
-            of: "av"
+            of: "av",
+            loading: "Lastar"
         }
     }
 
@@ -96,6 +99,8 @@
     let animationId = null;
     let isPlaying = false;
     let confirmDelete = false;
+    let isLoading = false;
+    let isMicrophoneEnabled = true;
 
     let decodedAudioData = [];
     let recData = [];
@@ -107,6 +112,35 @@
     let currentTimePercentage = "0%";
     let recordedSeconds = 0;
     $: isExpanded = recData.length > 0 || audioArray.length > 0 || isRecording || audioData;
+
+    async function checkMicrophoneAvailability() {
+        try {
+            const devices = await navigator.mediaDevices.enumerateDevices();
+            const hasMic = devices.some(d => d.kind === 'audioinput');
+            if (!hasMic) {
+                isMicrophoneEnabled = false
+                return;
+            }
+
+            const perm = await navigator.permissions.query({ name: 'microphone' });
+            perm.onchange = () => checkMicrophoneAvailability();
+            if (perm.state === "denied") {
+                isMicrophoneEnabled = false
+            } else if (perm.state === "granted") {
+                isMicrophoneEnabled = true;
+            }
+        } catch {
+            return 'not supported';
+        }
+    }
+
+    navigator.mediaDevices.addEventListener('devicechange', checkMicrophoneAvailability);
+    checkMicrophoneAvailability();
+
+
+
+
+
 
     function roundWithDecimals(num, decimals){
         return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
@@ -167,7 +201,9 @@
             audioCtx = new AudioContext();
             audioCtx.decodeAudioData(response).then((audioBuffer) => {
                 decodedAudioData.push(audioBufferToWav(audioBuffer));
-                serializeBlobs(decodedAudioData).then((blobs) => mp3Callback && mp3Callback(blobs));
+                serializeBlobs(decodedAudioData).then((blobs) => mp3Callback && mp3Callback(blobs)).then(() => {
+                    isLoading = false;
+                });
             });
         })
     }
@@ -330,14 +366,22 @@
     // Also includes the ondataavailable() event that delivers the
     // recorded data when the recording is finished.
     function startRecording() {
+        isRecording = !isRecording;
+        isRecordingCallback(isRecording);
+
         audioCtx = new AudioContext();
         if (navigator.mediaDevices) {
             navigator.mediaDevices
                 .getUserMedia({
                     audio: true,
                     video: false,
-                })
+                }).catch((reason) => {
+                    isMicrophoneEnabled = false;
+                    console.error(reason)
+            })
                 .then((stream) => {
+                    if (!isMicrophoneEnabled) return;
+
                     recData.push([]);
                     analyser = audioCtx.createAnalyser();
                     const source = audioCtx.createMediaStreamSource(stream);
@@ -352,13 +396,18 @@
                     recordedSeconds = roundWithDecimals(timeTotal, 0);
                     countRecordingTime();
                 });
+
         }
     }
 
     // Stops the recording, and handles the data being received.
     async function stopRecording() {
+        isRecording = !isRecording;
+        isRecordingCallback(isRecording);
+
         mediaRecorder.stop();
         mediaRecorder.onstop = (e) => {
+            isLoading = true;
             e.srcElement.stream.getTracks()[0].stop();
             window.cancelAnimationFrame(animationId);
             updateRecordings();
@@ -397,8 +446,6 @@
         } else {
             startRecording();
         }
-        isRecording = !isRecording;
-        isRecordingCallback(isRecording);
     }
 
     $: currentWidth = document.getElementById(".audio-recorder-" + uniqueId)?.getBoundingClientRect().width;
@@ -438,7 +485,7 @@
         <button class="kbr-ar-record-button"
                 id={"record-button-" + uniqueId}
                 on:click={toggleRecord}
-                disabled={isPlaying}
+                disabled={isPlaying || !isMicrophoneEnabled}
         >
             {#if isRecording}
                 <svg xmlns="http://www.w3.org/2000/svg" width="50%" height="50%" viewBox="0 0 16 26" fill="none">
@@ -494,6 +541,7 @@
     <div class="kbr-ar-slider-container"
          style={confirmDelete ? "display: none;" : ""}
     >
+        {#if !isLoading}
         <input
                 style={isRecording ? "display: none;" : "display: block;"}
                 class="kbr-ar-slider"
@@ -511,6 +559,7 @@
                 disabled={timeTotal === 0}
                 aria-label={currentTimeGlobal.toString()}
         />
+        {/if}
     </div>
     <div class="kbr-feedback-container" style={isRecording ? "display: block;" : "display: none;"}>
         <svg
@@ -554,6 +603,8 @@
             <span style={`color: ${recordColor};`}>
                 {new Date(recordedSeconds * 1000).toISOString().substring(14, 19)}
             </span>
+            {:else if isLoading}
+            <div>{translations[lang].loading + "..."}</div>
         {:else}
             {
                 new Date(roundWithDecimals(currentTimeGlobal, 0)*1000).toISOString().substring(14, 19)
