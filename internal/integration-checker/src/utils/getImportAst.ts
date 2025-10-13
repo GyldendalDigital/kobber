@@ -1,12 +1,17 @@
+import { reduceToObject } from "./array";
 import { glob } from "glob";
 import { existsSync, readFileSync } from "node:fs";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
+import { svelte2tsx } from "svelte2tsx";
 import {
   type ImportDeclaration,
   Project,
   type SourceFile,
   type Project as TsMorphProject,
 } from "ts-morph";
+import type { LocalRepo } from "./repo";
 
 interface ImportStatement {
   moduleSpecifier: string;
@@ -15,10 +20,11 @@ interface ImportStatement {
 
 interface File {
   sourceFile: SourceFile;
+  originalFileName: string;
   importStatements: ImportStatement[];
 }
 
-interface PackageJsonDependency {
+export interface PackageJsonDependency {
   packageName: string;
   version: string;
 }
@@ -28,7 +34,7 @@ interface PackageJsonInfo {
   dependencies: PackageJsonDependency[];
 }
 
-interface TsProject {
+export interface TsProject {
   project: TsMorphProject;
   path: string;
   packageJsonInfo: PackageJsonInfo;
@@ -48,26 +54,60 @@ interface Options {
 // Builds an abstract syntax tree of module imports
 
 export const getImportAst = async (options: Options): Promise<ImportAst> => {
+  if (!existsSync(options.repoPath)) {
+    throw new Error(`Repo path ${options.repoPath} does not exist`);
+  }
   const tsconfigPaths = await glob(`${options.repoPath}/**/tsconfig.json`, {
     ignore: [`${options.repoPath}/**/node_modules/**`],
   });
   return {
     repoPath: options.repoPath,
-    tsProjects: tsconfigPaths.map(path => getTsProject(path, options)),
+    tsProjects: await Promise.all(
+      tsconfigPaths.map(path => getTsProject(options.repoPath, path, options)),
+    ),
   };
 };
 
-const getTsProject = (tsProjectPath: string, options: Options): TsProject => {
+const getTsProject = async (
+  repoPath: string,
+  tsProjectPath: string,
+  options: Options,
+): Promise<TsProject> => {
   const project = new Project({ tsConfigFilePath: tsProjectPath });
+  const appendedFiles = await appendSvelteFiles(repoPath, project);
   return {
     project,
     path: tsProjectPath,
     packageJsonInfo: getPackageJsonInfo(tsProjectPath),
     files: project
       .getSourceFiles()
-      .map(sourceFile => getFile(sourceFile, options))
+      .map(sourceFile => getFile(sourceFile, options, appendedFiles[sourceFile.getFilePath()]))
       .filter(isDefined),
   };
+};
+
+// Svelte files are not parsed by default.
+// They must be added manually to the ts project.
+
+const appendSvelteFiles = async (repoPath: string, project: Project) => {
+  const appendedFiles = await Promise.all(
+    glob.sync("**/*.svelte", { cwd: repoPath, absolute: true }).map(async filePath => {
+      try {
+        const svelteSource = await readFile(filePath, "utf8");
+        const tsx = svelte2tsx(svelteSource).code;
+        const rel = path.relative(repoPath, filePath).replace(/\.svelte$/, ".tsx");
+        const outDir = path.join(os.tmpdir(), repoPath, "converted-svelte");
+        const tempPath = path.join(outDir, rel);
+        await mkdir(path.dirname(tempPath), { recursive: true });
+        await writeFile(tempPath, tsx, "utf8");
+        project.addSourceFileAtPath(tempPath);
+        return { [tempPath]: filePath };
+      } catch {
+        console.error(`Error converting ${filePath} to TSX`);
+      }
+    }),
+  );
+  return appendedFiles.filter(isDefined).reduce(reduceToObject, {});
 };
 
 const getPackageJsonInfo = (tsProjectPath: string): PackageJsonInfo => {
@@ -90,8 +130,9 @@ const getPackageJsonInfo = (tsProjectPath: string): PackageJsonInfo => {
   };
 };
 
-const getFile = (sourceFile: SourceFile, options: Options): File => ({
+const getFile = (sourceFile: SourceFile, options: Options, originalFileName?: string): File => ({
   sourceFile,
+  originalFileName: originalFileName ?? sourceFile.getFilePath(),
   importStatements: sourceFile
     .getImportDeclarations()
     .map(importDeclaration => getImportStatement(importDeclaration, options))
@@ -113,6 +154,7 @@ const getImportStatement = (
 };
 
 export interface ImportAstRow {
+  localRepo: LocalRepo;
   moduleSpecifier: string;
   namedImport: string;
   importAst: ImportAst;
@@ -120,12 +162,13 @@ export interface ImportAstRow {
   file: File;
 }
 
-export const flattenImportAst = (importAst: ImportAst): ImportAstRow[] => {
+export const flattenImportAst = (localRepo: LocalRepo, importAst: ImportAst): ImportAstRow[] => {
   return importAst.tsProjects.flatMap(tsProject => {
     return tsProject.files.flatMap(file => {
       return file.importStatements.flatMap(importStatement => {
         return importStatement.namedImports.flatMap(namedImport => {
           return {
+            localRepo,
             importAst,
             tsProject,
             file,

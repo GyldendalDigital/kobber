@@ -19,7 +19,7 @@
     "build-storybook-web-components": "turbo build-storybook-web-components",
     "css": "turbo css",
     "publish-packages": "turbo run build lint && changeset version && changeset publish",
-    "check-integrations": "turbo check-integrations"
+    "integration-checker": "turbo clone-repos && turbo create-ts-refs && turbo create-csv"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.4",

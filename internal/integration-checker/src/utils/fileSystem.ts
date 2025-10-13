@@ -5,10 +5,17 @@ import path from "node:path";
 
 const rootDirectory = path.join(__dirname, "../", "../");
 
-export const initDirectories = async () => ({
-  dest: await createDirectory(path.join(rootDirectory, "dest")),
-  temporaryRepos: await createDirectory(path.join(os.tmpdir(), "temporary-repos")),
-});
+export const temporaryReposDirectory = path.join(os.tmpdir(), "temporary-repos");
+
+export const destDirectory = path.join(rootDirectory, "dest");
+
+export const initTemporaryReposDirectory = async () => {
+  return await createDirectory(temporaryReposDirectory);
+};
+
+export const initDestDirectory = async () => {
+  return await createDirectory(destDirectory);
+};
 
 const createDirectory = async (directoryName: string) => {
   if (existsSync(directoryName)) {

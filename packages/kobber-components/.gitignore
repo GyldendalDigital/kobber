@@ -6,3 +6,4 @@ docs
 
 # Generated files
 **/src/index*.ts
+.references.mts

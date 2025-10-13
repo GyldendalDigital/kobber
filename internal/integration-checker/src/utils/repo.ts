@@ -1,43 +1,40 @@
 import { execSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import path from "node:path";
-import { execAsync } from "./execAsync";
+import { getImportAst, type ImportAst } from "./getImportAst";
 
-export interface RepoTestCommands {
-  prepare?: string;
-  install: string;
-  test: string;
-}
+const pathToThisPackage = path.join(__dirname, "../../");
 
-export interface LocalRepoOptions {
+const configFilePath = `${pathToThisPackage}/repos.json`;
+
+interface LocalRepoOptions {
   name: string;
   directory: string;
-  testCommands?: RepoTestCommands;
 }
 
-export interface CloneableRepoOptions {
+interface CloneableRepoOptions {
   name: string;
   url: string;
   branch: string;
   directory: string;
   clone: boolean;
-  testCommands?: RepoTestCommands;
 }
 
 export interface LocalRepo {
   name: string;
   directory: string;
-  testCommands?: RepoTestCommands;
 }
 
 export const getRepoOptionsFromFile = (
-  filePath: string,
-  temporaryReposDirectory: string,
+  temporaryReposDirectory: string
 ): (LocalRepoOptions | CloneableRepoOptions)[] => {
-  const jsonString = readFileSync(filePath, "utf-8");
-  const json = JSON.parse(jsonString) as (CloneableRepoOptions | LocalRepoOptions)[];
+  const jsonString = readFileSync(configFilePath, "utf-8");
+  const json = JSON.parse(jsonString) as (
+    | CloneableRepoOptions
+    | LocalRepoOptions
+  )[];
 
-  return json.map(template => {
+  return json.map((template) => {
     if (
       typeof process.env.AZURE_USERNAME !== "string" ||
       typeof process.env.AZURE_ACCESS_TOKEN !== "string" ||
@@ -57,35 +54,43 @@ export const getRepoOptionsFromFile = (
           .replaceAll("GITHUB_ACCESS_TOKEN", process.env.GITHUB_ACCESS_TOKEN),
         branch: template.branch,
         directory: path.join(temporaryReposDirectory, template.directory),
-        testCommands: template.testCommands,
       };
     }
     return {
       name: template.name,
       directory: template.directory,
-      testCommands: template.testCommands,
     };
   });
 };
 
 export const cloneRepo = (options: CloneableRepoOptions): LocalRepo => {
   const { name, url, branch, directory } = options;
-  execSync(`git clone --depth 1 --branch ${branch} ${url} ${directory}`, { stdio: "inherit" });
+  execSync(`git clone --depth 1 --branch ${branch} ${url} ${directory}`, {
+    stdio: "inherit",
+  });
   return {
     name,
     directory,
-    testCommands: options.testCommands,
   };
 };
 
 export const isCloneableRepoOptions = (
-  repo: LocalRepoOptions | CloneableRepoOptions,
-): repo is CloneableRepoOptions => (repo as CloneableRepoOptions).url !== undefined;
+  repo: LocalRepoOptions | CloneableRepoOptions
+): repo is CloneableRepoOptions =>
+  (repo as CloneableRepoOptions).url !== undefined;
 
-export const runCommandInRepo = async (localRepo: LocalRepo, command: string) => {
-  const fullCommand = `
-    cd ${localRepo.directory} &&
-    ${command}
-    `;
-  return await execAsync(fullCommand);
+export interface RepoWithImportAst {
+  localRepo: LocalRepo;
+  importAst: ImportAst;
+}
+
+export const appendImportAst = async (
+  localRepo: LocalRepo
+): Promise<RepoWithImportAst> => {
+  const importAst = await getImportAst({
+    repoPath: localRepo.directory,
+    moduleSpecifierFilter: (moduleSpecifier) =>
+      moduleSpecifier.startsWith("@gyldendal/kobber"),
+  });
+  return { localRepo, importAst };
 };

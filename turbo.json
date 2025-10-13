@@ -36,8 +36,8 @@
       "cache": false,
       "persistent": true
     },
-    "check-integrations": {
-      "cache": false
-    }
+    "clone-repos": {"cache": false},
+    "create-ts-refs": {"cache": false},
+    "create-csv": {"cache": false}
   }
 }

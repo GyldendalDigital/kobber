@@ -1,51 +1,28 @@
-import dotenv from "dotenv";
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
-import { createCsvString } from "./utils/createCsvString";
-import { getCommandLineArguments } from "./utils/getCommandLineArguments";
+import { destDirectory, initDestDirectory, temporaryReposDirectory } from "./utils/fileSystem";
+import { flattenImportAst, type ImportAst, type ImportAstRow } from "./utils/getImportAst";
+import { loadEnv } from "./utils/loadEnv";
 import {
-  flattenImportAst,
-  getImportAst,
-  type ImportAst,
-  type ImportAstRow,
-} from "./utils/getImportAst";
-import { initDirectories } from "./utils/initDirectories";
-import {
-  cloneRepo,
+  appendImportAst,
   getRepoOptionsFromFile,
-  isCloneableRepoOptions,
   type LocalRepo,
+  type RepoWithImportAst,
 } from "./utils/repo";
+import { createCsvString } from "./utils/string";
 
-dotenv.config();
-
-interface CommandLineArguments {
-  reposConfig: string;
-}
-
-const commandLineArguments: CommandLineArguments = getCommandLineArguments();
+loadEnv();
 
 const csvHeader = ["module", "moduleVersion", "namedImport", "repoPath", "tsProject", "filePath"];
 
-const findUsage = async () => {
-  const directories = await initDirectories();
+const build = async () => {
+  await initDestDirectory();
 
-  const repoOptions = getRepoOptionsFromFile(
-    commandLineArguments.reposConfig,
-    directories.temporaryRepos,
-  );
+  const repoOptions = getRepoOptionsFromFile(temporaryReposDirectory);
 
-  console.info(`${commandLineArguments.reposConfig} contains ${repoOptions.length} repos.`);
-  console.info(
-    `${repoOptions
-      .filter(isCloneableRepoOptions)
-      .map(options => `  Cloning ${options.name} into ${options.directory}`)
-      .join("\n")}\n`,
-  );
+  console.info(`Found ${repoOptions.length} repos.`);
 
-  const localRepos: LocalRepo[] = repoOptions.map(options =>
-    isCloneableRepoOptions(options) ? cloneRepo(options) : options,
-  );
+  const localRepos: LocalRepo[] = repoOptions;
 
   console.info("");
 
@@ -56,9 +33,9 @@ const findUsage = async () => {
     }),
   );
 
-  createCsvForEachRepo(reposWithImportAst, directories.dest);
+  await createCsvForEachRepo(reposWithImportAst, destDirectory);
 
-  createMergedCsv(reposWithImportAst, directories.dest);
+  await createMergedCsv(reposWithImportAst, destDirectory);
 };
 
 const createCsvForEachRepo = async (
@@ -76,7 +53,9 @@ const createCsvForEachRepo = async (
 };
 
 const createMergedCsv = async (reposWithImportAst: RepoWithImportAst[], destDirectory: string) => {
-  const mergedAst = reposWithImportAst.flatMap(({ importAst }) => flattenImportAst(importAst));
+  const mergedAst = reposWithImportAst.flatMap(({ localRepo, importAst }) =>
+    flattenImportAst(localRepo, importAst),
+  );
 
   const mergedCsvString = await createCsvString(csvHeader, mergedAst.map(toCsvRow));
 
@@ -86,21 +65,11 @@ const createMergedCsv = async (reposWithImportAst: RepoWithImportAst[], destDire
   }
 };
 
-interface RepoWithImportAst {
-  localRepo: LocalRepo;
-  importAst: ImportAst;
-}
-
-const appendImportAst = async (localRepo: LocalRepo): Promise<RepoWithImportAst> => {
-  const importAst = await getImportAst({
-    repoPath: localRepo.directory,
-    moduleSpecifierFilter: moduleSpecifier => moduleSpecifier.startsWith("@gyldendal/kobber"),
-  });
-  return { localRepo, importAst };
-};
-
 const appendCsvString = async (localRepo: LocalRepo, importAst: ImportAst) => {
-  const csvString = await createCsvString(csvHeader, flattenImportAst(importAst).map(toCsvRow));
+  const csvString = await createCsvString(
+    csvHeader,
+    flattenImportAst(localRepo, importAst).map(toCsvRow),
+  );
   return {
     localRepo,
     csvString,
@@ -123,7 +92,7 @@ const toCsvRow = (row: ImportAstRow): string[] => {
     row.namedImport,
     row.importAst.repoPath.split("/").pop() ?? row.importAst.repoPath,
     `${row.tsProject.packageJsonInfo.name}`,
-    path.relative(absoluteTsProjectDirectory, row.file.sourceFile.getFilePath()),
+    path.relative(absoluteTsProjectDirectory, row.file.originalFileName),
   ];
 };
 
@@ -137,5 +106,5 @@ const getModuleVersionColumn = (row: ImportAstRow) => {
 };
 
 (async () => {
-  await findUsage();
+  await build();
 })();

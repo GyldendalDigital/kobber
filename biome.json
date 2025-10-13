@@ -8,6 +8,7 @@
   "files": {
     "includes": [
       "packages/**/*.*",
+      "internal/**/*.*",
       "apps/docs/**/*.*",
       "!node_modules",
       "!**/node_modules",

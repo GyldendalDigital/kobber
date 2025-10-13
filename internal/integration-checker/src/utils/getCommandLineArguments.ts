@@ -1,4 +1,4 @@
-export const getCommandLineArguments = () =>
+export const getCommandLineArguments = <T>(): T =>
   Object.fromEntries(
     process.argv.slice(2).map(arg => {
       const [key, value] = arg.replace(/^--/, "").split("=");

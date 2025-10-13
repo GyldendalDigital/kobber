@@ -21,7 +21,8 @@
     "build:css": "tsx ./build-scripts/list-css-components.ts",
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
-    "test": "echo \"No tests configured\""
+    "test": "echo \"No tests configured\"",
+    "create-ts-refs": "create-ts-refs --out=.references.mts  sourceMap=react:./src/index.react.js,web-components:./src/index.web-components.js,init:./src/base/init.js"
   },
   "dependencies": {
     "@gyldendal/kobber-base": "0.6.10",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@gyldendal/kobber-stylelint": "0.6.10",
     "@gyldendal/kobber-tsconfig": "0.6.10",
+    "@internal/integration-checker": "workspace:^",
     "@lit/react": "^1.0.7",
     "@shoelace-style/shoelace": "^2.14.0",
     "@types/react": "^19.1.0",

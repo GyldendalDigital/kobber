@@ -1,5 +1,15 @@
 [
   {
+    "name": "ContentTemplates",
+    "url": "https://github.com/GyldendalDigital/content-templates",
+    "branch": "main",
+    "directory": "contentTemplates",
+    "testCommands": {
+      "install": "cd client && npm install",
+      "test": "cd client && npm run lint"
+    }
+  },
+  {
     "name": "SmartExercise",
     "url": "https://GITHUB_USERNAME:GITHUB_ACCESS_TOKEN@github.com/GyldendalDigital/SmartExercise.git",
     "branch": "master",

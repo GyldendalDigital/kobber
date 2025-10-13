@@ -19,7 +19,8 @@
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
     "svg": "rm -rf dist src/tmp && svg-sprite --config ./svg-scripts/svg-sprite-config.json src/assets/svgs/**/*.svg",
-    "build": "yarn svg && tsup"
+    "build": "yarn svg && tsup",
+    "create-ts-refs": "create-ts-refs --out=.references.mts  sourceMap=react:./src/index.react.js,web-components:./src/index.web-components.js,init:./src/base/init.js"
   },
   "dependencies": {
     "@gyldendal/kobber-base": "0.6.10",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@gyldendal/kobber-tsconfig": "0.6.10",
+    "@internal/integration-checker": "workspace:^",
     "@lit/react": "^1.0.7",
     "@types/jsdom": "^21.1.7",
     "@types/react": "^19.1.0",
