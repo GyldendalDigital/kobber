@@ -911,7 +911,7 @@
       border-radius: var(--kobber-component-checkbox-outline-border-radius);
       border: var(--kobber-component-checkbox-indicator-border-width) solid var(--control-border-color);
       outline: var(--kobber-component-checkbox-outline-border-width) solid var(--control-outline-color);
-      color: var(--color)
+      color: var(--color);
       flex-shrink: 0;
       background-color: var(--control-background-color);
       transition: var(--transition-time) outline;
@@ -2113,8 +2113,8 @@ em,
     &[data-size="medium"] {
       --list-gap: var(--kobber-component-list-gap-ordered-medium);
     }
-    &[data-size="small"] {
-      --list-gap: var(--kobber-component-list-gap-ordered-small);
+    &[data-size="large"] {
+      --list-gap: var(--kobber-component-list-gap-ordered-large);
     }
   }
 
@@ -2129,8 +2129,8 @@ em,
     &[data-size="medium"] {
       --list-gap: var(--kobber-component-list-gap-unordered-medium);
     }
-    &[data-size="small"] {
-      --list-gap: var(--kobber-component-list-gap-unordered-small);
+    &[data-size="large"] {
+      --list-gap: var(--kobber-component-list-gap-unordered-large);
     }
   }
 }

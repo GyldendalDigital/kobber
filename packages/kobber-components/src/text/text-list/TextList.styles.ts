@@ -31,8 +31,8 @@ const createTextListStyles = () => css`
     &[data-size="medium"] {
       --list-gap: var(${unsafeCSS(textListTokens.gap.ordered.medium)});
     }
-    &[data-size="small"] {
-      --list-gap: var(${unsafeCSS(textListTokens.gap.ordered.small)});
+    &[data-size="large"] {
+      --list-gap: var(${unsafeCSS(textListTokens.gap.ordered.large)});
     }
   }
 
@@ -47,8 +47,8 @@ const createTextListStyles = () => css`
     &[data-size="medium"] {
       --list-gap: var(${unsafeCSS(textListTokens.gap.unordered.medium)});
     }
-    &[data-size="small"] {
-      --list-gap: var(${unsafeCSS(textListTokens.gap.unordered.small)});
+    &[data-size="large"] {
+      --list-gap: var(${unsafeCSS(textListTokens.gap.unordered.large)});
     }
   }
 }
