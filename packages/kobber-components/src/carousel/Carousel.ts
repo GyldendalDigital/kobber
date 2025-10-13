@@ -1,10 +1,10 @@
+import { ContextProvider as LitContextProvider } from "@lit/context";
 import { ResizeController } from "@lit-labs/observers/resize-controller.js";
 import { css, html, LitElement, unsafeCSS } from "lit";
 import { property, queryAssignedElements, state } from "lit/decorators.js";
-import { gap, minCardWidth } from "./Carousel.config";
-import { ContextProvider as LitContextProvider } from "@lit/context";
-import { context, defaultContext } from "./Carousel.context";
 import { customElement } from "../base/utilities/customElementDecorator";
+import { gap, minCardWidth } from "./Carousel.config";
+import { context, defaultContext } from "./Carousel.context";
 
 @customElement("kobber-carousel")
 export class Carousel extends LitElement {
@@ -210,7 +210,7 @@ export class Carousel extends LitElement {
     const childNodes = e.target.assignedElements();
     this._numberOfChildren = childNodes[0].children.length;
     const carousel = this.shadowRoot?.querySelector(".carousel");
-    this._carouselFullWidth = carousel!.scrollWidth;
+    this._carouselFullWidth = carousel?.scrollWidth ?? 0;
   };
 
   static styles = css`
@@ -279,10 +279,9 @@ export class Carousel extends LitElement {
     return html`
       <div class="wrapper">
         <div
-          class="carousel ${this.provider.value.previousIsEnabled ? "has-previous-items" : ""}  ${this.provider.value
-            .nextIsEnabled
-            ? "has-next-items"
-            : ""}"
+          class="carousel ${this.provider.value.previousIsEnabled ? "has-previous-items" : ""}  ${
+            this.provider.value.nextIsEnabled ? "has-next-items" : ""
+          }"
           role="group"
           aria-roledescription="${this.ariaRoleDescription}"
           style="
@@ -293,16 +292,18 @@ export class Carousel extends LitElement {
         "
         >
           <slot @slotchange=${this._handleSlotchange}></slot>
-          ${this._getTooFewItems()
-            ? html``
-            : html`<div class="nav">
+          ${
+            this._getTooFewItems()
+              ? html``
+              : html`<div class="nav">
                 <div class="nav-item">
                   <slot name="previous-button"></slot>
                 </div>
                 <div class="nav-item">
                   <slot name="next-button"></slot>
                 </div>
-              </div>`}
+              </div>`
+          }
         </div>
       </div>
     `;

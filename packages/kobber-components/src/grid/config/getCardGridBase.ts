@@ -1,4 +1,4 @@
-import { GridConfig } from "./types";
+import type { GridConfig } from "./types";
 
 interface GetCardGridBaseOptions {
   maxColumns: number;
@@ -16,7 +16,10 @@ export const layout = {
   maxWidth: 1280,
 };
 
-export const getCardGridBase = ({ maxColumns, aspectRatioHeight }: GetCardGridBaseOptions): GridConfig => {
+export const getCardGridBase = ({
+  maxColumns,
+  aspectRatioHeight,
+}: GetCardGridBaseOptions): GridConfig => {
   const outerPadding = layout.gap["8-96"];
 
   const gap = layout.gap["8-16"];
@@ -65,7 +68,7 @@ export const getCardGridBase = ({ maxColumns, aspectRatioHeight }: GetCardGridBa
       gridColumn: {
         [oneColumnQuery]: "span 1",
       },
-      ["--span"]: {
+      "--span": {
         [oneColumnQuery]: "1",
       },
       aspectRatio: {

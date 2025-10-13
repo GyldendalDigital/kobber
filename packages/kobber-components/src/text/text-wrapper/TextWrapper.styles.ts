@@ -1,7 +1,7 @@
-import { css, unsafeCSS } from "lit";
 import { universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { TextWrapperClassNames } from "./TextWrapper.core";
-import { getTypographyStyles } from "../../base/getTypographyStyles2";
+import { css, unsafeCSS } from "lit";
+import { getTypographyStyles } from "../../base/getTypographyStyles";
+import type { TextWrapperClassNames } from "./TextWrapper.core";
 
 const createTextWrapperStyles = () => {
   const body = universal["text-body"];

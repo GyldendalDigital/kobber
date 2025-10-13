@@ -1,7 +1,7 @@
+import * as fs from "node:fs";
 import type { Config } from "style-dictionary/types";
-import * as fs from "fs";
-import { type ThemeConfig, themeDirectory } from "../src/types";
 import { buildThemeTokens } from "../src/styleDictionary/buildThemeTokens";
+import { type ThemeConfig, themeDirectory } from "../src/types";
 
 /** Assert various steps of token build */
 export const buildThemeTokensTest = async (tokensFromFigma: any, themeConfig: ThemeConfig) => {
@@ -22,7 +22,7 @@ const assertSanitized = (tokensFromFigmaSanitized: any, themeConfig: ThemeConfig
   }
 };
 
-const assertBuildComplete = (styleDictionaryConfig: Config, themeConfig: ThemeConfig) => {
+const assertBuildComplete = (_styleDictionaryConfig: Config, themeConfig: ThemeConfig) => {
   const tokenDirectory = `${themeDirectory}/${themeConfig.themeName}`;
   if (!fs.existsSync(`${tokenDirectory}/tokens.json`)) {
     console.error(`Build failed. Files does not exist in ${tokenDirectory}`);

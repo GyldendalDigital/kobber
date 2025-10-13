@@ -2,9 +2,9 @@ import { css, unsafeCSS } from "lit";
 
 import {
   type TextModuleClassNames,
-  textModuleTokens,
   textModuleColors,
   textModuleColorVariants,
+  textModuleTokens,
 } from "./TextModule.core";
 
 const createTextModuleStyles = () => {

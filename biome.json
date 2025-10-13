@@ -1,19 +1,21 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": {
     "enabled": false,
     "clientKind": "git",
-    "useIgnoreFile": false
+    "useIgnoreFile": true
   },
   "files": {
     "includes": [
-      "packages/**/*.*",
-      "internal/**/*.*",
-      "apps/docs/**/*.*",
+      "packages/kobber-base/**/*.ts",
+      "packages/kobber-components/**/*.ts",
+      "internal/**/*.ts",
       "!node_modules",
       "!**/node_modules",
       "!**/dist",
-      "!**/.*"
+      "!**/.*",
+      "!**/index.web-components.ts",
+      "!**/index.react.ts"
     ],
     "ignoreUnknown": false
   },
@@ -38,6 +40,12 @@
             }
           }
         }
+      },
+      "correctness": {
+        "useParseIntRadix": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "off"
       }
     }
   },
@@ -51,7 +59,7 @@
     "enabled": true,
     "actions": {
       "source": {
-        "organizeImports": "off"
+        "organizeImports": "on"
       }
     }
   }

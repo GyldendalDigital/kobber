@@ -1,6 +1,6 @@
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { ResizeController } from "@lit-labs/observers/resize-controller.js";
-import { LitElement, css, html, unsafeCSS } from "lit";
+import { css, html, LitElement, unsafeCSS } from "lit";
 import { property } from "lit/decorators.js";
 import { customElement } from "../../base/utilities/customElementDecorator";
 
@@ -100,7 +100,7 @@ export class ExampleCard extends LitElement {
 
   render = () => html`
     <div class="media">
-      <img src="${this.image}" alt="" />
+      <img src="${this.image ?? ""}" alt="" />
     </div>
     <div class="badge">${this.badge}</div>
     <div class="dimensions">${this._renderDimensions()}</div>

@@ -36,7 +36,9 @@ const runDecorator = async (decoratorArgs: DecoratorArgs) => {
 const register = ({ tagName, classOrTarget, context }: DecoratorArgs) => {
   const existing = customElements.get(tagName);
   if (existing) {
-    console.warn(`The element ${tagName} is already defined. You may need to reload to see changes.`);
+    console.warn(
+      `The element ${tagName} is already defined. You may need to reload to see changes.`,
+    );
   } else {
     if (context !== undefined) {
       context.addInitializer(() => {

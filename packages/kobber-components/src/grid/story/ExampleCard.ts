@@ -1,6 +1,6 @@
-import { LitElement, css, html, unsafeCSS } from "lit";
-import { property, state } from "lit/decorators.js";
 import * as tokens from "@gyldendal/kobber-base/themes/default/tokens.js";
+import { css, html, LitElement, unsafeCSS } from "lit";
+import { property, state } from "lit/decorators.js";
 import { customElement } from "../../base/utilities/customElementDecorator";
 
 const paddingBlock = "16px";
@@ -96,7 +96,7 @@ export class ExampleCard extends LitElement {
   }
 
   private _firstResizeObserverContentRect = (entries: ResizeObserverEntry[]) =>
-    entries.length > 0 ? entries[0].contentRect : undefined;
+    entries.length > 0 ? entries[0]?.contentRect : undefined;
 
   connectedCallback() {
     this._resizeObserver.observe(this);
@@ -118,7 +118,7 @@ export class ExampleCard extends LitElement {
   render() {
     return html`
       <div class="media">
-        <img src="${this.image}" alt="" />
+        <img src="${this.image ?? ""}" alt="" />
       </div>
       <div class="badge">${this.badge}</div>
       <div class="dimensions">${this._renderDimensions()}</div>

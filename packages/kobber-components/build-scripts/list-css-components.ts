@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import { collectComponentObjects, autogenerateHeader } from ".";
+import { autogenerateHeader, collectComponentObjects } from ".";
 
 const cssFile = "./src/index.css";
 
@@ -20,7 +20,9 @@ const listCssComponents = async () => {
     for (const [name, value] of Object.entries(mod)) {
       if (value && typeof value === "object" && "cssText" in value) {
         if (value.cssText && typeof value.cssText === "string") {
-          cssTexts.push(`/* #region ${object.exportName} - ${name} */ \n${value.cssText}\n/* #endregion */`);
+          cssTexts.push(
+            `/* #region ${object.exportName} - ${name} */ \n${value.cssText}\n/* #endregion */`,
+          );
           break;
         } else {
           console.debug(`Invalid cssText found in ${fileName} `);

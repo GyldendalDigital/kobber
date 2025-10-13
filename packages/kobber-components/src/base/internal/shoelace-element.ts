@@ -9,7 +9,9 @@ type EventTypeRequiresDetail<T> = T extends keyof GlobalEventHandlersEventMap
       GlobalEventHandlersEventMap[T] extends CustomEvent<Record<PropertyKey, never>>
       ? never
       : // ...and has at least one non-optional property
-        Partial<GlobalEventHandlersEventMap[T]["detail"]> extends GlobalEventHandlersEventMap[T]["detail"]
+        Partial<
+            GlobalEventHandlersEventMap[T]["detail"]
+          > extends GlobalEventHandlersEventMap[T]["detail"]
         ? never
         : T
     : never
@@ -20,7 +22,9 @@ type EventTypeDoesNotRequireDetail<T> = T extends keyof GlobalEventHandlersEvent
   ? GlobalEventHandlersEventMap[T] extends CustomEvent<Record<PropertyKey, unknown>>
     ? GlobalEventHandlersEventMap[T] extends CustomEvent<Record<PropertyKey, never>>
       ? T
-      : Partial<GlobalEventHandlersEventMap[T]["detail"]> extends GlobalEventHandlersEventMap[T]["detail"]
+      : Partial<
+            GlobalEventHandlersEventMap[T]["detail"]
+          > extends GlobalEventHandlersEventMap[T]["detail"]
         ? T
         : never
     : T
@@ -46,7 +50,9 @@ type SlEventInit<T> = T extends keyof GlobalEventHandlersEventMap
   ? GlobalEventHandlersEventMap[T] extends CustomEvent<Record<PropertyKey, unknown>>
     ? GlobalEventHandlersEventMap[T] extends CustomEvent<Record<PropertyKey, never>>
       ? CustomEventInit<GlobalEventHandlersEventMap[T]["detail"]>
-      : Partial<GlobalEventHandlersEventMap[T]["detail"]> extends GlobalEventHandlersEventMap[T]["detail"]
+      : Partial<
+            GlobalEventHandlersEventMap[T]["detail"]
+          > extends GlobalEventHandlersEventMap[T]["detail"]
         ? CustomEventInit<GlobalEventHandlersEventMap[T]["detail"]>
         : WithRequired<CustomEventInit<GlobalEventHandlersEventMap[T]["detail"]>, "detail">
     : CustomEventInit
@@ -93,17 +99,23 @@ export default class ShoelaceElement extends LitElement {
     return event as GetCustomEventType<T>;
   }
 
-   
   static version = "2.14.0";
-   
 
-  static define(name: string, elementConstructor = this, options: ElementDefinitionOptions = {}) {
+  static define(
+    name: string,
+    elementConstructor = ShoelaceElement,
+    options: ElementDefinitionOptions = {},
+  ) {
     const currentlyRegisteredConstructor = customElements.get(name) as
       | CustomElementConstructor
       | typeof ShoelaceElement;
 
     if (!currentlyRegisteredConstructor) {
-      customElements.define(name, class extends elementConstructor {} as unknown as CustomElementConstructor, options);
+      customElements.define(
+        name,
+        class extends elementConstructor {} as unknown as CustomElementConstructor,
+        options,
+      );
       return;
     }
 
@@ -133,9 +145,11 @@ export default class ShoelaceElement extends LitElement {
 
   constructor() {
     super();
-    Object.entries((this.constructor as typeof ShoelaceElement).dependencies).forEach(([name, component]) => {
-      (this.constructor as typeof ShoelaceElement).define(name, component);
-    });
+    Object.entries((this.constructor as typeof ShoelaceElement).dependencies).forEach(
+      ([name, component]) => {
+        (this.constructor as typeof ShoelaceElement).define(name, component);
+      },
+    );
   }
 }
 

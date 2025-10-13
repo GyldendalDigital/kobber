@@ -1,5 +1,5 @@
 import { getCardGridBase } from "./config/getCardGridBase";
-import { GridConfig } from "./config/types";
+import type { GridConfig } from "./config/types";
 
 const getCardGridConfig = (): GridConfig => {
   const cardGridBase = getCardGridBase({

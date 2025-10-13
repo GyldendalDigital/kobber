@@ -1,25 +1,25 @@
 import type { CSSResultGroup } from "lit";
-import { html, unsafeStatic } from "lit/static-html.js";
+import { property, query } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { live } from "lit/directives/live.js";
-import { property, query } from "lit/decorators.js";
-import { checkboxStyles } from "./checkboxInput.styles";
+import { html, unsafeStatic } from "lit/static-html.js";
 import { defaultValue } from "../../base/internal/default-value";
-import { watch } from "../../base/internal/watch";
-import ShoelaceElement from "../../base/internal/shoelace-element";
-import type { ShoelaceFormControl } from "../../base/internal/shoelace-element";
 import { FormControlController } from "../../base/internal/form";
-import componentStyles from "../../base/styles/component.styles";
+import type { ShoelaceFormControl } from "../../base/internal/shoelace-element";
+import ShoelaceElement from "../../base/internal/shoelace-element";
 import { HasSlotController } from "../../base/internal/slot";
+import { watch } from "../../base/internal/watch";
+import componentStyles from "../../base/styles/component.styles";
+import { customElement } from "../../base/utilities/customElementDecorator";
 import {
-  inputControlClassName,
-  nativeCheckboxInputClassName,
-  inputLabelClassName,
   checkboxInputName,
   checkboxWrapperClassName,
   type InputProps,
+  inputControlClassName,
+  inputLabelClassName,
+  nativeCheckboxInputClassName,
 } from "../Checkbox.core";
-import { customElement } from "../../base/utilities/customElementDecorator";
+import { checkboxStyles } from "./checkboxInput.styles";
 import "../../text/text-label/TextLabel";
 
 import { HTMLElement } from "@lit-labs/ssr-dom-shim";

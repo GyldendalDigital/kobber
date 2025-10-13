@@ -1,20 +1,20 @@
 {
   "name": "@gyldendal/kobber-stylelint",
-  "version": "0.6.10",
+  "version": "0.6.11",
   "main": ".stylelintrc.cjs",
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf .turbo node_modules"
   },
   "peerDependencies": {
-    "stylelint": ">=15",
-    "stylelint-config-standard": ">=34",
-    "stylelint-order": ">=6"
+    "stylelint": ">=16",
+    "stylelint-config-standard": ">=39",
+    "stylelint-order": ">=7"
   },
   "dependencies": {
-    "stylelint": "^16.0.2",
-    "stylelint-config-standard": "^35.0.0",
-    "stylelint-order": "^6.0.4",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^39.0.1",
+    "stylelint-order": "^7.0.0",
     "stylelint-value-no-unknown-custom-properties": "^6.0.1"
   }
 }

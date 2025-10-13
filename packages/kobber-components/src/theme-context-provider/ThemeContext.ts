@@ -1,10 +1,10 @@
 import * as tokensDark from "@gyldendal/kobber-base/themes/dark/tokens.js";
 import * as tokensDefault from "@gyldendal/kobber-base/themes/default/tokens.js";
 import { createContext, provide } from "@lit/context";
-import { LitElement, html } from "lit";
+import { html, LitElement } from "lit";
 import { property } from "lit/decorators.js";
-import { Theme } from "./theme-context.types";
 import { customElement } from "../base/utilities/customElementDecorator";
+import type { Theme } from "./theme-context.types";
 
 const themes: Theme[] = [
   { id: "kobber-theme-default", tokens: tokensDefault },

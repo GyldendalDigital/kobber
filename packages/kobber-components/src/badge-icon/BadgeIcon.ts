@@ -1,10 +1,10 @@
-import { property } from "lit/decorators.js";
-import * as BadgeIconCore from "./BadgeIcon.core";
 import { type CSSResultGroup, html, LitElement } from "lit";
-import componentStyles from "../base/styles/component.styles";
-import { badgeIconStyles } from "./BadgeIcon.styles";
-import { customElement } from "../base/utilities/customElementDecorator";
+import { property } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
+import componentStyles from "../base/styles/component.styles";
+import { customElement } from "../base/utilities/customElementDecorator";
+import * as BadgeIconCore from "./BadgeIcon.core";
+import { badgeIconStyles } from "./BadgeIcon.styles";
 import "../text/text-label/TextLabel";
 
 @customElement(BadgeIconCore.badgeIconName)

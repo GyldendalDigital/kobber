@@ -1,17 +1,17 @@
 import StyleDictionary from "style-dictionary";
-import { ThemeConfig } from "../types";
+import type { ThemeConfig } from "../types";
 import { esmFormat } from "./formats/esm";
+import { esmWithCssVariableValues } from "./formats/esmWithCssVariableValues";
+import { textFormat } from "./formats/textFormat";
 import { tsDeclarationsFormat } from "./formats/tsDeclarations";
 import { getStyleDictionaryConfig } from "./getStyleDictionaryConfig";
 import { registerFormats } from "./registerFormats";
-import { sanitizeJsonFromFigma } from "./sanitizeJsonFromFigma";
-import { esmWithCssVariableValues } from "./formats/esmWithCssVariableValues";
 import { registerTransforms } from "./registerTransforms";
-import { fluidClampTransform } from "./transforms/fluidClamp";
+import { sanitizeJsonFromFigma } from "./sanitizeJsonFromFigma";
 import { dimensionToNumberOverrideTransform } from "./transforms/dimensionToNumberOverride";
-import { opacityScopeHandlerTransform } from "./transforms/opacityScopeHandler";
+import { fluidClampTransform } from "./transforms/fluidClamp";
 import { fontWeightScopeHandlerTransform } from "./transforms/fontWeightScopeHandler";
-import { textFormat } from "./formats/textFormat";
+import { opacityScopeHandlerTransform } from "./transforms/opacityScopeHandler";
 
 /**
  * Convert Figma modes into themes

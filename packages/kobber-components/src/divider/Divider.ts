@@ -1,10 +1,10 @@
 import { type CSSResultGroup, html } from "lit";
 import { property } from "lit/decorators.js";
-import { dividerClassnames, type DividerProps } from "./Divider.core";
-import { dividerStyles } from "./Divider.styles";
+import { ifDefined } from "lit/directives/if-defined.js";
 import KobberElement from "../base/kobber-element";
 import { customElement } from "../base/utilities/customElementDecorator";
-import { ifDefined } from "lit/directives/if-defined.js";
+import { type DividerProps, dividerClassnames } from "./Divider.core";
+import { dividerStyles } from "./Divider.styles";
 
 @customElement("kobber-divider")
 export class Divider extends KobberElement implements DividerProps {

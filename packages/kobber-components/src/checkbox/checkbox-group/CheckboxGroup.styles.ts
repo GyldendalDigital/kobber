@@ -1,6 +1,6 @@
-import { css, unsafeCSS } from "lit";
-import { GroupClassNames } from "../Checkbox.core";
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { css, unsafeCSS } from "lit";
+import type { GroupClassNames } from "../Checkbox.core";
 
 const _checkbox = component._checkbox;
 const checkbox = component.checkbox;

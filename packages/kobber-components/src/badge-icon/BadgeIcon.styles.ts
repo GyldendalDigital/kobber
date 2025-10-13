@@ -1,14 +1,14 @@
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
+import { getTypographyStyles } from "../base/getTypographyStyles";
 import {
   type BadgeIconClassName,
   type BadgeIconIconClassName,
-  badgeIconName,
-  badgeIconSizes,
   badgeIconColorThemes,
   badgeIconColorVariants,
+  badgeIconName,
+  badgeIconSizes,
 } from "./BadgeIcon.core";
-import { getTypographyStyles } from "../base/getTypographyStyles2";
 
 const containerStyles = component["badge-icon"];
 

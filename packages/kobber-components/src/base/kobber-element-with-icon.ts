@@ -1,5 +1,5 @@
-import KobberElement from "./kobber-element";
 import { state } from "lit/decorators.js";
+import KobberElement from "./kobber-element";
 
 export default class KobberElementWithIcon extends KobberElement {
   @state()
@@ -15,7 +15,9 @@ export default class KobberElementWithIcon extends KobberElement {
     super.connectedCallback();
 
     // used for special icon only styling
-    const hasSlot = Array.from(this.shadowRoot!.host.children).filter(element => element.tagName === "SLOT").length > 0;
+    const hasSlot =
+      Array.from(this.shadowRoot?.host.children ?? []).filter(element => element.tagName === "SLOT")
+        .length > 0;
     const textContent = this.shadowRoot?.host.textContent?.trim();
     const hasOtherContentThanIcon = textContent !== "" || hasSlot;
 

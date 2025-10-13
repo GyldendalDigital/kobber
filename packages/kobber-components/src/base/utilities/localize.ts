@@ -1,8 +1,8 @@
+import type { Translation as DefaultTranslation } from "@shoelace-style/localize";
 import {
   LocalizeController as DefaultLocalizationController,
   registerTranslation,
 } from "@shoelace-style/localize";
-import type { Translation as DefaultTranslation } from "@shoelace-style/localize";
 import en from "../translations/en"; // Register English as the default/fallback language
 
 // Extend the controller and apply our own translation interface for better typings

@@ -1,12 +1,12 @@
-import { LitElement } from "lit";
 import type { CSSResultGroup } from "lit";
+import { LitElement } from "lit";
 import { property } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { html, unsafeStatic } from "lit/static-html.js";
 import componentStyles from "../../base/styles/component.styles";
-import { textLabelStyles } from "./TextLabel.styles";
-import { textLabelName, sanitizeTextLabelLevel, type TextLabelProps } from "./TextLabel.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
-import { ifDefined } from "lit/directives/if-defined.js";
+import { sanitizeTextLabelLevel, type TextLabelProps, textLabelName } from "./TextLabel.core";
+import { textLabelStyles } from "./TextLabel.styles";
 
 @customElement(textLabelName)
 export class TextLabel extends LitElement implements TextLabelProps {

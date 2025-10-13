@@ -1,8 +1,8 @@
 import { themeConfigs } from "./buildConfig";
 import { buildThemeTokens } from "./src/styleDictionary/buildThemeTokens";
-import { tokensFromFigma } from "./tokens-from-figma";
 import { invertColorTokens } from "./src/utils/invertColor";
 import { findUnusedTokens } from "./tests/buildThemeTokens.test";
+import { tokensFromFigma } from "./tokens-from-figma";
 
 /**
  * Converts json from Figma into css, js, scss ++

@@ -1,6 +1,6 @@
 {
   "name": "@gyldendal/kobber-tsconfig",
-  "version": "0.6.10",
+  "version": "0.6.11",
   "license": "MIT",
   "type": "module"
 }
