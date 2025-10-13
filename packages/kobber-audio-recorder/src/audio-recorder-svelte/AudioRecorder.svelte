@@ -137,11 +137,6 @@
     navigator.mediaDevices.addEventListener('devicechange', checkMicrophoneAvailability);
     checkMicrophoneAvailability();
 
-
-
-
-
-
     function roundWithDecimals(num, decimals){
         return Math.round((num + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals);
     }
@@ -400,6 +395,8 @@
         }
     }
 
+
+
     // Stops the recording, and handles the data being received.
     async function stopRecording() {
         isRecording = !isRecording;
@@ -474,7 +471,7 @@
         --text-color: {textColor};
         --current-time-percentage: {currentTimePercentage};
         --current-width: {currentWidth};
-        --rows: {isExpanded ? 20 : 10};
+        --rows: {isExpanded ? 20 : 11};
         --percentage-adjustment: {isExpanded ? `8` : `16`}%;
      "
 >
@@ -664,6 +661,7 @@
         border-radius: 5% / var(--percentage-adjustment);
         background-color: var(--background-color);
         color: var(--text-color);
+        font-size: 0.75em;
     }
     .kbr-ar-aspect {
       padding: 50%;
@@ -714,7 +712,7 @@
       height: 100%;
     }
     .kbr-ar-time {
-        grid-row: 17 / span 3;
+        grid-row: 18 / span 2;
         grid-column: 9 / span 16;
         height: 100%;
         width: 100%;
@@ -844,7 +842,7 @@
     }
     label {
       position: absolute;
-      bottom: -1.5em;
+      bottom: -1.9em;
       white-space: nowrap;
       font-size: inherit;
     }
