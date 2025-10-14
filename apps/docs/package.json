@@ -11,10 +11,10 @@
     "typegen": "sanity schema extract --path=sanity/extract.json && sanity typegen generate"
   },
   "dependencies": {
-    "@gyldendal/kobber-base": "0.6.11",
-    "@gyldendal/kobber-components": "0.6.11",
-    "@gyldendal/kobber-icons": "0.6.11",
-    "@gyldendal/kobber-stylelint": "0.6.11",
+    "@gyldendal/kobber-base": "0.6.12",
+    "@gyldendal/kobber-components": "0.6.12",
+    "@gyldendal/kobber-icons": "0.6.12",
+    "@gyldendal/kobber-stylelint": "0.6.12",
     "@lit-labs/ssr-dom-shim": "^1.3.0",
     "@sanity/icons": "^3.7.4",
     "@sanity/image-url": "^1.1.0",
