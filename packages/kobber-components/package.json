@@ -21,7 +21,7 @@
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
     "test": "echo \"No tests configured\"",
-    "create-ts-refs": "create-ts-refs --out=.references.mts  sourceMap=react:./src/index.react.js,web-components:./src/index.web-components.js,init:./src/base/init.js"
+    "create-ts-refs": "create-ts-refs --sourceMap=entries.ts --out=.references.mts"
   },
   "dependencies": {
     "@gyldendal/kobber-base": "0.6.11",

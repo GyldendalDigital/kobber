@@ -1,9 +1,8 @@
-import { reduceToObject } from "./array";
-import { glob } from "glob";
 import { existsSync, readFileSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
+import { glob } from "glob";
 import { svelte2tsx } from "svelte2tsx";
 import {
   type ImportDeclaration,
@@ -11,6 +10,7 @@ import {
   type SourceFile,
   type Project as TsMorphProject,
 } from "ts-morph";
+import { reduceToObject } from "./array";
 import type { LocalRepo } from "./repo";
 
 interface ImportStatement {
@@ -103,10 +103,14 @@ const appendSvelteFiles = async (repoPath: string, project: Project) => {
         project.addSourceFileAtPath(tempPath);
         return { [tempPath]: filePath };
       } catch {
-        console.error(`Error converting ${filePath} to TSX`);
+        return undefined;
       }
     }),
   );
+  const failedCount = appendedFiles.filter(file => file === undefined).length;
+  if (failedCount > 0) {
+    console.info(`Error converting ${failedCount} svelte files`);
+  }
   return appendedFiles.filter(isDefined).reduce(reduceToObject, {});
 };
 

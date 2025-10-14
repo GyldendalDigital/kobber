@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "tsc -p tsconfig.cli.json",
-    "dev": "concurrently -k \"tsc -p tsconfig.cli.json --watch\" \"chokidar bin/createTsRefs.js -c 'chmod +x bin/createTsRefs.js'\"",
+    "dev": "tsc -p tsconfig.cli.json --watch",
     "clone-repos": "ts-node ./src/cloneRepos.ts",
     "create-csv": "ts-node ./src/createCsv.ts",
     "knip": "knip"
@@ -13,8 +13,6 @@
     "create-ts-refs": "bin/createTsRefs.js"
   },
   "devDependencies": {
-    "chokidar-cli": "^3.0.0",
-    "concurrently": "^9.2.1",
     "knip": "^5.65.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"

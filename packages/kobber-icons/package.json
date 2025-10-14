@@ -19,7 +19,7 @@
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
     "svg": "rm -rf dist src/tmp && svg-sprite --config ./svg-scripts/svg-sprite-config.json src/assets/svgs/**/*.svg",
     "build": "yarn svg && tsup",
-    "create-ts-refs": "create-ts-refs --out=.references.mts  sourceMap=react:./src/index.react.js,web-components:./src/index.web-components.js,init:./src/base/init.js"
+    "create-ts-refs": "create-ts-refs --sourceMap=entries.ts --out=.references.mts"
   },
   "dependencies": {
     "@gyldendal/kobber-base": "0.6.11",

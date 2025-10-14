@@ -1,11 +1,9 @@
 import { execSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { getImportAst, type ImportAst } from "./getImportAst";
 
 const pathToThisPackage = path.join(__dirname, "../../");
-
-const configFilePath = `${pathToThisPackage}/repos.json`;
 
 interface LocalRepoOptions {
   name: string;
@@ -28,7 +26,7 @@ export interface LocalRepo {
 export const getRepoOptionsFromFile = (
   temporaryReposDirectory: string,
 ): (LocalRepoOptions | CloneableRepoOptions)[] => {
-  const jsonString = readFileSync(configFilePath, "utf-8");
+  const jsonString = readFileSync(getConfigFilePath(), "utf-8");
   const json = JSON.parse(jsonString) as (CloneableRepoOptions | LocalRepoOptions)[];
 
   return json.map(template => {
@@ -58,6 +56,20 @@ export const getRepoOptionsFromFile = (
       directory: template.directory,
     };
   });
+};
+
+const getConfigFilePath = () => {
+  if (typeof process.env.REPOS_JSON !== "string") {
+    throw new Error("Repo json file is missing");
+  }
+
+  const configFilePath = `${pathToThisPackage}/${process.env.REPOS_JSON}`;
+
+  if (!existsSync(configFilePath)) {
+    throw new Error(`Could not find ${configFilePath}`);
+  }
+
+  return configFilePath;
 };
 
 export const cloneRepo = (options: CloneableRepoOptions): LocalRepo => {

@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { readFileSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
 import { createTsReferenceString } from "./utils/createTsReferenceString";
@@ -23,20 +22,6 @@ if (!commandLineArguments.out) {
 
 const destDirectory = process.cwd();
 
-const packageJson = readFileSync(path.join(process.cwd(), "package.json"), "utf8");
-
-const packageNameTarget = JSON.parse(packageJson).name;
-
-const sourceMap = commandLineArguments.sourceMap
-  .split(",")
-  .map(item => item.split(":"))
-  .reduce<Record<string, string>>((acc, [importPath, sourcePath]) => {
-    if (importPath && sourcePath) {
-      acc[`${packageNameTarget}/${importPath}`] = sourcePath;
-    }
-    return acc;
-  }, {});
-
 const build = async () => {
   const repoOptions = getRepoOptionsFromFile(temporaryReposDirectory);
 
@@ -55,8 +40,14 @@ const build = async () => {
 };
 
 const createTsReferenceFile = async (reposWithImportAst: RepoWithImportAst[]) => {
+  const sourceMap = await getSourceMap();
   const tsString = await createTsReferenceString(reposWithImportAst, sourceMap);
   await writeFile(path.join(destDirectory, commandLineArguments.out), tsString);
+};
+
+const getSourceMap = async () => {
+  const entries = await import(`${process.cwd()}/${commandLineArguments.sourceMap}`);
+  return entries.sourceMap;
 };
 
 interface RepoWithImportAst {
