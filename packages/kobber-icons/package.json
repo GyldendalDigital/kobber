@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@gyldendal/kobber-tsconfig": "0.6.11",
+    "@internal/integration-checker": "workspace:^",
     "@lit/react": "^1.0.7",
     "@types/jsdom": "^21.1.7",
     "@types/react": "^19.1.0",
@@ -35,8 +36,7 @@
     "react": "^19.1.0",
     "svg-sprite": "^2.0.4",
     "tsup": "^8.5.0",
-    "typescript": "^5.9.3",
-    "@internal/integration-checker": "workspace:^"
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "@lit/react": ">=1",

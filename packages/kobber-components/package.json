@@ -35,6 +35,7 @@
   "devDependencies": {
     "@gyldendal/kobber-stylelint": "0.6.11",
     "@gyldendal/kobber-tsconfig": "0.6.11",
+    "@internal/integration-checker": "workspace:^",
     "@lit/react": "^1.0.7",
     "@shoelace-style/shoelace": "^2.14.0",
     "@types/react": "^19.1.0",
@@ -43,8 +44,7 @@
     "react": "^19.1.0",
     "tsup": "^8.5.0",
     "tsx": "^4.20.6",
-    "typescript": "^5.9.3",
-    "@internal/integration-checker": "workspace:^"
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "@lit/react": ">=1",
