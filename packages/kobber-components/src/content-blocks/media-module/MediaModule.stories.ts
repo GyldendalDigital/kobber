@@ -54,7 +54,7 @@ const meta: Meta = {
     color: textBodyColors[textBodyColors.length - 1],
     colorVariant: textBodyColorVariants[0],
     creditPlacement: mediaModuleCreditPlacementFallback,
-    numberOfImages: 2,
+    numberOfImages: 1,
     creditText: "",
     objectFit: mediaModuleobjectFitFallback,
   },

@@ -13,30 +13,14 @@ const createMediaModuleStyles = () => {
       gap: var(${unsafeCSS(mediaModuleTokens.gap)});
       
       &[data-credit-placement="none"] {
-        --credit-height: 0;
-        --credit-width: 0;
         figcaption {
           display: none;
         }
       }
       
-      &:not([data-credit-placement="none"]) {
-        --credit-height: 61px;
-        --credit-width: 161px;
-      }
-      
       &[data-credit-placement="right"] {
         figcaption {
           right: 0;
-        }
-        ::slotted(img) { 
-          clip-path: polygon(
-            0% 0%, 100% 0%, 100% 0%, 100% 100%, 
-            100% calc(100% - var(--credit-height)), 
-            calc(100% - var(--credit-width)) calc(100% - var(--credit-height)), 
-            calc(100% - var(--credit-width)) 100%, 
-            0% 100%
-          );
         }
       }
       
@@ -44,16 +28,11 @@ const createMediaModuleStyles = () => {
         figcaption {
           left: 0;
         }
-        ::slotted(img) { 
-          clip-path: polygon(
-            0% 0%, 100% 0%, 100% 0%, 100% 100%,
-            var(--credit-width) 100%,
-            var(--credit-width) calc(100% - var(--credit-height)),
-            0 calc(100% - var(--credit-height)),
-            0 0
-          );
-        }
       }
+      ::slotted(img) { 
+          height: var(--image-height);
+          width: var(--image-width);
+        }
 
       &[data-media-object-fit="contain"] ::slotted(img) { 
         object-fit: contain;
@@ -73,13 +52,9 @@ const createMediaModuleStyles = () => {
     }
 
     figure {
-      --figure-width: 100%; /* Is reset by js. */
       position: relative;
-      height: 396px;
+      height: var(--image-height);
       margin: 0;
-      ::slotted(img) { 
-        border-radius: var(${unsafeCSS(mediaModuleTokens.border.radius)});
-      }
       display: flex;
       gap: 1em;
     }
@@ -87,15 +62,13 @@ const createMediaModuleStyles = () => {
     figcaption {
       position: absolute;
       bottom: 0;
-      height: var(--credit-height);
-      width: var(--credit-width);
       display: flex;
       align-items: center;
       justify-content: center;
       .credit {
         padding: var(${unsafeCSS(mediaModuleTokens["inner-inner-credit-container"].padding)});
         white-space: nowrap;
-        max-width: var(--figure-width);
+        max-width: var(--image-width);
         text-overflow: ellipsis;
         overflow: hidden;
       }
