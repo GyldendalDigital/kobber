@@ -18,7 +18,10 @@
             yes: "Yes",
             no: "No",
             of: "of",
-            loading: "Loading"
+            loading: "Loading",
+            micDisabled: "Allow microphone in browser",
+            saveFailed: "Couldn't save the recording",
+            tryAgain: "Try again"
 
         },
         nb: {
@@ -32,7 +35,10 @@
             yes: "Ja",
             no: "Nei",
             of: "av",
-            loading: "Laster"
+            loading: "Lagrer",
+            micDisabled: "Tillat mikrofon i nettlseren",
+            saveFailed: "Opptaket ble ikke lagret",
+            tryAgain: "Prøv igjen"
         },
         nn: {
             play: "Spel av",
@@ -45,7 +51,8 @@
             yes: "Ja",
             no: "Nei",
             of: "av",
-            loading: "Lastar"
+            saveFailed: "Opptaket ble ikkje lagra",
+            tryAgain: "Prøv igjen"
         }
     }
 
@@ -90,6 +97,7 @@
     export let mp3Callback;
     export let audioData;
     export let isRecordingCallback;
+    export let saveFailed;
 
     let isRecording = false;
     let audioDataIndex = 0;
@@ -111,7 +119,7 @@
     let currentAudioIndex = 0;
     let currentTimePercentage = "0%";
     let recordedSeconds = 0;
-    $: isExpanded = recData.length > 0 || audioArray.length > 0 || isRecording || audioData;
+    $: isExpanded = recData.length > 0 || audioArray.length > 0 || isRecording || (audioData && audioData.size > 0);
 
     async function checkMicrophoneAvailability() {
         try {
@@ -471,25 +479,27 @@
         --text-color: {textColor};
         --current-time-percentage: {currentTimePercentage};
         --current-width: {currentWidth};
-        --rows: {isExpanded ? 20 : 11};
-        --percentage-adjustment: {isExpanded ? `8` : `16`}%;
+        --rows: {isExpanded && !isLoading ? 20 : 11};
+        --percentage-adjustment: {isExpanded && !isLoading ? `8` : `16`}%;
      "
 >
     <span class="kbr-ar-aspect" />
     <span class="kbr-ar-grid-record"
-          style={confirmDelete ? "display: none;" : ""}
+          style={confirmDelete || saveFailed ? "display: none;" : ""}
     >
         <button class="kbr-ar-record-button"
                 id={"record-button-" + uniqueId}
                 on:click={toggleRecord}
-                disabled={isPlaying || !isMicrophoneEnabled}
+                disabled={isPlaying || !isMicrophoneEnabled || isLoading}
         >
             {#if isRecording}
                 <svg xmlns="http://www.w3.org/2000/svg" width="50%" height="50%" viewBox="0 0 16 26" fill="none">
                     <path d="M2 2L2 24" stroke={recordIconColor} stroke-width="4" stroke-linecap="round"/>
                     <path d="M14 2L14 24" stroke={recordIconColor} stroke-width="4" stroke-linecap="round"/>
                 </svg>
-            {:else}
+            {:else if isLoading}
+                <div class="loader"></div>
+                {:else}
                 {#if timeTotal !== 0 || recData.length > 0}
                     <svg width="60%" height="60%" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.75 19.25C6.682 19.25 5 17.568 5 15.5V5.75C5 3.682 6.682 2 8.75 2H11.75C13.818 2 15.5 3.682 15.5 5.75V15.5C15.5 17.568 13.818 19.25 11.75 19.25H8.75ZM8.75 3.5C7.509 3.5 6.5 4.509 6.5 5.75V15.5C6.5 16.741 7.509 17.75 8.75 17.75H11.75C12.991 17.75 14 16.741 14 15.5V5.75C14 4.509 12.991 3.5 11.75 3.5H8.75Z" fill={recordIconColor}/>
@@ -504,6 +514,9 @@
                 {/if}
             {/if}
             <label for={"record-button-" + uniqueId}>
+                {#if isLoading}
+                    <div class="loading">{translations[lang].loading}</div>
+                {:else if isMicrophoneEnabled}
                 {
                 isRecording
                     ? translations[lang].pause
@@ -511,10 +524,31 @@
                         ? translations[lang].recordMore
                         : translations[lang].record
                 }
+                    {:else }
+                    {translations[lang].micDisabled}
+                    {/if}
             </label>
         </button>
     </span>
-    {#if isExpanded}
+    {#if isExpanded && !isLoading}
+        {#if saveFailed}
+            <div class="save-failed-text">{translations[lang].saveFailed}</div>
+            <button
+                    class="kbr-ar-confirm-delete-try-again"
+                    on:click={() => {
+                        saveFailed = false;
+                        isLoading = true;
+                        decodedAudioData.pop();
+                        encodeToMP3();
+                    }}
+
+            >
+                <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.2649 17.9999C9.79121 18.0053 8.34021 17.6265 7.04737 16.8989C5.75454 16.1714 4.66202 15.1187 3.87182 13.8393C3.78431 13.6956 3.75558 13.5221 3.79189 13.3567C3.8282 13.1912 3.92661 13.0473 4.06567 12.9561C4.20472 12.865 4.37316 12.8341 4.53428 12.8701C4.6954 12.9062 4.83614 13.0063 4.92583 13.1486C5.60333 14.2453 6.54001 15.1476 7.64839 15.7712C8.75677 16.3948 10.0007 16.7193 11.2641 16.7145C12.6879 16.7145 14.0821 16.2961 15.2827 15.5087C18.7705 13.2223 19.7995 8.44375 17.5773 4.85643C17.05 4.00013 16.3628 3.25995 15.5554 2.67874C14.7481 2.09753 13.8366 1.68686 12.8738 1.4705C11.9123 1.24946 10.9177 1.22638 9.94739 1.40259C8.9771 1.57879 8.05033 1.9508 7.2205 2.49716C6.15502 3.1916 5.27799 4.15239 4.67128 5.28983C4.06457 6.42727 3.74796 7.70428 3.751 9.00165V9.37786L5.18413 7.90386C5.24181 7.84364 5.31055 7.79582 5.38636 7.76318C5.46218 7.73054 5.54354 7.71373 5.62573 7.71373C5.70791 7.71373 5.78928 7.73054 5.86509 7.76318C5.94091 7.79582 6.00965 7.84364 6.06733 7.90386C6.18565 8.02469 6.25064 8.18666 6.25064 8.35805C6.25064 8.52945 6.18565 8.69142 6.06733 8.81225L3.57936 11.3712C3.47354 11.4955 3.30357 11.5743 3.12609 11.5743C2.94862 11.5743 2.77864 11.4955 2.65949 11.3575L0.184852 8.81225C0.126305 8.75293 0.0798119 8.68222 0.0480773 8.60425C0.0163427 8.52627 0 8.44259 0 8.35805C0 8.27352 0.0163427 8.18984 0.0480773 8.11186C0.0798119 8.03389 0.126305 7.96318 0.184852 7.90386C0.302335 7.78216 0.459812 7.71532 0.626454 7.71532C0.793097 7.71532 0.950574 7.78216 1.06806 7.90386L2.50118 9.37786V9.00079C2.4979 7.48736 2.8674 5.99774 3.57522 4.67091C4.28303 3.34408 5.30608 2.22328 6.54893 1.41308C7.51712 0.775725 8.5984 0.341797 9.73042 0.13632C10.8624 -0.069156 12.0228 -0.0421158 13.1446 0.215882C14.2677 0.46846 15.3308 0.947606 16.2726 1.62559C17.2144 2.30357 18.0161 3.16693 18.6313 4.16571C21.2243 8.3512 20.0236 13.925 15.9542 16.5919C14.5537 17.5116 12.9266 18.0002 11.2649 17.9999Z" fill={textColor}/>
+                </svg>
+                <div>{translations[lang].tryAgain}</div>
+            </button>
+        {:else}
     <button class="kbr-ar-play-button"
             id={"play-button-" + uniqueId}
             on:click={playAudio}
@@ -538,7 +572,6 @@
     <div class="kbr-ar-slider-container"
          style={confirmDelete ? "display: none;" : ""}
     >
-        {#if !isLoading}
         <input
                 style={isRecording ? "display: none;" : "display: block;"}
                 class="kbr-ar-slider"
@@ -556,7 +589,6 @@
                 disabled={timeTotal === 0}
                 aria-label={currentTimeGlobal.toString()}
         />
-        {/if}
     </div>
     <div class="kbr-feedback-container" style={isRecording ? "display: block;" : "display: none;"}>
         <svg
@@ -600,8 +632,6 @@
             <span style={`color: ${recordColor};`}>
                 {new Date(recordedSeconds * 1000).toISOString().substring(14, 19)}
             </span>
-            {:else if isLoading}
-            <div>{translations[lang].loading + "..."}</div>
         {:else}
             {
                 new Date(roundWithDecimals(currentTimeGlobal, 0)*1000).toISOString().substring(14, 19)
@@ -646,6 +676,7 @@
     >
         {translations[lang].no}
     </button>
+            {/if}
     {/if}
 </div>
 
@@ -756,6 +787,27 @@
       font-size: 1.2em;
     }
 
+    .kbr-ar-confirm-delete-try-again {
+      grid-row: 13 / span 5;
+      grid-column: 10 / span 14;
+      border-radius: 20% / 50%;
+      font-size: 1.2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      gap: 0.5em;
+    }
+
+    .save-failed-text {
+      grid-row: 8 / span 5;
+      grid-column: 6 / span 23;
+      border-radius: 20% / 50%;
+      font-size: 1.2em;
+      display: flex;
+      justify-content: center;
+    }
+
     input[type="range"] {
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -846,4 +898,48 @@
       white-space: nowrap;
       font-size: inherit;
     }
+
+    .loader {
+      width: 80%;
+      height: 80%;
+      border: 0.25em solid #FFF;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      display: inline-block;
+      box-sizing: border-box;
+      animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading:after {
+      content: '.';
+      animation: dots 1s steps(5, end) infinite;}
+
+    @keyframes dots {
+      0%, 20% {
+        color: rgba(0,0,0,0);
+        text-shadow:
+                .25em 0 0 rgba(0,0,0,0),
+                .5em 0 0 rgba(0,0,0,0);}
+      40% {
+        color: var(--text-color);
+        text-shadow:
+                .25em 0 0 rgba(0,0,0,0),
+                .5em 0 0 rgba(0,0,0,0);}
+      60% {
+        text-shadow:
+                .25em 0 0 var(--text-color),
+                .5em 0 0 rgba(0,0,0,0);}
+      80%, 100% {
+        text-shadow:
+                .25em 0 0 var(--text-color),
+                .5em 0 0 var(--text-color);}}
 </style>
