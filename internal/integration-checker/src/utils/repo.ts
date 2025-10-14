@@ -26,15 +26,12 @@ export interface LocalRepo {
 }
 
 export const getRepoOptionsFromFile = (
-  temporaryReposDirectory: string
+  temporaryReposDirectory: string,
 ): (LocalRepoOptions | CloneableRepoOptions)[] => {
   const jsonString = readFileSync(configFilePath, "utf-8");
-  const json = JSON.parse(jsonString) as (
-    | CloneableRepoOptions
-    | LocalRepoOptions
-  )[];
+  const json = JSON.parse(jsonString) as (CloneableRepoOptions | LocalRepoOptions)[];
 
-  return json.map((template) => {
+  return json.map(template => {
     if (
       typeof process.env.AZURE_USERNAME !== "string" ||
       typeof process.env.AZURE_ACCESS_TOKEN !== "string" ||
@@ -75,22 +72,18 @@ export const cloneRepo = (options: CloneableRepoOptions): LocalRepo => {
 };
 
 export const isCloneableRepoOptions = (
-  repo: LocalRepoOptions | CloneableRepoOptions
-): repo is CloneableRepoOptions =>
-  (repo as CloneableRepoOptions).url !== undefined;
+  repo: LocalRepoOptions | CloneableRepoOptions,
+): repo is CloneableRepoOptions => (repo as CloneableRepoOptions).url !== undefined;
 
 export interface RepoWithImportAst {
   localRepo: LocalRepo;
   importAst: ImportAst;
 }
 
-export const appendImportAst = async (
-  localRepo: LocalRepo
-): Promise<RepoWithImportAst> => {
+export const appendImportAst = async (localRepo: LocalRepo): Promise<RepoWithImportAst> => {
   const importAst = await getImportAst({
     repoPath: localRepo.directory,
-    moduleSpecifierFilter: (moduleSpecifier) =>
-      moduleSpecifier.startsWith("@gyldendal/kobber"),
+    moduleSpecifierFilter: moduleSpecifier => moduleSpecifier.startsWith("@gyldendal/kobber"),
   });
   return { localRepo, importAst };
 };
