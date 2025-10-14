@@ -1,5 +1,11 @@
 # @gyldendal/kobber-scene
 
+## 0.6.12
+
+### Patch Changes
+
+- audio-recorder ux improvements
+
 ## 0.6.11
 
 ### Patch Changes
