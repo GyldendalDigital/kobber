@@ -51,6 +51,8 @@
             yes: "Ja",
             no: "Nei",
             of: "av",
+            loading: "Lagrar",
+            micDisabled: "Tillat mikrofon i nettlsaren",
             saveFailed: "Opptaket ble ikkje lagra",
             tryAgain: "Prøv igjen"
         }
