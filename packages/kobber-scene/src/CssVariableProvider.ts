@@ -1,4 +1,4 @@
-import { LitElement, css, html } from "lit";
+import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import "./Container";
 import { cssReset } from "./css-reset";
@@ -20,11 +20,20 @@ export class CssVariableProvider extends LitElement {
 
   private _resizeObserver: ResizeObserver;
 
+  private _lastWidth?: number;
+
   constructor() {
     super();
     this._resizeObserver = new window.ResizeObserver(entries => {
-      this._updateCssColumns(this._resizeObserverEntriesToWidth(entries));
-      this._updateHorizontalPadding();
+      const width = this._resizeObserverEntriesToWidth(entries);
+
+      if (width !== undefined && width === this._lastWidth) return;
+      this._lastWidth = width;
+
+      window.requestAnimationFrame(() => {
+        this._updateCssColumns(width);
+        this._updateHorizontalPadding(width);
+      });
     });
   }
 
