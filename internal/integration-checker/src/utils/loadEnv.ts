@@ -1,5 +1,5 @@
-import dotenv from "dotenv";
 import path from "node:path";
+import dotenv from "dotenv";
 
 const pathToThisPackage = path.join(__dirname, "../../");
 

@@ -2,10 +2,10 @@ import ts from "typescript";
 import { reduceToObject } from "./array";
 import {
   flattenImportAst,
-  type PackageJsonDependency,
-  type TsProject,
   type ImportAst,
   type ImportAstRow,
+  type PackageJsonDependency,
+  type TsProject,
 } from "./getImportAst";
 // biome-ignore lint/style/useImportType: ""
 import { type LocalRepo } from "./repo";
