@@ -116,6 +116,18 @@ yarn build -F @gyldendal/kobber-base
 yarn storybook
 ```
 
+### Check Kobber integrations in consumer repos
+
+```
+yarn integration-checker
+```
+
+Uses the internal [integration-checker](./internal/integration-checker/README.md) tool to find Kobber imports across consumer repositories. Generates:
+
+* **.references.mts** in [kobber-base](./packages/kobber-base/.references.mts), [kobber-components](./packages/kobber-components/.references.mts) and [kobber-icons](./packages/kobber-icons/.references.mts) for quick symbol lookups in editors
+* CSV summaries in [this folder](./internal/integration-checker/dest)
+
+
 ### Test Kobber locally using import aliases
 
 Methods such as `npm link` exist for testing NPM packages locally before deploying to the NPM registry.
