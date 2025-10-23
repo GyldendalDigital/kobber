@@ -122,18 +122,19 @@ export const ContentWrapper: Story = {
     },
   },
   args: {
-    colorVariant: contentWrapperColorVariants[0],
-    type: "overlay",
+    colorVariant: "tone-a",
+    type: undefined,
     showHeadingText: true,
-    maxHeightInPx: 600,
+    maxHeightInPx: -1,
   },
+  decorators: [(story, _) => html`<div style="height: 96vh">${story()}</div>`],
   render: args => html`
     <kobber-content-wrapper 
-      color-variant="${args.colorVariant}" 
-      type=${args.type}
-      max-height-in-px="${args.maxHeightInPx}"
+      color-variant=${ifDefined(args.colorVariant)}
+      type=${ifDefined(args.type)}
+      max-height-in-px=${ifDefined(args.maxHeightInPx)}
     >
-      <kobber-content-top-block slot="content-top-block">
+      <kobber-content-top-block>
         ${
           !args.showBadge
             ? ""
