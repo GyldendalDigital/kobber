@@ -8,9 +8,10 @@ import {
   type ImportDeclaration,
   Project,
   type SourceFile,
+  SyntaxKind,
   type Project as TsMorphProject,
 } from "ts-morph";
-import { reduceToObject } from "./array";
+import { reduceToObject, unique } from "./array";
 import type { LocalRepo } from "./repo";
 
 interface ImportStatement {
@@ -149,12 +150,39 @@ const getImportStatement = (
 ): ImportStatement | undefined => {
   const moduleSpecifier = importDeclaration.getModuleSpecifierValue();
   if (options.moduleSpecifierFilter(moduleSpecifier)) {
-    const namedImports = importDeclaration.getNamedImports().map(n => n.getName());
+    const namedImports = [
+      ...getNamedImports(importDeclaration),
+      ...getNamedImportsFromWildcard(importDeclaration),
+    ].filter(unique);
     return {
       moduleSpecifier,
       namedImports,
     };
   }
+};
+
+// Get named imports from `import { a, b, c } from "module"`
+
+const getNamedImports = (importDeclaration: ImportDeclaration) =>
+  importDeclaration.getNamedImports().map(n => n.getName());
+
+// Get named imports from `import * as all from "module"`
+
+const getNamedImportsFromWildcard = (importDeclaration: ImportDeclaration) => {
+  const namespaceImport = importDeclaration.getNamespaceImport();
+  if (!namespaceImport) return [];
+  const namespaceName = namespaceImport.getText();
+  const propertyAccesses = importDeclaration
+    .getSourceFile()
+    .getDescendantsOfKind(SyntaxKind.PropertyAccessExpression);
+  const usedSymbols = propertyAccesses
+    .filter(pa => {
+      const expression = pa.getExpression();
+      const text = expression.getText();
+      return text === namespaceName;
+    })
+    .map(pa => pa.getName());
+  return usedSymbols;
 };
 
 export interface ImportAstRow {

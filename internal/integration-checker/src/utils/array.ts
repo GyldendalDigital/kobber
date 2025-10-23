@@ -21,3 +21,5 @@ export const sortRowsAlphabetically = (rows: string[][]) => {
     return 0;
   });
 };
+
+export const unique = <T>(value: T, index: number, array: T[]) => array.indexOf(value) === index;
