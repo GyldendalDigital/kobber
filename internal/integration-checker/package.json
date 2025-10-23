@@ -1,0 +1,26 @@
+{
+  "name": "@internal/integration-checker",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.cli.json",
+    "dev": "tsc -p tsconfig.cli.json --watch",
+    "clone-repos": "ts-node ./src/cloneRepos.ts",
+    "create-csv": "ts-node ./src/createCsv.ts",
+    "knip": "knip"
+  },
+  "bin": {
+    "create-ts-refs": "bin/createTsRefs.js"
+  },
+  "devDependencies": {
+    "knip": "^5.65.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "glob": "^11.0.3",
+    "svelte2tsx": "^0.7.45",
+    "ts-morph": "^27.0.0"
+  }
+}

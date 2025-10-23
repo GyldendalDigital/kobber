@@ -1,0 +1,7 @@
+{
+  "$schema": "https://unpkg.com/knip@latest/schema.json",
+  "ignore": ["./bin", "./node_modules"],
+  "entry": ["src/*.ts"],
+  "ignoreDependencies": ["concurrently", "chokidar-cli"],
+  "ignoreBinaries": ["concurrently", "chokidar"]
+}

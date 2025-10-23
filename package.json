@@ -5,6 +5,7 @@
   "type": "module",
   "workspaces": [
     "apps/*",
+    "internal/*",
     "packages/*"
   ],
   "scripts": {
@@ -17,7 +18,8 @@
     "tokens": "turbo tokens",
     "storybook": "turbo storybook",
     "css": "turbo css",
-    "publish-packages": "turbo run build lint && changeset version && changeset publish"
+    "publish-packages": "turbo run build lint && changeset version && changeset publish",
+    "integration-checker": "turbo clone-repos && turbo create-ts-refs && turbo create-csv"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.5",
