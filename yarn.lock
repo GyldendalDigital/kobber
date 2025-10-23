@@ -2660,6 +2660,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-base@workspace:packages/kobber-base"
   dependencies:
+    "@internal/integration-checker": "workspace:^"
     style-dictionary: "npm:^5.1.1"
     tsup: "npm:^8.5.0"
     tsx: "npm:^4.20.6"
