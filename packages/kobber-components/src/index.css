@@ -911,7 +911,7 @@
       border-radius: var(--kobber-component-checkbox-outline-border-radius);
       border: var(--kobber-component-checkbox-indicator-border-width) solid var(--control-border-color);
       outline: var(--kobber-component-checkbox-outline-border-width) solid var(--control-outline-color);
-      color: var(--color)
+      color: var(--color);
       flex-shrink: 0;
       background-color: var(--control-background-color);
       transition: var(--transition-time) outline;
@@ -953,12 +953,12 @@
       max-width: 720px;
       
               &[data-color-variant="tone-b"] {
-                --content-wrapper-background-color: var(--kobber-layout-content-wrapper-background-color-tone-b);
+                --content-wrapper-background-color: var(--kobber-layout-content-wrapper-background-color-brand-tone-b);
               }
           
 
               &[data-color-variant="tone-a"] {
-                --content-wrapper-background-color: var(--kobber-layout-content-wrapper-background-color-tone-a);
+                --content-wrapper-background-color: var(--kobber-layout-content-wrapper-background-color-brand-tone-a);
               }
           ;
 
@@ -967,19 +967,19 @@
         flex-direction: column;
         align-items: start;
         gap: var(--kobber-layout-content-wrapper-inner-container-gap);
-        padding: 0 var(--kobber-layout-content-wrapper-padding-inline) var(--kobber-layout-content-wrapper-padding-bottom);
+        padding-inline: var(--kobber-layout-content-wrapper-padding-inline);
         max-width: var(--kobber-layout-content-wrapper-size-max-width);
         margin: 0 auto;
       }
 
       &[data-type="overlay"] {
         border-radius: var(--kobber-layout-content-wrapper-border-radius-overlay);
-        padding-top: var(--kobber-layout-content-wrapper-padding-top-overlay);
+        padding-block: var(--kobber-layout-content-wrapper-padding-block-overlay);
       }
 
       &[data-type="page"] {
         max-width: 100%;
-        padding-top: var(--kobber-layout-content-wrapper-padding-top-page);
+        padding-block: var(--kobber-layout-content-wrapper-padding-block-page);
       }
     }
   
@@ -1799,13 +1799,13 @@ em,
     --typography-color: var(--kobber-universal-text-body-text-color-nostalgia-tone-b);;
   }
 }
-&[data-color="sublte"] {
+&[data-color="subtle"] {
 
   &[data-color-variant="tone-a"] {
-    --typography-color: var(--kobber-universal-text-body-text-color-sublte-tone-a);;
+    --typography-color: var(--kobber-universal-text-body-text-color-subtle-tone-a);;
   }
   &[data-color-variant="tone-b"] {
-    --typography-color: var(--kobber-universal-text-body-text-color-sublte-tone-b);;
+    --typography-color: var(--kobber-universal-text-body-text-color-subtle-tone-b);;
   }
 }
   
