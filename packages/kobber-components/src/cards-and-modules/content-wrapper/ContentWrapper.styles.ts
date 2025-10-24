@@ -23,19 +23,19 @@ const createContentWrapperStyles = () => {
         flex-direction: column;
         align-items: start;
         gap: var(${unsafeCSS(contentWrapperTokens["inner-container"].gap)});
-        padding: 0 var(${unsafeCSS(contentWrapperTokens.padding.inline)}) var(${unsafeCSS(contentWrapperTokens.padding.bottom)});
+        padding-inline: var(${unsafeCSS(contentWrapperTokens.padding.inline)});
         max-width: var(${unsafeCSS(contentWrapperTokens.size["max-width"])});
         margin: 0 auto;
       }
 
       &[data-type="overlay"] {
         border-radius: var(${unsafeCSS(contentWrapperTokens.border.radius.overlay)});
-        padding-top: var(${unsafeCSS(contentWrapperTokens.padding.top.overlay)});
+        padding-block: var(${unsafeCSS(contentWrapperTokens.padding.block.overlay)});
       }
 
       &[data-type="page"] {
         max-width: 100%;
-        padding-top: var(${unsafeCSS(contentWrapperTokens.padding.top.page)});
+        padding-block: var(${unsafeCSS(contentWrapperTokens.padding.block.page)});
       }
     }
   `;
@@ -47,7 +47,7 @@ const colorVariants = () =>
       .flatMap(contentWrapperColorVariant => {
         return `
               &[data-color-variant="${contentWrapperColorVariant}"] {
-                --content-wrapper-background-color: var(${contentWrapperTokens.background.color[contentWrapperColorVariant]});
+                --content-wrapper-background-color: var(${contentWrapperTokens.background.color.brand[contentWrapperColorVariant]});
               }
           `;
       })

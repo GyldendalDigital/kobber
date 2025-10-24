@@ -16,7 +16,7 @@ export type ContentWrapperClassNames = typeof contentWrapperName | "full-width";
 
 type ContentWrapperColorVariant = (typeof contentWrapperColorVariants)[number];
 
-export const contentWrapperColorVariants = objectKeys(contentWrapperTokens.background.color);
+export const contentWrapperColorVariants = objectKeys(contentWrapperTokens.background.color.brand);
 
 export type ContentWrapperProps = {
   colorVariant?: ContentWrapperColorVariant;

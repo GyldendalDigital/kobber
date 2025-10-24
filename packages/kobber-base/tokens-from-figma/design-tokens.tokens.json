@@ -2957,6 +2957,44 @@
           }
         }
       },
+      "224": {
+        "type": "dimension",
+        "value": 224,
+        "extensions": {
+          "org.gyldendal.kobber-figma-export": {
+            "scopes": [
+              "TEXT_CONTENT",
+              "CORNER_RADIUS",
+              "WIDTH_HEIGHT",
+              "GAP",
+              "STROKE_FLOAT",
+              "EFFECT_FLOAT",
+              "FONT_VARIATIONS"
+            ],
+            "variableId": "VariableID:14437:6908",
+            "exportKey": "variables"
+          }
+        }
+      },
+      "232": {
+        "type": "dimension",
+        "value": 232,
+        "extensions": {
+          "org.gyldendal.kobber-figma-export": {
+            "scopes": [
+              "TEXT_CONTENT",
+              "CORNER_RADIUS",
+              "WIDTH_HEIGHT",
+              "GAP",
+              "STROKE_FLOAT",
+              "EFFECT_FLOAT",
+              "FONT_VARIATIONS"
+            ],
+            "variableId": "VariableID:14437:6909",
+            "exportKey": "variables"
+          }
+        }
+      },
       "262": {
         "type": "dimension",
         "value": 262,
@@ -2991,6 +3029,25 @@
               "FONT_VARIATIONS"
             ],
             "variableId": "VariableID:2548:17908",
+            "exportKey": "variables"
+          }
+        }
+      },
+      "448": {
+        "type": "dimension",
+        "value": 448,
+        "extensions": {
+          "org.gyldendal.kobber-figma-export": {
+            "scopes": [
+              "TEXT_CONTENT",
+              "CORNER_RADIUS",
+              "WIDTH_HEIGHT",
+              "GAP",
+              "STROKE_FLOAT",
+              "EFFECT_FLOAT",
+              "FONT_VARIATIONS"
+            ],
+            "variableId": "VariableID:14437:6910",
             "exportKey": "variables"
           }
         }
@@ -3105,6 +3162,25 @@
               "FONT_VARIATIONS"
             ],
             "variableId": "VariableID:2548:17912",
+            "exportKey": "variables"
+          }
+        }
+      },
+      "9999": {
+        "type": "dimension",
+        "value": 9999,
+        "extensions": {
+          "org.gyldendal.kobber-figma-export": {
+            "scopes": [
+              "TEXT_CONTENT",
+              "CORNER_RADIUS",
+              "WIDTH_HEIGHT",
+              "GAP",
+              "STROKE_FLOAT",
+              "EFFECT_FLOAT",
+              "FONT_VARIATIONS"
+            ],
+            "variableId": "VariableID:13932:11560",
             "exportKey": "variables"
           }
         }
@@ -4801,9 +4877,9 @@
             }
           }
         },
-        "pill": {
+        "circle": {
           "type": "dimension",
-          "value": "{semantics.layout.element.radius.pill}",
+          "value": "{semantics.layout.element.radius.circle}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [],
@@ -4860,10 +4936,10 @@
         }
       }
     },
-    "dividers": {
+    "utilities": {
       "radius": {
         "type": "dimension",
-        "value": "{semantics.layout.element.radius.pill}",
+        "value": "{semantics.layout.element.radius.xsmall}",
         "extensions": {
           "org.gyldendal.kobber-figma-export": {
             "scopes": [],
@@ -4895,7 +4971,7 @@
         }
       },
       "color": {
-        "brightest": {
+        "wine-150": {
           "type": "color",
           "value": "{semantics.color.identity.extended.wine-150}",
           "extensions": {
@@ -4906,13 +4982,79 @@
             }
           }
         },
-        "darkest": {
+        "wine-600": {
           "type": "color",
           "value": "{semantics.color.identity.extended.wine-600}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [],
               "variableId": "VariableID:3662:6848",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "aubergine-750": {
+          "type": "color",
+          "value": "{semantics.color.identity.base.aubergine-750}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13831:206",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "aubergine-150": {
+          "type": "color",
+          "value": "{semantics.color.identity.base.aubergine-150}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13831:207",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "concrete-525": {
+          "type": "color",
+          "value": "{semantics.color.identity.neutral.concrete-525}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13831:208",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "concrete-150": {
+          "type": "color",
+          "value": "{semantics.color.identity.neutral.concrete-525}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13831:209",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "rettsdata-60": {
+          "type": "color",
+          "value": "{semantics.color.identity.rettsdata.rettsdata-60}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13831:213",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "rettsdata-30": {
+          "type": "color",
+          "value": "{semantics.color.identity.rettsdata.rettsdata-30}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13831:214",
               "exportKey": "variables"
             }
           }
@@ -5868,7 +6010,7 @@
         },
         "medium": {
           "type": "dimension",
-          "value": "{semantics.layout.element.radius.small}",
+          "value": "{semantics.layout.element.radius.xsmall}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [],
@@ -6079,157 +6221,7 @@
         }
       }
     },
-    "product-cards": {
-      "color": {
-        "aubergine": {
-          "lightest": {
-            "type": "color",
-            "value": "{semantics.color.identity.base.aubergine-50}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [],
-                "variableId": "VariableID:9814:11714",
-                "exportKey": "variables"
-              }
-            }
-          },
-          "darkest": {
-            "type": "color",
-            "value": "{primitives.color.aubergine.1000-10%}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [],
-                "variableId": "VariableID:9817:1392",
-                "exportKey": "variables"
-              }
-            }
-          }
-        },
-        "neutral": {
-          "lightest": {
-            "type": "color",
-            "value": "{semantics.color.identity.neutral.concrete-50}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [],
-                "variableId": "VariableID:9817:1393",
-                "exportKey": "variables"
-              }
-            }
-          },
-          "darkest": {
-            "type": "color",
-            "value": "{primitives.color.concrete.1000-10%}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [],
-                "variableId": "VariableID:9817:1394",
-                "exportKey": "variables"
-              }
-            }
-          }
-        },
-        "fantasy": {
-          "darkest": {
-            "type": "color",
-            "value": "{semantics.color.theme.fantasy.fantasy-750}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [],
-                "variableId": "VariableID:9817:1395",
-                "exportKey": "variables"
-              }
-            }
-          },
-          "lightest": {
-            "type": "color",
-            "value": "{primitives.color.fantasy.250-10%}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [],
-                "variableId": "VariableID:9817:1396",
-                "exportKey": "variables"
-              }
-            }
-          }
-        },
-        "nature": {
-          "darkest": {
-            "type": "color",
-            "value": "{semantics.color.theme.nature.nature-525}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [],
-                "variableId": "VariableID:9817:1397",
-                "exportKey": "variables"
-              }
-            }
-          },
-          "lightest": {
-            "type": "color",
-            "value": "{primitives.color.nature.25-10%}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [],
-                "variableId": "VariableID:9817:1398",
-                "exportKey": "variables"
-              }
-            }
-          }
-        },
-        "thriller": {
-          "lightest": {
-            "type": "color",
-            "value": "{primitives.color.thriller.250-10%}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
-                "variableId": "VariableID:9817:1399",
-                "exportKey": "variables"
-              }
-            }
-          },
-          "darkest": {
-            "type": "color",
-            "value": "{semantics.color.theme.thriller.thriller-850}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [
-                  "ALL_SCOPES"
-                ],
-                "variableId": "VariableID:9817:1400",
-                "exportKey": "variables"
-              }
-            }
-          }
-        },
-        "romance": {
-          "lightest": {
-            "type": "color",
-            "value": "{primitives.color.romance.50-10%}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [],
-                "variableId": "VariableID:9817:1401",
-                "exportKey": "variables"
-              }
-            }
-          },
-          "darkest": {
-            "type": "color",
-            "value": "{semantics.color.theme.romance.romance-675}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [],
-                "variableId": "VariableID:9817:1402",
-                "exportKey": "variables"
-              }
-            }
-          }
-        }
-      },
+    "cards-and-modules": {
       "space": {
         "large": {
           "type": "dimension",
@@ -6264,6 +6256,19 @@
             }
           }
         },
+        "xxsmall": {
+          "type": "dimension",
+          "value": "{semantics.layout.element.space.xxsmall}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "GAP"
+              ],
+              "variableId": "VariableID:12915:2922",
+              "exportKey": "variables"
+            }
+          }
+        },
         "xlarge": {
           "type": "dimension",
           "value": "{semantics.layout.element.space.large}",
@@ -6274,51 +6279,481 @@
               "exportKey": "variables"
             }
           }
-        }
-      },
-      "radius": {
-        "type": "dimension",
-        "value": "{semantics.layout.element.radius.xsmall}",
-        "extensions": {
-          "org.gyldendal.kobber-figma-export": {
-            "scopes": [],
-            "variableId": "VariableID:9817:2441",
-            "exportKey": "variables"
-          }
-        }
-      },
-      "size": {
-        "large": {
-          "type": "dimension",
-          "value": "{semantics.layout.container.size.medium}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:9954:7028",
-              "exportKey": "variables"
-            }
-          }
         },
-        "small": {
+        "xxlarge": {
           "type": "dimension",
           "value": "{semantics.layout.element.space.xlarge}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [],
-              "variableId": "VariableID:9968:42993",
+              "variableId": "VariableID:13762:5868",
+              "exportKey": "variables"
+            }
+          }
+        }
+      },
+      "radius": {
+        "small": {
+          "type": "dimension",
+          "value": "{semantics.layout.element.radius.xsmall}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:9817:2441",
               "exportKey": "variables"
             }
           }
         },
-        "xsmall": {
+        "large": {
           "type": "dimension",
-          "value": "{semantics.layout.element.space.large}",
+          "value": "{semantics.layout.element.radius.medium}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13014:2063",
+              "exportKey": "variables"
+            }
+          }
+        }
+      },
+      "size": {
+        "container": {
+          "large": {
+            "type": "dimension",
+            "value": "{semantics.layout.container.size.medium}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:9954:7028",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "medium": {
+            "type": "dimension",
+            "value": "{semantics.layout.container.size.small}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:12950:549",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "small": {
+            "type": "dimension",
+            "value": "{semantics.layout.container.size.xsmall}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:14437:7055",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "xsmall": {
+            "type": "dimension",
+            "value": "{semantics.layout.container.size.xxsmall}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:14437:7056",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "xxsmall": {
+            "type": "dimension",
+            "value": "{semantics.layout.container.size.xxxsmall}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:14437:7720",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "xxlarge": {
+            "type": "dimension",
+            "value": "{semantics.layout.container.size.xlarge}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:14437:7721",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "xlarge": {
+            "type": "dimension",
+            "value": "{semantics.layout.container.size.large}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:14445:1665",
+                "exportKey": "variables"
+              }
+            }
+          }
+        },
+        "element": {
+          "large": {
+            "type": "dimension",
+            "value": "{semantics.layout.element.space.xlarge}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:9968:42993",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "medium": {
+            "type": "dimension",
+            "value": "{semantics.layout.element.space.large}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "ALL_SCOPES"
+                ],
+                "variableId": "VariableID:10054:1578",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "small": {
+            "type": "dimension",
+            "value": "{semantics.layout.element.size.small}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13698:11791",
+                "exportKey": "variables"
+              }
+            }
+          }
+        }
+      },
+      "color": {
+        "aubergine-900": {
+          "type": "color",
+          "value": "{semantics.color.identity.base.aubergine-900}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:12915:2924",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "aubergine-25": {
+          "type": "color",
+          "value": "{semantics.color.identity.base.aubergine-25}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:12915:2925",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "nature-750": {
+          "type": "color",
+          "value": "{semantics.color.theme.nature.nature-750}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:12915:2928",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "nature-25": {
+          "type": "color",
+          "value": "{semantics.color.theme.nature.nature-25}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:12915:2929",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "fantasy-850": {
+          "type": "color",
+          "value": "{semantics.color.theme.fantasy.fantasy-850}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:12915:2930",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "fantasy-250": {
+          "type": "color",
+          "value": "{semantics.color.theme.fantasy.fantasy-250}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:12915:2931",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "thriller-900": {
+          "type": "color",
+          "value": "{semantics.color.theme.thriller.thriller-900}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:12915:2932",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "thriller-250": {
+          "type": "color",
+          "value": "{semantics.color.theme.thriller.thriller-250}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:12915:2933",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "romance-750": {
+          "type": "color",
+          "value": "{semantics.color.theme.romance.romance-750}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:12915:2934",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "romance-50": {
+          "type": "color",
+          "value": "{semantics.color.theme.romance.romance-50}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:12915:2935",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "vacation-150": {
+          "type": "color",
+          "value": "{semantics.color.theme.vacation.vacation-150}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:12915:2936",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "vacation-25": {
+          "type": "color",
+          "value": "{semantics.color.theme.vacation.vacation-25}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:12915:2937",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "nostalgia-600": {
+          "type": "color",
+          "value": "{semantics.color.theme.nostalgia.nostalgia-850}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:12915:2938",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "nostalgia-25": {
+          "type": "color",
+          "value": "{semantics.color.theme.nostalgia.nostalgia-25}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:12915:2939",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "aubergine-25-10": {
+          "type": "color",
+          "value": "{primitives.color.aubergine.25-10%}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13014:2645",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "aubergine-25-20": {
+          "type": "color",
+          "value": "{primitives.color.aubergine.25-20%}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13014:2646",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "aubergine-1000-10": {
+          "type": "color",
+          "value": "{primitives.color.aubergine.1000-10%}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13014:2649",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "aubergine-1000-20": {
+          "type": "color",
+          "value": "{primitives.color.aubergine.1000-20%}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13014:2650",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "aubergine-50": {
+          "type": "color",
+          "value": "{semantics.color.identity.base.aubergine-50}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13762:4979",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "neutral-50": {
+          "type": "color",
+          "value": "{semantics.color.identity.neutral.concrete-50}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
                 "ALL_SCOPES"
               ],
-              "variableId": "VariableID:10054:1578",
+              "variableId": "VariableID:13762:4980",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "neutral-1000-10": {
+          "type": "color",
+          "value": "{primitives.color.concrete.1000-10%}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "variableId": "VariableID:13762:4981",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "fantasy-750": {
+          "type": "color",
+          "value": "{semantics.color.theme.fantasy.fantasy-750}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13762:4982",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "romance-50-10": {
+          "type": "color",
+          "value": "{semantics.color.theme.romance.romance-50-10}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13762:4989",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "fantasy-250-10": {
+          "type": "color",
+          "value": "{semantics.color.theme.fantasy.fantasy-250-10}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13762:4990",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "nature-25-10": {
+          "type": "color",
+          "value": "{semantics.color.theme.nature.nature-25-10}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13762:4991",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "thriller-250-10": {
+          "type": "color",
+          "value": "{semantics.color.theme.thriller.thriller-250-10}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13762:4992",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "nature-525": {
+          "type": "color",
+          "value": "{semantics.color.theme.nature.nature-525}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13762:4993",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "thriller-850": {
+          "type": "color",
+          "value": "{semantics.color.theme.thriller.thriller-850}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13762:4994",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "romance-675": {
+          "type": "color",
+          "value": "{semantics.color.theme.romance.romance-675}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:13762:4995",
               "exportKey": "variables"
             }
           }
@@ -6865,307 +7300,18 @@
         }
       }
     },
-    "feature-items": {
-      "space": {
-        "xxsmall": {
+    "content": {
+      "element": {
+        "space": {
           "type": "dimension",
-          "value": "{semantics.layout.element.space.xxsmall}",
+          "value": 0,
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
-                "GAP"
+                "ALL_SCOPES"
               ],
-              "variableId": "VariableID:12915:2922",
+              "variableId": "VariableID:13727:14074",
               "exportKey": "variables"
-            }
-          }
-        },
-        "xsmall": {
-          "type": "dimension",
-          "value": "{semantics.layout.element.space.xsmall}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [
-                "GAP"
-              ],
-              "variableId": "VariableID:12918:855",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "medium": {
-          "type": "dimension",
-          "value": "{semantics.layout.element.space.medium}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [
-                "GAP"
-              ],
-              "variableId": "VariableID:13014:2044",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "small": {
-          "type": "dimension",
-          "value": "{semantics.layout.element.space.small}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [
-                "GAP"
-              ],
-              "variableId": "VariableID:13014:2584",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "large": {
-          "type": "dimension",
-          "value": "{semantics.layout.element.space.xlarge}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [
-                "GAP"
-              ],
-              "variableId": "VariableID:13066:4999",
-              "exportKey": "variables"
-            }
-          }
-        }
-      },
-      "color": {
-        "aubergine-900": {
-          "type": "color",
-          "value": "{semantics.color.identity.base.aubergine-900}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:12915:2924",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "aubergine-25": {
-          "type": "color",
-          "value": "{semantics.color.identity.base.aubergine-25}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:12915:2925",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "nature-750": {
-          "type": "color",
-          "value": "{semantics.color.theme.nature.nature-750}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:12915:2928",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "nature-25": {
-          "type": "color",
-          "value": "{semantics.color.theme.nature.nature-25}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:12915:2929",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "fantasy-850": {
-          "type": "color",
-          "value": "{semantics.color.theme.fantasy.fantasy-850}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:12915:2930",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "fantasy-250": {
-          "type": "color",
-          "value": "{semantics.color.theme.fantasy.fantasy-250}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:12915:2931",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "thriller-850": {
-          "type": "color",
-          "value": "{semantics.color.theme.thriller.thriller-900}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:12915:2932",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "thriller-250": {
-          "type": "color",
-          "value": "{semantics.color.theme.thriller.thriller-250}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:12915:2933",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "romance-750": {
-          "type": "color",
-          "value": "{semantics.color.theme.romance.romance-750}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:12915:2934",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "romance-50": {
-          "type": "color",
-          "value": "{semantics.color.theme.romance.romance-50}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:12915:2935",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "vacation-150": {
-          "type": "color",
-          "value": "{semantics.color.theme.vacation.vacation-150}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:12915:2936",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "vacation-25": {
-          "type": "color",
-          "value": "{semantics.color.theme.vacation.vacation-25}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:12915:2937",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "nostalgia-600": {
-          "type": "color",
-          "value": "{semantics.color.theme.nostalgia.nostalgia-850}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:12915:2938",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "nostalgia-25": {
-          "type": "color",
-          "value": "{semantics.color.theme.nostalgia.nostalgia-25}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:12915:2939",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "aubergine-25-10": {
-          "type": "color",
-          "value": "{primitives.color.aubergine.25-10%}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:13014:2645",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "aubergine-25-20": {
-          "type": "color",
-          "value": "{primitives.color.aubergine.25-20%}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:13014:2646",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "aubergine-1000-10": {
-          "type": "color",
-          "value": "{primitives.color.aubergine.1000-10%}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:13014:2649",
-              "exportKey": "variables"
-            }
-          }
-        },
-        "aubergine-1000-20": {
-          "type": "color",
-          "value": "{primitives.color.aubergine.1000-20%}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [],
-              "variableId": "VariableID:13014:2650",
-              "exportKey": "variables"
-            }
-          }
-        }
-      },
-      "size": {
-        "type": "dimension",
-        "value": "{semantics.layout.container.size.small}",
-        "extensions": {
-          "org.gyldendal.kobber-figma-export": {
-            "scopes": [],
-            "variableId": "VariableID:12950:549",
-            "exportKey": "variables"
-          }
-        }
-      },
-      "border": {
-        "radius": {
-          "small": {
-            "type": "dimension",
-            "value": "{semantics.layout.element.radius.xsmall}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [],
-                "variableId": "VariableID:13014:2062",
-                "exportKey": "variables"
-              }
-            }
-          },
-          "large": {
-            "type": "dimension",
-            "value": "{semantics.layout.element.radius.medium}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [],
-                "variableId": "VariableID:13014:2063",
-                "exportKey": "variables"
-              }
             }
           }
         }
@@ -8515,7 +8661,7 @@
         "color": {
           "tone-b": {
             "type": "color",
-            "value": "{groups.dividers.color.brightest}",
+            "value": "{groups.utilities.color.wine-150}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -8530,7 +8676,7 @@
           },
           "tone-a": {
             "type": "color",
-            "value": "{groups.dividers.color.darkest}",
+            "value": "{groups.utilities.color.wine-600}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -8548,7 +8694,7 @@
       "border": {
         "radius": {
           "type": "dimension",
-          "value": "{groups.dividers.radius}",
+          "value": "{groups.utilities.radius}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -8564,7 +8710,7 @@
         "block": {
           "horizontal": {
             "type": "dimension",
-            "value": "{groups.dividers.space}",
+            "value": "{groups.utilities.space}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -8579,7 +8725,7 @@
         "inline": {
           "vertical": {
             "type": "dimension",
-            "value": "{groups.dividers.space}",
+            "value": "{groups.utilities.space}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -8595,7 +8741,7 @@
       "height": {
         "horizontal": {
           "type": "dimension",
-          "value": "{groups.dividers.stroke}",
+          "value": "{groups.utilities.stroke}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -8610,7 +8756,7 @@
       "width": {
         "vertical": {
           "type": "dimension",
-          "value": "{groups.dividers.stroke}",
+          "value": "{groups.utilities.stroke}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -9903,7 +10049,7 @@
         "border": {
           "radius": {
             "type": "dimension",
-            "value": "{groups.inputs.radius.pill}",
+            "value": "{groups.inputs.radius.circle}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -10071,7 +10217,7 @@
         "border": {
           "radius": {
             "type": "dimension",
-            "value": "{groups.inputs.radius.pill}",
+            "value": "{groups.inputs.radius.circle}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -12574,7 +12720,7 @@
             "brand": {
               "fallback": {
                 "type": "color",
-                "value": "{groups.product-cards.color.aubergine.lightest}",
+                "value": "{groups.cards-and-modules.color.aubergine-50}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -12587,7 +12733,7 @@
               },
               "hover": {
                 "type": "color",
-                "value": "{groups.product-cards.color.aubergine.darkest}",
+                "value": "{groups.cards-and-modules.color.aubergine-1000-10}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -12602,7 +12748,7 @@
             "neutral": {
               "fallback": {
                 "type": "color",
-                "value": "{groups.product-cards.color.neutral.lightest}",
+                "value": "{groups.cards-and-modules.color.neutral-50}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -12615,7 +12761,7 @@
               },
               "hover": {
                 "type": "color",
-                "value": "{groups.product-cards.color.neutral.darkest}",
+                "value": "{groups.cards-and-modules.color.neutral-1000-10}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -12630,7 +12776,7 @@
             "fantasy": {
               "fallback": {
                 "type": "color",
-                "value": "{groups.product-cards.color.fantasy.darkest}",
+                "value": "{groups.cards-and-modules.color.fantasy-750}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -12643,7 +12789,7 @@
               },
               "hover": {
                 "type": "color",
-                "value": "{groups.product-cards.color.fantasy.lightest}",
+                "value": "{groups.cards-and-modules.color.fantasy-250-10}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -12658,7 +12804,7 @@
             "nature": {
               "fallback": {
                 "type": "color",
-                "value": "{groups.product-cards.color.nature.darkest}",
+                "value": "{groups.cards-and-modules.color.nature-525}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -12671,7 +12817,7 @@
               },
               "hover": {
                 "type": "color",
-                "value": "{groups.product-cards.color.nature.lightest}",
+                "value": "{groups.cards-and-modules.color.nature-25-10}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -12686,7 +12832,7 @@
             "thriller": {
               "fallback": {
                 "type": "color",
-                "value": "{groups.product-cards.color.thriller.darkest}",
+                "value": "{groups.cards-and-modules.color.thriller-850}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -12699,7 +12845,7 @@
               },
               "hover": {
                 "type": "color",
-                "value": "{groups.product-cards.color.thriller.lightest}",
+                "value": "{groups.cards-and-modules.color.thriller-250-10}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -12714,7 +12860,7 @@
             "romance": {
               "fallback": {
                 "type": "color",
-                "value": "{groups.product-cards.color.romance.darkest}",
+                "value": "{groups.cards-and-modules.color.romance-675}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -12727,7 +12873,7 @@
               },
               "hover": {
                 "type": "color",
-                "value": "{groups.product-cards.color.romance.lightest}",
+                "value": "{groups.cards-and-modules.color.romance-50-10}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -12743,7 +12889,7 @@
         },
         "padding": {
           "type": "dimension",
-          "value": "{groups.product-cards.space.medium}",
+          "value": "{groups.cards-and-modules.space.medium}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -12757,7 +12903,7 @@
         "border": {
           "radius": {
             "type": "dimension",
-            "value": "{groups.product-cards.radius}",
+            "value": "{groups.cards-and-modules.radius.small}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -12772,7 +12918,7 @@
         "size": {
           "height": {
             "type": "dimension",
-            "value": "{groups.product-cards.size.large}",
+            "value": "{groups.cards-and-modules.size.container.large}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -12788,7 +12934,7 @@
       "inner-product-container": {
         "gap": {
           "type": "dimension",
-          "value": "{groups.product-cards.space.large}",
+          "value": "{groups.cards-and-modules.space.large}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -12801,7 +12947,7 @@
         },
         "padding-bottom": {
           "type": "dimension",
-          "value": "{groups.product-cards.space.xlarge}",
+          "value": "{groups.cards-and-modules.space.xlarge}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -12817,7 +12963,7 @@
         "padding": {
           "inline": {
             "type": "dimension",
-            "value": "{groups.product-cards.space.small}",
+            "value": "{groups.cards-and-modules.space.small}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -12830,7 +12976,7 @@
           },
           "block": {
             "type": "dimension",
-            "value": "{groups.product-cards.space.large}",
+            "value": "{groups.cards-and-modules.space.large}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -12844,7 +12990,7 @@
         },
         "gap": {
           "type": "dimension",
-          "value": "{groups.product-cards.space.small}",
+          "value": "{groups.cards-and-modules.space.small}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -12860,7 +13006,7 @@
         "padding": {
           "inline": {
             "type": "dimension",
-            "value": "{groups.product-cards.space.medium}",
+            "value": "{groups.cards-and-modules.space.medium}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -12877,7 +13023,7 @@
         "size": {
           "height": {
             "type": "dimension",
-            "value": "{groups.product-cards.size.small}",
+            "value": "{groups.cards-and-modules.size.element.large}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -12894,7 +13040,7 @@
         "size": {
           "height": {
             "type": "dimension",
-            "value": "{groups.product-cards.size.xsmall}",
+            "value": "{groups.cards-and-modules.size.element.medium}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -14397,7 +14543,7 @@
       "top-container": {
         "padding": {
           "type": "dimension",
-          "value": "{groups.feature-items.space.medium}",
+          "value": "{groups.cards-and-modules.space.large}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -14410,7 +14556,7 @@
         },
         "gap": {
           "type": "dimension",
-          "value": "{groups.feature-items.space.xsmall}",
+          "value": "{groups.cards-and-modules.space.small}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -14426,7 +14572,7 @@
             "brand": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.aubergine-25}",
+                "value": "{groups.cards-and-modules.color.aubergine-25}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14439,7 +14585,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.aubergine-900}",
+                "value": "{groups.cards-and-modules.color.aubergine-900}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14454,7 +14600,7 @@
             "nature": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.nature-25}",
+                "value": "{groups.cards-and-modules.color.nature-25}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14467,7 +14613,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.nature-750}",
+                "value": "{groups.cards-and-modules.color.nature-750}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14482,7 +14628,7 @@
             "fantasy": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.fantasy-250}",
+                "value": "{groups.cards-and-modules.color.fantasy-250}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14495,7 +14641,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.fantasy-850}",
+                "value": "{groups.cards-and-modules.color.fantasy-850}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14510,7 +14656,7 @@
             "thriller": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.thriller-250}",
+                "value": "{groups.cards-and-modules.color.thriller-250}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14523,7 +14669,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.thriller-850}",
+                "value": "{groups.cards-and-modules.color.thriller-900}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14538,7 +14684,7 @@
             "romance": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.romance-50}",
+                "value": "{groups.cards-and-modules.color.romance-50}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14551,7 +14697,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.romance-750}",
+                "value": "{groups.cards-and-modules.color.romance-750}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14566,7 +14712,7 @@
             "vacation": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.vacation-25}",
+                "value": "{groups.cards-and-modules.color.vacation-25}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14579,7 +14725,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.vacation-150}",
+                "value": "{groups.cards-and-modules.color.vacation-150}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14594,7 +14740,7 @@
             "nostalgia": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.nostalgia-25}",
+                "value": "{groups.cards-and-modules.color.nostalgia-25}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14607,7 +14753,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.nostalgia-600}",
+                "value": "{groups.cards-and-modules.color.nostalgia-600}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14624,7 +14770,7 @@
         "border-top-left": {
           "radius": {
             "type": "dimension",
-            "value": "{groups.feature-items.border.radius.large}",
+            "value": "{groups.cards-and-modules.radius.large}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -14639,7 +14785,7 @@
         "border-top-right": {
           "radius": {
             "type": "dimension",
-            "value": "{groups.feature-items.border.radius.large}",
+            "value": "{groups.cards-and-modules.radius.large}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -14654,7 +14800,7 @@
         "border-bottom-right": {
           "radius": {
             "type": "dimension",
-            "value": "{groups.feature-items.border.radius.large}",
+            "value": "{groups.cards-and-modules.radius.large}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -14671,7 +14817,7 @@
         "padding": {
           "links": {
             "type": "dimension",
-            "value": "{groups.feature-items.space.xxsmall}",
+            "value": "{groups.cards-and-modules.space.xxsmall}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -14685,7 +14831,7 @@
           "block": {
             "badges": {
               "type": "dimension",
-              "value": "{groups.feature-items.space.xsmall}",
+              "value": "{groups.cards-and-modules.space.small}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -14700,7 +14846,7 @@
           "inline": {
             "badges": {
               "type": "dimension",
-              "value": "{groups.feature-items.space.medium}",
+              "value": "{groups.cards-and-modules.space.large}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -14718,7 +14864,7 @@
             "brand": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.aubergine-25}",
+                "value": "{groups.cards-and-modules.color.aubergine-25}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14731,7 +14877,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.aubergine-900}",
+                "value": "{groups.cards-and-modules.color.aubergine-900}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14746,7 +14892,7 @@
             "nature": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.nature-25}",
+                "value": "{groups.cards-and-modules.color.nature-25}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14759,7 +14905,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.nature-750}",
+                "value": "{groups.cards-and-modules.color.nature-750}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14774,7 +14920,7 @@
             "romance": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.romance-50}",
+                "value": "{groups.cards-and-modules.color.romance-50}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14787,7 +14933,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.romance-750}",
+                "value": "{groups.cards-and-modules.color.romance-750}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14802,7 +14948,7 @@
             "thriller": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.thriller-250}",
+                "value": "{groups.cards-and-modules.color.thriller-250}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14815,7 +14961,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.thriller-850}",
+                "value": "{groups.cards-and-modules.color.thriller-900}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14830,7 +14976,7 @@
             "fantasy": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.fantasy-250}",
+                "value": "{groups.cards-and-modules.color.fantasy-250}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14843,7 +14989,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.fantasy-850}",
+                "value": "{groups.cards-and-modules.color.fantasy-850}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14858,7 +15004,7 @@
             "vacation": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.vacation-25}",
+                "value": "{groups.cards-and-modules.color.vacation-25}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14871,7 +15017,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.vacation-150}",
+                "value": "{groups.cards-and-modules.color.vacation-150}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14886,7 +15032,7 @@
             "nostalgia": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.nostalgia-25}",
+                "value": "{groups.cards-and-modules.color.nostalgia-25}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14899,7 +15045,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.nostalgia-600}",
+                "value": "{groups.cards-and-modules.color.nostalgia-600}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14918,7 +15064,7 @@
             "brand": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.aubergine-25}",
+                "value": "{groups.cards-and-modules.color.aubergine-25}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14931,7 +15077,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.aubergine-900}",
+                "value": "{groups.cards-and-modules.color.aubergine-900}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14946,7 +15092,7 @@
             "nature": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.nature-25}",
+                "value": "{groups.cards-and-modules.color.nature-25}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14959,7 +15105,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.nature-750}",
+                "value": "{groups.cards-and-modules.color.nature-750}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14974,7 +15120,7 @@
             "romance": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.romance-50}",
+                "value": "{groups.cards-and-modules.color.romance-50}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -14987,7 +15133,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.romance-750}",
+                "value": "{groups.cards-and-modules.color.romance-750}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15002,7 +15148,7 @@
             "thriller": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.thriller-250}",
+                "value": "{groups.cards-and-modules.color.thriller-250}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15015,7 +15161,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.thriller-850}",
+                "value": "{groups.cards-and-modules.color.thriller-900}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15030,7 +15176,7 @@
             "fantasy": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.fantasy-250}",
+                "value": "{groups.cards-and-modules.color.fantasy-250}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15043,7 +15189,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.fantasy-850}",
+                "value": "{groups.cards-and-modules.color.fantasy-850}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15058,7 +15204,7 @@
             "vacation": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.vacation-25}",
+                "value": "{groups.cards-and-modules.color.vacation-25}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15071,7 +15217,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.vacation-150}",
+                "value": "{groups.cards-and-modules.color.vacation-150}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15086,7 +15232,7 @@
             "nostalgia": {
               "tone-b": {
                 "type": "color",
-                "value": "{groups.feature-items.color.nostalgia-25}",
+                "value": "{groups.cards-and-modules.color.nostalgia-25}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15099,7 +15245,7 @@
               },
               "tone-a": {
                 "type": "color",
-                "value": "{groups.feature-items.color.nostalgia-600}",
+                "value": "{groups.cards-and-modules.color.nostalgia-600}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15115,7 +15261,7 @@
         },
         "gap": {
           "type": "dimension",
-          "value": "{groups.feature-items.space.medium}",
+          "value": "{groups.cards-and-modules.space.large}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -15129,7 +15275,7 @@
         "border-bottom": {
           "radius": {
             "type": "dimension",
-            "value": "{groups.feature-items.border.radius.large}",
+            "value": "{groups.cards-and-modules.radius.large}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -15147,7 +15293,7 @@
           "brand": {
             "tone-b": {
               "type": "color",
-              "value": "{groups.feature-items.color.aubergine-25}",
+              "value": "{groups.cards-and-modules.color.aubergine-25}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -15160,7 +15306,7 @@
             },
             "tone-a": {
               "type": "color",
-              "value": "{groups.feature-items.color.aubergine-900}",
+              "value": "{groups.cards-and-modules.color.aubergine-900}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -15175,7 +15321,7 @@
           "nature": {
             "tone-b": {
               "type": "color",
-              "value": "{groups.feature-items.color.nature-25}",
+              "value": "{groups.cards-and-modules.color.nature-25}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -15188,7 +15334,7 @@
             },
             "tone-a": {
               "type": "color",
-              "value": "{groups.feature-items.color.nature-750}",
+              "value": "{groups.cards-and-modules.color.nature-750}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -15203,7 +15349,7 @@
           "romance": {
             "tone-b": {
               "type": "color",
-              "value": "{groups.feature-items.color.romance-50}",
+              "value": "{groups.cards-and-modules.color.romance-50}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -15216,7 +15362,7 @@
             },
             "tone-a": {
               "type": "color",
-              "value": "{groups.feature-items.color.romance-750}",
+              "value": "{groups.cards-and-modules.color.romance-750}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -15231,7 +15377,7 @@
           "thriller": {
             "tone-b": {
               "type": "color",
-              "value": "{groups.feature-items.color.thriller-250}",
+              "value": "{groups.cards-and-modules.color.thriller-250}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -15244,7 +15390,7 @@
             },
             "tone-a": {
               "type": "color",
-              "value": "{groups.feature-items.color.thriller-850}",
+              "value": "{groups.cards-and-modules.color.thriller-900}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -15259,7 +15405,7 @@
           "fantasy": {
             "tone-b": {
               "type": "color",
-              "value": "{groups.feature-items.color.fantasy-250}",
+              "value": "{groups.cards-and-modules.color.fantasy-250}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -15272,7 +15418,7 @@
             },
             "tone-a": {
               "type": "color",
-              "value": "{groups.feature-items.color.fantasy-850}",
+              "value": "{groups.cards-and-modules.color.fantasy-850}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -15287,7 +15433,7 @@
           "vacation": {
             "tone-b": {
               "type": "color",
-              "value": "{groups.feature-items.color.vacation-25}",
+              "value": "{groups.cards-and-modules.color.vacation-25}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -15300,7 +15446,7 @@
             },
             "tone-a": {
               "type": "color",
-              "value": "{groups.feature-items.color.vacation-150}",
+              "value": "{groups.cards-and-modules.color.vacation-150}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -15315,7 +15461,7 @@
           "nostalgia": {
             "tone-b": {
               "type": "color",
-              "value": "{groups.feature-items.color.nostalgia-25}",
+              "value": "{groups.cards-and-modules.color.nostalgia-25}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -15328,7 +15474,7 @@
             },
             "tone-a": {
               "type": "color",
-              "value": "{groups.feature-items.color.nostalgia-600}",
+              "value": "{groups.cards-and-modules.color.nostalgia-600}",
               "extensions": {
                 "org.gyldendal.kobber-figma-export": {
                   "scopes": [
@@ -15345,7 +15491,7 @@
       "top-text-container": {
         "gap": {
           "type": "dimension",
-          "value": "{groups.feature-items.space.xsmall}",
+          "value": "{groups.cards-and-modules.space.small}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -15362,7 +15508,7 @@
       "size": {
         "height": {
           "type": "dimension",
-          "value": "{groups.feature-items.size}",
+          "value": "{groups.cards-and-modules.size.container.medium}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -15377,7 +15523,7 @@
       "gap": {
         "2": {
           "type": "dimension",
-          "value": "{groups.feature-items.space.large}",
+          "value": "{groups.cards-and-modules.space.xxlarge}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -15390,7 +15536,7 @@
         },
         "3": {
           "type": "dimension",
-          "value": "{groups.feature-items.space.medium}",
+          "value": "{groups.cards-and-modules.space.large}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -15403,7 +15549,7 @@
         },
         "4": {
           "type": "dimension",
-          "value": "{groups.feature-items.space.xsmall}",
+          "value": "{groups.cards-and-modules.space.small}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -15416,10 +15562,10 @@
         }
       }
     },
-    "feature-item-subtle": {
+    "navigation-card": {
       "padding": {
         "type": "dimension",
-        "value": "{groups.feature-items.space.medium}",
+        "value": "{groups.cards-and-modules.space.large}",
         "extensions": {
           "org.gyldendal.kobber-figma-export": {
             "scopes": [
@@ -15434,7 +15580,7 @@
         "padding": {
           "inline": {
             "type": "dimension",
-            "value": "{groups.feature-items.space.xsmall}",
+            "value": "{groups.cards-and-modules.space.small}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -15447,7 +15593,7 @@
           },
           "block": {
             "type": "dimension",
-            "value": "{groups.feature-items.space.small}",
+            "value": "{groups.cards-and-modules.space.medium}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -15462,7 +15608,7 @@
         "border": {
           "radius": {
             "type": "dimension",
-            "value": "{groups.feature-items.border.radius.small}",
+            "value": "{groups.cards-and-modules.radius.small}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -15477,7 +15623,7 @@
         "background": {
           "color": {
             "type": "color",
-            "value": "{groups.feature-items.color.aubergine-25}",
+            "value": "{groups.cards-and-modules.color.aubergine-25}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -15496,7 +15642,7 @@
             "overlay-light": {
               "hover": {
                 "type": "color",
-                "value": "{groups.feature-items.color.aubergine-25-10}",
+                "value": "{groups.cards-and-modules.color.aubergine-25-10}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15509,7 +15655,7 @@
               },
               "active": {
                 "type": "color",
-                "value": "{groups.feature-items.color.aubergine-25-20}",
+                "value": "{groups.cards-and-modules.color.aubergine-25-20}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15524,7 +15670,7 @@
             "overlay-dark": {
               "hover": {
                 "type": "color",
-                "value": "{groups.feature-items.color.aubergine-1000-10}",
+                "value": "{groups.cards-and-modules.color.aubergine-1000-10}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15537,7 +15683,7 @@
               },
               "active": {
                 "type": "color",
-                "value": "{groups.feature-items.color.aubergine-1000-20}",
+                "value": "{groups.cards-and-modules.color.aubergine-1000-20}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15551,12 +15697,42 @@
             }
           }
         }
+      },
+      "size": {
+        "height": {
+          "type": "dimension",
+          "value": "{groups.cards-and-modules.size.container.small}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "WIDTH_HEIGHT"
+              ],
+              "variableId": "VariableID:14448:1434",
+              "exportKey": "variables"
+            }
+          }
+        }
+      },
+      "border": {
+        "radius": {
+          "type": "dimension",
+          "value": "{groups.cards-and-modules.radius.large}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "CORNER_RADIUS"
+              ],
+              "variableId": "VariableID:14448:1435",
+              "exportKey": "variables"
+            }
+          }
+        }
       }
     },
     "feature-item-prominent": {
       "padding": {
         "type": "dimension",
-        "value": "{groups.feature-items.space.medium}",
+        "value": "{groups.cards-and-modules.space.large}",
         "extensions": {
           "org.gyldendal.kobber-figma-export": {
             "scopes": [
@@ -15570,7 +15746,7 @@
       "gap": {
         "vertical": {
           "type": "dimension",
-          "value": "{groups.feature-items.space.medium}",
+          "value": "{groups.cards-and-modules.space.large}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -15583,7 +15759,7 @@
         },
         "horizontal": {
           "type": "dimension",
-          "value": "{groups.feature-items.space.xsmall}",
+          "value": "{groups.cards-and-modules.space.small}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -15598,7 +15774,7 @@
       "border": {
         "radius": {
           "type": "dimension",
-          "value": "{groups.feature-items.space.medium}",
+          "value": "{groups.cards-and-modules.radius.large}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -15614,7 +15790,7 @@
         "padding": {
           "inline": {
             "type": "dimension",
-            "value": "{groups.feature-items.space.medium}",
+            "value": "{groups.cards-and-modules.space.large}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -15633,7 +15809,7 @@
             "overlay-light": {
               "hover": {
                 "type": "color",
-                "value": "{groups.feature-items.color.aubergine-25-10}",
+                "value": "{groups.cards-and-modules.color.aubergine-25-10}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15646,7 +15822,7 @@
               },
               "active": {
                 "type": "color",
-                "value": "{groups.feature-items.color.aubergine-25-20}",
+                "value": "{groups.cards-and-modules.color.aubergine-25-20}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15661,7 +15837,7 @@
             "overlay-dark": {
               "hover": {
                 "type": "color",
-                "value": "{groups.feature-items.color.aubergine-1000-10}",
+                "value": "{groups.cards-and-modules.color.aubergine-1000-10}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15674,7 +15850,7 @@
               },
               "active": {
                 "type": "color",
-                "value": "{groups.feature-items.color.aubergine-1000-20}",
+                "value": "{groups.cards-and-modules.color.aubergine-1000-20}",
                 "extensions": {
                   "org.gyldendal.kobber-figma-export": {
                     "scopes": [
@@ -15685,6 +15861,21 @@
                   }
                 }
               }
+            }
+          }
+        }
+      },
+      "size": {
+        "height": {
+          "type": "dimension",
+          "value": "{groups.cards-and-modules.size.container.xlarge}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "WIDTH_HEIGHT"
+              ],
+              "variableId": "VariableID:14448:1069",
+              "exportKey": "variables"
             }
           }
         }
@@ -15818,7 +16009,7 @@
       },
       "gap": {
         "ordered": {
-          "small": {
+          "medium": {
             "type": "dimension",
             "value": "{groups.text-blocks.space.xsmall}",
             "extensions": {
@@ -15831,7 +16022,7 @@
               }
             }
           },
-          "medium": {
+          "large": {
             "type": "dimension",
             "value": "{groups.text-blocks.space.xsmall}",
             "extensions": {
@@ -15846,7 +16037,7 @@
           }
         },
         "unordered": {
-          "small": {
+          "medium": {
             "type": "dimension",
             "value": "{groups.text-blocks.space.xsmall}",
             "extensions": {
@@ -15859,7 +16050,7 @@
               }
             }
           },
-          "medium": {
+          "large": {
             "type": "dimension",
             "value": "{groups.text-blocks.space.small}",
             "extensions": {
@@ -15870,6 +16061,351 @@
                 "variableId": "VariableID:13563:6985",
                 "exportKey": "variables"
               }
+            }
+          }
+        }
+      }
+    },
+    "media-module": {
+      "gap": {
+        "type": "dimension",
+        "value": "{groups.cards-and-modules.space.large}",
+        "extensions": {
+          "org.gyldendal.kobber-figma-export": {
+            "scopes": [
+              "GAP"
+            ],
+            "variableId": "VariableID:13698:7390",
+            "exportKey": "variables"
+          }
+        }
+      },
+      "inner-inner-credit-container": {
+        "border-radius": {
+          "top-left": {
+            "right-align": {
+              "type": "dimension",
+              "value": "{groups.cards-and-modules.radius.large}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "CORNER_RADIUS"
+                  ],
+                  "variableId": "VariableID:13698:11927",
+                  "exportKey": "variables"
+                }
+              }
+            }
+          },
+          "bottom-right": {
+            "right-align": {
+              "type": "dimension",
+              "value": "{groups.cards-and-modules.radius.large}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "CORNER_RADIUS"
+                  ],
+                  "variableId": "VariableID:13698:13608",
+                  "exportKey": "variables"
+                }
+              }
+            }
+          },
+          "top-right": {
+            "left-align": {
+              "type": "dimension",
+              "value": "{groups.cards-and-modules.radius.large}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "CORNER_RADIUS"
+                  ],
+                  "variableId": "VariableID:13698:13612",
+                  "exportKey": "variables"
+                }
+              }
+            }
+          },
+          "bottom-left": {
+            "left-align": {
+              "type": "dimension",
+              "value": "{groups.cards-and-modules.radius.large}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "CORNER_RADIUS"
+                  ],
+                  "variableId": "VariableID:13698:13613",
+                  "exportKey": "variables"
+                }
+              }
+            }
+          }
+        },
+        "shape": {
+          "width": {
+            "type": "dimension",
+            "value": "{groups.cards-and-modules.size.element.small}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "WIDTH_HEIGHT"
+                ],
+                "variableId": "VariableID:13698:11955",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "height": {
+            "type": "dimension",
+            "value": "{groups.cards-and-modules.size.element.small}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "WIDTH_HEIGHT"
+                ],
+                "variableId": "VariableID:13698:11956",
+                "exportKey": "variables"
+              }
+            }
+          }
+        },
+        "padding": {
+          "type": "dimension",
+          "value": "{groups.cards-and-modules.space.xlarge}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "GAP"
+              ],
+              "variableId": "VariableID:13698:11957",
+              "exportKey": "variables"
+            }
+          }
+        }
+      },
+      "border": {
+        "radius": {
+          "type": "dimension",
+          "value": "{groups.cards-and-modules.radius.large}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "ALL_SCOPES"
+              ],
+              "variableId": "VariableID:13762:6743",
+              "exportKey": "variables"
+            }
+          }
+        }
+      }
+    },
+    "content-card": {
+      "gap": {
+        "subtle": {
+          "type": "dimension",
+          "value": "{groups.cards-and-modules.space.small}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "GAP"
+              ],
+              "variableId": "VariableID:13782:7360",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "prominent": {
+          "type": "dimension",
+          "value": "{groups.cards-and-modules.space.large}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "GAP"
+              ],
+              "variableId": "VariableID:13805:4478",
+              "exportKey": "variables"
+            }
+          }
+        }
+      },
+      "image-container": {
+        "border": {
+          "radius": {
+            "subtle": {
+              "type": "dimension",
+              "value": "{groups.cards-and-modules.radius.small}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "CORNER_RADIUS"
+                  ],
+                  "variableId": "VariableID:13805:4479",
+                  "exportKey": "variables"
+                }
+              }
+            },
+            "prominent": {
+              "type": "dimension",
+              "value": "{groups.cards-and-modules.radius.large}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "CORNER_RADIUS"
+                  ],
+                  "variableId": "VariableID:13805:4480",
+                  "exportKey": "variables"
+                }
+              }
+            }
+          }
+        },
+        "size": {
+          "width": {
+            "subtle": {
+              "type": "dimension",
+              "value": "{groups.cards-and-modules.size.container.xxsmall}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "WIDTH_HEIGHT"
+                  ],
+                  "variableId": "VariableID:13805:4481",
+                  "exportKey": "variables"
+                }
+              }
+            }
+          },
+          "height": {
+            "prominent": {
+              "type": "dimension",
+              "value": "{semantics.layout.container.size.xxsmall}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "WIDTH_HEIGHT"
+                  ],
+                  "variableId": "VariableID:14437:6954",
+                  "exportKey": "variables"
+                }
+              }
+            },
+            "subtle": {
+              "type": "dimension",
+              "value": "{semantics.layout.container.size.xxxsmall}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "WIDTH_HEIGHT"
+                  ],
+                  "variableId": "VariableID:14445:1666",
+                  "exportKey": "variables"
+                }
+              }
+            }
+          }
+        },
+        "padding": {
+          "subtle": {
+            "type": "dimension",
+            "value": "{groups.cards-and-modules.space.small}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "GAP"
+                ],
+                "variableId": "VariableID:13805:4483",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "prominent": {
+            "type": "dimension",
+            "value": "{groups.cards-and-modules.space.medium}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "GAP"
+                ],
+                "variableId": "VariableID:13805:4484",
+                "exportKey": "variables"
+              }
+            }
+          }
+        }
+      },
+      "text-container": {
+        "gap": {
+          "type": "dimension",
+          "value": "{groups.cards-and-modules.space.small}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "GAP"
+              ],
+              "variableId": "VariableID:13805:4485",
+              "exportKey": "variables"
+            }
+          }
+        }
+      }
+    },
+    "profile-card": {
+      "gap": {
+        "type": "dimension",
+        "value": "{groups.cards-and-modules.space.xlarge}",
+        "extensions": {
+          "org.gyldendal.kobber-figma-export": {
+            "scopes": [
+              "GAP"
+            ],
+            "variableId": "VariableID:13817:5272",
+            "exportKey": "variables"
+          }
+        }
+      },
+      "padding": {
+        "type": "dimension",
+        "value": "{groups.cards-and-modules.space.large}",
+        "extensions": {
+          "org.gyldendal.kobber-figma-export": {
+            "scopes": [
+              "GAP"
+            ],
+            "variableId": "VariableID:13817:5273",
+            "exportKey": "variables"
+          }
+        }
+      },
+      "image": {
+        "border": {
+          "radius": {
+            "type": "dimension",
+            "value": "{groups.cards-and-modules.radius.large}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "CORNER_RADIUS"
+                ],
+                "variableId": "VariableID:13817:5274",
+                "exportKey": "variables"
+              }
+            }
+          }
+        }
+      },
+      "inner-container": {
+        "gap": {
+          "type": "dimension",
+          "value": "{groups.cards-and-modules.space.large}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "GAP"
+              ],
+              "variableId": "VariableID:13817:5275",
+              "exportKey": "variables"
             }
           }
         }
@@ -15889,19 +16425,6 @@
                   "CORNER_RADIUS"
                 ],
                 "variableId": "VariableID:3959:2797",
-                "exportKey": "variables"
-              }
-            }
-          },
-          "small": {
-            "type": "dimension",
-            "value": "{semantics.layout.element.radius.small}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [
-                  "CORNER_RADIUS"
-                ],
-                "variableId": "VariableID:3959:2798",
                 "exportKey": "variables"
               }
             }
@@ -15945,15 +16468,15 @@
               }
             }
           },
-          "pill": {
+          "small": {
             "type": "dimension",
-            "value": "{semantics.layout.element.radius.pill}",
+            "value": "{semantics.layout.element.radius.small}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
                   "CORNER_RADIUS"
                 ],
-                "variableId": "VariableID:3959:2802",
+                "variableId": "VariableID:13961:2323",
                 "exportKey": "variables"
               }
             }
@@ -16965,7 +17488,7 @@
               }
             }
           },
-          "sublte": {
+          "subtle": {
             "tone-a": {
               "type": "color",
               "value": "{semantics.typography.color.brand.wine-600}",
@@ -18643,34 +19166,6 @@
     },
     "content-wrapper": {
       "padding": {
-        "top": {
-          "overlay": {
-            "type": "dimension",
-            "value": "{semantics.layout.container.space.small}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [
-                  "GAP"
-                ],
-                "variableId": "VariableID:13328:3640",
-                "exportKey": "variables"
-              }
-            }
-          },
-          "page": {
-            "type": "dimension",
-            "value": "{semantics.layout.container.space.large}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [
-                  "GAP"
-                ],
-                "variableId": "VariableID:13413:6754",
-                "exportKey": "variables"
-              }
-            }
-          }
-        },
         "inline": {
           "type": "dimension",
           "value": "{semantics.layout.container.space.medium}",
@@ -18684,16 +19179,31 @@
             }
           }
         },
-        "bottom": {
-          "type": "dimension",
-          "value": "{semantics.layout.container.space.large}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [
-                "GAP"
-              ],
-              "variableId": "VariableID:13328:3902",
-              "exportKey": "variables"
+        "block": {
+          "overlay": {
+            "type": "dimension",
+            "value": "{semantics.layout.container.space.small}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "GAP"
+                ],
+                "variableId": "VariableID:13328:3902",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "page": {
+            "type": "dimension",
+            "value": "{semantics.layout.container.space.large}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "GAP"
+                ],
+                "variableId": "VariableID:14784:11036",
+                "exportKey": "variables"
+              }
             }
           }
         }
@@ -18732,28 +19242,43 @@
       },
       "background": {
         "color": {
-          "tone-b": {
-            "type": "color",
-            "value": "{semantics.color.identity.base.aubergine-25}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [
-                  "FRAME_FILL"
-                ],
-                "variableId": "VariableID:13328:3907",
-                "exportKey": "variables"
+          "brand": {
+            "tone-b": {
+              "type": "color",
+              "value": "{semantics.color.identity.base.aubergine-25}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "FRAME_FILL"
+                  ],
+                  "variableId": "VariableID:13328:3907",
+                  "exportKey": "variables"
+                }
+              }
+            },
+            "tone-a": {
+              "type": "color",
+              "value": "{semantics.color.identity.base.aubergine-850}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "FRAME_FILL"
+                  ],
+                  "variableId": "VariableID:13328:3908",
+                  "exportKey": "variables"
+                }
               }
             }
           },
-          "tone-a": {
+          "neutral": {
             "type": "color",
-            "value": "{semantics.color.identity.base.aubergine-850}",
+            "value": "{semantics.color.identity.neutral.concrete-25}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
                   "FRAME_FILL"
                 ],
-                "variableId": "VariableID:13328:3908",
+                "variableId": "VariableID:14731:7686",
                 "exportKey": "variables"
               }
             }
@@ -18763,7 +19288,7 @@
       "size": {
         "max-width": {
           "type": "dimension",
-          "value": "{semantics.layout.container.size.large}",
+          "value": "{semantics.layout.container.size.xlarge}",
           "extensions": {
             "org.gyldendal.kobber-figma-export": {
               "scopes": [
@@ -19900,6 +20425,17 @@
                 "exportKey": "variables"
               }
             }
+          },
+          "concrete-150": {
+            "type": "color",
+            "value": "{primitives.color.concrete.150}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13831:210",
+                "exportKey": "variables"
+              }
+            }
           }
         },
         "rettsdata": {
@@ -19954,6 +20490,17 @@
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [],
                 "variableId": "VariableID:11819:13637",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "rettsdata-30": {
+            "type": "color",
+            "value": "{primitives.color.lawblue.30}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13831:212",
                 "exportKey": "variables"
               }
             }
@@ -20202,6 +20749,17 @@
                 "exportKey": "variables"
               }
             }
+          },
+          "nature-25-10": {
+            "type": "color",
+            "value": "{primitives.color.nature.25-10%}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13762:4986",
+                "exportKey": "variables"
+              }
+            }
           }
         },
         "romance": {
@@ -20234,6 +20792,17 @@
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [],
                 "variableId": "VariableID:6745:362",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "romance-50-10": {
+            "type": "color",
+            "value": "{primitives.color.romance.50-10%}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13762:4988",
                 "exportKey": "variables"
               }
             }
@@ -20307,6 +20876,17 @@
                 "exportKey": "variables"
               }
             }
+          },
+          "fantasy-250-10": {
+            "type": "color",
+            "value": "{primitives.color.fantasy.250-10%}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13762:4985",
+                "exportKey": "variables"
+              }
+            }
           }
         },
         "thriller": {
@@ -20339,6 +20919,17 @@
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [],
                 "variableId": "VariableID:6745:392",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "thriller-250-10": {
+            "type": "color",
+            "value": "{primitives.color.thriller.250-10%}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13762:4987",
                 "exportKey": "variables"
               }
             }
@@ -20662,17 +21253,6 @@
           }
         },
         "radius": {
-          "pill": {
-            "type": "dimension",
-            "value": "{primitives.size.1000}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [],
-                "variableId": "VariableID:6745:506",
-                "exportKey": "variables"
-              }
-            }
-          },
           "xlarge": {
             "type": "dimension",
             "value": "{primitives.size.32}",
@@ -20706,17 +21286,6 @@
               }
             }
           },
-          "small": {
-            "type": "dimension",
-            "value": "{primitives.size.10}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [],
-                "variableId": "VariableID:6745:510",
-                "exportKey": "variables"
-              }
-            }
-          },
           "xsmall": {
             "type": "dimension",
             "value": "{primitives.size.8}",
@@ -20735,6 +21304,28 @@
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [],
                 "variableId": "VariableID:9353:3956",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "circle": {
+            "type": "dimension",
+            "value": "{primitives.size.9999}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13932:11559",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "small": {
+            "type": "dimension",
+            "value": "{primitives.size.12}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13952:1695",
                 "exportKey": "variables"
               }
             }
@@ -20765,7 +21356,7 @@
               }
             }
           },
-          "xlarge": {
+          "xxlarge": {
             "type": "dimension",
             "value": "{primitives.size.640}",
             "extensions": {
@@ -20776,13 +21367,57 @@
               }
             }
           },
-          "large": {
+          "xlarge": {
             "type": "dimension",
             "value": "{primitives.size.520}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [],
                 "variableId": "VariableID:13417:6894",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "xxxsmall": {
+            "type": "dimension",
+            "value": "{primitives.size.120}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:13805:4482",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "xsmall": {
+            "type": "dimension",
+            "value": "{primitives.size.232}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:14437:6911",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "xxsmall": {
+            "type": "dimension",
+            "value": "{primitives.size.224}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:14437:6912",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "large": {
+            "type": "dimension",
+            "value": "{primitives.size.448}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [],
+                "variableId": "VariableID:14437:6913",
                 "exportKey": "variables"
               }
             }
