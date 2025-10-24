@@ -16,9 +16,5 @@
     "url": "https://AZURE_USERNAME:AZURE_ACCESS_TOKEN@dev.azure.com/gyldendaldigital/Skolestudio/_git/Skolestudio",
     "branch": "master",
     "directory": "skolestudio"
-  },
-    {
-    "name": "KobberDocs",
-    "directory": "../../apps/docs"
   }
 ]

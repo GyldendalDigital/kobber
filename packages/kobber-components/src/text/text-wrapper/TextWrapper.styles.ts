@@ -24,7 +24,7 @@ const createTextWrapperStyles = () => {
 
       em,
       ::slotted(em) {
-        color: var(--highlight-color);
+        /* color: var(--highlight-color); */
         font-style: normal;
       }
     }

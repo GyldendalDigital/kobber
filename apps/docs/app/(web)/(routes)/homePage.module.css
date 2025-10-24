@@ -1,7 +1,0 @@
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-
-  --feature-box-block-margin-bottom: 2rem;
-}

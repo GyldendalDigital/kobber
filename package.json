@@ -17,7 +17,7 @@
     "build": "turbo build",
     "tokens": "turbo tokens",
     "storybook": "turbo storybook",
-    "css": "turbo css",
+    "build:css": "turbo build:css",
     "publish-packages": "turbo run build lint && changeset version && changeset publish",
     "integration-checker": "turbo clone-repos && turbo create-ts-refs && turbo create-csv"
   },

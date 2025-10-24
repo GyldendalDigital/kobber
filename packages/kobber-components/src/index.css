@@ -195,7 +195,9 @@
     --typography-font-size: var(--kobber-universal-text-label-text-size-medium);
     --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
     --typography-font-weight: var(--kobber-universal-text-body-text-weight);
-    --typography-line-height: var([object Object]);
+    --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-long);
+    --typography-font-style: normal;
+    --typography-font-stretch: normal;
   
         }
 &[data-size="small"] { 
@@ -210,7 +212,9 @@
     --typography-font-size: var(--kobber-universal-text-label-text-size-small);
     --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
     --typography-font-weight: var(--kobber-universal-text-body-text-weight);
-    --typography-line-height: var([object Object]);
+    --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-long);
+    --typography-font-style: normal;
+    --typography-font-stretch: normal;
   
         }
   
@@ -372,7 +376,9 @@
     --typography-font-size: var(--kobber-universal-text-label-text-size-medium);
     --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
     --typography-font-weight: var(--kobber-universal-text-body-text-weight);
-    --typography-line-height: var([object Object]);
+    --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-long);
+    --typography-font-style: normal;
+    --typography-font-stretch: normal;
   
             --padding: var(--kobber-component-badge-icon-padding-block-medium) 0;
             --gap: var(--kobber-component-badge-icon-gap-medium);
@@ -382,7 +388,9 @@
     --typography-font-size: var(--kobber-universal-text-label-text-size-small);
     --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
     --typography-font-weight: var(--kobber-universal-text-body-text-weight);
-    --typography-line-height: var([object Object]);
+    --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-long);
+    --typography-font-style: normal;
+    --typography-font-stretch: normal;
   
             --padding: var(--kobber-component-badge-icon-padding-block-small) 0;
             --gap: var(--kobber-component-badge-icon-gap-small);
@@ -898,7 +906,9 @@
     --typography-font-size: var(--kobber-universal-text-label-text-size-medium);
     --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
     --typography-font-weight: var(--kobber-universal-text-body-text-weight);
-    --typography-line-height: var([object Object]);
+    --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-long);
+    --typography-font-style: normal;
+    --typography-font-stretch: normal;
   
     }
 
@@ -1432,7 +1442,7 @@ em,
       flex-direction: column;
       align-items: stretch;
       list-style-type: none;
-      gap: var(--kobber-component-docs-side-menu-gap);
+      gap: var(--kobber-component-list-gap-ordered-medium);
       width: 100%;
 
       &[aria-orientation="horizontal"] {
@@ -1606,7 +1616,9 @@ em,
     --typography-font-size: var(--kobber-universal-text-label-text-size-medium);
     --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
     --typography-font-weight: var(--kobber-universal-text-body-text-weight);
-    --typography-line-height: var([object Object]);
+    --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-long);
+    --typography-font-style: normal;
+    --typography-font-stretch: normal;
   
       --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-large-long);
     }
@@ -2304,12 +2316,14 @@ em,
     --typography-font-size: var(--kobber-universal-text-body-text-size-medium);
     --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
     --typography-font-weight: var(--kobber-universal-text-body-text-weight);
-    --typography-line-height: var([object Object]);
+    --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-long);
+    --typography-font-style: normal;
+    --typography-font-stretch: normal;
   
 
       em,
       ::slotted(em) {
-        color: var(--highlight-color);
+        /* color: var(--highlight-color); */
         font-style: normal;
       }
     }

@@ -47,9 +47,3 @@ export class TextBody extends LitElement implements TextBodyProps {
     `;
   }
 }
-
-declare global {
-  interface HTMLElementTagNameMap {
-    [textBodyName]: TextBody;
-  }
-}
