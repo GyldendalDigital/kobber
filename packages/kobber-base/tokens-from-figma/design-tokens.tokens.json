@@ -51,6 +51,23 @@
         }
       }
     },
+    "large (1280)": {
+      "description": "Desktop / tablet i landskap",
+      "type": "custom-grid",
+      "value": {
+        "pattern": "columns",
+        "gutterSize": 24,
+        "alignment": "stretch",
+        "count": 8,
+        "offset": 64
+      },
+      "extensions": {
+        "org.gyldendal.kobber-figma-export": {
+          "styleId": "S:fee5a400e6747766a92499f5cb1817e4d7434b48,",
+          "exportKey": "grid"
+        }
+      }
+    },
     "expanded (1600+)": {
       "description": "Laptop -> Større skjermer",
       "type": "custom-grid",
@@ -19149,34 +19166,6 @@
     },
     "content-wrapper": {
       "padding": {
-        "top": {
-          "overlay": {
-            "type": "dimension",
-            "value": "{semantics.layout.container.space.small}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [
-                  "GAP"
-                ],
-                "variableId": "VariableID:13328:3640",
-                "exportKey": "variables"
-              }
-            }
-          },
-          "page": {
-            "type": "dimension",
-            "value": "{semantics.layout.container.space.large}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [
-                  "GAP"
-                ],
-                "variableId": "VariableID:13413:6754",
-                "exportKey": "variables"
-              }
-            }
-          }
-        },
         "inline": {
           "type": "dimension",
           "value": "{semantics.layout.container.space.medium}",
@@ -19190,16 +19179,31 @@
             }
           }
         },
-        "bottom": {
-          "type": "dimension",
-          "value": "{semantics.layout.container.space.large}",
-          "extensions": {
-            "org.gyldendal.kobber-figma-export": {
-              "scopes": [
-                "GAP"
-              ],
-              "variableId": "VariableID:13328:3902",
-              "exportKey": "variables"
+        "block": {
+          "overlay": {
+            "type": "dimension",
+            "value": "{semantics.layout.container.space.small}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "GAP"
+                ],
+                "variableId": "VariableID:13328:3902",
+                "exportKey": "variables"
+              }
+            }
+          },
+          "page": {
+            "type": "dimension",
+            "value": "{semantics.layout.container.space.large}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "GAP"
+                ],
+                "variableId": "VariableID:14784:11036",
+                "exportKey": "variables"
+              }
             }
           }
         }
@@ -19238,28 +19242,43 @@
       },
       "background": {
         "color": {
-          "tone-b": {
-            "type": "color",
-            "value": "{semantics.color.identity.base.aubergine-25}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [
-                  "FRAME_FILL"
-                ],
-                "variableId": "VariableID:13328:3907",
-                "exportKey": "variables"
+          "brand": {
+            "tone-b": {
+              "type": "color",
+              "value": "{semantics.color.identity.base.aubergine-25}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "FRAME_FILL"
+                  ],
+                  "variableId": "VariableID:13328:3907",
+                  "exportKey": "variables"
+                }
+              }
+            },
+            "tone-a": {
+              "type": "color",
+              "value": "{semantics.color.identity.base.aubergine-850}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "FRAME_FILL"
+                  ],
+                  "variableId": "VariableID:13328:3908",
+                  "exportKey": "variables"
+                }
               }
             }
           },
-          "tone-a": {
+          "neutral": {
             "type": "color",
-            "value": "{semantics.color.identity.base.aubergine-850}",
+            "value": "{semantics.color.identity.neutral.concrete-25}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
                   "FRAME_FILL"
                 ],
-                "variableId": "VariableID:13328:3908",
+                "variableId": "VariableID:14731:7686",
                 "exportKey": "variables"
               }
             }
