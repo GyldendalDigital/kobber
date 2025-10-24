@@ -1,7 +1,10 @@
 import fs from "node:fs";
-import { ComponentObject, autogenerateHeader } from ".";
+import { autogenerateHeader, type ComponentObject } from ".";
 
-export const listReactComponents = (reactListFilename: string, componentObjects: ComponentObject[]) => {
+export const listReactComponents = (
+  reactListFilename: string,
+  componentObjects: ComponentObject[],
+) => {
   const reactPreamble = `"use client";
 
 import { createComponent } from "@lit/react";
@@ -12,7 +15,7 @@ import * as React from "react";
   let reactExports = `
 `;
 
-  componentObjects.map(object => {
+  componentObjects.forEach(object => {
     reactImports += `
 import { ${object.importComponent} } from "${object.importPath}";`;
 

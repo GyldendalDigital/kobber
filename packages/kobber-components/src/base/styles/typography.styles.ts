@@ -1,5 +1,5 @@
-import { css, unsafeCSS } from "lit";
 import { universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { css, unsafeCSS } from "lit";
 
 const typographyMap = {
   size: unsafeCSS("--typography-font-size"),

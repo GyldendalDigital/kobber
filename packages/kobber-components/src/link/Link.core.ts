@@ -47,4 +47,4 @@ export const linkTypes = ["prominent", "navigation", "subtle"] as const;
 // export type LinkType = keyof typeof component.link.text.color;
 // export const linkTypes: LinkType[] = Object.keys(component.link.text.color) as LinkType[];
 
-export const isButton = (href?: string, onclick?: unknown) => (!href && onclick ? true : false);
+export const isButton = (href?: string, onclick?: unknown) => !!(!href && onclick);

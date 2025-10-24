@@ -1,6 +1,6 @@
-import { css, unsafeCSS } from "lit";
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { inputColorThemes, type InputControlClassNames } from "../Radio.core";
+import { css, unsafeCSS } from "lit";
+import { type InputControlClassNames, inputColorThemes } from "../Radio.core";
 
 const indicatorStyles = component._radiobutton.indicator;
 const inputColor = indicatorStyles.border.color;

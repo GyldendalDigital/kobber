@@ -1,17 +1,17 @@
-import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { css, unsafeCSS } from "lit";
+import { getTypographyStyles } from "../../base/getTypographyStyles";
 import {
-  checkboxColorThemes,
   type CheckboxClassNames,
   type CheckboxColorTheme,
+  type CheckboxState,
+  checkboxColorThemes,
+  type IconClassNames,
+  type InputControlClassNames,
   type InputLabelClassNames,
   type NativeInputClassNames,
-  type InputControlClassNames,
   type WrapperClassNames,
-  type IconClassNames,
-  type CheckboxState,
 } from "../Checkbox.core";
-import { getTypographyStyles } from "../../base/getTypographyStyles2";
 
 const checkbox = component._checkbox;
 const indicator = component._checkbox.indicator;
@@ -64,7 +64,7 @@ const createCheckboxStyles = () => {
       border-radius: var(${unsafeCSS(checkbox.outline.border.radius)});
       border: var(${unsafeCSS(indicator.border.width)}) solid var(--control-border-color);
       outline: var(${unsafeCSS(checkbox.outline.border.width)}) solid var(--control-outline-color);
-      color: var(--color)
+      color: var(--color);
       flex-shrink: 0;
       background-color: var(--control-background-color);
       transition: var(--transition-time) outline;
@@ -99,11 +99,9 @@ const statesPerColorTheme = (colorTheme: CheckboxColorTheme) => {
   const borderColor = indicator.border.color[colorTheme];
   const bgColor = indicator.background.color[colorTheme];
   return css`
-    & {
-      --control-border-color: var(
-        ${unsafeCSS(borderColor.idle)}
-      ); /* Must be first, to enable being overridden by non-idle styles. */
-    }
+    --control-border-color: var(
+      ${unsafeCSS(borderColor.idle)}
+    ); /* Must be first, to enable being overridden by non-idle styles. */
 
     :host(.hover) &,
     :host(:hover) & {

@@ -5,6 +5,7 @@ const invertColor = (hex: string) => {
 
   // convert 3-digit hex to 6-digits.
   if (hex.length === 3) {
+    // @ts-expect-error
     hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
   }
 
@@ -22,7 +23,7 @@ const invertColor = (hex: string) => {
     b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
 
   // pad each with zeros and add alpha
-  return "#" + padZero(r) + padZero(g) + padZero(b) + alpha;
+  return `#${padZero(r)}${padZero(g)}${padZero(b)}${alpha}`;
 };
 
 const padZero = (str: string, len?: number) => {

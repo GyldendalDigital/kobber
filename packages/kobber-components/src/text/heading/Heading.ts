@@ -1,11 +1,11 @@
 import { type CSSResultGroup, LitElement } from "lit";
 import { property } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { html, unsafeStatic } from "lit/static-html.js";
 import componentStyles from "../../base/styles/component.styles";
-import { headingStyles } from "./Heading.styles";
-import { headingName, type HeadingProps, sanitizeHeadingLevel } from "./Heading.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
-import { ifDefined } from "lit/directives/if-defined.js";
+import { type HeadingProps, headingName, sanitizeHeadingLevel } from "./Heading.core";
+import { headingStyles } from "./Heading.styles";
 
 @customElement(headingName)
 export class Heading extends LitElement implements HeadingProps {

@@ -1,6 +1,6 @@
-import { Grid } from "../Grid";
-import { GridColumn } from "../GridColumn";
-import { GridColumnAspectRatio } from "../GridColumnAspectRatio";
+import type { Grid } from "../Grid";
+import type { GridColumn } from "../GridColumn";
+import type { GridColumnAspectRatio } from "../GridColumnAspectRatio";
 
 export type GridConfigId = "none" | "cardGrid" | "tallCardGrid";
 

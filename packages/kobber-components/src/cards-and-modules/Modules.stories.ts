@@ -11,14 +11,14 @@ import "../text/text-body/TextBody";
 import { html } from "lit";
 import "../theme-context-provider/ThemeContext";
 import "@gyldendal/kobber-icons/web-components";
-import { init as initComponents } from "../base/init";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { ifDefined } from "lit/directives/if-defined.js";
+import { init as initComponents } from "../base/init";
+import { invertColorVariant } from "../base/utilities/invertColorVariant";
 import {
   contentWrapperColorVariants,
   contentWrapperTypes,
 } from "./content-wrapper/ContentWrapper.core";
-import { invertColorVariant } from "../base/utilities/invertColorVariant";
 
 initComponents();
 initIcons();

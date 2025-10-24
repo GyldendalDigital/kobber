@@ -1,16 +1,16 @@
 import { css, unsafeCSS } from "lit";
-import {
-  textLabelTokens,
-  textLabelName,
-  textLabelColors,
-  textLabelSizes,
-  textLabelColorVariants,
-} from "./TextLabel.core";
 import { resetMargin } from "../../base/styles/reset.styles";
 import {
   defaultTypographyStyles,
   setTypographyVariable,
 } from "../../base/styles/typography.styles";
+import {
+  textLabelColors,
+  textLabelColorVariants,
+  textLabelName,
+  textLabelSizes,
+  textLabelTokens,
+} from "./TextLabel.core";
 
 const createTextLabelStyles = () => css`
 .${unsafeCSS(textLabelName)} {

@@ -1,12 +1,15 @@
 import { consume } from "@lit/context";
-import { CSSResultGroup, css, html } from "lit";
+import { type CSSResultGroup, css, html } from "lit";
 import { property } from "lit/decorators.js";
-import { Context, context, defaultContext } from "./Grid.context";
-import { StyledLitElement } from "../base/utilities/StyledLitElement";
-import { ResponsiveCssValue, responsiveValueConverter as converter } from "../base/utilities/responsiveCssValue";
-import { stringifyStyleObject } from "../base/utilities/stringifyStyleObject";
 import { customElement } from "../base/utilities/customElementDecorator";
+import {
+  responsiveValueConverter as converter,
+  type ResponsiveCssValue,
+} from "../base/utilities/responsiveCssValue";
+import { StyledLitElement } from "../base/utilities/StyledLitElement";
+import { stringifyStyleObject } from "../base/utilities/stringifyStyleObject";
 import { layout } from "./config/getCardGridBase";
+import { type Context, context, defaultContext } from "./Grid.context";
 
 @customElement("kobber-grid-column")
 export class GridColumn extends StyledLitElement {
@@ -25,7 +28,8 @@ export class GridColumn extends StyledLitElement {
   @property({ converter, attribute: "max-width" })
   maxWidth?: ResponsiveCssValue = `${layout.maxWidth}px`;
 
-  protected getGridColumnStyles = () => stringifyStyleObject(":host", { gridColumn: spanToGridColumn(this.span) });
+  protected getGridColumnStyles = () =>
+    stringifyStyleObject(":host", { gridColumn: spanToGridColumn(this.span) });
 
   render() {
     const styles = this.getStyles(this.context.config?.gridColumnProperties);

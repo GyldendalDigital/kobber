@@ -1,5 +1,13 @@
 # @gyldendal/kobber-icons
 
+## 0.6.11
+
+### Patch Changes
+
+- Add component text-list, split button into three components and add form submit support to them
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.11
+
 ## 0.6.10
 
 ### Patch Changes

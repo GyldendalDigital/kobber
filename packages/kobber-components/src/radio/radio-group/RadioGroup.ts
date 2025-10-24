@@ -1,21 +1,21 @@
-import { html } from "lit";
 import type { CSSResultGroup } from "lit";
+import { html } from "lit";
 import { property, query, state } from "lit/decorators.js";
-import ShoelaceElement from "../../base/internal/shoelace-element";
-import { HasSlotController } from "../../base/internal/slot";
-import { watch } from "../../base/internal/watch";
-import type { ShoelaceFormControl } from "../../base/internal/shoelace-element";
 import {
   customErrorValidityState,
   FormControlController,
   validValidityState,
   valueMissingValidityState,
 } from "../../base/internal/form";
+import type { ShoelaceFormControl } from "../../base/internal/shoelace-element";
+import ShoelaceElement from "../../base/internal/shoelace-element";
+import { HasSlotController } from "../../base/internal/slot";
+import { watch } from "../../base/internal/watch";
 import componentStyles from "../../base/styles/component.styles";
-import type { RadioInput } from "../radio-input/RadioInput";
-import { radioGroupName, radioInputName, type GroupProps } from "../Radio.core";
-import { radioGroupStyles } from "./RadioGroup.styles";
 import { customElement } from "../../base/utilities/customElementDecorator";
+import { type GroupProps, radioGroupName, radioInputName } from "../Radio.core";
+import type { RadioInput } from "../radio-input/RadioInput";
+import { radioGroupStyles } from "./RadioGroup.styles";
 
 /**
  * @summary Radio groups are used to group multiple [radio inputs](/components/radio-input) so they function as a single form control.
@@ -93,10 +93,6 @@ export class RadioGroup extends ShoelaceElement implements Props {
 
     return validValidityState;
   }
-
-  constructor() {
-    super();
-  }
   defaultValue?: unknown;
   pattern?: string | undefined;
   min?: string | number | Date | undefined;
@@ -142,7 +138,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
     );
 
     if (radios.length > 0 && !radios.some(radio => radio.checked)) {
-      radios[0]!.setAttribute("tabindex", "0");
+      radios[0]?.setAttribute("tabindex", "0");
     }
   }
 
@@ -197,7 +193,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
   }
 
   private handleRadioClick(event: MouseEvent) {
-    const target = (event.target as HTMLElement).closest<RadioInput>(radioInputName)!;
+    const target = (event.target as HTMLElement).closest<RadioInput>(radioInputName);
     const radios = this.getAllRadios();
     const oldValue = this.value;
 
@@ -206,7 +202,9 @@ export class RadioGroup extends ShoelaceElement implements Props {
     }
 
     this.value = target.value;
-    radios.forEach(radio => (radio.checked = radio === target));
+    radios.forEach(radio => {
+      radio.checked = radio === target;
+    });
 
     if (this.value !== oldValue) {
       this.emit("change");
@@ -220,9 +218,13 @@ export class RadioGroup extends ShoelaceElement implements Props {
     }
 
     const radios = this.getAllRadios().filter(radio => !radio.disabled);
+    if (radios.length === 0) {
+      return;
+    }
     const checkedRadio = radios.find(radio => radio.checked) ?? radios[0];
     const incr = event.key === " " ? 0 : ["ArrowUp", "ArrowLeft"].includes(event.key) ? -1 : 1;
     const oldValue = this.value;
+    // biome-ignore lint/style/noNonNullAssertion: checked above
     let index = radios.indexOf(checkedRadio!) + incr;
 
     if (index < 0) {
@@ -238,10 +240,14 @@ export class RadioGroup extends ShoelaceElement implements Props {
       radio.setAttribute("tabindex", "-1");
     });
 
-    this.value = radios[index]!.value;
-    radios[index]!.checked = true;
+    const currentRadio = radios[index];
+    if (currentRadio) {
+      this.value = currentRadio.value;
+      currentRadio.checked = true;
+      currentRadio.setAttribute("tabindex", "0");
+    }
+
     this.focusOnRadio(radios);
-    radios[index]!.setAttribute("tabindex", "0");
 
     if (this.value !== oldValue) {
       this.emit("change");
@@ -253,7 +259,9 @@ export class RadioGroup extends ShoelaceElement implements Props {
 
   private updateCheckedRadio() {
     const radios = this.getAllRadios();
-    radios.forEach(radio => (radio.checked = radio.value === this.value));
+    radios.forEach(radio => {
+      radio.checked = radio.value === this.value;
+    });
     this.formControlController.setValidity(this.validity.valid);
   }
 

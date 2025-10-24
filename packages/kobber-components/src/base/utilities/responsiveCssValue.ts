@@ -1,4 +1,4 @@
-import { PropertyDeclaration } from "lit";
+import type { PropertyDeclaration } from "lit";
 
 type ResponsiveCssValueObject = Record<string, string>;
 
@@ -12,12 +12,14 @@ export const responsiveValueConverter: PropertyDeclaration["converter"] = {
 
 export type StyleValue = string | number | undefined | null | ResponsiveCssValue;
 
-export const isResponsiveCssValue = (value: StyleValue): value is ResponsiveCssValue => typeof value === "object";
+export const isResponsiveCssValue = (value: StyleValue): value is ResponsiveCssValue =>
+  typeof value === "object";
 
 export const isResponsiveCssObjectValue = (value: StyleValue): value is ResponsiveCssValueObject =>
   isResponsiveCssValue(value) && typeof value !== "string";
 
-export const isResponsiveCssStringValue = (value: StyleValue): value is string => typeof value === "string";
+export const isResponsiveCssStringValue = (value: StyleValue): value is string =>
+  typeof value === "string";
 
 export const mapResponsiveCssValue = <ReturnType = string>(
   value: ResponsiveCssValue | undefined,

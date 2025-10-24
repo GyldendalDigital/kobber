@@ -1,8 +1,11 @@
-import { CSSResultGroup, css, html } from "lit";
+import { type CSSResultGroup, css, html } from "lit";
 import { property } from "lit/decorators.js";
-import { GridColumn } from "./GridColumn";
-import { ResponsiveCssValue, responsiveValueConverter as converter } from "../base/utilities/responsiveCssValue";
+import {
+  responsiveValueConverter as converter,
+  type ResponsiveCssValue,
+} from "../base/utilities/responsiveCssValue";
 import { stringifyStyleObject } from "../base/utilities/stringifyStyleObject";
+import { GridColumn } from "./GridColumn";
 import "./../aspect-ratio/AspectRatio";
 import { customElement } from "../base/utilities/customElementDecorator";
 
@@ -19,14 +22,14 @@ export class GridColumnAspectRatio extends GridColumn {
   `;
 
   @property()
-  ["--span"]?: ResponsiveCssValue;
+  "--span"?: ResponsiveCssValue;
 
   @property({ converter, attribute: "aspect-ratio" })
   aspectRatio?: ResponsiveCssValue;
 
   private getSpanCssVariable = () =>
     stringifyStyleObject(":host", {
-      ["--span"]: this.span ? this.span.toString() : "1",
+      "--span": this.span ? this.span.toString() : "1",
     });
 
   render() {

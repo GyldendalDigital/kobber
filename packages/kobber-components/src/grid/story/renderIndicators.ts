@@ -1,6 +1,10 @@
 export const renderIndicators = () => {
-  document.querySelectorAll("[data-indicator]").forEach(element => element.remove());
-  const cards = Array.from(document.querySelectorAll(".demo kobber-grid-column-aspect-ratio kobber-example-card"));
+  document.querySelectorAll("[data-indicator]").forEach(element => {
+    element.remove();
+  });
+  const cards = Array.from(
+    document.querySelectorAll(".demo kobber-grid-column-aspect-ratio kobber-example-card"),
+  );
   const windowWidthIndicator = createIndicator(false);
   const boundaryIndicator = createIndicator(false);
   const leftWindowIndicator = createIndicator(false);
@@ -9,10 +13,14 @@ export const renderIndicators = () => {
   const verticalIndicator = createIndicator(true);
   const update = () => {
     const target = cards[0];
+    if (!target) {
+      return;
+    }
     const right = cards[1];
     const rects = cards.map(card => card.getBoundingClientRect());
     const targetRect = target.getBoundingClientRect();
-    const totalWidth = Math.max(...rects.map(({ right }) => right)) - Math.min(...rects.map(({ left }) => left));
+    const totalWidth =
+      Math.max(...rects.map(({ right }) => right)) - Math.min(...rects.map(({ left }) => left));
     windowWidthIndicator.update({
       value: document.documentElement.clientWidth,
       top: targetRect.top - 64,
@@ -33,11 +41,12 @@ export const renderIndicators = () => {
       top: targetRect.top + targetRect.height / 2,
       left: document.documentElement.clientWidth - targetRect.left,
     });
-    horizontalIndicator.update({
-      value: right.getBoundingClientRect().left - targetRect.right,
-      top: targetRect.top + targetRect.height / 2,
-      left: targetRect.right,
-    });
+    right &&
+      horizontalIndicator.update({
+        value: right.getBoundingClientRect().left - targetRect.right,
+        top: targetRect.top + targetRect.height / 2,
+        left: targetRect.right,
+      });
     verticalIndicator.update({
       value: (rects.find(({ top }) => top > targetRect.bottom)?.top ?? 0) - targetRect.bottom,
       top: targetRect.bottom,

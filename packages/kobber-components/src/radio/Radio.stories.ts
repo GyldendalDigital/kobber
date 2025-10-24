@@ -6,8 +6,8 @@ import { type GroupProps, type InputProps, inputColorThemes, radioInputName } fr
 import "../text/heading/Heading";
 import "../theme-context-provider/ThemeContext";
 import { html } from "lit";
-import { init as initComponents } from "../base/init";
 import { ifDefined } from "lit/directives/if-defined.js";
+import { init as initComponents } from "../base/init";
 
 initComponents();
 

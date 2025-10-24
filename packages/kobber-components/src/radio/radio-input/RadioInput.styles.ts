@@ -1,13 +1,13 @@
-import { css, unsafeCSS } from "lit";
 import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { css, unsafeCSS } from "lit";
+import { getTypographyStyles } from "../../base/getTypographyStyles";
 import {
-  inputColorThemes,
   type InputClassNames,
   type InputColorTheme,
-  type InputLabelClassNames,
   type InputControlPartNames,
+  type InputLabelClassNames,
+  inputColorThemes,
 } from "../Radio.core";
-import { getTypographyStyles } from "../../base/getTypographyStyles2";
 
 const inputStyles = component._radiobutton;
 

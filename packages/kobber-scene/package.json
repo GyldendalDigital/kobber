@@ -1,13 +1,12 @@
 {
   "name": "@gyldendal/kobber-scene",
-  "version": "0.6.10",
+  "version": "0.6.11",
   "license": "MIT",
   "type": "module",
-  "files": [
-    "chunks/**/*",
-    "react/**/*",
-    "web-components/**/*"
-  ],
+  "exports": {
+    "./react": "./dist/react/index.js",
+    "./web-components": "./dist/web-components/index.js"
+  },
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "build": "tsup",
@@ -20,12 +19,12 @@
     "lit": "^3.2.1"
   },
   "devDependencies": {
-    "@gyldendal/kobber-tsconfig": "0.6.10",
+    "@gyldendal/kobber-tsconfig": "0.6.11",
     "@types/react": "^19.1.0",
     "onchange": "^7.1.0",
     "react": "^19.1.0",
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.3"
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "react": ">=18"

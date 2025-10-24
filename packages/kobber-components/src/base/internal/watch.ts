@@ -34,20 +34,18 @@ export function watch(propertyName: string | string[], options?: WatchOptions) {
   };
   return <ElemClass extends LitElement>(
     proto: ElemClass,
-    decoratedFnName: UpdateHandlerFunctionKeys<ElemClass>
+    decoratedFnName: UpdateHandlerFunctionKeys<ElemClass>,
   ) => {
     // @ts-expect-error - update is a protected property
     const { update } = proto;
-    const watchedProperties = Array.isArray(propertyName)
-      ? propertyName
-      : [propertyName];
+    const watchedProperties = Array.isArray(propertyName) ? propertyName : [propertyName];
 
     // @ts-expect-error - update is a protected property
     proto.update = function (
       this: ElemClass,
-      changedProps: Map<keyof ElemClass, ElemClass[keyof ElemClass]>
+      changedProps: Map<keyof ElemClass, ElemClass[keyof ElemClass]>,
     ) {
-      watchedProperties.forEach((property) => {
+      watchedProperties.forEach(property => {
         const key = property as keyof ElemClass;
         if (changedProps.has(key)) {
           const oldValue = changedProps.get(key);
@@ -55,10 +53,7 @@ export function watch(propertyName: string | string[], options?: WatchOptions) {
 
           if (oldValue !== newValue) {
             if (!resolvedOptions.waitUntilFirstUpdate || this.hasUpdated) {
-              (this[decoratedFnName] as unknown as UpdateHandler)(
-                oldValue,
-                newValue
-              );
+              (this[decoratedFnName] as unknown as UpdateHandler)(oldValue, newValue);
             }
           }
         }

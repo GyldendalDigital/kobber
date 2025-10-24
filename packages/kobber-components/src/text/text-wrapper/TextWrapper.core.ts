@@ -6,7 +6,9 @@ export type TextWrapperProps = {
 
 export type TextWrapperClassNames = typeof textWrapperName | "reading-max-width";
 
-export const textWrapperClassNames = ({ fullWidth = false }: TextWrapperProps): TextWrapperClassNames[] => {
+export const textWrapperClassNames = ({
+  fullWidth = false,
+}: TextWrapperProps): TextWrapperClassNames[] => {
   const conditionalClassNames: TextWrapperClassNames[] = [];
 
   if (!fullWidth) {

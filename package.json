@@ -9,38 +9,35 @@
   ],
   "scripts": {
     "clean": "turbo clean && rm -rf .turbo node_modules",
-    "lint": "biome lint",
+    "lint": "turbo lint lint:root --continue",
+    "lint:root": "biome ci",
     "test": "turbo test",
     "dev": "turbo dev",
     "build": "turbo build",
     "tokens": "turbo tokens",
     "storybook": "turbo storybook",
-    "build-storybook-web-components": "turbo build-storybook-web-components",
     "css": "turbo css",
     "publish-packages": "turbo run build lint && changeset version && changeset publish"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.4",
+    "@biomejs/biome": "^2.2.5",
     "@changesets/cli": "^2.28.1",
-    "@gyldendal/kobber-base": "*",
-    "@gyldendal/kobber-components": "*",
-    "@gyldendal/kobber-icons": "*",
     "@storybook/addon-a11y": "^9.1.6",
     "@storybook/addon-docs": "^9.1.6",
     "@storybook/builder-vite": "^9.1.6",
     "@storybook/web-components-vite": "^9.1.6",
     "@types/node": "^24.3.0",
     "storybook": "^9.1.6",
-    "stylelint": "^16.0.2",
-    "stylelint-config-standard": "^35.0.0",
-    "stylelint-order": "^6.0.4",
-    "turbo": "^2.5.4",
-    "typescript": "^5.8.3",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^39.0.1",
+    "stylelint-order": "^7.0.0",
+    "turbo": "^2.5.8",
+    "typescript": "^5.9.3",
     "vite": "^7.1.5"
   },
-  "packageManager": "yarn@4.9.1",
+  "packageManager": "yarn@4.10.3",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.17.0"
   },
   "dependencies": {
     "@types/babel-generator": "^6.25.8"

@@ -1,9 +1,9 @@
 import { css, unsafeCSS } from "lit";
-import { leadColors, leadColorVariants, leadFonts, leadName, leadTokens } from "./Lead.core";
 import {
   defaultTypographyStyles,
   setTypographyVariable,
 } from "../../base/styles/typography.styles";
+import { leadColors, leadColorVariants, leadFonts, leadName, leadTokens } from "./Lead.core";
 
 const createLeadStyles = () => css`
 .${unsafeCSS(leadName)} {

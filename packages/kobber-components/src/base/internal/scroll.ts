@@ -12,11 +12,9 @@ function getScrollbarWidth() {
  * Used in conjunction with `scrollbarWidth` to set proper body padding in case the user has padding already on the `<body>` element.
  */
 function getExistingBodyPadding() {
-  const padding = Number(
-    getComputedStyle(document.body).paddingRight.replace(/px/, "")
-  );
+  const padding = Number(getComputedStyle(document.body).paddingRight.replace(/px/, ""));
 
-  if (isNaN(padding) || !padding) {
+  if (Number.isNaN(padding) || !padding) {
     return 0;
   }
 
@@ -36,10 +34,7 @@ export function lockBodyScrolling(lockingEl: HTMLElement) {
     /** Scrollbar width + body padding calculation can go away once Safari has scrollbar-gutter support. */
     const scrollbarWidth = getScrollbarWidth() + getExistingBodyPadding(); // must be measured before the `sl-scroll-lock` class is applied
     document.documentElement.classList.add("sl-scroll-lock");
-    document.documentElement.style.setProperty(
-      "--sl-scroll-lock-size",
-      `${scrollbarWidth}px`
-    );
+    document.documentElement.style.setProperty("--sl-scroll-lock-size", `${scrollbarWidth}px`);
   }
 }
 
@@ -60,7 +55,7 @@ export function scrollIntoView(
   element: HTMLElement,
   container: HTMLElement,
   direction: "horizontal" | "vertical" | "both" = "vertical",
-  behavior: "smooth" | "auto" = "smooth"
+  behavior: "smooth" | "auto" = "smooth",
 ) {
   const offset = getOffset(element, container);
   const offsetTop = offset.top + container.scrollTop;

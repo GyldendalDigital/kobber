@@ -26,7 +26,6 @@ export default defineConfig(() => ({
   },
   format: ["esm"],
   dts: true,
-  outDir: ".",
   clean: false,
   bundle: true,
   external: ["react"],

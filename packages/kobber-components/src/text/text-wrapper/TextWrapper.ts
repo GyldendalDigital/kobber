@@ -1,9 +1,9 @@
-import { CSSResultGroup, html, LitElement } from "lit";
+import { type CSSResultGroup, html, LitElement } from "lit";
 import { property } from "lit/decorators.js";
-import { textWrapperStyles } from "./TextWrapper.styles";
 import componentStyles from "../../base/styles/component.styles";
-import { textWrapperClassNames, textWrapperName, TextWrapperProps } from "./TextWrapper.core";
 import { customElement } from "../../base/utilities/customElementDecorator";
+import { type TextWrapperProps, textWrapperClassNames, textWrapperName } from "./TextWrapper.core";
+import { textWrapperStyles } from "./TextWrapper.styles";
 
 @customElement(textWrapperName)
 export class TextWrapper extends LitElement implements TextWrapperProps {

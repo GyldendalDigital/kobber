@@ -1,10 +1,10 @@
 import type { CSSResultGroup } from "lit";
 import { property } from "lit/decorators.js";
-import { defaultButtonStyles } from "./Button.styles";
 import { customElement } from "../../base/utilities/customElementDecorator";
+import { defaultButtonStyles } from "./Button.styles";
 import "../../text/text-label/TextLabel";
-import { type DefaultButtonProps, defaultButtonName } from "./Button.core";
 import { ButtonBase } from "../button-base/ButtonBase";
+import { type DefaultButtonProps, defaultButtonName } from "./Button.core";
 
 @customElement(defaultButtonName)
 export class Button extends ButtonBase implements DefaultButtonProps {
