@@ -1432,7 +1432,7 @@ em,
       flex-direction: column;
       align-items: stretch;
       list-style-type: none;
-      gap: var(--kobber-component-docs-side-menu-gap);
+      gap: var([object Object]);
       width: 100%;
 
       &[aria-orientation="horizontal"] {

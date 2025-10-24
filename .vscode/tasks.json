@@ -22,14 +22,6 @@
       "problemMatcher": []
     },
     {
-      "label": "Build Docs",
-      "dependsOn": ["Build Base"],
-      "type": "npm",
-      "script": "build",
-      "path": "/apps/docs",
-      "problemMatcher": []
-    },
-    {
       "label": "Build Components",
       "dependsOn": ["Build Base"],
       "type": "npm",
@@ -47,7 +39,7 @@
     },
     {
       "label": "Build All",
-      "dependsOn": ["Build Docs", "Build Base", "Build Components", "Build Icons"],
+      "dependsOn": ["Build Base", "Build Components", "Build Icons"],
       "problemMatcher": []
     }
   ]

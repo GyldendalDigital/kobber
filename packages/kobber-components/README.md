@@ -109,12 +109,6 @@ cd ../..
 yarn storybook
 ```
 
-If you're building a React-component used in the [docs app](../../apps/docs), you need to build the component every time you make a change:
-
-```sh
-yarn dev
-```
-
 ### Create components
 
 Kobber Components are ["autonomous custom elements"](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#types_of_custom_element), that inherit from HTMLElement base class. Custom elements inheriting other HTML elements is not supported by Safari.

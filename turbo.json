@@ -25,10 +25,7 @@
       "outputs": [
         "dist/**",
         "src/icon/icons/**",
-        "storybook-static/**",
-        "out/**",
-        ".next/**",
-        "!.next/cache/**"
+        "storybook-static/**"
       ]
     },
     "tokens": {
