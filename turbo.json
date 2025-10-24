@@ -31,7 +31,7 @@
     "tokens": {
       "cache": false
     },
-    "css": {
+    "build:css": {
       "cache": false
     },
     "storybook": {

@@ -36,6 +36,8 @@ export const getTypographyStyles = (
     --typography-font-size: var(${unsafeCSS(typographyStyles.size)});
     --typography-font-family: var(${unsafeCSS(typographyStyles.family)});
     --typography-font-weight: var(${unsafeCSS(typographyStyles.weight)});
-    --typography-line-height: var(${unsafeCSS(typographyStyles.lineHeight)});
+    --typography-line-height: var(${unsafeCSS(typographyStyles.lineHeight.long)});
+    --typography-font-style: normal;
+    --typography-font-stretch: normal;
   `;
 };
