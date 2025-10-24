@@ -1,5 +1,13 @@
 # @gyldendal/kobber-icons
 
+## 0.6.12
+
+### Patch Changes
+
+- audio-recorder ux improvements
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.12
+
 ## 0.6.11
 
 ### Patch Changes

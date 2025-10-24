@@ -40,6 +40,9 @@
     "storybook": {
       "cache": false,
       "persistent": true
-    }
+    },
+    "clone-repos": {"cache": false},
+    "create-ts-refs": {"cache": false},
+    "create-csv": {"cache": false}
   }
 }

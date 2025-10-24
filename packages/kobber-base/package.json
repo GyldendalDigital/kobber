@@ -1,6 +1,6 @@
 {
   "name": "@gyldendal/kobber-base",
-  "version": "0.6.11",
+  "version": "0.6.12",
   "license": "MIT",
   "type": "module",
   "files": [
@@ -21,13 +21,15 @@
     "build": "tsup && tsx ./build.ts",
     "lint": "echo TSC && tsc --noEmit",
     "test": "tsx ./tests",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "create-ts-refs": "create-ts-refs --sourceMap=entries.ts --out=.references.mts"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/GyldendalDigital/kobber"
   },
   "devDependencies": {
+    "@internal/integration-checker": "workspace:^",
     "style-dictionary": "^5.1.1",
     "tsup": "^8.5.0",
     "tsx": "^4.20.6",

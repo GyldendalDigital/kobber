@@ -1,0 +1,24 @@
+[
+  {
+    "name": "ContentTemplates",
+    "url": "https://github.com/GyldendalDigital/content-templates",
+    "branch": "main",
+    "directory": "contentTemplates"
+  },
+  {
+    "name": "SmartExercise",
+    "url": "https://GITHUB_USERNAME:GITHUB_ACCESS_TOKEN@github.com/GyldendalDigital/SmartExercise.git",
+    "branch": "master",
+    "directory": "smartExercise"
+  },
+  {
+    "name": "Skolestudio",
+    "url": "https://AZURE_USERNAME:AZURE_ACCESS_TOKEN@dev.azure.com/gyldendaldigital/Skolestudio/_git/Skolestudio",
+    "branch": "master",
+    "directory": "skolestudio"
+  },
+    {
+    "name": "KobberDocs",
+    "directory": "../../apps/docs"
+  }
+]
