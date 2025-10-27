@@ -9,7 +9,7 @@ const createListStyles = () => {
       flex-direction: column;
       align-items: stretch;
       list-style-type: none;
-      gap: var(${unsafeCSS(component["docs-side-menu"].gap)});
+      gap: var(${unsafeCSS(component.list.gap.ordered.medium)});
       width: 100%;
 
       &[aria-orientation="horizontal"] {

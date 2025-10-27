@@ -1,0 +1,9 @@
+Removed docs site as solution for kobber.gyldendal.no
+
+Reasons:
+- it's replaced by a solution from Zeroheight CMS
+- requires maintenance
+- build time
+
+Steps to reproduce later:
+- look at the commit when this file was created

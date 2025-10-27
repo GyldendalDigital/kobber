@@ -11,7 +11,6 @@ module.exports = {
     "selector-class-pattern": null,
     "no-descending-specificity": null,
     "declaration-block-no-duplicate-custom-properties": null,
-    "csstools/value-no-unknown-custom-properties": null,
     "selector-attribute-quotes": null,
     "selector-max-type": null,
     "property-allowed-list": null,// ["/^--/", "outline"], // didn't work as expected
