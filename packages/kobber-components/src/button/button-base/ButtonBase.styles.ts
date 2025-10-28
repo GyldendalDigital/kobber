@@ -101,6 +101,35 @@ const hover = (hoverColor: string) => css`
 export const getIconColor = (
   colorTheme: keyof (typeof universal)["text-label"]["text"]["color"],
   colorVariant: keyof (typeof universal)["text-label"]["text"]["color"]["brand"],
+  colorLevel: "primary" | "secondary" | "tertiary",
 ) => {
-  return universal["text-label"].text.color[colorTheme]?.[invertColorVariant(colorVariant)];
+  return universal["text-label"].text.color[colorTheme]?.[
+    isColorVariantException(colorTheme, colorLevel)
+      ? colorVariant
+      : invertColorVariant(colorVariant)
+  ];
+};
+
+/**
+ * We usually invert the color variant for the nested TextLabel, but there are exceptions to this rule.
+ */
+export const isColorVariantException = (
+  colorTheme?: keyof (typeof universal)["text-label"]["text"]["color"],
+  colorLevel?: "primary" | "secondary" | "tertiary" | unknown,
+) => {
+  if (colorLevel === "tertiary") {
+    return true;
+  }
+
+  if (
+    colorLevel === "secondary" &&
+    colorTheme &&
+    ["accent", "nostalgia", "nature", "romance", "thriller", "fantasy", "vacation"].includes(
+      colorTheme,
+    )
+  ) {
+    return true;
+  }
+
+  return false;
 };
