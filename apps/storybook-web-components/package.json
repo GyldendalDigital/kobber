@@ -6,6 +6,7 @@
   "private": true,
   "devDependencies": {
     "@gyldendal/kobber-base": "*",
+    "@gyldendal/kobber-components": "*",
     "@gyldendal/kobber-icons": "*",
     "@types/react": "^19.1.0",
     "lit-html": "^3.2.1"

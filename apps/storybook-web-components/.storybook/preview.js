@@ -1,5 +1,6 @@
 import "@gyldendal/kobber-base/themes/default/tokens.css";
 import "@gyldendal/kobber-base/themes/dark/tokens.css";
+import "@gyldendal/kobber-components/css/index.css";
 import theme from "./managerTheme";
 import { html } from "lit-html";
 
@@ -20,6 +21,7 @@ const themes = [{ value: 'kobber-theme-default', title: 'Light' }, { value: 'kob
     },
     docs: {
       theme: theme,
+      codePanel: true,
       source: {
         language: "html",
         excludeDecorators: true,
