@@ -83,20 +83,49 @@ export const buttonColorVariables = (
   iconColor: string,
   backgroundColor: string,
   hoverColor: string,
-  borderColor?: string,
 ) => css`
---icon-color: var(${unsafeCSS(iconColor)});
---border-color: var(${unsafeCSS(borderColor)});
---background-color: var(${unsafeCSS(backgroundColor)});
-${hover(hoverColor)}`;
+  --icon-color: var(${unsafeCSS(iconColor)});
+  ${unsafeCSS(backgroundColor ? `--background-color: var(${backgroundColor});` : "")}
+  ${hoverColor ? hoverEffectBackground(hoverColor) : hoverEffectUnderline()}`;
 
-const hover = (hoverColor: string) => css`
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(${unsafeCSS(hoverColor)}) 0%, var(${unsafeCSS(hoverColor)}) 100%);
-  }
-}`;
+/** Lightens or darkens the background, based on prop combination */
+const hoverEffectBackground = (hoverColor: string) => css`
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(${unsafeCSS(hoverColor)}) 0%, var(${unsafeCSS(hoverColor)}) 100%);
+    }
+  }`;
+
+const paddingIconOnly = `${8 / 16}rem`;
+
+/** Applies an underline with same color as text */
+const hoverEffectUnderline = () => css`
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(${unsafeCSS(button.underline.padding.bottom)});
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(${unsafeCSS(button.border.width.hover)}) solid;
+        right: var(${unsafeCSS(button.padding.inline)});
+        left: var(${unsafeCSS(button.padding.inline)});
+      }
+
+      &.${unsafeCSS("kobber-button--icon" satisfies ButtonClassNames)} {
+        &.${unsafeCSS("kobber-button--icon-only" satisfies ButtonClassNames)} {
+          &:after {
+            right: ${unsafeCSS(paddingIconOnly)};
+            left: ${unsafeCSS(paddingIconOnly)};
+          }
+        }
+      }
+    }
+  }`;
 
 export const getIconColor = (
   colorTheme: keyof (typeof universal)["text-label"]["text"]["color"],

@@ -409,257 +409,429 @@
 
 .kobber-button {
   
-&[data-color="brand"][data-color-variant="tone-b"][data-color-level="primary"] {
+  &[data-color="brand"][data-color-variant="tone-b"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
 
---icon-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
---border-color: var(undefined);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
   }
-}
-}
-
-&[data-color="brand"][data-color-variant="tone-b"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
---border-color: var(undefined);
---background-color: var(--kobber-component-button-background-color-brand-secondary-tone-b-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-brand-secondary-tone-b-hover) 0%, var(--kobber-component-button-background-color-brand-secondary-tone-b-hover) 100%);
   }
-}
-}
 
-&[data-color="brand"][data-color-variant="tone-b"][data-color-level="tertiary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
---border-color: var(--kobber-component-button-border-color-brand-tertiary-tone-b-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
+  &[data-color="brand"][data-color-variant="tone-b"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+  --background-color: var(--kobber-component-button-background-color-brand-secondary-tone-b-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-brand-secondary-tone-b-hover) 0%, var(--kobber-component-button-background-color-brand-secondary-tone-b-hover) 100%);
+    }
   }
-}
-}
-
-&[data-color="brand"][data-color-variant="tone-a"][data-color-level="primary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-brand-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-button-background-color-brand-primary-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-brand-primary-tone-a-hover) 0%, var(--kobber-component-button-background-color-brand-primary-tone-a-hover) 100%);
   }
-}
-}
 
-&[data-color="brand"][data-color-variant="tone-a"][data-color-level="secondary"] {
+  &[data-color="brand"][data-color-variant="tone-b"][data-color-level="tertiary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-brand-tone-b);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
 
---icon-color: var(--kobber-universal-text-label-text-color-brand-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-button-background-color-brand-secondary-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-brand-secondary-tone-a-hover) 0%, var(--kobber-component-button-background-color-brand-secondary-tone-a-hover) 100%);
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
   }
-}
-}
-
-&[data-color="brand"][data-color-variant="tone-a"][data-color-level="tertiary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-brand-tone-b);
---border-color: var(--kobber-component-button-border-color-brand-tertiary-tone-a-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="neutral"][data-color-variant="tone-b"][data-color-level="primary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
---border-color: var(undefined);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
+  &[data-color="brand"][data-color-variant="tone-a"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-brand-tone-b);
+  --background-color: var(--kobber-component-button-background-color-brand-primary-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-brand-primary-tone-a-hover) 0%, var(--kobber-component-button-background-color-brand-primary-tone-a-hover) 100%);
+    }
   }
-}
-}
-
-&[data-color="neutral"][data-color-variant="tone-b"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
---border-color: var(undefined);
---background-color: var(--kobber-component-button-background-color-neutral-secondary-tone-b-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-neutral-secondary-tone-b-hover) 0%, var(--kobber-component-button-background-color-neutral-secondary-tone-b-hover) 100%);
   }
-}
-}
 
-&[data-color="neutral"][data-color-variant="tone-b"][data-color-level="tertiary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
---border-color: var(undefined);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
+  &[data-color="brand"][data-color-variant="tone-a"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-brand-tone-b);
+  --background-color: var(--kobber-component-button-background-color-brand-secondary-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-brand-secondary-tone-a-hover) 0%, var(--kobber-component-button-background-color-brand-secondary-tone-a-hover) 100%);
+    }
   }
-}
-}
-
-&[data-color="neutral"][data-color-variant="tone-a"][data-color-level="primary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-button-background-color-neutral-primary-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-neutral-primary-tone-a-hover) 0%, var(--kobber-component-button-background-color-neutral-primary-tone-a-hover) 100%);
   }
-}
-}
 
-&[data-color="neutral"][data-color-variant="tone-a"][data-color-level="secondary"] {
+  &[data-color="brand"][data-color-variant="tone-a"][data-color-level="tertiary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
 
---icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
---border-color: var(undefined);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
   }
-}
-}
-
-&[data-color="neutral"][data-color-variant="tone-a"][data-color-level="tertiary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
---border-color: var(--kobber-component-button-border-color-neutral-tertiary-tone-a-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="rettsdata"][data-color-variant="tone-b"][data-color-level="primary"] {
+  &[data-color="neutral"][data-color-variant="tone-b"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
 
---icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
---border-color: var(undefined);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
   }
-}
-}
-
-&[data-color="rettsdata"][data-color-variant="tone-b"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
---border-color: var(undefined);
---background-color: var(--kobber-component-button-background-color-rettsdata-secondary-tone-b-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-rettsdata-secondary-tone-b-hover) 0%, var(--kobber-component-button-background-color-rettsdata-secondary-tone-b-hover) 100%);
   }
-}
-}
 
-&[data-color="rettsdata"][data-color-variant="tone-b"][data-color-level="tertiary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
---border-color: var(--kobber-component-button-border-color-rettsdata-tertiary-tone-b-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
+  &[data-color="neutral"][data-color-variant="tone-b"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
+  --background-color: var(--kobber-component-button-background-color-neutral-secondary-tone-b-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-neutral-secondary-tone-b-hover) 0%, var(--kobber-component-button-background-color-neutral-secondary-tone-b-hover) 100%);
+    }
   }
-}
-}
-
-&[data-color="rettsdata"][data-color-variant="tone-a"][data-color-level="primary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-button-background-color-rettsdata-primary-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-rettsdata-primary-tone-a-hover) 0%, var(--kobber-component-button-background-color-rettsdata-primary-tone-a-hover) 100%);
   }
-}
-}
 
-&[data-color="rettsdata"][data-color-variant="tone-a"][data-color-level="secondary"] {
+  &[data-color="neutral"][data-color-variant="tone-b"][data-color-level="tertiary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
 
---icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-button-background-color-rettsdata-secondary-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-rettsdata-secondary-tone-a-hover) 0%, var(--kobber-component-button-background-color-rettsdata-secondary-tone-a-hover) 100%);
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
   }
-}
-}
-
-&[data-color="rettsdata"][data-color-variant="tone-a"][data-color-level="tertiary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
---border-color: var(--kobber-component-button-border-color-rettsdata-tertiary-tone-a-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
+
+  &[data-color="neutral"][data-color-variant="tone-a"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
+  --background-color: var(--kobber-component-button-background-color-neutral-primary-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-neutral-primary-tone-a-hover) 0%, var(--kobber-component-button-background-color-neutral-primary-tone-a-hover) 100%);
+    }
+  }
+  }
+
+  &[data-color="neutral"][data-color-variant="tone-a"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-b);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
+
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  }
+
+  &[data-color="neutral"][data-color-variant="tone-a"][data-color-level="tertiary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-neutral-tone-a);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
+
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  }
+
+  &[data-color="rettsdata"][data-color-variant="tone-b"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
+
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  }
+
+  &[data-color="rettsdata"][data-color-variant="tone-b"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
+  --background-color: var(--kobber-component-button-background-color-rettsdata-secondary-tone-b-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-rettsdata-secondary-tone-b-hover) 0%, var(--kobber-component-button-background-color-rettsdata-secondary-tone-b-hover) 100%);
+    }
+  }
+  }
+
+  &[data-color="rettsdata"][data-color-variant="tone-b"][data-color-level="tertiary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
+
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  }
+
+  &[data-color="rettsdata"][data-color-variant="tone-a"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
+  --background-color: var(--kobber-component-button-background-color-rettsdata-primary-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-rettsdata-primary-tone-a-hover) 0%, var(--kobber-component-button-background-color-rettsdata-primary-tone-a-hover) 100%);
+    }
+  }
+  }
+
+  &[data-color="rettsdata"][data-color-variant="tone-a"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-b);
+  --background-color: var(--kobber-component-button-background-color-rettsdata-secondary-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-button-background-color-rettsdata-secondary-tone-a-hover) 0%, var(--kobber-component-button-background-color-rettsdata-secondary-tone-a-hover) 100%);
+    }
+  }
+  }
+
+  &[data-color="rettsdata"][data-color-variant="tone-a"][data-color-level="tertiary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-rettsdata-tone-a);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
+
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  }
 }
 /* #endregion */
 /* #region ButtonBase - baseButtonStyles */ 
@@ -947,6 +1119,10 @@
 /* #endregion */
 /* #region ContentWrapper - contentWrapperStyles */ 
 
+    :host([type="page"]) {
+      height: 100%;
+    }
+    
     .kobber-content-wrapper {
       min-height: 5em;
       overflow: auto; /* Applicable when max-height attribute is used. */
@@ -980,6 +1156,7 @@
 
       &[data-type="page"] {
         max-width: 100%;
+        height: 100%;
         padding-block: var(--kobber-layout-content-wrapper-padding-block-page);
       }
     }
@@ -2365,397 +2542,635 @@ button.kobber-nav-link {
 
 .kobber-button {
   
-&[data-color="accent"][data-color-variant="tone-a"][data-color-level="primary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-accent-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-theme-button-background-color-accent-primary-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-accent-primary-tone-a-hover) 0%, var(--kobber-component-theme-button-background-color-accent-primary-tone-a-hover) 100%);
+  &[data-color="accent"][data-color-variant="tone-a"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-accent-tone-b);
+  --background-color: var(--kobber-component-theme-button-background-color-accent-primary-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-accent-primary-tone-a-hover) 0%, var(--kobber-component-theme-button-background-color-accent-primary-tone-a-hover) 100%);
+    }
   }
-}
-}
-
-&[data-color="accent"][data-color-variant="tone-a"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-accent-tone-b);
---border-color: var(--kobber-component-theme-button-border-color-accent-secondary-tone-a-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="accent"][data-color-variant="tone-b"][data-color-level="primary"] {
+  &[data-color="accent"][data-color-variant="tone-a"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-accent-tone-a);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
 
---icon-color: var(--kobber-universal-text-label-text-color-accent-tone-a);
---border-color: var(undefined);
---background-color: var(--kobber-component-theme-button-background-color-accent-primary-tone-b-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-accent-primary-tone-b-hover) 0%, var(--kobber-component-theme-button-background-color-accent-primary-tone-b-hover) 100%);
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
   }
-}
-}
-
-&[data-color="accent"][data-color-variant="tone-b"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-accent-tone-a);
---border-color: var(--kobber-component-theme-button-border-color-accent-secondary-tone-b-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="nostalgia"][data-color-variant="tone-a"][data-color-level="primary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-a-hover) 0%, var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-a-hover) 100%);
+  &[data-color="accent"][data-color-variant="tone-b"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-accent-tone-a);
+  --background-color: var(--kobber-component-theme-button-background-color-accent-primary-tone-b-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-accent-primary-tone-b-hover) 0%, var(--kobber-component-theme-button-background-color-accent-primary-tone-b-hover) 100%);
+    }
   }
-}
-}
-
-&[data-color="nostalgia"][data-color-variant="tone-a"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-b);
---border-color: var(--kobber-component-theme-button-border-color-nostalgia-secondary-tone-a-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="nostalgia"][data-color-variant="tone-b"][data-color-level="primary"] {
+  &[data-color="accent"][data-color-variant="tone-b"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-accent-tone-b);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
 
---icon-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-a);
---border-color: var(undefined);
---background-color: var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-b-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-b-hover) 0%, var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-b-hover) 100%);
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
   }
-}
-}
-
-&[data-color="nostalgia"][data-color-variant="tone-b"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-a);
---border-color: var(--kobber-component-theme-button-border-color-nostalgia-secondary-tone-b-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="nature"][data-color-variant="tone-a"][data-color-level="primary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-nature-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-theme-button-background-color-nature-primary-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-nature-primary-tone-a-hover) 0%, var(--kobber-component-theme-button-background-color-nature-primary-tone-a-hover) 100%);
+  &[data-color="nostalgia"][data-color-variant="tone-a"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-b);
+  --background-color: var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-a-hover) 0%, var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-a-hover) 100%);
+    }
   }
-}
-}
-
-&[data-color="nature"][data-color-variant="tone-a"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-nature-tone-b);
---border-color: var(--kobber-component-theme-button-border-color-nature-secondary-tone-a-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="nature"][data-color-variant="tone-b"][data-color-level="primary"] {
+  &[data-color="nostalgia"][data-color-variant="tone-a"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-a);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
 
---icon-color: var(--kobber-universal-text-label-text-color-nature-tone-a);
---border-color: var(undefined);
---background-color: var(--kobber-component-theme-button-background-color-nature-primary-tone-b-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-nature-primary-tone-b-hover) 0%, var(--kobber-component-theme-button-background-color-nature-primary-tone-b-hover) 100%);
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
   }
-}
-}
-
-&[data-color="nature"][data-color-variant="tone-b"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-nature-tone-a);
---border-color: var(--kobber-component-theme-button-border-color-nature-secondary-tone-b-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="romance"][data-color-variant="tone-a"][data-color-level="primary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-romance-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-theme-button-background-color-romance-primary-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-romance-primary-tone-a-hover) 0%, var(--kobber-component-theme-button-background-color-romance-primary-tone-a-hover) 100%);
+  &[data-color="nostalgia"][data-color-variant="tone-b"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-a);
+  --background-color: var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-b-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-b-hover) 0%, var(--kobber-component-theme-button-background-color-nostalgia-primary-tone-b-hover) 100%);
+    }
   }
-}
-}
-
-&[data-color="romance"][data-color-variant="tone-a"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-romance-tone-b);
---border-color: var(--kobber-component-theme-button-border-color-romance-secondary-tone-a-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="romance"][data-color-variant="tone-b"][data-color-level="primary"] {
+  &[data-color="nostalgia"][data-color-variant="tone-b"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-nostalgia-tone-b);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
 
---icon-color: var(--kobber-universal-text-label-text-color-romance-tone-a);
---border-color: var(undefined);
---background-color: var(--kobber-component-theme-button-background-color-romance-primary-tone-b-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-romance-primary-tone-b-hover) 0%, var(--kobber-component-theme-button-background-color-romance-primary-tone-b-hover) 100%);
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
   }
-}
-}
-
-&[data-color="romance"][data-color-variant="tone-b"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-romance-tone-a);
---border-color: var(--kobber-component-theme-button-border-color-romance-secondary-tone-b-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="thriller"][data-color-variant="tone-a"][data-color-level="primary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-thriller-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-theme-button-background-color-thriller-primary-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-thriller-primary-tone-a-hover) 0%, var(--kobber-component-theme-button-background-color-thriller-primary-tone-a-hover) 100%);
+  &[data-color="nature"][data-color-variant="tone-a"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-nature-tone-b);
+  --background-color: var(--kobber-component-theme-button-background-color-nature-primary-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-nature-primary-tone-a-hover) 0%, var(--kobber-component-theme-button-background-color-nature-primary-tone-a-hover) 100%);
+    }
   }
-}
-}
-
-&[data-color="thriller"][data-color-variant="tone-a"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-thriller-tone-b);
---border-color: var(--kobber-component-theme-button-border-color-thriller-secondary-tone-a-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="thriller"][data-color-variant="tone-b"][data-color-level="primary"] {
+  &[data-color="nature"][data-color-variant="tone-a"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-nature-tone-a);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
 
---icon-color: var(--kobber-universal-text-label-text-color-thriller-tone-a);
---border-color: var(undefined);
---background-color: var(--kobber-component-theme-button-background-color-thriller-primary-tone-b-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-thriller-primary-tone-b-hover) 0%, var(--kobber-component-theme-button-background-color-thriller-primary-tone-b-hover) 100%);
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
   }
-}
-}
-
-&[data-color="thriller"][data-color-variant="tone-b"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-thriller-tone-a);
---border-color: var(--kobber-component-theme-button-border-color-thriller-secondary-tone-b-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="fantasy"][data-color-variant="tone-a"][data-color-level="primary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-fantasy-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-theme-button-background-color-fantasy-primary-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-fantasy-primary-tone-a-hover) 0%, var(--kobber-component-theme-button-background-color-fantasy-primary-tone-a-hover) 100%);
+  &[data-color="nature"][data-color-variant="tone-b"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-nature-tone-a);
+  --background-color: var(--kobber-component-theme-button-background-color-nature-primary-tone-b-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-nature-primary-tone-b-hover) 0%, var(--kobber-component-theme-button-background-color-nature-primary-tone-b-hover) 100%);
+    }
   }
-}
-}
-
-&[data-color="fantasy"][data-color-variant="tone-a"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-fantasy-tone-b);
---border-color: var(--kobber-component-theme-button-border-color-fantasy-secondary-tone-a-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="fantasy"][data-color-variant="tone-b"][data-color-level="primary"] {
+  &[data-color="nature"][data-color-variant="tone-b"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-nature-tone-b);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
 
---icon-color: var(--kobber-universal-text-label-text-color-fantasy-tone-a);
---border-color: var(undefined);
---background-color: var(--kobber-component-theme-button-background-color-fantasy-primary-tone-b-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-fantasy-primary-tone-b-hover) 0%, var(--kobber-component-theme-button-background-color-fantasy-primary-tone-b-hover) 100%);
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
   }
-}
-}
-
-&[data-color="fantasy"][data-color-variant="tone-b"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-fantasy-tone-a);
---border-color: var(--kobber-component-theme-button-border-color-fantasy-secondary-tone-b-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="vacation"][data-color-variant="tone-a"][data-color-level="primary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-vacation-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-theme-button-background-color-vacation-primary-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-vacation-primary-tone-a-hover) 0%, var(--kobber-component-theme-button-background-color-vacation-primary-tone-a-hover) 100%);
+  &[data-color="romance"][data-color-variant="tone-a"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-romance-tone-b);
+  --background-color: var(--kobber-component-theme-button-background-color-romance-primary-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-romance-primary-tone-a-hover) 0%, var(--kobber-component-theme-button-background-color-romance-primary-tone-a-hover) 100%);
+    }
   }
-}
-}
-
-&[data-color="vacation"][data-color-variant="tone-a"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-vacation-tone-b);
---border-color: var(--kobber-component-theme-button-border-color-vacation-secondary-tone-a-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
 
-&[data-color="vacation"][data-color-variant="tone-b"][data-color-level="primary"] {
+  &[data-color="romance"][data-color-variant="tone-a"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-romance-tone-a);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
 
---icon-color: var(--kobber-universal-text-label-text-color-vacation-tone-a);
---border-color: var(undefined);
---background-color: var(--kobber-component-theme-button-background-color-vacation-primary-tone-b-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-vacation-primary-tone-b-hover) 0%, var(--kobber-component-theme-button-background-color-vacation-primary-tone-b-hover) 100%);
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
   }
-}
-}
-
-&[data-color="vacation"][data-color-variant="tone-b"][data-color-level="secondary"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-vacation-tone-a);
---border-color: var(--kobber-component-theme-button-border-color-vacation-secondary-tone-b-active);
---background-color: var(undefined);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(undefined) 0%, var(undefined) 100%);
   }
-}
-}
+
+  &[data-color="romance"][data-color-variant="tone-b"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-romance-tone-a);
+  --background-color: var(--kobber-component-theme-button-background-color-romance-primary-tone-b-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-romance-primary-tone-b-hover) 0%, var(--kobber-component-theme-button-background-color-romance-primary-tone-b-hover) 100%);
+    }
+  }
+  }
+
+  &[data-color="romance"][data-color-variant="tone-b"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-romance-tone-b);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
+
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  }
+
+  &[data-color="thriller"][data-color-variant="tone-a"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-thriller-tone-b);
+  --background-color: var(--kobber-component-theme-button-background-color-thriller-primary-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-thriller-primary-tone-a-hover) 0%, var(--kobber-component-theme-button-background-color-thriller-primary-tone-a-hover) 100%);
+    }
+  }
+  }
+
+  &[data-color="thriller"][data-color-variant="tone-a"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-thriller-tone-a);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
+
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  }
+
+  &[data-color="thriller"][data-color-variant="tone-b"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-thriller-tone-a);
+  --background-color: var(--kobber-component-theme-button-background-color-thriller-primary-tone-b-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-thriller-primary-tone-b-hover) 0%, var(--kobber-component-theme-button-background-color-thriller-primary-tone-b-hover) 100%);
+    }
+  }
+  }
+
+  &[data-color="thriller"][data-color-variant="tone-b"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-thriller-tone-b);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
+
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  }
+
+  &[data-color="fantasy"][data-color-variant="tone-a"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-fantasy-tone-b);
+  --background-color: var(--kobber-component-theme-button-background-color-fantasy-primary-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-fantasy-primary-tone-a-hover) 0%, var(--kobber-component-theme-button-background-color-fantasy-primary-tone-a-hover) 100%);
+    }
+  }
+  }
+
+  &[data-color="fantasy"][data-color-variant="tone-a"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-fantasy-tone-a);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
+
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  }
+
+  &[data-color="fantasy"][data-color-variant="tone-b"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-fantasy-tone-a);
+  --background-color: var(--kobber-component-theme-button-background-color-fantasy-primary-tone-b-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-fantasy-primary-tone-b-hover) 0%, var(--kobber-component-theme-button-background-color-fantasy-primary-tone-b-hover) 100%);
+    }
+  }
+  }
+
+  &[data-color="fantasy"][data-color-variant="tone-b"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-fantasy-tone-b);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
+
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  }
+
+  &[data-color="vacation"][data-color-variant="tone-a"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-vacation-tone-b);
+  --background-color: var(--kobber-component-theme-button-background-color-vacation-primary-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-vacation-primary-tone-a-hover) 0%, var(--kobber-component-theme-button-background-color-vacation-primary-tone-a-hover) 100%);
+    }
+  }
+  }
+
+  &[data-color="vacation"][data-color-variant="tone-a"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-vacation-tone-a);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
+
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  }
+
+  &[data-color="vacation"][data-color-variant="tone-b"][data-color-level="primary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-vacation-tone-a);
+  --background-color: var(--kobber-component-theme-button-background-color-vacation-primary-tone-b-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-theme-button-background-color-vacation-primary-tone-b-hover) 0%, var(--kobber-component-theme-button-background-color-vacation-primary-tone-b-hover) 100%);
+    }
+  }
+  }
+
+  &[data-color="vacation"][data-color-variant="tone-b"][data-color-level="secondary"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-vacation-tone-b);
+  
+  
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: var(--kobber-component-button-underline-padding-bottom);
+        bottom: 0.3rem; /* above token is based on using flexbox */
+        border-bottom: var(--kobber-component-button-border-width-hover) solid;
+        right: var(--kobber-component-button-padding-inline);
+        left: var(--kobber-component-button-padding-inline);
+      }
+
+      &.kobber-button--icon {
+        &.kobber-button--icon-only {
+          &:after {
+            right: 0.5rem;
+            left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  }
 }
 /* #endregion */
 /* #region Title - titleStyles */ 
@@ -2921,88 +3336,82 @@ button.kobber-nav-link {
 
 .kobber-button {
   
-&[data-color="success"][data-color-variant="tone-b"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-success-tone-a);
---border-color: var(undefined);
---background-color: var(--kobber-component-ui-button-background-color-success-tone-b-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-ui-button-background-color-success-tone-b-hover) 0%, var(--kobber-component-ui-button-background-color-success-tone-b-hover) 100%);
+  &[data-color="success"][data-color-variant="tone-b"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-success-tone-a);
+  --background-color: var(--kobber-component-ui-button-background-color-success-tone-b-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-ui-button-background-color-success-tone-b-hover) 0%, var(--kobber-component-ui-button-background-color-success-tone-b-hover) 100%);
+    }
   }
-}
-}
-
-&[data-color="success"][data-color-variant="tone-a"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-success-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-ui-button-background-color-success-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-ui-button-background-color-success-tone-a-hover) 0%, var(--kobber-component-ui-button-background-color-success-tone-a-hover) 100%);
   }
-}
-}
 
-&[data-color="informative"][data-color-variant="tone-b"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-informative-tone-a);
---border-color: var(undefined);
---background-color: var(--kobber-component-ui-button-background-color-informative-tone-b-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-ui-button-background-color-informative-tone-b-hover) 0%, var(--kobber-component-ui-button-background-color-informative-tone-b-hover) 100%);
+  &[data-color="success"][data-color-variant="tone-a"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-success-tone-b);
+  --background-color: var(--kobber-component-ui-button-background-color-success-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-ui-button-background-color-success-tone-a-hover) 0%, var(--kobber-component-ui-button-background-color-success-tone-a-hover) 100%);
+    }
   }
-}
-}
-
-&[data-color="informative"][data-color-variant="tone-a"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-informative-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-ui-button-background-color-informative-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-ui-button-background-color-informative-tone-a-hover) 0%, var(--kobber-component-ui-button-background-color-informative-tone-a-hover) 100%);
   }
-}
-}
 
-&[data-color="warning"][data-color-variant="tone-b"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-warning-tone-a);
---border-color: var(undefined);
---background-color: var(--kobber-component-ui-button-background-color-warning-tone-b-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-ui-button-background-color-warning-tone-b-hover) 0%, var(--kobber-component-ui-button-background-color-warning-tone-b-hover) 100%);
+  &[data-color="informative"][data-color-variant="tone-b"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-informative-tone-a);
+  --background-color: var(--kobber-component-ui-button-background-color-informative-tone-b-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-ui-button-background-color-informative-tone-b-hover) 0%, var(--kobber-component-ui-button-background-color-informative-tone-b-hover) 100%);
+    }
   }
-}
-}
-
-&[data-color="warning"][data-color-variant="tone-a"] {
-
---icon-color: var(--kobber-universal-text-label-text-color-warning-tone-b);
---border-color: var(undefined);
---background-color: var(--kobber-component-ui-button-background-color-warning-tone-a-fallback);
-
-&:hover,
-&.hover {
-  &:not([disabled]) {
-    background-image: linear-gradient(0deg, var(--kobber-component-ui-button-background-color-warning-tone-a-hover) 0%, var(--kobber-component-ui-button-background-color-warning-tone-a-hover) 100%);
   }
-}
-}
+
+  &[data-color="informative"][data-color-variant="tone-a"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-informative-tone-b);
+  --background-color: var(--kobber-component-ui-button-background-color-informative-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-ui-button-background-color-informative-tone-a-hover) 0%, var(--kobber-component-ui-button-background-color-informative-tone-a-hover) 100%);
+    }
+  }
+  }
+
+  &[data-color="warning"][data-color-variant="tone-b"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-warning-tone-a);
+  --background-color: var(--kobber-component-ui-button-background-color-warning-tone-b-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-ui-button-background-color-warning-tone-b-hover) 0%, var(--kobber-component-ui-button-background-color-warning-tone-b-hover) 100%);
+    }
+  }
+  }
+
+  &[data-color="warning"][data-color-variant="tone-a"] {
+   
+  --icon-color: var(--kobber-universal-text-label-text-color-warning-tone-b);
+  --background-color: var(--kobber-component-ui-button-background-color-warning-tone-a-fallback);
+  
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      background-image: linear-gradient(0deg, var(--kobber-component-ui-button-background-color-warning-tone-a-hover) 0%, var(--kobber-component-ui-button-background-color-warning-tone-a-hover) 100%);
+    }
+  }
+  }
 }
 /* #endregion */
