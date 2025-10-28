@@ -112,13 +112,22 @@ export const ContentWrapper: Story = {
       control: { type: "inline-radio" },
     },
     showBadge: {
-      name: "Top Block: Show Badge",
+      name: "Show Badge",
+      table: {
+        category: "Top Block",
+      },
     },
     showHeading: {
-      name: "Top Block: Show Heading",
+      name: "Show Heading",
+      table: {
+        category: "Top Block",
+      },
     },
     showHeadingText: {
-      name: "Top Block: Show Text",
+      name: "Show Text",
+      table: {
+        category: "Top Block",
+      },
     },
   },
   args: {
