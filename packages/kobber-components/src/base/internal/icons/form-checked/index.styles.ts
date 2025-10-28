@@ -17,4 +17,4 @@ const createIconStyles = () => {
   `;
 };
 
-export const formCheckedIconStyles = createIconStyles();
+export const _formCheckedIconStyles = createIconStyles();

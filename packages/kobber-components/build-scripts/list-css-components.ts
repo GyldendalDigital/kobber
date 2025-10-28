@@ -5,6 +5,11 @@ const cssFile = "./src/index.css";
 
 const componentObjects = collectComponentObjects("./src", ["config", "story"]);
 
+/**
+ * Generates a CSS file that aggregates all CSSResultGroup cssText from component styles.
+ *
+ * Skips imports prefixed with underscore (_) and ignored folders.
+ */
 const listCssComponents = async () => {
   const cssTexts: string[] = [];
 
@@ -18,6 +23,9 @@ const listCssComponents = async () => {
     const mod = await import(`.${fileName}`);
 
     for (const [name, value] of Object.entries(mod)) {
+      if (name.startsWith("_")) {
+        continue;
+      }
       if (value && typeof value === "object" && "cssText" in value) {
         if (value.cssText && typeof value.cssText === "string") {
           cssTexts.push(
