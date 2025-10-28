@@ -14,9 +14,6 @@ export class ContentWrapper extends KobberElement implements ContentWrapperProps
   @property({ type: String })
   type: ContentWrapperProps["type"] = "overlay";
 
-  @property({ type: Number, attribute: "max-height-in-px" })
-  maxHeightInPx: ContentWrapperProps["maxHeightInPx"];
-
   static styles: CSSResultGroup = [contentWrapperStyles];
 
   render() {
@@ -24,7 +21,6 @@ export class ContentWrapper extends KobberElement implements ContentWrapperProps
       <div class="${contentWrapperClassnames().join(" ")}"
         data-color-variant="${ifDefined(this.colorVariant)}"
         data-type="${ifDefined(this.type)}"
-        style="${ifDefined(this.maxHeightInPx && this.maxHeightInPx > 0 ? `max-height: ${this.maxHeightInPx}px` : undefined)}"
         tabindex="0"
       >
         <div class="inner-container">

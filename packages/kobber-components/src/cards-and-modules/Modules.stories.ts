@@ -131,17 +131,15 @@ export const ContentWrapper: Story = {
     },
   },
   args: {
-    colorVariant: "tone-a",
+    colorVariant: undefined,
     type: undefined,
     showHeadingText: true,
-    maxHeightInPx: -1,
   },
   decorators: [(story, _) => html`<div style="height: 96vh">${story()}</div>`],
   render: args => html`
     <kobber-content-wrapper 
       color-variant=${ifDefined(args.colorVariant)}
       type=${ifDefined(args.type)}
-      max-height-in-px=${ifDefined(args.maxHeightInPx)}
     >
       <kobber-content-top-block>
         ${
