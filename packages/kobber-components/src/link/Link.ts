@@ -10,6 +10,7 @@ import { isButton, type LinkProps, linkClassNames, linkName } from "./Link.core"
 import { linkStyles } from "./Link.styles";
 import "../text/text-label/TextLabel";
 
+/** @deprecated Use NavLink instead */
 @customElement(linkName)
 export class Link extends KobberElementWithIcon implements LinkProps {
   static styles: CSSResultGroup = [componentStyles, linkStyles];

@@ -1,5 +1,4 @@
 import { css, unsafeCSS } from "lit";
-
 import {
   type TextModuleClassNames,
   textModuleColors,
@@ -9,9 +8,6 @@ import {
 
 const createTextModuleStyles = () => {
   return css`
-    :host {
-      display: block;
-    }
     .${unsafeCSS("kobber-text-module" satisfies TextModuleClassNames)} {
       box-sizing: border-box;
       display: flex;

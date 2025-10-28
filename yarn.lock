@@ -1025,7 +1025,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-components@workspace:packages/kobber-components":
+"@gyldendal/kobber-components@npm:*, @gyldendal/kobber-components@workspace:packages/kobber-components":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-components@workspace:packages/kobber-components"
   dependencies:
@@ -6660,6 +6660,7 @@ __metadata:
   resolution: "storybook-web-components@workspace:apps/storybook-web-components"
   dependencies:
     "@gyldendal/kobber-base": "npm:*"
+    "@gyldendal/kobber-components": "npm:*"
     "@gyldendal/kobber-icons": "npm:*"
     "@types/react": "npm:^19.1.0"
     lit-html: "npm:^3.2.1"

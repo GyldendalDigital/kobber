@@ -771,13 +771,10 @@
 /* #endregion */
 /* #region CheckboxInput - checkboxStyles */ 
 
-    :host {
+    .wrapper {
       --control-outline-color: transparent;
       --icon-width: 1.2em;
       --icon-height: var(--icon-width);
-    }
-
-    .wrapper {
       display: flex;
       flex-direction: column;
       gap: 0 var(--kobber-component-checkbox-container-right-gap);
@@ -939,9 +936,6 @@
 /* #endregion */
 /* #region ContentTopBlock - contentTopBlockStyles */ 
 
-    :host {
-      display: block;
-    }
     .kobber-content-top-block {
       box-sizing: border-box;
       display: flex;
@@ -953,9 +947,6 @@
 /* #endregion */
 /* #region ContentWrapper - contentWrapperStyles */ 
 
-    :host {
-      display: block;
-    }
     .kobber-content-wrapper {
       min-height: 5em;
       overflow: auto; /* Applicable when max-height attribute is used. */
@@ -998,25 +989,24 @@
 
 .kobber-display {
   margin: 0;
-  
-font-size: var(--typography-font-size);
-font-family: var(--typography-font-family);
-font-weight: var(--typography-font-weight);
-line-height: var(--typography-line-height);
-color: var(--typography-color);
+  font-size: var(--typography-font-size);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-weight);
+  line-height: var(--typography-line-height);
+  color: var(--typography-color);
 
---typography-font-size: var(--kobber-universal-text-body-text-size-medium);
---typography-font-family: var(--kobber-universal-text-body-text-font-brand);
---typography-font-weight: var(--kobber-universal-text-body-text-weight);
---typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);
---typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
---typography-color-highlight: var(--kobber-universal-text-display-extended-text-color);
+  --typography-font-size: var(--kobber-universal-text-body-text-size-medium);
+  --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
+  --typography-font-weight: var(--kobber-universal-text-body-text-weight);
+  --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);
+  --typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
+  --typography-color-highlight: var(--kobber-universal-text-display-extended-text-color);
 
-em,
-::slotted(em) {
-  color: var(--typography-color-highlight);
-  font-style: normal;
-}
+  em,
+  ::slotted(em) {
+    color: var(--typography-color-highlight);
+    font-style: normal;
+  }
   
 &[data-size="large"] {
   --typography-font-size: var(--kobber-universal-text-display-text-size-large);
@@ -1036,10 +1026,6 @@ em,
 }
 /* #endregion */
 /* #region Divider - dividerStyles */ 
-
-    :host {
-      display: block;
-    }
 
     .kobber-divider {
       width: 100%;
@@ -1062,25 +1048,24 @@ em,
 
 .kobber-heading {
   margin: 0;
-  
-font-size: var(--typography-font-size);
-font-family: var(--typography-font-family);
-font-weight: var(--typography-font-weight);
-line-height: var(--typography-line-height);
-color: var(--typography-color);
+  font-size: var(--typography-font-size);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-weight);
+  line-height: var(--typography-line-height);
+  color: var(--typography-color);
 
---typography-font-size: var(--kobber-universal-text-body-text-size-medium);
---typography-font-family: var(--kobber-universal-text-body-text-font-brand);
---typography-font-weight: var(--kobber-universal-text-body-text-weight);
---typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);
---typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
---typography-color-highlight: var(--kobber-universal-text-display-extended-text-color);
+  --typography-font-size: var(--kobber-universal-text-body-text-size-medium);
+  --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
+  --typography-font-weight: var(--kobber-universal-text-body-text-weight);
+  --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);
+  --typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
+  --typography-color-highlight: var(--kobber-universal-text-display-extended-text-color);
 
-em,
-::slotted(em) {
-  color: var(--typography-color-highlight);
-  font-style: normal;
-}
+  em,
+  ::slotted(em) {
+    color: var(--typography-color-highlight);
+    font-style: normal;
+  }
   
 &[data-size="large"] {
   --typography-font-size: var(--kobber-universal-text-heading-text-size-large);;
@@ -1191,75 +1176,27 @@ em,
 }
 }
 /* #endregion */
-/* #region index - formCheckedIconStyles */ 
-
-    :host {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-    }
-    svg {
-      display: block;
-      width: var(--icon-width, 1em);
-      height: var(--icon-height, 1em);
-    }
-  
-/* #endregion */
-/* #region index - formIndeterminateIconStyles */ 
-
-    :host {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-    }
-    svg {
-      display: block;
-      width: var(--icon-width, 1em);
-      height: var(--icon-height, 1em);
-    }
-  
-/* #endregion */
-/* #region index - formRadioIconStyles */ 
-
-    :host {
-      display: block;
-      transform: translate(1px, 1px); /* Necessary for Safari */
-      width: 100%;
-      height: 100%;
-    }
-    svg {
-      display: block;
-      width: var(--icon-width, 1em);
-      height: var(--icon-height, 1em);
-    }
-  
-/* #endregion */
 /* #region Lead - leadStyles */ 
 
 .kobber-lead {
-  
-font-size: var(--typography-font-size);
-font-family: var(--typography-font-family);
-font-weight: var(--typography-font-weight);
-line-height: var(--typography-line-height);
-color: var(--typography-color);
+  font-size: var(--typography-font-size);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-weight);
+  line-height: var(--typography-line-height);
+  color: var(--typography-color);
 
---typography-font-size: var(--kobber-universal-text-lead-text-size);
---typography-font-family: var(--kobber-universal-text-body-text-font-brand);
---typography-font-weight: var(--kobber-universal-text-body-text-weight);
---typography-line-height: var(--kobber-universal-text-lead-text-line-height);
---typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
---typography-color-highlight: var(--kobber-universal-text-display-extended-text-color);
+  --typography-font-size: var(--kobber-universal-text-lead-text-size);
+  --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
+  --typography-font-weight: var(--kobber-universal-text-body-text-weight);
+  --typography-line-height: var(--kobber-universal-text-lead-text-line-height);
+  --typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
+  --typography-color-highlight: var(--kobber-universal-text-display-extended-text-color);
 
-em,
-::slotted(em) {
-  color: var(--typography-color-highlight);
-  font-style: normal;
-}
+  em,
+  ::slotted(em) {
+    color: var(--typography-color-highlight);
+    font-style: normal;
+  }
   
 &[data-font="brand"] {
   --typography-font-family: var(--kobber-universal-text-lead-text-font-brand);;
@@ -1506,6 +1443,111 @@ em,
     }
   
 /* #endregion */
+/* #region NavLink - navLinkStyles */ 
+
+.kobber-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kobber-component-nav-link-gap);
+  font-size: var(--typography-font-size);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-weight);
+  line-height: var(--typography-line-height);
+  color: var(--typography-color);
+
+  --typography-font-size: var(--kobber-universal-text-label-text-size-medium);
+  --typography-font-family: var(--kobber-universal-text-label-text-font);
+  --typography-font-weight: var(--kobber-universal-text-label-text-weight);
+  --typography-line-height: var(--kobber-universal-text-label-text-line-height);
+  --typography-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+  --typography-color-highlight: var(--kobber-universal-text-display-extended-text-color);
+
+  em,
+  ::slotted(em) {
+    color: var(--typography-color-highlight);
+    font-style: normal;
+  }
+  
+  &[data-type="accent"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-accent-tone-a);
+  }
+  &[data-type="brand"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+  }
+  &[data-type="subtle"] {
+    --typography-color: var(--kobber-universal-text-label-text-color-subtle-tone-a);
+  }
+
+  &[disabled],
+  &.disabled {
+    opacity: var(--kobber-universal-disabled-container-opacity);
+    cursor: auto;
+  }
+
+  &:active,
+  &.active,
+  &:hover,
+  &.hover {
+    &:not([disabled]) {
+      &::after {
+        content: "";
+        position: absolute;
+        border-bottom: var(--kobber-component-nav-link-border-width-hover) solid;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
+    }
+  }
+
+  &:focus-visible,
+  &.focus {
+    outline: none;
+    border-radius: var(--kobber-universal-focus-border-radius-xsmall);
+    box-shadow: 0 0 0 var(--kobber-universal-focus-border-width)
+      var(--kobber-universal-focus-border-color);
+    padding-inline: var(--kobber-component-nav-link-gap);
+
+    /* prevents active/hover from colliding with focus border */
+    &:active,
+    &.active,
+    &:hover,
+    &.hover {
+      &:not([disabled]) {
+        &::after {
+          bottom: 0.01rem;
+          right: var(--kobber-component-nav-link-gap);
+          left: var(--kobber-component-nav-link-gap);
+        }
+      }
+    }
+  }
+}
+
+a.kobber-nav-link {
+  text-decoration: none;
+}
+
+button.kobber-nav-link {
+  
+  appearance: none;
+  text-align: inherit;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-tap-highlight-color: transparent;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+/* #endregion */
 /* #region RadioGroup - radioGroupStyles */ 
 
     .kobber-radio-group {
@@ -1521,11 +1563,8 @@ em,
 /* #endregion */
 /* #region RadioInput - radioInputStyles */ 
 
-    :host {
-      --control-outline-color: transparent;
-    }
-
     .kobber-radio-input {
+      --control-outline-color: transparent;
       display: flex;
       gap: var(--kobber-component-radiobutton-gap);
       justify-content: start;
@@ -1626,15 +1665,12 @@ em,
 /* #endregion */
 /* #region RadioInputControl - radioInputControlStyles */ 
 
-    :host {
+    .kobber-radio-input-control {
       --transition-time: 0.5s;
       --icon-wrapper-height: var(--kobber-component-radiobutton-indicator-height);
       --icon-wrapper-width: var(--kobber-component-radiobutton-indicator-width);
       --icon-height: var(--kobber-component-radiobutton-indicator-shape-height);
       --icon-width: var(--kobber-component-radiobutton-indicator-shape-width);
-    }
-
-    .kobber-radio-input-control {
       margin-top: 0.3em; /* A top margin emulates label being vertically aligned with idle input control, but not when multiple lines. */
       width: var(--icon-wrapper-width);
       height: var(--icon-wrapper-height);
@@ -1659,9 +1695,6 @@ em,
 /* #endregion */
 /* #region TextBlock - textBlockStyles */ 
 
-    :host {
-      display: block;
-    }
     .kobber-text-block {
       box-sizing: border-box;
       display: flex;
@@ -1675,25 +1708,24 @@ em,
 
 .kobber-text-body {
   margin: 0;
-  
-font-size: var(--typography-font-size);
-font-family: var(--typography-font-family);
-font-weight: var(--typography-font-weight);
-line-height: var(--typography-line-height);
-color: var(--typography-color);
+  font-size: var(--typography-font-size);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-weight);
+  line-height: var(--typography-line-height);
+  color: var(--typography-color);
 
---typography-font-size: var(--kobber-universal-text-body-text-size-medium);
---typography-font-family: var(--kobber-universal-text-body-text-font-brand);
---typography-font-weight: var(--kobber-universal-text-body-text-weight);
---typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);
---typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
---typography-color-highlight: var(--kobber-universal-text-display-extended-text-color);
+  --typography-font-size: var(--kobber-universal-text-body-text-size-medium);
+  --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
+  --typography-font-weight: var(--kobber-universal-text-body-text-weight);
+  --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);
+  --typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
+  --typography-color-highlight: var(--kobber-universal-text-display-extended-text-color);
 
-em,
-::slotted(em) {
-  color: var(--typography-color-highlight);
-  font-style: normal;
-}
+  em,
+  ::slotted(em) {
+    color: var(--typography-color-highlight);
+    font-style: normal;
+  }
   
 &[data-size="large"] {
   --typography-font-size: var(--kobber-universal-text-body-text-size-large);;
@@ -1892,25 +1924,24 @@ em,
 
 .kobber-text-label {
   margin: 0;
-  
-font-size: var(--typography-font-size);
-font-family: var(--typography-font-family);
-font-weight: var(--typography-font-weight);
-line-height: var(--typography-line-height);
-color: var(--typography-color);
+  font-size: var(--typography-font-size);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-weight);
+  line-height: var(--typography-line-height);
+  color: var(--typography-color);
 
---typography-font-size: var(--kobber-universal-text-label-text-size-medium);
---typography-font-family: var(--kobber-universal-text-label-text-font);
---typography-font-weight: var(--kobber-universal-text-label-text-weight);
---typography-line-height: var(--kobber-universal-text-label-text-line-height);
---typography-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
---typography-color-highlight: var(--kobber-universal-text-display-extended-text-color);
+  --typography-font-size: var(--kobber-universal-text-label-text-size-medium);
+  --typography-font-family: var(--kobber-universal-text-label-text-font);
+  --typography-font-weight: var(--kobber-universal-text-label-text-weight);
+  --typography-line-height: var(--kobber-universal-text-label-text-line-height);
+  --typography-color: var(--kobber-universal-text-label-text-color-brand-tone-a);
+  --typography-color-highlight: var(--kobber-universal-text-display-extended-text-color);
 
-em,
-::slotted(em) {
-  color: var(--typography-color-highlight);
-  font-style: normal;
-}
+  em,
+  ::slotted(em) {
+    color: var(--typography-color-highlight);
+    font-style: normal;
+  }
   
 &[data-size="large"] {
   --typography-font-size: var(--kobber-universal-text-label-text-size-large);;
@@ -2172,9 +2203,6 @@ em,
 /* #endregion */
 /* #region TextModule - textModuleStyles */ 
 
-    :host {
-      display: block;
-    }
     .kobber-text-module {
       box-sizing: border-box;
       display: flex;
@@ -2734,25 +2762,24 @@ em,
 
 .kobber-title {
   margin: 0;
-  
-font-size: var(--typography-font-size);
-font-family: var(--typography-font-family);
-font-weight: var(--typography-font-weight);
-line-height: var(--typography-line-height);
-color: var(--typography-color);
+  font-size: var(--typography-font-size);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-weight);
+  line-height: var(--typography-line-height);
+  color: var(--typography-color);
 
---typography-font-size: var(--kobber-universal-text-body-text-size-medium);
---typography-font-family: var(--kobber-universal-text-body-text-font-brand);
---typography-font-weight: var(--kobber-universal-text-body-text-weight);
---typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);
---typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
---typography-color-highlight: var(--kobber-universal-text-display-extended-text-color);
+  --typography-font-size: var(--kobber-universal-text-body-text-size-medium);
+  --typography-font-family: var(--kobber-universal-text-body-text-font-brand);
+  --typography-font-weight: var(--kobber-universal-text-body-text-weight);
+  --typography-line-height: var(--kobber-universal-text-body-text-line-height-brand-medium-short);
+  --typography-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
+  --typography-color-highlight: var(--kobber-universal-text-display-extended-text-color);
 
-em,
-::slotted(em) {
-  color: var(--typography-color-highlight);
-  font-style: normal;
-}
+  em,
+  ::slotted(em) {
+    color: var(--typography-color-highlight);
+    font-style: normal;
+  }
   
 &[data-size="large"] {
   --typography-font-size: var(--kobber-universal-text-title-text-size-large);;
