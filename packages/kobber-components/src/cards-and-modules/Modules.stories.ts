@@ -112,28 +112,35 @@ export const ContentWrapper: Story = {
       control: { type: "inline-radio" },
     },
     showBadge: {
-      name: "Top Block: Show Badge",
+      name: "Show Badge",
+      table: {
+        category: "Top Block",
+      },
     },
     showHeading: {
-      name: "Top Block: Show Heading",
+      name: "Show Heading",
+      table: {
+        category: "Top Block",
+      },
     },
     showHeadingText: {
-      name: "Top Block: Show Text",
+      name: "Show Text",
+      table: {
+        category: "Top Block",
+      },
     },
   },
   args: {
-    colorVariant: contentWrapperColorVariants[0],
-    type: "overlay",
+    colorVariant: undefined,
+    type: undefined,
     showHeadingText: true,
-    maxHeightInPx: 600,
   },
   render: args => html`
     <kobber-content-wrapper 
-      color-variant="${args.colorVariant}" 
-      type=${args.type}
-      max-height-in-px="${args.maxHeightInPx}"
+      color-variant=${ifDefined(args.colorVariant)}
+      type=${ifDefined(args.type)}
     >
-      <kobber-content-top-block slot="content-top-block">
+      <kobber-content-top-block>
         ${
           !args.showBadge
             ? ""

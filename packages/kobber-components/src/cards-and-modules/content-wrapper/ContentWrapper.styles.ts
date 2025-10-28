@@ -1,5 +1,4 @@
 import { css, unsafeCSS } from "lit";
-
 import {
   type ContentWrapperClassNames,
   contentWrapperColorVariants,
@@ -8,9 +7,10 @@ import {
 
 const createContentWrapperStyles = () => {
   return css`
-    :host {
-      display: block;
+    :host([type="page"]) {
+      height: 100%;
     }
+    
     .${unsafeCSS("kobber-content-wrapper" satisfies ContentWrapperClassNames)} {
       min-height: 5em;
       overflow: auto; /* Applicable when max-height attribute is used. */
@@ -35,6 +35,7 @@ const createContentWrapperStyles = () => {
 
       &[data-type="page"] {
         max-width: 100%;
+        height: 100%;
         padding-block: var(${unsafeCSS(contentWrapperTokens.padding.block.page)});
       }
     }
