@@ -18,13 +18,10 @@ const indicator = component._checkbox.indicator;
 
 const createCheckboxStyles = () => {
   return css`
-    :host {
+    .${unsafeCSS("wrapper" satisfies WrapperClassNames)} {
       --control-outline-color: transparent;
       --icon-width: 1.2em;
       --icon-height: var(--icon-width);
-    }
-
-    .${unsafeCSS("wrapper" satisfies WrapperClassNames)} {
       display: flex;
       flex-direction: column;
       gap: 0 var(${unsafeCSS(checkbox["container-right"].gap)});

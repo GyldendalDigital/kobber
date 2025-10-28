@@ -3,9 +3,6 @@ import { type TextBlockClassNames, textBlockTokens } from "./TextBlock.core";
 
 const createTextBlockStyles = () => {
   return css`
-    :host {
-      display: block;
-    }
     .${unsafeCSS("kobber-text-block" satisfies TextBlockClassNames)} {
       box-sizing: border-box;
       display: flex;

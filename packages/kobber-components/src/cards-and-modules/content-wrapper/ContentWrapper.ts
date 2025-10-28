@@ -1,4 +1,4 @@
-import { type CSSResultGroup, html } from "lit";
+import { type CSSResultGroup, css, html } from "lit";
 import { property } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import KobberElement from "../../base/kobber-element";
@@ -8,13 +8,20 @@ import { contentWrapperStyles } from "./ContentWrapper.styles";
 
 @customElement("kobber-content-wrapper")
 export class ContentWrapper extends KobberElement implements ContentWrapperProps {
+  static styles: CSSResultGroup = [
+    contentWrapperStyles,
+    css`
+      :host {
+        display: block;
+      }
+    `,
+  ];
+
   @property({ attribute: "color-variant" })
   colorVariant: ContentWrapperProps["colorVariant"] = "tone-a";
 
   @property({ type: String })
   type: ContentWrapperProps["type"] = "overlay";
-
-  static styles: CSSResultGroup = [contentWrapperStyles];
 
   render() {
     return html`
