@@ -1,0 +1,13 @@
+{
+  "name": "@gyldendal/kobber-core-component",
+  "version": "0.6.12",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./createCoreComponent": "./src/createCoreComponent.ts",
+    "./types": "./src/types.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

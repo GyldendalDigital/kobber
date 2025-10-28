@@ -10,7 +10,12 @@ export const listWebComponents = (
 `;
   });
 
-  const webComponentListString = `${autogenerateHeader(import.meta.url)}${exportLines.join("")}`;
+  const webComponentListString = `
+${autogenerateHeader(import.meta.url)}
+
+export { Example } from "./example/Example.lit";
+
+${exportLines.join("")}`;
 
   fs.writeFileSync(webComponentListFilename, webComponentListString.replace(/\n/g, "\r\n"));
 };

@@ -9,6 +9,9 @@ export const listReactComponents = (
 
 import { createComponent } from "@lit/react";
 import * as React from "react";
+
+export { Example } from "./example/Example.react";
+
 `;
 
   let reactImports = "";
