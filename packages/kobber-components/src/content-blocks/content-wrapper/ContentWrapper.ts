@@ -17,6 +17,9 @@ export class ContentWrapper extends KobberElement implements ContentWrapperProps
     `,
   ];
 
+  @property({ attribute: "color" })
+  color: ContentWrapperProps["color"] = "brand";
+
   @property({ attribute: "color-variant" })
   colorVariant: ContentWrapperProps["colorVariant"] = "tone-a";
 

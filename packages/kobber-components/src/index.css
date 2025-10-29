@@ -1124,6 +1124,9 @@
     }
     
     .kobber-content-wrapper {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
       min-height: 5em;
       overflow: auto; /* Applicable when max-height attribute is used. */
       background-color: var(--content-wrapper-background-color);
@@ -1157,6 +1160,7 @@
       &[data-type="page"] {
         max-width: 100%;
         height: 100%;
+        box-sizing: border-box;
         padding-block: var(--kobber-layout-content-wrapper-padding-block-page);
       }
     }
@@ -1616,6 +1620,130 @@
         display: inline;
         width: var(--icon-width);
         height: var(--icon-height);
+      }
+    }
+  
+/* #endregion */
+/* #region MediaModule - mediaModuleStyles */ 
+
+    .kobber-media-module {
+      width: min-content;
+      min-width: 10em;
+      --credit-height: 0;
+      --credit-width: 0;
+
+      display: flex;
+      flex-direction: column;
+      gap: var(--kobber-component-media-module-gap);
+      
+      &[data-credit-placement="none"] {
+        --credit-height: 0;
+        --credit-width: 0;
+        figcaption {
+          display: none;
+        }
+      }
+      
+      &:not([data-credit-placement="none"]) {
+        --credit-height: 61px;
+        --credit-width: 161px;
+        figcaption {
+          /* Custom Property --credit-fill-color is defined in inline css. */
+          background-color: var(--credit-fill-color);
+          fill: var(--credit-fill-color);
+
+          .curve {
+            height: var(--kobber-component-media-module-inner-inner-credit-container-shape-height);
+            width: var(--kobber-component-media-module-inner-inner-credit-container-shape-width);
+            position: absolute;
+          }
+        }
+      }
+      
+      &[data-credit-placement="right"] {
+        figcaption {
+          right: 0;
+          border-top-left-radius: var(--kobber-component-media-module-inner-inner-credit-container-border-radius-top-left-right-align);
+          border-bottom-right-radius: calc(var(--kobber-component-media-module-inner-inner-credit-container-border-radius-bottom-right-right-align) - 2px);
+
+          .curve:first-of-type {
+            left: -1em;
+            bottom: 0;
+          }
+          .curve:last-of-type {
+            right: 0;
+            top: -1em;
+          }
+        }
+      }
+      
+      &[data-credit-placement="left"] {
+        figcaption {
+          left: 0;
+          border-top-right-radius: var(--kobber-component-media-module-inner-inner-credit-container-border-radius-top-right-left-align);
+          border-bottom-left-radius: calc(var(--kobber-component-media-module-inner-inner-credit-container-border-radius-bottom-left-left-align) - 2px);
+
+          .curve {
+            rotate: 90deg;
+          }
+          .curve:first-of-type {
+            left: 0;
+            top: -1em;
+          }
+          .curve:last-of-type {
+            right: -1em;
+            bottom: 0;
+          }
+        }
+      }
+
+      &[data-media-object-fit="contain"] ::slotted(img) { 
+        object-fit: contain;
+      }
+      &[data-media-object-fit="cover"] ::slotted(img) { 
+        object-fit: cover;
+      }
+      &[data-media-object-fit="fill"] ::slotted(img) { 
+        object-fit: fill;
+      }
+      &[data-media-object-fit="none"] ::slotted(img) { 
+        object-fit: none;
+      }
+      &[data-media-object-fit="scale-down"] ::slotted(img) { 
+        object-fit: scale-down;
+      }
+    }
+
+    .symbols {
+       position: absolute; 
+       width: 0; 
+       height: 0; 
+       overflow: hidden;
+    }
+    figure {
+      position: relative;
+      margin: 0;
+      ::slotted(img) { 
+        border-radius: var(--kobber-component-media-module-border-radius);
+      }
+      display: flex;
+      gap: 1em;
+    }
+    
+    figcaption {
+      position: absolute;
+      bottom: 0;
+      height: var(--credit-height);
+      width: var(--credit-width);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .credit {
+        padding: var(--kobber-component-media-module-inner-inner-credit-container-padding);
+        white-space: nowrap;
+        max-width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
     }
   
