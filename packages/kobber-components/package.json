@@ -21,7 +21,7 @@
     "build:css": "tsx ./build-scripts/list-css-components.ts",
     "build:core-css": "tsx ./build-scripts/build-css-from-core-components.ts",
     "prepare": "npm run build",
-    "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
+    "dev": "onchange \"./src/*/**/*.{ts,tsx,css}\" -- npm run build",
     "test": "echo \"No tests configured\"",
     "create-ts-refs": "create-ts-refs --sourceMap=entries.ts --out=.references.mts"
   },
