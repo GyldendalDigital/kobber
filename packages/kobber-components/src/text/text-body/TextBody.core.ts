@@ -22,8 +22,8 @@ export type TextBodyProps = {
 type TextBodyLevel = (typeof textBodyLevels)[number];
 type TextBodySize = (typeof textBodySizes)[number];
 type TextBodyFont = (typeof textBodyFonts)[number];
-type TextBodyColor = (typeof textBodyColors)[number];
-type TextBodyColorVariant = (typeof textBodyColorVariants)[number];
+export type TextBodyColor = (typeof textBodyColors)[number];
+export type TextBodyColorVariant = (typeof textBodyColorVariants)[number];
 type TextBodyContext = (typeof textBodyContexts)[number];
 
 const textBodyLevels = ["p", "span", "div"] as const;
