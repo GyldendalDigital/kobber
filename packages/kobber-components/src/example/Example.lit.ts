@@ -1,35 +1,13 @@
-import type { CoreComponent } from "@gyldendal/kobber-core-component/types";
-import { html, LitElement } from "lit";
-import { unsafeHTML } from "lit/directives/unsafe-html.js";
+import { LitComponent } from "@gyldendal/kobber-core-component/LitComponent";
 import { customElement } from "../base/utilities/customElementDecorator.js";
-import { createExampleCore, type ExampleProps } from "./Example.core.js";
+import { CoreComponent, type ExampleProps } from "./Example.core.js";
 
-@customElement("kobber-example")
-export class Example extends LitElement {
-  private coreInstance: CoreComponent<ExampleProps>;
+const coreInstance = CoreComponent<ExampleProps>();
 
+@customElement(coreInstance.customElementTagName)
+export class Example extends LitComponent<ExampleProps> {
   constructor() {
     super();
-    this.coreInstance = createExampleCore<ExampleProps>();
-  }
-
-  render() {
-    const props = htmlAttributesToProps(this.attributes);
-    const htmlString = this.coreInstance.render(props);
-    return html`${unsafeHTML(htmlString)}`;
+    this.coreInstance = coreInstance;
   }
 }
-
-const htmlAttributesToProps = (attributes: NamedNodeMap): ExampleProps => {
-  const props: Partial<ExampleProps> = {};
-  for (const attribute of attributes) {
-    const propertyName = kebabToCamel(attribute.name) as keyof Partial<ExampleProps>;
-    if (typeof propertyName === "string") {
-      // @ts-expect-error Cannot assign read-only property
-      props[propertyName] = attribute.value;
-    }
-  }
-  return props as ExampleProps;
-};
-
-const kebabToCamel = (str: string) => str.replace(/-([a-z])/g, (_, char) => char.toUpperCase());

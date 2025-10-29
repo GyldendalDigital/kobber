@@ -2762,7 +2762,7 @@ __metadata:
   resolution: "@gyldendal/kobber-components@workspace:packages/kobber-components"
   dependencies:
     "@gyldendal/kobber-base": "npm:0.6.12"
-    "@gyldendal/kobber-core-component": "workspace:^"
+    "@gyldendal/kobber-core-component": "npm:0.6.12"
     "@gyldendal/kobber-icons": "npm:0.6.12"
     "@gyldendal/kobber-stylelint": "npm:0.6.12"
     "@gyldendal/kobber-tsconfig": "npm:0.6.12"
@@ -2798,11 +2798,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-core-component@workspace:^, @gyldendal/kobber-core-component@workspace:packages/kobber-core-component":
+"@gyldendal/kobber-core-component@npm:0.6.12, @gyldendal/kobber-core-component@workspace:packages/kobber-core-component":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-core-component@workspace:packages/kobber-core-component"
   dependencies:
+    "@gyldendal/kobber-tsconfig": "workspace:^"
+    "@lit-labs/observers": "npm:^2.0.6"
+    "@types/react": "npm:^19.2.2"
     typescript: "npm:^5.9.3"
+  peerDependencies:
+    lit: ">= 3.3.1"
+    react: ">=18"
+  peerDependenciesMeta:
+    lit:
+      optional: true
+    react:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2867,7 +2878,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-tsconfig@npm:0.6.12, @gyldendal/kobber-tsconfig@workspace:packages/kobber-tsconfig":
+"@gyldendal/kobber-tsconfig@npm:0.6.12, @gyldendal/kobber-tsconfig@workspace:^, @gyldendal/kobber-tsconfig@workspace:packages/kobber-tsconfig":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-tsconfig@workspace:packages/kobber-tsconfig"
   languageName: unknown
@@ -3560,6 +3571,16 @@ __metadata:
     "@lit/reactive-element": "npm:^1.0.0 || ^2.0.0"
     lit-html: "npm:^3.2.0"
   checksum: 10c0/a44b066d21658c3d0e40ea6aca99a2eeb1257878fd28801adb53da0e1db87d7c6e291c2154c7d99c88d723fd58259049b3340e54defd3ddb9c10e4f870c45708
+  languageName: node
+  linkType: hard
+
+"@lit-labs/observers@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "@lit-labs/observers@npm:2.0.6"
+  dependencies:
+    "@lit/reactive-element": "npm:^1.0.0 || ^2.0.0"
+    lit-html: "npm:^3.2.0"
+  checksum: 10c0/2e9559beb3b48af9ad6ac4593ec3a15cb8600cf9867ff7b07eb19cc543dc2b5d87aabdd072f007cb389c79bf3a0ef517cebc292e97d95f7153deb1166c66bef1
   languageName: node
   linkType: hard
 
@@ -6052,7 +6073,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^19":
+"@types/react@npm:^19, @types/react@npm:^19.2.2":
   version: 19.2.2
   resolution: "@types/react@npm:19.2.2"
   dependencies:

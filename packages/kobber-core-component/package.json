@@ -4,10 +4,28 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    "./createCoreComponent": "./src/createCoreComponent.ts",
+    "./LitComponent": "./src/LitComponent.ts",
+    "./ReactComponent": "./src/ReactComponent.tsx",
     "./types": "./src/types.ts"
   },
   "devDependencies": {
+    "@gyldendal/kobber-tsconfig": "workspace:^",
+    "@types/react": "^19.2.2",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@lit-labs/observers": "^2.0.6"
+  },
+  "peerDependencies": {
+    "lit": ">= 3.3.1",
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "lit": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
   }
 }

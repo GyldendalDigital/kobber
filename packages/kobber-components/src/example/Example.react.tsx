@@ -1,9 +1,8 @@
-import { createExampleCore, ExampleReactProps } from "./Example.core";
+import { CoreComponent, ExampleReactProps } from "./Example.core";
+import { ReactComponent } from "@gyldendal/kobber-core-component/ReactComponent";
 
-const exampleCore = createExampleCore<ExampleReactProps>();
+const coreInstance = CoreComponent<ExampleReactProps>();
 
-export const Example = (props: ExampleReactProps) => {
-  return (
-    <div dangerouslySetInnerHTML={{ __html: exampleCore.render(props) }} />
-  );
-};
+export const Example = (props: ExampleReactProps) => (
+  <ReactComponent {...props} coreInstance={coreInstance} />
+);
