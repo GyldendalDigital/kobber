@@ -106,7 +106,7 @@ const hoverEffectUnderline = () => css`
   &:hover,
   &.hover {
     &:not([disabled]) {
-      &:after {
+      &::after {
         content: "";
         position: absolute;
         bottom: var(${unsafeCSS(button.underline.padding.bottom)});
@@ -118,7 +118,7 @@ const hoverEffectUnderline = () => css`
 
       &.${unsafeCSS("kobber-button--icon" satisfies ButtonClassNames)} {
         &.${unsafeCSS("kobber-button--icon-only" satisfies ButtonClassNames)} {
-          &:after {
+          &::after {
             right: ${unsafeCSS(paddingIconOnly)};
             left: ${unsafeCSS(paddingIconOnly)};
           }
