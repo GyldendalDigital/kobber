@@ -2762,7 +2762,7 @@ __metadata:
   resolution: "@gyldendal/kobber-components@workspace:packages/kobber-components"
   dependencies:
     "@gyldendal/kobber-base": "npm:0.6.12"
-    "@gyldendal/kobber-core-component": "npm:0.6.12"
+    "@gyldendal/kobber-core-component": "workspace:^"
     "@gyldendal/kobber-icons": "npm:0.6.12"
     "@gyldendal/kobber-stylelint": "npm:0.6.12"
     "@gyldendal/kobber-tsconfig": "npm:0.6.12"
@@ -2798,14 +2798,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-core-component@npm:0.6.12, @gyldendal/kobber-core-component@workspace:packages/kobber-core-component":
+"@gyldendal/kobber-core-component@workspace:^, @gyldendal/kobber-core-component@workspace:packages/kobber-core-component":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-core-component@workspace:packages/kobber-core-component"
   dependencies:
     "@gyldendal/kobber-tsconfig": "workspace:^"
     "@lit-labs/observers": "npm:^2.0.6"
     "@types/react": "npm:^19.2.2"
+    "@types/vhtml": "npm:^2"
+    htm: "npm:^3.1.1"
     typescript: "npm:^5.9.3"
+    vhtml: "npm:^2.2.0"
   peerDependencies:
     lit: ">= 3.3.1"
     react: ">=18"

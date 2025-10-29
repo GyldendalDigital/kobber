@@ -9,9 +9,5 @@ export function ReactComponent<P>({ coreInstance, ...props }: Props<P>) {
     coreInstance.onMount?.();
     return () => coreInstance.onUnmount?.();
   }, []);
-  return (
-    <div
-      dangerouslySetInnerHTML={{ __html: coreInstance.render(props as P) }}
-    />
-  );
+  return <>{coreInstance.render(props as P)}</>;
 }

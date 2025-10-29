@@ -1,23 +1,32 @@
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { render } from "@gyldendal/kobber-core-component/render";
 import type { CoreComponent as CoreComponentType } from "@gyldendal/kobber-core-component/types";
-import htm from "htm";
 import { unsafeCSS } from "lit";
-import type { HTMLAttributes } from "react";
-import vhtml from "vhtml";
-
-const html = htm.bind(vhtml);
+import type { HTMLAttributes, ReactNode } from "react";
 
 interface CustomProps {
   count: number;
   variant?: string;
-  children?: string;
+  onCustomEvent: () => void;
 }
 
-export type ExampleProps = Partial<HTMLButtonElement> & CustomProps;
+export type ExampleProps = Partial<HTMLButtonElement> &
+  CustomProps & {
+    children?: string;
+  };
 
-export type ExampleReactProps = HTMLAttributes<HTMLButtonElement> & CustomProps;
+export type ExampleReactProps = HTMLAttributes<HTMLButtonElement> &
+  CustomProps & {
+    children?: ReactNode;
+  };
 
-export const CoreComponent = <P extends CustomProps>(): CoreComponentType<P> => ({
+interface Options {
+  type: "lit" | "react";
+}
+
+export const CoreComponent = <P extends ExampleProps | ExampleReactProps>(
+  options: Options,
+): CoreComponentType<P> => ({
   customElementTagName: "kobber-example",
 
   styles: `
@@ -39,14 +48,24 @@ export const CoreComponent = <P extends CustomProps>(): CoreComponentType<P> => 
     console.log("onUnmount");
   },
 
-  render: ({ count, variant, ...props }) => {
-    const result = html`
-        <button class="button" ...${props} data-variant="${variant}">
-          ${props.children} 
+  /*
+  <button class="button" ...${props} data-variant="${variant}">
+          ${children}
           Count: ${count}
         </button>
-      `;
-    return Array.isArray(result) ? result.join("") : result;
+          <button onClick=${onCustomEvent}>
+          Call custom event handler
+        </button>
+  */
+
+  render: ({ count, variant, children, onCustomEvent, ...props }) => {
+    const result = render(options.type)`
+      <div>
+      Count: ${count}
+          ${children}
+      </div>
+    `;
+    return result;
   },
 });
 

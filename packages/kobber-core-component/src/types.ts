@@ -3,5 +3,5 @@ export interface CoreComponent<P> {
   styles: string;
   onMount?: () => void;
   onUnmount?: () => void;
-  render: (props: P) => string;
+  render: (props: P) => any;
 }

@@ -6,15 +6,19 @@
   "exports": {
     "./LitComponent": "./src/LitComponent.ts",
     "./ReactComponent": "./src/ReactComponent.tsx",
-    "./types": "./src/types.ts"
+    "./types": "./src/types.ts",
+    "./render": "./src/render.ts"
   },
   "devDependencies": {
     "@gyldendal/kobber-tsconfig": "workspace:^",
     "@types/react": "^19.2.2",
+    "@types/vhtml": "^2",
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@lit-labs/observers": "^2.0.6"
+    "@lit-labs/observers": "^2.0.6",
+    "htm": "^3.1.1",
+    "vhtml": "^2.2.0"
   },
   "peerDependencies": {
     "lit": ">= 3.3.1",
