@@ -30,6 +30,13 @@ const createMediaModuleStyles = () => {
           right: 0;
         }
         ::slotted(img) { 
+          clip-path: polygon(
+            0% 0%, 100% 0%, 100% 0%, 100% 100%, 
+            100% calc(100% - var(--credit-height)), 
+            calc(100% - var(--credit-width)) calc(100% - var(--credit-height)), 
+            calc(100% - var(--credit-width)) 100%, 
+            0% 100%
+          );
         }
       }
       
@@ -38,6 +45,13 @@ const createMediaModuleStyles = () => {
           left: 0;
         }
         ::slotted(img) { 
+          clip-path: polygon(
+            0% 0%, 100% 0%, 100% 0%, 100% 100%,
+            var(--credit-width) 100%,
+            var(--credit-width) calc(100% - var(--credit-height)),
+            0 calc(100% - var(--credit-height)),
+            0 0
+          );
         }
       }
 
