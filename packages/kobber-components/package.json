@@ -10,14 +10,16 @@
     "./react": "./dist/react/index.js",
     "./web-components": "./dist/web-components/index.js",
     "./css/*.css": "./dist/css/*.css",
+    "./core.css": "./dist/core.css",
     "./init": "./dist/init/index.js"
   },
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist",
     "lint": "yarn lint:css",
     "lint:css": "stylelint --f verbose \"**/*.css\"",
-    "build": "yarn build:css && tsup",
+    "build": "yarn build:css && tsup && yarn build:core-css",
     "build:css": "tsx ./build-scripts/list-css-components.ts",
+    "build:core-css": "tsx ./build-scripts/build-css-from-core-components.ts",
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build",
     "test": "echo \"No tests configured\"",
