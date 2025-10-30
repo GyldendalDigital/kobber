@@ -13,11 +13,8 @@ const inputStyles = component._radiobutton;
 
 const createInputStyles = () => {
   return css`
-    :host {
-      --control-outline-color: transparent;
-    }
-
     .${unsafeCSS("kobber-radio-input" satisfies InputClassNames)} {
+      --control-outline-color: transparent;
       display: flex;
       gap: var(${unsafeCSS(inputStyles.gap)});
       justify-content: start;
@@ -99,7 +96,7 @@ const inputStates = () => {
         outline: none;
         box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)})
           var(${unsafeCSS(universal.focus.border.color)});
-        border-radius: var(${unsafeCSS(universal.focus.border.radius.xsmall)});
+        border-radius: var(${unsafeCSS(universal.focus.border.radius.small)});
       }
     }
   `;

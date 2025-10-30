@@ -18,13 +18,10 @@ const indicator = component._checkbox.indicator;
 
 const createCheckboxStyles = () => {
   return css`
-    :host {
+    .${unsafeCSS("wrapper" satisfies WrapperClassNames)} {
       --control-outline-color: transparent;
       --icon-width: 1.2em;
       --icon-height: var(--icon-width);
-    }
-
-    .${unsafeCSS("wrapper" satisfies WrapperClassNames)} {
       display: flex;
       flex-direction: column;
       gap: 0 var(${unsafeCSS(checkbox["container-right"].gap)});
@@ -125,7 +122,7 @@ const statesPerColorTheme = (colorTheme: CheckboxColorTheme) => {
         outline: none;
         box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)})
           var(${unsafeCSS(universal.focus.border.color)});
-        border-radius: var(${unsafeCSS(universal.focus.border.radius.xsmall)});
+        border-radius: var(${unsafeCSS(universal.focus.border.radius.small)});
         --control-border-color: var(${unsafeCSS(borderColor.focus)});
       }
     }

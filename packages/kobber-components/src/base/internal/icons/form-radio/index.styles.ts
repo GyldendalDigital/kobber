@@ -16,4 +16,4 @@ const createIconStyles = () => {
   `;
 };
 
-export const formRadioIconStyles = createIconStyles();
+export const _formRadioIconStyles = createIconStyles();

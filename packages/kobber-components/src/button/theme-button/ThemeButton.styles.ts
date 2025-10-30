@@ -22,16 +22,13 @@ const colorVariants = () =>
             const colorSelector = `[data-color="${colorTheme}"]`;
             const colorVariantSelector = `[data-color-variant="${colorVariant}"]`;
             const colorLevelSelector = `[data-color-level="${colorLevel}"]`;
-            const borderColor =
-              // @ts-expect-error
-              themeButtonTokens.border.color[colorTheme]?.[colorLevel]?.[colorVariant];
             const backgroundColor =
               // @ts-expect-error
               themeButtonTokens.background.color[colorTheme]?.[colorLevel]?.[colorVariant];
             return `
-&${colorSelector}${colorVariantSelector}${colorLevelSelector} {
-${buttonColorVariables(getIconColor(colorTheme, colorVariant), backgroundColor?.fallback, backgroundColor?.hover, borderColor?.active)}
-}`;
+  &${colorSelector}${colorVariantSelector}${colorLevelSelector} {
+   ${buttonColorVariables(getIconColor(colorTheme, colorVariant, colorLevel), backgroundColor?.fallback, backgroundColor?.hover)}
+  }`;
           }),
         ),
       )

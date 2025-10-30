@@ -17,9 +17,9 @@ const colorVariants = () =>
           const colorVariantSelector = `[data-color-variant="${colorVariant}"]`;
           const backgroundColor = uiButtonTokens.background.color[colorTheme]?.[colorVariant];
           return `
-&${colorSelector}${colorVariantSelector} {
-${buttonColorVariables(getIconColor(colorTheme, colorVariant), backgroundColor?.fallback, backgroundColor?.hover)}
-}`;
+  &${colorSelector}${colorVariantSelector} {
+   ${buttonColorVariables(getIconColor(colorTheme, colorVariant, "primary"), backgroundColor?.fallback, backgroundColor?.hover)}
+  }`;
         }),
       )
       .join("\n"),

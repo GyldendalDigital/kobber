@@ -17,4 +17,4 @@ const createIconStyles = () => {
   `;
 };
 
-export const formIndeterminateIconStyles = createIconStyles();
+export const _formIndeterminateIconStyles = createIconStyles();

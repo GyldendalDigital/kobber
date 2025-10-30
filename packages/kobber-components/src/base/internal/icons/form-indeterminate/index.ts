@@ -1,13 +1,13 @@
 import { type CSSResultGroup, LitElement } from "lit";
 import { html } from "lit/static-html.js";
 import { customElement } from "../../../utilities/customElementDecorator";
-import { formIndeterminateIconStyles } from "./index.styles";
+import { _formIndeterminateIconStyles } from "./index.styles";
 
 export const iconFormIndeterminateName = "icon-form_indeterminate";
 
 @customElement(iconFormIndeterminateName)
 export class IconFormIndeterminate extends LitElement {
-  static styles: CSSResultGroup = [formIndeterminateIconStyles];
+  static styles: CSSResultGroup = [_formIndeterminateIconStyles];
 
   render() {
     return html` <svg viewBox="0 0 20 20" aria-hidden role="presentation">

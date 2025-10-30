@@ -50,7 +50,7 @@ const createStyles = () => {
       &:focus-visible,
       &.focus {
         outline: none;
-        border-radius: var(${unsafeCSS(universal.focus.border.radius.xsmall)});
+        border-radius: var(${unsafeCSS(universal.focus.border.radius.small)});
         box-shadow: 0 0 0 var(${unsafeCSS(universal.focus.border.width)})
           var(${unsafeCSS(universal.focus.border.color)});
         padding-inline: var(${unsafeCSS(link.gap)});

@@ -6,10 +6,6 @@ const dividerTokens = component.divider;
 
 const createDividerStyles = () => {
   return css`
-    :host {
-      display: block;
-    }
-
     .${unsafeCSS("kobber-divider" satisfies DividerClassNames)} {
       width: 100%;
       height: calc(1rem / 16);

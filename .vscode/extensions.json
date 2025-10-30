@@ -4,5 +4,8 @@
     "stylelint.vscode-stylelint",
     "runem.lit-plugin"
   ],
-  "unwantedRecommendations": []
+  "unwantedRecommendations": [
+    "ms-vscode.powershell",
+    "ms-azuretools.vscode-containers"
+  ]
 }

@@ -5,7 +5,7 @@ import { html, literal } from "lit/static-html.js";
 import KobberElementWithIcon from "../../base/kobber-element-with-icon";
 import componentStyles from "../../base/styles/component.styles";
 import { type BaseButtonProps, buttonClassNames } from "./ButtonBase.core";
-import { baseButtonStyles } from "./ButtonBase.styles";
+import { baseButtonStyles, isColorVariantException } from "./ButtonBase.styles";
 import "../../text/text-label/TextLabel";
 import { invertColorVariant } from "../../base/utilities/invertColorVariant";
 import type { TextLabelProps } from "../../text/text-label/TextLabel.core";
@@ -56,6 +56,15 @@ export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps
    * button is the submitter. This attribute is ignored when `href` is present.
    */
   @property() value = "";
+
+  /**
+   * We usually invert the color variant for the nested TextLabel, but there are exceptions to this rule.
+   */
+  textLabelColorVariant() {
+    return isColorVariantException(this.colorTheme, this.colorLevel)
+      ? (this.colorVariant ?? "tone-a")
+      : invertColorVariant(this.colorVariant);
+  }
 
   isLink() {
     return !!this.href;
@@ -115,7 +124,7 @@ export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps
         !this._iconOnly
           ? html`<kobber-text-label
           .color=${this.colorTheme}
-          color-variant=${invertColorVariant(this.colorVariant)}
+          color-variant=${this.textLabelColorVariant()}
         >
           <slot></slot>
         </kobber-text-label>`
