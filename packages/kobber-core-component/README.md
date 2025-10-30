@@ -6,7 +6,9 @@
 
 ---
 
-Kobber core components are built to handle different types of output/render formats. Every component has a `.core` file, that concists of the code/html for the component. Then we have wrapper files that uses the content in the core file to render to the specific format. Ideally there is no specific handling for different formats, but if it is needed, the format type is available in `.core` to handle that.
+Kobber core components are built to handle different types of output and render formats. Every component has a `.core` file, that is a single source of thruth for the component code and html. Additionally we have wrapper files that use the core file content to consistently render specific formats.
+
+Ideally there is no specific handling for different formats. But for flexibility, the format type is available in `.core` to handle that if needed.
 
 Users of this library will be refered to as consumer, and creators of this library will be refered to as producer.
 
@@ -17,7 +19,7 @@ We (will) support
 - React
 - Svelte
 
-This means that we will deliver pre-wrapped, ready to use components in these formats. However, they are not all equal, becuase some of these formats support different functionality (see table below).
+This means that we will deliver pre-wrapped, ready-to-use components in these formats. However, they are not all equal, some of these formats support different functionality (see table below).
 
 | Format        | SSR support   | Style inheritence | Feature
 | ------------- | ------------- | ----------------- | -------
@@ -31,19 +33,23 @@ This library should be able to outlive our current stacks. When we create a new 
 
 Therefore, we avoid using any large framework directly, and instead try to write every single component in one concise way (JSX adjecent), and go straight from that format to the different wrappers that we support. The cost of developing a new wrapper is small, and should compensate for the small amount of extra development time compared to delivering to a single framework.
 
-Also, we use multiple front-end frameworks at Gyldendal, which means we would either have to
+### Alternatives to this approach
+
+We use multiple front-end frameworks at Gyldendal. By not providing our components in different wrappers, we would either have to
 - A: Write seperate duplicates for each framework
 - B: Write for only one and not support the others/use web compnents and forgo a bunch of modern funcitonality
 
-Case A scales poorly, and including a new framework becomes a big deccision, meaning it will not happen that often, and locks our consumers to what we offer. Case B is restriciting, and in the case where we want to change what format we want to deliver, it would require a large rewrite.
+Case A scales poorly, and including a new framework becomes a big decision, meaning it will not happen that often, and locks our consumers to what we offer. Case B is restriciting, and in the case where we want to change what format we want to deliver, it would require a large rewrite.
 
-### Why web component support
+### Why supporting web components
 
-Web components are more limited when it comes to giving full support for 'nice to have' functionality. Things like server side rendering (ssr), is difficult to support in any good meaningful way, and then we reccomend that people use a specific wrapper instead.
+We support web components to future-proof the component library, and provide efficiency in the long run.
 
-The reason why we would still like to support web components is to future-proof the component library. If a consumer wishes to try out a new framework, they can create their own wrapper for the web component(s) in said framework, and quickly get access to the entire library. This will enable faster prototyping, testing, and integration of new technology. We consider it to be important to deliver this flexibility to our consumers, as the modern front-end web world moves very quickly, and we do not want to limit them in their future choices of technology.
+Web components are limited in giving full support for 'nice to have' functionality. Things like server side rendering (ssr), is difficult to support in any good meaningful way, and then we reccomend that people use a specific wrapper instead.
 
-### Why not only web component support
+If a consumer wishes to try out a new framework, they can create their own wrapper for the web component(s) in said framework, and quickly get access to the entire library. This will enable faster prototyping, testing, and integration of new technology. We consider it important to deliver this flexibility to our consumers, as the modern front-end web world moves very quickly, and we do not want to limit them in their future choices of technology.
+
+### Why not only support web components
 
 Having to go through a web component before wrapping to different frameworks later brings along the downsides of web components to the other frameworks. Therefore, we have `.core` go straight to each wrapper instead.
 
@@ -53,9 +59,9 @@ Components we create will extend their HTML counterpart. In practice, this means
 
 Example:
 
-The consumer needs to implement a different color for a warning banner, and warning is not a concept that the component takes into account. If the design spec indicates that there should be a different color in this circumnstance, it is not the consumers job to patch this into the component. However, if warning is not in the design spec, but the consumer wishes to have this be a thing, then they should handle it themselves.
+The consumer needs to implement a different color for a warning banner, and warning is not a concept that the component takes into account. If the design spec indicates that there should be a different color in this circumstance, it is not the consumers job to patch this into the component. However, if warning is not in the design spec, but the consumer wishes to have this be a thing, then they should handle it themselves.
 
-There will be examples that live in a gray area between these to cases, but generally speaking, if something is in the design spec, it should be layed out clearly what the consumer should do. If not, the consumer should report that to the team rather than doing their own adjustments on their end.
+There will be examples that live in a gray area between these two cases, but generally speaking, if something is in the design spec, it should be layed out clearly what the consumer should do. If not, the consumer should report that to the producer team rather than doing their own adjustments on their end.
 
 ## Reactivity
 
