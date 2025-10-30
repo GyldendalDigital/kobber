@@ -1,0 +1,30 @@
+{
+  "name": "@internal/tests",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite -c src/app/vite.config.ts & tsx src/app/express.ts",
+    "test": "tsx ./src/universalRendering.tsx"
+  },
+  "dependencies": {
+    "@gyldendal/kobber-base": "workspace:^",
+    "@gyldendal/kobber-components": "workspace:^",
+    "@lit-labs/ssr": "^3.3.1",
+    "express": "^5.1.0",
+    "prettier": "^3.6.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^5.1.0",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12"
+  }
+}
