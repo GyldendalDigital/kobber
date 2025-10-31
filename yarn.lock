@@ -1013,7 +1013,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-base@npm:*, @gyldendal/kobber-base@npm:0.6.12, @gyldendal/kobber-base@workspace:packages/kobber-base":
+"@gyldendal/kobber-base@npm:*, @gyldendal/kobber-base@npm:0.6.13, @gyldendal/kobber-base@workspace:packages/kobber-base":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-base@workspace:packages/kobber-base"
   dependencies:
@@ -1029,10 +1029,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-components@workspace:packages/kobber-components"
   dependencies:
-    "@gyldendal/kobber-base": "npm:0.6.12"
-    "@gyldendal/kobber-icons": "npm:0.6.12"
-    "@gyldendal/kobber-stylelint": "npm:0.6.12"
-    "@gyldendal/kobber-tsconfig": "npm:0.6.12"
+    "@gyldendal/kobber-base": "npm:0.6.13"
+    "@gyldendal/kobber-icons": "npm:0.6.13"
+    "@gyldendal/kobber-stylelint": "npm:0.6.13"
+    "@gyldendal/kobber-tsconfig": "npm:0.6.13"
     "@internal/integration-checker": "workspace:^"
     "@lit-labs/observers": "npm:^2.0.5"
     "@lit-labs/ssr-dom-shim": "npm:^1.3.0"
@@ -1062,12 +1062,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-icons@npm:*, @gyldendal/kobber-icons@npm:0.6.12, @gyldendal/kobber-icons@workspace:packages/kobber-icons":
+"@gyldendal/kobber-icons@npm:*, @gyldendal/kobber-icons@npm:0.6.13, @gyldendal/kobber-icons@workspace:packages/kobber-icons":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-icons@workspace:packages/kobber-icons"
   dependencies:
-    "@gyldendal/kobber-base": "npm:0.6.12"
-    "@gyldendal/kobber-tsconfig": "npm:0.6.12"
+    "@gyldendal/kobber-base": "npm:0.6.13"
+    "@gyldendal/kobber-tsconfig": "npm:0.6.13"
     "@internal/integration-checker": "workspace:^"
     "@lit/react": "npm:^1.0.7"
     "@types/jsdom": "npm:^21.1.7"
@@ -1094,7 +1094,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-scene@workspace:packages/kobber-scene"
   dependencies:
-    "@gyldendal/kobber-tsconfig": "npm:0.6.12"
+    "@gyldendal/kobber-tsconfig": "npm:0.6.13"
     "@lit/context": "npm:^1.1.5"
     "@lit/react": "npm:^1.0.7"
     "@types/react": "npm:^19.1.0"
@@ -1108,7 +1108,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-stylelint@npm:0.6.12, @gyldendal/kobber-stylelint@workspace:packages/kobber-stylelint":
+"@gyldendal/kobber-stylelint@npm:0.6.13, @gyldendal/kobber-stylelint@workspace:packages/kobber-stylelint":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-stylelint@workspace:packages/kobber-stylelint"
   dependencies:
@@ -1123,7 +1123,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gyldendal/kobber-tsconfig@npm:0.6.12, @gyldendal/kobber-tsconfig@workspace:packages/kobber-tsconfig":
+"@gyldendal/kobber-tsconfig@npm:0.6.13, @gyldendal/kobber-tsconfig@workspace:packages/kobber-tsconfig":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-tsconfig@workspace:packages/kobber-tsconfig"
   languageName: unknown
