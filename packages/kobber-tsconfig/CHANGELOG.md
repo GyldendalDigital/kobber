@@ -1,5 +1,11 @@
 # @gyldendal/kobber-tsconfig
 
+## 0.6.13
+
+### Patch Changes
+
+- NavLink as native elements, remove docs app, bug fixes
+
 ## 0.6.12
 
 ### Patch Changes

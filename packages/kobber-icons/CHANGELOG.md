@@ -1,5 +1,13 @@
 # @gyldendal/kobber-icons
 
+## 0.6.13
+
+### Patch Changes
+
+- NavLink as native elements, remove docs app, bug fixes
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.13
+
 ## 0.6.12
 
 ### Patch Changes
