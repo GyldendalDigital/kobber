@@ -39,6 +39,7 @@ const createContentWrapperStyles = () => {
       &[data-type="page"] {
         max-width: 100%;
         height: 100%;
+        box-sizing: border-box;
         padding-block: var(${unsafeCSS(contentWrapperTokens.padding.block.page)});
       }
     }
