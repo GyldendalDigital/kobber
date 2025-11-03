@@ -135,6 +135,7 @@ export const ContentWrapper: Story = {
     type: undefined,
     showHeadingText: true,
   },
+  decorators: [(story, _) => html`<div style="height: 96vh">${story()}</div>`], // Emulates usage in content-templates.
   render: args => html`
     <kobber-content-wrapper 
       color-variant=${ifDefined(args.colorVariant)}
