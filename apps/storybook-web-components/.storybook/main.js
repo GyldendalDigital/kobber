@@ -1,13 +1,3 @@
-import { join, dirname } from "path";
-
-/**
- * This function is used to resolve the absolute path of a package.
- * It is needed in projects that use Yarn PnP or are set up within a monorepo.
- */
-function getAbsolutePath(value) {
-  return dirname(require.resolve(join(value, "package.json")));
-}
-
 /** @type { import('@storybook/web-components-vite').StorybookConfig } */
 const config = {
   stories: [
@@ -17,9 +7,9 @@ const config = {
     "../../../packages/kobber-icons/src/**/*.@(mdx)",
     "../../../packages/kobber-icons/src/**/*.stories.@(js|mjs|ts)",
   ],
-  addons: [getAbsolutePath("@storybook/addon-a11y"), getAbsolutePath("@storybook/addon-docs")],
+  addons: ["@storybook/addon-a11y", "@storybook/addon-docs"],
   framework: {
-    name: getAbsolutePath("@storybook/web-components-vite"),
+    name: "@storybook/web-components-vite",
     options: {},
   },
  	typescript: {
@@ -29,7 +19,7 @@ const config = {
   core: {
     disableTelemetry: true, // 👈 Disables telemetry
     disableWhatsNewNotifications: true, // 👈 Disables what's new notifications
-    builder: getAbsolutePath("@storybook/builder-vite"),
+    builder: "@storybook/builder-vite",
   },
   staticDirs: ["../public"], //👈 Configures the static asset folder in Storybook
 };
