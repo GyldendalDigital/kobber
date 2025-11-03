@@ -12,6 +12,9 @@ const createContentWrapperStyles = () => {
     }
     
     .${unsafeCSS("kobber-content-wrapper" satisfies ContentWrapperClassNames)} {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
       min-height: 5em;
       overflow: auto; /* Applicable when max-height attribute is used. */
       background-color: var(--content-wrapper-background-color);
@@ -36,6 +39,7 @@ const createContentWrapperStyles = () => {
       &[data-type="page"] {
         max-width: 100%;
         height: 100%;
+        box-sizing: border-box;
         padding-block: var(${unsafeCSS(contentWrapperTokens.padding.block.page)});
       }
     }
