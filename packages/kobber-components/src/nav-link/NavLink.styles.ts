@@ -18,7 +18,6 @@ import {
  * <button onclick="alert('foo')" class="kobber-nav-link" data-type="subtle">foo</button>
  */
 const createStyles = () => {
-  const test = dataAttribute<NavLinkDataAttributes>("type", "brand");
   return css`
 .${unsafeCSS(navLinkName)} {
   position: relative;
