@@ -1,5 +1,11 @@
 # @gyldendal/kobber-tsconfig
 
+## 0.6.14
+
+### Patch Changes
+
+- Add component MediaModule, upgrade Storybook to v10, Content Wrapper bugfixes.
+
 ## 0.6.13
 
 ### Patch Changes
