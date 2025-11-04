@@ -11,6 +11,7 @@ import { html } from "lit";
 import "../../theme-context-provider/ThemeContext";
 import "@gyldendal/kobber-icons/web-components";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { init as initComponents } from "../../base/init";
 import { invertColorVariant } from "../../base/utilities/invertColorVariant";
 import { nestedTextModule } from "../../story/nestedTextModule";
@@ -26,33 +27,8 @@ const meta: Meta = {
       options: textModuleColors,
       control: { type: "inline-radio" },
     },
-  },
-  args: {
-    color: textModuleColors[0],
-    showBadge: true,
-    showHeading: true,
-    showNested: false,
-  },
-};
-
-export default meta;
-type Story = StoryObj;
-
-const mappedColor = (args: Args) => {
-  if (args.color === "transparent") {
-    return "neutral";
-  }
-  return args.color;
-};
-
-export const ContentWrapper: Story = {
-  argTypes: {
     colorVariant: {
       options: contentWrapperColorVariants,
-      control: { type: "inline-radio" },
-    },
-    type: {
-      options: contentWrapperTypes,
       control: { type: "inline-radio" },
     },
     showBadge: {
@@ -73,12 +49,35 @@ export const ContentWrapper: Story = {
         category: "Top Block",
       },
     },
+    type: {
+      options: contentWrapperTypes,
+      control: { type: "inline-radio" },
+    },
   },
   args: {
+    color: textModuleColors[0],
     colorVariant: undefined,
-    type: undefined,
+    showBadge: true,
+    showHeading: true,
     showHeadingText: true,
+    showNested: true,
+    type: undefined,
   },
+};
+
+export default meta;
+type Story = StoryObj;
+
+const mappedColor = (args: Args) => {
+  if (args.color === "transparent") {
+    return "neutral";
+  }
+  return args.color;
+};
+
+export const ContentWrapper: Story = {
+  argTypes: {},
+  args: {},
   decorators: [(story, _) => html`<div style="height: 96vh">${story()}</div>`], // Emulates usage in content-templates.
   render: args => html`
     <kobber-content-wrapper 
