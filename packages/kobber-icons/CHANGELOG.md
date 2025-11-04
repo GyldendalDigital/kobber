@@ -1,5 +1,13 @@
 # @gyldendal/kobber-icons
 
+## 0.6.14
+
+### Patch Changes
+
+- Add component MediaModule, upgrade Storybook to v10, Content Wrapper bugfixes.
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.14
+
 ## 0.6.13
 
 ### Patch Changes
