@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+    <script type="module">
+      import RefreshRuntime from "http://localhost:5173/@react-refresh";
+      RefreshRuntime.injectIntoGlobalHook(window);
+      window.$RefreshReg$ = () => {};
+      window.$RefreshSig$ = () => (type) => type;
+      window.__vite_plugin_react_preamble_installed__ = true;
+    </script>
+  </head>
+  <body class="kobber-theme-default">
+    <div
+      style="display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 2rem"
+    >
+      <div>
+        <h2>React</h2>
+        <div id="react"></div>
+      </div>
+      <div>
+        <h2>Svelte</h2>
+        <div id="svelte"></div>
+      </div>
+      <div>
+        <h2>Vanilla</h2>
+        {{> AppVanilla }}
+      </div>
+    </div>
+    <script type="module" src="index.ts"></script>
+  </body>
+</html>

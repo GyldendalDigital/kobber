@@ -1,0 +1,13 @@
+<button class="toggle-button">Custom machine</button>
+
+<script type="module">
+  import { ToggleButton } from "../components/toggleButton/ToggleButton.vanilla";
+
+  document.querySelectorAll(".toggle-button").forEach((rootEl) => {
+    const toggleButton = new ToggleButton(rootEl, {
+      id: Math.random().toString(),
+      multiple: true,
+    });
+    toggleButton.init();
+  });
+</script>

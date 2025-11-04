@@ -1,0 +1,20 @@
+{
+  "name": "@gyldendal/kobber-components-core",
+  "version": "0.6.13",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./vanilla": "./src/vanilla/index.ts",
+    "./select/select": "./src/select/select.ts",
+    "./toggleButton/toggleButton": "./src/toggleButton/toggleButton.ts"
+  },
+  "dependencies": {
+    "@zag-js/react": "^1.27.0",
+    "@zag-js/select": "^1.27.0",
+    "@zag-js/svelte": "^1.27.0",
+    "react": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0"
+  }
+}

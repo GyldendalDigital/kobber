@@ -9,6 +9,8 @@
     "includes": [
       "packages/kobber-base/**/*.ts",
       "packages/kobber-components/**/*.ts",
+      "packages/kobber-components-poc/**/*.*",
+      "packages/kobber-components-core/**/*.*",
       "internal/**/*.ts",
       "!node_modules",
       "!**/node_modules",
