@@ -862,6 +862,7 @@ __metadata:
     lit: "npm:^3.2.1"
     onchange: "npm:^7.1.0"
     react: "npm:^19.1.0"
+    stylelint: "npm:^16.25.0"
     stylis: "npm:^4.3.6"
     tsup: "npm:^8.5.0"
     tsx: "npm:^4.20.6"
