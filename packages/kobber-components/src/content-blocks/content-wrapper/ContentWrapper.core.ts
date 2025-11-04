@@ -2,6 +2,7 @@ import { layout } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 export const contentWrapperTokens = layout["content-wrapper"];
 
 import { objectKeys } from "../../base/utilities/objectKeys";
+import type { TextBodyColor } from "../../text/text-body/TextBody.core";
 
 export const contentWrapperName = "kobber-content-wrapper";
 type ContentTopBlockClassNames = typeof contentWrapperName;
@@ -19,6 +20,7 @@ export const contentWrapperColorVariants = objectKeys(contentWrapperTokens.backg
 type ContentWrapperColorVariant = (typeof contentWrapperColorVariants)[number];
 
 export type ContentWrapperProps = {
+  color?: TextBodyColor;
   colorVariant?: ContentWrapperColorVariant;
   type?: ContentWrapperType;
   maxHeightInPx?: number;
