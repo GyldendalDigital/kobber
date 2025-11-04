@@ -13,7 +13,7 @@ listReactComponents(`./src/${reactListFile}`, componentObjects);
 export default defineConfig(() => ({
   entry: {
     ...entries,
-    "css/index": `src/index.css`, // Too premature for exposing css entry yet. Class name uniqueness and :host collisions have to be solved.
+    "css/index": `src/index.css`,
   },
   dts: {
     entry: entries,
