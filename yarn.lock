@@ -1237,18 +1237,20 @@ __metadata:
     "@zag-js/store": "npm:^1.27.0"
     "@zag-js/svelte": "npm:^1.27.0"
     clsx: "npm:^2.1.1"
-    lit: "npm:^3.3.1"
     modern-normalize: "npm:^3.0.1"
-    react: "npm:^19.2.0"
-    react-dom: "npm:^19.2.0"
     svelte: "npm:^5.43.3"
     svelte-preprocess: "npm:^6.0.3"
     tsx: "npm:^4.20.6"
     typescript: "npm:^5.9.3"
     vite: "npm:^7.1.12"
     vite-plugin-handlebars: "npm:^2.0.0"
+  peerDependencies:
+    react: ">=18"
+    svelte: ">=5"
   peerDependenciesMeta:
-    "@lit/react":
+    react:
+      optional: true
+    svelte:
       optional: true
   languageName: unknown
   linkType: soft
@@ -5499,17 +5501,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit@npm:^3.3.1":
-  version: 3.3.1
-  resolution: "lit@npm:3.3.1"
-  dependencies:
-    "@lit/reactive-element": "npm:^2.1.0"
-    lit-element: "npm:^4.2.0"
-    lit-html: "npm:^3.3.0"
-  checksum: 10c0/9f3e171e211be7cd3e01693eac4ba4752fc7bafebc8298fc5b9cb70ff279dd4dc292f1cb425ca42f61c3767a75b7557295c2f6b16335719bc8cf1ca6f3622fb7
-  languageName: node
-  linkType: hard
-
 "load-tsconfig@npm:^0.2.3":
   version: 0.2.5
   resolution: "load-tsconfig@npm:0.2.5"
@@ -6643,17 +6634,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^19.2.0":
-  version: 19.2.0
-  resolution: "react-dom@npm:19.2.0"
-  dependencies:
-    scheduler: "npm:^0.27.0"
-  peerDependencies:
-    react: ^19.2.0
-  checksum: 10c0/fa2cae05248d01288e91523b590ce4e7635b1e13f1344e225f850d722a8da037bf0782f63b1c1d46353334e0c696909b82e582f8cad607948fde6f7646cc18d9
-  languageName: node
-  linkType: hard
-
 "react-refresh@npm:^0.18.0":
   version: 0.18.0
   resolution: "react-refresh@npm:0.18.0"
@@ -7288,13 +7268,6 @@ __metadata:
   version: 0.26.0
   resolution: "scheduler@npm:0.26.0"
   checksum: 10c0/5b8d5bfddaae3513410eda54f2268e98a376a429931921a81b5c3a2873aab7ca4d775a8caac5498f8cbc7d0daeab947cf923dbd8e215d61671f9f4e392d34356
-  languageName: node
-  linkType: hard
-
-"scheduler@npm:^0.27.0":
-  version: 0.27.0
-  resolution: "scheduler@npm:0.27.0"
-  checksum: 10c0/4f03048cb05a3c8fddc45813052251eca00688f413a3cee236d984a161da28db28ba71bd11e7a3dd02f7af84ab28d39fb311431d3b3772fed557945beb00c452
   languageName: node
   linkType: hard
 

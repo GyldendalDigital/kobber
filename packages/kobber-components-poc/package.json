@@ -14,12 +14,7 @@
     "@zag-js/store": "^1.27.0",
     "@zag-js/svelte": "^1.27.0",
     "clsx": "^2.1.1",
-    "lit": "^3.3.1",
-    "modern-normalize": "^3.0.1",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "svelte": "^5.43.3",
-    "vite-plugin-handlebars": "^2.0.0"
+    "modern-normalize": "^3.0.1"
   },
   "devDependencies": {
     "@gyldendal/kobber-stylelint": "0.6.13",
@@ -29,13 +24,22 @@
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "@vitejs/plugin-react": "^5.1.0",
+    "svelte": "^5.43.3",
     "svelte-preprocess": "^6.0.3",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
-    "vite": "^7.1.12"
+    "vite": "^7.1.12",
+    "vite-plugin-handlebars": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "svelte": ">=5"
   },
   "peerDependenciesMeta": {
-    "@lit/react": {
+    "react": {
+      "optional": true
+    },
+    "svelte": {
       "optional": true
     }
   },
