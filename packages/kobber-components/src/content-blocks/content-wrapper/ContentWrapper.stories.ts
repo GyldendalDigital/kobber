@@ -9,6 +9,8 @@ import "../../text/lead/Lead";
 import "../../text/heading/Heading";
 import "../../text/title/Title";
 import "../../text/text-body/TextBody";
+import "../../text/text-list/TextList";
+import "../../text/text-list-element/TextListElement";
 import { html, unsafeStatic } from "lit/static-html.js";
 import "../../theme-context-provider/ThemeContext";
 import "@gyldendal/kobber-icons/web-components";
@@ -97,6 +99,7 @@ const meta: Meta = {
     showHeadingText: true,
     showTextModule: false,
     showMediaModule: false,
+    showList: true,
     type: undefined,
   },
 };
@@ -131,12 +134,35 @@ const mappedColor = (args: Args) => {
   return args.color;
 };
 
+const nestedList = (args: Args) => {
+  const size = "medium";
+  return html`
+    <kobber-text-list size="${size}" color="${mappedColor(args)}" color-variant=${invertColorVariant(args.colorVariant)}>
+      <kobber-text-list-element>
+        Punkt
+        <kobber-text-list slot="nested" size="${size}">
+          <kobber-text-list-element>
+            Underpunkt
+          </kobber-text-list-element>
+          <kobber-text-list-element>
+            Underpunkt
+          </kobber-text-list-element>
+          <kobber-text-list-element>
+            Underpunkt
+          </kobber-text-list-element>
+        </kobber-text-list>
+      </kobber-text-list-element>
+    </kobber-text-list>
+`;
+};
+
 export const ContentWrapper: Story = {
   argTypes: {},
   args: {},
   decorators: [(story, _) => html`<div style="height: 96vh">${story()}</div>`], // Emulates usage in content-templates.
   render: args => html`
     <kobber-content-wrapper 
+      color="${mappedColor(args)}"
       color-variant=${ifDefined(args.colorVariant)}
       type=${ifDefined(args.type)}
     >
@@ -192,6 +218,12 @@ export const ContentWrapper: Story = {
         </kobber-text-body>
       </kobber-text-block>
       ${args.showTextModule ? nestedTextModule(args) : ""}
+      <kobber-text-block>
+        <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
+          <p>Another one paragraph here.</p>
+        </kobber-text-body>
+      </kobber-text-block>
+      ${args.showList ? nestedList(args) : ""}
       <kobber-text-block>
         <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
           <p>Another one paragraph here.</p>
