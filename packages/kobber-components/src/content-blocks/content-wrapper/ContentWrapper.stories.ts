@@ -5,6 +5,7 @@ import "../media-module/MediaModule";
 import "../components/content-top-block/ContentTopBlock";
 import "./ContentWrapper";
 import "../../badge-icon/BadgeIcon";
+import "../../text/lead/Lead";
 import "../../text/heading/Heading";
 import "../../text/title/Title";
 import "../../text/text-body/TextBody";
@@ -63,6 +64,12 @@ const meta: Meta = {
         category: "Top Block",
       },
     },
+    showLead: {
+      name: "Show Lead",
+      table: {
+        category: "Top Block",
+      },
+    },
     showHeadingText: {
       name: "Show Text",
       table: {
@@ -85,6 +92,7 @@ const meta: Meta = {
     imageType: "wide image",
     numberOfImages: 1,
     showBadge: true,
+    showLead: true,
     showHeading: true,
     showHeadingText: true,
     showTextModule: false,
@@ -149,10 +157,15 @@ export const ContentWrapper: Story = {
           : html`   <kobber-heading color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">A long heading that appears in top block</kobber-heading>`
       }
       ${
+        !args.showLead
+          ? ""
+          : html`   <kobber-lead color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">A lead that appears in top block</kobber-lead>`
+      }
+      ${
         !args.showHeadingText
           ? ""
           : html`   <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
-            <p>First paragraph here. Lorem ipsum dolor sit amet, consectetur adipiscing el it.</p>
+            <p>Heading text: First paragraph here. Lorem ipsum dolor sit amet, consectetur adipiscing el it.</p>
             <p>Second paragraph here. Ut et massa mi. Lorem ipsum dolor sit amet, consectetur adipiscing el it.</p>
           </kobber-text-body>
           `
