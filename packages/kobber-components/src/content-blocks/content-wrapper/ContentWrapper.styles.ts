@@ -18,7 +18,7 @@ const createContentWrapperStyles = () => {
       min-height: 5em;
       overflow: auto; /* Applicable when max-height attribute is used. */
       background-color: var(--content-wrapper-background-color);
-      max-width: 720px;
+      max-width: 1280px;
       ${colorVariants()};
 
       .inner-container {

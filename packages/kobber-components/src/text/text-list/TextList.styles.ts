@@ -2,6 +2,9 @@ import { css, unsafeCSS } from "lit";
 import type { NestedListSlotNames } from "../text-list-element/TextListElement.core";
 import {
   type TextListClassNames,
+  textBodyTokens,
+  textListColors,
+  textListColorVariants,
   textListOrderedStyleTypes,
   textListTokens,
   textListUnorderedStyleTypes,
@@ -12,9 +15,16 @@ const createTextListStyles = () => css`
   display: flex;
   flex-direction: column;
   gap: var(--list-gap);
+
   counter-reset: var(--list-counter);
   
   --list-counter: list;
+
+
+  :host(:not([slot="${unsafeCSS("nested" satisfies NestedListSlotNames)}"])) & {
+    color: var(--text-list-color);
+    ${colorVariants()};
+  }
 
   :host([slot="${unsafeCSS("nested" satisfies NestedListSlotNames)}"]) & {
     --list-counter: nested-list;
@@ -70,5 +80,20 @@ const getListStyle = (style: "ordered" | "unordered", nestingLevel: number) => {
 
   return getCurrentOrPreviousElement(getStyleTypesArray(style), nestingLevel);
 };
+
+const colorVariants = () =>
+  unsafeCSS(
+    textListColors
+      .flatMap(textListColor =>
+        textListColorVariants.flatMap(textListColorVariant => {
+          return `
+              &[data-color="${textListColor}"][data-color-variant="${textListColorVariant}"] {
+                --text-list-color: var(${textBodyTokens.text.color[textListColor][textListColorVariant]});
+              }
+          `;
+        }),
+      )
+      .join("\n"),
+  );
 
 export const textListStyles = createTextListStyles();
