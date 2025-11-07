@@ -102,6 +102,7 @@ const meta: Meta = {
     showList: true,
     type: undefined,
   },
+  decorators: [(story, _) => html`<div style="height: 96vh">${story()}</div>`], // Emulates usage in content-templates.
 };
 
 export default meta;
@@ -157,9 +158,6 @@ const nestedList = (args: Args) => {
 };
 
 export const ContentWrapper: Story = {
-  argTypes: {},
-  args: {},
-  decorators: [(story, _) => html`<div style="height: 96vh">${story()}</div>`], // Emulates usage in content-templates.
   render: args => html`
     <kobber-content-wrapper 
       color="${mappedColor(args)}"
@@ -200,9 +198,8 @@ export const ContentWrapper: Story = {
 
       ${
         args.showMediaModule
-          ? html`<kobber-media-module color="${ifDefined(args.color)}" color-variant="${ifDefined(args.colorVariant)}">
-                  ${getImages(args).map(element => html`${unsafeStatic(element)}`)}
-          
+          ? html`<kobber-media-module color="${ifDefined(args.color)}" color-variant="${ifDefined(invertColorVariant(args.colorVariant))}">
+        ${getImages(args).map(element => html`${unsafeStatic(element)}`)}
         <span slot="credit">Foto: NTB SCANPIX</span>
         <kobber-text-body level="p" color="${ifDefined(args.color)}" color-variant="${invertColorVariant(args.colorVariant)}">
           Under bildet har vi mulighet til å legge til en beskrivende tekst om hva bildet handler om. Teksten bør ikke overskride mer enn 2-3 linjer. (${args.color})

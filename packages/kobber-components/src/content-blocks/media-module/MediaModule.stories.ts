@@ -95,7 +95,7 @@ export const MediaModule: Story = {
       <kobber-media-module credit-placement="${args.creditPlacement}" color="${args.color}" color-variant=${ifNotDefault(invertColorVariant(args.colorVariant))}>
         ${getImages(args).map(element => html`${unsafeStatic(element)}`)}
         ${args.creditPlacement === "none" ? "" : html`<span slot="credit">${args.creditText || "Foto: NTB SCANPIX"}</span>`}
-        <kobber-text-body level="p" color="${args.color}" color-variant="${ifNotDefault(args.colorVariant)}" size="small">
+        <kobber-text-body level="p" color="${args.color}" color-variant="${ifNotDefault(invertColorVariant(args.colorVariant))}" size="small">
           Under bildet har vi mulighet til å legge til en beskrivende tekst om hva bildet handler om. Teksten bør ikke overskride mer enn 2-3 linjer. (${args.color})
         </kobber-text-body>
       </kobber-media-module>
