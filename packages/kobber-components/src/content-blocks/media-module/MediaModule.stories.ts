@@ -10,8 +10,6 @@ import {
   colorVariantFallback,
   mediaModuleCreditPlacementFallback,
   mediaModuleCreditPlacements,
-  mediaModuleobjectFitFallback,
-  mediaModuleobjectFits,
 } from "./MediaModule.core";
 import "../content-wrapper/ContentWrapper";
 import { ifDefined } from "lit/directives/if-defined.js";
@@ -38,7 +36,7 @@ const meta: Meta = {
       control: {
         type: "range",
         min: 1,
-        max: 10,
+        max: 3,
       },
     },
     creditPlacement: {
@@ -54,10 +52,6 @@ const meta: Meta = {
         category: "Credit (does not show on video or when more than 1 image)",
       },
     },
-    objectFit: {
-      options: mediaModuleobjectFits,
-      control: "inline-radio",
-    },
   },
   args: {
     imageType: "narrow image",
@@ -66,7 +60,6 @@ const meta: Meta = {
     creditPlacement: mediaModuleCreditPlacementFallback,
     numberOfImages: 1,
     creditText: "",
-    objectFit: mediaModuleobjectFitFallback,
   },
 };
 
@@ -78,7 +71,7 @@ const getImages = (args: Args) => {
   let images: string[] = [];
   if (args.imageType === "video") {
     images = [
-      `<video slot="media" controls style="object-fit: ${args.objectFit};">
+      `<video slot="media" controls>
       <source src="https://player.gyldendaldigital.vimeo.work/video/657710517?title=0&controls=0&dnt=1&app_id=122963" type="video/mp4">
       Your browser does not support the video tag.
     </video>`,
@@ -88,7 +81,7 @@ const getImages = (args: Args) => {
   for (let i = 0; i < numberOfImages; i++)
     images = [
       ...images,
-      `<img slot="media" style="object-fit: ${args.objectFit};" alt="Bokomslag: ${args.imageType === "narrow image" ? "Høy bok" : "Lav bok"}" src="${args.imageType === "narrow image" ? "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-jHT_oj28-medium.jpg?w=400&f=webp" : "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-Z9lf829L-medium.jpg?w=400&f=webp"}" />`,
+      `<img slot="media" alt="Bokomslag: ${args.imageType === "narrow image" ? "Høy bok" : "Lav bok"}" src="${args.imageType === "narrow image" ? "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-jHT_oj28-medium.jpg?w=400&f=webp" : "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-Z9lf829L-medium.jpg?w=400&f=webp"}" />`,
     ];
   return images;
 };
