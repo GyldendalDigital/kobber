@@ -1627,11 +1627,10 @@
 /* #region MediaModule - mediaModuleStyles */ 
 
     .kobber-media-module {
-      width: min-content;
-      min-width: 10em;
       --credit-height: 0;
       --credit-width: 0;
 
+      width: auto; /* Combined with image's width: 100%: Scale image within container. */
       display: flex;
       flex-direction: column;
       gap: var(--kobber-component-media-module-gap);
@@ -1724,6 +1723,7 @@
       position: relative;
       margin: 0;
       ::slotted(img) { 
+        width: 100%; /* Combined with .kobber-media-module's width: auto: Scale image within container. */
         border-radius: var(--kobber-component-media-module-border-radius);
       }
       display: flex;

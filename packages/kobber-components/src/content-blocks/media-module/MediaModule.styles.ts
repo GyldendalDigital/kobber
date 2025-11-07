@@ -4,11 +4,10 @@ import { type MediaModuleClassNames, mediaModuleTokens } from "./MediaModule.cor
 const createMediaModuleStyles = () => {
   return css`
     .${unsafeCSS("kobber-media-module" satisfies MediaModuleClassNames)} {
-      width: min-content;
-      min-width: 10em;
       --credit-height: 0;
       --credit-width: 0;
 
+      width: auto; /* Combined with image's width: 100%: Scale image within container. */
       display: flex;
       flex-direction: column;
       gap: var(${unsafeCSS(mediaModuleTokens.gap)});
@@ -101,6 +100,7 @@ const createMediaModuleStyles = () => {
       position: relative;
       margin: 0;
       ::slotted(img) { 
+        width: 100%; /* Combined with .kobber-media-module's width: auto: Scale image within container. */
         border-radius: var(${unsafeCSS(mediaModuleTokens.border.radius)});
       }
       display: flex;
