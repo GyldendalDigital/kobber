@@ -9,12 +9,14 @@
     "./toggleButton/toggleButton": "./src/toggleButton/toggleButton.ts"
   },
   "dependencies": {
+    "@ark-ui/react": "^5.27.1",
+    "@ark-ui/svelte": "^5.12.1",
     "@zag-js/react": "^1.27.0",
     "@zag-js/select": "^1.27.0",
     "@zag-js/svelte": "^1.27.0",
     "react": "^19.2.0"
   },
   "devDependencies": {
-    "@types/react": "^19.1.0"
+    "@types/react": "^19.2.0"
   }
 }

@@ -1,0 +1,11 @@
+.ui-paper {
+  background-color: antiquewhite;
+  transition: box-shadow 0.2s;
+}
+
+.ui-paper--elevation-1 {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+.ui-paper--elevation-2 {
+  box-shadow: 0 8px 4px 2px rgba(0, 0, 0, 0.5);
+}

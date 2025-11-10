@@ -31,7 +31,7 @@ export const machine = createMachine({
 
 export const connect = <T extends PropTypes>(
   service: Service<MachineSchema>,
-  normalize: NormalizeProps<T>,
+  normalize: NormalizeProps<T>
 ) => {
   const { state } = service;
   const active = state.matches("active");
@@ -44,6 +44,12 @@ export const connect = <T extends PropTypes>(
         "aria-checked": active,
         onClick() {
           service.send({ type: "CLICK" });
+        },
+        onMouseEnter() {
+          service.send({ type: "ENTER" });
+        },
+        onMouseLeave() {
+          service.send({ type: "LEAVE" });
         },
       });
     },

@@ -1,4 +1,5 @@
 <script lang="ts">
+import Card  from "../../../kobber-components-core/src/card/svelte/card.svelte";
 import Select from "../components/svelte/select/Select.svelte";
 import ToggleButton from "../components/toggleButton/ToggleButton.svelte";
 import { getSelectProps } from "./shared/props";
@@ -11,3 +12,8 @@ import { getSelectProps } from "./shared/props";
 
 
 <Select {...getSelectProps("test-id")} />
+
+<br/>
+<br/>
+
+<Card />
