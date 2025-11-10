@@ -49,6 +49,9 @@ export class MediaModule extends KobberElement implements MediaModuleProps {
   protected _creditPlacement: MediaModuleProps["creditPlacement"] =
     mediaModuleCreditPlacementFallback;
 
+  @state()
+  protected _creditWidth = 0;
+
   connectedCallback() {
     super.connectedCallback();
     this._childTag = this.shadowRoot?.host.querySelector("[slot=media]"); //VIDEO or IMG
@@ -65,6 +68,8 @@ export class MediaModule extends KobberElement implements MediaModuleProps {
       if (this._childTagName === "IMG" && this._numberOfMediaElements === 1) {
         this._singleImageWidth = this._childTag?.clientWidth;
       }
+      const _figcaption = this.shadowRoot?.querySelector("figcaption");
+      this._creditWidth = _figcaption?.clientWidth || 0;
     }, 0);
   }
 
@@ -85,7 +90,7 @@ export class MediaModule extends KobberElement implements MediaModuleProps {
           Z" />
         </symbol>
       </svg>
-      <figure style="--image-width: ${this._singleImageWidth}px">
+      <figure style="--image-width: ${this._singleImageWidth}px;">
         <slot name="media"></slot>
         <figcaption style="--credit-fill-color: var(${unsafeCSS(layout["content-wrapper"].background.color.brand[invertColorVariant(this.colorVariant) || "tone-a"])});">
           <svg class="curve">
