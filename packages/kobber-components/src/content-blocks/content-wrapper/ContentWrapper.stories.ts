@@ -48,7 +48,7 @@ const meta: Meta = {
       control: {
         type: "range",
         min: 1,
-        max: 10,
+        max: 3,
       },
       table: {
         category: "Media Module",
