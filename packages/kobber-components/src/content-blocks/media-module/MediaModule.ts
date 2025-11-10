@@ -37,7 +37,13 @@ export class MediaModule extends KobberElement implements MediaModuleProps {
   protected _numberOfMediaElements = 0;
 
   @state()
+  protected _childTag: HTMLElement | null | undefined;
+
+  @state()
   protected _childTagName: string | undefined;
+
+  @state()
+  protected _singleImageWidth: number | undefined;
 
   @state()
   protected _creditPlacement: MediaModuleProps["creditPlacement"] =
@@ -45,7 +51,8 @@ export class MediaModule extends KobberElement implements MediaModuleProps {
 
   connectedCallback() {
     super.connectedCallback();
-    this._childTagName = this.shadowRoot?.host.querySelector("[slot=media]")?.tagName; //VIDEO or IMG
+    this._childTag = this.shadowRoot?.host.querySelector("[slot=media]"); //VIDEO or IMG
+    this._childTagName = this._childTag?.tagName; //VIDEO or IMG
     this._numberOfMediaElements =
       this.shadowRoot?.host.querySelectorAll("[slot=media]").length || 0;
     if (this._numberOfMediaElements > 1 || this._numberOfMediaElements < 1) {
@@ -53,9 +60,15 @@ export class MediaModule extends KobberElement implements MediaModuleProps {
     } else {
       this._creditPlacement = this.creditPlacement;
     }
+
+    setTimeout(() => {
+      if (this._childTagName === "IMG" && this._numberOfMediaElements === 1) {
+        this._singleImageWidth = this._childTag?.clientWidth;
+      }
+    }, 0);
   }
 
-  getImageContainer() {
+  getSingleImageContainer() {
     const radius =
       component["media-module"]["inner-inner-credit-container"]["border-radius"]["bottom-right"][
         "right-align"
@@ -72,7 +85,7 @@ export class MediaModule extends KobberElement implements MediaModuleProps {
           Z" />
         </symbol>
       </svg>
-      <figure>
+      <figure style="--image-width: ${this._singleImageWidth}px">
         <slot name="media"></slot>
         <figcaption style="--credit-fill-color: var(${unsafeCSS(layout["content-wrapper"].background.color.brand[invertColorVariant(this.colorVariant) || "tone-a"])});">
           <svg class="curve">
@@ -84,6 +97,18 @@ export class MediaModule extends KobberElement implements MediaModuleProps {
           <svg class="curve">
             <use href="#curve" />
           </svg>
+        </figcaption>
+      </figure>`;
+  }
+
+  getImagesContainer() {
+    return html`
+      <figure>
+        <slot name="media"></slot>
+        <figcaption style="--credit-fill-color: var(${unsafeCSS(layout["content-wrapper"].background.color.brand[invertColorVariant(this.colorVariant) || "tone-a"])});">
+          <kobber-text-label size="small" color="${ifDefined(this.color)}" color-variant="${ifDefined(this.colorVariant)}">
+            <slot name="credit"></slot>
+          </kobber-text-label>
         </figcaption>
       </figure>`;
   }
@@ -100,7 +125,11 @@ export class MediaModule extends KobberElement implements MediaModuleProps {
     if (this._childTagName === "VIDEO") {
       mediaContainer = this.getVideoContainer();
     } else if (this._childTagName === "IMG") {
-      mediaContainer = this.getImageContainer();
+      if (this._numberOfMediaElements === 1) {
+        mediaContainer = this.getSingleImageContainer();
+      } else {
+        mediaContainer = this.getImagesContainer();
+      }
     } else {
       mediaContainer = console.info("No media element found in kobber-media-module");
     }
