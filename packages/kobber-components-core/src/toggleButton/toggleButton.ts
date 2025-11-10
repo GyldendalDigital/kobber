@@ -56,4 +56,4 @@ export const connect = <T extends PropTypes>(
   };
 };
 
-export type ToggleButtonApi = ReturnType<typeof connect>;
+export type Api = ReturnType<typeof connect>;
