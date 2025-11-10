@@ -1,5 +1,5 @@
 import React, { ReactHTMLElement } from "react";
-import "./paper.css";
+import * as css from "./paper.module.css";
 
 export interface PaperProps extends React.HTMLAttributes<HTMLElement> {
   elevation?: number;
@@ -14,7 +14,7 @@ export const Paper: React.FC<PaperProps> = ({
   className,
   ...props
 }): any => {
-  let classes = "ui-paper";
+  let classes = css.uiPaper;
   if (elevation) classes += ` ui-paper--elevation-${elevation}`;
   if (className) classes += ` ${className}`;
 

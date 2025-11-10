@@ -10,12 +10,7 @@
     "./toggleButton/toggleButton": "./src/toggleButton/toggleButton.ts"
   },
   "dependencies": {
-    "@ark-ui/react": "^5.27.1",
-    "@ark-ui/svelte": "^5.12.1",
     "@open-wc/lit-helpers": "^0.7.0",
-    "@zag-js/react": "^1.27.0",
-    "@zag-js/select": "^1.27.0",
-    "@zag-js/svelte": "^1.27.0",
     "react": "^19.2.0"
   },
   "devDependencies": {

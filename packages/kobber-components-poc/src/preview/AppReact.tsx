@@ -10,7 +10,7 @@ import {
   CardTextWrapper,
   CardTextTitle,
   CardTextBody,
-} from "../../../kobber-components-core/src/card/card.react";
+} from "../components/card/card.react";
 
 export function AppReact() {
   const id = useId();

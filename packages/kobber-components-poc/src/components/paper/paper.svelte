@@ -1,5 +1,5 @@
 <script lang="ts">
-    import "./paper.css"
+    import "./paper.module.css"
     console.log("svelte paper");
 </script>
 

@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
-import "./card.css";
+import * as css from "./card.module.css";
 import { Paper } from "../paper/paper.react.js";
-import * as toggleButton from "../toggleButton/toggleButton.js";
+import * as toggleButton from "@gyldendal/kobber-components-core/toggleButton/toggleButton";
 import { normalizeProps, useMachine } from "@zag-js/react";
 
 type CardContextValue = {
@@ -37,7 +37,9 @@ export const Card: React.FC<CardProps> = ({
   );
   const [link, setLink] = useState<HTMLAnchorElement | null>(null);
 
-  const classes = `ui-card ${direction ? direction : ""} ${
+  console.log(css);
+
+  const classes = `${css.uiCard} ${direction ? css[direction] : ""} ${
     className ? `${className}` : ""
   }`;
 
@@ -87,8 +89,8 @@ export const CardMedia: React.FC<CardMediaProps> = ({
   children,
   ...props
 }) => {
-  const classes = `ui-card-media ${
-    mediaType === "img" || mediaType === "picture" ? "image" : "media"
+  const classes = `${css.uiCardMedia} ${
+    mediaType === "img" || mediaType === "picture" ? css.image : css.media
   }`;
 
   return (
@@ -99,7 +101,7 @@ export const CardMedia: React.FC<CardMediaProps> = ({
 };
 
 export const CardMediaWrapper: React.FC<any> = ({ children, ...props }) => {
-  const classes = `ui-card-media-wrapper`;
+  const classes = css.uiCardMediaWrapper;
   return (
     <div className={classes} {...props}>
       {children}
@@ -118,11 +120,11 @@ export const CardMediaLayer: React.FC<CardMediaLayerProps> = ({
   children,
   ...props
 }) => {
-  const classes = `ui-card-media-layer ${
+  const classes = `${css.uiCardMediaLayer} ${
     !base
       ? direction === "vertical"
-        ? "vertical-padding"
-        : "horizontal-padding"
+        ? css.verticalPadding
+        : css.horizontalPadding
       : ""
   }`;
   return (
@@ -133,7 +135,7 @@ export const CardMediaLayer: React.FC<CardMediaLayerProps> = ({
 };
 
 export const CardTextWrapper: React.FC<any> = ({ children, ...props }) => {
-  const classes = `ui-card-text-wrapper`;
+  const classes = css.uiCardTextWrapper;
   return (
     <div className={classes} {...props}>
       {children}

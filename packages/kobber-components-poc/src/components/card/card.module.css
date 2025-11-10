@@ -1,4 +1,4 @@
-.ui-card {
+.uiCard {
   padding: var(--space-md);
   display: flex;
 }
@@ -33,7 +33,7 @@
   }
 }
 
-.ui-card-media {
+.uiCardMedia {
   display: flex;
   background-size: cover;
   background-repeat: no-repeat;
@@ -55,30 +55,30 @@
   }
 }
 
-.ui-card-media-wrapper {
+.uiCardMediaWrapper {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 
-  .vertical-padding {
+  .verticalPadding {
     /* token: prominent */
     padding: 12px;
   }
 
-  .horizontal-padding {
+  .horizontalPadding {
     /* token: subtle */
     padding: 8px;
   }
 }
 
-.ui-card-media-layer {
+.uiCardMediaLayer {
   grid-row: 1;
   grid-column: 1;
   width: 100%;
   height: 100%;
 }
 
-.ui-card-text-wrapper {
+.uiCardTextWrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
