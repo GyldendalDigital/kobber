@@ -1,5 +1,13 @@
 # @gyldendal/kobber-icons
 
+## 0.6.15
+
+### Patch Changes
+
+- Update design-tokens, fix content-wrapper and media-module after reviews.
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.15
+
 ## 0.6.14
 
 ### Patch Changes
