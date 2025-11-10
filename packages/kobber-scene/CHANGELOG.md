@@ -1,5 +1,11 @@
 # @gyldendal/kobber-scene
 
+## 0.6.15
+
+### Patch Changes
+
+- Update design-tokens, fix content-wrapper and media-module after reviews.
+
 ## 0.6.14
 
 ### Patch Changes
