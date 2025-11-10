@@ -1,10 +1,9 @@
-import type { ToggleButtonApi } from "@gyldendal/kobber-components-core/toggleButton/toggleButton";
+import type { Api } from "@gyldendal/kobber-components-core/toggleButton/toggleButton";
 import { clsx } from "clsx";
-import * as styles from "./toggleButton.module.css";
 
-export const getClassNames = (api: ToggleButtonApi) => ({
+export const getClassNames = (api: Api) => ({
   root: clsx({
-    [styles.root]: true,
-    [styles.active]: api.active,
+    ["a"]: true,
+    ["b"]: api.active,
   }),
 });

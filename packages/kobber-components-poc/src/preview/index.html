@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,7 +14,11 @@
   </head>
   <body class="kobber-theme-default">
     <div
-      style="display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 2rem"
+      style="
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding: 2rem;
+      "
     >
       <div>
         <h2>React</h2>
@@ -27,6 +31,10 @@
       <div>
         <h2>Vanilla</h2>
         {{> AppVanilla }}
+      </div>
+      <div>
+        <h2>Lit</h2>
+        {{> AppLit }}
       </div>
     </div>
     <script type="module" src="index.ts"></script>

@@ -4,11 +4,13 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    "./vanilla": "./src/vanilla/index.ts",
+    "./vanilla": "./src/zagFormats/vanilla/index.ts",
+    "./lit": "./src/zagFormats/lit/index.ts",
     "./select/select": "./src/select/select.ts",
     "./toggleButton/toggleButton": "./src/toggleButton/toggleButton.ts"
   },
   "dependencies": {
+    "@open-wc/lit-helpers": "^0.7.0",
     "@zag-js/react": "^1.27.0",
     "@zag-js/select": "^1.27.0",
     "@zag-js/svelte": "^1.27.0",
