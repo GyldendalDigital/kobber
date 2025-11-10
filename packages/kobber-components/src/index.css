@@ -1608,8 +1608,8 @@
       &[data-active="true"],
       &.active {
         .text {
-          box-shadow: 0 var(--kobber-component-menu-item-border-bottom-width-active) 0 0
-            var(--kobber-component-menu-item-border-bottom-color-active);
+          box-shadow: 0 var(--kobber-component-menu-item-text-container-border-width-active) 0 0
+            var(--kobber-component-menu-item-text-container-border-color-active);
         }
       }
 
