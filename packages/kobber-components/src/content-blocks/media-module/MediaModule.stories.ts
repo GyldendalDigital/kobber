@@ -92,7 +92,7 @@ const ifNotDefault = (value: string) =>
 export const MediaModule: Story = {
   render: args => html`
     <kobber-content-wrapper color-variant=${ifNotDefault(args.colorVariant)} type="page">
-      <kobber-media-module credit-placement="${args.creditPlacement}" color="${args.color}" color-variant=${ifNotDefault(invertColorVariant(args.colorVariant))}>
+      <kobber-media-module credit-placement="${args.creditPlacement}" color="${args.color}" color-variant=${ifNotDefault(args.colorVariant)}>
         ${getImages(args).map(element => html`${unsafeStatic(element)}`)}
         ${args.creditPlacement === "none" ? "" : html`<span slot="credit">${args.creditText || "Foto: NTB SCANPIX"}</span>`}
         <kobber-text-body level="p" color="${args.color}" color-variant="${ifNotDefault(invertColorVariant(args.colorVariant))}" size="small">

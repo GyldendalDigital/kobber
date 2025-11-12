@@ -169,7 +169,7 @@ export const ContentWrapper: Story = {
 
       ${
         args.showMediaModule
-          ? html`<kobber-media-module color="${ifDefined(args.color)}" color-variant="${ifDefined(invertColorVariant(args.colorVariant))}">
+          ? html`<kobber-media-module color="${ifDefined(args.color)}" color-variant="${ifDefined(args.colorVariant)}">
         ${getImages(args).map(element => html`${unsafeStatic(element)}`)}
         <span slot="credit">Foto: NTB SCANPIX</span>
         <kobber-text-body level="p" color="${ifDefined(args.color)}" color-variant="${invertColorVariant(args.colorVariant)}">

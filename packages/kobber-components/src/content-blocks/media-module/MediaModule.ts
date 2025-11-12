@@ -92,11 +92,11 @@ export class MediaModule extends KobberElement implements MediaModuleProps {
       </svg>
       <figure style="--image-width: ${this._singleImageWidth}px;">
         <slot name="media"></slot>
-        <figcaption style="--credit-fill-color: var(${unsafeCSS(layout["content-wrapper"].background.color.brand[invertColorVariant(this.colorVariant) || "tone-a"])});">
+        <figcaption style="--credit-fill-color: var(${unsafeCSS(layout["content-wrapper"].background.color.brand[this.colorVariant || "tone-a"])});">
           <svg class="curve">
             <use href="#curve" />
           </svg>
-          <kobber-text-label size="small" color="${ifDefined(this.color)}" color-variant="${ifDefined(this.colorVariant)}">
+          <kobber-text-label size="small" color="${ifDefined(this.color)}" color-variant="${ifDefined(invertColorVariant(this.colorVariant))}">
             <slot name="credit"></slot>
           </kobber-text-label>
           <svg class="curve">
