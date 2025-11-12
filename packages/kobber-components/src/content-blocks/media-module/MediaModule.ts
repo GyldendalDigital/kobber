@@ -96,7 +96,7 @@ export class MediaModule extends KobberElement implements MediaModuleProps {
         </symbol>
       </svg>
       <figure style="--image-width: ${this._singleImageWidth}px;">
-        <slot name="media"></slot>
+        <slot name="media" aria-describedby="aria-description"></slot>
         <figcaption style="--credit-fill-color: var(${unsafeCSS(layout["content-wrapper"].background.color.brand[this.colorVariant || "tone-a"])});">
           <svg class="curve">
             <use href="#curve" />
@@ -109,7 +109,7 @@ export class MediaModule extends KobberElement implements MediaModuleProps {
           </svg>
         </figcaption>
       </figure>
-      <slot></slot>
+      <slot id="aria-description"></slot>
     </div>
     `;
   }
