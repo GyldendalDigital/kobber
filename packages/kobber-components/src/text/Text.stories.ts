@@ -495,7 +495,9 @@ export const TextList: Story = {
                       color="${color}"
                       color-variant="${colorVariant}"
                     >
-                      <kobber-text-list size="${size}">
+                      <kobber-text-list size="${size}"
+                        color-variant="${colorVariant}"
+                      >
                         <kobber-text-list-element>
                           Punkt
                           <kobber-text-list slot="nested" size="${size}">
