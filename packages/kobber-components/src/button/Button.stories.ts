@@ -51,7 +51,6 @@ interface Args {
   icon?: IconType;
   iconPosition: (typeof buttonIconSettings)[number];
   link: boolean;
-  fullWidth: boolean;
   componentType?: (typeof allButtonTypes)[number];
   colorTheme?: (typeof allButtonColorThemes)[number];
   colorLevel?: (typeof allButtonColorLevels)[number];
@@ -148,7 +147,6 @@ export const Button: StoryObj<Args> = {
   args: {
     text: "Button",
     state: states[0],
-    fullWidth: false,
   },
   render: args => renderButton(args),
   decorators: [
@@ -285,7 +283,6 @@ const renderButton = (args: Args) => {
     iconPosition,
     text,
     link,
-    fullWidth,
   } = args;
 
   const tag = unsafeStatic(`kobber-${componentType ?? "button"}`);
@@ -299,7 +296,6 @@ const renderButton = (args: Args) => {
   aria-label="#"
   ?disabled=${state === "disabled"}
   ?icon-first=${iconPosition === "left"}
-  ?full-width=${fullWidth}
   href=${link ? "#" : undefined}
   target=${link ? "_blank" : undefined}
 >

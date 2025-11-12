@@ -25,10 +25,6 @@ const createBaseButtonStyles = () => {
       border-radius: var(${unsafeCSS(button.border.radius)});
       height: var(${unsafeCSS(button.size.height)});
 
-      &.${unsafeCSS("kobber-button--full-width" satisfies ButtonClassNames)} {
-        width: 100%;
-      }
-
       &.${unsafeCSS("kobber-button--used-in-other-interactive" satisfies ButtonClassNames)} {
         align-items: start;
         height: auto;

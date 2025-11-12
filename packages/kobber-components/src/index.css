@@ -864,10 +864,6 @@
       border-radius: var(--kobber-component-button-border-radius);
       height: var(--kobber-component-button-size-height);
 
-      &.kobber-button--full-width {
-        width: 100%;
-      }
-
       &.kobber-button--used-in-other-interactive {
         align-items: start;
         height: auto;

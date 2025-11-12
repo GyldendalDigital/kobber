@@ -30,9 +30,6 @@ export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps
   @property({ type: Boolean, attribute: "icon-first" })
   iconFirst = false;
 
-  @property({ type: Boolean, attribute: "full-width" })
-  fullWidth = false;
-
   /* Use only in special cases (i.e, as Radio Input) */
   @property({ type: Boolean })
   usedInOtherInteractive = false;
@@ -101,7 +98,6 @@ export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps
             hasIcon: this._hasIcon,
             iconOnly: this._iconOnly,
             iconFirst: this.iconFirst,
-            fullWidth: this.fullWidth,
             usedInOtherInteractive: this.usedInOtherInteractive,
             isLink: isLink,
           }),

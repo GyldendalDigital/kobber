@@ -8,7 +8,6 @@ type ButtonComputedProps = {
 
 export type BaseButtonProps = {
   iconFirst?: boolean;
-  fullWidth?: boolean;
   usedInOtherInteractive?: boolean;
   href?: string;
   type?: "button" | "submit" | "reset";
@@ -19,7 +18,6 @@ export const buttonClassNames = ({
   hasIcon = false,
   iconOnly = false,
   iconFirst = false,
-  fullWidth = false,
   usedInOtherInteractive = false,
   isLink = false,
 }: BaseButtonProps & ButtonComputedProps): ButtonClassNames[] => {
@@ -38,10 +36,6 @@ export const buttonClassNames = ({
     conditionalClassNames.push("kobber-button--link");
   }
 
-  if (fullWidth) {
-    conditionalClassNames.push("kobber-button--full-width");
-  }
-
   if (usedInOtherInteractive) {
     conditionalClassNames.push("kobber-button--used-in-other-interactive");
   }
@@ -57,7 +51,6 @@ export type ButtonClassNames =
   | "kobber-button--icon"
   | "kobber-button--icon-only"
   | "kobber-button--icon-left"
-  | "kobber-button--full-width"
   | "kobber-button--used-in-other-interactive"
   | "kobber-button--link"
   | "kobber-button--inlined";
