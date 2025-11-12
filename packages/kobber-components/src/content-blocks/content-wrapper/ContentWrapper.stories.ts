@@ -35,25 +35,6 @@ const meta: Meta = {
       options: contentWrapperColorVariants,
       control: { type: "inline-radio" },
     },
-    imageType: {
-      name: "Image type (may require refresh and url manipulation)",
-      options: ["narrow image", "wide image", "video"],
-      control: "inline-radio",
-      table: {
-        category: "Media Module",
-      },
-    },
-    numberOfImages: {
-      name: "Number of images (does not apply to video)",
-      control: {
-        type: "range",
-        min: 1,
-        max: 3,
-      },
-      table: {
-        category: "Media Module",
-      },
-    },
     showBadge: {
       name: "Show Badge",
       table: {
@@ -78,11 +59,6 @@ const meta: Meta = {
         category: "Top Block",
       },
     },
-    showMediaModule: {
-      table: {
-        category: "Media Module",
-      },
-    },
     type: {
       options: contentWrapperTypes,
       control: { type: "inline-radio" },
@@ -91,8 +67,6 @@ const meta: Meta = {
   args: {
     color: textModuleColors[0],
     colorVariant: undefined,
-    imageType: "wide image",
-    numberOfImages: 1,
     showBadge: true,
     showLead: true,
     showHeading: true,
@@ -107,26 +81,6 @@ const meta: Meta = {
 
 export default meta;
 type Story = StoryObj;
-
-const getImages = (args: Args) => {
-  const numberOfImages = args.numberOfImages;
-  let images: string[] = [];
-  if (args.imageType === "video") {
-    images = [
-      `<video slot="media" controls>
-      <source src="https://player.gyldendaldigital.vimeo.work/video/657710517?title=0&controls=0&dnt=1&app_id=122963" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>`,
-    ];
-    return images;
-  }
-  for (let i = 0; i < numberOfImages; i++)
-    images = [
-      ...images,
-      `<img slot="media" alt="Bokomslag: ${args.imageType === "narrow image" ? "Høy bok" : "Lav bok"}" src="${args.imageType === "narrow image" ? "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-jHT_oj28-medium.jpg?w=400&f=webp" : "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-Z9lf829L-medium.jpg?w=400&f=webp"}" />`,
-    ];
-  return images;
-};
 
 export const ContentWrapper: Story = {
   render: args => html`
@@ -170,7 +124,7 @@ export const ContentWrapper: Story = {
       ${
         args.showMediaModule
           ? html`<kobber-media-module color="${ifDefined(args.color)}" color-variant="${ifDefined(args.colorVariant)}">
-        ${getImages(args).map(element => html`${unsafeStatic(element)}`)}
+          <img slot="media" alt="Bokomslag: Lav bok" src="https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-Z9lf829L-medium.jpg?w=400&f=webp" />
         <span slot="credit">Foto: NTB SCANPIX</span>
         <kobber-text-body level="p" color="${ifDefined(args.color)}" color-variant="${invertColorVariant(args.colorVariant)}">
           Under bildet har vi mulighet til å legge til en beskrivende tekst om hva bildet handler om. Teksten bør ikke overskride mer enn 2-3 linjer. (${args.color})
