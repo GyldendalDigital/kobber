@@ -18,7 +18,7 @@ import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { init as initComponents } from "../../base/init";
 import { invertColorVariant } from "../../base/utilities/invertColorVariant";
-import { nestedTextModule } from "../../story/nestedTextModule";
+import { mappedColor, nestedList, nestedTextModule } from "../../story/snippets";
 import { contentWrapperColorVariants, contentWrapperTypes } from "./ContentWrapper.core";
 
 initComponents();
@@ -126,35 +126,6 @@ const getImages = (args: Args) => {
       `<img slot="media" alt="Bokomslag: ${args.imageType === "narrow image" ? "Høy bok" : "Lav bok"}" src="${args.imageType === "narrow image" ? "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-jHT_oj28-medium.jpg?w=400&f=webp" : "https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-Z9lf829L-medium.jpg?w=400&f=webp"}" />`,
     ];
   return images;
-};
-
-const mappedColor = (args: Args) => {
-  if (args.color === "transparent") {
-    return "neutral";
-  }
-  return args.color;
-};
-
-const nestedList = (args: Args) => {
-  const size = "medium";
-  return html`
-    <kobber-text-list size="${size}" color="${mappedColor(args)}" color-variant=${invertColorVariant(args.colorVariant)}>
-      <kobber-text-list-element>
-        Punkt
-        <kobber-text-list slot="nested" size="${size}">
-          <kobber-text-list-element>
-            Underpunkt
-          </kobber-text-list-element>
-          <kobber-text-list-element>
-            Underpunkt
-          </kobber-text-list-element>
-          <kobber-text-list-element>
-            Underpunkt
-          </kobber-text-list-element>
-        </kobber-text-list>
-      </kobber-text-list-element>
-    </kobber-text-list>
-`;
 };
 
 export const ContentWrapper: Story = {

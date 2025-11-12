@@ -1,4 +1,4 @@
-import type { Args, Meta, StoryObj } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { textModuleColors, textModuleColorVariants } from "./TextModule.core";
 import "./TextModule";
 import "../components/text-block/TextBlock";
@@ -12,7 +12,7 @@ import "@gyldendal/kobber-icons/web-components";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { init as initComponents } from "../../base/init";
 import { invertColorVariant } from "../../base/utilities/invertColorVariant";
-import { nestedTextModule } from "../../story/nestedTextModule";
+import { mappedColor, nestedList, nestedTextModule } from "../../story/snippets";
 
 initComponents();
 initIcons();
@@ -29,19 +29,13 @@ const meta: Meta = {
     color: textModuleColors[0],
     showBadge: true,
     showHeading: true,
+    showList: true,
     showNested: false,
   },
 };
 
 export default meta;
 type Story = StoryObj;
-
-const mappedColor = (args: Args) => {
-  if (args.color === "transparent") {
-    return "neutral";
-  }
-  return args.color;
-};
 
 export const TextModule: Story = {
   argTypes: {
@@ -76,6 +70,7 @@ export const TextModule: Story = {
         <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. (${args.color})</kobber-text-body>
       </kobber-text-block>
       ${args.showNested ? nestedTextModule(args) : ""}
+      ${args.showList ? nestedList(args) : ""}
       <kobber-text-block>
         <kobber-title slot="title" color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}" size="medium">Title M</kobber-title>
         <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">Body text here. (${args.color})</kobber-text-body>
