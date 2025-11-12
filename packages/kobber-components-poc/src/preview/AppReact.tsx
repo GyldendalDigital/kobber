@@ -3,7 +3,6 @@ import { Select } from "../components/react/select/Select";
 import { ToggleButton } from "../components/toggleButton/ToggleButton";
 import { getSelectProps } from "./shared/props";
 import {
-  Card,
   CardMedia,
   CardMediaWrapper,
   CardMediaLayer,
@@ -11,6 +10,7 @@ import {
   CardTextTitle,
   CardTextBody,
 } from "../components/card/card.react";
+import { Card } from "../components/card/react/card";
 
 export function AppReact() {
   const id = useId();

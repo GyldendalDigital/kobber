@@ -1,0 +1,21 @@
+.card {
+  display: flex;
+}
+
+.vertical {
+  outline: 2px solid green;
+  flex-direction: column;
+
+  /* prominent */
+  gap: 16px;
+  border-radius: 16px;
+}
+
+.horizontal {
+  outline: 2px solid blue;
+  flex-direction: row;
+
+  /* sublte */
+  gap: 8px;
+  border-radius: 8px;
+}

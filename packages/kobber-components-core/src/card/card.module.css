@@ -84,6 +84,8 @@
   height: 100%;
   width: 100%;
 
+  /*background-color: var(--kobber-groups-cards-and-modules-color-aubergine-25);*/
+
   /* no token, but guessing subtle */
   padding-left: 8px;
   padding-right: 8px;

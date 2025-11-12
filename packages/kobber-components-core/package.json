@@ -7,9 +7,11 @@
     "./vanilla": "./src/zagFormats/vanilla/index.ts",
     "./lit": "./src/zagFormats/lit/index.ts",
     "./select/select": "./src/select/select.ts",
-    "./toggleButton/toggleButton": "./src/toggleButton/toggleButton.ts"
+    "./toggleButton/toggleButton": "./src/toggleButton/toggleButton.ts",
+    "./card/*": "./src/card/*"
   },
   "dependencies": {
+    "@gyldendal/kobber-base": "0.6.13",
     "@open-wc/lit-helpers": "^0.7.0",
     "react": "^19.2.0"
   },

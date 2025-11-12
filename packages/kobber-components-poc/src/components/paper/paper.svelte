@@ -1,8 +1,11 @@
 <script lang="ts">
-    import "./paper.module.css"
-    console.log("svelte paper");
+    import * as css from "./paper.module.css";
+    let props = $props();
+    let { children } = props;
+
+    const classes = `${css.uiPaper} ${props.class}`;
 </script>
 
-<div class="ui-paper">
-    <slot></slot>
+<div class={classes}>
+    {@render children?.()}
 </div>

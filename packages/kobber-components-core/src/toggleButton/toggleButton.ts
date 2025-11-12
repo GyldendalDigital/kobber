@@ -43,6 +43,7 @@ export const connect = <T extends PropTypes>(
         role: "switch",
         "aria-checked": active,
         onClick() {
+          console.log("machine click");
           service.send({ type: "CLICK" });
         },
         onMouseEnter() {
@@ -55,5 +56,7 @@ export const connect = <T extends PropTypes>(
     },
   };
 };
+
+export const ApiAsValue = connect;
 
 export type Api = ReturnType<typeof connect>;
