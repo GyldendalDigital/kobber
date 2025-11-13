@@ -95,6 +95,7 @@ const createMediaModuleStyles = () => {
       margin: 0;
       display: flex;
       max-width: var(--image-width, auto);
+      height: var(${unsafeCSS(mediaModuleTokens["image-container"].size.height)});
       slot[name="media"] {
         display: flex;
         gap: 1em;
