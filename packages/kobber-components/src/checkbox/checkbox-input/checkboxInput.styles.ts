@@ -127,8 +127,9 @@ const statesPerColor = (color: CheckboxColor) => {
       }
     }
 
-    :host([checked]) & {
-      :host(.${unsafeCSS("idle" satisfies CheckboxState)}) & {
+    :host([checked]) &, 
+    :host([indeterminate]) & {
+      :host(:not(.hover, :hover, .active, :active, .disabled, [disabled])) & {
         --control-background-color: var(${unsafeCSS(bgColor.idle)});
       }
       :host([disabled]) & {
