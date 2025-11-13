@@ -4,7 +4,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "tsup",
+    "build": "tsup --env.NODE_ENV production",
     "dev": "tsup --watch"
   },
   "files": [
@@ -33,11 +33,15 @@
     "@gyldendal/kobber-tsconfig": "0.6.13",
     "@internal/integration-checker": "workspace:^",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "@types/postcss-pxtorem": "^6",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "@vanilla-extract/esbuild-plugin": "^2.3.18",
     "@vitejs/plugin-react": "^5.1.0",
+    "cssnano": "^7.1.2",
     "esbuild": "^0.25.12",
+    "postcss": "^8.5.6",
+    "postcss-pxtorem": "^6.1.0",
     "svelte": "^5.43.3",
     "tsup": "^8.5.0",
     "tsx": "^4.20.6",

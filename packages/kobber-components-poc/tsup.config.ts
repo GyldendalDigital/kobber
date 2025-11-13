@@ -1,44 +1,32 @@
-import { basename } from "node:path";
-import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
-import { defineConfig, type Options } from "tsup";
+import { writeFileSync } from "node:fs";
+import { defineConfig } from "tsup";
 import { entries } from "./entries";
+import { getVanillaExtractPlugin } from "./src/cssProcessing/getVanillaExtractPlugin";
+import { postProcessCss } from "./src/cssProcessing/postProcessCss";
 
 const outDir = "dist";
 
 const chunks = "chunks";
 
-const getPrettyCssConfig = (): Options => ({
-  entry: entries,
-  dts: { entry: entries },
-  format: ["esm"],
-  outDir,
-  clean: true,
-  bundle: true,
-  splitting: true,
-  esbuildPlugins: [
-    vanillaExtractPlugin({
-      identifiers: ({ filePath, debugId: customPrefix, hash }) =>
-        getPrettyClassName(filePath, customPrefix ?? hash),
-      processCss,
-    }),
-  ],
-  esbuildOptions(options) {
-    options.chunkNames = `${chunks}/[name]-[hash]`;
-  },
+type Env = "production" | "development";
+
+export default defineConfig(options => {
+  const env = (options.env?.NODE_ENV as Env) ?? "development";
+  return {
+    entry: entries,
+    dts: { entry: entries },
+    format: ["esm"],
+    outDir,
+    clean: true,
+    bundle: true,
+    splitting: true,
+    esbuildPlugins: [getVanillaExtractPlugin()],
+    esbuildOptions(options) {
+      options.chunkNames = `${chunks}/[name]-[hash]`;
+    },
+    onSuccess: async () => {
+      const merged = await postProcessCss(env);
+      writeFileSync(`${outDir}/index.css`, merged);
+    },
+  };
 });
-
-const getPrettyClassName = (filePath: string, customPrefix: string) => {
-  const [fileNameRoot] = basename(filePath).split(".");
-  const dashedString = fileNameRoot ?? "";
-  const hashed = `${dashedString}-${customPrefix}`;
-  return `kobber-${camelCaseToDashed(hashed)}`;
-};
-
-const camelCaseToDashed = (value: string) => value.replace(/[A-Z]/g, m => `-${m.toLowerCase()}`);
-
-const processCss = (css: string) => {
-  // Run PostCSS?
-  return Promise.resolve(css);
-};
-
-export default defineConfig([getPrettyCssConfig()]);
