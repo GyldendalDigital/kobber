@@ -4,6 +4,6 @@ import { defineConfig } from "vite";
 import handlebars from "vite-plugin-handlebars";
 
 export default defineConfig({
-  root: "./src/preview",
-  plugins: [handlebars({ partialDirectory: __dirname }), svelte(), react()],
+  root: "./src",
+  plugins: [handlebars({ partialDirectory: `${__dirname}/src` }), svelte(), react()],
 });

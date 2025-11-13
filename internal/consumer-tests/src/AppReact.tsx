@@ -1,26 +1,24 @@
-import { useId } from "react";
-import { Select } from "../components/react/select/Select";
-import { ToggleButton } from "../components/toggleButton/ToggleButton";
-import { getSelectProps } from "./shared/props";
-import { Card } from "../components/card/react/card";
-import { CardMediaWrapper } from "../components/card/react/card-media-wrapper";
-import { CardMediaLayer } from "../components/card/react/card-media-layer";
-import { CardMedia } from "../components/card/react/card-media";
-import { CardTextWrapper } from "../components/card/react/card-text-wrapper";
-import { CardTextTitle } from "../components/card/react/card-text-title";
-import { CardTextBody } from "../components/card/react/card-text-body";
+import "@gyldendal/kobber-components-poc/css/card";
+import "@gyldendal/kobber-components-poc/css/ToggleButton";
+
+import {
+  Card,
+  CardMedia,
+  CardMediaLayer,
+  CardMediaWrapper,
+  CardTextBody,
+  CardTextTitle,
+  CardTextWrapper,
+} from "@gyldendal/kobber-components-poc/react/card";
+import { ToggleButton } from "@gyldendal/kobber-components-poc/react/ToggleButton";
 
 export function AppReact() {
-  const id = useId();
   const direction = "vertical";
-  let api = {};
+  const api = {};
 
   return (
     <div>
       <ToggleButton initialState="active">Custom machine</ToggleButton>
-      <br />
-      <br />
-      <Select {...getSelectProps(id)} />
       <br />
       <br />
       <Card
@@ -76,7 +74,12 @@ export function AppReact() {
         </CardMediaWrapper>
         <CardTextWrapper>
           <CardTextTitle>
-            <a href="https://nrk.no" target="_blank" id="testing-a-tag">
+            <a
+              href="https://nrk.no"
+              target="_blank"
+              id="testing-a-tag"
+              rel="noopener"
+            >
               This is content inside a card!
             </a>
           </CardTextTitle>
