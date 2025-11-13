@@ -24,6 +24,7 @@ export abstract class Component<Api> extends LitElement implements ComponentInte
   }
 
   abstract initMachine(): VanillaMachine<any>;
+
   abstract initApi(): Api;
 
   override connectedCallback(): void {

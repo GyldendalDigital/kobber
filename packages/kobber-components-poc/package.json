@@ -15,7 +15,9 @@
     "./css": "./dist/index.css",
     "./css/*": "./dist/react/*/index.css",
     "./react/*": "./dist/react/*/index.js",
-    "./svelte/*": "./dist/svelte/*/index.js"
+    "./svelte/*": "./dist/svelte/*/index.js",
+    "./vanilla/*": "./dist/vanilla/*/index.js",
+    "./lit/*": "./dist/lit/*/index.js"
   },
   "dependencies": {
     "@ark-ui/react": "^5.27.1",

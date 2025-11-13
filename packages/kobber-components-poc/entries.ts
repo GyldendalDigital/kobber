@@ -20,4 +20,13 @@ const reactEntries = getFrameworkEntries("index.react.tsx", "react");
 
 const svelteEntries = getFrameworkEntries("index.svelte.ts", "svelte");
 
-export const entries = Object.fromEntries([...reactEntries, ...svelteEntries]);
+const vanillaEntries = getFrameworkEntries("index.vanilla.ts", "vanilla");
+
+const litEntries = getFrameworkEntries("index.lit.ts", "lit");
+
+export const entries = Object.fromEntries([
+  ...reactEntries,
+  ...svelteEntries,
+  ...vanillaEntries,
+  ...litEntries,
+]);
