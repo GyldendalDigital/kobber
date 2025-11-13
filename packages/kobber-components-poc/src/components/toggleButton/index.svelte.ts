@@ -1,2 +1,2 @@
-import * as ToggleButton2 from "./ToggleButton.svelte";
+import * as ToggleButton2 from "./root/ToggleButton.svelte";
 export const ToggleButton = ToggleButton2.default;

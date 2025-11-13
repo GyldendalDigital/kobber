@@ -1,6 +1,6 @@
 import * as tokens from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { style } from "@vanilla-extract/css";
-import { className } from "../../cssProcessing/className";
+import { className } from "../../../cssProcessing/className";
 
 export const root = style({
   border: "solid 1px red",
