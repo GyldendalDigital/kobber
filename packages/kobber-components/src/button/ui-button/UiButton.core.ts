@@ -3,9 +3,9 @@ import { objectKeys } from "../../base/utilities/objectKeys";
 
 export const uiButtonName = "kobber-ui-button" as const;
 export const uiButtonTokens = component["ui-button"];
-export const uiButtonColorThemes = objectKeys(uiButtonTokens.background.color);
+export const uiButtonColors = objectKeys(uiButtonTokens.background.color);
 export const uiButtonColorVariants = objectKeys(uiButtonTokens.background.color.informative);
 export type UiButtonProps = {
-  colorTheme?: (typeof uiButtonColorThemes)[number];
+  color?: (typeof uiButtonColors)[number];
   colorVariant?: (typeof uiButtonColorVariants)[number];
 };

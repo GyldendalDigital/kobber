@@ -53,7 +53,7 @@ export const TextModule: Story = {
       !args.showBadge
         ? ""
         : html`
-      <kobber-badge-icon slot="badge" color-theme="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
+      <kobber-badge-icon slot="badge" color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
         <kobber-pencil slot="icon"></kobber-pencil>
         Badge text
       </kobber-badge-icon>`

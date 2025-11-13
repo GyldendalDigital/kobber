@@ -13,7 +13,7 @@ import "@gyldendal/kobber-icons/web-components";
 export const nestedTextModule = (args: Args) => {
   return html`
       <kobber-text-module color="${ifDefined(args.color)}" color-variant="${invertColorVariant(args.colorVariant)}">
-        <kobber-badge-icon slot="badge" color-theme="${ifDefined(args.color)}" color-variant="${args.colorVariant}">
+        <kobber-badge-icon slot="badge" color="${ifDefined(args.color)}" color-variant="${args.colorVariant}">
           <kobber-pencil slot="icon"></kobber-pencil>
           Visste du?
         </kobber-badge-icon>

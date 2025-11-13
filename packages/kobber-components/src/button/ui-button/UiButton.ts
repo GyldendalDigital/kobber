@@ -10,8 +10,8 @@ import { ButtonBase } from "../button-base/ButtonBase";
 export class UiButton extends ButtonBase implements UiButtonProps {
   static styles: CSSResultGroup = [super.styles, uiButtonStyles];
 
-  @property({ attribute: "color-theme" })
-  colorTheme: UiButtonProps["colorTheme"] = "informative";
+  @property({ attribute: "color" })
+  color: UiButtonProps["color"] = "informative";
 
   @property({ attribute: "color-variant" })
   colorVariant: UiButtonProps["colorVariant"] = "tone-a";

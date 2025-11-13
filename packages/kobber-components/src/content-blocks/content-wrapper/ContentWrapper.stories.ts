@@ -94,7 +94,7 @@ export const ContentWrapper: Story = {
           !args.showBadge
             ? ""
             : html`
-        <kobber-badge-icon color-theme="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
+        <kobber-badge-icon color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
           <kobber-pencil slot="icon"></kobber-pencil>
           Content Wrapper
         </kobber-badge-icon>

@@ -28,8 +28,8 @@ export class RadioInputControl extends ShoelaceElement implements ControlProps {
 
   @property({ type: Boolean, reflect: true }) checked = false;
 
-  @property({ attribute: "color-theme" })
-  colorTheme: ControlProps["colorTheme"] = "success";
+  @property({ attribute: "color" })
+  color: ControlProps["color"] = "success";
 
   connectedCallback() {
     super.connectedCallback();
@@ -39,7 +39,7 @@ export class RadioInputControl extends ShoelaceElement implements ControlProps {
     return html`
       <div
         class="${radioInputControlName}"
-        data-color="${this.colorTheme}"
+        data-color="${this.color}"
         part="${`${radioInputControlPartName} ${this.checked ? radioInputControlPartNameChecked : ""}`}"
       >
         ${this.checked ? html` <icon-form_radio part="checked-icon" /> ` : ""}

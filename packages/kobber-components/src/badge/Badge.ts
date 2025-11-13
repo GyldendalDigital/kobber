@@ -6,7 +6,7 @@ import { customElement } from "../base/utilities/customElementDecorator";
 import {
   type BadgeProps,
   badgeClassNames,
-  badgeColorThemes,
+  badgeColors,
   badgeName,
   badgeTokens,
 } from "./Badge.core";
@@ -19,8 +19,8 @@ import { objectKeys } from "../base/utilities/objectKeys";
 export class Badge extends LitElement implements BadgeProps {
   static styles: CSSResultGroup = [componentStyles, badgeStyles];
 
-  @property({ attribute: "color-theme" })
-  colorTheme?: BadgeProps["colorTheme"] = "brand";
+  @property({ attribute: "color" })
+  color?: BadgeProps["color"] = "brand";
 
   @property({ attribute: "color-variant" })
   colorVariant?: BadgeProps["colorVariant"] = "tone-a";
@@ -44,7 +44,7 @@ export class Badge extends LitElement implements BadgeProps {
   validateStatusCircleColors() {
     const statusCircleColors = objectKeys(badgeTokens["status-circle"].background.color);
     return statusCircleColors.some(statusCircleColor => {
-      if (badgeColorThemes.includes(statusCircleColor) && this.colorTheme === statusCircleColor) {
+      if (badgeColors.includes(statusCircleColor) && this.color === statusCircleColor) {
         return (
           objectKeys(badgeTokens["status-circle"].background.color[statusCircleColor]) as any[]
         ).includes(this.colorVariant);
@@ -62,12 +62,12 @@ export class Badge extends LitElement implements BadgeProps {
         this.className,
       ].join(" ")}"
       data-color-variant="${ifDefined(this.colorVariant)}"
-      data-color="${ifDefined(this.colorTheme)}"
+      data-color="${ifDefined(this.color)}"
       data-size="${ifDefined(this.size)}"
     >
       ${this._showStatusCircle ? html`<div class="status-circle"></div>` : ""}
       <kobber-text-label
-        color=${ifDefined(this.colorTheme)}
+        color=${ifDefined(this.color)}
         color-variant=${ifDefined(invertColorVariant(this.colorVariant))}
       >
         <slot></slot>

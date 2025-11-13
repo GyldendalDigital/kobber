@@ -124,14 +124,12 @@ const hoverEffectUnderline = () => css`
   }`;
 
 export const getIconColor = (
-  colorTheme: keyof (typeof universal)["text-label"]["text"]["color"],
+  color: keyof (typeof universal)["text-label"]["text"]["color"],
   colorVariant: keyof (typeof universal)["text-label"]["text"]["color"]["brand"],
   colorLevel: "primary" | "secondary" | "tertiary",
 ) => {
-  return universal["text-label"].text.color[colorTheme]?.[
-    isColorVariantException(colorTheme, colorLevel)
-      ? colorVariant
-      : invertColorVariant(colorVariant)
+  return universal["text-label"].text.color[color]?.[
+    isColorVariantException(color, colorLevel) ? colorVariant : invertColorVariant(colorVariant)
   ];
 };
 
@@ -139,7 +137,7 @@ export const getIconColor = (
  * We usually invert the color variant for the nested TextLabel, but there are exceptions to this rule.
  */
 export const isColorVariantException = (
-  colorTheme?: keyof (typeof universal)["text-label"]["text"]["color"],
+  color?: keyof (typeof universal)["text-label"]["text"]["color"],
   colorLevel?: "primary" | "secondary" | "tertiary" | unknown,
 ) => {
   if (colorLevel === "tertiary") {
@@ -148,10 +146,8 @@ export const isColorVariantException = (
 
   if (
     colorLevel === "secondary" &&
-    colorTheme &&
-    ["accent", "nostalgia", "nature", "romance", "thriller", "fantasy", "vacation"].includes(
-      colorTheme,
-    )
+    color &&
+    ["accent", "nostalgia", "nature", "romance", "thriller", "fantasy", "vacation"].includes(color)
   ) {
     return true;
   }

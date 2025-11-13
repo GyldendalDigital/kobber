@@ -11,8 +11,8 @@ import "../text/text-label/TextLabel";
 export class BadgeIcon extends LitElement implements BadgeIconCore.BadgeIconProps {
   static styles: CSSResultGroup = [componentStyles, badgeIconStyles];
 
-  @property({ attribute: "color-theme" })
-  colorTheme: BadgeIconCore.BadgeIconProps["colorTheme"] = "brand";
+  @property({ attribute: "color" })
+  color: BadgeIconCore.BadgeIconProps["color"] = "brand";
 
   @property({ attribute: "color-variant" })
   colorVariant: BadgeIconCore.BadgeIconProps["colorVariant"] = "tone-a";
@@ -28,12 +28,12 @@ export class BadgeIcon extends LitElement implements BadgeIconCore.BadgeIconProp
     return html` <div
       class="${BadgeIconCore.badgeIconName}"
       data-color-variant="${ifDefined(this.colorVariant)}"
-      data-color="${ifDefined(this.colorTheme)}"
+      data-color="${ifDefined(this.color)}"
       data-size="${ifDefined(this.size)}"
     >
       <slot name="icon" class="icon"></slot>
       <kobber-text-label
-        color=${ifDefined(this.colorTheme)}
+        color=${ifDefined(this.color)}
         color-variant=${ifDefined(this.colorVariant)}
       >
         <slot></slot>
