@@ -1,4 +1,4 @@
-import * as css from "../css/card-media.module.css";
+import * as css from "../css/card-media.css";
 import { useCardContext } from "./card-context";
 
 export interface CardMediaProps extends React.HTMLAttributes<HTMLDivElement> {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import * as css from "../css/card-media-layer.module.css";
+  import * as css from "../css/card-media-layer.css";
 
     let props = $props();
     let { base, direction, children } = props;

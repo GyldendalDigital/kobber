@@ -1,10 +1,11 @@
 <script lang="ts">
-    import * as css from "../css/card-media-wrapper.module.css";
+    import * as css from "../css/card-media-wrapper.css";
     let props = $props();
-    let { direction = "vertical", children } = props;
+    let { children } = props;
+
 
     // NOTE(sølve): can be extracted, same for multiple formats
-    const classes = `${css.cardMediaWrapper} ${direction ? css[direction] : ""}`;
+    const classes = `${css.cardMediaWrapper}}`;
 
 </script>
 

@@ -1,4 +1,4 @@
-import * as css from "../css/card-media-layer.module.css";
+import * as css from "../css/card-media-layer.css";
 import { useCardContext } from "./card-context";
 
 interface CardMediaLayerProps extends React.HTMLAttributes<HTMLDivElement> {

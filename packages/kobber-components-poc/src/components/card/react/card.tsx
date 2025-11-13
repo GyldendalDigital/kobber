@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import * as toggleButton from "@gyldendal/kobber-components-core/toggleButton/toggleButton";
 import { normalizeProps, useMachine } from "@zag-js/react";
-import * as css from "../css/card.module.css";
-import { Paper } from "../../paper/paper.react.js";
+import * as css from "../css/card.css";
+import { Paper } from "../../paper/react/paper";
 import { ReactCardContext } from "./card-context";
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -22,7 +22,7 @@ export const Card: React.FC<CardProps> = ({
   );
   const [link, setLink] = useState<HTMLAnchorElement | null>(null);
 
-  const classes = `${css.uiCard} ${direction ? css[direction] : ""} ${
+  const classes = `${css.card} ${direction ? css[direction] : ""} ${
     className ? `${className}` : ""
   }`;
 
@@ -40,18 +40,13 @@ export const Card: React.FC<CardProps> = ({
     >
       {/*
         Code related to the note above
-        <div {...api.getButtonProps()}>
-        <Paper elevation={2} rounded className={classes} {...props}>
-          {children}
-        </Paper>
-      </div>
       */}
-      <div {...api.getButtonProps()}>
+      {/*<div {...api.getButtonProps()}>
         <Paper elevation={2} rounded className={classes} {...props}>
           {children}
         </Paper>
-      </div>
-      {/*<Paper
+      </div>*/}
+      <Paper
         elevation={2}
         rounded
         className={classes}
@@ -59,7 +54,7 @@ export const Card: React.FC<CardProps> = ({
         {...props}
       >
         {children}
-      </Paper>*/}
+      </Paper>
     </ReactCardContext.Provider>
   );
 };

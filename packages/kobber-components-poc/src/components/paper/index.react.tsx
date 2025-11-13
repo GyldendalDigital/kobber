@@ -1,1 +1,1 @@
-export { Paper } from "./paper.react";
+export { Paper } from "./react/paper";

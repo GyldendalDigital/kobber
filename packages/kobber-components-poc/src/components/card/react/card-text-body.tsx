@@ -1,4 +1,4 @@
-import * as css from "../css/card-text-body.module.css";
+import * as css from "../css/card-text-body.css";
 
 export const CardTextBody: React.FC<any> = ({ children, ...props }) => {
   const classes = `${css.cardTextBody}`;

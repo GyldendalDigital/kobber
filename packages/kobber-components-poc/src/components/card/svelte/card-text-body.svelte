@@ -1,5 +1,5 @@
 <script lang="ts">
-    import * as css from "../css/card-text-title.module.css";
+    import * as css from "../css/card-text-body.css";
 
     let props = $props();
     let { children } = props;

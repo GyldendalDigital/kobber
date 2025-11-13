@@ -1,10 +1,11 @@
-import * as css from "../css/card-text-title.module.css";
+import * as css from "../css/card-text-title.css";
 import { useCardContext } from "./card-context";
 
 export const CardTextTitle: React.FC<any> = ({ children, ...props }) => {
   const { api } = useCardContext();
+  console.log(api().active);
   const classes = `${css.cardTextTitle} ${
-    api && api().active ? css.active : css.inactive
+    api && api().active ? css.active : ""
   }`;
 
   return (
