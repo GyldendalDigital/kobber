@@ -31,7 +31,10 @@ export const normalizeProps = createNormalizer((props: any) => {
     if (value === undefined) return acc;
 
     if (key in propMap) {
-      key = propMap[key];
+      const value = propMap[key];
+      if (value) {
+        key = value;
+      }
     }
 
     if (key === "style" && typeof value === "object") {
@@ -41,12 +44,12 @@ export const normalizeProps = createNormalizer((props: any) => {
 
     // Convert event handlers to the format expected by Lit
     if (key.startsWith("on")) {
-      key = "@" + key.slice(2);
+      key = `@${key.slice(2)}`;
     }
 
     // Convert boolean attributes to the format expected by Lit
     if (typeof value === "boolean") {
-      key = "?" + key;
+      key = `?${key}`;
     }
 
     acc[key.toLowerCase()] = value;

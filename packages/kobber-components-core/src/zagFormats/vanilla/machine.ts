@@ -161,7 +161,6 @@ export class VanillaMachine<T extends MachineSchema> {
 
         // exit actions
         if (prevState) {
-          // @ts-expect-error
           this.action(machine.states[prevState]?.exit);
         }
 
@@ -169,7 +168,6 @@ export class VanillaMachine<T extends MachineSchema> {
         this.action(this.transition?.actions);
 
         // enter effect
-        // @ts-expect-error
         const cleanup = this.effect(machine.states[nextState]?.effects);
         if (cleanup) this.effects.set(nextState as string, cleanup);
 
@@ -181,7 +179,6 @@ export class VanillaMachine<T extends MachineSchema> {
         }
 
         // enter actions
-        // @ts-expect-error
         this.action(machine.states[nextState]?.entry);
       },
     }));
