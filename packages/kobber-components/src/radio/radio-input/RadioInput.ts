@@ -138,7 +138,7 @@ export class RadioInput extends ShoelaceElement implements InputProps {
         data-color="${ifDefined(this.color)}"
       >
         <${radioInputControlElement} ?checked="${this.checked}" color="${this.color}"></${radioInputControlElement}>
-        <kobber-text-label color=${ifDefined(this.color)}>
+        <kobber-text-label>
           <slot part="label" class="${radioInputLabelClassName}"></slot>
         </kobber-text-label>
       </div>

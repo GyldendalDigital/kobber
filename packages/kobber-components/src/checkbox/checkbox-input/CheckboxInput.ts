@@ -239,7 +239,7 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
 
           <span class=${inputControlClassName}> ${icon} </span>
 
-          <kobber-text-label part="label" class=${inputLabelClassName} color=${ifDefined(this.color)}>
+          <kobber-text-label part="label" class=${inputLabelClassName}>
             <slot></slot>
           </kobber-text-label>
           
