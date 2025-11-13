@@ -59,7 +59,10 @@ const createCheckboxStyles = () => {
       align-items: center;
       justify-content: center;
       border-radius: var(${unsafeCSS(checkbox.outline.border.radius)});
-      border: var(${unsafeCSS(indicator.border.width)}) solid var(--control-border-color);
+      :host(:not(.disabled[checked]):not(.disabled[indeterminate])) &, 
+      :host(:not([disabled][checked]):not([disabled][indeterminate])) & {
+        border: var(${unsafeCSS(indicator.border.width)}) solid var(--control-border-color);
+      }
       outline: var(${unsafeCSS(checkbox.outline.border.width)}) solid var(--control-outline-color);
       color: var(--color);
       flex-shrink: 0;
