@@ -1,8 +1,8 @@
 import { createElement } from "react";
 import ReactDOM from "react-dom/client";
 import { mount } from "svelte";
-import { AppReact } from "./AppReact";
-import AppSvelte from "./AppSvelte.svelte";
+import { AppReact } from "./apps/AppReact";
+import AppSvelte from "./apps/AppSvelte.svelte";
 import "./cssImports";
 
 const reactContainer = document.getElementById("react");

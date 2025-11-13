@@ -1,7 +1,3 @@
-import "@gyldendal/kobber-components-poc/css";
-// import "@gyldendal/kobber-components-poc/css/card";
-// import "@gyldendal/kobber-components-poc/css/ToggleButton";
-
 import {
   Card,
   CardMedia,
