@@ -2,15 +2,13 @@ import { useId } from "react";
 import { Select } from "../components/react/select/Select";
 import { ToggleButton } from "../components/toggleButton/ToggleButton";
 import { getSelectProps } from "./shared/props";
-import {
-  CardMedia,
-  CardMediaWrapper,
-  CardMediaLayer,
-  CardTextWrapper,
-  CardTextTitle,
-  CardTextBody,
-} from "../components/card/card.react";
 import { Card } from "../components/card/react/card";
+import { CardMediaWrapper } from "../components/card/react/card-media-wrapper";
+import { CardMediaLayer } from "../components/card/react/card-media-layer";
+import { CardMedia } from "../components/card/react/card-media";
+import { CardTextWrapper } from "../components/card/react/card-text-wrapper";
+import { CardTextTitle } from "../components/card/react/card-text-title";
+import { CardTextBody } from "../components/card/react/card-text-body";
 
 export function AppReact() {
   const id = useId();
@@ -34,7 +32,7 @@ export function AppReact() {
         }}
       >
         <CardMediaWrapper>
-          <CardMediaLayer direction={direction}>
+          <CardMediaLayer>
             {/* Using style here, can be className */}
             <div
               style={{
@@ -52,7 +50,7 @@ export function AppReact() {
               TEST
             </div>
           </CardMediaLayer>
-          <CardMediaLayer direction={direction}>
+          <CardMediaLayer>
             {/* Using style here, can be className */}
             <div
               style={{
@@ -98,7 +96,7 @@ export function AppReact() {
         onClick={() => console.log("hello")}
       >
         <CardMediaWrapper>
-          <CardMediaLayer direction={direction}>
+          <CardMediaLayer>
             {/* Using style here, can be className */}
             <div
               style={{
@@ -116,7 +114,7 @@ export function AppReact() {
               TEST
             </div>
           </CardMediaLayer>
-          <CardMediaLayer direction={direction}>
+          <CardMediaLayer>
             {/* Using style here, can be className */}
             <div
               style={{

@@ -35,7 +35,7 @@ export const Card: React.FC<CardProps> = ({
         api: () => api,
         registerLink: setLink,
         link: link,
-        direction,
+        direction: direction,
       }}
     >
       {/*
