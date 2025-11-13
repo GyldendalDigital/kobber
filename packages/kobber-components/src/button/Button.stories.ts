@@ -30,7 +30,7 @@ initIcons();
 
 const states = ["idle", "hover", "active", "focus", "disabled"] as const;
 
-const buttonIconSettings = ["none", "left", "right"] as const;
+const buttonIconSettings = ["none", "left", "right", "only"] as const;
 
 const allButtonTypes = ["button", "ui-button", "theme-button"] as const;
 const allButtonColorThemes = [
@@ -46,7 +46,7 @@ const allButtonColorVariants = [
 ];
 
 interface Args {
-  text?: string;
+  text: string;
   state: (typeof states)[number];
   icon?: IconType;
   iconPosition: (typeof buttonIconSettings)[number];
@@ -262,7 +262,7 @@ const renderThemeAndVariantColors = (
                 ${states.map(state => renderButton({ ...args, state, text: state, iconPosition: "none" }))}
               </div>
               <div style="grid-area: buttons-iconOnly-${index};">
-                ${states.map(state => renderButton({ ...args, state }))}
+                ${states.map(state => renderButton({ ...args, text: state, iconPosition: "only" }))}
               </div>
             </div>`;
         } else {
@@ -293,13 +293,13 @@ const renderButton = (args: Args) => {
   color-theme="${ifDefined(colorTheme)}" 
   color-level="${ifDefined(colorLevel)}" 
   color-variant="${ifDefined(colorVariant)}" 
-  aria-label="#"
+  aria-label="${iconPosition === "only" ? text : ""}"
   ?disabled=${state === "disabled"}
   ?icon-first=${iconPosition === "left"}
   href=${link ? "#" : undefined}
   target=${link ? "_blank" : undefined}
 >
-  ${text ? unsafeStatic(text) : ""}
+  ${iconPosition === "only" ? "" : unsafeStatic(text)}
   ${icon !== undefined && iconPosition !== "none" ? html`<${unsafeStatic(icon)} slot='icon' />` : ""}
 </${tag}>
 `;
