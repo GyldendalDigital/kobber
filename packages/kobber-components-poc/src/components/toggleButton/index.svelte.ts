@@ -1,1 +1,2 @@
-export { default as ToggleButton } from "./ToggleButton.svelte";
+import * as ToggleButton2 from "./ToggleButton.svelte";
+export const ToggleButton = ToggleButton2.default;

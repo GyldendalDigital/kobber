@@ -1,13 +1,14 @@
 <script lang="ts">
-    import CardMediaWrapper from "../components/card/svelte/card-media-wrapper.svelte";
-import CardMedia  from "../components/card/svelte/card-media.svelte";
-    import CardTextTitle from "../components/card/svelte/card-text-title.svelte";
-    import CardTextWrapper from "../components/card/svelte/card-text-wrapper.svelte";
-import Card  from "../components/card/svelte/card.svelte";
-import Select from "../components/svelte/select/Select.svelte";
-import ToggleButton from "../components/toggleButton/ToggleButton.svelte";
-import { getSelectProps } from "./shared/props";
-
+import {
+  Card,
+  CardMedia,
+  CardMediaLayer,
+  CardMediaWrapper,
+  CardTextBody,
+  CardTextTitle,
+  CardTextWrapper,
+} from "@gyldendal/kobber-components-poc/svelte/card";
+import { ToggleButton } from "@gyldendal/kobber-components-poc/svelte/ToggleButton";
 </script>
 
 <ToggleButton>Custom machine</ToggleButton>
@@ -16,7 +17,6 @@ import { getSelectProps } from "./shared/props";
 <br />
 
 
-<Select {...getSelectProps("test-id")} />
 
 <br/>
 <br/>

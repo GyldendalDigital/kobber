@@ -1,1 +1,3 @@
-export { default as Paper } from "./paper.svelte";
+import * as paper from "./paper.svelte";
+
+export const Paper = paper.default;
