@@ -11,7 +11,7 @@
       "packages/kobber-components/**/*.ts",
       "packages/kobber-components-poc/**/*.*",
       "packages/kobber-components-core/**/*.*",
-      "internal/**/*.ts",
+      "internal/**/*.*",
       "!node_modules",
       "!**/node_modules",
       "!**/dist",

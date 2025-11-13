@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "allowJs": true
+    "allowJs": true,
+    "declaration": true,
+    "noEmit": false
   },
   "extends": "@gyldendal/kobber-tsconfig/react.json"
 }
