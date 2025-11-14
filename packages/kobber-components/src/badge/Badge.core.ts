@@ -16,17 +16,17 @@ export const badgeClassNames = ({ showStatusCircle = false }: BadgeProps): Badge
 };
 
 export type BadgeProps = {
-  colorTheme?: BadgeColorTheme;
+  color?: BadgeColor;
   colorVariant?: BadgeColorVariant;
   size?: BadgeSize;
   showStatusCircle?: boolean;
 };
 
 export type BadgeClassNames = typeof badgeName | "status-circle";
-export type BadgeColorTheme = (typeof badgeColorThemes)[number];
+export type BadgeColor = (typeof badgeColors)[number];
 export type BadgeColorVariant = (typeof badgeColorVariants)[number];
 export type BadgeSize = (typeof badgeSizes)[number];
 
-export const badgeColorThemes = objectKeys(badgeTokens.background.color);
+export const badgeColors = objectKeys(badgeTokens.background.color);
 export const badgeColorVariants = objectKeys(badgeTokens.background.color.brand);
 export const badgeSizes = objectKeys(badgeTokens.gap);

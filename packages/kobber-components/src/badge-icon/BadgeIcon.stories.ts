@@ -3,7 +3,7 @@ import { html } from "lit";
 import "./BadgeIcon";
 import {
   type BadgeIconProps,
-  badgeIconColorThemes,
+  badgeIconColors,
   badgeIconColorVariants,
   badgeIconName,
   badgeIconSizes,
@@ -37,8 +37,8 @@ export const BadgeIcons: StoryObj<Args> = {
       options: badgeIconSizes,
       control: { type: "inline-radio" },
     },
-    colorTheme: {
-      options: badgeIconColorThemes,
+    color: {
+      options: badgeIconColors,
       control: { type: "inline-radio" },
     },
     colorVariant: {
@@ -49,7 +49,7 @@ export const BadgeIcons: StoryObj<Args> = {
   args: {
     text: "Badge Icon",
     size: "medium",
-    colorTheme: "brand",
+    color: "brand",
     colorVariant: "tone-a",
   },
   render: args => {
@@ -58,11 +58,11 @@ export const BadgeIcons: StoryObj<Args> = {
 };
 
 const renderBadgeIcon = (args: Args) => {
-  const { size, text, colorTheme, colorVariant } = args;
+  const { size, text, color, colorVariant } = args;
 
   return html` <kobber-badge-icon
     size=${ifDefined(size)}
-    color-theme=${ifDefined(colorTheme)}
+    color=${ifDefined(color)}
     color-variant=${ifDefined(colorVariant)}
   >
     <kobber-pin slot="icon"></kobber-pin>

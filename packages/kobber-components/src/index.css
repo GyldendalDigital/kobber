@@ -864,10 +864,6 @@
       border-radius: var(--kobber-component-button-border-radius);
       height: var(--kobber-component-button-size-height);
 
-      &.kobber-button--full-width {
-        width: 100%;
-      }
-
       &.kobber-button--used-in-other-interactive {
         align-items: start;
         height: auto;
@@ -995,8 +991,9 @@
       }
     }
 
-    :host([checked]) & {
-      :host(.idle) & {
+    :host([checked]) &, 
+    :host([indeterminate]) & {
+      :host(:not(.hover, :hover, .active, :active, .disabled, [disabled])) & {
         --control-background-color: var(--kobber-component-checkbox-indicator-background-color-success-idle);
       }
       :host([disabled]) & {
@@ -1041,8 +1038,9 @@
       }
     }
 
-    :host([checked]) & {
-      :host(.idle) & {
+    :host([checked]) &, 
+    :host([indeterminate]) & {
+      :host(:not(.hover, :hover, .active, :active, .disabled, [disabled])) & {
         --control-background-color: var(--kobber-component-checkbox-indicator-background-color-brand-idle);
       }
       :host([disabled]) & {
@@ -1088,7 +1086,10 @@
       align-items: center;
       justify-content: center;
       border-radius: var(--kobber-component-checkbox-outline-border-radius);
-      border: var(--kobber-component-checkbox-indicator-border-width) solid var(--control-border-color);
+      :host(:not(.disabled[checked]):not(.disabled[indeterminate])) &, 
+      :host(:not([disabled][checked]):not([disabled][indeterminate])) & {
+        border: var(--kobber-component-checkbox-indicator-border-width) solid var(--control-border-color);
+      }
       outline: var(--kobber-component-checkbox-outline-border-width) solid var(--control-outline-color);
       color: var(--color);
       flex-shrink: 0;
@@ -1718,6 +1719,7 @@
       margin: 0;
       display: flex;
       max-width: var(--image-width, auto);
+      height: var(--kobber-component-media-module-image-container-size-height);
       slot[name="media"] {
         display: flex;
         gap: 1em;

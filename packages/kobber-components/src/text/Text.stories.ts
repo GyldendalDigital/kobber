@@ -178,7 +178,7 @@ export const Heading: Story = {
                     grid-template-columns: 1fr 1fr;
                     align-items: center;
                     grid-template-areas: 
-                      'color-theme-tone-a color-theme-tone-b'
+                      'color-tone-a color-tone-b'
                       'sample-tone-a-large sample-tone-b-large'
                       'sample-tone-a-medium sample-tone-b-medium';
                   ">
@@ -188,7 +188,7 @@ export const Heading: Story = {
                     colorVariant => html`
                           ${
                             font === "brand" && size === "large"
-                              ? html`<p style="grid-area: color-theme-${colorVariant};">
+                              ? html`<p style="grid-area: color-${colorVariant};">
                                 ${color}, ${colorVariant}
                               </p>`
                               : ""
@@ -495,7 +495,9 @@ export const TextList: Story = {
                       color="${color}"
                       color-variant="${colorVariant}"
                     >
-                      <kobber-text-list size="${size}">
+                      <kobber-text-list size="${size}"
+                        color-variant="${colorVariant}"
+                      >
                         <kobber-text-list-element>
                           Punkt
                           <kobber-text-list slot="nested" size="${size}">

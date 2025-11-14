@@ -3,7 +3,7 @@ import type { ButtonClassNames } from "../button-base/ButtonBase.core";
 import { buttonColorVariables, getIconColor } from "../button-base/ButtonBase.styles";
 import {
   themeButtonColorLevels,
-  themeButtonColorThemes,
+  themeButtonColors,
   themeButtonColorVariants,
   themeButtonTokens,
 } from "./ThemeButton.core";
@@ -15,19 +15,19 @@ const createThemeButtonStyles = () => css`
 
 const colorVariants = () =>
   unsafeCSS(
-    themeButtonColorThemes
-      .flatMap(colorTheme =>
+    themeButtonColors
+      .flatMap(color =>
         themeButtonColorVariants.flatMap(colorVariant =>
           themeButtonColorLevels.flatMap(colorLevel => {
-            const colorSelector = `[data-color="${colorTheme}"]`;
+            const colorSelector = `[data-color="${color}"]`;
             const colorVariantSelector = `[data-color-variant="${colorVariant}"]`;
             const colorLevelSelector = `[data-color-level="${colorLevel}"]`;
             const backgroundColor =
               // @ts-expect-error
-              themeButtonTokens.background.color[colorTheme]?.[colorLevel]?.[colorVariant];
+              themeButtonTokens.background.color[color]?.[colorLevel]?.[colorVariant];
             return `
   &${colorSelector}${colorVariantSelector}${colorLevelSelector} {
-   ${buttonColorVariables(getIconColor(colorTheme, colorVariant, colorLevel), backgroundColor?.fallback, backgroundColor?.hover)}
+   ${buttonColorVariables(getIconColor(color, colorVariant, colorLevel), backgroundColor?.fallback, backgroundColor?.hover)}
   }`;
           }),
         ),

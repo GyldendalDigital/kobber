@@ -41,8 +41,8 @@ export class RadioInput extends ShoelaceElement implements InputProps {
   /** The radio's value. When selected, the radio group will receive this value. */
   @property() value: string = "";
 
-  @property({ attribute: "color-theme" })
-  colorTheme?: InputProps["colorTheme"] = "success";
+  @property({ attribute: "color" })
+  color?: InputProps["color"] = "success";
 
   /** Disables the radio. */
   @property({ type: Boolean, reflect: true }) disabled = false;
@@ -114,7 +114,7 @@ export class RadioInput extends ShoelaceElement implements InputProps {
             isLink: isLink,
           }),
         ].join(" ")}
-        data-color="${this.colorTheme}"
+        data-color="${this.color}"
         ?disabled="${this.disabled}"
         href="${this.href}"
         usedInOtherInteractive
@@ -122,7 +122,7 @@ export class RadioInput extends ShoelaceElement implements InputProps {
       >
         <${radioInputControlElement}
           ?checked="${this.checked}"
-          color-theme="${this.colorTheme}"
+          color="${this.color}"
           slot="icon"
         ></${radioInputControlElement}>
         <slot part="label"></slot>
@@ -135,10 +135,10 @@ export class RadioInput extends ShoelaceElement implements InputProps {
             isLink: isLink,
           }),
         ].join(" ")}
-        data-color="${ifDefined(this.colorTheme)}"
+        data-color="${ifDefined(this.color)}"
       >
-        <${radioInputControlElement} ?checked="${this.checked}" color-theme="${this.colorTheme}"></${radioInputControlElement}>
-        <kobber-text-label color=${ifDefined(this.colorTheme)}>
+        <${radioInputControlElement} ?checked="${this.checked}" color="${this.color}"></${radioInputControlElement}>
+        <kobber-text-label>
           <slot part="label" class="${radioInputLabelClassName}"></slot>
         </kobber-text-label>
       </div>

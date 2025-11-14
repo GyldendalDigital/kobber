@@ -100,6 +100,10 @@ If using kobber-components in concert with kobber-icons, both components and ico
 > [!TIP]
 > Check [icons readme](./packages/kobber-icons/README.md) on registering icons, and more options.
 
+## Internal usage of kobber-components
+
+Some components use kobber-icons internally. This is components that typically contain short text, such as button, badge, badge icon and media module (specifically: credit text), that wrap the text in kobber-text-label. To ensure these components work, Svelte consumers should wrap this text in a kobber-text-label.
+
 ## Development
 
 When developing components it's usually best to run storybook from root, and see changes live:

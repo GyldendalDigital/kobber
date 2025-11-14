@@ -73,14 +73,19 @@ export class MediaModule extends KobberElement implements MediaModuleProps {
     }, 0);
   }
 
-  getSingleImageContainer() {
+  render() {
     const radius =
       component["media-module"]["inner-inner-credit-container"]["border-radius"]["bottom-right"][
         "right-align"
       ];
 
-    return html`
-      <svg class="symbols" aria-hidden="true">
+    return html`<div class="${mediaModuleClassnames().join(" ")}"
+      data-credit-placement="${ifDefined(this._creditPlacement)}"
+      data-media-object-fit="${ifDefined(this.objectFit)}"
+      data-number-of-media-elements="${this._numberOfMediaElements}"
+      data-color="${ifDefined(this.color)}"
+      data-color-variant="${ifDefined(this.colorVariant)}">
+            <svg class="symbols" aria-hidden="true">
         <symbol id="curve" viewBox="0 0 ${radius} ${radius}">
           <path d="
           M 0 ${radius}  
@@ -91,62 +96,20 @@ export class MediaModule extends KobberElement implements MediaModuleProps {
         </symbol>
       </svg>
       <figure style="--image-width: ${this._singleImageWidth}px;">
-        <slot name="media"></slot>
-        <figcaption style="--credit-fill-color: var(${unsafeCSS(layout["content-wrapper"].background.color.brand[invertColorVariant(this.colorVariant) || "tone-a"])});">
+        <slot name="media" aria-describedby="aria-description"></slot>
+        <figcaption style="--credit-fill-color: var(${unsafeCSS(layout["content-wrapper"].background.color.brand[this.colorVariant || "tone-a"])});">
           <svg class="curve">
             <use href="#curve" />
           </svg>
-          <kobber-text-label size="small" color="${ifDefined(this.color)}" color-variant="${ifDefined(this.colorVariant)}">
+          <kobber-text-label size="small" color="${ifDefined(this.color)}" color-variant="${ifDefined(invertColorVariant(this.colorVariant))}">
             <slot name="credit"></slot>
           </kobber-text-label>
           <svg class="curve">
             <use href="#curve" />
           </svg>
         </figcaption>
-      </figure>`;
-  }
-
-  getImagesContainer() {
-    return html`
-      <figure>
-        <slot name="media"></slot>
-        <figcaption style="--credit-fill-color: var(${unsafeCSS(layout["content-wrapper"].background.color.brand[invertColorVariant(this.colorVariant) || "tone-a"])});">
-          <kobber-text-label size="small" color="${ifDefined(this.color)}" color-variant="${ifDefined(this.colorVariant)}">
-            <slot name="credit"></slot>
-          </kobber-text-label>
-        </figcaption>
-      </figure>`;
-  }
-
-  getVideoContainer() {
-    return html`
-      <figure>
-        <slot name="media"></slot>
-      </figure>`;
-  }
-
-  render() {
-    let mediaContainer: unknown;
-    if (this._childTagName === "VIDEO") {
-      mediaContainer = this.getVideoContainer();
-    } else if (this._childTagName === "IMG") {
-      if (this._numberOfMediaElements === 1) {
-        mediaContainer = this.getSingleImageContainer();
-      } else {
-        mediaContainer = this.getImagesContainer();
-      }
-    } else {
-      mediaContainer = console.info("No media element found in kobber-media-module");
-    }
-
-    return html`<div class="${mediaModuleClassnames().join(" ")}"
-      data-credit-placement="${ifDefined(this._creditPlacement)}"
-      data-media-object-fit="${ifDefined(this.objectFit)}"
-      data-number-of-media-elements="${this._numberOfMediaElements}"
-      data-color="${ifDefined(this.color)}"
-      data-color-variant="${ifDefined(this.colorVariant)}">
-      ${mediaContainer}
-      <slot></slot>
+      </figure>
+      <slot id="aria-description"></slot>
     </div>
     `;
   }

@@ -4,7 +4,7 @@ import { getTypographyStyles } from "../base/getTypographyStyles";
 import {
   type BadgeIconClassName,
   type BadgeIconIconClassName,
-  badgeIconColorThemes,
+  badgeIconColors,
   badgeIconColorVariants,
   badgeIconName,
   badgeIconSizes,
@@ -46,13 +46,13 @@ const createBadgeIconStyles = () => {
 const getThemeStyles = () => {
   return css`
     ${unsafeCSS(
-      badgeIconColorThemes
-        .flatMap(colorTheme => {
+      badgeIconColors
+        .flatMap(color => {
           return badgeIconSizes.flatMap(size =>
             badgeIconColorVariants.flatMap(
               colorVariant =>
-                `&[data-color-variant="${colorVariant}"][data-color="${colorTheme}"][data-size="${size}"] { 
-                  --icon-color: var(${unsafeCSS(containerStyles.icon.shape.color[colorTheme][colorVariant])});
+                `&[data-color-variant="${colorVariant}"][data-color="${color}"][data-size="${size}"] { 
+                  --icon-color: var(${unsafeCSS(containerStyles.icon.shape.color[color][colorVariant])});
                 }`,
             ),
           );

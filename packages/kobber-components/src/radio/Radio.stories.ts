@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import "./radio-input/RadioInput";
 import "./radio-group/RadioGroup";
 import { primitives } from "@gyldendal/kobber-base/themes/default/tokens.js";
-import { type GroupProps, type InputProps, inputColorThemes, radioInputName } from "./Radio.core";
+import { type GroupProps, type InputProps, inputColors, radioInputName } from "./Radio.core";
 import "../text/heading/Heading";
 import "../theme-context-provider/ThemeContext";
 import { html } from "lit";
@@ -75,9 +75,9 @@ export const Themes: StoryObj<Args> = {
       </style>
 
       <ol>
-        ${inputColorThemes.map(colorTheme =>
-          renderColorTheme({
-            colorTheme,
+        ${inputColors.map(color =>
+          renderColor({
+            color,
             state: "idle",
             text: "idle",
             link: false,
@@ -92,15 +92,15 @@ export const Themes: StoryObj<Args> = {
   },
 };
 
-const renderColorTheme = (args: Args) => {
-  const { colorTheme } = args;
+const renderColor = (args: Args) => {
+  const { color } = args;
   const checkedOrNot = [false, true];
 
-  if (!colorTheme) {
+  if (!color) {
     return;
   }
 
-  return html`<li>${colorTheme}
+  return html`<li>${color}
   <ol class="focusedOrNot">${states.map(focusState =>
     Object.keys(focusState).map(key => {
       let focus = "";
@@ -135,14 +135,14 @@ const renderButton = (
     last: boolean;
   },
 ) => {
-  const { colorTheme, focus, state, text, link, checked, last } = args;
+  const { color, focus, state, text, link, checked, last } = args;
   const className = `${focus} ${state}`;
   const lastStyles = last ? `grid-column: -1` : "";
   return html`
 <kobber-radio-input 
   style="${lastStyles}"
   class="${className}" 
-  color-theme="${ifDefined(colorTheme)}" 
+  color="${ifDefined(color)}" 
   ?checked=${checked === true}
   ?disabled=${state === "disabled"}
   href="${link ? "#" : ""}">
@@ -192,17 +192,17 @@ export const GNOExample: StoryObj<Args> = {
         </p>
         
           <kobber-radio-input value="hardcover" ${args.link ? `href="#format-innbundet"` : ""}
-             color-theme="${args.colorTheme}"><div>Innbundet – <em style="text-wrap: nowrap">kr 2 339,-</em></div></kobber-radio-input
+             color="${args.color}"><div>Innbundet – <em style="text-wrap: nowrap">kr 2 339,-</em></div></kobber-radio-input
           >
           <kobber-radio-input value="pocket" ${args.link ? `href="#format-pocket"` : ""} disabled
-             color-theme="${args.colorTheme}"><div>Pocket – <em style="text-wrap: nowrap">kr 339,-</em><p class="alert">Utsolgt</p></div></kobber-radio-input
+             color="${args.color}"><div>Pocket – <em style="text-wrap: nowrap">kr 339,-</em><p class="alert">Utsolgt</p></div></kobber-radio-input
           >
           <kobber-radio-input value="ebook" ${args.link ? `href="#format-ebok"` : ""}
-             color-theme="${args.colorTheme}"><div>Ebok (med label som er så lang <br />
+             color="${args.color}"><div>Ebok (med label som er så lang <br />
             at den går over flere linjer) – <em style="text-wrap: nowrap">kr 39,-</em></div></kobber-radio-input
           >
           <kobber-radio-input value="audiobook" ${args.link ? `href="#format-lydbok"` : ""}
-             color-theme="${args.colorTheme}"><div>Lydbok – <em style="text-wrap: nowrap">kr 339,-</em></div></kobber-radio-input
+             color="${args.color}"><div>Lydbok – <em style="text-wrap: nowrap">kr 339,-</em></div></kobber-radio-input
           >
           ${args.showHelpText ? helpTextElement : ""}
         </kobber-radio-group>
@@ -210,9 +210,9 @@ export const GNOExample: StoryObj<Args> = {
     `;
   },
   argTypes: {
-    colorTheme: {
-      name: "color-theme (visible only in hover and active states)",
-      options: inputColorThemes,
+    color: {
+      name: "color (visible only in hover and active states)",
+      options: inputColors,
       control: { type: "radio" },
     },
     link: {
@@ -231,7 +231,7 @@ export const GNOExample: StoryObj<Args> = {
     currentValue: "ebook",
     direction: "horizontal",
     showHelpText: true,
-    colorTheme: inputColorThemes[0],
+    color: inputColors[0],
   },
 };
 
@@ -260,28 +260,28 @@ export const SkolestudioExamples: StoryObj<Args> = {
       <div class="wrapper-theme">
         <kobber-radio-group direction="horizontal" current-value="no-bm">
         <p slot="label">Målform</p>
-          <kobber-radio-input value="no-bm" color-theme="${ifDefined(args.colorTheme)}">Bokmål</kobber-radio-input>
-          <kobber-radio-input value="no-nn" color-theme="${ifDefined(args.colorTheme)}">Nynorsk</kobber-radio-input>
+          <kobber-radio-input value="no-bm" color="${ifDefined(args.color)}">Bokmål</kobber-radio-input>
+          <kobber-radio-input value="no-nn" color="${ifDefined(args.color)}">Nynorsk</kobber-radio-input>
         </kobber-radio-group>
 
         <kobber-radio-group direction="horizontal" current-value="level11-13">
         <p slot="label">Trinn</p>
-          <kobber-radio-input value="level1-7" color-theme="${ifDefined(args.colorTheme)}">1.–7. trinn</kobber-radio-input>
-          <kobber-radio-input value="level8-10" color-theme="${ifDefined(args.colorTheme)}">8.–10. trinn</kobber-radio-input>
-          <kobber-radio-input value="level11-13" color-theme="${ifDefined(args.colorTheme)}">VG1–VG3</kobber-radio-input>
+          <kobber-radio-input value="level1-7" color="${ifDefined(args.color)}">1.–7. trinn</kobber-radio-input>
+          <kobber-radio-input value="level8-10" color="${ifDefined(args.color)}">8.–10. trinn</kobber-radio-input>
+          <kobber-radio-input value="level11-13" color="${ifDefined(args.color)}">VG1–VG3</kobber-radio-input>
         </kobber-radio-group>
       </div>
     `;
   },
   argTypes: {
-    colorTheme: {
-      name: "color-theme (visible only in hover and active states)",
-      options: inputColorThemes,
+    color: {
+      name: "color (visible only in hover and active states)",
+      options: inputColors,
       control: { type: "radio" },
     },
   },
   args: {
-    colorTheme: inputColorThemes[0],
+    color: inputColors[0],
   },
   parameters: {
     actions: {

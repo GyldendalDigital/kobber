@@ -32,7 +32,7 @@ export type InputProps = {
   state?: CheckboxState;
   title?: string;
   value?: string;
-  colorTheme?: CheckboxColorTheme;
+  color?: CheckboxColor;
 };
 
 export type GroupClassNames = typeof checkboxGroupName;
@@ -44,6 +44,6 @@ export type InputControlClassNames = typeof inputControlClassName;
 export type IconClassNames = typeof checkboxIconClassName;
 
 export type CheckboxState = keyof typeof checkboxTokens.border.color.success | "disabled";
-export type CheckboxColorTheme = (typeof checkboxColorThemes)[number];
+export type CheckboxColor = (typeof checkboxColors)[number];
 
-export const checkboxColorThemes = objectKeys(component._checkbox.indicator.border.color);
+export const checkboxColors = objectKeys(component._checkbox.indicator.border.color);

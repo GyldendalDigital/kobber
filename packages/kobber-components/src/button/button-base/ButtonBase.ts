@@ -17,7 +17,7 @@ export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps
   private _internals = this.attachInternals();
 
   // overridden in parent classes
-  colorTheme: TextLabelProps["color"] = "brand";
+  color: TextLabelProps["color"] = "brand";
   colorLevel: unknown = "primary";
   colorVariant: TextLabelProps["colorVariant"] = "tone-a";
 
@@ -29,9 +29,6 @@ export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps
 
   @property({ type: Boolean, attribute: "icon-first" })
   iconFirst = false;
-
-  @property({ type: Boolean, attribute: "full-width" })
-  fullWidth = false;
 
   /* Use only in special cases (i.e, as Radio Input) */
   @property({ type: Boolean })
@@ -61,7 +58,7 @@ export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps
    * We usually invert the color variant for the nested TextLabel, but there are exceptions to this rule.
    */
   textLabelColorVariant() {
-    return isColorVariantException(this.colorTheme, this.colorLevel)
+    return isColorVariantException(this.color, this.colorLevel)
       ? (this.colorVariant ?? "tone-a")
       : invertColorVariant(this.colorVariant);
   }
@@ -101,13 +98,12 @@ export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps
             hasIcon: this._hasIcon,
             iconOnly: this._iconOnly,
             iconFirst: this.iconFirst,
-            fullWidth: this.fullWidth,
             usedInOtherInteractive: this.usedInOtherInteractive,
             isLink: isLink,
           }),
           this.className,
         ].join(" ")}
-        data-color="${this.colorTheme}"
+        data-color="${this.color}"
         data-color-level="${this.colorLevel}"
         data-color-variant="${this.colorVariant}"
         type="${this.type}"
@@ -123,7 +119,7 @@ export class ButtonBase extends KobberElementWithIcon implements BaseButtonProps
       ${
         !this._iconOnly
           ? html`<kobber-text-label
-          .color=${this.colorTheme}
+          .color=${this.color}
           color-variant=${this.textLabelColorVariant()}
         >
           <slot></slot>

@@ -3,10 +3,10 @@ import { css, unsafeCSS } from "lit";
 import { getTypographyStyles } from "../../base/getTypographyStyles";
 import {
   type InputClassNames,
-  type InputColorTheme,
+  type InputColor,
   type InputControlPartNames,
   type InputLabelClassNames,
-  inputColorThemes,
+  inputColors,
 } from "../Radio.core";
 
 const inputStyles = component._radiobutton;
@@ -22,7 +22,7 @@ const createInputStyles = () => {
       cursor: pointer;
       padding: var(${unsafeCSS(inputStyles.padding)});
 
-      ${inputColorThemeStyles()}
+      ${inputColorStyles()}
       ${inputStates()}
       
       &.${unsafeCSS("input--as-link" satisfies InputClassNames)} {
@@ -46,21 +46,21 @@ const createInputStyles = () => {
   `;
 };
 
-const inputColorThemeStyles = () => {
-  const colorThemeClasses = inputColorThemes.flatMap(colorTheme => {
-    const colorThemeSelector = `&[data-color="${colorTheme}"]`;
+const inputColorStyles = () => {
+  const colorClasses = inputColors.flatMap(color => {
+    const colorSelector = `&[data-color="${color}"]`;
     return css`
-      ${unsafeCSS(colorThemeSelector)} {
-        ${inputStatesPerColorTheme(colorTheme)}
+      ${unsafeCSS(colorSelector)} {
+        ${inputStatesPerColor(color)}
       }
     `;
   });
 
-  return unsafeCSS(colorThemeClasses.join("\n"));
+  return unsafeCSS(colorClasses.join("\n"));
 };
 
-const inputStatesPerColorTheme = (colorTheme: InputColorTheme) => {
-  const outlineColor = inputStyles.outline.border.color[colorTheme];
+const inputStatesPerColor = (color: InputColor) => {
+  const outlineColor = inputStyles.outline.border.color[color];
   return css`
     :host(.hover) &,
     :host(:hover) & {

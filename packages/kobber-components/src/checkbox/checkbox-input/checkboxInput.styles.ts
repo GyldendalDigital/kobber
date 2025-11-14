@@ -3,9 +3,9 @@ import { css, unsafeCSS } from "lit";
 import { getTypographyStyles } from "../../base/getTypographyStyles";
 import {
   type CheckboxClassNames,
-  type CheckboxColorTheme,
+  type CheckboxColor,
   type CheckboxState,
-  checkboxColorThemes,
+  checkboxColors,
   type IconClassNames,
   type InputControlClassNames,
   type InputLabelClassNames,
@@ -35,7 +35,7 @@ const createCheckboxStyles = () => {
       cursor: pointer;
       padding: var(${unsafeCSS(checkbox.padding)});
 
-      ${colorThemeStyles()}
+      ${colorStyles()}
       ${inputStates()}
     }
 
@@ -59,7 +59,10 @@ const createCheckboxStyles = () => {
       align-items: center;
       justify-content: center;
       border-radius: var(${unsafeCSS(checkbox.outline.border.radius)});
-      border: var(${unsafeCSS(indicator.border.width)}) solid var(--control-border-color);
+      :host(:not(.disabled[checked]):not(.disabled[indeterminate])) &, 
+      :host(:not([disabled][checked]):not([disabled][indeterminate])) & {
+        border: var(${unsafeCSS(indicator.border.width)}) solid var(--control-border-color);
+      }
       outline: var(${unsafeCSS(checkbox.outline.border.width)}) solid var(--control-outline-color);
       color: var(--color);
       flex-shrink: 0;
@@ -78,23 +81,23 @@ const createCheckboxStyles = () => {
   `;
 };
 
-const colorThemeStyles = () => {
-  const colorThemes = checkboxColorThemes.flatMap(colorTheme => {
+const colorStyles = () => {
+  const colors = checkboxColors.flatMap(color => {
     return css`
-      ${unsafeCSS(`&[data-color="${colorTheme}"]`)} {
-        --color: var(${unsafeCSS(indicator.shape.color[colorTheme])});
-        ${statesPerColorTheme(colorTheme)}
+      ${unsafeCSS(`&[data-color="${color}"]`)} {
+        --color: var(${unsafeCSS(indicator.shape.color[color])});
+        ${statesPerColor(color)}
       }
     `;
   });
 
-  return unsafeCSS(colorThemes.join("\n"));
+  return unsafeCSS(colors.join("\n"));
 };
 
-const statesPerColorTheme = (colorTheme: CheckboxColorTheme) => {
-  const outlineColor = checkbox.outline.border.color[colorTheme];
-  const borderColor = indicator.border.color[colorTheme];
-  const bgColor = indicator.background.color[colorTheme];
+const statesPerColor = (color: CheckboxColor) => {
+  const outlineColor = checkbox.outline.border.color[color];
+  const borderColor = indicator.border.color[color];
+  const bgColor = indicator.background.color[color];
   return css`
     --control-border-color: var(
       ${unsafeCSS(borderColor.idle)}
@@ -127,8 +130,9 @@ const statesPerColorTheme = (colorTheme: CheckboxColorTheme) => {
       }
     }
 
-    :host([checked]) & {
-      :host(.${unsafeCSS("idle" satisfies CheckboxState)}) & {
+    :host([checked]) &, 
+    :host([indeterminate]) & {
+      :host(:not(.hover, :hover, .active, :active, .disabled, [disabled])) & {
         --control-background-color: var(${unsafeCSS(bgColor.idle)});
       }
       :host([disabled]) & {

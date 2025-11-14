@@ -3,10 +3,10 @@ import { css, unsafeCSS } from "lit";
 import { getTypographyStyles } from "../base/getTypographyStyles";
 import {
   type BadgeClassNames,
-  type BadgeColorTheme,
+  type BadgeColor,
   type BadgeColorVariant,
   type BadgeSize,
-  badgeColorThemes,
+  badgeColors,
   badgeColorVariants,
   badgeSizes,
 } from "./Badge.core";
@@ -50,19 +50,19 @@ const createBadgeStyles = () => {
 const getThemeSizeVariantStyles = () => {
   return css`
     ${unsafeCSS(
-      badgeColorThemes
-        .flatMap(colorTheme => {
+      badgeColors
+        .flatMap(color => {
           return badgeSizes.flatMap(size =>
             badgeColorVariants.flatMap(
               colorVariant =>
-                `&[data-color-variant="${colorVariant}"][data-color="${colorTheme}"][data-size="${size}"] { 
-                  ${getThemeVariantStyles(colorTheme, colorVariant)}
+                `&[data-color-variant="${colorVariant}"][data-color="${color}"][data-size="${size}"] { 
+                  ${getThemeVariantStyles(color, colorVariant)}
 
                   ${
-                    colorTheme === "brand"
+                    color === "brand"
                       ? getStatusCircleStyles("brand", colorVariant, size)
-                      : colorTheme === "rettsdata"
-                        ? getStatusCircleStyles(colorTheme, colorVariant, size)
+                      : color === "rettsdata"
+                        ? getStatusCircleStyles(color, colorVariant, size)
                         : ""
                   }
                 }`,
@@ -74,8 +74,8 @@ const getThemeSizeVariantStyles = () => {
   `;
 };
 
-const getThemeVariantStyles = (colorTheme: BadgeColorTheme, colorVariant: BadgeColorVariant) => {
-  if (colorTheme === "neutral") {
+const getThemeVariantStyles = (color: BadgeColor, colorVariant: BadgeColorVariant) => {
+  if (color === "neutral") {
     return css`
     ${unsafeCSS(`
       --background-color: var(${unsafeCSS(badge.background.color.neutral["tone-b"])});
@@ -87,20 +87,20 @@ const getThemeVariantStyles = (colorTheme: BadgeColorTheme, colorVariant: BadgeC
 
   return css`
     ${unsafeCSS(`
-      --background-color: var(${unsafeCSS(badge.background.color[colorTheme][colorVariant])});
-      --color: var(${unsafeCSS(universal["text-label"].text.color[colorTheme][textColorVariant])});
+      --background-color: var(${unsafeCSS(badge.background.color[color][colorVariant])});
+      --color: var(${unsafeCSS(universal["text-label"].text.color[color][textColorVariant])});
       `)}
   `;
 };
 
 const getStatusCircleStyles = (
-  colorTheme: "brand" | "rettsdata",
+  color: "brand" | "rettsdata",
   colorVariant: BadgeColorVariant,
   size: BadgeSize,
 ) => {
   const circleStyles = component.badge["status-circle"];
 
-  if (colorTheme === "brand" && colorVariant === "tone-a") {
+  if (color === "brand" && colorVariant === "tone-a") {
     return css`
       ${unsafeCSS(`
         --status-circle-color: var(${unsafeCSS(circleStyles.background.color.brand["tone-a"])});
@@ -109,7 +109,7 @@ const getStatusCircleStyles = (
       `)}
     `;
   }
-  if (colorTheme === "rettsdata" && colorVariant === "tone-b") {
+  if (color === "rettsdata" && colorVariant === "tone-b") {
     return css`
       ${unsafeCSS(`
         --status-circle-color: var(${unsafeCSS(circleStyles.background.color.rettsdata["tone-b"])});
