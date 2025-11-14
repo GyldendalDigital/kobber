@@ -827,7 +827,7 @@ __metadata:
     lamejs: "npm:1.2.1"
     sass-embedded: "npm:^1.77.8"
     svelte: "npm:^4.2.19"
-    vite: "npm:^7.1.5"
+    vite: "npm:^7.1.11"
   languageName: unknown
   linkType: soft
 
@@ -4413,7 +4413,7 @@ __metadata:
     stylelint-order: "npm:^7.0.0"
     turbo: "npm:^2.5.8"
     typescript: "npm:^5.9.3"
-    vite: "npm:^7.1.5"
+    vite: "npm:^7.1.11"
   languageName: unknown
   linkType: soft
 
@@ -7290,9 +7290,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^7.1.5":
-  version: 7.1.5
-  resolution: "vite@npm:7.1.5"
+"vite@npm:^7.1.11":
+  version: 7.2.2
+  resolution: "vite@npm:7.2.2"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.5.0"
@@ -7341,7 +7341,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10c0/782d2f20c25541b26d1fb39bef5f194149caff39dc25b7836e25f049ca919f2e2ce186bddb21f3f20f6195354b3579ec637a8ca08d65b117f8b6f81e3e730a9c
+  checksum: 10c0/9c76ee441f8dbec645ddaecc28d1f9cf35670ffa91cff69af7b1d5081545331603f0b1289d437b2fa8dc43cdc77b4d96b5bd9c9aed66310f490cb1a06f9c814c
   languageName: node
   linkType: hard
 
