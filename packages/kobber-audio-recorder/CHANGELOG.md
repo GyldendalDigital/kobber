@@ -1,5 +1,11 @@
 # @gyldendal/kobber-audio-recorder
 
+## 0.7.0
+
+### Minor Changes
+
+- Breaking changes: All color-theme attributes are renamed to color.
+
 ## 0.6.15
 
 ### Patch Changes
