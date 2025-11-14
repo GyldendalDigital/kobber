@@ -1,5 +1,16 @@
 # @gyldendal/kobber-icons
 
+## 0.7.0
+
+### Minor Changes
+
+- Breaking changes: All color-theme attributes are renamed to color.
+
+### Patch Changes
+
+- Updated dependencies
+  - @gyldendal/kobber-base@0.7.0
+
 ## 0.6.15
 
 ### Patch Changes
