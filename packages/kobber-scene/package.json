@@ -3,12 +3,15 @@
   "version": "0.7.0",
   "license": "MIT",
   "type": "module",
+  "files": [
+    "dist/**/*"
+  ],
   "exports": {
     "./react": "./dist/react/index.js",
     "./web-components": "./dist/web-components/index.js"
   },
   "scripts": {
-    "clean": "rm -rf .turbo node_modules",
+    "clean": "rm -rf .turbo node_modules dist",
     "build": "tsup",
     "prepare": "npm run build",
     "dev": "onchange \"./src/**/*.{ts,tsx,css}\" -- npm run build"
