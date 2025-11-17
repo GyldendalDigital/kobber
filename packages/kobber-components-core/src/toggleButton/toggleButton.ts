@@ -13,7 +13,7 @@ export const machine = createMachine({
 
 export const connect = <T extends PropTypes>(
   service: Service<MachineSchema>,
-  normalize: NormalizeProps<T>
+  normalize: NormalizeProps<T>,
 ) => {
   const active = service.state.matches("active");
   return {
