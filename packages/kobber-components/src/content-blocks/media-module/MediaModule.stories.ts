@@ -47,6 +47,12 @@ const meta: Meta = {
     creditPlacement: mediaModuleCreditPlacementFallback,
     creditText: "",
   },
+  decorators: [
+    (story, context) => {
+      const { args } = context;
+      return html`<kobber-content-wrapper type="page" color-variant=${ifNotDefault(args.colorVariant)}>${story()}</kobber-content-wrapper>`;
+    },
+  ],
 };
 
 export default meta;
