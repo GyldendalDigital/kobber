@@ -32,12 +32,12 @@ const meta: Meta = {
       options: mediaModuleCreditPlacements,
       control: "inline-radio",
       table: {
-        category: "Credit (does not show on video or when more than 1 image)",
+        category: "Credit",
       },
     },
     creditText: {
       table: {
-        category: "Credit (does not show on video or when more than 1 image)",
+        category: "Credit",
       },
     },
   },
