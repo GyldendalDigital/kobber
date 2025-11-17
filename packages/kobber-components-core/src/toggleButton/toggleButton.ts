@@ -17,11 +17,17 @@ export const machine = createMachine({
         CLICK: {
           target: "inactive",
         },
+        ENTER: {
+          target: "inactive",
+        },
       },
     },
     inactive: {
       on: {
         CLICK: {
+          target: "active",
+        },
+        LEAVE: {
           target: "active",
         },
       },
@@ -43,7 +49,6 @@ export const connect = <T extends PropTypes>(
         role: "switch",
         "aria-checked": active,
         onClick() {
-          console.log("machine click");
           service.send({ type: "CLICK" });
         },
         onMouseEnter() {

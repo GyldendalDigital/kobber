@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import * as toggleButton from "@gyldendal/kobber-components-core/toggleButton/toggleButton";
+import {
+  machine,
+  connect,
+} from "@gyldendal/kobber-components-core/card/card.core.js";
 import { normalizeProps, useMachine } from "@zag-js/react";
 import * as css from "../css/card.css";
 import { Paper } from "../../paper/react/paper";
@@ -16,8 +19,8 @@ export const Card: React.FC<CardProps> = ({
   className = "",
   ...props
 }) => {
-  const api = toggleButton.connect(
-    useMachine(toggleButton.machine, { initialState: "inactive" }),
+  const api = connect(
+    useMachine(machine, { initialState: "idle" }),
     normalizeProps
   );
   const [link, setLink] = useState<HTMLAnchorElement | null>(null);

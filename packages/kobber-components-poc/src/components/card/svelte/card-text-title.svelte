@@ -5,7 +5,7 @@
     let props = $props();
     let { children } = props;
     const { api } = getCardContext();
-    const classes = `${css.cardTextTitle} ${api && api().active ? css.active : ""}`;
+    const classes = $derived(`${css.cardTextTitle} ${api && api().active ? css.active : ""}`);
 </script>
 
 <div class={classes} {...props}>

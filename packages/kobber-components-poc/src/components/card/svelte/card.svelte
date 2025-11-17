@@ -1,5 +1,5 @@
 <script lang="ts">
-    import * as toggleButton from "@gyldendal/kobber-components-core/toggleButton/toggleButton";
+    import {machine, connect} from "@gyldendal/kobber-components-core/card/card.core.js";
     import { normalizeProps, useMachine } from "@zag-js/svelte";
     import { getCardContext, setCardContext } from "./card-context";
     import * as css from "../css/card.css";
@@ -11,8 +11,8 @@
     }
     let props = $props();
     let { direction = "vertical", children } = props as CardProps;
-    const service = useMachine(toggleButton.machine, { initialState: "inactive" });
-    const api = $derived(toggleButton.connect(service, normalizeProps));
+    const service = useMachine(machine, { initialState: "inactive" });
+    const api = $derived(connect(service, normalizeProps));
     const apiRef = () => api;
     setCardContext({api: apiRef, link: null, registerLink: () => {}, direction});
     const context = getCardContext();
