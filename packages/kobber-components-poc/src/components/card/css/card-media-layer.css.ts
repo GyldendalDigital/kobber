@@ -1,5 +1,5 @@
 import * as tokens from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { style, globalStyle } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 
 export const cardMediaLayer = style({
   gridRow: 1,
@@ -8,14 +8,10 @@ export const cardMediaLayer = style({
   height: "100%",
 });
 
-export const vertical = style({});
-
-globalStyle(`${vertical} > *`, {
-  borderRadius: `var(${tokens.component["content-card"]["image-container"].border.radius.prominent})`,
+export const vertical = style({
+  padding: `var(${tokens.component["content-card"]["image-container"].padding.prominent})`,
 });
 
-export const horizontal = style({});
-
-globalStyle(`${horizontal} > *`, {
-  borderRadius: `var(${tokens.component["content-card"]["image-container"].border.radius.subtle})`,
+export const horizontal = style({
+  padding: `var(${tokens.component["content-card"]["image-container"].padding.subtle})`,
 });

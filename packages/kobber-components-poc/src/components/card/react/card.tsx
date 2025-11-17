@@ -41,12 +41,10 @@ export const Card: React.FC<CardProps> = ({
       {/*
         Code related to the note above
       */}
-      {/*<div {...api.getButtonProps()}>
-        <Paper elevation={2} rounded className={classes} {...props}>
-          {children}
-        </Paper>
-      </div>*/}
-      <Paper
+      <div {...api.getButtonProps()} className={classes} {...props}>
+        {children}
+      </div>
+      {/*<Paper
         elevation={2}
         rounded
         className={classes}
@@ -54,7 +52,7 @@ export const Card: React.FC<CardProps> = ({
         {...props}
       >
         {children}
-      </Paper>
+      </Paper>*/}
     </ReactCardContext.Provider>
   );
 };

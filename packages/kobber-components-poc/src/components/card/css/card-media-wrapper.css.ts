@@ -5,3 +5,7 @@ export const cardMediaWrapper = style({
   gridTemplateColumns: "1fr",
   gridAutoRows: "1fr",
 });
+
+export const horizontal = style({
+  maxWidth: "34%",
+});

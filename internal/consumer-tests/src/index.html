@@ -22,12 +22,25 @@
       font-named-instance: "Regular";
       src: url("./shared/PPMori-Regular.woff2") format("woff2");
     }
+    :root {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      background: #3aa4cf;
+      background: linear-gradient(
+        144deg,
+        #8a224a 0%,
+        #884d5d 50%,
+        #fbeaea 100%
+      );
+    }
   </style>
   <body class="kobber-theme-default">
     <div
       style="
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: auto;
+        grid-auto-flow: column;
         padding: 2rem;
         gap: 2rem;
         font-family: pp-mori;

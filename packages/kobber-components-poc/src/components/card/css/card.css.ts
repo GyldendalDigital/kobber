@@ -9,9 +9,11 @@ export const card = style({
 export const vertical = style({
   flexDirection: "column",
   gap: `var(${tokens.component["content-card"].gap.prominent})`,
+  borderRadius: `var(${tokens.component["content-card"]["image-container"].border.radius.prominent})`,
 });
 
 export const horizontal = style({
   flexDirection: "row",
   gap: `var(${tokens.component["content-card"].gap.subtle})`,
+  borderRadius: `var(${tokens.component["content-card"]["image-container"].border.radius.subtle})`,
 });
