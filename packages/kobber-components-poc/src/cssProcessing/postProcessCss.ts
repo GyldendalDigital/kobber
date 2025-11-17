@@ -7,8 +7,8 @@ type File = Dirent<string>;
 
 type Env = "production" | "development";
 
-export const postProcessCss = async (env: Env) => {
-  const stylesheetFiles = readdirSync("./dist/react", {
+export const postProcessCss = async (env: Env, directory: string) => {
+  const stylesheetFiles = readdirSync(directory, {
     withFileTypes: true,
     recursive: true,
   }).filter(isStylesheet);

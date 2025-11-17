@@ -7,8 +7,12 @@ import {
 } from "@gyldendal/kobber-components-core/vanilla";
 import { getClassNames } from "./core";
 
-export class ToggleButton extends Component<toggleButton.ToggleButtonOptions, toggleButton.Api> {
-  initMachine(props: toggleButton.ToggleButtonOptions) {
+interface Props {
+  state: toggleButton.State;
+}
+
+export class ToggleButton extends Component<Props, toggleButton.Api> {
+  initMachine(props: Props) {
     return new VanillaMachine(toggleButton.machine, props);
   }
 

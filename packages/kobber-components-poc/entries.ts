@@ -12,21 +12,18 @@ const getFrameworkEntries = (indexFileName: string, destination: string) =>
       `./${file.parentPath}/${file.name}`,
     ]);
 
-export const cssEntries = Object.fromEntries(getFrameworkEntries("css.ts", "css"));
+const componentEntries = [
+  ...getFrameworkEntries("index.react.tsx", "react"),
+  ...getFrameworkEntries("index.svelte.ts", "svelte"),
+  ...getFrameworkEntries("index.vanilla.ts", "vanilla"),
+  ...getFrameworkEntries("index.lit.ts", "lit"),
+];
 
-export const reactListFile = "index.react.ts";
+export const entries = Object.fromEntries(componentEntries);
 
-const reactEntries = getFrameworkEntries("index.react.tsx", "react");
-
-const svelteEntries = getFrameworkEntries("index.svelte.ts", "svelte");
-
-const vanillaEntries = getFrameworkEntries("index.vanilla.ts", "vanilla");
-
-const litEntries = getFrameworkEntries("index.lit.ts", "lit");
-
-export const entries = Object.fromEntries([
-  ...reactEntries,
-  ...svelteEntries,
-  ...vanillaEntries,
-  ...litEntries,
-]);
+export const cssEntries = [
+  ["react/index.css", "./dist/react"],
+  ["svelte/index.css", "./dist/svelte"],
+  ["vanilla/index.css", "./dist/vanilla"],
+  ["lit/index.css", "./dist/lit"],
+] as const;
