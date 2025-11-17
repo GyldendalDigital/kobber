@@ -1,5 +1,4 @@
 <script lang="ts">
-    import Paper from "../../paper/paper.svelte";
     import * as toggleButton from "@gyldendal/kobber-components-core/toggleButton/toggleButton";
     import { normalizeProps, useMachine } from "@zag-js/svelte";
     import { getCardContext, setCardContext } from "./card-context";
@@ -21,6 +20,6 @@
     const classes = `${css.card} ${direction ? css[direction] : ""}`
 </script>
 
-<Paper class={classes}  {...context.api().getButtonProps()}>
+<div class={classes}  {...context.api().getButtonProps()}>
     {@render children?.()}
-</Paper>
+</div>

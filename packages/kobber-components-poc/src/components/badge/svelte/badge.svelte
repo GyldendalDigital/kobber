@@ -1,9 +1,9 @@
 <script lang="ts">
-    import * as css from "./paper.module.css";
+    import * as css from "../css/badge.css";
     let props = $props();
     let { children } = props;
 
-    const classes = `${css.uiPaper} ${props.class}`;
+    const classes = `${css.badge} ${props.class}`;
 </script>
 
 <div class={classes}>

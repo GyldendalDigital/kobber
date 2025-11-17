@@ -6,7 +6,7 @@ interface CardMediaLayerProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const CardMediaLayer: React.FC<CardMediaLayerProps> = ({
-  base,
+  base = false,
   children,
   ...props
 }) => {
