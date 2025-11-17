@@ -21,6 +21,7 @@ export default defineConfig(options => {
     bundle: true,
     splitting: true,
     esbuildPlugins: [getVanillaExtractPlugin()],
+    external: [/^lit\/.*/],
     esbuildOptions(options) {
       options.chunkNames = `${chunks}/[name]-[hash]`;
     },
