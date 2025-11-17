@@ -1,6 +1,6 @@
 import { writeFileSync } from "node:fs";
 import { defineConfig } from "tsup";
-import { entries } from "./entries";
+import { cssEntries, entries } from "./entries";
 import { getVanillaExtractPlugin } from "./src/cssProcessing/getVanillaExtractPlugin";
 import { postProcessCss } from "./src/cssProcessing/postProcessCss";
 
@@ -26,8 +26,10 @@ export default defineConfig(options => {
       options.chunkNames = `${chunks}/[name]-[hash]`;
     },
     onSuccess: async () => {
-      const merged = await postProcessCss(env);
-      writeFileSync(`${outDir}/index.css`, merged);
+      for (const [cssFileName, directory] of cssEntries) {
+        const merged = await postProcessCss(env, directory);
+        writeFileSync(`${outDir}/${cssFileName}`, merged);
+      }
     },
   };
 });
