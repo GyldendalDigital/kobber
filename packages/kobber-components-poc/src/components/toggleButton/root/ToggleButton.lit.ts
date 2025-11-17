@@ -15,8 +15,6 @@ export class ToggleButton extends Component<toggleButton.Api> {
 
   override render() {
     const classNames = getClassNames(this.api);
-
-    console.log("spread", spread(this.api.getButtonProps()), classNames);
     return html`
       <button ${spread(this.api.getButtonProps())} class="${classNames.root}">
         <slot></slot>

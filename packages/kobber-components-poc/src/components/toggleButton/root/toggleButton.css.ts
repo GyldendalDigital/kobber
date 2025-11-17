@@ -3,12 +3,10 @@ import { style } from "@vanilla-extract/css";
 import { className } from "../../../cssProcessing/className";
 
 export const root = style({
-  border: "solid 1px red",
   fontSize: 16,
-  color: `var(--components-button-primary)`,
-  backgroundColor: `var(${tokens.component.button.background.color.brand.primary["tone-a"].fallback})`,
+  backgroundColor: `var(${tokens.primitives.color.orange[75]})`,
 });
 
 export const active = className("active", {
-  border: "solid 1px green",
+  backgroundColor: `var(${tokens.primitives.color.orange[450]})`,
 });
