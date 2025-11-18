@@ -1627,9 +1627,11 @@
 /* #endregion */
 /* #region MediaModule - mediaModuleStyles */ 
 
+    :host {
+      width: 100%; /* Combined with image's width: 100%: Fill image in container, and scale within the container when width changes. */
+    }
     .kobber-media-module {
 
-      width: auto; /* Combined with image's width: 100%: Scale image within container. */
       display: flex;
       flex-direction: column;
       gap: var(--kobber-component-media-module-gap);

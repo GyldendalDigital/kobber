@@ -3,9 +3,11 @@ import { type MediaModuleClassNames, mediaModuleTokens } from "./MediaModule.cor
 
 const createMediaModuleStyles = () => {
   return css`
+    :host {
+      width: 100%; /* Combined with image's width: 100%: Fill image in container, and scale within the container when width changes. */
+    }
     .${unsafeCSS("kobber-media-module" satisfies MediaModuleClassNames)} {
 
-      width: auto; /* Combined with image's width: 100%: Scale image within container. */
       display: flex;
       flex-direction: column;
       gap: var(${unsafeCSS(mediaModuleTokens.gap)});
