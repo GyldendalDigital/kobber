@@ -104,9 +104,6 @@ const createMediaModuleStyles = () => {
     figcaption {
       position: absolute;
       bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       max-width: 60%; /* To enable kobber-text-label to truncate text. Max 45 characters. */
       padding: var(${unsafeCSS(mediaModuleTokens["inner-inner-credit-container"].padding)});
 
