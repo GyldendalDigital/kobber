@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
-import { html } from "lit";
+import { html, unsafeStatic } from "lit/static-html.js";
 import "./BadgeIcon";
 import {
   type BadgeIconProps,
@@ -11,6 +11,8 @@ import {
 import "@gyldendal/kobber-icons/web-components";
 import "../theme-context-provider/ThemeContext";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
+import { iconsList } from "@gyldendal/kobber-icons/symbols/kobber-icons-lists.ts";
+import type { IconType } from "@gyldendal/kobber-icons/symbols/kobber-icons-types.ts";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { init as initComponents } from "../base/init";
 
@@ -18,6 +20,7 @@ initComponents();
 initIcons();
 
 interface Args extends BadgeIconProps {
+  icon?: IconType;
   text?: string;
 }
 
@@ -31,7 +34,7 @@ const meta: Meta<Args> = {
 
 export default meta;
 
-export const BadgeIcons: StoryObj<Args> = {
+export const BadgeIcon: StoryObj<Args> = {
   argTypes: {
     size: {
       options: badgeIconSizes,
@@ -45,27 +48,26 @@ export const BadgeIcons: StoryObj<Args> = {
       options: badgeIconColorVariants,
       control: { type: "inline-radio" },
     },
+    icon: {
+      options: iconsList,
+      control: { type: "select" },
+    },
   },
   args: {
     text: "Badge Icon",
     size: "medium",
     color: "brand",
     colorVariant: "tone-a",
+    icon: "kobber-pin",
   },
   render: args => {
-    return html`${renderBadgeIcon(args)}`;
-  },
-};
-
-const renderBadgeIcon = (args: Args) => {
-  const { size, text, color, colorVariant } = args;
-
-  return html` <kobber-badge-icon
-    size=${ifDefined(size)}
-    color=${ifDefined(color)}
-    color-variant=${ifDefined(colorVariant)}
+    return html` <kobber-badge-icon
+    size=${ifDefined(args.size)}
+    color=${ifDefined(args.color)}
+    color-variant=${ifDefined(args.colorVariant)}
   >
-    <kobber-pin slot="icon"></kobber-pin>
-    ${text}
+    <${unsafeStatic(args.icon ?? "")} slot='icon'></${unsafeStatic(args.icon ?? "")}>
+    ${args.text}
   </kobber-badge-icon>`;
+  },
 };
