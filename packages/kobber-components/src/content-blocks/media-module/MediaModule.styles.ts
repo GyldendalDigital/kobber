@@ -94,9 +94,9 @@ const createMediaModuleStyles = () => {
       position: relative;
       margin: 0;
       display: flex;
-      height: var(${unsafeCSS(mediaModuleTokens["image-container"].size.height)});
       ::slotted(img) { 
         width: 100%; /* Combined with .kobber-media-module's width: auto: Scale image within container. */
+        height: var(${unsafeCSS(mediaModuleTokens["image-container"].size.height)});
         border-radius: var(${unsafeCSS(mediaModuleTokens.border.radius)});
       }
     }
