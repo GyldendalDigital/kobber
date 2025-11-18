@@ -63,14 +63,12 @@ const ifNotDefault = (value: string) =>
 
 export const MediaModule: Story = {
   render: args => html`
-    <kobber-content-wrapper color-variant=${ifNotDefault(args.colorVariant)} type="page">
-      <kobber-media-module credit-placement="${args.creditPlacement}" color="${args.color}" color-variant=${ifNotDefault(args.colorVariant)}>
-        <img slot="media" alt="Bokomslag: Lav bok" src="https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-Z9lf829L-medium.jpg?w=400&f=webp" />
-        ${args.creditPlacement === "none" ? "" : html`<span slot="credit">${args.creditText || "Foto: NTB SCANPIX"}</span>`}
-        <kobber-text-body level="p" color="${args.color}" color-variant="${ifNotDefault(invertColorVariant(args.colorVariant))}" size="small">
-          Under bildet har vi mulighet til å legge til en beskrivende tekst om hva bildet handler om. Teksten bør ikke overskride mer enn 2-3 linjer. (${args.color})
-        </kobber-text-body>
-      </kobber-media-module>
-    </kobber-content-wrapper>
+    <kobber-media-module credit-placement="${args.creditPlacement}" color="${args.color}" color-variant=${ifNotDefault(args.colorVariant)}>
+      <img slot="media" alt="Illustrasjon: Salaby-figur" src="https://app-pnp-cms-prod.azurewebsites.net/tenants/Edu/dam/preview/Fl3vyz2xaPn8zrA0lNcR-q/previews/maxWidth_600_quality_90.jpg" />
+      ${args.creditPlacement === "none" ? "" : html`<span slot="credit">${args.creditText || "Foto: NTB SCANPIX"}</span>`}
+      <kobber-text-body level="p" color="${args.color}" color-variant="${ifNotDefault(invertColorVariant(args.colorVariant))}" size="small">
+        Under bildet har vi mulighet til å legge til en beskrivende tekst om hva bildet handler om. Teksten bør ikke overskride mer enn 2-3 linjer. (${args.color})
+      </kobber-text-body>
+    </kobber-media-module>
   `,
 };
