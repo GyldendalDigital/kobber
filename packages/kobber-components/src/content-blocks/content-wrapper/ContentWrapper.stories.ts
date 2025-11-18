@@ -54,6 +54,11 @@ const meta: Meta = {
         category: "Media Module",
       },
     },
+    imageDescription: {
+      table: {
+        category: "Media Module",
+      },
+    },
     showMediaModule: {
       name: "Show Media Module",
       table: {
@@ -94,6 +99,8 @@ const meta: Meta = {
     colorVariant: undefined,
     creditPlacement: mediaModuleCreditPlacementFallback,
     creditText: "",
+    imageDescription:
+      "Under bildet har vi mulighet til å legge til en beskrivende tekst om hva bildet handler om. Teksten bør ikke overskride mer enn 2-3 linjer.",
     showBadge: true,
     showLead: true,
     showHeading: true,
@@ -162,7 +169,7 @@ export const ContentWrapper: Story = {
           <p>Another one paragraph here.</p>
         </kobber-text-body>
       </kobber-text-block>
-      ${args.showList ? (TextList.render?.({ ...args, colorVariant: invertColorVariant(args.colorVariant) }, {} as any) ?? "") : ""}
+      ${args.showList ? (TextList.render?.({ ...args, colorVariant: invertColorVariant(args.colorVariant), size: "medium" }, {} as any) ?? "") : ""}
       <kobber-text-block>
         <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
           <p>Another one paragraph here.</p>

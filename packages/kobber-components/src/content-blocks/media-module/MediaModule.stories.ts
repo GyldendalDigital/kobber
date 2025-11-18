@@ -46,6 +46,8 @@ const meta: Meta = {
     colorVariant: textBodyColorVariants[1],
     creditPlacement: mediaModuleCreditPlacementFallback,
     creditText: "",
+    imageDescription:
+      "Under bildet har vi mulighet til å legge til en beskrivende tekst om hva bildet handler om. Teksten bør ikke overskride mer enn 2-3 linjer.",
   },
   decorators: [
     (story, context) => {
@@ -67,7 +69,7 @@ export const MediaModule: Story = {
       <img slot="media" alt="Illustrasjon: Salaby-figur" src="https://app-pnp-cms-prod.azurewebsites.net/tenants/Edu/dam/preview/Fl3vyz2xaPn8zrA0lNcR-q/previews/maxWidth_600_quality_90.jpg" />
       ${args.creditPlacement === "none" ? "" : html`<span slot="credit">${args.creditText || "Foto: NTB SCANPIX"}</span>`}
       <kobber-text-body level="p" color="${args.color}" color-variant="${ifNotDefault(invertColorVariant(args.colorVariant))}" size="small">
-        Under bildet har vi mulighet til å legge til en beskrivende tekst om hva bildet handler om. Teksten bør ikke overskride mer enn 2-3 linjer. (${args.color})
+        ${args.imageDescription} (${args.color})
       </kobber-text-body>
     </kobber-media-module>
   `,
