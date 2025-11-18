@@ -1,8 +1,7 @@
-import type { Args, Meta, StoryObj } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import "./MediaModule";
-import "../../badge-icon/BadgeIcon";
 import "../../text/text-body/TextBody";
-import { html, unsafeStatic } from "lit/static-html.js";
+import { html } from "lit";
 import { init as initComponents } from "../../base/init";
 import { invertColorVariant } from "../../base/utilities/invertColorVariant";
 import { textBodyColors, textBodyColorVariants } from "../../text/text-body/TextBody.core";
