@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "dotenv": "^17.2.3",
-    "glob": "^11.0.3",
+    "glob": "^11.1.0",
     "svelte2tsx": "^0.7.45",
     "ts-morph": "^27.0.0"
   }
