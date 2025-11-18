@@ -95,19 +95,6 @@ const createMediaModuleStyles = () => {
       margin: 0;
       display: flex;
       height: var(${unsafeCSS(mediaModuleTokens["image-container"].size.height)});
-      slot[name="media"] {
-        display: flex;
-        gap: 1em;
-        [data-number-of-media-elements="1"] & {
-          flex-basis: 100%;
-        }
-        [data-number-of-media-elements="2"] & {
-          flex-basis: 48%;
-        }
-        [data-number-of-media-elements="3"] & {
-          flex-basis: 30%;
-        }
-      }
       ::slotted(img) { 
         width: 100%; /* Combined with .kobber-media-module's width: auto: Scale image within container. */
         border-radius: var(${unsafeCSS(mediaModuleTokens.border.radius)});

@@ -32,12 +32,12 @@ const meta: Meta = {
       options: mediaModuleCreditPlacements,
       control: "inline-radio",
       table: {
-        category: "Credit (does not show on video or when more than 1 image)",
+        category: "Credit",
       },
     },
     creditText: {
       table: {
-        category: "Credit (does not show on video or when more than 1 image)",
+        category: "Credit",
       },
     },
   },
@@ -47,6 +47,12 @@ const meta: Meta = {
     creditPlacement: mediaModuleCreditPlacementFallback,
     creditText: "",
   },
+  decorators: [
+    (story, context) => {
+      const { args } = context;
+      return html`<kobber-content-wrapper type="page" color-variant=${ifNotDefault(args.colorVariant)}>${story()}</kobber-content-wrapper>`;
+    },
+  ],
 };
 
 export default meta;

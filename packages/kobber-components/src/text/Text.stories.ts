@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import type { Args, Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit/static-html.js";
 import "./text-wrapper/TextWrapper";
 import "./heading/Heading";
@@ -471,14 +471,69 @@ const ifHighlighted = (textValue: string, highlighted: boolean) =>
  * TextList må wrappes i en TextBody for at fonter, fontfarger og størrelser skal fungere.
  */
 export const TextList: Story = {
+  argTypes: {
+    colorVariant: {
+      options: textBodyColorVariants,
+      control: "inline-radio",
+    },
+    size: {
+      options: textListSizes,
+      control: "inline-radio",
+    },
+  },
+  args: {
+    colorVariant: textBodyColorVariants[0],
+    size: textBodySizes[1],
+  },
+  render: (args: Args) => {
+    return html`
+      <kobber-text-list size="${args.size}"
+        color-variant="${args.colorVariant}"
+      >
+        <kobber-text-list-element>
+          Punkt
+          <kobber-text-list slot="nested" size="${args.size}">
+            <kobber-text-list-element>
+              Underpunkt
+            </kobber-text-list-element>
+            <kobber-text-list-element>
+              Underpunkt
+            </kobber-text-list-element>
+            <kobber-text-list-element>
+              Underpunkt
+            </kobber-text-list-element>
+          </kobber-text-list>
+        </kobber-text-list-element>
+        <kobber-text-list-element>
+          Punkt
+          <kobber-text-list slot="nested" size="${args.size}">
+            <kobber-text-list-element>
+              Underpunkt
+            </kobber-text-list-element>
+            <kobber-text-list-element>
+              Underpunkt
+            </kobber-text-list-element>
+            <kobber-text-list-element>
+              Underpunkt
+            </kobber-text-list-element>
+          </kobber-text-list>
+        </kobber-text-list-element>
+      </kobber-text-list>
+    `;
+  },
+};
+
+export const AllTextLists: Story = {
+  decorators: [
+    story => html`<div style="
+        display: grid;
+        grid-template-columns: repeat(${textBodyColors.length * textBodyColorVariants.length}, 1fr);
+        grid-template-rows: repeat(${textListSizes.length * textBodyFonts.length}, 1fr);
+        gap: 1rem;
+        ">${story()}</div>`,
+  ],
   render: () => {
     return html`
-          <div style="
-              display: grid;
-              grid-template-columns: repeat(${textBodyColors.length * textBodyColorVariants.length}, 1fr);
-              grid-template-rows: repeat(${textListSizes.length * textBodyFonts.length}, 1fr);
-              gap: 1rem;
-             ">
         ${textBodyFonts.map(font =>
           textListSizes.map(size =>
             textBodyColors.map(color =>
@@ -548,7 +603,6 @@ export const TextList: Story = {
             ),
           ),
         )}
-      </div>
     `;
   },
 };

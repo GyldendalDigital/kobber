@@ -1,7 +1,8 @@
-import type { Args, Meta, StoryObj } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from "@storybook/web-components-vite";
 import { textModuleColors } from "../text-module/TextModule.core";
 import "../components/text-block/TextBlock";
-import "../media-module/MediaModule";
+import { MediaModule } from "../media-module/MediaModule.stories";
+import { TextModule } from "../text-module/TextModule.stories";
 import "../components/content-top-block/ContentTopBlock";
 import "./ContentWrapper";
 import "../../badge-icon/BadgeIcon";
@@ -11,14 +12,19 @@ import "../../text/title/Title";
 import "../../text/text-body/TextBody";
 import "../../text/text-list/TextList";
 import "../../text/text-list-element/TextListElement";
-import { html, unsafeStatic } from "lit/static-html.js";
+import { html } from "lit/static-html.js";
 import "../../theme-context-provider/ThemeContext";
 import "@gyldendal/kobber-icons/web-components";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { init as initComponents } from "../../base/init";
 import { invertColorVariant } from "../../base/utilities/invertColorVariant";
-import { mappedColor, nestedList, nestedTextModule } from "../../story/snippets";
+import { mappedColor } from "../../story/snippets";
+import { TextList } from "../../text/Text.stories";
+import {
+  mediaModuleCreditPlacementFallback,
+  mediaModuleCreditPlacements,
+} from "../media-module/MediaModule.core";
 import { contentWrapperColorVariants, contentWrapperTypes } from "./ContentWrapper.core";
 
 initComponents();
@@ -34,6 +40,25 @@ const meta: Meta = {
     colorVariant: {
       options: contentWrapperColorVariants,
       control: { type: "inline-radio" },
+    },
+    creditPlacement: {
+      name: "Credit Placement (change requires refresh)",
+      options: mediaModuleCreditPlacements,
+      control: "inline-radio",
+      table: {
+        category: "Media Module",
+      },
+    },
+    creditText: {
+      table: {
+        category: "Media Module",
+      },
+    },
+    showMediaModule: {
+      name: "Show Media Module",
+      table: {
+        category: "Media Module",
+      },
     },
     showBadge: {
       name: "Show Badge",
@@ -67,6 +92,8 @@ const meta: Meta = {
   args: {
     color: textModuleColors[0],
     colorVariant: undefined,
+    creditPlacement: mediaModuleCreditPlacementFallback,
+    creditText: "",
     showBadge: true,
     showLead: true,
     showHeading: true,
@@ -121,17 +148,7 @@ export const ContentWrapper: Story = {
       }
       </kobber-content-top-block>
 
-      ${
-        args.showMediaModule
-          ? html`<kobber-media-module color="${ifDefined(args.color)}" color-variant="${ifDefined(args.colorVariant)}">
-          <img slot="media" alt="Bokomslag: Lav bok" src="https://images.cdn.europe-west1.gcp.commercetools.com/b0c1af64-23c6-499f-8892-0976d37c1c31/default-Z9lf829L-medium.jpg?w=400&f=webp" />
-        <span slot="credit">Foto: NTB SCANPIX</span>
-        <kobber-text-body level="p" color="${ifDefined(args.color)}" color-variant="${invertColorVariant(args.colorVariant)}">
-          Under bildet har vi mulighet til å legge til en beskrivende tekst om hva bildet handler om. Teksten bør ikke overskride mer enn 2-3 linjer. (${args.color})
-        </kobber-text-body>
-      </kobber-media-module>`
-          : ""
-      }
+      ${args.showMediaModule ? (MediaModule.render?.(args, {} as any) ?? "") : ""}
       
       <kobber-text-block>
         <kobber-title color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}" size="large">Title L</kobber-title>
@@ -139,13 +156,13 @@ export const ContentWrapper: Story = {
           <p>One paragraph here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. (${args.color})</p>
         </kobber-text-body>
       </kobber-text-block>
-      ${args.showTextModule ? nestedTextModule(args) : ""}
+      ${args.showTextModule ? (TextModule.render?.({ ...args, colorVariant: invertColorVariant(args.colorVariant) }, {} as any) ?? "") : ""}
       <kobber-text-block>
         <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
           <p>Another one paragraph here.</p>
         </kobber-text-body>
       </kobber-text-block>
-      ${args.showList ? nestedList(args) : ""}
+      ${args.showList ? (TextList.render?.({ ...args, colorVariant: invertColorVariant(args.colorVariant) }, {} as any) ?? "") : ""}
       <kobber-text-block>
         <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">
           <p>Another one paragraph here.</p>

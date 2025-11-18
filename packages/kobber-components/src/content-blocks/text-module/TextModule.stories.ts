@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import type { Args, Meta, StoryObj } from "@storybook/web-components-vite";
 import { textModuleColors, textModuleColorVariants } from "./TextModule.core";
 import "./TextModule";
 import "../components/text-block/TextBlock";
@@ -10,9 +10,11 @@ import { html } from "lit";
 import "../../theme-context-provider/ThemeContext";
 import "@gyldendal/kobber-icons/web-components";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { init as initComponents } from "../../base/init";
 import { invertColorVariant } from "../../base/utilities/invertColorVariant";
-import { mappedColor, nestedList, nestedTextModule } from "../../story/snippets";
+import { mappedColor } from "../../story/snippets";
+import { TextList } from "../../text/Text.stories";
 
 initComponents();
 initIcons();
@@ -36,6 +38,18 @@ const meta: Meta = {
 
 export default meta;
 type Story = StoryObj;
+
+const nestedTextModule = (args: Args) => {
+  return html`
+      <kobber-text-module color="${ifDefined(args.color)}" color-variant="${invertColorVariant(args.colorVariant)}">
+        <kobber-badge-icon slot="badge" color="${ifDefined(args.color)}" color-variant="${args.colorVariant}">
+          <kobber-pencil slot="icon"></kobber-pencil>
+          Visste du?
+        </kobber-badge-icon>
+        <kobber-text-body color="${ifDefined(args.color)}" color-variant="${args.colorVariant}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. (${args.color})</kobber-text-body>
+      </kobber-text-module>
+  `;
+};
 
 export const TextModule: Story = {
   argTypes: {
@@ -70,7 +84,7 @@ export const TextModule: Story = {
         <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">Body text here. Lorem ipsum dolor sit amet, consectetur adipiscing el it. Ut et massa mi. (${args.color})</kobber-text-body>
       </kobber-text-block>
       ${args.showNested ? nestedTextModule(args) : ""}
-      ${args.showList ? nestedList(args) : ""}
+      ${args.showList ? (TextList.render?.({ ...args, colorVariant: invertColorVariant(args.colorVariant) }, {} as any) ?? "") : ""}
       <kobber-text-block>
         <kobber-title slot="title" color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}" size="medium">Title M</kobber-title>
         <kobber-text-body color="${mappedColor(args)}" color-variant="${invertColorVariant(args.colorVariant)}">Body text here. (${args.color})</kobber-text-body>
