@@ -21,7 +21,8 @@ initIcons();
 
 interface Args extends BadgeIconProps {
   icon?: IconType;
-  text?: string;
+  badgeIconText?: string;
+  slotToInsertInto?: string;
 }
 
 const meta: Meta<Args> = {
@@ -30,44 +31,72 @@ const meta: Meta<Args> = {
   parameters: {
     layout: "centered",
   },
+  argTypes: {
+    color: {
+      options: badgeIconColors,
+      control: { type: "inline-radio" },
+      table: {
+        category: "Badge Icon",
+      },
+    },
+    colorVariant: {
+      options: badgeIconColorVariants,
+      control: { type: "inline-radio" },
+      table: {
+        category: "Badge Icon",
+      },
+    },
+  },
+  args: {
+    color: "brand",
+    colorVariant: "tone-a",
+  },
 };
 
 export default meta;
 
 export const BadgeIcon: StoryObj<Args> = {
   argTypes: {
-    size: {
-      options: badgeIconSizes,
-      control: { type: "inline-radio" },
-    },
-    color: {
-      options: badgeIconColors,
-      control: { type: "inline-radio" },
-    },
-    colorVariant: {
-      options: badgeIconColorVariants,
-      control: { type: "inline-radio" },
-    },
     icon: {
       options: iconsList,
       control: { type: "select" },
+      table: {
+        category: "Badge Icon",
+      },
+    },
+    size: {
+      options: badgeIconSizes,
+      control: { type: "inline-radio" },
+      table: {
+        category: "Badge Icon",
+      },
+    },
+    slotToInsertInto: {
+      table: {
+        category: "Badge Icon",
+      },
+    },
+    badgeIconText: {
+      table: {
+        category: "Badge Icon",
+      },
     },
   },
   args: {
-    text: "Badge Icon",
+    badgeIconText: "Badge Icon",
     size: "medium",
-    color: "brand",
-    colorVariant: "tone-a",
     icon: "kobber-pin",
+    slotToInsertInto: "badge",
   },
   render: args => {
     return html` <kobber-badge-icon
     size=${ifDefined(args.size)}
     color=${ifDefined(args.color)}
     color-variant=${ifDefined(args.colorVariant)}
+    slot=${ifDefined(args.slotToInsertInto)}
   >
     <${unsafeStatic(args.icon ?? "")} slot='icon'></${unsafeStatic(args.icon ?? "")}>
-    ${args.text}
+    ${args.badgeIconText}
   </kobber-badge-icon>`;
   },
 };

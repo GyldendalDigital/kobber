@@ -399,14 +399,14 @@ export const Lead: Story = {
     },
   },
   args: {
-    text: "Lead er en ingress som brukes som en kort innledningstekst som oppsummerer eller introduserer innholdet.",
+    leadText:
+      "Lead er en ingress som brukes som en kort innledningstekst som oppsummerer eller introduserer innholdet.",
     color: leadColors[0],
     colorVariant: leadColorVariants[0],
   },
+  decorators: [(story, _) => html`<div style="max-width: 600px;">${story()}</div>`],
   render: args => {
-    return html`<div style="max-width: 600px;">
-      <kobber-lead color="${args.color}" color-variant="${args.colorVariant}"> ${args.text} </kobber-lead>
-    </div>`;
+    return html`<kobber-lead color="${args.color}" color-variant="${args.colorVariant}"> ${args.leadText} </kobber-lead>`;
   },
 };
 

@@ -21,32 +21,21 @@ const meta: Meta = {
     color: {
       options: textBodyColors,
       control: "inline-radio",
+      table: {
+        category: "Media Module",
+      },
     },
     colorVariant: {
       options: textBodyColorVariants,
       control: "inline-radio",
-    },
-    creditPlacement: {
-      name: "Credit Placement (change requires refresh)",
-      options: mediaModuleCreditPlacements,
-      control: "inline-radio",
       table: {
-        category: "Credit",
-      },
-    },
-    creditText: {
-      table: {
-        category: "Credit",
+        category: "Media Module",
       },
     },
   },
   args: {
     color: textBodyColors[textBodyColors.length - 1],
     colorVariant: textBodyColorVariants[1],
-    creditPlacement: mediaModuleCreditPlacementFallback,
-    creditText: "",
-    imageDescription:
-      "Under bildet har vi mulighet til å legge til en beskrivende tekst om hva bildet handler om. Teksten bør ikke overskride mer enn 2-3 linjer.",
   },
   decorators: [
     (story, context) => {
@@ -63,6 +52,32 @@ const ifNotDefault = (value: string) =>
   ifDefined(value === colorVariantFallback ? undefined : value);
 
 export const MediaModule: Story = {
+  args: {
+    creditPlacement: mediaModuleCreditPlacementFallback,
+    creditText: "",
+    imageDescription:
+      "Under bildet har vi mulighet til å legge til en beskrivende tekst om hva bildet handler om. Teksten bør ikke overskride mer enn 2-3 linjer.",
+  },
+  argTypes: {
+    creditPlacement: {
+      name: "Credit Placement (change requires refresh)",
+      options: mediaModuleCreditPlacements,
+      control: "inline-radio",
+      table: {
+        category: "Credit",
+      },
+    },
+    creditText: {
+      table: {
+        category: "Credit",
+      },
+    },
+    imageDescription: {
+      table: {
+        category: "Media Module",
+      },
+    },
+  },
   render: args => html`
     <kobber-media-module credit-placement="${args.creditPlacement}" color="${args.color}" color-variant=${ifNotDefault(args.colorVariant)}>
       <img slot="media" alt="Illustrasjon: Salaby-figur" src="https://app-pnp-cms-prod.azurewebsites.net/tenants/Edu/dam/preview/Fl3vyz2xaPn8zrA0lNcR-q/previews/maxWidth_600_quality_90.jpg" />
