@@ -25,7 +25,7 @@ export const mediaModuleCreditPlacementFallback = "right";
 
 export type MediaModuleobjectFit = (typeof mediaModuleobjectFits)[number];
 export const mediaModuleobjectFits = ["contain", "cover", "fill", "none", "scale-down"];
-export const mediaModuleobjectFitFallback = "fill";
+export const mediaModuleobjectFitFallback = "cover";
 
 export const colorFallback = "brand";
 export const colorVariantFallback = "tone-a";

@@ -63,6 +63,9 @@ type Story = StoryObj;
 const ifNotDefault = (value: string) =>
   ifDefined(value === colorVariantFallback ? undefined : value);
 
+/**
+ * Image uses `object-fit: cover;`, which corresponds to value "fill" in Figma.
+ */
 export const MediaModule: Story = {
   render: args => html`
     <kobber-media-module credit-placement="${args.creditPlacement}" color="${args.color}" color-variant=${ifNotDefault(args.colorVariant)}>
