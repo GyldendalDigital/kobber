@@ -4,7 +4,6 @@ import { getTypographyStyles } from "../../base/getTypographyStyles";
 import {
   type CheckboxClassNames,
   type CheckboxColor,
-  type CheckboxState,
   checkboxColors,
   type IconClassNames,
   type InputControlClassNames,
@@ -59,8 +58,8 @@ const createCheckboxStyles = () => {
       align-items: center;
       justify-content: center;
       border-radius: var(${unsafeCSS(checkbox.outline.border.radius)});
-      :host(:not(.disabled[checked]):not(.disabled[indeterminate])) &, 
-      :host(:not([disabled][checked]):not([disabled][indeterminate])) & {
+      :host(:not(.disabled[checked], .disabled[indeterminate])) &, 
+      :host(:not([disabled][checked], [disabled][indeterminate])) & {
         border: var(${unsafeCSS(indicator.border.width)}) solid var(--control-border-color);
       }
       outline: var(${unsafeCSS(checkbox.outline.border.width)}) solid var(--control-outline-color);
