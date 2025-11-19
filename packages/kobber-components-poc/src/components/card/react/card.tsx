@@ -2,25 +2,27 @@ import React, { useState } from "react";
 import {
   machine,
   connect,
+  CardMachineSchema,
 } from "@gyldendal/kobber-components-core/card/card.core.js";
 import { normalizeProps, useMachine } from "@zag-js/react";
 import * as css from "../css/card.css";
-import { Paper } from "../../paper/react/paper";
 import { ReactCardContext } from "./card-context";
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: "vertical" | "horizontal";
   element?: string;
+  disabled?: boolean;
 }
 
 export const Card: React.FC<CardProps> = ({
   direction = "vertical",
+  disabled = false,
   children,
   className = "",
   ...props
 }) => {
   const api = connect(
-    useMachine(machine, { initialState: "idle" }),
+    useMachine<CardMachineSchema>(machine, { disabled: disabled }),
     normalizeProps
   );
   const [link, setLink] = useState<HTMLAnchorElement | null>(null);
@@ -44,18 +46,9 @@ export const Card: React.FC<CardProps> = ({
       {/*
         Code related to the note above
       */}
-      <div {...api.getButtonProps()} className={classes} {...props}>
+      <div {...api.getCardProps()} className={classes} {...props}>
         {children}
       </div>
-      {/*<Paper
-        elevation={2}
-        rounded
-        className={classes}
-        {...api.getButtonProps()}
-        {...props}
-      >
-        {children}
-      </Paper>*/}
     </ReactCardContext.Provider>
   );
 };

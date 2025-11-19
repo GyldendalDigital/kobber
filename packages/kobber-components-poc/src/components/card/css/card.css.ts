@@ -4,6 +4,11 @@ import { style } from "@vanilla-extract/css";
 export const card = style({
   all: "unset",
   display: "flex",
+  selectors: {
+    '&[data-part="card"][data-disabled]': {
+      opacity: "50%",
+    },
+  },
 });
 
 export const vertical = style({

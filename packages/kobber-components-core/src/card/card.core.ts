@@ -1,5 +1,10 @@
 import { createMachine, type MachineSchema, type Service } from "@zag-js/core";
 import type { NormalizeProps, PropTypes } from "@zag-js/types";
+import { dataAttr } from "@zag-js/dom-query";
+import { createAnatomy } from "@zag-js/anatomy";
+
+const anatomy = createAnatomy("card").parts("card", "title");
+const parts = anatomy.build();
 
 // Shared code between the formats go here.
 export interface CardProps {
@@ -13,17 +18,52 @@ export type CardContext = {
   direction: "vertical" | "horizontal";
 };
 
-export const machine = createMachine({
+interface MachineProps {
+  disabled: boolean;
+}
+
+export interface CardMachineSchema extends MachineSchema {
+  props: MachineProps;
+  context: {
+    fieldsetDisabled: boolean;
+  };
+  computed: {
+    disabled: boolean;
+  };
+}
+
+export const machine = createMachine<CardMachineSchema>({
+  props({ props }) {
+    return {
+      disabled: false,
+      ...props,
+    };
+  },
+  context({ bindable }) {
+    return {
+      fieldsetDisabled: bindable(() => ({ defaultValue: false })),
+    };
+  },
+  computed: {
+    disabled({ prop, context }) {
+      return !!prop("disabled") || context.get("fieldsetDisabled");
+    },
+  },
+  implementations: {
+    guards: {
+      canHover({ computed }) {
+        return !computed("disabled");
+      },
+    },
+  },
   initialState() {
     return "idle";
   },
   states: {
     hover: {
       on: {
-        CLICK: {
-          target: "idle",
-        },
         LEAVE: {
+          guard: "canHover",
           target: "idle",
         },
       },
@@ -31,23 +71,31 @@ export const machine = createMachine({
     idle: {
       on: {
         ENTER: {
+          guard: "canHover",
           target: "hover",
         },
       },
     },
+    disabled: {},
   },
 });
 
 export const connect = <T extends PropTypes>(
-  service: Service<MachineSchema>,
+  service: Service<CardMachineSchema>,
   normalize: NormalizeProps<T>
 ) => {
-  const { state } = service;
+  const { state, prop } = service;
+  const disabled = !!prop("disabled");
+  const dataAttributes = {
+    "data-disabled": dataAttr(disabled),
+  };
   const active = state.matches("hover");
   return {
     active,
-    getButtonProps() {
+    getCardProps() {
       return normalize.element({
+        ...dataAttributes,
+        ...parts.card.attrs,
         onMouseEnter() {
           service.send({ type: "ENTER" });
         },

@@ -28,30 +28,94 @@ export function AppReact() {
           // console.log(api.connected.active);
         }}
       >
+        <CardMediaWrapper>
+          <CardMediaLayer base={true}>
+            <CardMedia>
+              <img src="./shared/seksjonsteamet.png" />
+            </CardMedia>
+          </CardMediaLayer>
+          <CardMediaLayer>
+            <Badge>
+              <BadgeText>React</BadgeText>
+            </Badge>
+          </CardMediaLayer>
+        </CardMediaWrapper>
+        <CardTextWrapper>
+          <CardTextTitle>
+            <a
+              href="https://nrk.no"
+              target="_blank"
+              id="testing-a-tag"
+              rel="noopener"
+              style={{ all: "unset" }}
+            >
+              This is content inside a card!
+            </a>
+          </CardTextTitle>
+          <CardTextBody>
+            <div>
+              It grows in a specific direction. Here is a lot of additional
+              content to see how things break
+            </div>
+          </CardTextBody>
+        </CardTextWrapper>
+      </Card>
+      <br />
+      <Card
+        disabled={true}
+        element="button"
+        direction={direction}
+        aria-labelledby="testing-a-label"
+        onClick={() => console.log("hello")}
+      >
         <Paper>
           <CardMediaWrapper>
+            <CardMediaLayer>
+              {/* Using style here, can be className */}
+              <div
+                style={{
+                  position: "relative",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  alignItems: "flex-end",
+                  zIndex: 1,
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                <Badge>
+                  <BadgeText>World</BadgeText>
+                </Badge>
+              </div>
+            </CardMediaLayer>
+            <CardMediaLayer>
+              {/* Using style here, can be className */}
+              <div
+                style={{
+                  position: "relative",
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  alignItems: "flex-start",
+                  zIndex: 1,
+                  color: "blue",
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                <Badge>
+                  <BadgeText>Hello</BadgeText>
+                </Badge>
+              </div>
+            </CardMediaLayer>
             <CardMediaLayer base={true}>
               <CardMedia>
                 <img src="./shared/seksjonsteamet.png" />
               </CardMedia>
             </CardMediaLayer>
-            <CardMediaLayer>
-              <Badge>
-                <BadgeText>React</BadgeText>
-              </Badge>
-            </CardMediaLayer>
           </CardMediaWrapper>
           <CardTextWrapper>
-            <CardTextTitle>
-              <a
-                href="https://nrk.no"
-                target="_blank"
-                id="testing-a-tag"
-                rel="noopener"
-                style={{ all: "unset" }}
-              >
-                This is content inside a card!
-              </a>
+            <CardTextTitle api={api}>
+              <label id="testing-a-label">This is content inside a card!</label>
             </CardTextTitle>
             <CardTextBody>
               <div>
@@ -61,70 +125,6 @@ export function AppReact() {
             </CardTextBody>
           </CardTextWrapper>
         </Paper>
-      </Card>
-      <br />
-      <Card
-        element="button"
-        direction={direction}
-        aria-labelledby="testing-a-label"
-        onClick={() => console.log("hello")}
-      >
-        <CardMediaWrapper>
-          <CardMediaLayer>
-            {/* Using style here, can be className */}
-            <div
-              style={{
-                position: "relative",
-                display: "flex",
-                justifyContent: "flex-end",
-                alignItems: "flex-end",
-                zIndex: 1,
-                color: "red",
-                width: "100%",
-                height: "100%",
-              }}
-            >
-              <Badge>
-                <BadgeText>World</BadgeText>
-              </Badge>
-            </div>
-          </CardMediaLayer>
-          <CardMediaLayer>
-            {/* Using style here, can be className */}
-            <div
-              style={{
-                position: "relative",
-                display: "flex",
-                justifyContent: "flex-start",
-                alignItems: "flex-start",
-                zIndex: 1,
-                color: "blue",
-                width: "100%",
-                height: "100%",
-              }}
-            >
-              <Badge>
-                <BadgeText>Hello</BadgeText>
-              </Badge>
-            </div>
-          </CardMediaLayer>
-          <CardMediaLayer base={true}>
-            <CardMedia>
-              <img src="./shared/seksjonsteamet.png" />
-            </CardMedia>
-          </CardMediaLayer>
-        </CardMediaWrapper>
-        <CardTextWrapper>
-          <CardTextTitle api={api}>
-            <label id="testing-a-label">This is content inside a card!</label>
-          </CardTextTitle>
-          <CardTextBody>
-            <div>
-              It grows in a specific direction. Here is a lot of additional
-              content to see how things break
-            </div>
-          </CardTextBody>
-        </CardTextWrapper>
       </Card>
     </div>
   );

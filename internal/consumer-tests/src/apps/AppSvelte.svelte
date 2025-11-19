@@ -23,7 +23,7 @@ import { ToggleButton } from "@gyldendal/kobber-components-poc/svelte/ToggleButt
 <br/>
 <br/>
 
-<Card direction={"horizontal"}>
+<Card direction={"vertical"} disabled={true}>
     <Paper>
     <CardMediaWrapper>
         <CardMediaLayer base={true}>
