@@ -1,5 +1,11 @@
 # @gyldendal/kobber-tsconfig
 
+## 0.7.2
+
+### Patch Changes
+
+- Avoid media module images stretching, and clean up some storybook story usage.
+
 ## 0.7.1
 
 ### Patch Changes
