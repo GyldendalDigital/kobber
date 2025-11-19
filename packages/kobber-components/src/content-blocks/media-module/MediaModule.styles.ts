@@ -3,9 +3,11 @@ import { type MediaModuleClassNames, mediaModuleTokens } from "./MediaModule.cor
 
 const createMediaModuleStyles = () => {
   return css`
+    :host {
+      width: 100%; /* Combined with image's width: 100%: Fill image in container, and scale within the container when width changes. */
+    }
     .${unsafeCSS("kobber-media-module" satisfies MediaModuleClassNames)} {
 
-      width: auto; /* Combined with image's width: 100%: Scale image within container. */
       display: flex;
       flex-direction: column;
       gap: var(${unsafeCSS(mediaModuleTokens.gap)});
@@ -94,9 +96,9 @@ const createMediaModuleStyles = () => {
       position: relative;
       margin: 0;
       display: flex;
-      height: var(${unsafeCSS(mediaModuleTokens["image-container"].size.height)});
       ::slotted(img) { 
         width: 100%; /* Combined with .kobber-media-module's width: auto: Scale image within container. */
+        height: var(${unsafeCSS(mediaModuleTokens["image-container"].size.height)});
         border-radius: var(${unsafeCSS(mediaModuleTokens.border.radius)});
       }
     }
@@ -104,9 +106,6 @@ const createMediaModuleStyles = () => {
     figcaption {
       position: absolute;
       bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       max-width: 60%; /* To enable kobber-text-label to truncate text. Max 45 characters. */
       padding: var(${unsafeCSS(mediaModuleTokens["inner-inner-credit-container"].padding)});
 

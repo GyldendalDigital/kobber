@@ -26,5 +26,4 @@ export default create({
     buttonBg: backgroundColor,
     
     textColor: textColor,
-    textInverseColor: textColor,
 	})

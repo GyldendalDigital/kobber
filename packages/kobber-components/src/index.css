@@ -1627,9 +1627,11 @@
 /* #endregion */
 /* #region MediaModule - mediaModuleStyles */ 
 
+    :host {
+      width: 100%; /* Combined with image's width: 100%: Fill image in container, and scale within the container when width changes. */
+    }
     .kobber-media-module {
 
-      width: auto; /* Combined with image's width: 100%: Scale image within container. */
       display: flex;
       flex-direction: column;
       gap: var(--kobber-component-media-module-gap);
@@ -1718,22 +1720,9 @@
       position: relative;
       margin: 0;
       display: flex;
-      height: var(--kobber-component-media-module-image-container-size-height);
-      slot[name="media"] {
-        display: flex;
-        gap: 1em;
-        [data-number-of-media-elements="1"] & {
-          flex-basis: 100%;
-        }
-        [data-number-of-media-elements="2"] & {
-          flex-basis: 48%;
-        }
-        [data-number-of-media-elements="3"] & {
-          flex-basis: 30%;
-        }
-      }
       ::slotted(img) { 
         width: 100%; /* Combined with .kobber-media-module's width: auto: Scale image within container. */
+        height: var(--kobber-component-media-module-image-container-size-height);
         border-radius: var(--kobber-component-media-module-border-radius);
       }
     }
@@ -1741,9 +1730,6 @@
     figcaption {
       position: absolute;
       bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       max-width: 60%; /* To enable kobber-text-label to truncate text. Max 45 characters. */
       padding: var(--kobber-component-media-module-inner-inner-credit-container-padding);
 
