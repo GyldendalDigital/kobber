@@ -1,5 +1,13 @@
 # @gyldendal/kobber-icons
 
+## 0.7.1
+
+### Patch Changes
+
+- Bugfix media module, update design tokens, apply dependabot fixes, some storybook stories cleanup.
+- Updated dependencies
+  - @gyldendal/kobber-base@0.7.1
+
 ## 0.7.0
 
 ### Minor Changes
