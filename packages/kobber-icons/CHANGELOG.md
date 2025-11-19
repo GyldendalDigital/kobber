@@ -1,5 +1,13 @@
 # @gyldendal/kobber-icons
 
+## 0.7.2
+
+### Patch Changes
+
+- Avoid media module images stretching, and clean up some storybook story usage.
+- Updated dependencies
+  - @gyldendal/kobber-base@0.7.2
+
 ## 0.7.1
 
 ### Patch Changes
