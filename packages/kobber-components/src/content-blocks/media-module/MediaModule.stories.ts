@@ -51,6 +51,9 @@ type Story = StoryObj;
 const ifNotDefault = (value: string) =>
   ifDefined(value === colorVariantFallback ? undefined : value);
 
+/**
+ * Image uses `object-fit: cover;`, which corresponds to value "fill" in Figma.
+ */
 export const MediaModule: Story = {
   args: {
     creditPlacement: mediaModuleCreditPlacementFallback,
