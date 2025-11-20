@@ -26,10 +26,10 @@ export class TextListElement extends LitElement {
       <div role="listitem" class="${textListElementName}"
         data-has-nested-list="${this._hasNestedList}"
       >
-        <div class="body">
+        <kobber-text-body class="body">
           <slot></slot>
           <slot name="${nestedListSlotName}"></slot>
-        </div>
+        </kobber-text-body>
       </div>
     `;
   }
