@@ -2938,6 +2938,25 @@
           }
         }
       },
+      "180": {
+        "type": "dimension",
+        "value": 180,
+        "extensions": {
+          "org.gyldendal.kobber-figma-export": {
+            "scopes": [
+              "TEXT_CONTENT",
+              "CORNER_RADIUS",
+              "WIDTH_HEIGHT",
+              "GAP",
+              "STROKE_FLOAT",
+              "EFFECT_FLOAT",
+              "FONT_VARIATIONS"
+            ],
+            "variableId": "VariableID:15995:6806",
+            "exportKey": "variables"
+          }
+        }
+      },
       "208": {
         "type": "dimension",
         "value": 208,
@@ -3010,6 +3029,25 @@
               "FONT_VARIATIONS"
             ],
             "variableId": "VariableID:12950:548",
+            "exportKey": "variables"
+          }
+        }
+      },
+      "301": {
+        "type": "dimension",
+        "value": 301,
+        "extensions": {
+          "org.gyldendal.kobber-figma-export": {
+            "scopes": [
+              "TEXT_CONTENT",
+              "CORNER_RADIUS",
+              "WIDTH_HEIGHT",
+              "GAP",
+              "STROKE_FLOAT",
+              "EFFECT_FLOAT",
+              "FONT_VARIATIONS"
+            ],
+            "variableId": "VariableID:15995:6805",
             "exportKey": "variables"
           }
         }
@@ -6356,15 +6394,56 @@
         },
         "visual": {
           "profile": {
-            "type": "dimension",
-            "value": "{semantics.visual.profile}",
-            "extensions": {
-              "org.gyldendal.kobber-figma-export": {
-                "scopes": [
-                  "WIDTH_HEIGHT"
-                ],
-                "variableId": "VariableID:15443:5674",
-                "exportKey": "variables"
+            "small": {
+              "type": "dimension",
+              "value": "{semantics.visual.profile.small}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "WIDTH_HEIGHT"
+                  ],
+                  "variableId": "VariableID:15443:5674",
+                  "exportKey": "variables"
+                }
+              }
+            },
+            "medium": {
+              "type": "dimension",
+              "value": "{semantics.visual.profile.medium}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "WIDTH_HEIGHT"
+                  ],
+                  "variableId": "VariableID:15995:11557",
+                  "exportKey": "variables"
+                }
+              }
+            },
+            "large": {
+              "type": "dimension",
+              "value": "{semantics.visual.profile.large}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "WIDTH_HEIGHT"
+                  ],
+                  "variableId": "VariableID:15995:11558",
+                  "exportKey": "variables"
+                }
+              }
+            },
+            "xlarge": {
+              "type": "dimension",
+              "value": "{semantics.visual.profile.xlarge}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "WIDTH_HEIGHT"
+                  ],
+                  "variableId": "VariableID:15995:11559",
+                  "exportKey": "variables"
+                }
               }
             }
           },
@@ -16079,6 +16158,21 @@
               "exportKey": "variables"
             }
           }
+        },
+        "padding": {
+          "inline": {
+            "type": "dimension",
+            "value": "{groups.cards-and-modules.space.small}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "GAP"
+                ],
+                "variableId": "VariableID:16125:14472",
+                "exportKey": "variables"
+              }
+            }
+          }
         }
       }
     },
@@ -16231,6 +16325,126 @@
             }
           }
         }
+      },
+      "gap": {
+        "medium": {
+          "desktop": {
+            "type": "dimension",
+            "value": "{groups.cards-and-modules.space.xlarge}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "GAP"
+                ],
+                "variableId": "VariableID:15995:11534",
+                "exportKey": "variables"
+              }
+            }
+          }
+        },
+        "small": {
+          "desktop": {
+            "type": "dimension",
+            "value": "{groups.cards-and-modules.space.xxlarge}",
+            "extensions": {
+              "org.gyldendal.kobber-figma-export": {
+                "scopes": [
+                  "GAP"
+                ],
+                "variableId": "VariableID:15995:11535",
+                "exportKey": "variables"
+              }
+            }
+          }
+        },
+        "mobile": {
+          "type": "dimension",
+          "value": "{groups.cards-and-modules.space.large}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "GAP"
+              ],
+              "variableId": "VariableID:15995:11537",
+              "exportKey": "variables"
+            }
+          }
+        }
+      },
+      "image-container": {
+        "size": {
+          "width": {
+            "medium": {
+              "type": "dimension",
+              "value": "{groups.cards-and-modules.size.visual.profile.xlarge}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "WIDTH_HEIGHT"
+                  ],
+                  "variableId": "VariableID:15995:11538",
+                  "exportKey": "variables"
+                }
+              }
+            },
+            "small": {
+              "type": "dimension",
+              "value": "{groups.cards-and-modules.size.visual.profile.medium}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "WIDTH_HEIGHT"
+                  ],
+                  "variableId": "VariableID:16051:12756",
+                  "exportKey": "variables"
+                }
+              }
+            }
+          },
+          "height": {
+            "medium": {
+              "type": "dimension",
+              "value": "{groups.cards-and-modules.size.visual.profile.large}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "WIDTH_HEIGHT"
+                  ],
+                  "variableId": "VariableID:16051:12753",
+                  "exportKey": "variables"
+                }
+              }
+            },
+            "small": {
+              "type": "dimension",
+              "value": "{groups.cards-and-modules.size.visual.profile.medium}",
+              "extensions": {
+                "org.gyldendal.kobber-figma-export": {
+                  "scopes": [
+                    "WIDTH_HEIGHT"
+                  ],
+                  "variableId": "VariableID:16051:12758",
+                  "exportKey": "variables"
+                }
+              }
+            }
+          }
+        }
+      },
+      "inner-container": {
+        "gap": {
+          "type": "dimension",
+          "value": "{groups.cards-and-modules.space.large}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "GAP"
+              ],
+              "variableId": "VariableID:16092:13177",
+              "exportKey": "variables"
+            }
+          }
+        }
       }
     },
     "_menu-item-groups": {
@@ -16298,7 +16512,7 @@
         "size": {
           "width": {
             "type": "dimension",
-            "value": "{groups.cards-and-modules.size.visual.profile}",
+            "value": "{groups.cards-and-modules.size.visual.profile.small}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -16311,7 +16525,7 @@
           },
           "height": {
             "type": "dimension",
-            "value": "{groups.cards-and-modules.size.visual.profile}",
+            "value": "{groups.cards-and-modules.size.visual.profile.small}",
             "extensions": {
               "org.gyldendal.kobber-figma-export": {
                 "scopes": [
@@ -21450,13 +21664,48 @@
         }
       },
       "profile": {
-        "type": "dimension",
-        "value": "{primitives.size.120}",
-        "extensions": {
-          "org.gyldendal.kobber-figma-export": {
-            "scopes": [],
-            "variableId": "VariableID:15443:5616",
-            "exportKey": "variables"
+        "small": {
+          "type": "dimension",
+          "value": "{primitives.size.120}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:15443:5616",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "medium": {
+          "type": "dimension",
+          "value": "{primitives.size.180}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:15995:6818",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "xlarge": {
+          "type": "dimension",
+          "value": "{primitives.size.301}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:15995:6819",
+              "exportKey": "variables"
+            }
+          }
+        },
+        "large": {
+          "type": "dimension",
+          "value": "{primitives.size.208}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [],
+              "variableId": "VariableID:15995:11556",
+              "exportKey": "variables"
+            }
           }
         }
       },
