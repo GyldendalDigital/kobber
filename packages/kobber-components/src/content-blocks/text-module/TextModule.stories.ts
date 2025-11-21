@@ -68,6 +68,7 @@ export const TextModule: Story = {
     },
   },
   args: {
+    ...TextList.args,
     colorVariant: textModuleColorVariants[0],
   },
   render: args => html`

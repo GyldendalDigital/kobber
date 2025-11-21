@@ -472,6 +472,10 @@ const ifHighlighted = (textValue: string, highlighted: boolean) =>
  */
 export const TextList: Story = {
   argTypes: {
+    color: {
+      options: textBodyColors,
+      control: "inline-radio",
+    },
     colorVariant: {
       options: textBodyColorVariants,
       control: "inline-radio",
@@ -482,38 +486,45 @@ export const TextList: Story = {
     },
   },
   args: {
+    color: textBodyColors[0],
     colorVariant: textBodyColorVariants[0],
-    size: textBodySizes[1],
+    size: textListSizeFallback,
   },
   render: (args: Args) => {
     return html`
       <kobber-text-list size="${args.size}"
+        color="${args.color}"
         color-variant="${args.colorVariant}"
       >
-        <kobber-text-list-element>
+        <kobber-text-list-element
+        color="${args.color}"
+        color-variant="${args.colorVariant}">
           Punkt
           <kobber-text-list slot="nested" size="${args.size}">
-            <kobber-text-list-element>
+            <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
               Underpunkt
             </kobber-text-list-element>
-            <kobber-text-list-element>
+            <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
               Underpunkt
             </kobber-text-list-element>
-            <kobber-text-list-element>
+            <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
+              Underpunkt
+            </kobber-text-list-element>
+            <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
               Underpunkt
             </kobber-text-list-element>
           </kobber-text-list>
         </kobber-text-list-element>
-        <kobber-text-list-element>
+        <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
           Punkt
           <kobber-text-list slot="nested" size="${args.size}">
-            <kobber-text-list-element>
+            <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
               Underpunkt
             </kobber-text-list-element>
-            <kobber-text-list-element>
+            <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
               Underpunkt
             </kobber-text-list-element>
-            <kobber-text-list-element>
+            <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
               Underpunkt
             </kobber-text-list-element>
           </kobber-text-list>
@@ -534,72 +545,17 @@ export const AllTextLists: Story = {
   ],
   render: () => {
     return html`
-        ${textBodyFonts.map(font =>
-          textListSizes.map(size =>
-            textBodyColors.map(color =>
-              textBodyColorVariants.map(
-                colorVariant => html`
+        ${textListSizes.map(size =>
+          textBodyColors.map(color =>
+            textBodyColorVariants.map(
+              colorVariant => html`
                   <kobber-text-module
                     color="${color}"
-                    color-variant="${invertColorVariant(colorVariant)}"
+                    color-variant="${colorVariant}"
                   >
-                    <kobber-text-body
-                      title="${color} ${colorVariant} ${size} ${font}"
-                      size="${size}"
-                      font="${font}"
-                      color="${color}"
-                      color-variant="${colorVariant}"
-                    >
-                      <kobber-text-list size="${size}"
-                        color-variant="${colorVariant}"
-                      >
-                        <kobber-text-list-element>
-                          Punkt
-                          <kobber-text-list slot="nested" size="${size}">
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                          </kobber-text-list>
-                        </kobber-text-list-element>
-                        <kobber-text-list-element>
-                          Punkt
-                          <kobber-text-list slot="nested" size="${size}">
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                          </kobber-text-list>
-                        </kobber-text-list-element>
-                        <kobber-text-list-element>
-                          Punkt
-                          <kobber-text-list slot="nested" size="${size}">
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                          </kobber-text-list>
-                        </kobber-text-list-element>
-                      </kobber-text-list>
-                    </kobber-text-body>
+                  ${TextList.render?.({ size, color, colorVariant: invertColorVariant(colorVariant) }, {} as any) ?? ""}
                   </kobber-text-module>
                 `,
-              ),
             ),
           ),
         )}
