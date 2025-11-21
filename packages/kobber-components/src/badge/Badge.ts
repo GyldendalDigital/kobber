@@ -69,6 +69,7 @@ export class Badge extends LitElement implements BadgeProps {
       <kobber-text-label
         color=${ifDefined(this.color)}
         color-variant=${ifDefined(invertColorVariant(this.colorVariant))}
+        size=${ifDefined(this.size)}
       >
         <slot></slot>
       </kobber-text-label>
