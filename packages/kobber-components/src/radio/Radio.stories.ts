@@ -211,7 +211,6 @@ export const GNOExample: StoryObj<Args> = {
   },
   argTypes: {
     color: {
-      name: "color (visible only in hover and active states)",
       options: inputColors,
       control: { type: "radio" },
     },
@@ -275,7 +274,6 @@ export const SkolestudioExamples: StoryObj<Args> = {
   },
   argTypes: {
     color: {
-      name: "color (visible only in hover and active states)",
       options: inputColors,
       control: { type: "radio" },
     },
