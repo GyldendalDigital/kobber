@@ -12,7 +12,7 @@ export const checkboxIconClassName = "control--shape";
 const checkboxTokens = component._checkbox.indicator;
 
 export type GroupProps = {
-  direction?: "vertical" | "horizontal";
+  orientation?: Orientation;
   form?: string;
   label?: string;
   name?: string;
@@ -45,5 +45,7 @@ export type IconClassNames = typeof checkboxIconClassName;
 
 export type CheckboxState = keyof typeof checkboxTokens.border.color.success | "disabled";
 export type CheckboxColor = (typeof checkboxColors)[number];
+export type Orientation = (typeof orientations)[number];
 
 export const checkboxColors = objectKeys(component._checkbox.indicator.border.color);
+export const orientations = ["vertical", "horizontal"] as const;

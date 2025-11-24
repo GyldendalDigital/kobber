@@ -931,7 +931,7 @@
           padding-left: var(--kobber-component-checkbox-inner-input-container-padding-left);
         }
       }
-      [data-orientation="horisontal"] & {
+      [data-orientation="horizontal"] & {
         gap: var(--kobber-component-checkbox-input-container-gap-row);
       }
     }
@@ -1852,7 +1852,7 @@ button.kobber-nav-link {
       border: none;
     }
 
-    [data-orientation="horisontal"] .default-slot {
+    [data-orientation="horizontal"] .default-slot {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
       gap: 0.5em;

@@ -57,7 +57,8 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
   /** The name of the checkbox group, submitted as a name/value pair with form data. */
   @property() name = "option";
 
-  @property() orientation: "vertical" | "horizontal" = "vertical";
+  @property()
+  orientation: GroupProps["orientation"] = "vertical";
 
   /** The current value of the checkbox group, submitted as a name/value pair with form data. */
   @state() private idValues: string[] = [];
@@ -89,7 +90,6 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
 
     return validValidityState;
   }
-  direction?: "vertical" | "horizontal" | undefined;
   value: string | undefined;
   defaultValue?: unknown;
   pattern?: string | undefined;

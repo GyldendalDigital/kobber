@@ -26,7 +26,7 @@ export const inputClassNames = ({
 
 export type GroupProps = {
   currentValue?: string;
-  direction?: (typeof directions)[number];
+  orientation?: Orientation;
   form?: string;
   label?: string;
   name?: string;
@@ -59,6 +59,7 @@ export type InputControlPartNames =
 export type InputClassNames = typeof radioInputName | typeof radioInputAsLinkClassName;
 
 export type InputColor = (typeof inputColors)[number];
+export type Orientation = (typeof orientations)[number];
 
 export const inputColors = objectKeys(radioTokens.indicator.border.color);
-export const directions = ["vertical", "horizontal"] as const;
+export const orientations = ["vertical", "horizontal"] as const;

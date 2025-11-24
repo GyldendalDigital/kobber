@@ -1,6 +1,7 @@
 import type { CSSResultGroup } from "lit";
 import { html } from "lit";
 import { property, query, state } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 import {
   customErrorValidityState,
   FormControlController,
@@ -62,7 +63,8 @@ export class RadioGroup extends ShoelaceElement implements Props {
   /** The name of the radio group, submitted as a name/value pair with form data. */
   @property() name = "option";
 
-  @property() orientation: "vertical" | "horizontal" = "vertical";
+  @property()
+  orientation: GroupProps["orientation"] = "vertical";
 
   /** The current value of the radio group, submitted as a name/value pair with form data. */
   @property({ reflect: true }) value = "";
@@ -327,7 +329,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
           <slot name="label">${this.label}</slot>
         </label>
 
-        <div data-orientation="${this.orientation}">${defaultSlot}</div>
+        <div data-orientation="${ifDefined(this.orientation)}">${defaultSlot}</div>
 
         <div id="aria-help-text" aria-hidden=${hasHelpText ? "false" : "true"}>
           <slot name="help-text"></slot>

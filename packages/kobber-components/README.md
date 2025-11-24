@@ -166,7 +166,7 @@ Example of component consuming data as children:
   label="Format"
   onChange={(value) => setValue(value)}
   currentValue={value}
-  direction="horizontal" // eller vertical
+  orientation="horizontal" // eller vertical
 >
   <RadioInput group="format" value="hardcover">Innbundet</RadioInput>
   <RadioInput group="format" value="pocket">Pocket</RadioInput>
@@ -183,7 +183,7 @@ Example of component consuming data as props:
   group="format"
   onChange={(value) => setValue(value)}
   currentValue={value}
-  direction="horizontal" // eller vertical
+  orientation="horizontal" // eller vertical
   options={[
     { label: "Innbundet", value: "hardcover" },
     { label: "Pocket", value: "pocket" },

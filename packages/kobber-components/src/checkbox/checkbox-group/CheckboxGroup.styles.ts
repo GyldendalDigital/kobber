@@ -1,6 +1,6 @@
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
-import type { GroupClassNames } from "../Checkbox.core";
+import type { GroupClassNames, Orientation } from "../Checkbox.core";
 
 const _checkbox = component._checkbox;
 const checkbox = component.checkbox;
@@ -25,7 +25,7 @@ const createCheckboxGroupStyles = () => {
           padding-left: var(${unsafeCSS(checkbox["inner-input-container"].padding.left)});
         }
       }
-      [data-orientation="horisontal"] & {
+      [data-orientation="${unsafeCSS("horizontal" satisfies Orientation)}"] & {
         gap: var(${unsafeCSS(checkbox["input-container"].gap.row)});
       }
     }
