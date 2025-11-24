@@ -1,7 +1,7 @@
 [
   {
     "name": "ContentTemplates",
-    "url": "https://github.com/GyldendalDigital/content-templates",
+    "url": "https://GITHUB_USERNAME:GITHUB_ACCESS_TOKEN@github.com/GyldendalDigital/content-templates",
     "branch": "main",
     "directory": "contentTemplates"
   },
