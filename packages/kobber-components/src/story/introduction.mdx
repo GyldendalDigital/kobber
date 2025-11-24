@@ -7,12 +7,20 @@ import { init as initComponents } from "../base/init";
 
 {initComponents()}
 
-<Meta title="Introduction" />
+<style>
+  {`
+    img {
+      vertical-align: middle;
+    }
+  `}
+</style>
 
+<Meta title="Introduction" />
 <kobber-theme-context>
 
-<kobber-display>Kobber</kobber-display>
-<kobber-lead>Gyldendal's design system</kobber-lead>
+<kobber-display>Kobber</kobber-display> 
+<kobber-lead>Gyldendal's design system ![NPM Version](https://img.shields.io/npm/v/@gyldendal/kobber-components?labelColor=dc134f&color=dc134f&style=flat)</kobber-lead>
+
 
 The Kobber packages, kobber-components and kobber-icons, are documented in this Storybook. Documentation on installing and developing them is found in GitHub.
 
