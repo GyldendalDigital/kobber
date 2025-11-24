@@ -6,6 +6,12 @@
     "directory": "contentTemplates"
   },
   {
+    "name": "SmartVurdering",
+    "url": "https://AZURE_USERNAME:AZURE_ACCESS_TOKEN@dev.azure.com/gyldendaldigital/Smart%20Vurdering/_git/SmartVurdering",
+    "branch": "master",
+    "directory": "smartVurdering"
+  },
+  {
     "name": "SmartExercise",
     "url": "https://GITHUB_USERNAME:GITHUB_ACCESS_TOKEN@github.com/GyldendalDigital/SmartExercise.git",
     "branch": "master",
