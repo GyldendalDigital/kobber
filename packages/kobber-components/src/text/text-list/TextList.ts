@@ -17,7 +17,7 @@ import { textListStyles } from "./TextList.styles";
 export class TextList extends LitElement implements TextListProps {
   static styles: CSSResultGroup = [componentStyles, textListStyles];
 
-  @property({ attribute: "color" })
+  @property()
   color: TextListProps["color"] = "brand";
 
   @property({ attribute: "color-variant" })
