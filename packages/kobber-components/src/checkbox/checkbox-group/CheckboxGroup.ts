@@ -46,17 +46,21 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
 
   @query("slot:not([name])") defaultSlot!: HTMLSlotElement;
 
-  @property() type: "equal" | "hierarchical" = "equal";
-  @property({ attribute: "hierarchical-checkboxbox-label" }) hierarchicalCheckboxLabel = "";
+  @property()
+  type: GroupProps["type"] = "equal";
+  @property({ attribute: "hierarchical-checkboxbox-label" })
+  hierarchicalCheckboxLabel: GroupProps["hierarchicalCheckboxLabel"] = "";
 
   /**
    * The checkbox group's label. Required for proper accessibility. If you need to display HTML, use the `label` slot
    * instead.
    */
-  @property() label = "";
+  @property()
+  label: GroupProps["label"] = "";
 
   /** The name of the checkbox group, submitted as a name/value pair with form data. */
-  @property() name = "option";
+  @property()
+  name: GroupProps["name"] = "option";
 
   @property()
   orientation: GroupProps["orientation"] = "vertical";
@@ -73,10 +77,12 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
    * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
    * the same document or shadow root for this to work.
    */
-  @property({ reflect: true }) form = "";
+  @property({ reflect: true })
+  form: GroupProps["form"] = "";
 
   /** Ensures a child checkbox is checked before allowing the containing form to submit. */
-  @property({ type: Boolean, reflect: true }) required = false;
+  @property({ type: Boolean, reflect: true })
+  required: GroupProps["required"] = false;
 
   /** Gets the validity state object */
   get validity() {

@@ -17,6 +17,8 @@ export type GroupProps = {
   label?: string;
   name: string;
   required?: boolean;
+  type?: Type;
+  hierarchicalCheckboxLabel?: string;
   value?: string;
 };
 
@@ -46,6 +48,8 @@ export type IconClassNames = typeof checkboxIconClassName;
 export type CheckboxState = keyof typeof checkboxTokens.border.color.success | "disabled";
 export type CheckboxColor = (typeof checkboxColors)[number];
 export type Orientation = (typeof orientations)[number];
+export type Type = (typeof types)[number];
 
 export const checkboxColors = objectKeys(component._checkbox.indicator.border.color);
 export const orientations = ["vertical", "horizontal"] as const;
+export const types = ["equal", "hierarchical"] as const;

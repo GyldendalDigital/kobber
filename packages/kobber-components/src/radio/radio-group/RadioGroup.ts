@@ -52,35 +52,42 @@ export class RadioGroup extends ShoelaceElement implements Props {
 
   @query("slot:not([name])") defaultSlot!: HTMLSlotElement;
 
-  @property({ attribute: "current-value" }) currentValue = "";
+  @property({ attribute: "current-value" })
+  currentValue: GroupProps["currentValue"] = "";
 
   /**
    * The radio group's label. Required for proper accessibility. If you need to display HTML, use the `label` slot
    * instead.
    */
-  @property() label = "";
+  @property()
+  label: GroupProps["label"] = "";
 
   /** The name of the radio group, submitted as a name/value pair with form data. */
-  @property() name = "option";
+  @property()
+  name: GroupProps["name"] = "option";
 
   @property()
   orientation: GroupProps["orientation"] = "vertical";
 
   /** The current value of the radio group, submitted as a name/value pair with form data. */
-  @property({ reflect: true }) value = "";
+  @property({ reflect: true })
+  value: GroupProps["value"] = "";
 
   /**
    * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
    * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
    * the same document or shadow root for this to work.
    */
-  @property({ reflect: true }) form = "";
+  @property({ reflect: true })
+  form: GroupProps["form"] = "";
 
   /** Ensures a child radio is checked before allowing the containing form to submit. */
-  @property({ type: Boolean, reflect: true }) required = false;
+  @property({ type: Boolean, reflect: true })
+  required: GroupProps["required"] = false;
 
   /** Applicable when used as a button that redirects to url. */
-  @state() private url = window.location.href;
+  @state()
+  private url: string = window.location.href;
 
   /** Gets the validity state object */
   get validity() {
