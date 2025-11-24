@@ -15,7 +15,7 @@ export type GroupProps = {
   orientation?: Orientation;
   form?: string;
   label?: string;
-  name?: string;
+  name: string;
   required?: boolean;
   value?: string;
 };
