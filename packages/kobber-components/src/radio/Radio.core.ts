@@ -1,5 +1,6 @@
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { objectKeys } from "../base/utilities/objectKeys";
+import { TemplateResult } from "lit";
 
 export const radioInputName = "kobber-radio-input";
 export const radioInputControlName = "kobber-radio-input-control";
@@ -17,18 +18,19 @@ export const inputClassNames = () => {
 
 export type GroupProps = {
   currentValue?: string;
-  orientation?: Orientation;
   form?: string;
-  label?: string;
-  name: string;
+  inputsCommonName: string;
+  label?: TemplateResult<1> | HTMLCollection | string;
+  orientation?: Orientation;
   required?: boolean;
-  value?: string;
 };
 
 export type InputProps = {
   checked?: boolean;
-  disabled?: boolean;
   color?: InputColor;
+  disabled?: boolean;
+  value: string;
+  children?: TemplateResult<1> | HTMLCollection | string;
 };
 
 export type ControlProps = {

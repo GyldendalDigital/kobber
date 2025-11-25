@@ -34,16 +34,18 @@ export class RadioInput extends ShoelaceElement implements InputProps {
 
   @state() protected hasFocus = false;
 
-  @property({ type: Boolean, reflect: true }) checked = false;
+  @property({  type: Boolean, reflect: true }) 
+  checked?: InputProps["checked"] = false;
 
-  /** The radio's value. When selected, the radio group will receive this value. */
-  @property() value: string = "";
-
-  @property({ attribute: "color" })
+  @property()
   color?: InputProps["color"] = "success";
 
-  /** Disables the radio. */
-  @property({ type: Boolean, reflect: true }) disabled = false;
+  @property({ type: Boolean, reflect: true }) 
+  disabled?: InputProps["disabled"] = false;
+  
+  /** The radio's value. When selected, the radio group will receive this value. */
+  @property()
+  value: InputProps["value"] = "";
 
   constructor() {
     super();
