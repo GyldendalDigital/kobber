@@ -1,0 +1,12 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import * as AspectRatioStories from "./AspectRatio.stories.tsx";
+
+<Meta of={AspectRatioStories} />
+
+# AspectRatio
+
+Uses CSS `padding-top` instead of `aspect-ratio` to support [old browsers](https://caniuse.com/mdn-css_properties_aspect-ratio).
+
+For example, `aspect-ratio: 16/9` will be converted into `padding-top: calc((9 / 16) * 100%)`.
+
+CSS `aspect-ratio` is [baseline since 2021](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio), so this should be deprecated at some point.

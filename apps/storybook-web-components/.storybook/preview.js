@@ -1,6 +1,6 @@
 import "@gyldendal/kobber-base/themes/default/tokens.css";
 import "@gyldendal/kobber-base/themes/dark/tokens.css";
-import "@gyldendal/kobber-components/css/index.css";
+import "@gyldendal/kobber-components-poc/react/index.css";
 import theme from "./managerTheme";
 import { html } from "lit-html";
 

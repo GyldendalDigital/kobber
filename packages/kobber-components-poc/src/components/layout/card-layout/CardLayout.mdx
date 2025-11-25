@@ -1,0 +1,82 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { Info } from "./story/Info";
+import { maxWidths, maxColumns } from "./core/config";
+import * as CardLayoutStories from "./CardLayout.stories";
+
+<Meta of={CardLayoutStories} />
+
+# CardLayout
+
+A responsive, container-aware layout system for cards and card-like content.  
+It provides flexible spans and adaptive behavior based on the *container’s* width—**not** the viewport.
+
+## Overview
+
+The `<CardLayout />` component provides:
+
+- **Optimized layouts** that allocate maximum width to columns.
+- **Automatic scaling**: multi-column items shrink to fewer columns when space is limited.
+- **Optional aspect ratios** for grid items.
+- **Responsiveness based on CSS container queries.**
+
+## Usage
+
+```tsx
+<CardLayout
+    maxWidth={1200}
+    maxColumns={4}
+    columnAspectRatio={1.2}
+    paddingInline={8}
+    gap={8}
+  >
+  <CardLayoutColumn span={2}>
+    <div>
+      Content
+    </div>
+  </CardLayoutColumn>
+</CardLayout>
+```
+
+  display: "grid",
+  minHeight: 0,
+  gridTemplateRows: "minmax(0, 1fr)",
+
+## Responsive Behavior
+
+`<CardLayout />` uses **predefined maximum widths** and **max column counts**, derived from configuration:
+
+- Max widths: <code>{Object.values(maxWidths).join(", ")}</code>
+- Maximum number of columns: <code>{Math.max(...Object.values(maxColumns))}</code>
+
+For example:
+
+- <code>maxWidth: {maxWidths[1200]}</code>
+- <code>maxColumns: {maxColumns[4]}</code>
+
+This results in the following container-query breakpoints:
+
+<Info
+  maxContainerWidth={maxWidths[1200]}
+  maxColumns={maxColumns[4]}
+  style={{ fontSize: 13 }}
+/>
+
+Since the layout adapts to the **container width**, it will behave correctly inside flexible layouts, when sidebars are present, in modals and in nested containers.
+
+## Performance
+
+To keep the component fast and lightweight, all CSS used by `<CardLayout />` is **generated at build time**.
+
+At runtime only the **CSS custom properties** are updated.
+
+## Column Gaps
+
+`<CardLayoutColumn />` uses **paddings**, not `grid-gap`, to maintain correct behavior with aspect ratios:
+
+## Legacy browser support
+
+In legacy browsers that do not support modern CSS, columns will only span one column.
+
+[CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries) are replaced with `grid-template-columns` with `auto-fill`
+
+[CSS aspect ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio) is replaced with `padding-top`

@@ -4,6 +4,10 @@ const config = {
     "../../../packages/kobber-components/src/**/introduction.@(mdx)",
     "../../../packages/kobber-components/src/**/*.@(mdx)",
     "../../../packages/kobber-components/src/**/*.stories.@(js|mjs|ts)",
+
+    "../../../packages/kobber-components-poc/src/**/*.@(mdx)",
+    "../../../packages/kobber-components-poc/src/**/*.stories.@(js|mjs|ts|tsx)",
+
     "../../../packages/kobber-icons/src/**/*.@(mdx)",
     "../../../packages/kobber-icons/src/**/*.stories.@(js|mjs|ts)",
   ],
