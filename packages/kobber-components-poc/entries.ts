@@ -13,6 +13,7 @@ const getFrameworkEntries = (indexFileName: string, destination: string) =>
     ]);
 
 const componentEntries = [
+  ...getFrameworkEntries("index.api.ts", "api"),
   ...getFrameworkEntries("index.react.tsx", "react"),
   ...getFrameworkEntries("index.svelte.ts", "svelte"),
   ...getFrameworkEntries("index.vanilla.ts", "vanilla"),
@@ -22,6 +23,7 @@ const componentEntries = [
 export const entries = Object.fromEntries(componentEntries);
 
 export const cssEntries = [
+  ["api/index.css", "./dist/api"],
   ["react/index.css", "./dist/react"],
   ["svelte/index.css", "./dist/svelte"],
   ["vanilla/index.css", "./dist/vanilla"],

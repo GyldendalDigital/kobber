@@ -5,7 +5,7 @@ import {
   spreadProps,
   VanillaMachine,
 } from "@gyldendal/kobber-components-core/vanilla";
-import { getClassNames } from "./core";
+import { toggleButtonApi } from "../index.api";
 
 interface Props {
   state: toggleButton.State;
@@ -21,10 +21,10 @@ export class ToggleButton extends Component<Props, toggleButton.Api> {
   }
 
   render = () => {
-    const classNames = getClassNames(this.api);
+    const api = toggleButtonApi({ isActive: this.api.active });
     spreadProps(this.rootEl, {
       ...this.api.getButtonProps(),
-      class: classNames.root,
+      class: api.root.className,
     });
   };
 }
