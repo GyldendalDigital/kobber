@@ -924,14 +924,15 @@
       display: flex;
       flex-wrap: wrap;
 
-      [data-orientation="vertical"] & {
+      
+      &[data-orientation="vertical"] {
         flex-direction: column;
         gap: var(--kobber-component-checkbox-input-container-gap-list);
         [data-type="hierarchical"] & {
           padding-left: var(--kobber-component-checkbox-inner-input-container-padding-left);
         }
       }
-      [data-orientation="horizontal"] & {
+      &[data-orientation="horizontal"] {
         gap: var(--kobber-component-checkbox-input-container-gap-row);
       }
     }

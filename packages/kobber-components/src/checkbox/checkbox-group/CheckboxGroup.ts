@@ -1,5 +1,6 @@
 import type { CSSResultGroup } from "lit";
 import { property, query, state } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { html, unsafeStatic } from "lit/static-html.js";
 import {
   customErrorValidityState,
@@ -233,8 +234,7 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
     return html`
       <fieldset
         class="${checkboxGroupName}"
-        data-orientation="${this.orientation}"
-        data-type="${this.type}"
+        data-type="${ifDefined(this.type)}"
         aria-describedby="aria-help-text"
         aria-errormessage="error-message"
       >
@@ -242,7 +242,9 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
           <slot name="label">${this.label}</slot>
         </legend>
 
-        ${hierarchicalCheckbox} ${defaultSlot}
+        ${hierarchicalCheckbox}
+        <div data-orientation="${ifDefined(this.orientation)}">${defaultSlot}</div>
+        
 
         <div id="aria-help-text" aria-hidden=${hasHelpText ? "false" : "true"}>
           <slot name="help-text"></slot>

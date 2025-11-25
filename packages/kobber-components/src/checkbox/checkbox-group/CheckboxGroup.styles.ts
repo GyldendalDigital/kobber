@@ -18,7 +18,8 @@ const createCheckboxGroupStyles = () => {
       display: flex;
       flex-wrap: wrap;
 
-      [data-orientation="vertical"] & {
+      
+      [data-orientation="${unsafeCSS("vertical" satisfies Orientation)}"] & {
         flex-direction: column;
         gap: var(${unsafeCSS(checkbox["input-container"].gap.list)});
         [data-type="hierarchical"] & {
