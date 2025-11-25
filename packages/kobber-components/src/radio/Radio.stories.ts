@@ -26,7 +26,7 @@ interface Args extends InputProps {
   state: string;
   link: boolean;
   currentValue: (typeof formats)[number];
-  direction: GroupProps["direction"];
+  orientation: GroupProps["orientation"];
   showHelpText: boolean;
   showLabel: boolean;
 }
@@ -82,7 +82,7 @@ export const Themes: StoryObj<Args> = {
             text: "idle",
             link: false,
             currentValue: args.currentValue,
-            direction: args.direction,
+            orientation: args.orientation,
             showHelpText: args.showHelpText,
             showLabel: args.showLabel,
           }),
@@ -186,7 +186,7 @@ export const GNOExample: StoryObj<Args> = {
       </style>
 
       <div class="wrapper-theme">
-        <kobber-radio-group current-value="${args.currentValue}" direction="${args.direction}">
+        <kobber-radio-group current-value="${args.currentValue}" orientation="${args.orientation}">
         <p slot="label">
           Formater (ref <a href="https://en.wikipedia.org/wiki/Paperback">Wikipedia</a>):
         </p>
@@ -211,7 +211,6 @@ export const GNOExample: StoryObj<Args> = {
   },
   argTypes: {
     color: {
-      name: "color (visible only in hover and active states)",
       options: inputColors,
       control: { type: "radio" },
     },
@@ -222,14 +221,14 @@ export const GNOExample: StoryObj<Args> = {
       control: "inline-radio",
       options: ["hardcover", "ebook", "audiobook"],
     },
-    direction: {
+    orientation: {
       control: "inline-radio",
       options: ["horizontal", "vertical"],
     },
   },
   args: {
     currentValue: "ebook",
-    direction: "horizontal",
+    orientation: "horizontal",
     showHelpText: true,
     color: inputColors[0],
   },
@@ -258,13 +257,13 @@ export const SkolestudioExamples: StoryObj<Args> = {
       </style>
 
       <div class="wrapper-theme">
-        <kobber-radio-group direction="horizontal" current-value="no-bm">
+        <kobber-radio-group orientation="horizontal" current-value="no-bm">
         <p slot="label">Målform</p>
           <kobber-radio-input value="no-bm" color="${ifDefined(args.color)}">Bokmål</kobber-radio-input>
           <kobber-radio-input value="no-nn" color="${ifDefined(args.color)}">Nynorsk</kobber-radio-input>
         </kobber-radio-group>
 
-        <kobber-radio-group direction="horizontal" current-value="level11-13">
+        <kobber-radio-group orientation="horizontal" current-value="level11-13">
         <p slot="label">Trinn</p>
           <kobber-radio-input value="level1-7" color="${ifDefined(args.color)}">1.–7. trinn</kobber-radio-input>
           <kobber-radio-input value="level8-10" color="${ifDefined(args.color)}">8.–10. trinn</kobber-radio-input>
@@ -275,7 +274,6 @@ export const SkolestudioExamples: StoryObj<Args> = {
   },
   argTypes: {
     color: {
-      name: "color (visible only in hover and active states)",
       options: inputColors,
       control: { type: "radio" },
     },

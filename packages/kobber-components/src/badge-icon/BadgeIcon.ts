@@ -35,6 +35,7 @@ export class BadgeIcon extends LitElement implements BadgeIconCore.BadgeIconProp
       <kobber-text-label
         color=${ifDefined(this.color)}
         color-variant=${ifDefined(this.colorVariant)}
+        size=${ifDefined(this.size)}
       >
         <slot></slot>
       </kobber-text-label>
