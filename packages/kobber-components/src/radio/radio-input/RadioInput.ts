@@ -13,10 +13,8 @@ import {
 } from "../Radio.core";
 import { radioInputStyles } from "./RadioInput.styles";
 import "../radio-input-control/RadioInputControl";
-import "../../button/default-button/Button";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { customElement } from "../../base/utilities/customElementDecorator";
-import { defaultButtonName } from "../../button/default-button/Button.core";
 import "../../text/text-label/TextLabel";
 
 /**
@@ -47,13 +45,6 @@ export class RadioInput extends ShoelaceElement implements InputProps {
   /** Disables the radio. */
   @property({ type: Boolean, reflect: true }) disabled = false;
 
-  /** When set, the underlying input will be rendered as an `<a>` with this `href` instead of a `<kobber-radio-input>`. */
-  @property({ type: String }) href = "";
-
-  private isLink() {
-    return !!this.href;
-  }
-
   constructor() {
     super();
     this.addEventListener("blur", this.handleBlur);
@@ -67,9 +58,6 @@ export class RadioInput extends ShoelaceElement implements InputProps {
   }
 
   private handleFocus = () => {
-    if (this.isLink()) {
-      window.location.href = this.href;
-    }
     this.hasFocus = true;
   };
 
@@ -84,9 +72,7 @@ export class RadioInput extends ShoelaceElement implements InputProps {
   };
 
   private setInitialAttributes() {
-    if (!this.isLink()) {
-      this.setAttribute("role", "radio");
-    }
+    this.setAttribute("role", "radio");
     this.setAttribute("tabindex", "-1");
     this.setAttribute("aria-disabled", this.disabled ? "true" : "false");
   }
@@ -103,38 +89,11 @@ export class RadioInput extends ShoelaceElement implements InputProps {
   }
 
   render() {
-    const isLink = this.isLink();
-    const buttonElement = unsafeStatic(defaultButtonName);
     const radioInputControlElement = unsafeStatic(radioInputControlName);
 
-    if (isLink) {
-      return html`<${buttonElement}
-        class=${[
-          ...inputClassNames({
-            isLink: isLink,
-          }),
-        ].join(" ")}
-        data-color="${this.color}"
-        ?disabled="${this.disabled}"
-        href="${this.href}"
-        usedInOtherInteractive
-        iconFirst
-      >
-        <${radioInputControlElement}
-          ?checked="${this.checked}"
-          color="${this.color}"
-          slot="icon"
-        ></${radioInputControlElement}>
-        <slot part="label"></slot>
-      </${buttonElement}>`;
-    }
     return html`
       <div
-        class=${[
-          ...inputClassNames({
-            isLink: isLink,
-          }),
-        ].join(" ")}
+        class=${[...inputClassNames()].join(" ")}
         data-color="${ifDefined(this.color)}"
       >
         <${radioInputControlElement} ?checked="${this.checked}" color="${this.color}"></${radioInputControlElement}>

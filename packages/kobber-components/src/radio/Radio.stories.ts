@@ -24,7 +24,6 @@ const helpTextElement = html`<p slot="help-text">
 interface Args extends InputProps {
   text: string;
   state: string;
-  link: boolean;
   currentValue: (typeof formats)[number];
   orientation: GroupProps["orientation"];
   showHelpText: boolean;
@@ -80,7 +79,6 @@ export const Themes: StoryObj<Args> = {
             color,
             state: "idle",
             text: "idle",
-            link: false,
             currentValue: args.currentValue,
             orientation: args.orientation,
             showHelpText: args.showHelpText,
@@ -135,7 +133,7 @@ const renderButton = (
     last: boolean;
   },
 ) => {
-  const { color, focus, state, text, link, checked, last } = args;
+  const { color, focus, state, text, checked, last } = args;
   const className = `${focus} ${state}`;
   const lastStyles = last ? `grid-column: -1` : "";
   return html`
@@ -144,8 +142,7 @@ const renderButton = (
   class="${className}" 
   color="${ifDefined(color)}" 
   ?checked=${checked === true}
-  ?disabled=${state === "disabled"}
-  href="${link ? "#" : ""}">
+  ?disabled=${state === "disabled"}>
     ${text}
 </kobber-radio-input>
 `;
@@ -191,18 +188,16 @@ export const GNOExample: StoryObj<Args> = {
           Formater (ref <a href="https://en.wikipedia.org/wiki/Paperback">Wikipedia</a>):
         </p>
         
-          <kobber-radio-input value="hardcover" ${args.link ? `href="#format-innbundet"` : ""}
+          <kobber-radio-input value="hardcover"
              color="${args.color}"><div>Innbundet – <em style="text-wrap: nowrap">kr 2 339,-</em></div></kobber-radio-input
           >
-          <kobber-radio-input value="pocket" ${args.link ? `href="#format-pocket"` : ""} disabled
+          <kobber-radio-input value="pocket" disabled
              color="${args.color}"><div>Pocket – <em style="text-wrap: nowrap">kr 339,-</em><p class="alert">Utsolgt</p></div></kobber-radio-input
           >
-          <kobber-radio-input value="ebook" ${args.link ? `href="#format-ebok"` : ""}
-             color="${args.color}"><div>Ebok (med label som er så lang <br />
+          <kobber-radio-input value="ebook" color="${args.color}"><div>Ebok (med label som er så lang <br />
             at den går over flere linjer) – <em style="text-wrap: nowrap">kr 39,-</em></div></kobber-radio-input
           >
-          <kobber-radio-input value="audiobook" ${args.link ? `href="#format-lydbok"` : ""}
-             color="${args.color}"><div>Lydbok – <em style="text-wrap: nowrap">kr 339,-</em></div></kobber-radio-input
+          <kobber-radio-input value="audiobook" color="${args.color}"><div>Lydbok – <em style="text-wrap: nowrap">kr 339,-</em></div></kobber-radio-input
           >
           ${args.showHelpText ? helpTextElement : ""}
         </kobber-radio-group>
@@ -213,9 +208,6 @@ export const GNOExample: StoryObj<Args> = {
     color: {
       options: inputColors,
       control: { type: "radio" },
-    },
-    link: {
-      control: { type: "boolean" },
     },
     currentValue: {
       control: "inline-radio",
@@ -231,6 +223,11 @@ export const GNOExample: StoryObj<Args> = {
     orientation: "horizontal",
     showHelpText: true,
     color: inputColors[0],
+  },
+  parameters: {
+    controls: {
+      include: /^(?!.*(showGroupHelpText)).*/g,
+    },
   },
 };
 
@@ -280,10 +277,5 @@ export const SkolestudioExamples: StoryObj<Args> = {
   },
   args: {
     color: inputColors[0],
-  },
-  parameters: {
-    actions: {
-      handles: ["input"],
-    },
   },
 };

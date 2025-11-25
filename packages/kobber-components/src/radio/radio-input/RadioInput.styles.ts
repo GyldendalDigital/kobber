@@ -24,10 +24,6 @@ const createInputStyles = () => {
 
       ${inputColorStyles()}
       ${inputStates()}
-      
-      &.${unsafeCSS("input--as-link" satisfies InputClassNames)} {
-        text-decoration: none;
-      }
     }
 
     .${unsafeCSS("label" satisfies InputLabelClassNames)} {

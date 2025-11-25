@@ -1,6 +1,6 @@
 import type { CSSResultGroup } from "lit";
 import { html } from "lit";
-import { property, query, state } from "lit/decorators.js";
+import { property, query } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import {
   customErrorValidityState,
@@ -85,10 +85,6 @@ export class RadioGroup extends ShoelaceElement implements Props {
   @property({ type: Boolean, reflect: true })
   required: GroupProps["required"] = false;
 
-  /** Applicable when used as a button that redirects to url. */
-  @state()
-  private url: string = window.location.href;
-
   /** Gets the validity state object */
   get validity() {
     const isRequiredAndEmpty = this.required && !this.value;
@@ -115,12 +111,6 @@ export class RadioGroup extends ShoelaceElement implements Props {
   connectedCallback() {
     super.connectedCallback();
     this.value = this.currentValue;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    navigation.addEventListener("navigate", () => {
-      // Experimental functionality, does not work in Firefox. Might change in the future.
-      this.handleUrlChange();
-    });
   }
 
   firstUpdated() {
@@ -138,11 +128,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
       // Sync the checked state and size
       radios.map(async radio => {
         await radio.updateComplete;
-        if (radio.href !== "") {
-          radio.checked = this.url.includes(radio.href);
-        } else {
-          radio.checked = radio.value === this.value;
-        }
+        radio.checked = radio.value === this.value;
       }),
     );
 
@@ -300,14 +286,6 @@ export class RadioGroup extends ShoelaceElement implements Props {
   @watch("value")
   handleValueChange() {
     this.updateCheckedRadio();
-  }
-
-  @watch("url")
-  handleUrlChange() {
-    if (window.location.href !== this.url) {
-      this.url = window.location.href;
-      this.syncRadios();
-    }
   }
 
   render() {
