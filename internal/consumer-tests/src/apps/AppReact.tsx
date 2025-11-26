@@ -10,6 +10,14 @@ import {
 import { Paper } from "@gyldendal/kobber-components-poc/react/paper";
 import { ToggleButton } from "@gyldendal/kobber-components-poc/react/ToggleButton";
 import { Badge, BadgeText } from "@gyldendal/kobber-components-poc/react/badge";
+import {
+  Button,
+  ButtonText,
+  ButtonIcon,
+} from "@gyldendal/kobber-components-poc/react/button";
+import { init as initIcons } from "@gyldendal/kobber-icons/init";
+import { ArrowRight } from "@gyldendal/kobber-icons/react";
+initIcons();
 
 export function AppReact() {
   const direction = "vertical";
@@ -18,8 +26,28 @@ export function AppReact() {
   return (
     <div>
       <ToggleButton initialState="active">Custom machine</ToggleButton>
+
       <br />
       <br />
+
+      {/*
+       brand
+       secondary
+       tone-b
+
+        */}
+
+      <Button collection="brand" level="primary" tone="tone-a">
+        <ButtonIcon>
+          {/* NOTE(sølve): size of icon should be set outside of the specific icon  */}
+          <ArrowRight size="large" />
+        </ButtonIcon>
+        <ButtonText>Button</ButtonText>
+      </Button>
+
+      <br />
+      <br />
+
       <Card
         element="nav"
         direction={direction}
