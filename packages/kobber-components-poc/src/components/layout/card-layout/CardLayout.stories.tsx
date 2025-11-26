@@ -1,4 +1,9 @@
 import {
+  cardLayoutApi,
+  cardLayoutColumnApi,
+} from "@gyldendal/kobber-components-poc/api/layout/card-layout";
+import { AspectRatio } from "@gyldendal/kobber-components-poc/react/aspectRatio";
+import {
   CardLayout,
   CardLayoutColumn,
 } from "@gyldendal/kobber-components-poc/react/layout/card-layout";
@@ -10,9 +15,12 @@ import { ConsumerContainer } from "./story/ConsumerContainer";
 import { Info } from "./story/Info";
 import { Placeholder } from "./story/Placeholder";
 
+const frameworkOptions = ["React", "API"] as const;
+
 export interface Args {
   showIndicators: boolean;
   modernCss: boolean;
+  framework: (typeof frameworkOptions)[number];
   containerWidth: number;
   items: Item[];
   maxWidth: keyof typeof maxWidths;
@@ -34,6 +42,12 @@ const meta: Meta<Args> = {
       table: { category: "Test" },
       name: "Assume modern CSS support (container queries and aspect ratio). Omit the modernCss-prop for automatic detection.",
       control: { type: "boolean" },
+    },
+    framework: {
+      table: { category: "Test" },
+      name: "Framework",
+      control: { type: "radio" },
+      options: frameworkOptions,
     },
     items: {
       table: { category: "Consumer" },
@@ -81,24 +95,7 @@ export default meta;
 const render = (args: Args) => (
   <>
     <ConsumerContainer {...args}>
-      <CardLayout
-        maxWidth={args.maxWidth}
-        maxColumns={args.maxColumns}
-        modernCss={args.modernCss}
-        columnAspectRatio={
-          args.columnAspectRatio === 0 ? undefined : args.columnAspectRatio
-        }
-        paddingInline={args.paddingInline}
-        gap={args.gap}
-      >
-        {args.items.map(({ span, content, transparent }, index) => (
-          <CardLayoutColumn key={index.toString()} span={span}>
-            <Placeholder index={index} transparent={transparent} span={span}>
-              {content}
-            </Placeholder>
-          </CardLayoutColumn>
-        ))}
-      </CardLayout>
+      {args.framework === "React" ? renderAsReact(args) : renderAsApi(args)}
     </ConsumerContainer>
     <Info
       maxContainerWidth={args.maxWidth}
@@ -107,6 +104,101 @@ const render = (args: Args) => (
     />
   </>
 );
+
+const renderAsReact = ({
+  maxWidth,
+  maxColumns,
+  modernCss,
+  columnAspectRatio,
+  paddingInline,
+  gap,
+  items,
+}: Args) => (
+  <CardLayout
+    maxWidth={maxWidth}
+    maxColumns={maxColumns}
+    modernCss={modernCss}
+    columnAspectRatio={columnAspectRatio === 0 ? undefined : columnAspectRatio}
+    paddingInline={paddingInline}
+    gap={gap}
+  >
+    {items.map(({ span, content, transparent }, index) => (
+      <CardLayoutColumn
+        key={index.toString()}
+        span={span}
+        columnAspectRatio={
+          columnAspectRatio === 0 ? undefined : columnAspectRatio
+        }
+        modernCss={modernCss}
+      >
+        <Placeholder index={index} transparent={transparent} span={span}>
+          {content}
+        </Placeholder>
+      </CardLayoutColumn>
+    ))}
+  </CardLayout>
+);
+
+const renderAsApi = ({
+  maxWidth,
+  maxColumns,
+  modernCss,
+  columnAspectRatio: columnAspectRatioProp,
+  paddingInline,
+  gap,
+  items,
+}: Args) => {
+  const columnAspectRatio =
+    columnAspectRatioProp === 0 ? undefined : columnAspectRatioProp;
+  const api = cardLayoutApi({
+    maxWidth,
+    maxColumns,
+    modernCss,
+    columnAspectRatio,
+    paddingInline,
+    gap,
+  });
+  return (
+    <div className={api.root.className} style={api.root.style}>
+      <div
+        className={api.queryContainer.className}
+        style={api.queryContainer.style}
+      >
+        <div className={api.grid.className} style={api.grid.style}>
+          {items.map(({ span, content, transparent }, index) => {
+            const columnApi = cardLayoutColumnApi({
+              span,
+              columnAspectRatio,
+              modernCss,
+            });
+            const placeholderProps = {
+              index,
+              transparent,
+              span,
+            };
+            return (
+              <div
+                key={index.toString()}
+                className={columnApi.root.className}
+                style={columnApi.root.style}
+              >
+                <div className={columnApi.padding.className}>
+                  {columnAspectRatio === undefined || modernCss ? (
+                    <Placeholder {...placeholderProps}>{content}</Placeholder>
+                  ) : (
+                    <AspectRatio aspectRatio={`1/${columnAspectRatio}`}>
+                      <Placeholder {...placeholderProps}>{content}</Placeholder>
+                    </AspectRatio>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 interface Item {
   span: keyof typeof maxColumns;
@@ -128,6 +220,7 @@ export const Default: StoryObj<Args> = {
 Default.args = {
   showIndicators: true,
   modernCss: true,
+  framework: "React",
   maxWidth: 1200,
   maxColumns: 12,
   paddingInline: 8,
@@ -157,6 +250,7 @@ export const FourColumns: StoryObj<Args> = {
 FourColumns.args = {
   showIndicators: true,
   modernCss: true,
+  framework: "React",
   maxWidth: 1200,
   maxColumns: 4,
   paddingInline: 16,
@@ -187,6 +281,7 @@ export const SixColumns: StoryObj<Args> = {
 SixColumns.args = {
   showIndicators: true,
   modernCss: true,
+  framework: "React",
   maxWidth: 1200,
   maxColumns: 6,
   paddingInline: 16,
