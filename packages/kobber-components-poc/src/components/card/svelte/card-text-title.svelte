@@ -1,11 +1,12 @@
 <script lang="ts">
-    import * as css from "../css/card-text-title.css";
+    import { cardTextTitleApi } from "../index.api";
     import { getCardContext } from "./card-context";
 
     let props = $props();
     let { children } = props;
     const { api } = getCardContext();
-    const classes = $derived(`${css.cardTextTitle} ${api && api().active ? css.active : ""}`);
+    const css = cardTextTitleApi({active: api && api().active})
+    const classes = $derived(`${css.root.className} ${props.class}`);
 </script>
 
 <div class={classes} {...props}>

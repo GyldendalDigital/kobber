@@ -1,16 +1,12 @@
 <script lang="ts">
-    import * as css from "../css/card-media-wrapper.css";
+    import { cardMediaWrapperApi } from "../index.api";
     import { getCardContext } from "./card-context";
 
     let props = $props();
     let { children } = props;
     const { direction } = getCardContext();
-    // NOTE(sølve): can be extracted, same for multiple formats
-    const classes = `${css.cardMediaWrapper} ${
-      direction === "horizontal" ? css.horizontal : ""
-    }`;
-    console.log(classes);
-
+    const css = cardMediaWrapperApi({direction});
+    const classes = `${css.root.className} ${props.class}`;
 </script>
 
 <div class={classes} {...props}>

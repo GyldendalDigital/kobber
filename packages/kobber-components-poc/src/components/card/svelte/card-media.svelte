@@ -1,17 +1,12 @@
 <script lang="ts">
-    import * as css from "../css/card-media.css";
+    import { cardMediaApi } from "../index.api";
     import { getCardContext } from "./card-context";
+
     let props = $props();
     let { mediaType = "img", children } = props;
     const { direction } = getCardContext();
-    const localDirection = (props.direction ? props.direction : direction) as "vertical" | "horizontal";
-    // NOTE(sølve): can be extracted, same for multiple formats
-    const classes = `
-      ${css.cardMedia}
-      ${mediaType === "img" || mediaType === "picture" ? css.image : css.media}
-      ${localDirection ? css[localDirection] : ""}
-    `;
-
+    const css = cardMediaApi({direction, mediaType});
+    const classes = `${css.root.className} ${props.class}`;
 </script>
 
 <div class={classes} {...props}>

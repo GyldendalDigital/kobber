@@ -3,18 +3,17 @@ import {
   machine,
   connect,
   CardMachineSchema,
+  CardProps,
 } from "@gyldendal/kobber-components-core/card/card.core.js";
 import { normalizeProps, useMachine } from "@zag-js/react";
-import * as css from "../css/card.css";
 import { ReactCardContext } from "./card-context";
+import { cardApi } from "../index.api";
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  direction?: "vertical" | "horizontal";
-  element?: string;
-  disabled?: boolean;
-}
+interface CardReactProps
+  extends CardProps,
+    React.HTMLAttributes<HTMLDivElement> {}
 
-export const Card: React.FC<CardProps> = ({
+export const Card: React.FC<CardReactProps> = ({
   direction = "vertical",
   disabled = false,
   children,
@@ -26,14 +25,8 @@ export const Card: React.FC<CardProps> = ({
     normalizeProps
   );
   const [link, setLink] = useState<HTMLAnchorElement | null>(null);
-
-  const classes = `${css.card} ${direction ? css[direction] : ""} ${
-    className ? `${className}` : ""
-  }`;
-
-  // NOTE(sølve): consider seperating api props and user props, so
-  // that they dont interfere with each other. Or, maybe that is wanted?
-  // Unsure...
+  const css = cardApi({ direction });
+  const classes = `${css.root.className} ${className ? className : ""}`;
   return (
     <ReactCardContext.Provider
       value={{
@@ -43,9 +36,6 @@ export const Card: React.FC<CardProps> = ({
         direction: direction,
       }}
     >
-      {/*
-        Code related to the note above
-      */}
       <div {...api.getCardProps()} className={classes} {...props}>
         {children}
       </div>

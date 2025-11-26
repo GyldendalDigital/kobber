@@ -1,11 +1,15 @@
-import * as css from "../css/card-text-wrapper.css";
+import { cardTextWrapperApi } from "../index.api";
 import { useCardContext } from "./card-context";
 
-export const CardTextWrapper: React.FC<any> = ({ children, ...props }) => {
+export const CardTextWrapper: React.FC<any> = ({
+  children,
+  className,
+  ...props
+}) => {
   const { direction } = useCardContext();
-  const classes = `${css.cardTextWrapper} ${
-    direction === "horizontal" ? css.horizontal : ""
-  }`;
+  const css = cardTextWrapperApi({ direction });
+
+  const classes = `${css.root.className} ${className}`;
 
   return (
     <div className={classes} {...props}>

@@ -1,9 +1,10 @@
 <script lang="ts">
-    import * as css from "../css/card-text-body.css";
+    import { cardTextBodyApi } from "../index.api";
 
     let props = $props();
     let { children } = props;
-    const classes = `${css.cardTextBody}`;
+    const css = cardTextBodyApi()
+    const classes = `${css.root.className}`;
 </script>
 
 <div class={classes} {...props}>

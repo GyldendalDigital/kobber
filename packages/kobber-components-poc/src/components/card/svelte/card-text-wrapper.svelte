@@ -1,13 +1,12 @@
 <script lang="ts">
-  import * as css from "../css/card-text-wrapper.css";
+    import { cardTextWrapperApi } from "../index.api";
   import { getCardContext } from "./card-context";
+
   let props = $props();
   let { children } = props;
   const { direction } = getCardContext();
-
-  const classes = `${css.cardTextWrapper} ${
-      direction === "horizontal" ? css.horizontal : ""
-  }`;
+  const css = cardTextWrapperApi({direction})
+  const classes = `${css.root.className} ${props.class}`;
 
 </script>
 

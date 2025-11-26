@@ -11,6 +11,11 @@ export const card = style({
   },
 });
 
+// unsure if it is correct to add a second option for this value
+export const disabled = style({
+  opacity: "50%",
+});
+
 export const vertical = style({
   flexDirection: "column",
   gap: `var(${tokens.component["content-card"].gap.prominent})`,

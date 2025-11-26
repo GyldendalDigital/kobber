@@ -1,15 +1,12 @@
 <script lang="ts">
-  import * as css from "../css/card-media-layer.css";
-  import { getCardContext } from "./card-context";
+    import { cardMediaLayerApi } from "../index.api";
+    import { getCardContext } from "./card-context";
 
-  let props = $props();
-  let { base, children } = props;
-  const { direction } = getCardContext();
-  // NOTE(sølve): can be extracted, same for multiple formats
-  const classes = `${css.cardMediaLayer} ${
-    !base ? (direction === "vertical" ? css.vertical : css.horizontal) : ""
-  }`;
-
+    let props = $props();
+    let { base, children } = props;
+    const { direction } = getCardContext();
+    const css = cardMediaLayerApi({direction, base});
+    const classes = `${css.root.className} ${props.class}`;
 </script>
 
 <div class={classes} {...props}>

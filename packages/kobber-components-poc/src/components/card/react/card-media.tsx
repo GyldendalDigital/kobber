@@ -1,20 +1,21 @@
-import * as css from "../css/card-media.css";
+import { CardMediaType } from "@gyldendal/kobber-components-core/card/card.core.js";
+import { cardMediaApi } from "../index.api";
 import { useCardContext } from "./card-context";
 
 export interface CardMediaProps extends React.HTMLAttributes<HTMLDivElement> {
-  mediaType?: "img" | "video" | "audio" | "picture" | "iframe";
+  mediaType?: CardMediaType;
 }
 
 export const CardMedia: React.FC<CardMediaProps> = ({
   mediaType = "img",
   children,
+  className,
   ...props
 }) => {
   const { direction } = useCardContext();
+  const css = cardMediaApi({ direction, mediaType });
 
-  const classes = `${css.cardMedia} ${direction ? css[direction] : ""}  ${
-    mediaType === "img" || mediaType === "picture" ? css.image : css.media
-  }`;
+  const classes = `${css.root.className}  ${className}`;
 
   return (
     <div className={classes} {...props}>

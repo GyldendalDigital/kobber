@@ -1,4 +1,4 @@
-import * as css from "../css/card-media-layer.css";
+import { cardMediaLayerApi } from "../index.api";
 import { useCardContext } from "./card-context";
 
 interface CardMediaLayerProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -8,13 +8,12 @@ interface CardMediaLayerProps extends React.HTMLAttributes<HTMLDivElement> {
 export const CardMediaLayer: React.FC<CardMediaLayerProps> = ({
   base = false,
   children,
+  className,
   ...props
 }) => {
   const { direction } = useCardContext();
-
-  const classes = `${css.cardMediaLayer} ${
-    !base ? (direction === "vertical" ? css.vertical : css.horizontal) : ""
-  }`;
+  const css = cardMediaLayerApi({ direction, base });
+  const classes = `${css.root.className} ${className}`;
   return (
     <div className={classes} {...props}>
       {children}

@@ -1,7 +1,12 @@
-import * as css from "../css/card-text-body.css";
+import { cardTextBodyApi } from "../index.api";
 
-export const CardTextBody: React.FC<any> = ({ children, ...props }) => {
-  const classes = `${css.cardTextBody}`;
+export const CardTextBody: React.FC<any> = ({
+  children,
+  className,
+  ...props
+}) => {
+  const css = cardTextBodyApi();
+  const classes = `${css.root.className} ${className}`;
   return (
     <div className={classes} {...props}>
       {children}
