@@ -12,11 +12,13 @@ export interface Props {
   maxWidth?: keyof typeof maxWidths;
   maxColumns?: keyof typeof maxColumns;
   paddingInline?: number;
-  gap?: number | [number, number];
-  columnAspectRatio?: number | undefined;
+  gap?: number;
+  columnAspectRatio: number | undefined;
   modernCss?: boolean;
 }
 
 export interface ColumnProps {
   span?: keyof typeof maxColumns;
+  columnAspectRatio: number | undefined;
+  modernCss: boolean | undefined;
 }

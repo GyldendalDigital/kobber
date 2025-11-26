@@ -6,7 +6,6 @@ import {
   useRef,
   useState,
 } from "react";
-import { getColumnContainerQuery } from "../core/internal/getColumnContainerQuery";
 
 interface PlaceholderProps extends HTMLAttributes<HTMLDivElement> {
   index: number;
@@ -38,17 +37,7 @@ export const Placeholder = ({
         wordBreak: "break-word",
       }}
     >
-      <style>
-        {`
-          ${getColumnContainerQuery(0, 1)} {
-            .top {
-              border: solid 1px green;
-            }
-          }
-        `}
-      </style>
       <div
-        className="top"
         style={{
           display: "flex",
           justifyContent: "space-between",

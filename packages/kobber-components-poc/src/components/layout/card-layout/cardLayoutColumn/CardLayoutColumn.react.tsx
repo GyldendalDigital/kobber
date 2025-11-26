@@ -2,12 +2,8 @@ import clsx from "clsx";
 import { type HTMLAttributes, type ReactNode, useContext } from "react";
 import { AspectRatio } from "../../../aspectRatio/AspectRatio.react";
 import { Context } from "../context/context";
-import { breakpoints, type maxColumns } from "../core/config";
-import {
-  getColumnAttributesLegacy,
-  getColumnAttributesModern,
-} from "../core/getAttributes";
 import type { ColumnProps } from "../core/types";
+import { cardLayoutColumnApi } from "./cardLayoutColumn.api";
 
 export interface Props extends HTMLAttributes<HTMLDivElement>, ColumnProps {
   children?: ReactNode;
@@ -15,17 +11,16 @@ export interface Props extends HTMLAttributes<HTMLDivElement>, ColumnProps {
 
 export const CardLayoutColumn = (props: Props) => {
   const { modernCss } = useContext(Context);
-  console.log("getColumnInfo", getColumnInfo(props.span));
   return modernCss ? <Modern {...props} /> : <Legacy {...props} />;
-};
-
-const getColumnInfo = (span?: keyof typeof maxColumns) => {
-  return breakpoints[1200][4];
 };
 
 const Modern = ({ children, ...props }: Props) => {
   const context = useContext(Context);
-  const attributes = getColumnAttributesModern(props, context);
+  const attributes = cardLayoutColumnApi({
+    ...props,
+    columnAspectRatio: context.columnAspectRatio,
+    modernCss: true,
+  });
   return (
     <div
       {...attributes.root}
@@ -38,7 +33,11 @@ const Modern = ({ children, ...props }: Props) => {
 
 const Legacy = ({ children, ...props }: Props) => {
   const context = useContext(Context);
-  const attributes = getColumnAttributesLegacy(props, context);
+  const attributes = cardLayoutColumnApi({
+    ...props,
+    columnAspectRatio: context.columnAspectRatio,
+    modernCss: false,
+  });
   return (
     <div
       {...attributes.root}

@@ -1,4 +1,5 @@
 import { createContext } from "react";
+import { defaults } from "../core/config";
 
 export interface Context {
   columnAspectRatio?: number;
@@ -6,5 +7,5 @@ export interface Context {
 }
 
 export const Context = createContext<Context>({
-  modernCss: CSS.supports("container-type: inline-size") && CSS.supports("aspect-ratio: 1 / 1"),
+  modernCss: defaults.modernCss,
 });

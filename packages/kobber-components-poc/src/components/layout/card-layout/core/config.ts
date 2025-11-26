@@ -69,16 +69,23 @@ export const breakpoints = {
   },
 } satisfies Record<keyof typeof maxWidths, BreakpointsEntry>;
 
-export const defaults: Required<
-  Pick<Props, "maxWidth" | "maxColumns" | "paddingInline" | "gap" | "modernCss">
-> = {
+const modernCss =
+  typeof window !== "undefined"
+    ? window.CSS.supports("container-type: inline-size") &&
+      window.CSS.supports("aspect-ratio: 1 / 1")
+    : true;
+
+export const defaults: Required<Props> = {
   maxWidth: 1200,
   maxColumns: 12,
   paddingInline: 0,
   gap: 0,
-  modernCss: true,
+  modernCss,
+  columnAspectRatio: undefined,
 };
 
-export const columnDefaults: Required<Pick<ColumnProps, "span">> = {
+export const columnDefaults: Required<ColumnProps> = {
   span: 1,
+  columnAspectRatio: undefined,
+  modernCss,
 };
