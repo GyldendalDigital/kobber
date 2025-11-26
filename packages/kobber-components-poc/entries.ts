@@ -1,9 +1,10 @@
 import { readdirSync } from "node:fs";
 import { relative } from "node:path";
+import packageJson from "./package.json" with { type: "json" };
 
 const componentsDirectory = "./src/components";
 
-const getFrameworkEntries = (indexFileName: string, destination: string) =>
+const getFrameworkEntries = (indexFileName: string, destination: string): [string, string][] =>
   readdirSync(componentsDirectory, { withFileTypes: true, recursive: true })
     .filter(file => file.isFile())
     .filter(file => file.name === indexFileName)
@@ -29,3 +30,12 @@ export const cssEntries = [
   ["vanilla/index.css", "./dist/vanilla"],
   ["lit/index.css", "./dist/lit"],
 ] as const;
+
+// Source map used by integration checker.
+// - Looks for import statements like "@gyldendal/kobber-components/react/card" in consumer repos
+// - Links .references.mts to the source file, for example "./src/components/card/index.react.tsx"
+
+export const sourceMap = componentEntries.map(([destination, source]) => {
+  const destinationPath = destination.replace("/index", "");
+  return [`${packageJson.name}/${destinationPath}`, source];
+});

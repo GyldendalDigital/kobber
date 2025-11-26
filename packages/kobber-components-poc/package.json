@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsup --env.NODE_ENV production",
     "dev": "tsup --watch",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "create-ts-refs": "create-ts-refs --sourceMap=entries.ts --out=.references.mts"
   },
   "files": [
     "dist/**/*"
