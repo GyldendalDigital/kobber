@@ -1,6 +1,6 @@
-interface ApiElement {
+export interface ApiHtmlElement {
   className?: string;
-  style?: Record<string, string>;
+  style?: Record<string, string | number>;
 
   // More stuff can be added here if needed in the future.
   // For example aria-attributes.
@@ -8,4 +8,6 @@ interface ApiElement {
   // - Example: { tokens: tokens.components.toggleButton }
 }
 
-export type Api = Record<string, ApiElement>;
+// Represents a component (e.g. a React component) with one or more HTML elements
+
+export type ApiComponent = Record<string, ApiHtmlElement>;

@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import type { Api } from "../../api/types";
+import type { ApiComponent } from "../../api/types";
 import * as classNames from "./root/toggleButton.css";
 
 interface Options {
@@ -27,5 +27,5 @@ export const toggleButtonApi = ({ isActive }: Options) => {
     // - The consumer will see that root.className cannot be undefined
     // - Prevents having to type the toggleButtonApi-object manually
     // - Makes sure that this object implements the Api type
-  } satisfies Api;
+  } satisfies ApiComponent;
 };
