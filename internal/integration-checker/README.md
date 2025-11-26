@@ -6,6 +6,16 @@ Find and analyze Kobber imports across consumer repositories. Generates:
 
 ## Setup
 1) Copy `.env.template` → `.env` and fill missing values
+<details>
+Username for both GitHub and Azure seems to be your email address (without @ and domain), for example firstName.lastName.
+
+- GitHub tokens:
+  - Lifetime: The 'GyldendalDigital' organization forbids access via a personal access tokens (classic) if the token's lifetime is greater than 366 days.
+  - Scope: Select "Full control of private repositories".
+- Azure tokens:
+  - Scope must be "full access". (Failure to do so gives an error like "URL rejected: Port number was not a decimal number between 0 and 65535")
+</details>
+
 2) Run `yarn`
 
 ## Configure repos
