@@ -4,6 +4,8 @@ import { className } from "../../../cssProcessing/className";
 
 export const root = style({
   fontSize: 16,
+  border: "none",
+  padding: 12,
   backgroundColor: `var(${tokens.primitives.color.orange[75]})`,
 });
 

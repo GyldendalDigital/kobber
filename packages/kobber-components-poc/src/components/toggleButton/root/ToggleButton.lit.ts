@@ -2,7 +2,7 @@ import { Component, normalizeProps, VanillaMachine } from "@gyldendal/kobber-com
 import * as toggleButton from "@gyldendal/kobber-components-core/toggleButton/toggleButton";
 import { spread } from "@open-wc/lit-helpers";
 import { html } from "lit";
-import { getClassNames } from "./core";
+import { toggleButtonApi } from "../index.api";
 
 export class ToggleButton extends Component<toggleButton.Api> {
   initMachine() {
@@ -14,9 +14,9 @@ export class ToggleButton extends Component<toggleButton.Api> {
   }
 
   override render() {
-    const classNames = getClassNames(this.api);
+    const api = toggleButtonApi({ isActive: this.api.active });
     return html`
-      <button ${spread(this.api.getButtonProps())} class="${classNames.root}">
+      <button ${spread(this.api.getButtonProps())} class="${api.root.className}">
         <slot></slot>
       </button>`;
   }

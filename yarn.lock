@@ -1533,6 +1533,7 @@ __metadata:
     "@gyldendal/kobber-components-poc": "npm:0.6.13"
     "@gyldendal/kobber-stylelint": "npm:0.6.13"
     "@gyldendal/kobber-tsconfig": "npm:0.6.13"
+    "@storybook/react": "npm:^10.0.7"
     "@vitejs/plugin-react": "npm:^5.1.0"
     modern-normalize: "npm:^3.0.1"
     svelte-preprocess: "npm:^6.0.3"
@@ -2624,6 +2625,35 @@ __metadata:
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     storybook: ^10.0.6
   checksum: 10c0/067b86aeadc96d0fedccd3e047c4b506484e7b2af21796b995e97cd3f4f31d77f8a2674fb29f77b45245353cc714a4511f49fa618a7386ba12706c663701da08
+  languageName: node
+  linkType: hard
+
+"@storybook/react-dom-shim@npm:10.0.7":
+  version: 10.0.7
+  resolution: "@storybook/react-dom-shim@npm:10.0.7"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    storybook: ^10.0.7
+  checksum: 10c0/f7d498e4e5224dfc876589e3f20a9df6215396f3c242f131cdde5407310e3eb45a57aa7db9442cf7fc2fe586cdd13fd686828680d52d7585d405b2abc9f4ca61
+  languageName: node
+  linkType: hard
+
+"@storybook/react@npm:^10.0.7":
+  version: 10.0.7
+  resolution: "@storybook/react@npm:10.0.7"
+  dependencies:
+    "@storybook/global": "npm:^5.0.0"
+    "@storybook/react-dom-shim": "npm:10.0.7"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    storybook: ^10.0.7
+    typescript: ">= 4.9.x"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 10c0/e0c2b6323290777c26d46fb72ea543e0807747d373f6131b2eaa7ef53c3e5bc0d67a70f112bac68c15725db1bac1913f332bf2d8543be275c695c5591b15576e
   languageName: node
   linkType: hard
 
@@ -9293,6 +9323,7 @@ __metadata:
     "@gyldendal/kobber-icons": "npm:*"
     "@types/react": "npm:^19.1.0"
     lit-html: "npm:^3.2.1"
+    storybook: "npm:^10.0.7"
   languageName: unknown
   linkType: soft
 
@@ -9319,6 +9350,32 @@ __metadata:
   bin:
     storybook: ./dist/bin/dispatcher.js
   checksum: 10c0/74a6d473b596d011afbb678671309cae4dd7757d1be08df634d0301301f6228f735bdcc678f7d84516bd88ce0c8dc78d9292d2bbce4473bfef4f4239940a6bf7
+  languageName: node
+  linkType: hard
+
+"storybook@npm:^10.0.7":
+  version: 10.0.7
+  resolution: "storybook@npm:10.0.7"
+  dependencies:
+    "@storybook/global": "npm:^5.0.0"
+    "@storybook/icons": "npm:^1.6.0"
+    "@testing-library/jest-dom": "npm:^6.6.3"
+    "@testing-library/user-event": "npm:^14.6.1"
+    "@vitest/expect": "npm:3.2.4"
+    "@vitest/mocker": "npm:3.2.4"
+    "@vitest/spy": "npm:3.2.4"
+    esbuild: "npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0 || ^0.25.0"
+    recast: "npm:^0.23.5"
+    semver: "npm:^7.6.2"
+    ws: "npm:^8.18.0"
+  peerDependencies:
+    prettier: ^2 || ^3
+  peerDependenciesMeta:
+    prettier:
+      optional: true
+  bin:
+    storybook: ./dist/bin/dispatcher.js
+  checksum: 10c0/a4ba61ac10cb87a4ff2845f35772f0dacd765572059c195596b50d78c2b2b515ae8c3c6d4724ad328f71edef5e2db3a4c363fc7bf1e15e347104077663916a9f
   languageName: node
   linkType: hard
 
