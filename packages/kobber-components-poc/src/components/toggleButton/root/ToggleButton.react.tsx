@@ -1,16 +1,16 @@
-import * as toggleButton from "@gyldendal/kobber-components-core/toggleButton/toggleButton";
 import { normalizeProps, useMachine } from "@zag-js/react";
 import type { HTMLAttributes, ReactNode } from "react";
 import { toggleButtonApi } from "../index.api";
+import * as stateMachine from "../state/toggleButton";
 
 interface Props extends Omit<HTMLAttributes<HTMLButtonElement>, "className"> {
-  state: toggleButton.State;
+  state: stateMachine.State;
   children?: ReactNode;
 }
 
 export const ToggleButton = ({ children, ...props }: Props) => {
-  const service = useMachine(toggleButton.machine, props);
-  const stateMachineApi = toggleButton.connect(service, normalizeProps);
+  const service = useMachine(stateMachine.machine, props);
+  const stateMachineApi = stateMachine.connect(service, normalizeProps);
   const api = toggleButtonApi({ isActive: stateMachineApi.active });
   return (
     <button

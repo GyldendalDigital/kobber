@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import type { ApiComponent, ApiHtmlElement } from "../../../../api/types";
+import type { ApiComponent, ApiHtmlElement } from "../../../../core/api/types";
 import { defaults, type maxColumns, type maxWidths } from "../core/config";
 import type { Props } from "../core/types";
 import * as classNames from "./cardLayout.css";

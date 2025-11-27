@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import type { ApiComponent } from "../../api/types";
+import type { ApiComponent } from "../../core/api/types";
 import * as classNames from "./root/toggleButton.css";
 
 interface Options {

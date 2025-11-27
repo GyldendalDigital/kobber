@@ -1,23 +1,23 @@
-import * as toggleButton from "@gyldendal/kobber-components-core/toggleButton/toggleButton";
 import {
   Component,
   normalizeProps,
   spreadProps,
   VanillaMachine,
-} from "@gyldendal/kobber-components-core/vanilla";
+} from "../../../core/zagFormats/vanilla";
 import { toggleButtonApi } from "../index.api";
+import * as stateMachine from "../state/toggleButton";
 
 interface Props {
-  state: toggleButton.State;
+  state: stateMachine.State;
 }
 
-export class ToggleButton extends Component<Props, toggleButton.Api> {
+export class ToggleButton extends Component<Props, stateMachine.Api> {
   initMachine(props: Props) {
-    return new VanillaMachine(toggleButton.machine, props);
+    return new VanillaMachine(stateMachine.machine, props);
   }
 
   initApi() {
-    return toggleButton.connect(this.machine.service, normalizeProps);
+    return stateMachine.connect(this.machine.service, normalizeProps);
   }
 
   render = () => {

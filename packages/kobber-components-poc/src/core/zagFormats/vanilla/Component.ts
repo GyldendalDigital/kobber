@@ -1,4 +1,4 @@
-import type { VanillaMachine } from "@gyldendal/kobber-components-core/vanilla";
+import type { VanillaMachine } from "./machine";
 
 interface ComponentInterface<Api> {
   rootEl: HTMLElement;

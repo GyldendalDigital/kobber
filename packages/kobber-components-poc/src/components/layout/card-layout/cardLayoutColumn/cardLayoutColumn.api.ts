@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import type { ApiComponent, ApiHtmlElement } from "../../../../api/types";
+import type { ApiComponent, ApiHtmlElement } from "../../../../core/api/types";
 import * as variables from "../cardLayout/variables.css";
 import { columnDefaults } from "../core/config";
 import type { ColumnProps } from "../core/types";

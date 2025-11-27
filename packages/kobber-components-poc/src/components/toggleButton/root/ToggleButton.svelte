@@ -1,14 +1,14 @@
 <script lang="ts">
-import * as toggleButton from "@gyldendal/kobber-components-core/toggleButton/toggleButton";
 import { normalizeProps, useMachine } from "@zag-js/svelte";
 import type { Snippet } from "svelte";
 import { toggleButtonApi } from "../index.api";
+import * as stateMachine from "../state/toggleButton";
 
-const props: { state: toggleButton.State; children: Snippet } = $props();
+const props: { state: stateMachine.State; children: Snippet } = $props();
 
 // biome-ignore lint/correctness/useHookAtTopLevel: ""
-const service = useMachine(toggleButton.machine, props);
-const stateMacineApi = $derived(toggleButton.connect(service, normalizeProps));
+const service = useMachine(stateMachine.machine, props);
+const stateMacineApi = $derived(stateMachine.connect(service, normalizeProps));
 const api = $derived(toggleButtonApi({ isActive: stateMacineApi.active }));
 </script>
 

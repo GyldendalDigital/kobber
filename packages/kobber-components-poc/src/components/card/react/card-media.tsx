@@ -1,5 +1,5 @@
-import { CardMediaType } from "@gyldendal/kobber-components-core/card/card.core.js";
 import { cardMediaApi } from "../index.api";
+import type { CardMediaType } from "../state/card.core.js";
 import { useCardContext } from "./card-context";
 
 export interface CardMediaProps extends React.HTMLAttributes<HTMLDivElement> {

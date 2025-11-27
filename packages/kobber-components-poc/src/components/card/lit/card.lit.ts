@@ -1,14 +1,11 @@
-import { html } from "lit";
-import {
-  Component,
-  normalizeProps,
-  VanillaMachine,
-} from "@gyldendal/kobber-components-core/lit";
-import { customElement } from "lit/decorators.js";
 import * as toggleButton from "@gyldendal/kobber-components-core/toggleButton/toggleButton";
-import { spread } from "@open-wc/lit-helpers";
-import { getClassNames, genericContext } from "./core";
 import { provide } from "@lit/context";
+import { spread } from "@open-wc/lit-helpers";
+import { html } from "lit";
+import { customElement } from "lit/decorators.js";
+import { Component, normalizeProps, VanillaMachine } from "../../../core/zagFormats/lit";
+import { genericContext, getClassNames } from "./core";
+
 interface TestingDepth {
   bool?: boolean;
   someOtherValue?: any;

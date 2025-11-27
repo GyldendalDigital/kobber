@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import {
-  machine,
-  connect,
-  CardMachineSchema,
-  CardProps,
-} from "@gyldendal/kobber-components-core/card/card.core.js";
 import { normalizeProps, useMachine } from "@zag-js/react";
-import { ReactCardContext } from "./card-context";
+import type React from "react";
+import { useState } from "react";
 import { cardApi } from "../index.api";
+import {
+  type CardMachineSchema,
+  type CardProps,
+  connect,
+  machine,
+} from "../state/card.core.js";
+import { ReactCardContext } from "./card-context";
 
 interface CardReactProps
   extends CardProps,

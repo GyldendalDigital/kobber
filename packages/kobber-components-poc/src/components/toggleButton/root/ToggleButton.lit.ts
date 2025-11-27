@@ -1,16 +1,16 @@
-import { Component, normalizeProps, VanillaMachine } from "@gyldendal/kobber-components-core/lit";
-import * as toggleButton from "@gyldendal/kobber-components-core/toggleButton/toggleButton";
 import { spread } from "@open-wc/lit-helpers";
 import { html } from "lit";
+import { Component, normalizeProps, VanillaMachine } from "../../../core/zagFormats/lit";
 import { toggleButtonApi } from "../index.api";
+import * as stateMachine from "../state/toggleButton";
 
-export class ToggleButton extends Component<toggleButton.Api> {
+export class ToggleButton extends Component<stateMachine.Api> {
   initMachine() {
-    return new VanillaMachine(toggleButton.machine, { id: this.id, multiple: true });
+    return new VanillaMachine(stateMachine.machine, { id: this.id, multiple: true });
   }
 
   initApi() {
-    return toggleButton.connect(this.machine.service, normalizeProps);
+    return stateMachine.connect(this.machine.service, normalizeProps);
   }
 
   override render() {

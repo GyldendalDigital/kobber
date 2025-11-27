@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import type { CardContext } from "@gyldendal/kobber-components-core/card/card.core.js";
+import type { CardContext } from "../state/card.core.js";
 
 export const ReactCardContext = createContext<CardContext | null>(null);
 

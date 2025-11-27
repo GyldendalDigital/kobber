@@ -1,7 +1,7 @@
-import { createMachine, type MachineSchema, type Service } from "@zag-js/core";
-import type { NormalizeProps, PropTypes } from "@zag-js/types";
-import { dataAttr } from "@zag-js/dom-query";
 import { createAnatomy } from "@zag-js/anatomy";
+import { createMachine, type MachineSchema, type Service } from "@zag-js/core";
+import { dataAttr } from "@zag-js/dom-query";
+import type { NormalizeProps, PropTypes } from "@zag-js/types";
 
 const anatomy = createAnatomy("card").parts("card", "title");
 const parts = anatomy.build();
@@ -86,7 +86,7 @@ export const machine = createMachine<CardMachineSchema>({
 
 export const connect = <T extends PropTypes>(
   service: Service<CardMachineSchema>,
-  normalize: NormalizeProps<T>
+  normalize: NormalizeProps<T>,
 ) => {
   const { state, prop } = service;
   const disabled = !!prop("disabled");
