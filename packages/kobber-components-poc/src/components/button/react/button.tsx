@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import * as css from "../css/button.css";
 
 const Collection = ["brand", "rettsdata", "neutral"] as const;
@@ -19,9 +19,7 @@ export interface ButtonType
 }
 
 const formatString = (str: string) => {
-  str = str.replace(/-([a-z])/g, function (g) {
-    return g[1]?.toUpperCase() || "";
-  });
+  str = str.replace(/-([a-z])/g, (g) => g[1]?.toUpperCase() || "");
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
@@ -59,7 +57,7 @@ export const Button: React.FC<ButtonType> = ({
   const derivedClassname = getClass(collection, purpose, level, tone);
   // @ts-expect-error failed attempt at getting className from props
   const computedClass = css[derivedClassname] || "";
-  let classes = `${css.button} ${className} ${computedClass}`;
+  const classes = `${css.button} ${className} ${computedClass}`;
 
   return (
     <button className={classes} {...props}>

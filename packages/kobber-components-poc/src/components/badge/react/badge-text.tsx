@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import * as css from "../css/badge-text.css";
 
 export const BadgeText: React.FC<any> = ({
@@ -6,7 +6,7 @@ export const BadgeText: React.FC<any> = ({
   children,
   ...props
 }): any => {
-  let classes = `${css.badgeText} ${className}`;
+  const classes = `${css.badgeText} ${className}`;
 
   return (
     <div className={classes} {...props}>

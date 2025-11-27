@@ -1,11 +1,13 @@
 <script lang="ts">
-    import * as css from "../css/badge.css";
-    let props = $props();
-    let { children } = props;
+import * as css from "../css/badge.css";
 
-    const classes = `${css.badge} ${props.class}`;
+const props = $props();
+const { children } = props;
+
+const classes = `${css.badge} ${props.class}`;
 </script>
 
 <div class={classes}>
     {@render children?.()}
 </div>
+

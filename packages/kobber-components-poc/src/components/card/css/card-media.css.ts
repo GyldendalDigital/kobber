@@ -1,5 +1,5 @@
 import * as tokens from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { style, globalStyle } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
 export const cardMedia = style({
   display: "flex",

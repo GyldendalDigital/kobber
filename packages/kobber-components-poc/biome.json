@@ -1,0 +1,7 @@
+{
+  "extends": "//",
+  "files": {
+    "includes": ["**/*.ts", "**/*.tsx", "!**/*.svelte"]
+  }
+}
+

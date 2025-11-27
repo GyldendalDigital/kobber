@@ -10,6 +10,8 @@ import {
 } from "../state/card.core.js";
 import { ReactCardContext } from "./card-context";
 
+const a = 1;
+
 interface CardReactProps
   extends CardProps,
     React.HTMLAttributes<HTMLDivElement> {}

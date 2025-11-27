@@ -254,7 +254,7 @@ export class VanillaMachine<T extends MachineSchema> {
       const cleanup = fn?.(this.getParams());
       if (cleanup) cleanups.push(cleanup);
     }
-    return () => cleanups.forEach(fn => fn?.());
+    return () => cleanups.forEach(fn => void fn?.());
   };
 
   private choose: ChooseFn<T> = transitions => {
@@ -275,13 +275,15 @@ export class VanillaMachine<T extends MachineSchema> {
 
   stop() {
     // run exit effects
-    this.effects.forEach(fn => fn?.());
+    this.effects.forEach(fn => {
+      fn?.();
+    });
     this.effects.clear();
     this.transition = null;
     this.action(this.machine.exit);
 
     // unsubscribe from all subscriptions
-    this.cleanups.forEach(unsub => unsub());
+    this.cleanups.forEach(unsub => void unsub());
     this.cleanups = [];
 
     this.status = MachineStatus.Stopped;
@@ -310,7 +312,7 @@ export class VanillaMachine<T extends MachineSchema> {
 
   private publish = () => {
     this.callTrackers();
-    this.subscriptions.forEach(fn => fn(this.service));
+    this.subscriptions.forEach(fn => void fn(this.service));
   };
 
   private trackers: { deps: any[]; fn: any }[] = [];

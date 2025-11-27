@@ -1,4 +1,5 @@
 <script lang="ts">
+import { Badge, BadgeText } from "@gyldendal/kobber-components-poc/svelte/badge";
 import {
   Card,
   CardMedia,
@@ -9,10 +10,9 @@ import {
   CardTextWrapper,
 } from "@gyldendal/kobber-components-poc/svelte/card";
 import { Paper } from "@gyldendal/kobber-components-poc/svelte/paper";
-import { Badge, BadgeText } from "@gyldendal/kobber-components-poc/svelte/badge";
 import { ToggleButton } from "@gyldendal/kobber-components-poc/svelte/ToggleButton";
 </script>
-
+ 
 <ToggleButton>Custom machine</ToggleButton>
 
 <br />
