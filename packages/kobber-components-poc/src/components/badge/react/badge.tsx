@@ -1,7 +1,12 @@
 import type React from "react";
+import type { ReactNode } from "react";
 import * as css from "../css/badge.css";
 
-export const Badge: React.FC<any> = ({ className = "", ...props }): any => {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+  children?: ReactNode;
+}
+
+export const Badge: React.FC<Props> = ({ className = "", ...props }) => {
   const classes = `${css.badge} ${className}`;
 
   return (

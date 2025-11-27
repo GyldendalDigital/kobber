@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noExplicitAny: "" */
 import * as fs from "node:fs";
 import type { Config } from "style-dictionary/types";
 import { buildThemeTokens } from "../src/styleDictionary/buildThemeTokens";

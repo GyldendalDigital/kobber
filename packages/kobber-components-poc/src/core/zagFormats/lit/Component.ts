@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noExplicitAny: "" */
 import { LitElement } from "lit";
 import type { VanillaMachine } from "./index.js";
 

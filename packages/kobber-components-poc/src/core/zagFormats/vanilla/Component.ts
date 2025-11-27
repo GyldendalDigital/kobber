@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noExplicitAny: "" */
 import type { VanillaMachine } from "./machine";
 
 interface ComponentInterface<Api> {

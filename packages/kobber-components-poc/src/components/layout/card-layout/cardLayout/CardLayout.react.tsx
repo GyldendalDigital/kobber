@@ -28,9 +28,7 @@ export const CardLayout = ({
     modernCss,
   });
   return (
-    <Context.Provider
-      value={{ columnAspectRatio, modernCss: modernCss ?? defaults.modernCss }}
-    >
+    <Context.Provider value={{ columnAspectRatio, modernCss: modernCss ?? defaults.modernCss }}>
       <div
         {...htmlAttributes}
         {...attributes.root}

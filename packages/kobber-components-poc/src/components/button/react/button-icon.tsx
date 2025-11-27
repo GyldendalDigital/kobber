@@ -1,6 +1,11 @@
+import type { ReactNode } from "react";
 import * as css from "../css/button-icon.css";
 
-export const ButtonIcon: React.FC<any> = ({ children, ...props }) => {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+  children?: ReactNode;
+}
+
+export const ButtonIcon: React.FC<Props> = ({ children, ...props }) => {
   const classes = `${css.buttonIcon} ${""}`;
 
   return (

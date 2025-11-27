@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noExplicitAny: "" */
 import type {
   ActionsOrFn,
   Bindable,
@@ -269,7 +270,7 @@ export class VanillaMachine<T extends MachineSchema> {
   start() {
     this.status = MachineStatus.Started;
     this.debug("initializing...");
-    this.state.invoke(this.state.initial!, INIT_STATE);
+    this.state.invoke(this.state.initial, INIT_STATE);
     this.setupTrackers();
   }
 

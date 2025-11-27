@@ -8,31 +8,18 @@ interface Props extends HTMLAttributes<HTMLPreElement> {
 
 export const Info = ({ maxContainerWidth, maxColumns, ...props }: Props) => (
   <pre {...props}>
-    <BreakpointRow
-      availableWidth="Available width"
-      columns="Columns"
-      columnWidth="Column width"
-    />
+    <BreakpointRow availableWidth="Available width" columns="Columns" columnWidth="Column width" />
     {breakpoints[maxContainerWidth][maxColumns].map((breakpoint, index) => (
       <BreakpointRow
         key={index.toString()}
-        availableWidth={[
-          breakpoint.minContainerWidth,
-          breakpoint.maxContainerWidth ?? Infinity,
-        ]}
+        availableWidth={[breakpoint.minContainerWidth, breakpoint.maxContainerWidth ?? Infinity]}
         columns={breakpoint.maxColumns}
         columnWidth={[breakpoint.minColumnWidth, breakpoint.maxColumnWidth]}
       />
     ))}
     <br />
-    <DefinitionRow
-      term="Available width"
-      definition="container width - padding inline"
-    />
-    <DefinitionRow
-      term="Columns"
-      definition="container width / max grid width * max columns"
-    />
+    <DefinitionRow term="Available width" definition="container width - padding inline" />
+    <DefinitionRow term="Columns" definition="container width / max grid width * max columns" />
     <DefinitionRow term="Column width" definition="available width / columns" />
   </pre>
 );
@@ -43,11 +30,7 @@ interface BreakpointRowProps {
   columnWidth: string | [number, number];
 }
 
-const BreakpointRow = ({
-  availableWidth,
-  columns,
-  columnWidth,
-}: BreakpointRowProps) => (
+const BreakpointRow = ({ availableWidth, columns, columnWidth }: BreakpointRowProps) => (
   <>
     {formatTuple(availableWidth).padEnd(20)} {columns.toString().padEnd(10)}{" "}
     {formatTuple(columnWidth).padEnd(20)}
@@ -58,9 +41,7 @@ const BreakpointRow = ({
 const formatTuple = (value: string | [number, number]) =>
   typeof value === "string"
     ? value
-    : [value[0].toString().padStart(4), value[1].toString().padEnd(4)].join(
-        " - "
-      );
+    : [value[0].toString().padStart(4), value[1].toString().padEnd(4)].join(" - ");
 
 interface DefinitionRowProps {
   term: string;

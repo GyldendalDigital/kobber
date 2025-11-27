@@ -7,11 +7,7 @@ interface Props {
   children: ReactNode;
 }
 
-export const ConsumerContainer = ({
-  showIndicators,
-  containerWidth,
-  children,
-}: Props) => {
+export const ConsumerContainer = ({ showIndicators, containerWidth, children }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!ref.current) return;

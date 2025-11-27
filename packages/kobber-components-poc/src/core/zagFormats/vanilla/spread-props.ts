@@ -1,4 +1,5 @@
 export interface Attrs {
+  // biome-ignore lint/suspicious/noExplicitAny: ""
   [key: string]: any;
 }
 
@@ -37,6 +38,7 @@ export function spreadProps(node: HTMLElement, attrs: Attrs): () => void {
 
     if (value != null) {
       if (assignableProps.has(attrName)) {
+        // biome-ignore lint/suspicious/noExplicitAny: ""
         (node as any)[attrName] = value;
       } else {
         node.setAttribute(attrName.toLowerCase(), value);

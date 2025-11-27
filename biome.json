@@ -8,8 +8,6 @@
   "files": {
     "includes": [
       "packages/kobber-base/**/*.ts",
-      "packages/kobber-components/**/*.ts",
-      "packages/kobber-components-poc/**/*.*",
       "internal/**/*.*",
       "!node_modules",
       "!**/node_modules",
@@ -24,31 +22,6 @@
     "enabled": true,
     "indentStyle": "space",
     "lineWidth": 100
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true,
-      "style": {
-        "noRestrictedImports": {
-          "level": "error",
-          "options": {
-            "paths": {
-              "lit/decorators.js": {
-                "importNames": ["customElement"],
-                "message": "Import customElement from 'base/utilities/customElementDecorator' instead."
-              }
-            }
-          }
-        }
-      },
-      "correctness": {
-        "useParseIntRadix": "off"
-      },
-      "suspicious": {
-        "noExplicitAny": "off"
-      }
-    }
   },
   "javascript": {
     "formatter": {

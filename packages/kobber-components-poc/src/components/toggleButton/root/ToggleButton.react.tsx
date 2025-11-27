@@ -13,11 +13,7 @@ export const ToggleButton = ({ children, ...props }: Props) => {
   const stateMachineApi = stateMachine.connect(service, normalizeProps);
   const api = toggleButtonApi({ isActive: stateMachineApi.active });
   return (
-    <button
-      {...stateMachineApi.getButtonProps()}
-      {...props}
-      className={api.root.className}
-    >
+    <button {...stateMachineApi.getButtonProps()} {...props} className={api.root.className}>
       {children}
     </button>
   );

@@ -1,7 +1,7 @@
 {
   "extends": "//",
   "files": {
-    "includes": ["**/*.ts", "**/*.tsx", "!**/*.svelte"]
+    "includes": ["**/*.ts", "**/*.tsx", "!**/*.svelte", "!**/*.svelte.d.ts"]
   }
 }
 

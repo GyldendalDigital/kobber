@@ -1,5 +1,5 @@
 import * as tokens from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
-import { style, globalStyle } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 
 export const paper = style({
   all: "inherit",

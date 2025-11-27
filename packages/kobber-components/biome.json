@@ -1,0 +1,32 @@
+{
+  "extends": "//",
+  "files": {
+    "ignoreUnknown": false
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "noRestrictedImports": {
+          "level": "error",
+          "options": {
+            "paths": {
+              "lit/decorators.js": {
+                "importNames": ["customElement"],
+                "message": "Import customElement from 'base/utilities/customElementDecorator' instead."
+              }
+            }
+          }
+        }
+      },
+      "correctness": {
+        "useParseIntRadix": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "off"
+      }
+    }
+  }
+
+}

@@ -10,8 +10,7 @@ type LevelType = (typeof Level)[number];
 const Tone = ["tone-a", "tone-b"] as const;
 type ToneType = (typeof Tone)[number];
 
-export interface ButtonType
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   collection?: CollectionType;
   purpose?: PurposeType;
   level?: LevelType;
@@ -19,7 +18,7 @@ export interface ButtonType
 }
 
 const formatString = (str: string) => {
-  str = str.replace(/-([a-z])/g, (g) => g[1]?.toUpperCase() || "");
+  str = str.replace(/-([a-z])/g, g => g[1]?.toUpperCase() || "");
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
@@ -27,7 +26,7 @@ const getClass = (
   collection?: CollectionType,
   purpose?: PurposeType,
   level?: LevelType,
-  tone?: ToneType
+  tone?: ToneType,
 ) => {
   let classString = "";
   if (collection) {
@@ -56,6 +55,7 @@ export const Button: React.FC<ButtonType> = ({
 }) => {
   const derivedClassname = getClass(collection, purpose, level, tone);
   // @ts-expect-error failed attempt at getting className from props
+  // biome-ignore lint/performance/noDynamicNamespaceImportAccess: ""
   const computedClass = css[derivedClassname] || "";
   const classes = `${css.button} ${className} ${computedClass}`;
 

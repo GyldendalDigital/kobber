@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noExplicitAny: "" */
 declare module "*.svelte" {
   import { SvelteComponentTyped } from "svelte";
 

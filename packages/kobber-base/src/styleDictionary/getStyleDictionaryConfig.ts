@@ -21,6 +21,7 @@ const filter = (token: TransformedToken) => token.path[0] && !invalidKeys.includ
  * Create a config object from tokens, transforms and formats
  */
 export const getStyleDictionaryConfig = (
+  // biome-ignore lint/suspicious/noExplicitAny: ""
   sanitizedTokensFromFigma: any,
   themeConfig: ThemeConfig,
   transforms: string[] = [],

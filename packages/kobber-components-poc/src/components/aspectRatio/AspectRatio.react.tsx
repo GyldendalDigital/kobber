@@ -10,14 +10,14 @@ interface AspectRatioProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const cssAspectRatioToPadding = (ratioValue: string): string => {
-  const [width, height] = ratioValue.split("/").map((s) => s.trim());
+  const [width, height] = ratioValue.split("/").map(s => s.trim());
 
   if (process.env.NODE_ENV === "development") {
     if (!width || !height) {
       console.error(
         "Ratio must be in the format of x/y where x and y are valid css values.",
         ratioValue,
-        "is not valid."
+        "is not valid.",
       );
       return `calc((9 / 16) * 100%)`; // Default 16/9
     }
@@ -33,10 +33,7 @@ export const AspectRatio = ({
   style,
   ...props
 }: AspectRatioProps) => {
-  const paddingTop = useMemo(
-    () => cssAspectRatioToPadding(aspectRatio),
-    [aspectRatio]
-  );
+  const paddingTop = useMemo(() => cssAspectRatioToPadding(aspectRatio), [aspectRatio]);
 
   return (
     <div

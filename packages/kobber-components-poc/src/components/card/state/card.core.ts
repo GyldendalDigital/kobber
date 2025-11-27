@@ -16,6 +16,7 @@ export interface CardProps {
 }
 
 export type CardContext = {
+  // biome-ignore lint/suspicious/noExplicitAny: ""
   api: () => any;
   link: HTMLAnchorElement | null;
   registerLink: (link: HTMLAnchorElement | null) => void;

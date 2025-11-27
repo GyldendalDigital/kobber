@@ -97,11 +97,7 @@ const render = (args: Args) => (
     <ConsumerContainer {...args}>
       {args.framework === "React" ? renderAsReact(args) : renderAsApi(args)}
     </ConsumerContainer>
-    <Info
-      maxContainerWidth={args.maxWidth}
-      maxColumns={args.maxColumns}
-      style={{ padding: 16 }}
-    />
+    <Info maxContainerWidth={args.maxWidth} maxColumns={args.maxColumns} style={{ padding: 16 }} />
   </>
 );
 
@@ -126,9 +122,7 @@ const renderAsReact = ({
       <CardLayoutColumn
         key={index.toString()}
         span={span}
-        columnAspectRatio={
-          columnAspectRatio === 0 ? undefined : columnAspectRatio
-        }
+        columnAspectRatio={columnAspectRatio === 0 ? undefined : columnAspectRatio}
         modernCss={modernCss}
       >
         <Placeholder index={index} transparent={transparent} span={span}>
@@ -148,8 +142,7 @@ const renderAsApi = ({
   gap,
   items,
 }: Args) => {
-  const columnAspectRatio =
-    columnAspectRatioProp === 0 ? undefined : columnAspectRatioProp;
+  const columnAspectRatio = columnAspectRatioProp === 0 ? undefined : columnAspectRatioProp;
   const api = cardLayoutApi({
     maxWidth,
     maxColumns,
@@ -160,10 +153,7 @@ const renderAsApi = ({
   });
   return (
     <div className={api.root.className} style={api.root.style}>
-      <div
-        className={api.queryContainer.className}
-        style={api.queryContainer.style}
-      >
+      <div className={api.queryContainer.className} style={api.queryContainer.style}>
         <div className={api.grid.className} style={api.grid.style}>
           {items.map(({ span, content, transparent }, index) => {
             const columnApi = cardLayoutColumnApi({
@@ -303,8 +293,7 @@ SixColumns.args = {
     {
       ...baseItem,
       transparent: true,
-      content:
-        "Lorem ipsum dolor sit amet. Consectetur adipisicing elit. Quisquam, quos.",
+      content: "Lorem ipsum dolor sit amet. Consectetur adipisicing elit. Quisquam, quos.",
     },
     { ...baseItem, transparent: true, content: "Lorem ipsum dolor sit amet." },
     { ...baseItem, transparent: true, content: "Lorem ipsum dolor sit amet." },

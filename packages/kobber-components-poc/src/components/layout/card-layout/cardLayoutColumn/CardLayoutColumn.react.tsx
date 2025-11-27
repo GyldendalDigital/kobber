@@ -22,10 +22,7 @@ const Modern = ({ children, ...props }: Props) => {
     modernCss: true,
   });
   return (
-    <div
-      {...attributes.root}
-      className={clsx(attributes.root.className, props.className)}
-    >
+    <div {...attributes.root} className={clsx(attributes.root.className, props.className)}>
       <div className={attributes.padding.className}>{children}</div>
     </div>
   );
@@ -39,17 +36,12 @@ const Legacy = ({ children, ...props }: Props) => {
     modernCss: false,
   });
   return (
-    <div
-      {...attributes.root}
-      className={clsx(attributes.root.className, props.className)}
-    >
+    <div {...attributes.root} className={clsx(attributes.root.className, props.className)}>
       <div className={attributes.padding.className}>
         {context.columnAspectRatio === undefined ? (
           children
         ) : (
-          <AspectRatio aspectRatio={`1/${context.columnAspectRatio}`}>
-            {children}
-          </AspectRatio>
+          <AspectRatio aspectRatio={`1/${context.columnAspectRatio}`}>{children}</AspectRatio>
         )}
       </div>
     </div>

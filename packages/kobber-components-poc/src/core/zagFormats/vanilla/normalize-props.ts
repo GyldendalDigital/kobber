@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noExplicitAny: "" */
 import { createNormalizer } from "@zag-js/types";
 
 export interface AttrMap {

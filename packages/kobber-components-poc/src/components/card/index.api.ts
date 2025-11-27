@@ -1,4 +1,3 @@
-import type { CardMediaType, CardProps } from "./state/card.core";
 import { clsx } from "clsx";
 import type { ApiComponent } from "../../core/api/types";
 import * as cssCard from "./css/card.css";
@@ -8,6 +7,7 @@ import * as cssCardMediaWrapper from "./css/card-media-wrapper.css";
 import * as cssCardTextBody from "./css/card-text-body.css";
 import * as cssCardTextTitle from "./css/card-text-title.css";
 import * as cssCardTextWrapper from "./css/card-text-wrapper.css";
+import type { CardMediaType, CardProps } from "./state/card.core";
 
 export const cardApi = ({ direction, disabled }: Pick<CardProps, "direction" | "disabled">) => {
   return {
