@@ -7,6 +7,7 @@
   "devDependencies": {
     "@gyldendal/kobber-base": "*",
     "@gyldendal/kobber-components": "*",
+    "@gyldendal/kobber-components-poc": "*",
     "@gyldendal/kobber-icons": "*",
     "@types/react": "^19.1.0",
     "lit-html": "^3.2.1"
