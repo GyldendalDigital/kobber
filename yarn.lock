@@ -1750,7 +1750,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gyldendal/kobber-components-poc@npm:0.6.13, @gyldendal/kobber-components-poc@workspace:packages/kobber-components-poc":
+"@gyldendal/kobber-components-poc@npm:*, @gyldendal/kobber-components-poc@npm:0.6.13, @gyldendal/kobber-components-poc@workspace:packages/kobber-components-poc":
   version: 0.0.0-use.local
   resolution: "@gyldendal/kobber-components-poc@workspace:packages/kobber-components-poc"
   dependencies:
@@ -10100,6 +10100,7 @@ __metadata:
   dependencies:
     "@gyldendal/kobber-base": "npm:*"
     "@gyldendal/kobber-components": "npm:*"
+    "@gyldendal/kobber-components-poc": "npm:*"
     "@gyldendal/kobber-icons": "npm:*"
     "@types/react": "npm:^19.1.0"
     lit-html: "npm:^3.2.1"
