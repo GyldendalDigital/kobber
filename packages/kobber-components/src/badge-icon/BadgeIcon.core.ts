@@ -8,16 +8,16 @@ export const badgeIconIconName = "icon";
 
 export type BadgeIconProps = {
   colorVariant?: BadgeIconColorVariant;
-  colorTheme?: BadgeIconColorTheme;
+  color?: BadgeIconColor;
   size?: BadgeIconSize;
 };
 
 export type BadgeIconClassName = typeof badgeIconName;
 export type BadgeIconIconClassName = typeof badgeIconIconName;
-export type BadgeIconColorTheme = (typeof badgeIconColorThemes)[number];
+export type BadgeIconColor = (typeof badgeIconColors)[number];
 export type BadgeIconColorVariant = (typeof badgeIconColorVariants)[number];
 export type BadgeIconSize = (typeof badgeIconSizes)[number];
 
-export const badgeIconColorThemes = objectKeys(badgeIconTokens.icon.shape.color);
+export const badgeIconColors = objectKeys(badgeIconTokens.icon.shape.color);
 export const badgeIconColorVariants = objectKeys(badgeIconTokens.icon.shape.color.brand);
 export const badgeIconSizes = objectKeys(badgeIconTokens.gap);

@@ -1,7 +1,7 @@
 import { css, unsafeCSS } from "lit";
 import type { ButtonClassNames } from "../button-base/ButtonBase.core";
 import { buttonColorVariables, getIconColor } from "../button-base/ButtonBase.styles";
-import { uiButtonColorThemes, uiButtonColorVariants, uiButtonTokens } from "./UiButton.core";
+import { uiButtonColors, uiButtonColorVariants, uiButtonTokens } from "./UiButton.core";
 
 const createUiButtonStyles = () => css`
 .${unsafeCSS("kobber-button" satisfies ButtonClassNames)} {
@@ -10,15 +10,15 @@ const createUiButtonStyles = () => css`
 
 const colorVariants = () =>
   unsafeCSS(
-    uiButtonColorThemes
-      .flatMap(colorTheme =>
+    uiButtonColors
+      .flatMap(color =>
         uiButtonColorVariants.flatMap(colorVariant => {
-          const colorSelector = `[data-color="${colorTheme}"]`;
+          const colorSelector = `[data-color="${color}"]`;
           const colorVariantSelector = `[data-color-variant="${colorVariant}"]`;
-          const backgroundColor = uiButtonTokens.background.color[colorTheme]?.[colorVariant];
+          const backgroundColor = uiButtonTokens.background.color[color]?.[colorVariant];
           return `
   &${colorSelector}${colorVariantSelector} {
-   ${buttonColorVariables(getIconColor(colorTheme, colorVariant, "primary"), backgroundColor?.fallback, backgroundColor?.hover)}
+   ${buttonColorVariables(getIconColor(color, colorVariant, "primary"), backgroundColor?.fallback, backgroundColor?.hover)}
   }`;
         }),
       )

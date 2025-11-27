@@ -10,8 +10,8 @@ import { type DefaultButtonProps, defaultButtonName } from "./Button.core";
 export class Button extends ButtonBase implements DefaultButtonProps {
   static styles: CSSResultGroup = [super.styles, defaultButtonStyles];
 
-  @property({ attribute: "color-theme" })
-  colorTheme: DefaultButtonProps["colorTheme"] = "brand";
+  @property({ attribute: "color" })
+  color: DefaultButtonProps["color"] = "brand";
 
   @property({ attribute: "color-level" })
   colorLevel: DefaultButtonProps["colorLevel"] = "primary";

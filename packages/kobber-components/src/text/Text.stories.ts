@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import type { Args, Meta, StoryObj } from "@storybook/web-components-vite";
 import { html } from "lit/static-html.js";
 import "./text-wrapper/TextWrapper";
 import "./heading/Heading";
@@ -10,7 +10,7 @@ import "./lead/Lead";
 import "./text-link/TextLink";
 import "./text-list/TextList";
 import "./text-list-element/TextListElement";
-import "../cards-and-modules/text-module/TextModule";
+import "../content-blocks/text-module/TextModule";
 import {
   headingColors,
   headingColorVariants,
@@ -178,7 +178,7 @@ export const Heading: Story = {
                     grid-template-columns: 1fr 1fr;
                     align-items: center;
                     grid-template-areas: 
-                      'color-theme-tone-a color-theme-tone-b'
+                      'color-tone-a color-tone-b'
                       'sample-tone-a-large sample-tone-b-large'
                       'sample-tone-a-medium sample-tone-b-medium';
                   ">
@@ -188,7 +188,7 @@ export const Heading: Story = {
                     colorVariant => html`
                           ${
                             font === "brand" && size === "large"
-                              ? html`<p style="grid-area: color-theme-${colorVariant};">
+                              ? html`<p style="grid-area: color-${colorVariant};">
                                 ${color}, ${colorVariant}
                               </p>`
                               : ""
@@ -399,14 +399,14 @@ export const Lead: Story = {
     },
   },
   args: {
-    text: "Lead er en ingress som brukes som en kort innledningstekst som oppsummerer eller introduserer innholdet.",
+    leadText:
+      "Lead er en ingress som brukes som en kort innledningstekst som oppsummerer eller introduserer innholdet.",
     color: leadColors[0],
     colorVariant: leadColorVariants[0],
   },
+  decorators: [(story, _) => html`<div style="max-width: 600px;">${story()}</div>`],
   render: args => {
-    return html`<div style="max-width: 600px;">
-      <kobber-lead color="${args.color}" color-variant="${args.colorVariant}"> ${args.text} </kobber-lead>
-    </div>`;
+    return html`<kobber-lead color="${args.color}" color-variant="${args.colorVariant}"> ${args.leadText} </kobber-lead>`;
   },
 };
 
@@ -471,82 +471,94 @@ const ifHighlighted = (textValue: string, highlighted: boolean) =>
  * TextList må wrappes i en TextBody for at fonter, fontfarger og størrelser skal fungere.
  */
 export const TextList: Story = {
+  argTypes: {
+    color: {
+      options: textBodyColors,
+      control: "inline-radio",
+    },
+    colorVariant: {
+      options: textBodyColorVariants,
+      control: "inline-radio",
+    },
+    size: {
+      options: textListSizes,
+      control: "inline-radio",
+    },
+  },
+  args: {
+    color: textBodyColors[0],
+    colorVariant: textBodyColorVariants[0],
+    size: textListSizeFallback,
+  },
+  render: (args: Args) => {
+    return html`
+      <kobber-text-list size="${args.size}"
+        color="${args.color}"
+        color-variant="${args.colorVariant}"
+      >
+        <kobber-text-list-element
+        color="${args.color}"
+        color-variant="${args.colorVariant}">
+          Punkt
+          <kobber-text-list slot="nested" size="${args.size}">
+            <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
+              Underpunkt
+            </kobber-text-list-element>
+            <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
+              Underpunkt
+            </kobber-text-list-element>
+            <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
+              Underpunkt
+            </kobber-text-list-element>
+            <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
+              Underpunkt
+            </kobber-text-list-element>
+          </kobber-text-list>
+        </kobber-text-list-element>
+        <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
+          Punkt
+          <kobber-text-list slot="nested" size="${args.size}">
+            <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
+              Underpunkt
+            </kobber-text-list-element>
+            <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
+              Underpunkt
+            </kobber-text-list-element>
+            <kobber-text-list-element color="${args.color}" color-variant="${args.colorVariant}">
+              Underpunkt
+            </kobber-text-list-element>
+          </kobber-text-list>
+        </kobber-text-list-element>
+      </kobber-text-list>
+    `;
+  },
+};
+
+export const AllTextLists: Story = {
+  decorators: [
+    story => html`<div style="
+        display: grid;
+        grid-template-columns: repeat(${textBodyColors.length * textBodyColorVariants.length}, 1fr);
+        grid-template-rows: repeat(${textListSizes.length * textBodyFonts.length}, 1fr);
+        gap: 1rem;
+        ">${story()}</div>`,
+  ],
   render: () => {
     return html`
-          <div style="
-              display: grid;
-              grid-template-columns: repeat(${textBodyColors.length * textBodyColorVariants.length}, 1fr);
-              grid-template-rows: repeat(${textListSizes.length * textBodyFonts.length}, 1fr);
-              gap: 1rem;
-             ">
-        ${textBodyFonts.map(font =>
-          textListSizes.map(size =>
-            textBodyColors.map(color =>
-              textBodyColorVariants.map(
-                colorVariant => html`
+        ${textListSizes.map(size =>
+          textBodyColors.map(color =>
+            textBodyColorVariants.map(
+              colorVariant => html`
                   <kobber-text-module
                     color="${color}"
-                    color-variant="${invertColorVariant(colorVariant)}"
+                    color-variant="${colorVariant}"
                   >
-                    <kobber-text-body
-                      title="${color} ${colorVariant} ${size} ${font}"
-                      size="${size}"
-                      font="${font}"
-                      color="${color}"
-                      color-variant="${colorVariant}"
-                    >
-                      <kobber-text-list size="${size}">
-                        <kobber-text-list-element>
-                          Punkt
-                          <kobber-text-list slot="nested" size="${size}">
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                          </kobber-text-list>
-                        </kobber-text-list-element>
-                        <kobber-text-list-element>
-                          Punkt
-                          <kobber-text-list slot="nested" size="${size}">
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                          </kobber-text-list>
-                        </kobber-text-list-element>
-                        <kobber-text-list-element>
-                          Punkt
-                          <kobber-text-list slot="nested" size="${size}">
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                            <kobber-text-list-element>
-                              Underpunkt
-                            </kobber-text-list-element>
-                          </kobber-text-list>
-                        </kobber-text-list-element>
-                      </kobber-text-list>
-                    </kobber-text-body>
+                  ${TextList.render?.({ size, color, colorVariant: invertColorVariant(colorVariant) }, {} as any) ?? ""}
                   </kobber-text-module>
                 `,
-              ),
             ),
           ),
         )}
-      </div>
     `;
   },
 };

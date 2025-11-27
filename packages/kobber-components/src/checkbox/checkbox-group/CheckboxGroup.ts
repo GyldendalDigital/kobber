@@ -1,5 +1,6 @@
 import type { CSSResultGroup } from "lit";
 import { property, query, state } from "lit/decorators.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 import { html, unsafeStatic } from "lit/static-html.js";
 import {
   customErrorValidityState,
@@ -45,19 +46,24 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
 
   @query("slot:not([name])") defaultSlot!: HTMLSlotElement;
 
-  @property() type: "equal" | "hierarchical" = "equal";
-  @property({ attribute: "hierarchical-checkboxbox-label" }) hierarchicalCheckboxLabel = "";
+  @property()
+  type: GroupProps["type"] = "equal";
+  @property({ attribute: "hierarchical-checkboxbox-label" })
+  hierarchicalCheckboxLabel: GroupProps["hierarchicalCheckboxLabel"] = "";
 
   /**
    * The checkbox group's label. Required for proper accessibility. If you need to display HTML, use the `label` slot
    * instead.
    */
-  @property() label = "";
+  @property()
+  label: GroupProps["label"] = "";
 
   /** The name of the checkbox group, submitted as a name/value pair with form data. */
-  @property() name = "option";
+  @property()
+  name: GroupProps["name"] = "option";
 
-  @property() orientation: "vertical" | "horizontal" = "vertical";
+  @property()
+  orientation: GroupProps["orientation"] = "vertical";
 
   /** The current value of the checkbox group, submitted as a name/value pair with form data. */
   @state() private idValues: string[] = [];
@@ -71,10 +77,12 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
    * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
    * the same document or shadow root for this to work.
    */
-  @property({ reflect: true }) form = "";
+  @property({ reflect: true })
+  form: GroupProps["form"] = "";
 
   /** Ensures a child checkbox is checked before allowing the containing form to submit. */
-  @property({ type: Boolean, reflect: true }) required = false;
+  @property({ type: Boolean, reflect: true })
+  required: GroupProps["required"] = false;
 
   /** Gets the validity state object */
   get validity() {
@@ -89,7 +97,6 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
 
     return validValidityState;
   }
-  direction?: "vertical" | "horizontal" | undefined;
   value: string | undefined;
   defaultValue?: unknown;
   pattern?: string | undefined;
@@ -233,8 +240,7 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
     return html`
       <fieldset
         class="${checkboxGroupName}"
-        data-orientation="${this.orientation}"
-        data-type="${this.type}"
+        data-type="${ifDefined(this.type)}"
         aria-describedby="aria-help-text"
         aria-errormessage="error-message"
       >
@@ -242,7 +248,9 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
           <slot name="label">${this.label}</slot>
         </legend>
 
-        ${hierarchicalCheckbox} ${defaultSlot}
+        ${hierarchicalCheckbox}
+        <div data-orientation="${ifDefined(this.orientation)}">${defaultSlot}</div>
+        
 
         <div id="aria-help-text" aria-hidden=${hasHelpText ? "false" : "true"}>
           <slot name="help-text"></slot>

@@ -10,8 +10,8 @@ import { type ThemeButtonProps, themeButtonName } from "./ThemeButton.core";
 export class ThemeButton extends ButtonBase implements ThemeButtonProps {
   static styles: CSSResultGroup = [super.styles, themeButtonStyles];
 
-  @property({ attribute: "color-theme" })
-  colorTheme: ThemeButtonProps["colorTheme"] = "accent";
+  @property({ attribute: "color" })
+  color: ThemeButtonProps["color"] = "accent";
 
   @property({ attribute: "color-level" })
   colorLevel: ThemeButtonProps["colorLevel"] = "primary";

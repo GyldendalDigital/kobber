@@ -1,5 +1,35 @@
 # @gyldendal/kobber-audio-recorder
 
+## 0.7.2
+
+### Patch Changes
+
+- Avoid media module images stretching, and clean up some storybook story usage.
+
+## 0.7.1
+
+### Patch Changes
+
+- Bugfix media module, update design tokens, apply dependabot fixes, some storybook stories cleanup.
+
+## 0.7.0
+
+### Minor Changes
+
+- Breaking changes: All color-theme attributes are renamed to color.
+
+## 0.6.15
+
+### Patch Changes
+
+- Update design-tokens, fix content-wrapper and media-module after reviews.
+
+## 0.6.14
+
+### Patch Changes
+
+- Add component MediaModule, upgrade Storybook to v10, Content Wrapper bugfixes.
+
 ## 0.6.13
 
 ### Patch Changes

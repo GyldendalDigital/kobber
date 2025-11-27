@@ -18,6 +18,12 @@ export class TextList extends LitElement implements TextListProps {
   static styles: CSSResultGroup = [componentStyles, textListStyles];
 
   @property()
+  color: TextListProps["color"] = "brand";
+
+  @property({ attribute: "color-variant" })
+  colorVariant: TextListProps["colorVariant"] = "tone-a";
+
+  @property()
   size: TextListProps["size"] = textListSizeFallback;
 
   @property()
@@ -28,6 +34,8 @@ export class TextList extends LitElement implements TextListProps {
       <div
         role="list"
         class="${textListName}"
+        data-color="${ifDefined(this.color)}"
+        data-color-variant="${ifDefined(this.colorVariant)}"
         data-size="${ifDefined(this.size)}"
         data-type="${ifDefined(this.type)}"
       >

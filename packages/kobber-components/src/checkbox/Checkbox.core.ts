@@ -12,11 +12,13 @@ export const checkboxIconClassName = "control--shape";
 const checkboxTokens = component._checkbox.indicator;
 
 export type GroupProps = {
-  direction?: "vertical" | "horizontal";
+  orientation?: Orientation;
   form?: string;
   label?: string;
-  name?: string;
+  name: string;
   required?: boolean;
+  type?: Type;
+  hierarchicalCheckboxLabel?: string;
   value?: string;
 };
 
@@ -32,7 +34,7 @@ export type InputProps = {
   state?: CheckboxState;
   title?: string;
   value?: string;
-  colorTheme?: CheckboxColorTheme;
+  color?: CheckboxColor;
 };
 
 export type GroupClassNames = typeof checkboxGroupName;
@@ -44,6 +46,10 @@ export type InputControlClassNames = typeof inputControlClassName;
 export type IconClassNames = typeof checkboxIconClassName;
 
 export type CheckboxState = keyof typeof checkboxTokens.border.color.success | "disabled";
-export type CheckboxColorTheme = (typeof checkboxColorThemes)[number];
+export type CheckboxColor = (typeof checkboxColors)[number];
+export type Orientation = (typeof orientations)[number];
+export type Type = (typeof types)[number];
 
-export const checkboxColorThemes = objectKeys(component._checkbox.indicator.border.color);
+export const checkboxColors = objectKeys(component._checkbox.indicator.border.color);
+export const orientations = ["vertical", "horizontal"] as const;
+export const types = ["equal", "hierarchical"] as const;

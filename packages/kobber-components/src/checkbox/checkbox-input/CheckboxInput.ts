@@ -86,8 +86,8 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
   /** The name of the checkbox, submitted as a name/value pair with form data. */
   @property() name = "";
 
-  @property({ attribute: "color-theme" })
-  colorTheme: InputProps["colorTheme"] = "success";
+  @property({ attribute: "color" })
+  color: InputProps["color"] = "success";
 
   /** Disables the checkbox. */
   @property({ type: Boolean, reflect: true }) disabled = false;
@@ -219,7 +219,7 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
 
     return html`
       <div class="${checkboxWrapperClassName}">
-        <label part="base" class=${checkboxInputName} data-color="${ifDefined(this.colorTheme)}">
+        <label part="base" class=${checkboxInputName} data-color="${ifDefined(this.color)}">
           <input
             class=${[nativeCheckboxInputClassName, "visually-hidden"].join(" ")}
             type="checkbox"
@@ -239,7 +239,7 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
 
           <span class=${inputControlClassName}> ${icon} </span>
 
-          <kobber-text-label part="label" class=${inputLabelClassName} color=${ifDefined(this.colorTheme)}>
+          <kobber-text-label part="label" class=${inputLabelClassName}>
             <slot></slot>
           </kobber-text-label>
           

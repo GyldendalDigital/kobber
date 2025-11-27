@@ -2,6 +2,7 @@ module.exports = {
   extends: "@gyldendal/kobber-stylelint",
   // ignore rules that doesn't make sense in generated file index.css
   rules: {
+    "csstools/value-no-unknown-custom-properties": null, // custom properties may be defined elsewhere (i.e. inline)
     "comment-empty-line-before": null,
     "order/properties-order": null,
     "declaration-empty-line-before": null,

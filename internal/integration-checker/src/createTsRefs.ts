@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 import { createTsReferenceString } from "./utils/createTsReferenceString";
 import { temporaryReposDirectory } from "./utils/fileSystem";
 import { getCommandLineArguments } from "./utils/getCommandLineArguments";
@@ -46,7 +47,8 @@ const createTsReferenceFile = async (reposWithImportAst: RepoWithImportAst[]) =>
 };
 
 const getSourceMap = async () => {
-  const entries = await import(`${process.cwd()}/${commandLineArguments.sourceMap}`);
+  const url = pathToFileURL(process.cwd()).href;
+  const entries = await import(`${url}/${commandLineArguments.sourceMap}`);
   return entries.sourceMap;
 };
 

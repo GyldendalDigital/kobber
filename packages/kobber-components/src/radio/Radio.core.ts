@@ -26,10 +26,10 @@ export const inputClassNames = ({
 
 export type GroupProps = {
   currentValue?: string;
-  direction?: (typeof directions)[number];
+  orientation?: Orientation;
   form?: string;
   label?: string;
-  name?: string;
+  name: string;
   required?: boolean;
   value?: string;
 };
@@ -37,7 +37,7 @@ export type GroupProps = {
 export type InputProps = {
   checked?: boolean;
   disabled?: boolean;
-  colorTheme?: InputColorTheme;
+  color?: InputColor;
   href?: string;
 };
 
@@ -47,7 +47,7 @@ type InputComputedProps = {
 
 export type ControlProps = {
   checked?: boolean;
-  colorTheme: InputColorTheme;
+  color: InputColor;
 };
 
 export type GroupClassNames = typeof radioGroupName;
@@ -58,7 +58,8 @@ export type InputControlPartNames =
   | typeof radioInputControlPartNameChecked;
 export type InputClassNames = typeof radioInputName | typeof radioInputAsLinkClassName;
 
-export type InputColorTheme = (typeof inputColorThemes)[number];
+export type InputColor = (typeof inputColors)[number];
+export type Orientation = (typeof orientations)[number];
 
-export const inputColorThemes = objectKeys(radioTokens.indicator.border.color);
-export const directions = ["vertical", "horizontal"] as const;
+export const inputColors = objectKeys(radioTokens.indicator.border.color);
+export const orientations = ["vertical", "horizontal"] as const;

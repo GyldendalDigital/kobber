@@ -864,10 +864,6 @@
       border-radius: var(--kobber-component-button-border-radius);
       height: var(--kobber-component-button-size-height);
 
-      &.kobber-button--full-width {
-        width: 100%;
-      }
-
       &.kobber-button--used-in-other-interactive {
         align-items: start;
         height: auto;
@@ -928,6 +924,7 @@
       display: flex;
       flex-wrap: wrap;
 
+      
       [data-orientation="vertical"] & {
         flex-direction: column;
         gap: var(--kobber-component-checkbox-input-container-gap-list);
@@ -935,7 +932,7 @@
           padding-left: var(--kobber-component-checkbox-inner-input-container-padding-left);
         }
       }
-      [data-orientation="horisontal"] & {
+      [data-orientation="horizontal"] & {
         gap: var(--kobber-component-checkbox-input-container-gap-row);
       }
     }
@@ -995,8 +992,9 @@
       }
     }
 
-    :host([checked]) & {
-      :host(.idle) & {
+    :host([checked]) &, 
+    :host([indeterminate]) & {
+      :host(:not(.hover, :hover, .active, :active, .disabled, [disabled])) & {
         --control-background-color: var(--kobber-component-checkbox-indicator-background-color-success-idle);
       }
       :host([disabled]) & {
@@ -1041,8 +1039,9 @@
       }
     }
 
-    :host([checked]) & {
-      :host(.idle) & {
+    :host([checked]) &, 
+    :host([indeterminate]) & {
+      :host(:not(.hover, :hover, .active, :active, .disabled, [disabled])) & {
         --control-background-color: var(--kobber-component-checkbox-indicator-background-color-brand-idle);
       }
       :host([disabled]) & {
@@ -1088,7 +1087,10 @@
       align-items: center;
       justify-content: center;
       border-radius: var(--kobber-component-checkbox-outline-border-radius);
-      border: var(--kobber-component-checkbox-indicator-border-width) solid var(--control-border-color);
+      :host(:not(.disabled[checked], .disabled[indeterminate])) &, 
+      :host(:not([disabled][checked], [disabled][indeterminate])) & {
+        border: var(--kobber-component-checkbox-indicator-border-width) solid var(--control-border-color);
+      }
       outline: var(--kobber-component-checkbox-outline-border-width) solid var(--control-outline-color);
       color: var(--color);
       flex-shrink: 0;
@@ -1124,10 +1126,13 @@
     }
     
     .kobber-content-wrapper {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
       min-height: 5em;
       overflow: auto; /* Applicable when max-height attribute is used. */
       background-color: var(--content-wrapper-background-color);
-      max-width: 720px;
+      max-width: 1280px;
       
               &[data-color-variant="tone-b"] {
                 --content-wrapper-background-color: var(--kobber-layout-content-wrapper-background-color-brand-tone-b);
@@ -1157,6 +1162,7 @@
       &[data-type="page"] {
         max-width: 100%;
         height: 100%;
+        box-sizing: border-box;
         padding-block: var(--kobber-layout-content-wrapper-padding-block-page);
       }
     }
@@ -1604,8 +1610,8 @@
       &[data-active="true"],
       &.active {
         .text {
-          box-shadow: 0 var(--kobber-component-menu-item-border-bottom-width-active) 0 0
-            var(--kobber-component-menu-item-border-bottom-color-active);
+          box-shadow: 0 var(--kobber-component-menu-item-text-container-border-width-active) 0 0
+            var(--kobber-component-menu-item-text-container-border-color-active);
         }
       }
 
@@ -1616,6 +1622,122 @@
         display: inline;
         width: var(--icon-width);
         height: var(--icon-height);
+      }
+    }
+  
+/* #endregion */
+/* #region MediaModule - mediaModuleStyles */ 
+
+    :host {
+      width: 100%; /* Combined with image's width: 100%: Fill image in container, and scale within the container when width changes. */
+    }
+    .kobber-media-module {
+
+      display: flex;
+      flex-direction: column;
+      gap: var(--kobber-component-media-module-gap);
+      
+      &[data-credit-placement="none"] {
+        figcaption {
+          display: none;
+        }
+      }
+      
+      &:not([data-credit-placement="none"]) {
+        figcaption {
+          /* Custom Property --credit-fill-color is defined in inline css. */
+          background-color: var(--credit-fill-color);
+          fill: var(--credit-fill-color);
+
+          .curve {
+            height: var(--kobber-component-media-module-inner-inner-credit-container-shape-height);
+            width: var(--kobber-component-media-module-inner-inner-credit-container-shape-width);
+            position: absolute;
+          }
+        }
+      }
+      
+      &[data-credit-placement="right"] {
+        figcaption {
+          right: 0;
+          border-top-left-radius: var(--kobber-component-media-module-inner-inner-credit-container-border-radius-top-left-right-align);
+          border-bottom-right-radius: calc(var(--kobber-component-media-module-inner-inner-credit-container-border-radius-bottom-right-right-align) - 2px);
+
+          .curve:first-of-type {
+            left: -1em;
+            bottom: 0;
+          }
+          .curve:last-of-type {
+            right: 0;
+            top: -1em;
+          }
+        }
+      }
+      
+      &[data-credit-placement="left"] {
+        figcaption {
+          left: 0;
+          border-top-right-radius: var(--kobber-component-media-module-inner-inner-credit-container-border-radius-top-right-left-align);
+          border-bottom-left-radius: calc(var(--kobber-component-media-module-inner-inner-credit-container-border-radius-bottom-left-left-align) - 2px);
+
+          .curve {
+            rotate: 90deg;
+          }
+          .curve:first-of-type {
+            left: 0;
+            top: -1em;
+          }
+          .curve:last-of-type {
+            right: -1em;
+            bottom: 0;
+          }
+        }
+      }
+
+      &[data-media-object-fit="contain"] ::slotted(img) { 
+        object-fit: contain;
+      }
+      &[data-media-object-fit="cover"] ::slotted(img) { 
+        object-fit: cover;
+      }
+      &[data-media-object-fit="fill"] ::slotted(img) { 
+        object-fit: fill;
+      }
+      &[data-media-object-fit="none"] ::slotted(img) { 
+        object-fit: none;
+      }
+      &[data-media-object-fit="scale-down"] ::slotted(img) { 
+        object-fit: scale-down;
+      }
+    }
+
+    .symbols {
+       position: absolute; 
+       width: 0; 
+       height: 0; 
+       overflow: hidden;
+    }
+    figure {
+      position: relative;
+      margin: 0;
+      display: flex;
+      ::slotted(img) { 
+        width: 100%; /* Combined with .kobber-media-module's width: auto: Scale image within container. */
+        height: var(--kobber-component-media-module-image-container-size-height);
+        border-radius: var(--kobber-component-media-module-border-radius);
+      }
+    }
+    
+    figcaption {
+      position: absolute;
+      bottom: 0;
+      max-width: 60%; /* To enable kobber-text-label to truncate text. Max 45 characters. */
+      padding: var(--kobber-component-media-module-inner-inner-credit-container-padding);
+
+      kobber-text-label {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
     }
   
@@ -1731,7 +1853,7 @@ button.kobber-nav-link {
       border: none;
     }
 
-    [data-orientation="horisontal"] .default-slot {
+    [data-orientation="horizontal"] .default-slot {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
       gap: 0.5em;
@@ -2314,9 +2436,135 @@ button.kobber-nav-link {
   display: flex;
   flex-direction: column;
   gap: var(--list-gap);
+
   counter-reset: var(--list-counter);
   
   --list-counter: list;
+
+
+  :host(:not([slot="nested"])) & {
+    color: var(--text-list-color);
+    
+              &[data-color="brand"][data-color-variant="tone-a"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-brand-tone-a);
+              }
+          
+
+              &[data-color="brand"][data-color-variant="tone-b"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-brand-tone-b);
+              }
+          
+
+              &[data-color="neutral"][data-color-variant="tone-a"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-neutral-tone-a);
+              }
+          
+
+              &[data-color="neutral"][data-color-variant="tone-b"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-neutral-tone-b);
+              }
+          
+
+              &[data-color="success"][data-color-variant="tone-a"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-success-tone-a);
+              }
+          
+
+              &[data-color="success"][data-color-variant="tone-b"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-success-tone-b);
+              }
+          
+
+              &[data-color="informative"][data-color-variant="tone-a"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-informative-tone-a);
+              }
+          
+
+              &[data-color="informative"][data-color-variant="tone-b"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-informative-tone-b);
+              }
+          
+
+              &[data-color="warning"][data-color-variant="tone-a"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-warning-tone-a);
+              }
+          
+
+              &[data-color="warning"][data-color-variant="tone-b"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-warning-tone-b);
+              }
+          
+
+              &[data-color="nature"][data-color-variant="tone-a"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-nature-tone-a);
+              }
+          
+
+              &[data-color="nature"][data-color-variant="tone-b"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-nature-tone-b);
+              }
+          
+
+              &[data-color="romance"][data-color-variant="tone-a"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-romance-tone-a);
+              }
+          
+
+              &[data-color="romance"][data-color-variant="tone-b"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-romance-tone-b);
+              }
+          
+
+              &[data-color="fantasy"][data-color-variant="tone-a"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-fantasy-tone-a);
+              }
+          
+
+              &[data-color="fantasy"][data-color-variant="tone-b"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-fantasy-tone-b);
+              }
+          
+
+              &[data-color="thriller"][data-color-variant="tone-a"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-thriller-tone-a);
+              }
+          
+
+              &[data-color="thriller"][data-color-variant="tone-b"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-thriller-tone-b);
+              }
+          
+
+              &[data-color="vacation"][data-color-variant="tone-a"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-vacation-tone-a);
+              }
+          
+
+              &[data-color="vacation"][data-color-variant="tone-b"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-vacation-tone-b);
+              }
+          
+
+              &[data-color="nostalgia"][data-color-variant="tone-a"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-nostalgia-tone-a);
+              }
+          
+
+              &[data-color="nostalgia"][data-color-variant="tone-b"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-nostalgia-tone-b);
+              }
+          
+
+              &[data-color="subtle"][data-color-variant="tone-a"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-subtle-tone-a);
+              }
+          
+
+              &[data-color="subtle"][data-color-variant="tone-b"] {
+                --text-list-color: var(--kobber-universal-text-body-text-color-subtle-tone-b);
+              }
+          ;
+  }
 
   :host([slot="nested"]) & {
     --list-counter: nested-list;

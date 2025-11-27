@@ -3,7 +3,7 @@ import { html } from "lit";
 import "./Badge";
 import {
   type BadgeProps,
-  badgeColorThemes,
+  badgeColors,
   badgeColorVariants,
   badgeName,
   badgeSizes,
@@ -15,7 +15,7 @@ import { init as initComponents } from "../base/init";
 initComponents();
 
 interface Args extends BadgeProps {
-  text?: string;
+  badgeText?: string;
 }
 
 const meta: Meta<Args> = {
@@ -34,8 +34,8 @@ export const Badge: StoryObj<Args> = {
       options: badgeSizes,
       control: { type: "inline-radio" },
     },
-    colorTheme: {
-      options: badgeColorThemes,
+    color: {
+      options: badgeColors,
       control: { type: "inline-radio" },
     },
     colorVariant: {
@@ -49,9 +49,9 @@ export const Badge: StoryObj<Args> = {
     },
   },
   args: {
-    text: "Badge",
+    badgeText: "Badge",
     size: "medium",
-    colorTheme: "brand",
+    color: "brand",
     colorVariant: "tone-a",
     showStatusCircle: true,
   },
@@ -61,14 +61,14 @@ export const Badge: StoryObj<Args> = {
 };
 
 const renderBadge = (args: Args) => {
-  const { size, text, colorTheme, colorVariant, showStatusCircle } = args;
+  const { size, badgeText, color, colorVariant, showStatusCircle } = args;
 
   return html`<kobber-badge
     size=${ifDefined(size)}
-    color-theme=${ifDefined(colorTheme)}
+    color=${ifDefined(color)}
     color-variant=${ifDefined(colorVariant)}
     ?show-status-circle=${showStatusCircle}
   >
-    ${text}
+    ${badgeText}
   </kobber-badge>`;
 };

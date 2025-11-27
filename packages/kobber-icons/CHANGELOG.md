@@ -1,5 +1,48 @@
 # @gyldendal/kobber-icons
 
+## 0.7.2
+
+### Patch Changes
+
+- Avoid media module images stretching, and clean up some storybook story usage.
+- Updated dependencies
+  - @gyldendal/kobber-base@0.7.2
+
+## 0.7.1
+
+### Patch Changes
+
+- Bugfix media module, update design tokens, apply dependabot fixes, some storybook stories cleanup.
+- Updated dependencies
+  - @gyldendal/kobber-base@0.7.1
+
+## 0.7.0
+
+### Minor Changes
+
+- Breaking changes: All color-theme attributes are renamed to color.
+
+### Patch Changes
+
+- Updated dependencies
+  - @gyldendal/kobber-base@0.7.0
+
+## 0.6.15
+
+### Patch Changes
+
+- Update design-tokens, fix content-wrapper and media-module after reviews.
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.15
+
+## 0.6.14
+
+### Patch Changes
+
+- Add component MediaModule, upgrade Storybook to v10, Content Wrapper bugfixes.
+- Updated dependencies
+  - @gyldendal/kobber-base@0.6.14
+
 ## 0.6.13
 
 ### Patch Changes

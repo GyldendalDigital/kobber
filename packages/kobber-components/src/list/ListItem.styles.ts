@@ -42,8 +42,8 @@ const createListItemStyles = () => {
       &[data-active="true"],
       &.active {
         .text {
-          box-shadow: 0 var(${unsafeCSS(listItem["border-bottom"].width.active)}) 0 0
-            var(${unsafeCSS(listItem["border-bottom"].color.active)});
+          box-shadow: 0 var(${unsafeCSS(listItem["text-container"].border.width.active)}) 0 0
+            var(${unsafeCSS(listItem["text-container"].border.color.active)});
         }
       }
 

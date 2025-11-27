@@ -1,6 +1,6 @@
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
-import { type InputControlClassNames, inputColorThemes } from "../Radio.core";
+import { type InputControlClassNames, inputColors } from "../Radio.core";
 
 const indicatorStyles = component._radiobutton.indicator;
 const inputColor = indicatorStyles.border.color;
@@ -22,17 +22,17 @@ const createInputControlStyles = () => {
       border-radius: 50%;
       transition: var(--transition-time) outline;
 
-      ${buttonColorThemeStyles()}
+      ${buttonColorStyles()}
     }
   `;
 };
 
-const buttonColorThemeStyles = () => {
-  const variableClasses = inputColorThemes.flatMap(colorTheme => {
-    const colorThemeSelector = `&[data-color="${colorTheme}"]`;
-    const borderColor = inputColor[colorTheme];
+const buttonColorStyles = () => {
+  const variableClasses = inputColors.flatMap(color => {
+    const colorSelector = `&[data-color="${color}"]`;
+    const borderColor = inputColor[color];
     return css`
-      ${unsafeCSS(colorThemeSelector)} {
+      ${unsafeCSS(colorSelector)} {
         --control-color: var(${unsafeCSS(borderColor)});
       }
     `;

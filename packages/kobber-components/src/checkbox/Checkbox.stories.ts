@@ -5,7 +5,7 @@ import "../theme-context-provider/ThemeContext";
 import { html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { init as initComponents } from "../base/init";
-import { type CheckboxState, checkboxColorThemes, type InputProps } from "./Checkbox.core";
+import { type CheckboxState, checkboxColors, type InputProps } from "./Checkbox.core";
 
 initComponents();
 
@@ -67,9 +67,9 @@ export const Themes: StoryObj<Args> = {
       </style>
 
       <ol>
-        ${checkboxColorThemes.map(colorTheme =>
-          renderColorTheme({
-            colorTheme,
+        ${checkboxColors.map(color =>
+          renderColor({
+            color,
             state: "idle",
             text: "idle",
             showHelpText: args.showHelpText,
@@ -81,16 +81,16 @@ export const Themes: StoryObj<Args> = {
   },
 };
 
-const renderColorTheme = (args: Args) => {
-  const { colorTheme } = args;
+const renderColor = (args: Args) => {
+  const { color } = args;
   const checkedOrNot = [false, true, "indeterminate"];
 
-  if (!colorTheme) {
+  if (!color) {
     return;
   }
 
   return html`<li>
-    ${colorTheme}
+    ${color}
     <ol class="focusedOrNot">
       ${states.map(focusState =>
         Object.keys(focusState).map(key => {
@@ -126,14 +126,14 @@ const renderButton = (
     last: boolean;
   },
 ) => {
-  const { colorTheme, focus, state, text, checked, last } = args;
+  const { color, focus, state, text, checked, last } = args;
   const className = `${focus} ${state}`;
   const lastStyles = last ? `grid-column: -1` : "";
   return html`
     <kobber-checkbox-input
       style="${lastStyles}"
       class="${className}"
-      color-theme="${ifDefined(colorTheme)}"
+      color="${ifDefined(color)}"
       ?indeterminate=${checked === "indeterminate"}
       ?checked=${checked === true}
       ?disabled=${state === "disabled"}
@@ -152,7 +152,7 @@ export const Checkbox: StoryObj<Args & { showAlert: boolean }> = {
       <kobber-checkbox-input 
         name="studentoption"
         id-value="totalpoints"
-        color-theme="success" 
+        color="success" 
         ?indeterminate=${args.checked === "indeterminate"}
         ?checked=${args.checked === "checked"}
         ?disabled=${args.disabled}
