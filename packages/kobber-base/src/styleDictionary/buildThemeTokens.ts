@@ -16,6 +16,8 @@ import { opacityScopeHandlerTransform } from "./transforms/opacityScopeHandler";
 /**
  * Convert Figma modes into themes
  */
+
+// biome-ignore lint/suspicious/noExplicitAny: ""
 export const buildThemeTokens = async (tokensFromFigma: any, themeConfig: ThemeConfig) => {
   registerFormats([esmFormat, tsDeclarationsFormat, esmWithCssVariableValues, textFormat]);
   registerTransforms([
@@ -42,6 +44,7 @@ export const buildThemeTokens = async (tokensFromFigma: any, themeConfig: ThemeC
 };
 
 // Merge tokens from Figma and temporary, hardcoded tokens
+// biome-ignore lint/suspicious/noExplicitAny: ""
 const getAllTokens = (tokensFromFigma: any, themeConfig: ThemeConfig) => {
   const sanitizedJson = sanitizeJsonFromFigma(JSON.stringify(tokensFromFigma), themeConfig);
 

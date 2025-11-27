@@ -33,6 +33,7 @@ const padZero = (str: string, len?: number) => {
 };
 
 /** Recursively invert all tokens with value starting with # (hex color) */
+// biome-ignore lint/suspicious/noExplicitAny: ""
 export const invertColorTokens = (tokens: any) => {
   for (const key in tokens) {
     if (typeof tokens[key] === "object") {

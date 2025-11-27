@@ -12,6 +12,7 @@
     "clean": "turbo clean && rm -rf .turbo node_modules",
     "lint": "turbo lint lint:root --continue",
     "lint:root": "biome ci",
+    "format": "biome format --write .",
     "test": "turbo test",
     "dev": "turbo dev",
     "build": "turbo build",
