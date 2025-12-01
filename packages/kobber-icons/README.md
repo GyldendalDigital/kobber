@@ -74,7 +74,7 @@ Symbol ids are prefixed with `kobber-`, to avoid collisions with any other id in
 (Note that such ID references do not currenly work across the shadow dom barrier.)
 
 ```html
-<svg role="presentation" aria-hidden="true">
+<svg role="presentation">
   <use href="#kobber-arrow_right" />
 </svg>
 ```

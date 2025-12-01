@@ -10,7 +10,7 @@ export class IconFormIndeterminate extends LitElement {
   static styles: CSSResultGroup = [_formIndeterminateIconStyles];
 
   render() {
-    return html` <svg viewBox="0 0 20 20" aria-hidden role="presentation">
+    return html` <svg viewBox="0 0 20 20" role="presentation">
       <path d="M6 10H14" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
     </svg>`;
   }
