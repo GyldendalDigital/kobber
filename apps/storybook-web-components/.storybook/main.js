@@ -1,3 +1,5 @@
+import { fileURLToPath } from "node:url";
+import { dirname } from "node:path";
 /** @type { import('@storybook/web-components-vite').StorybookConfig } */
 const config = {
   stories: [
@@ -11,9 +13,9 @@ const config = {
     "../../../packages/kobber-icons/src/**/*.@(mdx)",
     "../../../packages/kobber-icons/src/**/*.stories.@(js|mjs|ts)",
   ],
-  addons: ["@storybook/addon-a11y", "@storybook/addon-docs"],
+  addons: [getAbsolutePath("@storybook/addon-a11y"), getAbsolutePath("@storybook/addon-docs")],
   framework: {
-    name: "@storybook/web-components-vite",
+    name: getAbsolutePath("@storybook/web-components-vite"),
     options: {},
   },
  	typescript: {
@@ -23,9 +25,13 @@ const config = {
   core: {
     disableTelemetry: true, // 👈 Disables telemetry
     disableWhatsNewNotifications: true, // 👈 Disables what's new notifications
-    builder: "@storybook/builder-vite",
+    builder: getAbsolutePath("@storybook/builder-vite"),
   },
   staticDirs: ["../public"], //👈 Configures the static asset folder in Storybook
 };
 
 export default config;
+
+function getAbsolutePath(value) {
+  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
+}
