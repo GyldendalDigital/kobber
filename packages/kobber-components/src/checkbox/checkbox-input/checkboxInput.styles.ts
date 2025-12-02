@@ -1,19 +1,18 @@
-import { component, universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
+import { universal } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
 import { getTypographyStyles } from "../../base/getTypographyStyles";
 import {
   type CheckboxClassNames,
   type CheckboxColor,
   checkboxColors,
+  checkboxTokens,
   type IconClassNames,
   type InputControlClassNames,
   type InputLabelClassNames,
+  indicatorTokens,
   type NativeInputClassNames,
   type WrapperClassNames,
 } from "../Checkbox.core";
-
-const checkbox = component._checkbox;
-const indicator = component._checkbox.indicator;
 
 const createCheckboxStyles = () => {
   return css`
@@ -23,16 +22,16 @@ const createCheckboxStyles = () => {
       --icon-height: var(--icon-width);
       display: flex;
       flex-direction: column;
-      gap: 0 var(${unsafeCSS(checkbox["container-right"].gap)});
+      gap: 0 var(${unsafeCSS(checkboxTokens["container-right"].gap)});
     }
 
     .${unsafeCSS("kobber-checkbox-input" satisfies CheckboxClassNames)} {
       display: flex;
-      gap: var(${unsafeCSS(checkbox.gap)});
+      gap: var(${unsafeCSS(checkboxTokens.gap)});
       justify-content: start;
       align-items: center;
       cursor: pointer;
-      padding: var(${unsafeCSS(checkbox.padding)});
+      padding: var(${unsafeCSS(checkboxTokens.padding)});
 
       ${colorStyles()}
       ${inputStates()}
@@ -52,17 +51,17 @@ const createCheckboxStyles = () => {
     }
 
     .${unsafeCSS("control" satisfies InputControlClassNames)} {
-      width: var(${unsafeCSS(indicator.size.width)});
-      height: var(${unsafeCSS(indicator.size.height)});
+      width: var(${unsafeCSS(indicatorTokens.size.width)});
+      height: var(${unsafeCSS(indicatorTokens.size.height)});
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: var(${unsafeCSS(checkbox.outline.border.radius)});
-      :host(:not(.disabled[checked], .disabled[indeterminate])) &, 
-      :host(:not([disabled][checked], [disabled][indeterminate])) & {
-        border: var(${unsafeCSS(indicator.border.width)}) solid var(--control-border-color);
+      border-radius: var(${unsafeCSS(checkboxTokens.outline.border.radius)});
+      :host(:not(.disabled[checked="checked"], .disabled[checked="indeterminate"])) &, 
+      :host(:not([disabled][checked="checked"], [disabled][checked="indeterminate"])) & {
+        border: var(${unsafeCSS(indicatorTokens.border.width)}) solid var(--control-border-color);
       }
-      outline: var(${unsafeCSS(checkbox.outline.border.width)}) solid var(--control-outline-color);
+      outline: var(${unsafeCSS(checkboxTokens.outline.border.width)}) solid var(--control-outline-color);
       color: var(--color);
       flex-shrink: 0;
       background-color: var(--control-background-color);
@@ -84,7 +83,7 @@ const colorStyles = () => {
   const colors = checkboxColors.flatMap(color => {
     return css`
       ${unsafeCSS(`&[data-color="${color}"]`)} {
-        --color: var(${unsafeCSS(indicator.shape.color[color])});
+        --color: var(${unsafeCSS(indicatorTokens.shape.color[color])});
         ${statesPerColor(color)}
       }
     `;
@@ -94,9 +93,9 @@ const colorStyles = () => {
 };
 
 const statesPerColor = (color: CheckboxColor) => {
-  const outlineColor = checkbox.outline.border.color[color];
-  const borderColor = indicator.border.color[color];
-  const bgColor = indicator.background.color[color];
+  const outlineColor = checkboxTokens.outline.border.color[color];
+  const borderColor = indicatorTokens.border.color[color];
+  const bgColor = indicatorTokens.background.color[color];
   return css`
     --control-border-color: var(
       ${unsafeCSS(borderColor.idle)}
@@ -129,8 +128,8 @@ const statesPerColor = (color: CheckboxColor) => {
       }
     }
 
-    :host([checked]) &, 
-    :host([indeterminate]) & {
+    :host([checked="checked"]) &, 
+    :host([checked="indeterminate"]) & {
       :host(:not(.hover, :hover, .active, :active, .disabled, [disabled])) & {
         --control-background-color: var(${unsafeCSS(bgColor.idle)});
       }
