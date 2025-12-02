@@ -2,6 +2,7 @@
   "name": "storybook-web-components",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "license": "MIT",
   "private": true,
   "devDependencies": {

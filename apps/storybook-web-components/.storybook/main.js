@@ -1,6 +1,6 @@
 import { fileURLToPath } from "node:url";
 import { dirname } from "node:path";
-/** @type { import('@storybook/web-components-vite').StorybookConfig } */
+/** @type { getAbsolutePath('@storybook/web-components-vite/package.json').StorybookConfig } */
 const config = {
   stories: [
     "../../../packages/kobber-components/src/**/introduction.@(mdx)",
@@ -25,7 +25,6 @@ const config = {
   core: {
     disableTelemetry: true, // 👈 Disables telemetry
     disableWhatsNewNotifications: true, // 👈 Disables what's new notifications
-    builder: getAbsolutePath("@storybook/builder-vite"),
   },
   staticDirs: ["../public"], //👈 Configures the static asset folder in Storybook
 };
