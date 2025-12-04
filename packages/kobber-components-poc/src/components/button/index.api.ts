@@ -3,7 +3,7 @@ import * as cssButton from "./css/button.css";
 import { CollectionType, PurposeType, LevelType, ToneType } from "./types";
 
 const formatString = (str: string) => {
-  str = str.replace(/-([a-z])/g, (g) => g[1]?.toUpperCase() || "");
+  str = str.replace(/-([a-z])/g, g => g[1]?.toUpperCase() || "");
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
@@ -11,7 +11,7 @@ const getClass = (
   collection?: CollectionType,
   purpose?: PurposeType,
   level?: LevelType,
-  tone?: ToneType
+  tone?: ToneType,
 ) => {
   console.log(collection, purpose, level, tone);
 
@@ -35,7 +35,7 @@ export const buttonApi = (
   collection?: CollectionType,
   purpose?: PurposeType,
   level?: LevelType,
-  tone?: ToneType
+  tone?: ToneType,
 ) => {
   const derivedClassname = getClass(collection, purpose, level, tone);
   // @ts-expect-error failed attempt at getting className from props

@@ -78,7 +78,7 @@ export const machine = createMachine<ButtonMachineSchema>({
 
 export const connect = <T extends PropTypes>(
   service: Service<ButtonMachineSchema>,
-  normalize: NormalizeProps<T>
+  normalize: NormalizeProps<T>,
 ) => {
   const { state, prop } = service;
   const disabled = !!prop("disabled");

@@ -11,7 +11,7 @@ const chunks = "chunks";
 
 type Env = "production" | "development";
 
-export default defineConfig((options) => {
+export default defineConfig(options => {
   const env = (options.env?.NODE_ENV as Env) ?? "development";
   return {
     entry: entries,

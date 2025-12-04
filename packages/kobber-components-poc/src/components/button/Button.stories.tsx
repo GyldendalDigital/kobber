@@ -70,12 +70,7 @@ export default meta;
 
 const render = (args: Args) => (
   <>
-    <Button
-      collection={args.collection}
-      purpose={args.purpose}
-      level={args.level}
-      tone={args.tone}
-    >
+    <Button collection={args.collection} purpose={args.purpose} level={args.level} tone={args.tone}>
       <ButtonText>Kobber</ButtonText>
       <ButtonIcon>
         <Icons.Camera size="large" />
