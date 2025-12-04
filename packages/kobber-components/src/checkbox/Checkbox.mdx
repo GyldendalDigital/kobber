@@ -1,32 +1,29 @@
-import { Canvas, Story, Meta } from "@storybook/addon-docs/blocks";
+import { Controls, Canvas, Meta } from "@storybook/addon-docs/blocks";
 import * as CheckboxStories from "./Checkbox.stories";
+import "../theme-context-provider/ThemeContext";
+import "../text/text-link/TextLink";
+import "@gyldendal/kobber-icons/web-components";
+import { init as initIcons } from "@gyldendal/kobber-icons/init";
+
+{initIcons()}
+
+<style>
+  {`
+    kobber-keyboard {
+      display: inline;
+    }
+  `}
+</style>
 
 <Meta of={CheckboxStories} />
+<kobber-theme-context>
 
 # Checkbox Group and Inputs
+When used separately, Checkbox Inputs should specify name. When used in a Checkbox Group, their common name is specified on the group.
 
-Use Checkbox Inputs to select one or more options from a list of choices. Checkbox Input may be used inside a Checkbox Group, or separately.
+<kobber-keyboard></kobber-keyboard> Keyboard navigation: Use tab to reach the Checkbox group, and <kobber-text-link href="https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#:~:text=A%20primary%20keyboard,multiple%20focusable%20elements.">arrow keys</kobber-text-link> to move focus inside the group.
 
-A Checkbox Group contains more than one Checkbox Input, but the Checkbox Inputs are not mutually exclusive.
+<Canvas  of={CheckboxStories.Component} />
+<Controls of={CheckboxStories.Component}/>
 
-When used separately, Checkbox Inputs should specify name. When used in a Checkbox Group, name is specified on the group.
-
-Use Checkbox Inputs to select one or more options from a list of choices.
-
-Keyboard navigation: Use tab to reach the Checkbox group, and <a href="https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#:~:text=A%20primary%20keyboard,multiple%20focusable%20elements.">arrow keys</a> to move focus inside the group.
-
-<details>
-  <summary>Not implemented: Validation</summary>
-  <ul>
-    <li>Reason: No use cases yet.</li>
-    <li>
-      Initial thoughts: Validation requires an amount of logic that should work similarly across groups of input
-      elements. Is that amount of logic necessary to duplicate in react version?
-    </li>
-  </ul>
-</details>
-
-<figure>
-  <figcaption>Kobber Checkbox Input Themes (only static examples, not intended for interaction)</figcaption>
-  <Story of={CheckboxStories.Themes} />
-</figure>
+</kobber-theme-context>

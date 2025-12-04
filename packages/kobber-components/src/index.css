@@ -992,8 +992,8 @@
       }
     }
 
-    :host([checked]) &, 
-    :host([indeterminate]) & {
+    :host([checked="checked"]) &, 
+    :host([checked="indeterminate"]) & {
       :host(:not(.hover, :hover, .active, :active, .disabled, [disabled])) & {
         --control-background-color: var(--kobber-component-checkbox-indicator-background-color-success-idle);
       }
@@ -1039,8 +1039,8 @@
       }
     }
 
-    :host([checked]) &, 
-    :host([indeterminate]) & {
+    :host([checked="checked"]) &, 
+    :host([checked="indeterminate"]) & {
       :host(:not(.hover, :hover, .active, :active, .disabled, [disabled])) & {
         --control-background-color: var(--kobber-component-checkbox-indicator-background-color-brand-idle);
       }
@@ -1087,8 +1087,8 @@
       align-items: center;
       justify-content: center;
       border-radius: var(--kobber-component-checkbox-outline-border-radius);
-      :host(:not(.disabled[checked], .disabled[indeterminate])) &, 
-      :host(:not([disabled][checked], [disabled][indeterminate])) & {
+      :host(:not(.disabled[checked="checked"], .disabled[checked="indeterminate"])) &, 
+      :host(:not([disabled][checked="checked"], [disabled][checked="indeterminate"])) & {
         border: var(--kobber-component-checkbox-indicator-border-width) solid var(--control-border-color);
       }
       outline: var(--kobber-component-checkbox-outline-border-width) solid var(--control-outline-color);
@@ -1934,10 +1934,6 @@ button.kobber-nav-link {
       }
     }
   
-      
-      &.input--as-link {
-        text-decoration: none;
-      }
     }
 
     .label {

@@ -10,10 +10,14 @@ import {
 } from "../../base/internal/form";
 import type { ShoelaceFormControl } from "../../base/internal/shoelace-element";
 import ShoelaceElement from "../../base/internal/shoelace-element";
-import { HasSlotController } from "../../base/internal/slot";
 import componentStyles from "../../base/styles/component.styles";
 import { customElement } from "../../base/utilities/customElementDecorator";
-import { checkboxGroupName, checkboxInputName, type GroupProps } from "../Checkbox.core";
+import {
+  type Checked,
+  checkboxGroupName,
+  checkboxInputName,
+  type GroupProps,
+} from "../Checkbox.core";
 import type { CheckboxInput } from "../checkbox-input/CheckboxInput";
 import { checkboxGroupStyles } from "./CheckboxGroup.styles";
 
@@ -33,6 +37,7 @@ type Props = GroupProps & ShoelaceFormControl;
 
 @customElement(checkboxGroupName)
 export class CheckboxGroup extends ShoelaceElement implements Props {
+  inputsCommonName: string = "";
   disabled?: boolean | undefined;
   defaultChecked?: boolean | undefined;
   input!: HTMLInputElement;
@@ -41,7 +46,6 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
   static styles: CSSResultGroup = [componentStyles, checkboxGroupStyles];
 
   protected readonly formControlController = new FormControlController(this);
-  private readonly hasSlotController = new HasSlotController(this, "help-text", "label");
   private customValidityMessage = "";
 
   @query("slot:not([name])") defaultSlot!: HTMLSlotElement;
@@ -59,17 +63,17 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
   label: GroupProps["label"] = "";
 
   /** The name of the checkbox group, submitted as a name/value pair with form data. */
-  @property()
-  name: GroupProps["name"] = "option";
+  @property({ attribute: "inputs-common-name" })
+  name: GroupProps["inputsCommonName"] = "option";
 
   @property()
   orientation: GroupProps["orientation"] = "vertical";
 
   /** The current value of the checkbox group, submitted as a name/value pair with form data. */
-  @state() private idValues: string[] = [];
+  @state() private names: string[] = [];
 
   @state() private allBoxesAreChecked = false;
-  @state() private hierarchicalCheckboxIsChecked = false;
+  @state() private hierarchicalCheckboxIsChecked: Checked = "unchecked";
   @state() private someButNotAllBoxesAreChecked = false;
 
   /**
@@ -86,7 +90,7 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
 
   /** Gets the validity state object */
   get validity() {
-    const isRequiredAndEmpty = this.required && !this.idValues;
+    const isRequiredAndEmpty = this.required && !this.names;
     const hasCustomValidityMessage = this.customValidityMessage !== "";
 
     if (hasCustomValidityMessage) {
@@ -132,19 +136,21 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
       checkboxes.map(async checkbox => {
         await checkbox.updateComplete;
 
-        const index = this.idValues.indexOf(checkbox.idValue);
-        if (checkbox.checked) {
-          if (index < 0) {
-            this.idValues.push(checkbox.idValue as string);
+        if (checkbox.singleInputName) {
+          const index = this.names.indexOf(checkbox.singleInputName);
+          if (checkbox.checkedOrIndeterminate === "checked") {
+            if (index < 0) {
+              this.names.push(checkbox.singleInputName as string);
+            }
+          } else if (index > -1) {
+            this.names.splice(index, 1);
           }
-        } else if (index > -1) {
-          this.idValues.splice(index, 1);
         }
       }),
     );
 
-    if (this.idValues.length > 0) {
-      if (numberOfNotDisabledCheckboxes === this.idValues.length) {
+    if (this.names.length > 0) {
+      if (numberOfNotDisabledCheckboxes === this.names.length) {
         this.allBoxesAreChecked = true;
         this.someButNotAllBoxesAreChecked = false;
       } else {
@@ -172,7 +178,7 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
 
   /** Checks for validity but does not show a validation message. Returns `true` when valid and `false` when invalid. */
   checkValidity() {
-    const isRequiredAndEmpty = this.required && !this.idValues;
+    const isRequiredAndEmpty = this.required && !this.names;
     const hasCustomValidityMessage = this.customValidityMessage !== "";
 
     if (isRequiredAndEmpty || hasCustomValidityMessage) {
@@ -205,7 +211,8 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
 
   private async handleHierarchicalCheckboxClick(e: Event) {
     e.preventDefault(); // Avoid emitting two clicks
-    this.hierarchicalCheckboxIsChecked = !this.hierarchicalCheckboxIsChecked;
+    this.hierarchicalCheckboxIsChecked =
+      this.hierarchicalCheckboxIsChecked === "checked" ? "unchecked" : "checked";
 
     const checkboxes = this.getAllCheckboxes();
     await Promise.all(
@@ -213,21 +220,21 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
       checkboxes.map(async checkbox => {
         await checkbox.updateComplete;
         if (!checkbox.disabled) {
-          checkbox.checked = this.hierarchicalCheckboxIsChecked;
+          checkbox.checkedOrIndeterminate =
+            this.hierarchicalCheckboxIsChecked === "checked" ? "checked" : "unchecked";
         }
+        console.log(`checkbox`);
+        console.log(checkbox);
       }),
     );
     this.syncCheckboxElements();
   }
 
   render() {
-    const hasHelpTextSlot = this.hasSlotController.test("help-text");
-    const hasHelpText = !!hasHelpTextSlot;
     const isHierarchical = this.type === "hierarchical";
     const hierarchicalCheckbox = isHierarchical
       ? html`<${unsafeStatic(checkboxInputName)}
-        .checked=${this.allBoxesAreChecked} 
-        .indeterminate=${this.someButNotAllBoxesAreChecked}
+        checked=${this.allBoxesAreChecked ? "checked" : this.someButNotAllBoxesAreChecked ? "indeterminate" : "unchecked"} 
         @click=${this.handleHierarchicalCheckboxClick}
         >
           ${this.hierarchicalCheckboxLabel}
@@ -241,8 +248,6 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
       <fieldset
         class="${checkboxGroupName}"
         data-type="${ifDefined(this.type)}"
-        aria-describedby="aria-help-text"
-        aria-errormessage="error-message"
       >
         <legend>
           <slot name="label">${this.label}</slot>
@@ -251,10 +256,6 @@ export class CheckboxGroup extends ShoelaceElement implements Props {
         ${hierarchicalCheckbox}
         <div data-orientation="${ifDefined(this.orientation)}">${defaultSlot}</div>
         
-
-        <div id="aria-help-text" aria-hidden=${hasHelpText ? "false" : "true"}>
-          <slot name="help-text"></slot>
-        </div>
       </fieldset>
     `;
   }

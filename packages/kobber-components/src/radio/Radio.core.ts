@@ -1,48 +1,36 @@
 import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { objectKeys } from "../base/utilities/objectKeys";
+import { TemplateResult } from "lit";
 
 export const radioInputName = "kobber-radio-input";
 export const radioInputControlName = "kobber-radio-input-control";
 export const radioGroupName = "kobber-radio-group";
 
-const radioInputAsLinkClassName = "input--as-link";
 export const radioInputControlPartName = "control";
 export const radioInputControlPartNameChecked = "control--checked";
 export const radioInputLabelClassName = "label";
 
 const radioTokens = component._radiobutton;
 
-export const inputClassNames = ({
-  isLink = false,
-}: InputProps & InputComputedProps): InputClassNames[] => {
-  const conditionalClassNames: InputClassNames[] = [];
-
-  if (isLink) {
-    conditionalClassNames.push(radioInputAsLinkClassName);
-  }
-
-  return [radioInputName, ...conditionalClassNames];
+export const inputClassNames = () => {
+  return [radioInputName];
 };
 
 export type GroupProps = {
   currentValue?: string;
-  orientation?: Orientation;
   form?: string;
-  label?: string;
-  name: string;
+  inputsCommonName: string;
+  label?: TemplateResult<1> | HTMLCollection | string;
+  orientation?: Orientation;
   required?: boolean;
-  value?: string;
 };
 
 export type InputProps = {
   checked?: boolean;
-  disabled?: boolean;
   color?: InputColor;
-  href?: string;
-};
-
-type InputComputedProps = {
-  isLink?: boolean;
+  disabled?: boolean;
+  value: string;
+  children?: TemplateResult<1> | HTMLCollection | string;
 };
 
 export type ControlProps = {
@@ -56,7 +44,7 @@ export type InputControlClassNames = typeof radioInputControlName;
 export type InputControlPartNames =
   | typeof radioInputControlPartName
   | typeof radioInputControlPartNameChecked;
-export type InputClassNames = typeof radioInputName | typeof radioInputAsLinkClassName;
+export type InputClassNames = typeof radioInputName;
 
 export type InputColor = (typeof inputColors)[number];
 export type Orientation = (typeof orientations)[number];

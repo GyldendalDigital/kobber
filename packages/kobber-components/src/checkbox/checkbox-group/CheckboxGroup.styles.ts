@@ -1,9 +1,10 @@
-import { component } from "@gyldendal/kobber-base/themes/tokens.css-variables.js";
 import { css, unsafeCSS } from "lit";
-import type { GroupClassNames, Orientation } from "../Checkbox.core";
-
-const _checkbox = component._checkbox;
-const checkbox = component.checkbox;
+import {
+  checkboxInnerTokens,
+  checkboxTokens,
+  type GroupClassNames,
+  type Orientation,
+} from "../Checkbox.core";
 
 const createCheckboxGroupStyles = () => {
   return css`
@@ -11,7 +12,7 @@ const createCheckboxGroupStyles = () => {
       display: flex;
       flex-direction: column;
       padding: 0;
-      gap: var(${unsafeCSS(_checkbox["container-right"].gap)});
+      gap: var(${unsafeCSS(checkboxTokens["container-right"].gap)});
       border: none;
     }
     .default-slot {
@@ -21,13 +22,13 @@ const createCheckboxGroupStyles = () => {
       
       [data-orientation="${unsafeCSS("vertical" satisfies Orientation)}"] & {
         flex-direction: column;
-        gap: var(${unsafeCSS(checkbox["input-container"].gap.list)});
+        gap: var(${unsafeCSS(checkboxInnerTokens["input-container"].gap.list)});
         [data-type="hierarchical"] & {
-          padding-left: var(${unsafeCSS(checkbox["inner-input-container"].padding.left)});
+          padding-left: var(${unsafeCSS(checkboxInnerTokens["inner-input-container"].padding.left)});
         }
       }
       [data-orientation="${unsafeCSS("horizontal" satisfies Orientation)}"] & {
-        gap: var(${unsafeCSS(checkbox["input-container"].gap.row)});
+        gap: var(${unsafeCSS(checkboxInnerTokens["input-container"].gap.row)});
       }
     }
   `;

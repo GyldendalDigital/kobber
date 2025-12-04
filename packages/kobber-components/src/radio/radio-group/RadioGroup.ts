@@ -10,7 +10,6 @@ import {
 } from "../../base/internal/form";
 import type { ShoelaceFormControl } from "../../base/internal/shoelace-element";
 import ShoelaceElement from "../../base/internal/shoelace-element";
-import { HasSlotController } from "../../base/internal/slot";
 import { watch } from "../../base/internal/watch";
 import componentStyles from "../../base/styles/component.styles";
 import { customElement } from "../../base/utilities/customElementDecorator";
@@ -27,7 +26,6 @@ import { radioGroupStyles } from "./RadioGroup.styles";
  * @slot - The default slot where `<kobber-radio-input>` elements are placed.
  * @slot label - The radio group's label. Required for proper accessibility. Alternatively, you can use the `label`
  *  attribute.
- * @slot help-text - Text that describes how to use the radio group. Alternatively, you can use the `help-text` attribute.
  *
  * @event change - Emitted when the radio group's selected value changes.
  * @event input - Emitted when the radio group receives user input.
@@ -39,15 +37,16 @@ type Props = GroupProps & ShoelaceFormControl;
 
 @customElement(radioGroupName)
 export class RadioGroup extends ShoelaceElement implements Props {
+  inputsCommonName: string = "";
   disabled?: boolean | undefined;
   defaultChecked?: boolean | undefined;
-  input!: HTMLInputElement;
+  input!: HTMLInputElement; 
   validationMessage: string = "";
+  value: unknown;
 
   static styles: CSSResultGroup = [componentStyles, radioGroupStyles];
 
   protected readonly formControlController = new FormControlController(this);
-  private readonly hasSlotController = new HasSlotController(this, "help-text", "label");
   private customValidityMessage = "";
 
   @query("slot:not([name])") defaultSlot!: HTMLSlotElement;
@@ -63,15 +62,13 @@ export class RadioGroup extends ShoelaceElement implements Props {
   label: GroupProps["label"] = "";
 
   /** The name of the radio group, submitted as a name/value pair with form data. */
-  @property()
-  name: GroupProps["name"] = "option";
+  @property({attribute: "inputs-common-name"})
+  name: GroupProps["inputsCommonName"] = "option";
 
   @property()
   orientation: GroupProps["orientation"] = "vertical";
 
-  /** The current value of the radio group, submitted as a name/value pair with form data. */
-  @property({ reflect: true })
-  value: GroupProps["value"] = "";
+  @state() private _value = this.currentValue;
 
   /**
    * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
@@ -85,13 +82,9 @@ export class RadioGroup extends ShoelaceElement implements Props {
   @property({ type: Boolean, reflect: true })
   required: GroupProps["required"] = false;
 
-  /** Applicable when used as a button that redirects to url. */
-  @state()
-  private url: string = window.location.href;
-
   /** Gets the validity state object */
   get validity() {
-    const isRequiredAndEmpty = this.required && !this.value;
+    const isRequiredAndEmpty = this.required && !this._value;
     const hasCustomValidityMessage = this.customValidityMessage !== "";
 
     if (hasCustomValidityMessage) {
@@ -114,13 +107,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
 
   connectedCallback() {
     super.connectedCallback();
-    this.value = this.currentValue;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    navigation.addEventListener("navigate", () => {
-      // Experimental functionality, does not work in Firefox. Might change in the future.
-      this.handleUrlChange();
-    });
+    this._value = this.currentValue;
   }
 
   firstUpdated() {
@@ -138,11 +125,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
       // Sync the checked state and size
       radios.map(async radio => {
         await radio.updateComplete;
-        if (radio.href !== "") {
-          radio.checked = this.url.includes(radio.href);
-        } else {
-          radio.checked = radio.value === this.value;
-        }
+        radio.checked = radio.value === this._value;
       }),
     );
 
@@ -166,7 +149,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
 
   /** Checks for validity but does not show a validation message. Returns `true` when valid and `false` when invalid. */
   checkValidity() {
-    const isRequiredAndEmpty = this.required && !this.value;
+    const isRequiredAndEmpty = this.required && !this._value;
     const hasCustomValidityMessage = this.customValidityMessage !== "";
 
     if (isRequiredAndEmpty || hasCustomValidityMessage) {
@@ -204,18 +187,18 @@ export class RadioGroup extends ShoelaceElement implements Props {
   private handleRadioClick(event: MouseEvent) {
     const target = (event.target as HTMLElement).closest<RadioInput>(radioInputName);
     const radios = this.getAllRadios();
-    const oldValue = this.value;
+    const oldValue = this._value;
 
     if (!target || target.disabled) {
       return;
     }
 
-    this.value = target.value;
+    this._value = target.value;
     radios.forEach(radio => {
       radio.checked = radio === target;
     });
 
-    if (this.value !== oldValue) {
+    if (this._value !== oldValue) {
       this.emit("change");
       this.emit("input");
     }
@@ -232,7 +215,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
     }
     const checkedRadio = radios.find(radio => radio.checked) ?? radios[0];
     const incr = event.key === " " ? 0 : ["ArrowUp", "ArrowLeft"].includes(event.key) ? -1 : 1;
-    const oldValue = this.value;
+    const oldValue = this._value;
     // biome-ignore lint/style/noNonNullAssertion: checked above
     let index = radios.indexOf(checkedRadio!) + incr;
 
@@ -251,14 +234,14 @@ export class RadioGroup extends ShoelaceElement implements Props {
 
     const currentRadio = radios[index];
     if (currentRadio) {
-      this.value = currentRadio.value;
+      this._value = currentRadio.value;
       currentRadio.checked = true;
       currentRadio.setAttribute("tabindex", "0");
     }
 
     this.focusOnRadio(radios);
 
-    if (this.value !== oldValue) {
+    if (this._value !== oldValue) {
       this.emit("change");
       this.emit("input");
     }
@@ -269,7 +252,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
   private updateCheckedRadio() {
     const radios = this.getAllRadios();
     radios.forEach(radio => {
-      radio.checked = radio.value === this.value;
+      radio.checked = radio.value === this._value;
     });
     this.formControlController.setValidity(this.validity.valid);
   }
@@ -302,19 +285,7 @@ export class RadioGroup extends ShoelaceElement implements Props {
     this.updateCheckedRadio();
   }
 
-  @watch("url")
-  handleUrlChange() {
-    if (window.location.href !== this.url) {
-      this.url = window.location.href;
-      this.syncRadios();
-    }
-  }
-
   render() {
-    const hasLabelSlot = this.hasSlotController.test("label");
-    const hasHelpTextSlot = this.hasSlotController.test("help-text");
-    const hasLabel = this.label ? true : !!hasLabelSlot;
-    const hasHelpText = !!hasHelpTextSlot;
     const defaultSlot = html`
       <slot
         class="default-slot"
@@ -328,19 +299,12 @@ export class RadioGroup extends ShoelaceElement implements Props {
       <fieldset
         class="${radioGroupName}"
         role="radiogroup"
-        aria-labelledby="label"
-        aria-describedby="aria-help-text"
-        aria-errormessage="error-message"
       >
-        <label id="label" aria-hidden=${hasLabel ? "false" : "true"} @click=${this.handleLabelClick}>
+        <legend @click=${this.handleLabelClick}>
           <slot name="label">${this.label}</slot>
-        </label>
+        </legend>
 
         <div data-orientation="${ifDefined(this.orientation)}">${defaultSlot}</div>
-
-        <div id="aria-help-text" aria-hidden=${hasHelpText ? "false" : "true"}>
-          <slot name="help-text"></slot>
-        </div>
       </fieldset>
     `;
   }

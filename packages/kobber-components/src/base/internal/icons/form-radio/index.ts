@@ -10,7 +10,7 @@ export class IconFormRadio extends LitElement {
   static styles: CSSResultGroup = [_formRadioIconStyles];
 
   render() {
-    return html`<svg viewBox="0 0 10 11" aria-hidden role="presentation">
+    return html`<svg viewBox="0 0 10 11" role="presentation">
       <circle cx="5" cy="5.5" r="5" fill="currentColor" />
     </svg>`;
   }
