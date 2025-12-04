@@ -3,6 +3,7 @@ import { defineConfig } from "tsup";
 import { cssEntries, entries } from "./entries";
 import { getVanillaExtractPlugin } from "./src/cssProcessing/getVanillaExtractPlugin";
 import { postProcessCss } from "./src/cssProcessing/postProcessCss";
+import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
 
 const outDir = "dist";
 
@@ -10,7 +11,7 @@ const chunks = "chunks";
 
 type Env = "production" | "development";
 
-export default defineConfig(options => {
+export default defineConfig((options) => {
   const env = (options.env?.NODE_ENV as Env) ?? "development";
   return {
     entry: entries,
@@ -21,6 +22,7 @@ export default defineConfig(options => {
     bundle: true,
     splitting: true,
     esbuildPlugins: [getVanillaExtractPlugin()],
+    //esbuildPlugins: [vanillaExtractPlugin()],
     external: [/^lit\/.*/],
     esbuildOptions(options) {
       options.chunkNames = `${chunks}/[name]-[hash]`;

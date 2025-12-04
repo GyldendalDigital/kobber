@@ -2,10 +2,17 @@ import { normalizeProps, useMachine } from "@zag-js/react";
 import type React from "react";
 import { useState } from "react";
 import { cardApi } from "../index.api";
-import { type CardMachineSchema, type CardProps, connect, machine } from "../state/card.core.js";
+import {
+  type CardMachineSchema,
+  type CardProps,
+  connect,
+  machine,
+} from "../state/card.core.js";
 import { ReactCardContext } from "./card-context";
 
-interface CardReactProps extends CardProps, React.HTMLAttributes<HTMLDivElement> {}
+interface CardReactProps
+  extends CardProps,
+    React.HTMLAttributes<HTMLDivElement> {}
 
 export const Card: React.FC<CardReactProps> = ({
   direction = "vertical",
@@ -16,7 +23,7 @@ export const Card: React.FC<CardReactProps> = ({
 }) => {
   const api = connect(
     useMachine<CardMachineSchema>(machine, { disabled: disabled }),
-    normalizeProps,
+    normalizeProps
   );
   const [link, setLink] = useState<HTMLAnchorElement | null>(null);
   const css = cardApi({ direction });

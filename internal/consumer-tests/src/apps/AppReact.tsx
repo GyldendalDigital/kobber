@@ -30,22 +30,159 @@ export function AppReact() {
       <br />
       <br />
 
-      {/*
-       brand
-       secondary
-       tone-b
+      <div
+        style={{
+          display: "flex",
+          gap: "0.5em",
+          width: "420px",
+          flexWrap: "wrap",
+        }}
+      >
+        {/* ERROR */}
+        <Button
+          purpose="informative"
+          collection="neutral"
+          level="secondary"
+          tone="tone-a"
+        >
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>ERROR</ButtonText>
+        </Button>
 
-        */}
+        {/* BRAND */}
+        <Button
+          //disabled={true}
+          collection="brand"
+          level="primary"
+          tone="tone-a"
+        >
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Brand</ButtonText>
+        </Button>
+        <Button collection="brand" level="secondary" tone="tone-a">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Brand</ButtonText>
+        </Button>
+        <Button collection="brand" level="secondary" tone="tone-b">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Brand</ButtonText>
+        </Button>
+        <Button collection="brand" level="tertiary" tone="tone-a">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Brand</ButtonText>
+        </Button>
+        <Button collection="brand" level="tertiary" tone="tone-b">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Brand</ButtonText>
+        </Button>
 
-      <Button collection="brand" level="primary" tone="tone-a">
-        <ButtonIcon>
-          {/* NOTE(sølve): size of icon should be set outside of the specific icon  */}
-          <ArrowRight size="large" />
-        </ButtonIcon>
-        <ButtonText>Button</ButtonText>
-      </Button>
+        {/* RETTSDATA */}
+        <Button collection="rettsdata" level="primary" tone="tone-a">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Rettsdata</ButtonText>
+        </Button>
+        <Button collection="rettsdata" level="secondary" tone="tone-a">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Rettsdata</ButtonText>
+        </Button>
+        <Button collection="rettsdata" level="secondary" tone="tone-b">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Rettsdata</ButtonText>
+        </Button>
+        <Button collection="rettsdata" level="tertiary" tone="tone-a">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Rettsdata</ButtonText>
+        </Button>
+        <Button collection="rettsdata" level="tertiary" tone="tone-b">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Rettsdata</ButtonText>
+        </Button>
 
-      <br />
+        {/* NEUTRAL */}
+        <Button collection="neutral" level="primary" tone="tone-a">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Neutral</ButtonText>
+        </Button>
+        <Button collection="neutral" level="secondary" tone="tone-b">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Neutral</ButtonText>
+        </Button>
+        <Button collection="neutral" level="tertiary" tone="tone-b">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Neutral</ButtonText>
+        </Button>
+
+        {/* SUCCESS */}
+        <Button purpose="success" tone="tone-a">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Success</ButtonText>
+        </Button>
+        <Button purpose="success" tone="tone-b">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Success</ButtonText>
+        </Button>
+
+        {/* INFORMATIVE */}
+        <Button purpose="informative" tone="tone-a">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Informative</ButtonText>
+        </Button>
+        <Button purpose="informative" tone="tone-b">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Informative</ButtonText>
+        </Button>
+
+        {/* WARNING */}
+        <Button purpose="warning" tone="tone-a">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Warning</ButtonText>
+        </Button>
+        <Button purpose="warning" tone="tone-b">
+          <ButtonIcon>
+            <ArrowRight size="large" />
+          </ButtonIcon>
+          <ButtonText>Warning</ButtonText>
+        </Button>
+      </div>
+
       <br />
 
       <Card
