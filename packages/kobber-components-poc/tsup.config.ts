@@ -3,7 +3,6 @@ import { defineConfig } from "tsup";
 import { cssEntries, entries } from "./entries";
 import { getVanillaExtractPlugin } from "./src/cssProcessing/getVanillaExtractPlugin";
 import { postProcessCss } from "./src/cssProcessing/postProcessCss";
-import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
 
 const outDir = "dist";
 
@@ -22,7 +21,6 @@ export default defineConfig(options => {
     bundle: true,
     splitting: true,
     esbuildPlugins: [getVanillaExtractPlugin()],
-    //esbuildPlugins: [vanillaExtractPlugin()],
     external: [/^lit\/.*/],
     esbuildOptions(options) {
       options.chunkNames = `${chunks}/[name]-[hash]`;

@@ -1,6 +1,6 @@
 import type React from "react";
-import type { CollectionType, LevelType, PurposeType, ToneType } from "../types";
 import { buttonApi, buttonContainerApi } from "../index.api";
+import type { CollectionType, LevelType, PurposeType, ToneType } from "../types";
 
 export interface ButtonType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   collection?: CollectionType;

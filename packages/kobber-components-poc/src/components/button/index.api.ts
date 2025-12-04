@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import * as cssButton from "./css/button.css";
-import { CollectionType, PurposeType, LevelType, ToneType } from "./types";
+import type { CollectionType, LevelType, PurposeType, ToneType } from "./types";
 
 const formatString = (str: string) => {
   str = str.replace(/-([a-z])/g, g => g[1]?.toUpperCase() || "");
@@ -39,6 +39,7 @@ export const buttonApi = (
 ) => {
   const derivedClassname = getClass(collection, purpose, level, tone);
   // @ts-expect-error failed attempt at getting className from props
+  // biome-ignore lint: biomelint/performance/noDynamicNamespaceImportAccess
   const computedClass = cssButton[derivedClassname] || cssButton.error;
   return {
     root: {

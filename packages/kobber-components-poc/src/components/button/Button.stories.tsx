@@ -1,10 +1,10 @@
-import { Meta, StoryObj } from "@storybook/react";
-import { Button, type ButtonType } from "./react/button";
-import { Collection, Level, Purpose, Tone } from "./types";
-import { reactDecorator } from "../../integrations/storybook/reactDecorator";
-import { ButtonIcon, ButtonText } from "./index.react";
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import * as Icons from "@gyldendal/kobber-icons/react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { reactDecorator } from "../../integrations/storybook/reactDecorator";
+import { ButtonIcon, ButtonText } from "./index.react";
+import { Button, type ButtonType } from "./react/button";
+import { Collection, Level, Purpose, Tone } from "./types";
 
 // collection?: CollectionType;
 // purpose?: PurposeType;
