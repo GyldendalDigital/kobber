@@ -90,20 +90,6 @@ Components are in `packages/kobber-components/src/`. Edit files and see changes 
 > [!NOTE]
 > Storybook automatically builds dependencies (like CSS variables from design tokens in `kobber-base`) and has hot reload for component changes.
 
-### Run docs page locally
-
-```bash
-yarn install
-
-# Build only this package and all its dependencies
-yarn build -F @gyldendal/kobber-components
-
-# Start docs dev server. Runs /apps/docs project locally (kobber.gyldendal.no)
-yarn dev -F docs
-```
-
-Also requires an .env file in the docs folder with [the following secrets in Keeper](https://keepersecurity.eu/vault/#detail/7i8pCa5I6A9YAIPYzvYTPA).
-
 ### Run Storybook locally
 
 ```bash
