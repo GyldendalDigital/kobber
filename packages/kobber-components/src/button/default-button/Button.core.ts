@@ -3,9 +3,11 @@ import { objectKeys } from "../../base/utilities/objectKeys";
 
 export const defaultButtonName = "kobber-button" as const;
 export const defaultButtonTokens = component.button;
-export const defaultButtonColors = objectKeys(defaultButtonTokens.background.color);
+export const defaultButtonColors = objectKeys(
+  defaultButtonTokens.background.color
+);
 export const defaultButtonColorVariants = objectKeys(
-  defaultButtonTokens.background.color.brand.secondary,
+  defaultButtonTokens.background.color.brand.secondary
 );
 export const defaultButtonColorLevels = [
   ...objectKeys(defaultButtonTokens.background.color.brand),

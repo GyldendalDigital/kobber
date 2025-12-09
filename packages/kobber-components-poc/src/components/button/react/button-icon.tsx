@@ -1,16 +1,24 @@
-import type { ReactNode } from "react";
-import * as css from "../css/button-icon.css";
+import * as icons from "@gyldendal/kobber-icons/react";
+import { type ButtonIconProps, buttonIconApi, formatIconName } from "../index.api";
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
-  children?: ReactNode;
-}
+interface Props extends ButtonIconProps, React.HTMLAttributes<HTMLDivElement> {}
 
-export const ButtonIcon: React.FC<Props> = ({ children, ...props }) => {
-  const classes = `${css.buttonIcon} ${""}`;
+export const ButtonIcon: React.FC<Props> = ({ children, icon, ...props }) => {
+  const buttonIconCss = buttonIconApi();
+  const classes = `${buttonIconCss.root.className} ${props.className}`;
+
+  // biome-ignore lint/suspicious/noExplicitAny: <>
+  let Icon: any;
+  if (icon) {
+    // @ts-expect-error
+    // biome-ignore lint/performance/noDynamicNamespaceImportAccess: <>
+    Icon = icons[formatIconName(icon)];
+  }
 
   return (
     <div className={classes} {...props}>
-      {children}
+      {Icon && <Icon size="large" />}
+      {!Icon && children}
     </div>
   );
 };
