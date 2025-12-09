@@ -11,6 +11,7 @@ import {
 } from "@gyldendal/kobber-components-poc/svelte/card";
 import { Paper } from "@gyldendal/kobber-components-poc/svelte/paper";
 import { ToggleButton } from "@gyldendal/kobber-components-poc/svelte/ToggleButton";
+import {Button, ButtonIcon, ButtonText} from "@gyldendal/kobber-components-poc/svelte/Button";
 </script>
  
 <ToggleButton>Custom machine</ToggleButton>
@@ -18,7 +19,14 @@ import { ToggleButton } from "@gyldendal/kobber-components-poc/svelte/ToggleButt
 <br />
 <br />
 
-
+<Button
+          collection="brand"
+          level="primary"
+          tone="tone-a"
+        >
+          <ButtonIcon icon="kobber-arrow_right"/>
+          <ButtonText>Brand</ButtonText>
+        </Button>
 
 <br/>
 <br/>

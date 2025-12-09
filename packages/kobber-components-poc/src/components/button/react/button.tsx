@@ -1,15 +1,9 @@
 import type React from "react";
-import { buttonApi, buttonContainerApi } from "../index.api";
-import type { CollectionType, LevelType, PurposeType, ToneType } from "../types";
+import { type ButtonType, buttonApi, buttonContainerApi } from "../index.api";
 
-export interface ButtonType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  collection?: CollectionType;
-  purpose?: PurposeType;
-  level?: LevelType;
-  tone?: ToneType;
-}
+export interface Props extends ButtonType, React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
-export const Button: React.FC<ButtonType> = ({
+export const Button: React.FC<Props> = ({
   collection,
   purpose,
   level,

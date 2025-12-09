@@ -1,23 +1,11 @@
 import * as icons from "@gyldendal/kobber-icons/react";
-import type { IconType } from "@gyldendal/kobber-icons/symbols/kobber-icons-types.ts";
-import type { ReactNode } from "react";
-import * as css from "../css/button-icon.css";
+import { type ButtonIconProps, buttonIconApi, formatIconName } from "../index.api";
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
-  icon?: IconType;
-  children?: ReactNode;
-}
-
-const formatIconName = (name: string) => {
-  const rest = name.split("-", 2)[1] ?? name;
-  return rest
-    .split("_")
-    .map(s => s[0]?.toUpperCase() + s.slice(1))
-    .join("");
-};
+interface Props extends ButtonIconProps, React.HTMLAttributes<HTMLDivElement> {}
 
 export const ButtonIcon: React.FC<Props> = ({ children, icon, ...props }) => {
-  const classes = `${css.buttonIcon} ${props.className}`;
+  const buttonIconCss = buttonIconApi();
+  const classes = `${buttonIconCss.root.className} ${props.className}`;
 
   // biome-ignore lint/suspicious/noExplicitAny: <>
   let Icon: any;
@@ -29,7 +17,7 @@ export const ButtonIcon: React.FC<Props> = ({ children, icon, ...props }) => {
 
   return (
     <div className={classes} {...props}>
-      {Icon && <Icon />}
+      {Icon && <Icon size="large" />}
       {!Icon && children}
     </div>
   );
