@@ -45,7 +45,7 @@ export function AppReact() {
           level="secondary"
           tone="tone-a"
         >
-          <ButtonIcon>
+          <ButtonIcon icon="kobber-video_file_add">
             <ArrowRight size="large" />
           </ButtonIcon>
           <ButtonText>ERROR</ButtonText>

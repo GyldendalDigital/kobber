@@ -1,0 +1,79 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import * as ButtonStories from "./Button.stories";
+import { Button, ButtonIcon, ButtonText } from "./index.react";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+The most basic of buttons, made for text and icons, by themselves and together. This button extends the browsers native button in its respective format. Use it like you would use any other button.
+
+<Canvas sourceState="none" of={ButtonStories.ButtonCombos} />
+
+## Usage
+
+Here is an example of the most general usage of the button, with text and an icon.
+
+```tsx
+<Button
+  collection="brand"
+  level="primary"
+  tone="tone-a"
+>
+  <ButtonIcon icon="kobber-arrow_right" />
+  <ButtonText>Kobber</ButtonText>
+</Button>
+```
+
+If you want to change where the icon is placed, simply do so in the html. The orientation is left to right going downwards.
+
+```tsx
+<Button
+  collection="brand"
+  level="primary"
+  tone="tone-a"
+>
+  <ButtonText>Kobber</ButtonText>
+  <ButtonIcon icon="kobber-arrow_right" />
+</Button>
+```
+
+Buttons can also take in external icons, by wrapping them in the button component, and forgoing the `icon` prop.
+
+```tsx
+<Button
+  collection="brand"
+  level="primary"
+  tone="tone-a"
+>
+  <ButtonText>Kobber</ButtonText>
+  <ButtonIcon>
+    {/* Your icon goes here */}
+  </ButtonIcon>
+</Button>
+```
+
+If you are using a button without text, remember to use an `aria-label` for accessibility purposes.
+
+```tsx
+<Button
+  collection="brand"
+  level="primary"
+  tone="tone-a"
+  aria-label="Next slide"
+>
+  <ButtonIcon icon="kobber-arrow_right" />
+</Button>
+```
+
+You can also forgo the icon all together, and use the button with text only.
+
+```tsx
+<Button
+  collection="brand"
+  level="primary"
+  tone="tone-a"
+>
+  <ButtonText>Kobber</ButtonText>
+</Button>
+```

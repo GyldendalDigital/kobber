@@ -1,6 +1,6 @@
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
 import * as Icons from "@gyldendal/kobber-icons/react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, Preview, StoryObj } from "@storybook/react";
 import { reactDecorator } from "../../integrations/storybook/reactDecorator";
 import { ButtonIcon, ButtonText } from "./index.react";
 import { Button, type ButtonType } from "./react/button";
@@ -18,7 +18,10 @@ interface Args extends ButtonType {
 }
 
 const meta: Meta<Args> = {
-  title: "Experimental/Button2",
+  title: "Experimental/Button",
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     collection: {
       name: "Collection",
@@ -72,9 +75,7 @@ const render = (args: Args) => (
   <>
     <Button collection={args.collection} purpose={args.purpose} level={args.level} tone={args.tone}>
       <ButtonText>Kobber</ButtonText>
-      <ButtonIcon>
-        <Icons.Camera size="large" />
-      </ButtonIcon>
+      <ButtonIcon icon="kobber-arrow_right" />
     </Button>
   </>
 );
@@ -82,4 +83,68 @@ const render = (args: Args) => (
 export const Default: StoryObj<Args> = {
   name: "Default",
   render,
+};
+
+type Story = StoryObj<typeof meta>;
+
+export const ButtonIconText: Story = {
+  args: {
+    collection: "brand",
+    purpose: undefined,
+    level: "primary",
+    tone: "tone-a",
+  },
+  render: (args: Args) => (
+    <>
+      <Button
+        collection={args.collection}
+        purpose={args.purpose}
+        level={args.level}
+        tone={args.tone}
+      >
+        <ButtonText>Kobber</ButtonText>
+        <ButtonIcon icon="kobber-arrow_right" />
+      </Button>
+    </>
+  ),
+};
+
+export const ButtonCombos: Story = {
+  args: {
+    collection: "brand",
+    purpose: undefined,
+    level: "primary",
+    tone: "tone-a",
+  },
+  tags: ['!dev'],
+  render: (args: Args) => (
+    <div style={{display: "flex", gap: "0.5em"}}>
+      <Button
+        collection={args.collection}
+        purpose={args.purpose}
+        level={args.level}
+        tone={args.tone}
+      >
+        <ButtonText>Kobber</ButtonText>
+      </Button>
+      <Button
+        collection={args.collection}
+        purpose={args.purpose}
+        level={args.level}
+        tone={args.tone}
+        aria-label="kobber"
+      >
+        <ButtonIcon icon="kobber-arrow_right" />
+      </Button>
+      <Button
+        collection={args.collection}
+        purpose={args.purpose}
+        level={args.level}
+        tone={args.tone}
+      >
+        <ButtonText>Kobber</ButtonText>
+        <ButtonIcon icon="kobber-arrow_right" />
+      </Button>
+    </div>
+  ),
 };
