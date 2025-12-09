@@ -1,15 +1,9 @@
 import { init as initIcons } from "@gyldendal/kobber-icons/init";
-import * as Icons from "@gyldendal/kobber-icons/react";
-import type { Meta, Preview, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import { reactDecorator } from "../../integrations/storybook/reactDecorator";
 import { ButtonIcon, ButtonText } from "./index.react";
 import { Button, type ButtonType } from "./react/button";
 import { Collection, Level, Purpose, Tone } from "./types";
-
-// collection?: CollectionType;
-// purpose?: PurposeType;
-// level?: LevelType;
-// tone?: ToneType;
 
 initIcons();
 
@@ -20,7 +14,7 @@ interface Args extends ButtonType {
 const meta: Meta<Args> = {
   title: "Experimental/Button",
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
   argTypes: {
     collection: {
@@ -116,9 +110,9 @@ export const ButtonCombos: Story = {
     level: "primary",
     tone: "tone-a",
   },
-  tags: ['!dev'],
+  tags: ["!dev"],
   render: (args: Args) => (
-    <div style={{display: "flex", gap: "0.5em"}}>
+    <div style={{ display: "flex", gap: "0.5em" }}>
       <Button
         collection={args.collection}
         purpose={args.purpose}
