@@ -16353,6 +16353,21 @@
             }
           }
         }
+      },
+      "background": {
+        "color": {
+          "type": "color",
+          "value": "{groups.navigation-bars.color.concrete-25}",
+          "extensions": {
+            "org.gyldendal.kobber-figma-export": {
+              "scopes": [
+                "FRAME_FILL"
+              ],
+              "variableId": "VariableID:17687:15716",
+              "exportKey": "variables"
+            }
+          }
+        }
       }
     },
     "quote-module": {
