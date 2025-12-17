@@ -5,22 +5,31 @@ import "../theme-context-provider/ThemeContext";
 import { html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { init as initComponents } from "../base/init";
-import { type CheckboxState, checkboxColors, type InputProps } from "./Checkbox.core";
+import {
+  checkboxColors,
+  checkedStates,
+  type GroupProps,
+  type InputProps,
+  type indicatorTokens,
+} from "./Checkbox.core";
 
 initComponents();
+
+type CheckboxState = keyof typeof indicatorTokens.border.color.success | "disabled";
 
 const states: { [key: string]: CheckboxState[] }[] = [
   { "not focus": ["idle", "hover", "active", "disabled"] },
   { focus: ["idle", "hover", "active"] },
 ] as const;
 
-interface Args extends Omit<InputProps, "checked"> {
-  text: string;
+interface InputArgs extends InputProps {
+  class?: string
   state: CheckboxState;
-  showHelpText: boolean;
-  showLabel: boolean;
-  checked?: boolean | string;
+  style?: string; 
+  text: string;
 }
+
+interface GroupArgs extends GroupProps {}
 
 const meta: Meta = {
   title: "Base/Inputs/Checkbox",
@@ -29,16 +38,11 @@ const meta: Meta = {
 
 export default meta;
 
-export const Themes: StoryObj<Args> = {
-  render: args => {
+export const Listing: StoryObj<InputArgs> = {
+  render: () => {
     return html`
       <style>
-        :root {
-          padding: 0.5rem;
-        }
-
         ol {
-          margin: 0;
           padding: 0;
           list-style-position: inside;
         }
@@ -70,10 +74,10 @@ export const Themes: StoryObj<Args> = {
         ${checkboxColors.map(color =>
           renderColor({
             color,
+            singleInputName: "idle",
             state: "idle",
             text: "idle",
-            showHelpText: args.showHelpText,
-            showLabel: args.showLabel,
+            singleInputValue: "storybook-demo",
           }),
         )}
       </ol>
@@ -81,16 +85,13 @@ export const Themes: StoryObj<Args> = {
   },
 };
 
-const renderColor = (args: Args) => {
-  const { color } = args;
-  const checkedOrNot = [false, true, "indeterminate"];
-
-  if (!color) {
+const renderColor = (args: InputArgs) => {
+  if (!args.color) {
     return;
   }
 
   return html`<li>
-    ${color}
+    ${args.color}
     <ol class="focusedOrNot">
       ${states.map(focusState =>
         Object.keys(focusState).map(key => {
@@ -100,18 +101,35 @@ const renderColor = (args: Args) => {
             focus = "focus";
           }
           return html`<li class="states">
-            <span class="focusedOrNot-title">${focusedOrNot}:</span> ${checkedOrNot.map(checked => {
-              if (typeof focusState[focusedOrNot] === "undefined") return undefined;
-              const length = focusState[focusedOrNot].length;
+            <span class="focusedOrNot-title">${focusedOrNot}:</span> ${checkedStates.map(
+              checked => {
+                if (typeof focusState[focusedOrNot] === "undefined") return undefined;
+                const length = focusState[focusedOrNot].length;
 
-              return focusState[focusedOrNot].map((state, index) => {
-                let last = false;
-                if (index === length - 1) {
-                  last = true;
-                }
-                return renderButton({ ...args, focus, state, text: state, checked, last });
-              });
-            })}
+                return focusState[focusedOrNot].map((state, index) => {
+                  let last = false;
+                  if (index === length - 1) {
+                    last = true;
+                  }
+                  const lastStyles = last ? `grid-column: -1` : "";
+
+                  return Component.render?.(
+                      {
+                        checked,
+                        class: `${state} ${focus}`,
+                        color: args.color,
+                        disabled: state === "disabled",
+                        singleInputName: "storybook-demo",
+                        state,
+                        style: lastStyles,
+                        text: state,
+                        singleInputValue: args.singleInputValue,
+                      },
+                      {} as any,
+                    ) ?? ""
+                });
+              },
+            )}
           </li>`;
         }),
       )}
@@ -119,108 +137,53 @@ const renderColor = (args: Args) => {
   </li>`;
 };
 
-const renderButton = (
-  args: Args & {
-    focus: string;
-    checked: boolean | string;
-    last: boolean;
-  },
-) => {
-  const { color, focus, state, text, checked, last } = args;
-  const className = `${focus} ${state}`;
-  const lastStyles = last ? `grid-column: -1` : "";
-  return html`
-    <kobber-checkbox-input
-      style="${lastStyles}"
-      class="${className}"
-      color="${ifDefined(color)}"
-      ?indeterminate=${checked === "indeterminate"}
-      ?checked=${checked === true}
-      ?disabled=${state === "disabled"}
-    >
-      ${text}
-    </kobber-checkbox-input>
-  `;
-};
-
-/**
- * For some reason, page need to be reloaded for controls to come into effect.
- */
-export const Checkbox: StoryObj<Args & { showAlert: boolean }> = {
+export const Example: StoryObj<GroupArgs> = {
   render: args => {
     return html`
-      <kobber-checkbox-input 
-        name="studentoption"
-        id-value="totalpoints"
-        color="success" 
-        ?indeterminate=${args.checked === "indeterminate"}
-        ?checked=${args.checked === "checked"}
-        ?disabled=${args.disabled}
-      >
-        <span>Vis ukas totalpoeng</span>
-        ${args.showHelpText ? html`<span slot="help-text" style="font-style: italic;color:gray;">Læreren din har skrudd ${args.disabled ? "av" : "på"} denne innstillingen.</span>` : ""}
-        ${args.showAlert ? html`<div slot="alert" style="background-color:#CBFBDB;padding: 0.5em;border-radius:0.5em;"><p class="badge">TODO: Use badge component.</p></div>` : ""}
-      </kobber-checkbox-input>
-    `;
-  },
-  argTypes: {
-    checked: {
-      control: "inline-radio",
-      options: ["unchecked", "checked", "indeterminate"],
-    },
-  },
-  args: {
-    checked: "checked",
-    disabled: false,
-    showHelpText: true,
-    showAlert: true,
-  },
-};
-
-export const GNOExample: StoryObj<
-  Args & { showGroupHelpText: boolean; orientation: string; type: string }
-> = {
-  render: args => {
-    return html`
-      <style>
-        :root {
-          padding: 0.5rem;
+      <kobber-checkbox-group inputs-common-name="${ifDefined(args.inputsCommonName)}" orientation="${ifDefined(args.orientation)}" type="${ifDefined(args.type)}" hierarchical-checkboxbox-label="${ifDefined(args.hierarchicalCheckboxLabel)}">
+        <p slot="label">${args.label}</p>
+        ${
+          Component.render?.(
+            {
+              text: "Skjønnlitteratur",
+              singleInputValue: "fiction",
+              state: "idle",
+            },
+            {} as any,
+          ) ?? ""
         }
-        .wrapper-theme {
-          display: flex;
-          flex-direction: column;
-          gap: 3rem;
+        ${
+          Component.render?.(
+            {
+              text: "Sakprosa",
+              singleInputValue: "non-fiction",
+              state: "idle",
+              checked: "unchecked",
+              disabled: true,
+            },
+            {} as any,
+          ) ?? ""
         }
-        .visually-hidden {
-          position: absolute;
-          width: 1px;
-          height: 1px;
-          padding: 0;
-          margin: -1px;
-          overflow: hidden;
-          clip: rect(0, 0, 0, 0);
-          white-space: nowrap;
-          border: 0;
+        ${
+          Component.render?.(
+            {
+              text: "Barnebøker",
+              singleInputValue: "childrens-books",
+              state: "idle",
+              checked: "checked",
+            },
+            {} as any,
+          ) ?? ""
         }
-      </style>
-
-      <div class="wrapper-theme">
-        <kobber-checkbox-group name="categories" orientation="${args.orientation}" type="${args.type}" hierarchical-checkboxbox-label="Alle">
-          <p slot="label">Kategori</p>
-          <kobber-checkbox-input id-value="fiction">Skjønnlitteratur</kobber-checkbox-input>
-          <kobber-checkbox-input id-value="non-fiction" disabled>Sakprosa</kobber-checkbox-input>
-          <kobber-checkbox-input id-value="childrens-books">Barnebøker</kobber-checkbox-input>
-          <kobber-checkbox-input id-value="syllabi">Pensumbøker</kobber-checkbox-input>
-          <kobber-checkbox-input id-value="professional">Profesjonsbøker</kobber-checkbox-input>
-        ${args.showGroupHelpText ? html`<span slot="help-text">Velg noe, da.</span>` : ""}
-        </kobber-checkbox-group>
-      </div>
+      </kobber-checkbox-group>
     `;
   },
   args: {
-    showGroupHelpText: true,
-    type: "hierarchical",
+    hierarchicalCheckboxLabel: "Alle",
+    inputsCommonName: "categories",
+    label: "Kategori",
     orientation: "vertical",
+    type: "hierarchical",
   },
   argTypes: {
     orientation: {
@@ -231,5 +194,59 @@ export const GNOExample: StoryObj<
       control: "inline-radio",
       options: ["equal", "hierarchical"],
     },
+    inputsCommonName: {
+      name: "name",
+      table: {
+        category: "Developers' info",
+      },
+    },
+  },
+};
+
+export const Component: StoryObj<InputArgs> = {
+  render: args => {
+    return html`
+      <kobber-checkbox-input 
+        class="${ifDefined(args.class)}"
+        name="${ifDefined(args.singleInputName)}"
+        .value="${args.singleInputValue}"
+        color="${ifDefined(args.color)}" 
+        style="${ifDefined(args.style)}" 
+        checked=${ifDefined(args.checked)}
+        ?disabled=${args.disabled}
+      >
+        ${args.text}
+      </kobber-checkbox-input>
+    `;
+  },
+  argTypes: {
+    checked: {
+      control: "inline-radio",
+      options: checkedStates,
+    },
+    color: {
+      control: "inline-radio",
+      options: checkboxColors,
+    },
+    singleInputName: {
+      name: "name",
+      table: {
+        category: "Developers' info",
+      },
+    },
+    singleInputValue: {
+      name: "value",
+      table: {
+        category: "Developers' info",
+      },
+    },
+  },
+  args: {
+    checked: "checked",
+    color: "success",
+    disabled: false,
+    singleInputName: "studentoption",
+    singleInputValue: "week-total-score",
+    text: "Vis ukas totalpoeng",
   },
 };

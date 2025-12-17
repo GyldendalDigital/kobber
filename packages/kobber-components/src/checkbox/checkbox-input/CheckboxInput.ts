@@ -54,7 +54,7 @@ globalThis.HTMLElement ??= HTMLElement;
 
 @customElement(checkboxInputName)
 export class CheckboxInput extends ShoelaceElement implements ShoelaceFormControl {
-  value: unknown;
+  name: string = "";
   defaultValue?: unknown;
   pattern?: string | undefined;
   min?: string | number | Date | undefined;
@@ -79,27 +79,25 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
 
   @query('input[type="checkbox"]') input!: HTMLInputElement;
 
-  @property({ attribute: "id-value", reflect: true }) idValue = "";
-
-  @property() title = ""; // make reactive to pass through
-
   /** The name of the checkbox, submitted as a name/value pair with form data. */
-  @property() name = "";
+  @property({ attribute: "name" })
+  singleInputName: InputProps["singleInputName"] = "";
+
+  @property()
+  value: InputProps["singleInputValue"] = "";
 
   @property({ attribute: "color" })
   color: InputProps["color"] = "success";
 
   /** Disables the checkbox. */
-  @property({ type: Boolean, reflect: true }) disabled = false;
+  @property({ type: Boolean, reflect: true })
+  disabled: InputProps["disabled"] = false;
 
-  /** Draws the checkbox in a checked state. */
-  @property({ type: Boolean, reflect: true }) checked = false;
-
-  /**
-   * Draws the checkbox in an indeterminate state. This is usually applied to checkboxes that represents a "select
-   * all/none" behavior when associated checkboxes have a mix of checked and unchecked states.
+  /** Draws the checkbox in a checked state.
+   * Indeterminate is usually applied to checkboxes that represents a "select all/none" behavior when associated checkboxes have a mix of checked and unchecked states.
    */
-  @property({ type: Boolean, reflect: true }) indeterminate = false;
+  @property({ attribute: "checked", type: String, reflect: true })
+  checkedOrIndeterminate: InputProps["checked"] = "unchecked";
 
   /** The default value of the form control. Primarily used for resetting the form control. */
   @defaultValue("checked") defaultChecked = false;
@@ -109,13 +107,16 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
    * to place the form control outside of a form and associate it with the form that has this `id`. The form must be in
    * the same document or shadow root for this to work.
    */
-  @property({ reflect: true }) form = "";
+  @property({ reflect: true })
+  form: InputProps["form"] = "";
 
   /** Makes the checkbox a required field. */
-  @property({ type: Boolean, reflect: true }) required = false;
+  @property({ type: Boolean, reflect: true })
+  required: InputProps["required"] = false;
 
   /** The checkbox's help text. If you need to display HTML, use the `help-text` slot instead. */
-  @property({ attribute: "help-text" }) helpText = "";
+  @property({ attribute: "help-text" })
+  helpText: InputProps["helpText"] = "";
 
   firstUpdated() {
     this.formControlController.updateValidity();
@@ -130,8 +131,8 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
   }
 
   private handleClick() {
-    this.checked = !this.checked;
-    this.indeterminate = false;
+    this.checkedOrIndeterminate =
+      this.checkedOrIndeterminate === "checked" ? "unchecked" : "checked";
     this.emit("change");
   }
 
@@ -193,17 +194,17 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
     this.formControlController.updateValidity();
   }
 
-  @watch(["checked", "indeterminate"], { waitUntilFirstUpdate: true })
-  handleStateChange() {
-    this.input.checked = this.checked; // force a sync update
-    this.input.indeterminate = this.indeterminate; // force a sync update
+  @watch(["checkedOrIndeterminate"], { waitUntilFirstUpdate: true })
+  handleCheckedChange() {
+    this.input.checked =
+      this.checkedOrIndeterminate === "checked" || this.checkedOrIndeterminate === "indeterminate"; // force a sync update
     this.formControlController.updateValidity();
   }
 
   @watch("disabled", { waitUntilFirstUpdate: true })
   handleDisabledChange() {
     // Disabled form controls are always valid
-    this.formControlController.setValidity(this.disabled);
+    this.formControlController.setValidity(!!this.disabled);
   }
 
   render() {
@@ -211,11 +212,12 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
     const hasAlertElementSlot = this.hasSlotController.test("alert");
     const hasHelpText = this.helpText ? true : !!hasHelpTextSlot;
     const hasAlertElement = !!hasAlertElementSlot;
-    const icon = this.checked
-      ? html`<${unsafeStatic(iconFormCheckedName)} class="kobber-checkbox__control--shape"></${unsafeStatic(iconFormCheckedName)}>`
-      : this.indeterminate
-        ? html`<${unsafeStatic(iconFormIndeterminateName)} class="kobber-checkbox__control--shape"></${unsafeStatic(iconFormIndeterminateName)}>`
-        : "";
+    const icon =
+      this.checkedOrIndeterminate === "checked"
+        ? html`<${unsafeStatic(iconFormCheckedName)} class="kobber-checkbox__control--shape"></${unsafeStatic(iconFormCheckedName)}>`
+        : this.checkedOrIndeterminate === "indeterminate"
+          ? html`<${unsafeStatic(iconFormIndeterminateName)} class="kobber-checkbox__control--shape"></${unsafeStatic(iconFormIndeterminateName)}>`
+          : "";
 
     return html`
       <div class="${checkboxWrapperClassName}">
@@ -223,12 +225,11 @@ export class CheckboxInput extends ShoelaceElement implements ShoelaceFormContro
           <input
             class=${[nativeCheckboxInputClassName, "visually-hidden"].join(" ")}
             type="checkbox"
-            title=${this.title /* An empty title prevents browser validation tooltips from appearing on hover */}
-            name=${this.name}
-            value=${ifDefined(this.idValue)}
-            .checked=${live(this.checked)}
-            .disabled=${this.disabled}
-            .required=${this.required}
+            name=${ifDefined(this.singleInputName)}
+            value=${ifDefined(this.value)}
+            ?checked=${live(this.checkedOrIndeterminate === "checked")}
+            ?disabled=${this.disabled}
+            ?required=${this.required}
             aria-describedby="aria-help-text"
             @click=${this.handleClick}
             @input=${this.handleInput}
